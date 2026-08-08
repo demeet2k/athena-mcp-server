@@ -57,6 +57,23 @@ def _evidence_cells(row:int)->List[Dict[str,Any]]:
     ]
 
 
+def _generic_assembly(machine_id:str,adapter:Dict[str,Any],status:str,authority:str)->Dict[str,Any]:
+    return {
+        'version':BIONANO_VERSION,'evidence_version':EVIDENCE_VERSION,'status':status,
+        'machine_id':machine_id,
+        'components':['input_interface','energy_coupling_module','work_core','quality_gate','output_interface'],
+        'dependency_edges':[
+            {'src':'input_interface','relation':'feeds','dst':'work_core'},
+            {'src':'energy_coupling_module','relation':'drives','dst':'work_core'},
+            {'src':'work_core','relation':'checked_by','dst':'quality_gate'},
+            {'src':'quality_gate','relation':'releases_to','dst':'output_interface'},
+        ],
+        'functional_sequence':list(adapter['cycle']),'mechanism_source':_source_packet(adapter['source_id']),
+        'authority':authority,
+        'law':'ASSEMBLY_GRAPH != FUNCTION_GRAPH; GENERIC_FUNCTIONAL_MODULES != NATIVE_PROTEIN_SUBUNIT_INVENTORY',
+    }
+
+
 class EvidenceBionanomachineRuntime(BionanomachineRuntime):
     """BNMK V2 evidence join while preserving the V1 MCP ABI and authority ceiling."""
 
@@ -162,27 +179,14 @@ class EvidenceBionanomachineRuntime(BionanomachineRuntime):
                 'law':'USER_VISUAL_BOM != PRIMARY_VERIFIED_NATIVE_SUBUNIT_INVENTORY; ASSEMBLY_GRAPH != FUNCTION_GRAPH; ASSEMBLY != EXECUTION',
             }
         if mid in SEEDS:
-            base=super().assembly(mid)
-            base.update({
-                'evidence_version':EVIDENCE_VERSION,'mechanism_source':_source_packet(adapter['source_id']),
-                'source_backed_functional_sequence':list(adapter['cycle']),
-                'authority':'GENERIC_FUNCTIONAL_ASSEMBLY_PLUS_PRIMARY_CONDITIONED_MECHANISM; NOT_NATIVE_BOM',
-            })
-            return base
-        return {
-            'version':BIONANO_VERSION,'evidence_version':EVIDENCE_VERSION,'status':'SOURCE_BACKED_GENERIC_ASSEMBLY_ABSTRACTION',
-            'machine_id':mid,
-            'components':['input_interface','energy_coupling_module','work_core','quality_gate','output_interface'],
-            'dependency_edges':[
-                {'src':'input_interface','relation':'feeds','dst':'work_core'},
-                {'src':'energy_coupling_module','relation':'drives','dst':'work_core'},
-                {'src':'work_core','relation':'checked_by','dst':'quality_gate'},
-                {'src':'quality_gate','relation':'releases_to','dst':'output_interface'},
-            ],
-            'functional_sequence':list(adapter['cycle']),'mechanism_source':_source_packet(adapter['source_id']),
-            'authority':'PRIMARY_CONDITIONED_FUNCTION_SEQUENCE; GENERIC_FUNCTIONAL_MODULES_NOT_NATIVE_BOM',
-            'law':'ASSEMBLY_GRAPH != FUNCTION_GRAPH; GENERIC_FUNCTIONAL_MODULES != NATIVE_PROTEIN_SUBUNIT_INVENTORY',
-        }
+            return _generic_assembly(
+                mid,adapter,'GENERIC_MECHANISM_ASSEMBLY_ABSTRACTION',
+                'GENERIC_FUNCTIONAL_ASSEMBLY_PLUS_PRIMARY_CONDITIONED_MECHANISM; NOT_NATIVE_BOM'
+            )
+        return _generic_assembly(
+            mid,adapter,'SOURCE_BACKED_GENERIC_ASSEMBLY_ABSTRACTION',
+            'PRIMARY_CONDITIONED_FUNCTION_SEQUENCE; GENERIC_FUNCTIONAL_MODULES_NOT_NATIVE_BOM'
+        )
 
     def benchmark(self)->Dict[str,Any]:
         base=super().benchmark();atlas=[cell for row in range(1,13) for cell in _evidence_cells(row)]
