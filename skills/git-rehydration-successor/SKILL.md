@@ -13,7 +13,14 @@ Use this skill when a rehydration loop has completed one bounded cycle and needs
 
 ## Default behavior
 
-`athena_rehydration_advance` self-steers by default. Before generating the next prompt it compiles a successor baton from the current completion.
+`athena_rehydration_advance` uses a backward-compatible AUTO membrane:
+
+- if `completion.next_task` is absent and `self_steer` is omitted, compile and apply a successor baton automatically;
+- if `completion.next_task` is already present and `self_steer` is omitted, preserve the explicit V1 next task;
+- if `self_steer=true`, compile the successor frontier and allow a unique selected successor to replace an explicit proposed next task;
+- if `self_steer=false`, skip automatic successor compilation.
+
+This keeps existing V1 completions stable while new chains can leave successor choice open and self-steer.
 
 Candidate sources are explicit:
 
@@ -77,7 +84,7 @@ selection reason
 baton digest
 ```
 
-The baton is embedded inside the normal rehydration completion object. Existing rehydration state, receipt, prompt, and chain digests therefore cover it without introducing a second checkpoint system.
+When self-steering is active, the baton is embedded inside the normal rehydration completion object. Existing rehydration state, receipt, prompt, and chain digests therefore cover it without introducing a second checkpoint system.
 
 ## Ambiguity
 
@@ -112,11 +119,19 @@ Useful for:
 }
 ```
 
-Set `self_steer=false` only when a higher-level orchestrator intentionally owns the successor decision.
+Interpretation of `self_steer`:
+
+```text
+omitted + no next_task  => AUTO steer
+omitted + next_task     => preserve explicit V1 next_task
+true                    => explicitly run successor compiler
+false                   => explicitly disable successor compiler
+```
 
 ## Laws
 
 - `SELF_STEER != SELF_AUTHORIZE`.
+- `EXPLICIT_V1_NEXT_TASK + OMITTED_SELF_STEER => PRESERVE`.
 - `SUCCESSOR_BATON != TASK_TRUTH`.
 - `ROUTING_SCORE != EVIDENCE`.
 - `ROUTING_SCORE != AUTHORITY`.
