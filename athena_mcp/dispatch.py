@@ -7,6 +7,7 @@ from .validate import validate
 from .protocol import PROTOCOL_VERSION, SERVER_INFO, TOOLS, PROMPTS
 from .timebundle import TIME_PROVENANCE
 from .collective_science import CollectiveScienceRuntime
+from .collective_discovery import CollectiveDiscoveryRuntime
 
 def _meter(server,name,started,status):
     try:
@@ -16,6 +17,9 @@ def _meter(server,name,started,status):
 
 def _science(server):
     return CollectiveScienceRuntime(server.store,server.collective,server.collective_growth,server.collective_memory,server.collective_learning,server.collective_ecology)
+
+def _discovery(server):
+    return CollectiveDiscoveryRuntime(_science(server))
 
 def handle(server,m):
     mid=m.get('id'); method=m.get('method'); params=m.get('params') or {}
@@ -66,10 +70,11 @@ def handle(server,m):
             {"uri":"athena://collective/v3","name":"Collective Runtime V3 / budgets-policy learning-counterfactuals-elder authority-antibody evolution-multiscale pheromones","mimeType":"application/json"},
             {"uri":"athena://collective/v4","name":"Collective Runtime V4 / contextual bandits-causal credit-budget scheduling-adaptive diffusion-regression execution-rollouts-projection sagas","mimeType":"application/json"},
             {"uri":"athena://collective/v5","name":"Collective Runtime V5 / Bayesian calibration-active experiment design-interaction credit-transition dynamics-multiperiod scheduling-Pareto-compensation","mimeType":"application/json"},
+            {"uri":"athena://collective/v6","name":"Collective Runtime V6 / nonlinear-OOD-experiment generation-causal ID-higher interactions-stochastic control-certificates-science shadows","mimeType":"application/json"},
         ]; return server.result(mid,{"resources":rs})
     if method=='resources/read':
         uri=params.get('uri'); c=server.core
-        if uri=='athena://manifest': val={"name":"ATHENA","protocol":PROTOCOL_VERSION,"layers":["GIT_LEDGER","CCR","JSPACE","SCALE","KC144","POLYCOORDINATE_ATLAS","MATH_REGISTRY","COLLECTIVE_RUNTIME","COLLECTIVE_GROWTH","COLLECTIVE_MEMORY","COLLECTIVE_LEARNING","COLLECTIVE_ECOLOGY","COLLECTIVE_SCIENCE","RUNTIME"],"identity":"SID!=OID!=MID!=VID!=CID!=EID!=CRYS","mutation":"EXPECTED_VID==CURRENT_VID else STALE_TARGET; policy/topology/projection writes retain separate CAS/recovery authority","output_law":"VISIBLE_OUTPUT -> FINALIZE_OUTPUT -> ENV(HEADER+BODY) with exact addressable emission manifestation","transform_law":"LOOKUP != DERIVATION; holonomy only promotes all-derivational loops","collective_law":"MAX_GROWTH != MAX_ACTIVITY; PREDICTION != OBSERVATION; POSTERIOR != TRUTH; CALIBRATION != MODEL_VALIDITY; EIG != EVIDENCE; INTERACTION != CAUSALITY WITHOUT IDENTIFICATION; TRANSITION_MODEL != WORLD_TRUTH; ROLLOUT != EXECUTION; PARETO_FRONTIER != SINGLE_BEST; SEMANTIC_COMPENSATION != GIT_ROLLBACK"}
+        if uri=='athena://manifest': val={"name":"ATHENA","protocol":PROTOCOL_VERSION,"layers":["GIT_LEDGER","CCR","JSPACE","SCALE","KC144","POLYCOORDINATE_ATLAS","MATH_REGISTRY","COLLECTIVE_RUNTIME","COLLECTIVE_GROWTH","COLLECTIVE_MEMORY","COLLECTIVE_LEARNING","COLLECTIVE_ECOLOGY","COLLECTIVE_SCIENCE","COLLECTIVE_DISCOVERY","RUNTIME"],"identity":"SID!=OID!=MID!=VID!=CID!=EID!=CRYS","mutation":"EXPECTED_VID==CURRENT_VID else STALE_TARGET; policy/topology/projection writes retain separate CAS/recovery authority","output_law":"VISIBLE_OUTPUT -> FINALIZE_OUTPUT -> ENV(HEADER+BODY) with exact addressable emission manifestation","transform_law":"LOOKUP != DERIVATION; holonomy only promotes all-derivational loops","collective_law":"MAX_GROWTH != MAX_ACTIVITY; PREDICTION != OBSERVATION; POSTERIOR != TRUTH; OOD != FALSEHOOD; GENERATED_EXPERIMENT != RESULT; BACKDOOR_ID is conditional on supplied DAG; HIGHER_ORDER_CONTRAST != CAUSALITY WITHOUT IDENTIFICATION; TRANSITION_MODEL != WORLD_TRUTH; MPC_PLAN != EXECUTION; CERTIFICATE scope must be explicit; HERMETIC_CAPSULE fails closed; PARETO_EXPERIMENT != SINGLE_BEST; REPLICATION_STATE != CANON"}
         elif uri=='athena://kc144/stations': val=json.loads(station_manifest())
         elif uri=='athena://state/head': val=c.s.head('global') or {}
         elif uri=='athena://registry': val=c.s.rows("SELECT * FROM objects ORDER BY canonical_name")
@@ -87,35 +92,36 @@ def handle(server,m):
         elif uri=='athena://collective/v3': val={"runtime":server.collective_learning.describe(),"policy":server.collective_learning.policy_state(),"budget":server.collective_learning.budget_summary(limit=100),"elders":server.collective_learning.elder_rank(limit=20)}
         elif uri=='athena://collective/v4': val={"runtime":server.collective_ecology.describe(),"diffusion":server.collective_ecology.diffusion_matrix(),"credit":server.collective_ecology.credit_summary(limit=100)}
         elif uri=='athena://collective/v5': val={"runtime":_science(server).describe(),"delayed_credit":_science(server).delayed_credit_summary(limit=100),"learned_regime_geometry":_science(server).regime_geometry_resolve({},top_k=10)}
+        elif uri=='athena://collective/v6': val={"runtime":_discovery(server).describe()}
         else:return server.error(mid,-32002,"Resource not found",{"uri":uri})
         return server.result(mid,{"contents":[{"uri":uri,"mimeType":"application/json","text":json.dumps(val,ensure_ascii=False,sort_keys=True)}]})
     if method=='prompts/list': return server.result(mid,{"prompts":PROMPTS})
     if method=='prompts/get':
         if params.get('name')!='athena_maxdev': return server.error(mid,-32602,"Unknown prompt")
         a=params.get('arguments') or {}; task=a.get('task',''); agent=a.get('agent','ATHENA')
-        text=f"""ATHENA MAXDEV CRYSTAL CYCLE — CAUSAL EXPERIMENTAL OS V5
+        text=f"""ATHENA MAXDEV CRYSTAL CYCLE — ACTIVE DISCOVERY + STOCHASTIC CONTROL V6
 AGENT={agent}
 TASK={task}
-1 HYDRATE exact canonical state and required global mutations. Read collective V2/V3/V4/V5 resources when organizational memory/learning/science materially govern the task.
-2 Reconstruct JSPACE/SCALE/KC144/polycoordinate atlas, lineage, semantic/Git/topology/policy heads, active antibodies/elders, measured budgets, V4 bandit state, and V5 Bayesian/calibration/transition/regime state. UNKNOWN != N/A; unobserved != zero.
-3 Compute CUT/LM. Resolve coarse regime and, when history exists, learned regime neighbors. Learned regime geometry controls transfer/routing only; it never changes semantic identity.
-4 Maintain explicit live hypotheses for materially uncertain design choices. When multiple experiments could distinguish them, use athena_experiment_design. Prefer expected information gain per feasible cost/risk while respecting ethics. DESIGN_ONLY never becomes evidence.
-5 For action/organization reward prediction, use the V5 full-covariance posterior when correlated feature uncertainty matters; inspect empirical interval calibration. POSTERIOR != TRUTH and COVERAGE_CALIBRATION != MODEL_VALIDITY, especially under regime/distribution shift.
-6 Preserve V4 UCB for exploration selection, but never feed UCB/counterfactual/rollout predictions back as observations. Only measured outcomes update V4/V5 learning state.
-7 When alternatives remain genuinely multiobjective, call athena_pareto_frontier before forcing scalar collapse. Retain non-dominated tradeoffs and use robust interval dominance when uncertainty materially changes selection.
-8 Plan scarce work with the V4 budget scheduler for one-step allocation or athena_schedule_multiperiod when dependencies, durations, deadlines or horizon budgets matter. The V5 scheduler is bounded beam search and carries no global optimality proof.
-9 Execute maximum reachable useful development and meter lawful resource dimensions. Preserve reserve and reversibility. Unknown constrained worker cost incurs uncertainty rather than becoming free capacity.
-10 Falsify/verify. Use stored antibodies and repository-owned witnesses. Use athena_witness_cell when stronger process/resource constraints help, but do not call it OS-hermetic; native/hostile execution still requires stronger containment.
-11 After observation, separate direct effects from interactions. For pair interactions use athena_interaction_credit and require all factorial cells; missing contrasts remain UNIDENTIFIED. Do not relabel numerical interactions as causal without sufficient design confidence.
-12 For outcomes arriving many cycles after an action, use athena_delayed_credit_record with explicit causal confidence and temporal discount. Temporal proximity/delay alone never identifies cause.
-13 Feed only justified observed/credited reward into Bayesian/bandit/policy updates. Retain pre-update predictions so interval calibration remains out-of-sample rather than measuring itself after learning the answer.
-14 Record observed action-conditioned context changes through athena_transition_observe. Use athena_transition_predict and athena_rollout_learned only as shrinkage model surfaces. Rollouts are SIMULATE_ONLY and cannot create their own transition observations.
-15 Update worker costs, RGO, diffusion/pheromone, elder evidence and antibody outcomes from measured consequences. Routing utility remains separate from causal dependency.
-16 Apply structural topology changes only through topology CAS. Projection to JSPACE requires its V4 saga/preflight. If a projection must be semantically reversed, use athena_projection_compensate against the exact current semantic head; it may retract only active edges owned by that projection. Git history is a separate compensation surface.
-17 Before archive growth run artifact lifecycle. Preserve lineage, optionality, negative memory and failure witnesses.
-18 Build the exact visible payload; then finalize and verify it. Attach COLLECTIVE, COLLECTIVE_LEARNING, COLLECTIVE_ECOLOGY, and COLLECTIVE_SCIENCE fibers only when those states materially governed execution.
-19 Commit semantics only under their authority surfaces. Promote organism-wide laws explicitly; recompute whole state and reattack residuals.
-20 SCIENCE FIREWALL: POSTERIOR != TRUTH; CALIBRATION != VALIDITY; EIG != EVIDENCE; DESIGN != RESULT; INTERACTION != CAUSATION WITHOUT IDENTIFICATION; DELAY != CAUSATION; TRANSITION_MODEL != WORLD; ROLLOUT != EXECUTION; BOUNDED_SCHEDULE != GLOBAL_OPTIMUM; WITNESS_CELL != HERMETIC_SANDBOX; LEARNED_REGIME != IDENTITY; PARETO_FRONTIER != SINGLE_BEST; SEMANTIC_COMPENSATION != GIT_ROLLBACK.
+1 HYDRATE exact canonical state and required global mutations. Read collective V2/V3/V4/V5/V6 resources when organizational memory, learning, science, OOD, causal identification or control state materially govern the task.
+2 Reconstruct JSPACE/SCALE/KC144/polycoordinate atlas, lineage and exact semantic/Git/topology/policy heads. UNKNOWN != N/A; UNKNOWN_COST != ZERO_COST; model state never outranks canonical authority.
+3 Compute CUT/LM. Resolve coarse/learned task regimes. When inherited model history is used, inspect OOD pressure first; distribution shift downgrades transfer/calibration authority but does not itself falsify a claim.
+4 For nonlinear reward structure use athena_nonlinear_predict/observe only as the declared degree-2 basis model. Do not label it GP/neural/universal inference. Prediction never trains itself.
+5 Maintain explicit live hypotheses. If useful candidate experiments are not already supplied, generate them only from a declared finite factor/effect space with athena_experiment_generate. Rank by information gain/cost/risk/ethics. Generated designs are DESIGN_ONLY.
+6 When making a causal claim from an explicit DAG, call athena_causal_identify. Treat back-door identification as conditional on graph correctness, observed variables and causal-sufficiency assumptions. Latent-confounding uncertainty blocks promotion.
+7 For interacting interventions use V5 pairwise or V6 higher-order factorial contrasts. Require every 2^k cell; missing cells remain UNIDENTIFIED. Numerical contrast is not causal interaction without identifying design.
+8 Preserve multiobjective tradeoffs. Use V5 frontier for static tradeoffs and athena_pareto_bandit_select when uncertainty on the possible frontier should guide the next experiment. Selection for measurement does not create a single universal ordering.
+9 Plan immediate resources with V4, multiperiod heuristic schedules with V5, or athena_schedule_certified for small fully declared finite models. Exact certification is allowed only when exhaustive enumeration completes and every constrained cost dimension is declared.
+10 Execute maximum reachable useful work and measure consequences. Preserve reserve/reversibility. Unknown resource dimensions remain explicit.
+11 Store real before/after organizational context transitions only after execution. Use athena_transition_distribution for multivariate empirical uncertainty and athena_mpc_plan for receding-horizon planning. Execute only the first authorized action, observe reality, then replan. MPC never self-trains.
+12 Query antibodies and science-shadow claims before repeating expensive tests. Use athena_witness_capsule only when stronger OS namespace isolation is requested; if bubblewrap is unavailable it must fail closed rather than silently falling back.
+13 Record replication/falsification witnesses with explicit independence keys. REPLICATED_SUPPORT/FALSIFICATION_SIGNAL/CONTESTED are science-shadow evidence states; they do not silently rewrite canonical semantic objects.
+14 After measured outcome, perform justified direct/interaction/delayed credit and update Bayesian/bandit/policy/transition state only from actual observations. Preserve residual uncertainty and calibration witnesses.
+15 Update worker cost, RGO, diffusion/pheromone, elder and immune state from measured downstream consequences. Routing utility remains distinct from causal dependency.
+16 Apply topology changes only under topology CAS. Projection and semantic compensation retain V4/V5 recovery laws; Git remains a separate causal store.
+17 Run artifact lifecycle before archive growth. Preserve negative evidence, falsifiers, lineage and supersession history.
+18 Build exact visible payload; finalize and verify. Attach COLLECTIVE, COLLECTIVE_LEARNING, COLLECTIVE_ECOLOGY, COLLECTIVE_SCIENCE and COLLECTIVE_DISCOVERY fibers only when materially governing execution.
+19 Commit only under the relevant authority surfaces. Promote organism-wide laws explicitly and reattack remaining uncertainty rather than declaring residuals solved by adjacency.
+20 DISCOVERY FIREWALL: NONLINEAR_BASIS != UNIVERSAL_INFERENCE; OOD != FALSEHOOD; GENERATED_EXPERIMENT != RESULT; BACKDOOR_SET != CAUSAL_TRUTH OUTSIDE SUPPLIED DAG; HIGHER_ORDER_CONTRAST != CAUSATION; STOCHASTIC_MODEL != WORLD; MPC_PLAN != EXECUTION; CERTIFIED_SCHEDULE != UNIVERSAL_OPTIMUM; HERMETIC_CAPSULE != KERNEL_SECURITY_PROOF; PARETO_EXPERIMENT != SINGLE_BEST; REPLICATION_STATE != CANON.
 """
-        return server.result(mid,{"description":"Whole-system MAXDEV causal experimental cycle","messages":[{"role":"user","content":{"type":"text","text":text}}]})
+        return server.result(mid,{"description":"Whole-system MAXDEV active discovery/control cycle","messages":[{"role":"user","content":{"type":"text","text":text}}]})
     return server.error(mid,-32601,"Method not found")
