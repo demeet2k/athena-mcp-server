@@ -84,7 +84,7 @@ class SteeringLedgerTests(unittest.TestCase):
         contract = _contract()
         comments = _source_comments(contract)
         comments[4]["body"] = comments[4]["body"].replace(
-            "0500 `[L]` Bounded long-horizon game/challenge for pulse 50.\n",
+            "0500 `[L]` Bounded long-horizon game/challenge for pulse 50.",
             "",
         )
         result = validate_source_bundle(contract, comments, _verification(contract))
