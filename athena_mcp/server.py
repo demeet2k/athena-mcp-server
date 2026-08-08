@@ -8,6 +8,7 @@ from .validate import validate
 from .bootstrap import bootstrap
 from .git_backend import GitBackend, GitStaleHead, GitStateError
 from .crystal_runtime import CrystalRuntime
+from .collective_runtime import CollectiveRuntime
 
 from .protocol import PROTOCOL_VERSION, SERVER_INFO, TOOLS, PROMPTS
 
@@ -21,7 +22,7 @@ class RateLimiter:
 
 class Server:
     def __init__(self,db,git_root=None):
-        self.store=Store(db); self.core=AthenaCore(self.store); bootstrap(self.core); self.crystal=CrystalRuntime(self.core); self.rate=RateLimiter()
+        self.store=Store(db); self.core=AthenaCore(self.store); bootstrap(self.core); self.crystal=CrystalRuntime(self.core); self.collective=CollectiveRuntime(); self.rate=RateLimiter()
         self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'), autocommit=False)
     def result(self,id,result): return {"jsonrpc":"2.0","id":id,"result":result}
     def error(self,id,code,msg,data=None):
@@ -64,8 +65,13 @@ class Server:
         if name=='athena_graph_path': return self.crystal.graph_path(a['src'],a['dst'],a.get('relations'),a.get('max_depth',12))
         if name=='athena_finalize_output': return self.crystal.finalize_output(semantic=a['semantic'],text=a['text'],native_locator=a['native_locator'],agent=a['agent'],task=a['task'],seq=a['seq'],expected_vid=a.get('expected_vid'),carrier=a.get('carrier','text/plain'),edges=a.get('edges'),hyperedges=a.get('hyperedges'),math_objects=a.get('math_objects'),coordinates=a.get('coordinates'),cut_lm=a.get('cut_lm'),evidence=a.get('evidence'),scale_promotions=a.get('scale_promotions'),session_id=a.get('session_id'),ephemeris=a.get('ephemeris'),status=a.get('status','CRYSTALLIZED'))
         if name=='athena_verify_emission': return self.crystal.verify_emission(a['envelope_id'],a.get('visible_text'))
+        if name=='athena_collective_plan': return self.collective.plan(a['signals'],a.get('max_workers',12),a.get('reserve_fraction',0.17),a.get('unit_cost',0.08),a.get('lineage'))
+        if name=='athena_collective_evaluate': return self.collective.evaluate(a['configuration'])
+        if name=='athena_collective_quorum': return self.collective.quorum(a['candidates'],a.get('risk',0.3),a.get('evidence_sensitivity',0.7),a.get('inhibition_gain'))
+        if name=='athena_stigmergy_update': return self.collective.stigmergy_update(a['current_score'],a['observations'],a.get('age',1.0),a.get('evaporation_rate',0.08),a.get('deposit_gain',0.35))
+        if name=='athena_collective_health': return self.collective.health(a['metrics'])
         if name=='athena_benchmark':
-            r=c.benchmark(); r.update(self.crystal.benchmark_extension()); r['git']=self.git.status(); return r
+            r=c.benchmark(); r.update(self.crystal.benchmark_extension()); r['git']=self.git.status(); r['collective_runtime']=self.collective.describe()['version']; return r
         raise KeyError(name)
     def handle(self,m):
         from .dispatch import handle
