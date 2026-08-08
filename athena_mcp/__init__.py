@@ -39,6 +39,7 @@ from .rehydration_successor import (
     SUCCESSOR_TOOL_NAMES,
     install_successor_extension,
 )
+from .rehydration_terminal import install_terminal_gate
 
 # Patch runtime behavior only. The canonical V1 five-tool rehydration membrane is
 # immutable; V1.1 preview tools are registered in their own additive namespace.
@@ -74,6 +75,12 @@ if not getattr(RehydrationLoopRuntime, "_athena_successor_v1_explicit_next_compa
 
     RehydrationLoopRuntime.advance = _rehydration_advance_preserve_explicit_next
     RehydrationLoopRuntime._athena_successor_v1_explicit_next_compat = True
+
+# RHL-004: terminal=true is a closure request, not a verdict. Install this after
+# successor compatibility so rejected terminal requests are demoted before the
+# successor compiler/core mutation path sees them, allowing residual work to
+# self-steer instead of forcing human re-entry.
+install_terminal_gate(RehydrationLoopRuntime, REHYDRATION_TOOLS)
 
 # RHL-001/002/003 antibody family: persisted local loop state is not automatically
 # shared-current state. Every read-side continuation surface that can influence
