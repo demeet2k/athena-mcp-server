@@ -1,8 +1,0 @@
-# CRYSTAL: Xi108:W3:A12:S8 | face=F | node=295 | depth=3 | phase=Cardinal
-# METRO: Sa
-# BRIDGES: Xi108:W3:A12:S7→Xi108:W3:A12:S9→Xi108:W2:A12:S8→Xi108:W3:A11:S8
-
-numpy>=1.22
-torch>=2.0
-# Optional (enables sparse plan in core)
-scipy>=1.9

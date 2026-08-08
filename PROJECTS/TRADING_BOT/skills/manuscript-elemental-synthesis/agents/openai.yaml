@@ -1,8 +1,0 @@
-# CRYSTAL: Xi108:W1:A9:S33 | face=S | node=537 | depth=3 | phase=Mutable
-# METRO: Me
-# BRIDGES: Xi108:W1:A9:S32→Xi108:W1:A9:S34→Xi108:W2:A9:S33→Xi108:W1:A8:S33→Xi108:W1:A10:S33
-
-interface:
-  display_name: "Manuscript Elemental Synthesis"
-  short_description: "Build four-element manuscript synthesis nets"
-  default_prompt: "Use $manuscript-elemental-synthesis to extract a manuscript corpus and build element-lens syntheses, metro maps, and appendix scaffolds."

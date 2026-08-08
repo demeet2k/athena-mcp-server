@@ -1,34 +1,9 @@
 {
-  "_crystal": {
-    "address": "Xi108:W1:A2:S32:u498:Su:S:d1",
-    "shell": 32,
-    "wreath": 1,
-    "archetype": 2,
-    "face": "S",
-    "node_id": 498,
-    "depth": 1,
-    "phase": "Mutable",
-    "metro_stops": [
-      "Me"
-    ],
-    "bridges": [
-      "Xi108:W1:A2:S31",
-      "Xi108:W1:A2:S33",
-      "Xi108:W2:A2:S32",
-      "Xi108:W1:A1:S32",
-      "Xi108:W1:A3:S32"
-    ],
-    "regenerate": "shell 32±1, wreath 1/3, archetype 2/12"
-  },
   "mcpServers": {
-    "athena-nervous-system": {
+    "athena": {
       "command": "python",
-      "args": [
-        "C:/Users/dmitr/Documents/Athena Agent/MCP/athena_mcp_server.py"
-      ],
-      "env": {
-        "ATHENA_ROOT": "C:/Users/dmitr/Documents/Athena Agent"
-      }
+      "args": ["-m", "athena_mcp", "--db", "./state/athena.db"],
+      "env": {"ATHENA_GIT_ROOT": "../Athena"}
     }
   }
 }

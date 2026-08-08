@@ -1,35 +1,11 @@
-# CRYSTAL: Xi108:W1:A11:S35 | face=S | node=608 | depth=3 | phase=Mutable
-# METRO: Me
-# BRIDGES: Xi108:W1:A11:S34→Xi108:W1:A11:S36→Xi108:W2:A11:S35→Xi108:W1:A10:S35→Xi108:W1:A12:S35
-
 name: CI
-
-on:
-  push:
-    branches: [master, main]
-  pull_request:
-    branches: [master, main]
-
+on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.12", "3.13"]
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install "mcp[cli]>=1.0.0" pytest
-
-      - name: Run tests
-        env:
-          ATHENA_ROOT: ${{ github.workspace }}
-        run: pytest tests/ -v
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m unittest discover -s tests -v
+      - run: python smoke.py

@@ -1,23 +1,16 @@
-# CRYSTAL: Xi108:W3:A12:S18 | face=F | node=281 | depth=1 | phase=Mutable
-# METRO: Sa
-# BRIDGES: Xi108:W3:A12:S17→Xi108:W3:A12:S19→Xi108:W2:A12:S18→Xi108:W3:A11:S18
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
 
 [project]
-name = "athena-mcp-server"
-version = "1.0.0"
-description = "MCP server for the Athena 108D Crystal Hologram nervous system — 41 tools, 11 resources"
-readme = "README.md"
-license = "MIT"
-requires-python = ">=3.12"
-dependencies = [
-    "mcp[cli]>=1.0.0",
-]
+name = "athena-canonical-mcp"
+version = "2.0.0"
+description = "Canonical KC144/JSPACE/SCALE developmental control substrate"
+requires-python = ">=3.11"
+dependencies = []
 
-[project.optional-dependencies]
-test = [
-    "pytest>=8.0",
-]
+[project.scripts]
+athena-mcp = "athena_mcp.server:main"
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+[tool.setuptools.packages.find]
+include = ["athena_mcp*"]
