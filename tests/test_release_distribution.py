@@ -67,13 +67,14 @@ class ReleaseDistributionTests(unittest.TestCase):
         for fragment in (
             'pull_request:', 'workflow_dispatch:', 'package-readiness:', 'promotion-qualification:',
             "if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master'",
+            'RELEASE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}',
             'git rev-parse origin/master', 'scripts/qualify_github_head.py',
             'actions/download-artifact@v5', 'actions/upload-artifact@v4',
-            'release-candidate-v3.2.0-', 'promotion-receipt-',
+            'release-candidate-v3.2.0-${{ env.RELEASE_HEAD }}', 'promotion-receipt-${{ env.RELEASE_HEAD }}',
             'python -m pip wheel --no-deps . -w dist', 'athena_mcp.server',
             'ATHENA.RUNTIME.UNIFIED.9', 'COLLECTIVE_ROBUST_V13',
             'gh release create', '--verify-tag', 'refs/tags/$TAG', 'TAG_TARGET',
-            'sha256sum -c', 'release-attestation.json', 'trusted_promotion',
+            '(cd dist && sha256sum -c SHA256SUMS)', 'release-attestation.json', 'trusted_promotion',
         ):
             self.assertIn(fragment,w)
         self.assertNotIn("branches:\n      - 'agent/aor-collective-unified'",w)
@@ -82,18 +83,23 @@ class ReleaseDistributionTests(unittest.TestCase):
         self.assertNotIn('athena_mcp.hub_server',w)
         self.assertNotIn('kc144-core-registries.tar.xz',w)
 
-    def test_package_readiness_binds_trusted_receipt_to_same_release_sha(self):
+    def test_package_readiness_binds_trusted_receipt_to_same_release_head(self):
         w=self.workflow
         for fragment in (
-            "assert promotion['git_head']==os.environ['GITHUB_SHA']",
+            'test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"',
+            "assert promotion['git_head']==os.environ['RELEASE_HEAD']",
             "assert promotion['promotion']['status']=='QUALIFIED'",
             "assert promotion['replay']['match'] is True",
-            "'release_commit':os.environ['GITHUB_SHA']",
+            "'release_commit':os.environ['RELEASE_HEAD']",
             "'promrun':promotion['promotion']['run_id']",
             "'verification_ref':promotion['verification_ref']",
             "'receipt_sha256':sha(promo)",
+            "assert att['release_commit']==os.environ['RELEASE_HEAD']",
+            'test "$TAG_TARGET" = "$RELEASE_HEAD"',
         ):
             self.assertIn(fragment,w)
+        self.assertNotIn("promotion['git_head']==os.environ['GITHUB_SHA']",w)
+        self.assertNotIn("'release_commit':os.environ['GITHUB_SHA']",w)
 
     def test_release_notes_preserve_v13_and_trust_claim_ceilings(self):
         n=self.notes
@@ -104,7 +110,7 @@ class ReleaseDistributionTests(unittest.TestCase):
             'STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION',
             'ELLIPSOIDAL_GAUSSIAN_ROBUST_PLAN != GENERAL_DISTRIBUTIONALLY_ROBUST_OPTIMIZATION',
             'caller-bound readiness','one coherent exact-head Actions run/check-suite',
-            'distribution, not deployment',
+            'This release certifies repository/package/distribution state. It is not a production deployment',
         ):
             self.assertIn(phrase,n)
 
