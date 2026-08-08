@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-BIONANO_VERSION='BNMK.1'
+BIONANO_VERSION='BNMK.V1'
 BIONANO_RESOURCE={
     'uri':'athena://bio/nanomachines/v1',
     'name':'ATHENA Bionanomachine Mechanism Kernel V1',
