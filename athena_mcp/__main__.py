@@ -1,3 +1,3 @@
-from .authority_server import main
+from .field_server import main
 
 main()
