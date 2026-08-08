@@ -2,11 +2,11 @@
 
 A from-first-principles ATHENA Git/MCP nervous substrate.
 
-Core law: one canonical state, explicit versions, exact ancestry, stale-write rejection, typed JSPACE graph/hypergraph, SCALE, KC144, open-world coordinate atlas, mathematical-object registry, executable transform calculus, public liminal telemetry, exact final-emission bytes, lossless RETURN, and a cost-aware collective-intelligence controller.
+Core law: one canonical state, explicit versions, exact ancestry, stale-write rejection, typed JSPACE graph/hypergraph, SCALE, KC144, open-world coordinate atlas, mathematical-object registry, executable transform calculus, public liminal telemetry, exact final-emission bytes, lossless RETURN, and a cost-aware collective-intelligence controller with persistent organizational memory.
 
 ## Runtime cycle
 
-`HYDRATE → RECONSTRUCT → JSPACE → SCALE → KC144/POLYATLAS → CUT/MAXDEV → COLLECTIVE PLAN → DEMAND ALLOCATE → BUILD/BRIDGE → QUORUM/VERIFY → HEALTH/RESTRUCTURE → LIFECYCLE → FINALIZE_OUTPUT → VERIFY → CONDITIONAL COMMIT → GLOBAL DIFFUSION`
+`HYDRATE → RECONSTRUCT → PHEROMONE/ANTIBODY MEMORY → JSPACE → SCALE → KC144/POLYATLAS → CUT/MAXDEV → COLLECTIVE PLAN → RGO CALIBRATE → DEMAND ALLOCATE → BUILD/BRIDGE → QUORUM/VERIFY → HEALTH/RESTRUCTURE → JSPACE ALARM/TOPOLOGY CAS → LIFECYCLE/PHEROMONE → OBSERVED RGO → FINALIZE_OUTPUT → VERIFY → CONDITIONAL COMMIT → GLOBAL DIFFUSION`
 
 ## Identity
 
@@ -17,6 +17,8 @@ Core law: one canonical state, explicit versions, exact ancestry, stale-write re
 Semantic CAS: `expected VID == current VID` else `STALE_TARGET`.
 
 Git CAS: `expected Git HEAD == current Git HEAD` else `STALE_GIT_HEAD`.
+
+Collective topology CAS: `expected topology version == current topology version` else `STALE_TOPOLOGY`.
 
 ## Exact visible text
 
@@ -73,6 +75,24 @@ The growth layer turns the controller into an active organizational metabolism:
 Resource: `athena://collective/growth`.
 
 Specification: `spec/COLLECTIVE_GROWTH.md`.
+
+## Collective Runtime V2 — Persistent Organizational Memory
+
+V2 promotes the most valuable advisory residuals into durable, inspectable control state without bypassing canonical semantic/Git authority.
+
+Persistent operators:
+
+- `athena_pheromone_reinforce` / `athena_pheromone_field` — database-backed stigmergic priority with reinforcement and evaporation;
+- `athena_jspace_alarm` — compile typed JSPACE relations into bounded invalidation transport; dependency relations reverse direction so a failed dependency reaches its dependents, while unknown relation semantics are ignored by default;
+- `athena_rgo_observe` / `athena_rgo_calibrate` — record predicted versus observed RGO and shrink an online calibration surface toward measured downstream performance;
+- `athena_topology_get` / `athena_topology_apply` / `athena_topology_rollback` — versioned collective-control topology with expected-version CAS, reversible before/after witnesses, FISSION/FUSE lineage preservation, and rollback as a new transaction;
+- `athena_failure_antibody_register` / `athena_failure_antibody_match` — durable detector + repair + evidence + regression/replay memory for diagnosed failures.
+
+Resource: `athena://collective/v2`.
+
+Specification: `spec/COLLECTIVE_RUNTIME_V2.md`.
+
+Authority law: collective V2 state may steer organization, but canonical semantic mutation still requires expected-VID CAS and Git persistence still requires Git-head CAS. Collective topology never silently rewrites JSPACE.
 
 ## Run
 
