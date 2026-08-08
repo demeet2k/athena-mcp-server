@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import math
 import time
 from typing import Any, Dict, Iterable, List, Optional
 
@@ -300,6 +299,12 @@ class PartyCoordinationRuntime:
             for post in posts
             if post["kind"] == "RESULT" and post.get("witness_ref")
         ]
+        witnessed_result_goal_ids = {
+            goal_ref
+            for post in witnessed_results
+            for goal_ref in post["goal_refs"]
+            if goal_ref in goal_ids
+        }
         advanced = set(_names(advanced_goal_ids))
         symphony = min(1.0, len(active_goal_ids) / max(1.0, float(len(goal_ids))))
         recursive = min(1.0, len(active_posters) / max(1.0, float(len(members))))
@@ -351,6 +356,7 @@ class PartyCoordinationRuntime:
                 "active_posters": len(active_posters),
                 "active_goals": len(active_goal_ids),
                 "witnessed_results": len(witnessed_results),
+                "witnessed_result_goal_ids": sorted(witnessed_result_goal_ids),
                 "member_channels_valid": member_channels_valid,
                 "board_channels_valid": board_channels_valid,
                 "duplicate_only": duplicate_only,
@@ -764,6 +770,8 @@ class PartyCoordinationRuntime:
                 reasons.append("NEED_TWO_COMMUNICATING_MEMBERS")
             if d["witnessed_results"] < 1:
                 reasons.append("NEED_WITNESSED_RESULT_POST")
+            if not set(advanced).issubset(set(d["witnessed_result_goal_ids"])):
+                reasons.append("ADVANCED_GOALS_LACK_RESULT_WITNESS")
             if not d["member_channels_valid"] or not d["board_channels_valid"]:
                 reasons.append("COMMUNICATION_CHANNEL_INVALID")
             if d["duplicate_only"]:
@@ -815,7 +823,9 @@ class PartyCoordinationRuntime:
                 "execution_authority": False,
                 "idempotent": False,
             }
-            payload["receipt_digest"] = _digest(payload)
+            payload["receipt_digest"] = _digest(
+                {key: value for key, value in payload.items() if key != "idempotent"}
+            )
             self.db.execute(
                 """INSERT INTO party_coordination_observations
                    (observation_id,party_id,observer,base_xp,advanced_goal_ids_json,witness_ref,
