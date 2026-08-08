@@ -17,7 +17,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   actions: read
   checks: read
 
@@ -303,6 +303,10 @@ jobs:
   publish:
     needs: [package-readiness]
     if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master'
+    permissions:
+      contents: write
+      actions: read
+      checks: read
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
