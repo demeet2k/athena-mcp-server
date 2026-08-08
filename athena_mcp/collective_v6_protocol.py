@@ -23,3 +23,6 @@ COLLECTIVE_V6_TOOLS=[
     _tool("athena_claim_witness","Attach a SUPPORTS/FALSIFIES/INCONCLUSIVE test, replication or falsifier witness with an explicit independence key.",( "claim_id","kind","result","independence_key"),{"claim_id":STR,"kind":STR,"result":STR,"independence_key":STR,"confidence":NUM,"evidence":OBJ,"actor":STR}),
     _tool("athena_claim_state","Summarize independent supporting/falsifying witness groups for a science-shadow claim. Evidential metadata only; no canonical rewrite.",( "claim_id",),{"claim_id":STR,"min_independent_support":{"type":"integer","minimum":1,"maximum":100}}),
 ]
+
+from .collective_v7_protocol import COLLECTIVE_V7_TOOLS
+COLLECTIVE_V6_TOOLS.extend(t for t in COLLECTIVE_V7_TOOLS if t['name'] not in {x['name'] for x in COLLECTIVE_V6_TOOLS})
