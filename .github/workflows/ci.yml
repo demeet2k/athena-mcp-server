@@ -64,6 +64,8 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_metadata_consistency.py' -v
       - name: V6 discovery/Y1 authority namespace firewall
         run: python -m unittest discover -s tests -p 'test_collective_v6_unified.py' -v
+      - name: V7 dual-control causal and replication boundaries
+        run: python -m unittest discover -s tests -p 'test_collective_v7_unified.py' -v
       - name: AOR Collective transport firewalls
         run: python -m unittest discover -s tests -p 'test_aor_collective_transport.py' -v
       - name: Exact-head promotion predicate
