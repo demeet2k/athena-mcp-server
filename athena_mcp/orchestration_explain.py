@@ -8,7 +8,9 @@ BENEFIT_METRICS = ("delta_j", "information_gain", "bridge", "option_value")
 
 
 def _successor_vector(row: Mapping[str, Any]):
-    src = row.get("source") or {}
+    # Pareto comparisons must use the same scoring basis as scalar selection.
+    # When a metric contract is present, scoring_source is nondimensionalized.
+    src = row.get("scoring_source") or row.get("source") or {}
     values = {}
     for name in BENEFIT_METRICS + ("cost",):
         value = finite_number(src.get(name))
@@ -75,6 +77,9 @@ def decision_explanation(rows: Iterable[Mapping[str, Any]], next_id: str | None)
             reasons.extend(row["dependency"].get("blockers", []))
         if row.get("gate", {}).get("status") == "BLOCKED":
             reasons.extend("gate:" + x for x in row["gate"].get("blocked_by", []))
+        calibration = (row.get("metric_calibration") or {}).get("successor") or {}
+        if calibration.get("status") == "BLOCKED":
+            reasons.append("metric_calibration_blocked")
         score = row["scores"]["successor"]
         if score.get("status") == "UNKNOWN":
             reasons.append("successor_score_unknown")
@@ -92,7 +97,7 @@ def decision_explanation(rows: Iterable[Mapping[str, Any]], next_id: str | None)
 
     return {
         "selected": next_id,
-        "selection_rule": "highest KNOWN successor score among unresolved dependency-ready promotion-gate-passing candidates; frontier score then id break ties",
+        "selection_rule": "highest KNOWN successor score on the declared scoring basis among unresolved dependency-ready promotion-gate-passing calibration-allowed candidates; frontier score then id break ties",
         "selected_successor_score": chosen_value,
         "rejected": sorted(rejected, key=lambda x: x["candidate"]),
     }
