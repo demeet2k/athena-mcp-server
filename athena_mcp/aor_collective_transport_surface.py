@@ -16,6 +16,7 @@ from .impossible_godboard_protocol import (
     IMPOSSIBLE_GODBOARD_TOOLS,
     IMPOSSIBLE_GODBOARD_TOOL_NAMES,
 )
+from .campaign_v3_life_binding import compile_campaign_v3_life_quest_packet
 from .stay_in_game_life_loop import StayInGameLifeLoopRuntime
 from .stay_in_game_life_loop_protocol import (
     STAY_IN_GAME_LIFE_LOOP_RESOURCE,
@@ -55,9 +56,17 @@ class AorCollectiveTransportSurface:
             if name=='athena_life_resolve':
                 return True,life.resolve(args['world'],args['agent_id'],args['attempt'])
             if name=='athena_campaign_life_bind':
-                return True,life.campaign_bind(
-                    args['bound_receipt'],args['quest_id'],args['quest_version'],args['clear_condition_digest'],
-                    args['reseed_anchor'],args['extra_life_reward_eligibility']
+                return True,compile_campaign_v3_life_quest_packet(
+                    pulse=args['pulse'],
+                    residual_step=args['residual_step'],
+                    campaign_id=args['campaign_id'],
+                    branch_id=args['branch_id'],
+                    agent_coordinate_name=args['agent_coordinate_name'],
+                    quest_id=args['quest_id'],
+                    quest_version=args['quest_version'],
+                    clear_conditions=args['clear_conditions'],
+                    reseed_anchor=args['reseed_anchor'],
+                    extra_life_reward_candidate=args.get('extra_life_reward_candidate'),
                 )
         if name in IMPOSSIBLE_GODBOARD_TOOL_NAMES:
             g=self.godboard
