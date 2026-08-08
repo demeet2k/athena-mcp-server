@@ -62,6 +62,13 @@ if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
                 result["fetch_error"] = f"requested remote source ref unavailable after fetch: {required}"
         return result
 
+    def _strip_frontier_clock(value):
+        if isinstance(value, dict):
+            return {k: _strip_frontier_clock(v) for k, v in value.items() if k != "source_head"}
+        if isinstance(value, list):
+            return [_strip_frontier_clock(v) for v in value]
+        return value
+
     def _frontier_hydrate_content_digest(self, *args, **kwargs):
         packet = _frontier_hydrate_with_environment_digest(self, *args, **kwargs)
         packet["generated_from"] = self._paths(packet["source_head"], "runtime/queue", "runtime/runs")
@@ -69,10 +76,10 @@ if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
             "generated_from", "objectives", "runs", "pressures", "ready_work",
             "claims", "residuals", "source_coverage", "authority", "sched_contract", "laws"
         )
-        digest_basis = {key: packet.get(key) for key in keys}
+        digest_basis = _strip_frontier_clock({key: packet.get(key) for key in keys})
         payload = json.dumps(digest_basis, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
         packet["frontier_digest"] = hashlib.sha256(payload).hexdigest()
-        packet["frontier_digest_basis"] = "reduced runtime content plus pinned SCHED interpretation contract; excludes source_head/ref, local checkout identity, remote witness and prompt_stack_digest"
+        packet["frontier_digest_basis"] = "reduced runtime content plus pinned SCHED interpretation contract; recursively excludes source_head clock while source/ref/checkout/witness/prompt digest remain separate address coordinates"
         return packet
 
     FrontierRuntime._source = _frontier_source_requires_requested_remote_ref
