@@ -31,6 +31,7 @@ class SemanticConnectionControlV1Tests(unittest.TestCase):
         self.assertEqual(result.residue, {})
         self.assertTrue(result.residue_zero)
         self.assertNotEqual(result.final_state.provenance, initial.provenance)
+        self.assertEqual(result.final_state.feature_basis, initial.feature_basis)
         self.assertTrue(result.audit["provenance_excluded_from_residue"])
 
     def test_declared_reversible_round_trip_is_exact_zero(self):
@@ -58,6 +59,7 @@ class SemanticConnectionControlV1Tests(unittest.TestCase):
         self.assertEqual(result.classification, ZERO_RESIDUE)
         self.assertEqual(result.residue, {})
         self.assertEqual(result.final_state.values, initial.values)
+        self.assertEqual(result.final_state.feature_basis, initial.feature_basis)
         self.assertEqual(result.executed_edges, ("forward", "reverse"))
 
     def test_typed_irreversible_loss_survives_return_and_is_nonzero(self):
@@ -86,8 +88,30 @@ class SemanticConnectionControlV1Tests(unittest.TestCase):
         self.assertEqual(result.classification, NONZERO_RESIDUE)
         self.assertFalse(result.residue_zero)
         self.assertEqual(result.final_state.values, initial.values)
+        self.assertEqual(result.final_state.feature_basis, initial.feature_basis)
         self.assertIn("__irreversible_loss__", result.residue)
         self.assertEqual(result.residue["__irreversible_loss__"]["after"], ["signal"])
+
+    def test_irreversible_delete_keeps_fixed_basis_coordinate(self):
+        initial = SemanticState("A", {"signal": "alpha", "x": 2})
+        operators = {
+            "loss": EdgeOperator(
+                "loss",
+                "A",
+                "A",
+                operations=(FieldOperation("signal", "DELETE"),),
+                typed_loss=frozenset({"signal"}),
+            ),
+        }
+
+        result = compose_closed_route(initial, ["loss"], operators)
+
+        self.assertEqual(result.standing, DEFINED)
+        self.assertEqual(result.classification, NONZERO_RESIDUE)
+        self.assertEqual(result.final_state.feature_basis, initial.feature_basis)
+        self.assertEqual(set(result.final_state.values), set(initial.feature_basis))
+        self.assertEqual(result.final_state.values["signal"], {"$state": "IRREVERSIBLY_LOST"})
+        self.assertEqual(result.final_state.irreversible_loss, frozenset({"signal"}))
 
     def test_open_path_without_return_operator_is_unknown(self):
         initial = SemanticState("A", {"x": 1})
@@ -159,23 +183,47 @@ class SemanticConnectionControlV1Tests(unittest.TestCase):
         self.assertEqual(result.reason, "UNEXECUTED_TYPED_LOSS:phantom:signal")
         self.assertIsNone(result.residue)
 
-    def test_delete_of_absent_feature_cannot_mint_loss_residue(self):
+    def test_operation_outside_ambient_basis_is_unknown(self):
         initial = SemanticState("A", {"x": 1})
         operators = {
-            "phantom-delete": EdgeOperator(
-                "phantom-delete",
+            "outside": EdgeOperator(
+                "outside",
                 "A",
                 "A",
-                operations=(FieldOperation("signal", "DELETE"),),
+                operations=(FieldOperation("signal", "SET", "alpha"),),
+            ),
+        }
+
+        result = compose_closed_route(initial, ["outside"], operators)
+
+        self.assertEqual(result.standing, UNKNOWN)
+        self.assertEqual(result.reason, "FIELD_OUTSIDE_BASIS:outside:signal")
+        self.assertIsNone(result.residue)
+
+    def test_typed_loss_outside_ambient_basis_is_unknown(self):
+        initial = SemanticState("A", {"x": 1})
+        operators = {
+            "outside-loss": EdgeOperator(
+                "outside-loss",
+                "A",
+                "A",
                 typed_loss=frozenset({"signal"}),
             ),
         }
 
-        result = compose_closed_route(initial, ["phantom-delete"], operators)
+        result = compose_closed_route(initial, ["outside-loss"], operators)
 
         self.assertEqual(result.standing, UNKNOWN)
-        self.assertEqual(result.reason, "LOSS_SOURCE_MISSING:phantom-delete:signal")
+        self.assertEqual(result.reason, "LOSS_OUTSIDE_BASIS:outside-loss:signal")
         self.assertIsNone(result.residue)
+
+    def test_state_rejects_values_that_do_not_match_explicit_ambient_basis(self):
+        with self.assertRaisesRegex(ValueError, "values must exactly match feature_basis"):
+            SemanticState("A", {"x": 1}, feature_basis=("x", "signal"))
+
+    def test_state_rejects_irreversible_loss_outside_ambient_basis(self):
+        with self.assertRaisesRegex(ValueError, "irreversible_loss outside feature_basis"):
+            SemanticState("A", {"x": 1}, irreversible_loss=frozenset({"signal"}))
 
     def test_expected_class_mutation_cannot_change_raw_transport_behavior(self):
         initial = SemanticState("S", {"x": 1})
