@@ -11,6 +11,10 @@ from .crystal_runtime import CrystalRuntime
 from .collective_runtime import CollectiveRuntime
 
 from .protocol import PROTOCOL_VERSION, SERVER_INFO, TOOLS, PROMPTS
+from .collective_protocol import COLLECTIVE_TOOLS
+
+_existing_tool_names={t['name'] for t in TOOLS}
+TOOLS.extend(t for t in COLLECTIVE_TOOLS if t['name'] not in _existing_tool_names)
 
 class RateLimiter:
     def __init__(self,limit=240,window=60): self.limit=limit; self.window=window; self.h=defaultdict(deque)
