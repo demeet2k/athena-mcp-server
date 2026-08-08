@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -19,6 +20,7 @@ BRANCH_STATES = {
     "ACCEPTED", "SUPERSEDED",
 }
 CAMPAIGN_TERMINAL = {"COMPLETE", "ABORTED"}
+ACTIVE_WIDTH_STATES = {"OPEN", "CLAIMED", "ACTIVE", "WITNESSED", "BLOCKED"}
 
 
 def _utcnow() -> str:
@@ -45,18 +47,20 @@ def _task(raw: Any) -> str:
 
 
 def _baton_valid(baton: dict) -> bool:
-    if not isinstance(baton, dict) or baton.get("artifact") != BATON_ARTIFACT:
-        return False
-    digest = baton.get("baton_digest")
-    return isinstance(digest, str) and digest == _sha({k: v for k, v in baton.items() if k != "baton_digest"})
+    return bool(
+        isinstance(baton, dict)
+        and baton.get("artifact") == BATON_ARTIFACT
+        and isinstance(baton.get("baton_digest"), str)
+        and baton["baton_digest"] == _sha({k: v for k, v in baton.items() if k != "baton_digest"})
+    )
 
 
 class RehydrationCampaignRuntime:
     """Bounded branch graph over explicit V1 rehydration loops.
 
-    Campaign branches are coordination objects. They do not create hidden workers,
-    merge code, or elevate routing decisions into authority. Each bound branch
-    delegates actual sequential work to a normal RehydrationLoopRuntime.
+    A campaign branch is coordination state, never evidence that a worker is
+    executing in the background. Actual work remains an explicitly invoked V1
+    rehydration loop and Git commit chain.
     """
 
     def __init__(
@@ -91,12 +95,7 @@ class RehydrationCampaignRuntime:
 
     def _paths(self, campaign_id: str) -> dict[str, str]:
         base = self._base(campaign_id)
-        return {
-            "base": base,
-            "state": f"{base}/state.json",
-            "events": f"{base}/events",
-            "batons": f"{base}/batons",
-        }
+        return {"base": base, "state": f"{base}/state.json", "events": f"{base}/events", "batons": f"{base}/batons"}
 
     def _read_state(self, campaign_id: str) -> tuple[dict, dict[str, str]]:
         paths = self._paths(campaign_id)
@@ -109,23 +108,13 @@ class RehydrationCampaignRuntime:
         return state, paths
 
     def _path_last_commit(self, rel: str) -> str | None:
-        import subprocess
-        p = subprocess.run(
-            ["git", "-C", str(self._root()), "log", "-n", "1", "--format=%H", "--", rel],
-            text=True,
-            capture_output=True,
-        )
+        p = subprocess.run(["git", "-C", str(self._root()), "log", "-n", "1", "--format=%H", "--", rel], text=True, capture_output=True)
         if p.returncode:
             raise GitStateError(p.stderr.strip() or p.stdout.strip())
         return p.stdout.strip() or None
 
     def _is_ancestor(self, older: str, newer: str) -> bool:
-        import subprocess
-        p = subprocess.run(
-            ["git", "-C", str(self._root()), "merge-base", "--is-ancestor", older, newer],
-            text=True,
-            capture_output=True,
-        )
+        p = subprocess.run(["git", "-C", str(self._root()), "merge-base", "--is-ancestor", older, newer], text=True, capture_output=True)
         if p.returncode not in (0, 1):
             raise GitStateError(p.stderr.strip() or p.stdout.strip())
         return p.returncode == 0
@@ -155,17 +144,20 @@ class RehydrationCampaignRuntime:
 
     @staticmethod
     def _branch_id(parent: str | None, task: str, depth: int, candidate_id: str | None = None) -> str:
-        basis = {"parent": parent, "task": " ".join(task.lower().split()), "depth": depth, "candidate_id": candidate_id}
-        return "CB-" + _sha(basis)[:16]
+        return "CB-" + _sha({
+            "parent": parent,
+            "task": " ".join(task.lower().split()),
+            "depth": int(depth),
+            "candidate_id": candidate_id,
+        })[:16]
 
-    @staticmethod
-    def _new_branch(task: str, depth: int, parent: str | None, candidate: dict | None = None) -> dict:
+    @classmethod
+    def _new_branch(cls, task: str, depth: int, parent: str | None, candidate: dict | None = None) -> dict:
         candidate = dict(candidate or {})
-        branch_id = RehydrationCampaignRuntime._branch_id(parent, task, depth, candidate.get("candidate_id"))
         return {
-            "branch_id": branch_id,
+            "branch_id": cls._branch_id(parent, task, depth, candidate.get("candidate_id")),
             "parent_branch_id": parent,
-            "depth": depth,
+            "depth": int(depth),
             "task": task,
             "status": "OPEN",
             "candidate_id": candidate.get("candidate_id"),
@@ -183,13 +175,13 @@ class RehydrationCampaignRuntime:
 
     @staticmethod
     def _frontier(state: dict) -> list[dict]:
-        active = {"OPEN", "CLAIMED", "ACTIVE", "WITNESSED", "BLOCKED"}
         return sorted(
-            [b for b in state["branches"].values() if b.get("status") in active],
-            key=lambda b: (int(b.get("depth") or 0), str(b.get("branch_id"))),
+            [b for b in state["branches"].values() if b.get("status") in ACTIVE_WIDTH_STATES],
+            key=lambda b: (int(b.get("depth", 0)), str(b.get("branch_id"))),
         )
 
-    def _assert_state(self, state: dict, expected_state_digest: str) -> None:
+    @staticmethod
+    def _assert_state(state: dict, expected_state_digest: str) -> None:
         if _campaign_state_digest(state) != state.get("state_digest") or state.get("state_digest") != expected_state_digest:
             raise GitStateError("STALE_OR_TAMPERED_CAMPAIGN_STATE")
         if state.get("status") in CAMPAIGN_TERMINAL:
@@ -215,8 +207,7 @@ class RehydrationCampaignRuntime:
             raise GitStaleHead(json.dumps({"status": "STALE_CAMPAIGN_CHECKPOINT", "expected": expected_checkpoint_head, "current": checkpoint}, sort_keys=True))
         mode = self._remote_mode(shared_remote_mode)
         remote_sync = self._sync(mode, remote)
-        checkpoint = self._path_last_commit(paths["state"])
-        if checkpoint != expected_checkpoint_head:
+        if self._path_last_commit(paths["state"]) != expected_checkpoint_head:
             raise GitStaleHead("shared sync revealed a newer campaign checkpoint")
         current_head = self.git.head()
         if not self._is_ancestor(expected_checkpoint_head, current_head):
@@ -226,7 +217,7 @@ class RehydrationCampaignRuntime:
         previous_chain = state["chain_digest"]
         new_state = mutator(json.loads(json.dumps(state)))
         new_state["updated_at"] = _utcnow()
-        new_state["logical_clock"] = int(state.get("logical_clock") or 0) + 1
+        new_state["logical_clock"] = int(state.get("logical_clock", 0)) + 1
         new_state["previous_chain_digest"] = previous_chain
         new_state["state_digest"] = _campaign_state_digest(new_state)
         seq = int(new_state["logical_clock"])
@@ -284,16 +275,15 @@ class RehydrationCampaignRuntime:
         goal = str(goal or "").strip()
         if not goal:
             raise ValueError("goal is required")
-        max_width = int(max_width); max_depth = int(max_depth); max_branches = int(max_branches); lease_steps = int(lease_steps)
-        if not 1 <= max_width <= 16 or not 1 <= max_depth <= 32 or not 1 <= max_branches <= 256 or not 1 <= lease_steps <= 32:
+        max_width, max_depth, max_branches, lease_steps = map(int, (max_width, max_depth, max_branches, lease_steps))
+        if not (1 <= max_width <= 16 and 1 <= max_depth <= 32 and 1 <= max_branches <= 256 and 1 <= lease_steps <= 32):
             raise ValueError("campaign budgets out of range")
         mode = self._remote_mode(shared_remote_mode)
         remote_sync = self._sync(mode, remote)
         current = self.git.head()
         if current != expected_git_head:
             raise GitStaleHead(json.dumps({"status": "STALE_GIT_HEAD", "expected": expected_git_head, "current": current}, sort_keys=True))
-        tasks = [_task(x) for x in (initial_tasks or [goal])]
-        tasks = [x for x in tasks if x]
+        tasks = [x for x in (_task(raw) for raw in (initial_tasks or [goal])) if x]
         if not tasks:
             raise ValueError("at least one initial task is required")
         if len(tasks) > max_width or len(tasks) > max_branches:
@@ -303,9 +293,7 @@ class RehydrationCampaignRuntime:
         branches = {}
         for task in tasks:
             branch = self._new_branch(task, 0, None)
-            if branch["branch_id"] in branches:
-                continue
-            branches[branch["branch_id"]] = branch
+            branches.setdefault(branch["branch_id"], branch)
         state = {
             "artifact": ARTIFACT,
             "campaign_id": campaign_id,
@@ -343,17 +331,7 @@ class RehydrationCampaignRuntime:
         }
         git_result = self.prompt_runtime._commit_files(current, files, actor, f"start rehydration campaign {campaign_id}")
         publish = self._publish(mode, remote, git_result["head"])
-        return {
-            "status": "ACTIVE",
-            "campaign_id": campaign_id,
-            "state_digest": state["state_digest"],
-            "chain_digest": state["chain_digest"],
-            "checkpoint_head": git_result["head"],
-            "frontier": self._frontier(state),
-            "git": git_result,
-            "remote_sync": remote_sync,
-            "remote_publish": publish,
-        }
+        return {"status": "ACTIVE", "campaign_id": campaign_id, "state_digest": state["state_digest"], "chain_digest": state["chain_digest"], "checkpoint_head": git_result["head"], "frontier": self._frontier(state), "git": git_result, "remote_sync": remote_sync, "remote_publish": publish}
 
     def expand(
         self,
@@ -393,32 +371,30 @@ class RehydrationCampaignRuntime:
             candidates = [x for x in candidates if x.get("candidate_id") in wanted]
         if not candidates:
             raise ValueError("no successor candidates selected for expansion")
-        candidate_ids = {x.get("candidate_id") for x in candidates}
-        if None in candidate_ids or len(candidate_ids) != len(candidates):
+        ids = [x.get("candidate_id") for x in candidates]
+        if any(x is None for x in ids) or len(set(ids)) != len(ids):
             raise ValueError("successor candidates require unique candidate_id")
-        existing = len(state["branches"])
-        if existing + len(candidates) > int(state["budget"]["max_branches"]):
-            return {"status": "HOLD_BRANCH_BUDGET", "campaign_id": campaign_id, "required": existing + len(candidates), "limit": state["budget"]["max_branches"], "state_digest": state["state_digest"]}
+        if len(state["branches"]) + len(candidates) > int(state["budget"]["max_branches"]):
+            return {"status": "HOLD_BRANCH_BUDGET", "campaign_id": campaign_id, "required": len(state["branches"]) + len(candidates), "limit": state["budget"]["max_branches"], "state_digest": state["state_digest"]}
         depth = int(parent["depth"]) + 1
-        active_at_depth = sum(1 for b in state["branches"].values() if int(b["depth"]) == depth and b["status"] in {"OPEN", "CLAIMED", "ACTIVE", "WITNESSED", "BLOCKED"})
+        active_at_depth = sum(1 for b in state["branches"].values() if int(b["depth"]) == depth and b["status"] in ACTIVE_WIDTH_STATES)
         if active_at_depth + len(candidates) > int(state["budget"]["max_width"]):
-            return {"status": "HOLD_WIDTH", "campaign_id": campaign_id, "depth": depth, "required": active_at_depth + len(candidates), "limit": state["budget"]["max_width"], "candidate_ids": sorted(candidate_ids), "state_digest": state["state_digest"]}
-
+            return {"status": "HOLD_WIDTH", "campaign_id": campaign_id, "depth": depth, "required": active_at_depth + len(candidates), "limit": state["budget"]["max_width"], "candidate_ids": sorted(ids), "state_digest": state["state_digest"]}
         baton_path = f"{self._paths(campaign_id)['batons']}/{int(state['logical_clock']) + 1:04d}-{successor_baton['baton_digest'][:12]}.json"
+
         def mutate(new_state):
-            p = new_state["branches"][parent_branch_id]
-            p["status"] = "EXPANDED"
-            p["successor_baton"] = successor_baton
-            p["updated_at"] = _utcnow()
+            parent_row = new_state["branches"][parent_branch_id]
+            parent_row["status"] = "EXPANDED"
+            parent_row["successor_baton"] = successor_baton
+            parent_row["updated_at"] = _utcnow()
             for candidate in candidates:
                 task = _task(candidate)
                 if not task:
                     raise ValueError("successor candidate has no task")
                 child = self._new_branch(task, depth, parent_branch_id, candidate)
-                if child["branch_id"] in new_state["branches"]:
-                    continue
-                new_state["branches"][child["branch_id"]] = child
+                new_state["branches"].setdefault(child["branch_id"], child)
             return new_state
+
         result = self._mutate(
             campaign_id=campaign_id, expected_state_digest=expected_state_digest,
             expected_checkpoint_head=expected_checkpoint_head, actor=actor,
@@ -427,7 +403,7 @@ class RehydrationCampaignRuntime:
             extra_files={baton_path: json.dumps(successor_baton, indent=2, sort_keys=True, ensure_ascii=False) + "\n"},
         )
         result["baton_path"] = baton_path
-        result["expanded_candidate_ids"] = sorted(candidate_ids)
+        result["expanded_candidate_ids"] = sorted(ids)
         return result
 
     def claim(self, *, campaign_id: str, expected_state_digest: str, expected_checkpoint_head: str, branch_id: str, agent: str, actor: str = "agent", shared_remote_mode: str = "REQUIRED", remote: str = "origin") -> dict:
@@ -435,9 +411,9 @@ class RehydrationCampaignRuntime:
             branch = state["branches"].get(branch_id)
             if not branch:
                 raise ValueError("branch not found")
-            clock = int(state.get("logical_clock") or 0)
-            claim = branch.get("claim")
-            if branch["status"] == "CLAIMED" and claim and int(claim.get("lease_until_clock") or 0) > clock and claim.get("agent") != agent:
+            clock = int(state.get("logical_clock", 0))
+            claim = branch.get("claim") or {}
+            if branch["status"] == "CLAIMED" and int(claim.get("lease_until_clock", 0)) > clock and claim.get("agent") != agent:
                 raise ValueError("branch has an active lease")
             if branch["status"] not in {"OPEN", "CLAIMED", "BLOCKED"}:
                 raise ValueError("branch is not claimable")
@@ -452,8 +428,7 @@ class RehydrationCampaignRuntime:
             branch = state["branches"].get(branch_id)
             if not branch:
                 raise ValueError("branch not found")
-            claim = branch.get("claim") or {}
-            if claim.get("agent") != agent:
+            if (branch.get("claim") or {}).get("agent") != agent:
                 raise ValueError("only the current lease holder may release the branch")
             if branch["status"] not in {"CLAIMED", "BLOCKED"}:
                 raise ValueError("branch is not releasable")
@@ -468,6 +443,7 @@ class RehydrationCampaignRuntime:
         if loop_state.get("state_digest") != loop_state_digest:
             raise ValueError("loop state digest mismatch")
         loop_checkpoint = self.loop_runtime._path_last_commit(loop_paths["state"])
+
         def mutate(state):
             branch = state["branches"].get(branch_id)
             if not branch:
@@ -475,14 +451,7 @@ class RehydrationCampaignRuntime:
             if branch["status"] not in {"CLAIMED", "ACTIVE"}:
                 raise ValueError("branch must be claimed before loop binding")
             branch["status"] = "ACTIVE"
-            branch["loop"] = {
-                "loop_id": loop_id,
-                "state_digest": loop_state_digest,
-                "chain_digest": loop_state.get("chain_digest"),
-                "checkpoint_head": loop_checkpoint,
-                "step_index": loop_state.get("step_index"),
-                "status": loop_state.get("status"),
-            }
+            branch["loop"] = {"loop_id": loop_id, "state_digest": loop_state_digest, "chain_digest": loop_state.get("chain_digest"), "checkpoint_head": loop_checkpoint, "step_index": loop_state.get("step_index"), "status": loop_state.get("status")}
             branch["updated_at"] = _utcnow()
             return state
         result = self._mutate(campaign_id=campaign_id, expected_state_digest=expected_state_digest, expected_checkpoint_head=expected_checkpoint_head, actor=actor, event_type="LOOP_BOUND", mutator=mutate, shared_remote_mode=shared_remote_mode, remote=remote)
@@ -498,62 +467,78 @@ class RehydrationCampaignRuntime:
         loop_id = branch["loop"]["loop_id"]
         loop_state, loop_paths = self.loop_runtime._read_state(loop_id)
         loop_checkpoint = self.loop_runtime._path_last_commit(loop_paths["state"])
-        mapping = {
-            "ACTIVE": "ACTIVE",
-            "COMPLETE": "WITNESSED",
-            "HOLD_MAX_STEPS": "BLOCKED",
-            "HOLD_NO_PROGRESS": "BLOCKED",
-            "ABORTED": "BLOCKED",
-        }
-        branch_status = mapping.get(loop_state.get("status"), "BLOCKED")
+        branch_status = {"ACTIVE": "ACTIVE", "COMPLETE": "WITNESSED", "HOLD_MAX_STEPS": "BLOCKED", "HOLD_NO_PROGRESS": "BLOCKED", "ABORTED": "BLOCKED"}.get(loop_state.get("status"), "BLOCKED")
         completion = loop_state.get("last_completion") or {}
+
         def mutate(new_state):
-            b = new_state["branches"][branch_id]
-            b["status"] = branch_status
-            b["loop"] = {
-                "loop_id": loop_id,
-                "state_digest": loop_state.get("state_digest"),
-                "chain_digest": loop_state.get("chain_digest"),
-                "checkpoint_head": loop_checkpoint,
-                "step_index": loop_state.get("step_index"),
-                "status": loop_state.get("status"),
-            }
-            b["completion_summary"] = completion.get("summary")
-            b["evidence_refs"] = list(completion.get("evidence_refs") or [])
-            b["successor_baton"] = completion.get("successor_baton")
-            b["updated_at"] = _utcnow()
+            row = new_state["branches"][branch_id]
+            row["status"] = branch_status
+            row["loop"] = {"loop_id": loop_id, "state_digest": loop_state.get("state_digest"), "chain_digest": loop_state.get("chain_digest"), "checkpoint_head": loop_checkpoint, "step_index": loop_state.get("step_index"), "status": loop_state.get("status")}
+            row["completion_summary"] = completion.get("summary")
+            row["evidence_refs"] = list(completion.get("evidence_refs") or [])
+            row["successor_baton"] = completion.get("successor_baton")
+            row["updated_at"] = _utcnow()
             return new_state
         result = self._mutate(campaign_id=campaign_id, expected_state_digest=expected_state_digest, expected_checkpoint_head=expected_checkpoint_head, actor=actor, event_type="BRANCH_SYNCED", mutator=mutate, shared_remote_mode=shared_remote_mode, remote=remote)
-        result["branch_id"] = branch_id
-        result["branch_status"] = branch_status
-        result["loop_status"] = loop_state.get("status")
+        result.update({"branch_id": branch_id, "branch_status": branch_status, "loop_status": loop_state.get("status")})
         return result
 
-    def reconcile(self, *, campaign_id: str, expected_state_digest: str, expected_checkpoint_head: str, selected_branch_ids: list[str], observed: bool, summary: str, evidence_refs: list[str] | None = None, terminal: bool = False, integration_witness: dict | None = None, actor: str = "agent", shared_remote_mode: str = "REQUIRED", remote: str = "origin") -> dict:
+    def reconcile(
+        self,
+        *,
+        campaign_id: str,
+        expected_state_digest: str,
+        expected_checkpoint_head: str,
+        selected_branch_ids: list[str],
+        observed: bool,
+        summary: str,
+        evidence_refs: list[str] | None = None,
+        terminal: bool = False,
+        integration_witness: dict | None = None,
+        supersede_branch_ids: list[str] | None = None,
+        actor: str = "agent",
+        shared_remote_mode: str = "REQUIRED",
+        remote: str = "origin",
+    ) -> dict:
         if observed is not True or not str(summary or "").strip():
             raise ValueError("reconciliation requires observed=true and a summary")
         selected = set(selected_branch_ids or [])
+        supersede = set(supersede_branch_ids or [])
         if not selected:
             raise ValueError("at least one branch must be selected")
+        if selected & supersede:
+            raise ValueError("selected and superseded branch sets must be disjoint")
         state, _ = self._read_state(campaign_id)
         self._assert_state(state, expected_state_digest)
-        missing = selected - set(state["branches"])
-        if missing:
-            raise ValueError(f"unknown selected branches: {sorted(missing)}")
+        unknown = (selected | supersede) - set(state["branches"])
+        if unknown:
+            raise ValueError(f"unknown reconciliation branches: {sorted(unknown)}")
         if any(state["branches"][bid]["status"] != "WITNESSED" for bid in selected):
-            raise ValueError("only WITNESSED branches may be reconciled as accepted")
+            raise ValueError("only WITNESSED branches may be accepted")
+        if any(state["branches"][bid]["status"] not in {"WITNESSED", "BLOCKED"} for bid in supersede):
+            raise ValueError("only WITNESSED/BLOCKED branches may be explicitly superseded")
         if terminal:
             if not isinstance(integration_witness, dict) or integration_witness.get("observed") is not True or not integration_witness.get("git_head"):
                 raise ValueError("terminal campaign reconciliation requires an observed integration_witness with git_head")
+            if integration_witness["git_head"] != self.git.head():
+                raise ValueError("integration_witness.git_head must equal the current observed Git head")
+            unresolved = [
+                bid for bid, branch in state["branches"].items()
+                if bid not in selected and bid not in supersede and branch["status"] in ACTIVE_WIDTH_STATES
+            ]
+            if unresolved:
+                raise ValueError(f"terminal reconciliation leaves unresolved branches: {sorted(unresolved)}")
+
         def mutate(new_state):
-            for bid, branch in new_state["branches"].items():
-                if bid in selected:
-                    branch["status"] = "ACCEPTED"
-                elif branch["status"] in {"WITNESSED", "BLOCKED"}:
-                    branch["status"] = "SUPERSEDED"
-                branch["updated_at"] = _utcnow()
+            for bid in selected:
+                new_state["branches"][bid]["status"] = "ACCEPTED"
+                new_state["branches"][bid]["updated_at"] = _utcnow()
+            for bid in supersede:
+                new_state["branches"][bid]["status"] = "SUPERSEDED"
+                new_state["branches"][bid]["updated_at"] = _utcnow()
             rec = {
                 "selected_branch_ids": sorted(selected),
+                "superseded_branch_ids": sorted(supersede),
                 "observed": True,
                 "summary": str(summary).strip(),
                 "evidence_refs": list(evidence_refs or []),
@@ -568,6 +553,7 @@ class RehydrationCampaignRuntime:
             return new_state
         result = self._mutate(campaign_id=campaign_id, expected_state_digest=expected_state_digest, expected_checkpoint_head=expected_checkpoint_head, actor=actor, event_type="CAMPAIGN_RECONCILED", mutator=mutate, shared_remote_mode=shared_remote_mode, remote=remote)
         result["selected_branch_ids"] = sorted(selected)
+        result["superseded_branch_ids"] = sorted(supersede)
         return result
 
     def resume(self, campaign_id: str) -> dict:
@@ -584,36 +570,37 @@ class RehydrationCampaignRuntime:
             "checkpoint_head": self._path_last_commit(paths["state"]),
             "budget": state.get("budget"),
             "frontier": self._frontier(state),
-            "branches": sorted(state["branches"].values(), key=lambda b: (int(b.get("depth") or 0), str(b.get("branch_id")))),
+            "branches": sorted(state["branches"].values(), key=lambda b: (int(b.get("depth", 0)), str(b.get("branch_id")))),
             "reconciliations": state.get("reconciliations") or [],
             "laws": ["CAMPAIGN_BRANCH != BACKGROUND_WORKER", "RECONCILIATION != GIT_MERGE", "BRANCH_ROUTING != AUTHORITY"],
         }
 
     def verify(self, campaign_id: str) -> dict:
         state, paths = self._read_state(campaign_id)
-        failures = []
+        failures: list[str] = []
         if _campaign_state_digest(state) != state.get("state_digest"):
             failures.append("STATE_DIGEST")
         branches = state.get("branches") or {}
-        if len(branches) > int((state.get("budget") or {}).get("max_branches") or 0):
+        budget = state.get("budget") or {}
+        if len(branches) > int(budget.get("max_branches", 0)):
             failures.append("BRANCH_BUDGET")
         by_depth: dict[int, int] = {}
         for bid, branch in branches.items():
             if bid != branch.get("branch_id") or branch.get("status") not in BRANCH_STATES:
                 failures.append(f"BRANCH_IDENTITY:{bid}")
-            depth = int(branch.get("depth") or 0)
-            if depth > int(state["budget"]["max_depth"]):
+            depth = int(branch.get("depth", 0))
+            if depth > int(budget.get("max_depth", 0)):
                 failures.append(f"DEPTH:{bid}")
             parent = branch.get("parent_branch_id")
             if parent:
                 if parent not in branches:
                     failures.append(f"PARENT_MISSING:{bid}")
-                elif int(branches[parent].get("depth") or -1) + 1 != depth:
+                elif int(branches[parent].get("depth", -1)) + 1 != depth:
                     failures.append(f"PARENT_DEPTH:{bid}")
-            if branch.get("status") in {"OPEN", "CLAIMED", "ACTIVE", "WITNESSED", "BLOCKED"}:
+            if branch.get("status") in ACTIVE_WIDTH_STATES:
                 by_depth[depth] = by_depth.get(depth, 0) + 1
         for depth, count in by_depth.items():
-            if count > int(state["budget"]["max_width"]):
+            if count > int(budget.get("max_width", 0)):
                 failures.append(f"WIDTH:{depth}")
 
         event_dir = self._safe_rel(paths["events"])
@@ -629,8 +616,7 @@ class RehydrationCampaignRuntime:
                     failures.append(f"EVENT_CHAIN_PARENT:{path.name}")
                 if index and event.get("before_state_digest") != previous_state:
                     failures.append(f"EVENT_STATE_PARENT:{path.name}")
-                digest = _event_digest(event)
-                if digest != event.get("event_digest"):
+                if _event_digest(event) != event.get("event_digest"):
                     failures.append(f"EVENT_DIGEST:{path.name}")
                 chain = _sha({"previous": previous_chain, "event_digest": event.get("event_digest"), "state_digest": event.get("after_state_digest")})
                 if chain != event.get("chain_digest"):
