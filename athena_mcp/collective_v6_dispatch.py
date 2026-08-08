@@ -11,7 +11,14 @@ def call(discovery,name,a):
     if name=='athena_interaction_higher_order': return discovery.higher_order_interactions(a['experiments'],a.get('max_order',4),a.get('design_confidence',.5))
     if name=='athena_transition_distribution': return discovery.transition_distribution(a['action_id'],a['context'],a.get('prior_strength',5.0))
     if name=='athena_mpc_plan': return discovery.mpc_plan(a['initial_context'],a['actions'],a.get('horizon',3),a.get('beam_width',64),a.get('discount',.95),a.get('risk_aversion',.25),a.get('prior_strength',5.0))
-    if name=='athena_schedule_certified': return discovery.schedule_certified(a['tasks'],a['workers'],a.get('horizon',24),a.get('budget'),a.get('max_nodes',200000),a.get('exact_task_limit',8),a.get('discount',.97))
+    if name=='athena_schedule_certified':
+        budget=a.get('budget') or {}
+        if budget:
+            missing=[str(t.get('id','?')) for t in a['tasks'] if any(k not in (t.get('resource_cost') or {}) for k in budget)]
+            if missing:
+                fallback=discovery.science.schedule_multiperiod(a['tasks'],a['workers'],a.get('horizon',24),budget,128,'global',a.get('discount',.97))
+                return {**fallback,'certificate':'NONE_UNKNOWN_RESOURCE_COST','incomplete_cost_tasks':missing,'law':'exact certification requires every constrained resource dimension to be declared for every task; UNKNOWN_COST != ZERO_COST'}
+        return discovery.schedule_certified(a['tasks'],a['workers'],a.get('horizon',24),budget,a.get('max_nodes',200000),a.get('exact_task_limit',8),a.get('discount',.97))
     if name=='athena_witness_capsule': return discovery.witness_capsule(a['regression_ref'],a.get('timeout_s',20.0))
     if name=='athena_pareto_bandit_select': return discovery.pareto_bandit_select(a['candidates'],a.get('directions'),a.get('exploration_weight',.5))
     if name=='athena_claim_register': return discovery.claim_register(a['claim_key'],a['statement'],a.get('scope','global'))
