@@ -34,6 +34,11 @@ from .rehydration_loop import (
     REHYDRATION_TOOL_NAMES,
     RehydrationLoopRuntime,
 )
+from .agent_bootstrap import (
+    AGENT_BOOT_TOOLS,
+    AGENT_BOOT_TOOL_NAMES,
+    AgentBootstrapRuntime,
+)
 
 # The prompt stack is a content-policy coordinate, not a synonym for repository
 # time. Keep git_head in ancestry for provenance while excluding it from the
@@ -151,7 +156,7 @@ if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
     FrontierRuntime.hydrate = _frontier_hydrate_content_digest
     FrontierRuntime._athena_content_digest_v1_registered = True
 
-for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS:
+for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS + AGENT_BOOT_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
         PROMPT_RUNTIME_TOOLS.append(_tool)
         PROMPT_RUNTIME_TOOL_NAMES.add(_tool["name"])
@@ -187,3 +192,18 @@ if not getattr(PromptRuntime, "_athena_rehydration_loop_v1_registered", False):
 
     PromptRuntime.call_tool = _prompt_call_with_rehydration
     PromptRuntime._athena_rehydration_loop_v1_registered = True
+
+if not getattr(PromptRuntime, "_athena_agent_bootstrap_v1_registered", False):
+    _prompt_call_without_agent_bootstrap = PromptRuntime.call_tool
+
+    def _prompt_call_with_agent_bootstrap(self, name, arguments):
+        if name in AGENT_BOOT_TOOL_NAMES:
+            runtime = getattr(self, "_agent_bootstrap_runtime_v1", None)
+            if runtime is None:
+                runtime = AgentBootstrapRuntime(self.git, self)
+                self._agent_bootstrap_runtime_v1 = runtime
+            return runtime.call_tool(name, arguments)
+        return _prompt_call_without_agent_bootstrap(self, name, arguments)
+
+    PromptRuntime.call_tool = _prompt_call_with_agent_bootstrap
+    PromptRuntime._athena_agent_bootstrap_v1_registered = True
