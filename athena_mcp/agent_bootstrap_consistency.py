@@ -6,6 +6,7 @@ from .frontier_runtime import FrontierRuntime
 from .git_backend import GitStateError
 from .rehydration_loop import REHYDRATION_TOOLS, RehydrationLoopRuntime
 from .rehydration_terminal import install_terminal_gate
+from .rehydration_epoch import install_epoch_rollover
 
 
 def _selection_from_packet(frontier: dict) -> dict:
@@ -131,6 +132,7 @@ def install_bootstrap_consistency(runtime_cls) -> None:
     _install_shared_fresh_verify_index(RehydrationLoopRuntime)
     if not getattr(RehydrationLoopRuntime, "_athena_terminal_gate_v1_installed", False):
         install_terminal_gate(RehydrationLoopRuntime, REHYDRATION_TOOLS)
+    install_epoch_rollover(RehydrationLoopRuntime, REHYDRATION_TOOLS)
 
     if getattr(runtime_cls, "_athena_boot_consistency_v1_registered", False):
         return
