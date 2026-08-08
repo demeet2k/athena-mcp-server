@@ -4,19 +4,19 @@ Artifact role: human-readable operating contract for the executable unified runt
 
 `release = athena-canonical-mcp 3.0.0`
 
-`manifest = ATHENA.RUNTIME.UNIFIED.6`
+`manifest = ATHENA.RUNTIME.UNIFIED.7`
 
 `runtime = one composed Server`
 
 Canonical whole-system coordinate:
 
-`ATHENA_UNIFIED_V11=<CCR,JSPACE,SCALE,KC144,AOR,Y1,EQ,SX,RAG,HUG,GAP,FIELD,TRANSPORT,CYCLE,SCHEMA,OMEGA,RECON,SELFTEST,STARTUP,SURFACE,COMPOSITION,PROMOTION,COLLECTIVE(V1-V11),FINAL>`
+`ATHENA_UNIFIED_V11=<CCR,JSPACE,SCALE,KC144,AOR,Y1,EQ,SX,RAG,HUG,GAP,FIELD,TRANSPORT,CYCLE,SCHEMA,OMEGA,RECON,SELFTEST,STARTUP,SURFACE,COMPOSITION,PROMOTION2,COLLECTIVE(V1-V11),FINAL>`
 
 This contract describes what the runtime currently exposes and what semantic shortcuts remain forbidden. It does not replace the machine-readable manifest or create authority by documentation alone.
 
 ## 1. Core separation law
 
-`IDENTITY != COORDINATE != MODEL != EVIDENCE != AUTHORITY != EXECUTION != OBSERVATION != PERSISTENCE`
+`IDENTITY != COORDINATE != MODEL != EVIDENCE != AUTHORITY != EXECUTION != OBSERVATION != PERSISTENCE != ATTESTATION != TRUSTED_VERIFICATION`
 
 `UNKNOWN != 0`
 
@@ -32,7 +32,11 @@ This contract describes what the runtime currently exposes and what semantic sho
 
 `ATTEMPTED_WRITE != VERIFIED_PERSISTENCE`
 
-The system may transport information between these planes only through explicit typed routes that preserve provenance and the distinction between predicted and observed state.
+`CALLER_ATTESTATION != TRUSTED_EXTERNAL_VERIFICATION`
+
+`ATTESTED_READY != QUALIFIED`
+
+The system may transport information between these planes only through explicit typed routes that preserve provenance and the distinction between predicted, claimed, observed, and trusted state.
 
 ## 2. Authority namespace law
 
@@ -82,7 +86,7 @@ State foundation:
 - `STARTUP.1` — local readiness typing;
 - `SURFACE.2` — required tool/resource union;
 - `COMPOSITION.2` — one composed runtime and resident/lazy classification;
-- `PROMOTION.1` — exact-head qualification predicate/ledger when actually invoked.
+- `PROMOTION.2` — versioned readiness/qualification trust ledger; historical PROMOTION.1 receipts remain replay-compatible.
 
 ## 4. Resident and lazy substrate
 
@@ -197,7 +201,7 @@ V11 coordinate fiber:
 
 `COLLECTIVE_ADAPTIVE=<GH,GV,LP,SL,SS,BP,EU,L>`.
 
-## 7. No-self-training law
+## 7. No-self-training and no-self-qualification law
 
 Forbidden implicit feedback includes:
 
@@ -209,31 +213,76 @@ Forbidden implicit feedback includes:
 - PC/partial/latent graph → JSPACE edge;
 - dependence prediction/interval → calibration label;
 - replication design → replication witness;
-- model/shadow state → Y1 authority.
+- model/shadow state → Y1 authority;
+- caller-supplied CI/smoke packet → trusted qualification.
 
-General firewall:
+General firewalls:
 
 `MODEL_OUTPUT --X--> OBSERVATION_WITHOUT_EXTERNAL_WITNESS`.
 
-## 8. Exact output ABI
+`CALLER_ATTESTATION --X--> QUALIFIED_WITHOUT_TRUSTED_VERIFIER`.
+
+## 8. PROMOTION.2 trust contract
+
+PROMOTION.2 repairs the earlier ambiguity between exact-head attestation and independently trusted external verification.
+
+### MCP-visible readiness path
+
+`athena_promotion_evaluate` accepts:
+
+- exact candidate Git head;
+- caller-supplied CI witness packet;
+- caller-supplied smoke witness packet;
+- local surface/composition/Git state computed by the runtime.
+
+If these gates pass, status is:
+
+`ATTESTED_READY`.
+
+The CI/smoke packets are labelled `CALLER_ATTESTED`. They prove that the caller supplied structurally consistent exact-head success claims; the runtime does not pretend it independently queried the external CI provider.
+
+### Trusted qualification path
+
+PROMOTION.2 `QUALIFIED` additionally requires an internal trusted verifier receipt containing:
+
+- `observed=true`;
+- verifier identity;
+- verification reference;
+- exact `head_sha`;
+- exact `ci_ref` matching the frozen CI packet;
+- exact `smoke_ref` matching the frozen smoke packet.
+
+The ordinary MCP tool schema exposes no field for this receipt. Therefore an MCP caller cannot mint trusted qualification by supplying its own verifier object.
+
+`ATTESTED_READY + TRUSTED_HOST_VERIFIER → QUALIFIED`.
+
+Missing trusted verifier leaves the receipt `ATTESTED_READY`. A malformed/mismatched verifier blocks qualification.
+
+### Historical replay
+
+PROMOTION.1 receipts remain replayable under their frozen V1 evaluator semantics. Their historical `QUALIFIED` statuses are retained for lineage/replay but are counted separately from current PROMOTION.2 trusted qualification.
+
+`HISTORICAL_REPLAY != CURRENT_TRUST_PROMOTION`.
+
+## 9. Exact output ABI
 
 `FINALIZE_OUTPUT → ENV(HEADER + BODY) → VERIFY_EMISSION`.
 
 Visible bytes become a manifestation and coordinate surface. Finalized bytes are not silently mutated after their verification digest is created.
 
-## 9. CI and qualification semantics
+## 10. CI and qualification semantics
 
 Repository CI gate:
 
 `syntax ∧ full-unit-suite ∧ critical-invariants ∧ dependent-smoke`.
 
-Critical invariants include repository-brain documentation consistency in addition to runtime/state/model firewalls.
+Critical invariants include repository-brain documentation consistency and PROMOTION.2 caller/trusted separation in addition to runtime/state/model firewalls.
 
-A green GitHub head is external evidence for qualification; it is **not itself a live PROMRUN**. A PROMRUN may be claimed only when the runtime actually creates, persists, verifies, and replays that exact receipt.
+A green GitHub head is external evidence, but it is **not itself a live trusted PROMRUN**. A caller-generated PROMRUN with matching CI/smoke packets is `ATTESTED_READY`, not `QUALIFIED`. A trusted `QUALIFIED` receipt may be claimed only when the host verifier bridge actually supplies and persists the trusted verification packet.
 
-`CI_PASS != LIVE_PROMRUN`.
+`CI_PASS != LIVE_TRUSTED_PROMRUN`.
 
-## 10. Unresolved boundaries
+## 11. Unresolved boundaries
 
 These remain explicitly unresolved rather than being promoted by adjacency:
 
@@ -242,11 +291,12 @@ These remain explicitly unresolved rather than being promoted by adjacency:
 - `MODEL_TO_AUTHORITY_BRIDGE` — model/shadow output requires explicit witnessed transport into Y1/AOR evidence lanes;
 - `GENERAL_BELIEF_CONTROL` — bounded finite/Gaussian/POMDP/BAPOMDP layers are not general Bayes-adaptive control;
 - `FORMAL_CAUSAL_DISCOVERY` — bootstrap/partial/PC/supplied-DAG projection are not hidden-confounder-complete FCI/RFCI discovery;
-- `GENERAL_NONLINEAR_BAYES` — small-data RBF GP and finite-grid adaptation are not general kernel learning, sparse scalable GP, neural Bayesian inference, or world truth.
+- `GENERAL_NONLINEAR_BAYES` — small-data RBF GP and finite-grid adaptation are not general kernel learning, sparse scalable GP, neural Bayesian inference, or world truth;
+- `EXTERNAL_PROMOTION_VERIFIER` — the trusted host bridge capable of independently verifying external CI/smoke references is not yet implemented/exposed in the runtime environment.
 
-## 11. External control-plane boundary
+## 12. External control-plane boundary
 
-GitHub branch protection, repository description/settings, tags, and Releases are external control-plane state.
+GitHub branch protection, repository description/settings, tags, Releases, and the trusted promotion-verifier bridge are external control-plane state.
 
 They are not inferred from:
 
@@ -255,12 +305,12 @@ They are not inferred from:
 - STARTUP;
 - SURFACE;
 - COMPOSITION;
-- PROMOTION predicate tests;
+- caller-bound promotion packets;
 - GitHub Actions success.
 
-If a control-plane mutation capability is unavailable, the correct state is `UNRESOLVED_EXTERNAL_CONTROL_PLANE`, not a fabricated success claim.
+If a control-plane mutation or trusted verification capability is unavailable, the correct state is `UNRESOLVED_EXTERNAL_CONTROL_PLANE`, not a fabricated success claim.
 
-## 12. Successor integration law
+## 13. Successor integration law
 
 Do not invent V12 because V11 is complete.
 

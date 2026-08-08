@@ -1,6 +1,6 @@
 # ATHENA Unified Migration Law — v3.0 / Collective V1–V11
 
-This repository has passed through historical active-tree reset, AOR×Collective constitutional braid, parallel Collective successor development, and explicit ancestry repair. Migration therefore distinguishes **content**, **runtime integration**, **release identity**, **verification**, **authority**, **control-plane state**, and **Git ancestry**.
+This repository has passed through historical active-tree reset, AOR×Collective constitutional braid, parallel Collective successor development, explicit ancestry repair, repository-brain repair, and promotion-trust repair. Migration therefore distinguishes **content**, **runtime integration**, **release identity**, **verification**, **attestation**, **trusted qualification**, **authority**, **control-plane state**, and **Git ancestry**.
 
 `UNKNOWN / LEGACY != GARBAGE`
 
@@ -16,6 +16,10 @@ This repository has passed through historical active-tree reset, AOR×Collective
 
 `CI PASS != LIVE PROMRUN`
 
+`CALLER ATTESTATION != TRUSTED EXTERNAL VERIFICATION`
+
+`ATTESTED_READY != QUALIFIED`
+
 `RUNTIME STATE != GITHUB CONTROL-PLANE STATE`
 
 ## 1. Current executable target
@@ -26,7 +30,7 @@ Current release identity:
 
 Live runtime brain:
 
-`ATHENA.RUNTIME.UNIFIED.6`
+`ATHENA.RUNTIME.UNIFIED.7`
 
 One composed runtime contains:
 
@@ -38,7 +42,7 @@ One composed runtime contains:
 - typed AOR×Collective transport;
 - CYCLE.1;
 - SCHEMA.2 / OMEGA.1 / RECON.1;
-- SELFTEST.1 / STARTUP.1 / SURFACE.2 / COMPOSITION.2 / PROMOTION.1 predicates;
+- SELFTEST.1 / STARTUP.1 / SURFACE.2 / COMPOSITION.2 / PROMOTION.2 trust state;
 - exact final-emission verification.
 
 ## 2. Historical reset boundary
@@ -69,9 +73,11 @@ Unknown legacy tables/rows survive unless an explicitly authorized migration own
 
 ## 4. Restart continuity
 
-Persistent ledgers expected to survive close/reopen include AORRUN, FIELDRUN, TRANSPORTRUN, RECONRUN, CYCLE/CYCLEEV, PROMRUN when actually created, migration receipts, Collective observations/calibration/model state, and V11 GP-hyperfit journals.
+Persistent ledgers expected to survive close/reopen include AORRUN, FIELDRUN, TRANSPORTRUN, RECONRUN, CYCLE/CYCLEEV, versioned PROMRUN when actually created, migration receipts, Collective observations/calibration/model state, and V11 GP-hyperfit journals.
 
 A CYCLE halted in `WAITING_*` resumes at the frozen phase without replaying fictional work.
+
+PROMOTION.1 and PROMOTION.2 receipts remain replayable under the evaluator semantics frozen by their certificate version; new semantics do not silently rewrite historical decision digests.
 
 ## 5. Claim namespace migration — authority firewall
 
@@ -116,6 +122,8 @@ Law:
 
 `OBSERVE(OMEGA) != MUTATE(OMEGA)`.
 
+The runtime integrity benchmark must report the imported live `UNIFIED_MANIFEST_VERSION`; hard-coded historical manifest numbers are forbidden because they create machine-visible architecture drift.
+
 ## 7. AOR + Collective migration law
 
 Do not merge AOR and Collective through an untyped score.
@@ -158,9 +166,10 @@ A module is not integrated merely because its file exists. Integration requires:
 8. CI has a critical stage when constitutionally important;
 9. smoke exercises representative cross-layer behavior;
 10. manifest and OMEGA describe it;
-11. repository documentation and current operating spec agree with the live artifact.
+11. repository documentation and current operating spec agree with the live artifact;
+12. any trust/authority transition distinguishes caller claims from independently trusted verification.
 
-The final requirement is enforced by `test_documentation_consistency.py` so repository-brain drift becomes CI-visible.
+The documentation requirement is enforced by `test_documentation_consistency.py` so repository-brain drift becomes CI-visible.
 
 ## 9. V6 → V7
 
@@ -250,29 +259,62 @@ V11 is an **adaptive extension**, not a license to collapse model state into tru
 
 `athena_evidence_dependence_interval` uses Laplace/Hessian logit uncertainty around a fitted externally-labelled V10 dependence model. Interval reads create no labels and do not guarantee calibrated coverage.
 
-## 14. OMEGA / manifest migration
+## 14. PROMOTION.1 → PROMOTION.2 trust migration
+
+PROMOTION.1 accepted caller-supplied exact-head CI/smoke packets and could return/persist `QUALIFIED` even though the runtime explicitly did not independently fetch or verify the external CI provider. Historical V1 receipts remain replayable so their frozen digests and lineage are not destroyed, but their `QUALIFIED` rows are counted separately as historical compatibility state.
+
+PROMOTION.2 introduces a trust split:
+
+`SERVER + SURFACE + COMPOSITION + configured LOCAL_GIT + CALLER_CI + CALLER_SMOKE → ATTESTED_READY`
+
+`ATTESTED_READY + HOST_INTERNAL_TRUSTED_VERIFIER(head,ci_ref,smoke_ref) → QUALIFIED`.
+
+The ordinary MCP schema intentionally exposes **no** `trusted_external_verification` field. A caller therefore cannot manufacture PROMOTION.2 `QUALIFIED` by supplying its own verification packet.
+
+A trusted host bridge may call the internal evaluator with a receipt containing:
+
+- `observed=true`;
+- verifier identity;
+- verification reference;
+- exact `head_sha`;
+- exact `ci_ref` matching the frozen caller CI packet;
+- exact `smoke_ref` matching the frozen caller smoke packet.
+
+Missing verifier → `ATTESTED_READY`, not `QUALIFIED`.
+
+Malformed/mismatched verifier → `BLOCKED`.
+
+Historical PROMOTION.1 replay uses the old V1 evaluator. PROMOTION.2 replay uses the current V2 evaluator. No version is silently reinterpreted under another trust model.
+
+`CALLER_ATTESTATION != TRUSTED_EXTERNAL_VERIFICATION`.
+
+`ATTESTED_READY != QUALIFIED`.
+
+## 15. OMEGA / manifest migration
 
 OMEGA remains a versioned whole-state projection ABI while contents expand. V1–V4 are resident; V5–V11 are explicit lazy surfaces.
 
 Current live architecture artifact:
 
-`ATHENA.RUNTIME.UNIFIED.6`
+`ATHENA.RUNTIME.UNIFIED.7`
 
-Compatibility retains `.1` through `.5`.
+Compatibility retains `.1` through `.6`.
 
-Model-layer additions must update OMEGA metadata, manifest layers/invariants/unresolved boundary, MAXDEV law, SURFACE requirements, resource list/read handlers, tests, smoke, and repository-brain documentation.
+The `.7` delta is constitutional rather than a V12 model layer: it advertises PROMOTION.2, caller-attestation/trusted-verification separation, the unresolved trusted verifier bridge, and the corrected integrity benchmark manifest coordinate.
 
-## 15. CI migration
+Model- or governance-layer additions must update OMEGA/manifest metadata, layers/invariants/unresolved boundaries, MAXDEV law, SURFACE/resource handlers as needed, tests, smoke, and repository-brain documentation.
+
+## 16. CI migration
 
 Unified gate:
 
 `syntax ∧ unit ∧ critical-invariants ∧ dependent-smoke`.
 
-Critical invariants include schema/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, **documentation/repository-brain consistency**, V6↔Y1 firewall, V7, V8/V9, V10, V11, AOR×Collective transport, and promotion predicate.
+Critical invariants include schema/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, **documentation/repository-brain consistency**, V6↔Y1 firewall, V7, V8/V9, V10, V11, AOR×Collective transport, and PROMOTION.2 trust/exact-head replay semantics.
 
 Smoke runs only after the first three jobs pass and spans V6→V11 plus AOR/state/CYCLE/final-emission paths in one process.
 
-## 16. Parallel-lineage repair law
+## 17. Parallel-lineage repair law
 
 When AOR constitutional and Collective successor branches evolve in parallel, successor code is braided into the constitutional substrate rather than replacing it.
 
@@ -282,22 +324,28 @@ Governing loop:
 
 Never reuse qualification evidence from an older head.
 
-## 17. Git ancestry migration
+## 18. Git ancestry migration
 
 Copying current-master files is not lineage reconciliation. A true braid requires a commit whose parent graph contains both qualified unified ancestry and the exact live base. After that ancestry change, all four CI jobs run again on the new SHA.
 
 PR-head fast-forward is preferred over force when the historical PR head is an ancestor of the qualified repair line. Merge through GitHub remains a separate witnessed control-plane action.
 
-## 18. Post-merge verification
+## 19. Post-merge verification
 
 The merged master head must independently pass syntax, full unit, all critical invariants, and dependent smoke. PR-head success does not qualify the merge SHA.
 
-A later documentation or control-plane repair is a new head and must requalify again.
+A later documentation, trust-boundary, or control-plane repair is a new head and must requalify again.
 
-## 19. Promotion semantics
+## 20. Promotion receipt semantics
 
-PROMOTION.1 is a runtime ledger/predicate distinct from GitHub CI. Predicate tests prove behavior; they do **not** fabricate a live PROMRUN. A live qualification receipt may be claimed only when the runtime actually creates, persists, verifies, and replays that receipt for the exact head.
+A PROMRUN is a persisted versioned runtime receipt, not the same thing as GitHub CI.
 
-## 20. External GitHub control-plane boundary
+- PROMOTION.1 receipts preserve their historical status/digest under V1 replay.
+- PROMOTION.2 caller-created receipts may be `ATTESTED_READY` or `BLOCKED` but cannot be `QUALIFIED` because the trusted-verifier field is not exposed through MCP.
+- PROMOTION.2 `QUALIFIED` may be claimed only when a trusted host bridge actually injects, persists, verifies, and replays the exact trusted external-verification receipt for the head and references.
 
-Branch protection, repository description/settings, tags, and Releases are not runtime state. They must be queried/changed using GitHub control-plane capabilities. Absence of a connector or CLI permission is an unresolved infrastructure constraint, not permission to claim the setting changed.
+Predicate tests prove behavior; they do **not** fabricate a live trusted qualification.
+
+## 21. External GitHub/control-plane boundary
+
+Branch protection, repository description/settings, tags, Releases, and the trusted promotion-verifier bridge are not ordinary runtime state. They must be queried/changed using trusted host/GitHub control-plane capabilities. Absence of a connector or CLI permission is an unresolved infrastructure constraint, not permission to claim the setting changed.
