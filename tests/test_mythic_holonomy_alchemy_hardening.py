@@ -2,7 +2,9 @@ import unittest
 from copy import deepcopy
 
 from athena_mcp.mythic_holonomy_runtime import MythicHolonomyRuntime
-from mck_holonomy_fixture import PACKET
+from mck_holonomy_fixture import (
+    PACKET,FIXTURE_PROJECTION_POLICY,SOURCE_PACKET_CANONICAL_SHA256,canonical_packet_sha256,
+)
 
 
 class MythicHolonomyAlchemyHardeningTests(unittest.TestCase):
@@ -10,6 +12,16 @@ class MythicHolonomyAlchemyHardeningTests(unittest.TestCase):
         self.runtime=MythicHolonomyRuntime()
         self.result=self.runtime.evaluate(PACKET)
         self.index={c["case_id"]:i for i,c in enumerate(PACKET["cases"])}
+
+    def test_static_fixture_is_semantically_exact_but_not_remote_evidence(self):
+        self.assertEqual(canonical_packet_sha256(),SOURCE_PACKET_CANONICAL_SHA256)
+        self.assertEqual(self.result["packet_semantic_sha256"],SOURCE_PACKET_CANONICAL_SHA256)
+        self.assertFalse(FIXTURE_PROJECTION_POLICY["remote_source_verified_at_runtime"])
+        self.assertFalse(FIXTURE_PROJECTION_POLICY["projection_is_independent_evidence"])
+        self.assertEqual(FIXTURE_PROJECTION_POLICY["known_semantic_omissions"],[])
+        layers=[layer for fam in PACKET["families"] for layer in fam["layers"]]
+        self.assertEqual(sum(len(layer.get("invariants") or []) for layer in layers),10)
+        self.assertTrue(all(layer.get("source_language_or_text_layer")!=layer.get("layer_id") for layer in layers))
 
     def test_raw_arms_and_edge_support_do_not_read_expected_class(self):
         altered=deepcopy(PACKET)
@@ -93,6 +105,7 @@ class MythicHolonomyAlchemyHardeningTests(unittest.TestCase):
         self.assertEqual(summary["holonomy_vector_unaccounted_loss_unknown_cases"],2)
         self.assertEqual(summary["holonomy_vector_unaccounted_loss_known_total"],0)
         self.assertEqual(summary["textual_invariant_checks_unknown"],10)
+        self.assertEqual(summary["source_layer_invariant_checks_unknown"],10)
         self.assertGreater(summary["projection_assumption_receipts"],0)
         self.assertEqual(self.result["scalarization"],"DISABLED_V0")
         self.assertIn("STRING_INVARIANT_RETENTION != SEMANTIC_INVARIANT_VALIDATION",self.result["laws"])
