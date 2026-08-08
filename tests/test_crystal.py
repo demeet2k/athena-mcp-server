@@ -46,28 +46,45 @@ class CrystalTests(unittest.TestCase):
         r2=self.x.crystallize_output(self.semantic(),'v2','memory://2','A1','t',2,expected_vid=r1['manifest']['identity']['VID'])
         self.assertEqual(r1['manifest']['identity']['OID'],r2['manifest']['identity']['OID'])
         self.assertNotEqual(r1['manifest']['identity']['VID'],r2['manifest']['identity']['VID'])
-        self.assertEqual(r2['manifest']['lineage']['depth'],2) # register genesis + two output manifestations
+        self.assertEqual(r2['manifest']['lineage']['depth'],2)
     def test_transform_matrix_holonomy_and_path(self):
         a=self.c.register('MODEL','COORD','HOST','A','FIXTURE',{}, {})
         b=self.c.register('MODEL','COORD','HOST','B','FIXTURE',{}, {})
         self.c.add_edge(a['object']['oid'],'MAPS_TO',b['object']['oid'])
         path=self.x.graph_path(a['object']['oid'],b['object']['oid']); self.assertTrue(path['found']); self.assertEqual(path['length'],1)
-        for src,dst in [('KC144','JSPACE'),('JSPACE','SCALE'),('SCALE','KC144')]: self.x.register_transform(src,dst,status='FORMALIZED')
-        # crystallize so KC144/JSPACE/SCALE are resolved on a subject
+        for src,dst in [('KC144','JSPACE'),('JSPACE','SCALE'),('SCALE','KC144')]: self.x.register_transform(src,dst,status='FORMALIZED',mode='LOOKUP')
         r=self.x.crystallize_output(self.semantic(),'x','memory://x','A1','x',1)
         oid=r['manifest']['identity']['OID']
-        mat=self.x.coordinate_matrix(oid); self.assertGreater(mat['transform_coverage'],0); self.assertTrue(mat['closed_triangles'])
+        mat=self.x.coordinate_matrix(oid); self.assertGreater(mat['navigation_coverage'],0); self.assertEqual(mat['derivation_coverage'],0); self.assertTrue(mat['closed_triangles'])
+        route=self.x.apply_transform_route(oid,['KC144','JSPACE','SCALE','KC144']); self.assertEqual(route['holonomy']['status'],'N/A_LOOKUP_ROUTE')
         h=self.x.record_holonomy(oid,['CHART.KC144','CHART.JSPACE','CHART.SCALE','CHART.KC144'],{'x':1},{'x':1},{'norm':0},0.0)
         self.assertEqual(h['status'],'MEASURED')
+    def test_executable_derivation_and_holonomy(self):
+        r=self.x.crystallize_output(self.semantic(),'coordinate test','memory://coord','A1','coord',1,coordinates={'COPY':{'status':'UNKNOWN','family':'TEST'}})
+        oid=r['manifest']['identity']['OID']
+        self.x.register_transform('KC144','COPY',status='TESTED',mode='ISOMORPHISM',program={'op':'identity'},metric={'type':'EXACT'})
+        first=self.x.apply_transform(oid,'KC144','COPY',persist=True)
+        self.assertEqual(first['status'],'DERIVED_NO_TARGET')
+        copy=self.x._coordinate(oid,'COPY'); self.assertEqual(copy['status'],'RESOLVED')
+        self.x.register_transform('COPY','KC144',status='TESTED',mode='ISOMORPHISM',program={'op':'identity'},metric={'type':'EXACT'})
+        route=self.x.apply_transform_route(oid,['KC144','COPY','KC144'])
+        self.assertTrue(route['all_derivational']); self.assertEqual(route['holonomy']['metric'],0.0)
+        mat=self.x.coordinate_matrix(oid); self.assertGreater(mat['derivation_coverage'],0)
+    def test_final_emission_gateway(self):
+        out=self.x.finalize_output(semantic=self.semantic(),text='Final exact bytes.',native_locator='memory://final',agent='A1',task='emit',seq=1,math_objects=[{'kind':'INVARIANT','latex':'\\mathrm{body}\\neq\\mathrm{header}'}])
+        self.assertTrue(out['envelope_id'].startswith('ENV.')); self.assertTrue(out['emission_mid'].startswith('MID.')); self.assertGreater(out['token_count'],0)
+        self.assertEqual(out['visible_text'],out['manifest']['envelope'] and out['visible_text'])
+        self.assertTrue(self.x.verify_emission(out['envelope_id'])['verified'])
+        self.assertFalse(self.x.verify_emission(out['envelope_id'],out['visible_text']+'x')['verified'])
     def test_mcp_tool_surface(self):
         from athena_mcp.server import Server
         with tempfile.NamedTemporaryFile(suffix='.db') as f:
             srv=Server(f.name)
             names=[x['name'] for x in srv.handle({'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']]
-            for n in ['athena_crystallize_output','athena_dense_navigate','athena_add_hyperedge','athena_register_transform','athena_coordinate_matrix','athena_record_holonomy','athena_graph_path']:
+            for n in ['athena_crystallize_output','athena_dense_navigate','athena_add_hyperedge','athena_register_transform','athena_apply_transform','athena_apply_transform_route','athena_coordinate_matrix','athena_record_holonomy','athena_graph_path','athena_finalize_output','athena_verify_emission']:
                 self.assertIn(n,names)
             resources=srv.handle({'jsonrpc':'2.0','id':2,'method':'resources/list'})['result']['resources']
             uris={r['uri'] for r in resources}
-            self.assertIn('athena://coordinate/charts',uris); self.assertIn('athena://crystals',uris); self.assertIn('athena://math',uris)
+            self.assertIn('athena://coordinate/charts',uris); self.assertIn('athena://crystals',uris); self.assertIn('athena://math',uris); self.assertIn('athena://transforms',uris); self.assertIn('athena://emissions',uris)
             srv.store.close()
 if __name__=='__main__': unittest.main()
