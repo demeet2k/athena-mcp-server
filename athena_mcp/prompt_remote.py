@@ -14,8 +14,9 @@ class PromptRemoteSync:
 
     This surface never creates a merge commit, never rewrites local history, and
     never equates local persistence with shared delivery. Pull-side synchronization
-    may only fast-forward a clean current branch. Publish may only perform an
-    ordinary non-force push when the remote branch is an ancestor of local HEAD.
+    may only fast-forward a clean current branch after a successful fresh fetch.
+    Publish may only perform an ordinary non-force push after a successful fresh
+    fetch proves the remote branch is an ancestor of exact local HEAD.
     """
 
     def __init__(self, git: GitBackend):
@@ -96,6 +97,15 @@ class PromptRemoteSync:
             "law": "LOCAL_HEAD != SHARED_REMOTE_FRONTIER unless remote_checked=true and status=UP_TO_DATE",
         }
 
+    @staticmethod
+    def _fetch_hold(state: dict):
+        return {
+            **state,
+            "status": "REMOTE_SYNC_UNAVAILABLE_HOLD",
+            "shared_frontier_verified": False,
+            "law": "STALE_REMOTE_TRACKING_REF != FRESH_REMOTE_WITNESS; no shared mutation without successful fetch",
+        }
+
     def sync(self, remote: str = "origin"):
         branch = self._require()
         if self.git._git("status", "--porcelain"):
@@ -108,6 +118,8 @@ class PromptRemoteSync:
                 "law": "remote synchronization never absorbs uncommitted working-tree state",
             }
         state = self.status(remote=remote, fetch=True)
+        if not state.get("remote_checked"):
+            return self._fetch_hold(state)
         if state["status"] == "BEHIND_REMOTE":
             before = state["local_head"]
             p = _run(self.git.root, "merge", "--ff-only", state["remote_ref"])
@@ -128,7 +140,7 @@ class PromptRemoteSync:
                 "local_head_before": before,
                 "local_head_after": after,
                 "shared_frontier_verified": after == state["remote_head"],
-                "law": "shared prompt cognition advanced only by a clean fast-forward",
+                "law": "shared prompt cognition advanced only by a clean fast-forward after a fresh fetch",
             }
         if state["status"] == "DIVERGED_HOLD":
             return {
@@ -165,6 +177,8 @@ class PromptRemoteSync:
                 "shared_frontier_verified": False,
             }
         state = self.status(remote=remote, fetch=True)
+        if not state.get("remote_checked"):
+            return self._fetch_hold(state)
         if state["status"] == "UP_TO_DATE":
             return {**state, "status": "ALREADY_SHARED", "shared_frontier_verified": True}
         if state["status"] != "AHEAD_LOCAL":
@@ -172,7 +186,7 @@ class PromptRemoteSync:
                 **state,
                 "status": "PUBLISH_HOLD_" + state["status"],
                 "shared_frontier_verified": False,
-                "law": "publish requires remote ancestry of exact local HEAD; behind/diverged/unavailable states do not push",
+                "law": "publish requires remote ancestry of exact local HEAD; behind/diverged states do not push",
             }
         p = _run(self.git.root, "push", remote, f"HEAD:refs/heads/{branch}")
         if p.returncode:
@@ -185,10 +199,10 @@ class PromptRemoteSync:
         verified = self.status(remote=remote, fetch=True)
         return {
             **verified,
-            "status": "PUBLISHED_SHARED" if verified["status"] == "UP_TO_DATE" else "PUBLISH_VERIFY_HOLD",
-            "shared_frontier_verified": verified["status"] == "UP_TO_DATE",
+            "status": "PUBLISHED_SHARED" if verified.get("remote_checked") and verified["status"] == "UP_TO_DATE" else "PUBLISH_VERIFY_HOLD",
+            "shared_frontier_verified": bool(verified.get("remote_checked") and verified["status"] == "UP_TO_DATE"),
             "published_head": local,
-            "law": "durable cross-agent return requires post-push remote verification",
+            "law": "durable cross-agent return requires post-push fresh remote verification",
         }
 
     def call_tool(self, name: str, args: dict):
@@ -213,7 +227,7 @@ PROMPT_REMOTE_TOOLS = [
     },
     {
         "name": "athena_prompt_sync",
-        "description": "Fetch the shared prompt-brain remote and fast-forward a clean current branch only when local HEAD is an ancestor. Ahead/diverged/dirty states fail closed without merge or rewrite.",
+        "description": "Fresh-fetch the shared prompt-brain remote and fast-forward a clean current branch only when local HEAD is an ancestor. Failed fetch, ahead, diverged or dirty states hold.",
         "inputSchema": {
             "type": "object",
             "properties": {"remote": {"type": "string"}},
@@ -222,7 +236,7 @@ PROMPT_REMOTE_TOOLS = [
     },
     {
         "name": "athena_prompt_publish",
-        "description": "Publish an exact clean local prompt-brain HEAD by ordinary non-force push only when the fetched remote branch is its ancestor, then verify remote equality.",
+        "description": "Fresh-fetch then publish an exact clean local prompt-brain HEAD by ordinary non-force push only when the remote branch is its ancestor; post-push fresh-fetch verifies equality.",
         "inputSchema": {
             "type": "object",
             "required": ["expected_git_head"],
