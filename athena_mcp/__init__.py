@@ -2,10 +2,9 @@
 
 `protocol.py` remains the mature schema registry. Package initialization owns the
 release identity and patches compatibility surfaces before dispatch observes them.
-Frontier V1, rehydration-loop V1, routing-successor V1, terminal-gate V1, and
-handoff-delta V1 reuse the existing Git prompt runtime so long chains gain
-self-steering, witnessed closure, and compressed handoff without a second
-control plane.
+Frontier V1, rehydration-loop V1, routing-successor V1, terminal-gate V1,
+handoff-delta V1, and one-call agent bootstrap reuse the existing Git prompt
+runtime rather than creating another control plane.
 """
 
 __version__ = "3.2.0"
@@ -42,6 +41,13 @@ from .rehydration_handoff import (
     REHYDRATION_HANDOFF_TOOL_NAMES,
     RehydrationHandoffRuntime,
 )
+from .agent_bootstrap import (
+    AGENT_BOOT_TOOLS,
+    AGENT_BOOT_TOOL_NAMES,
+    AgentBootstrapRuntime,
+)
+from .agent_bootstrap_consistency import install_bootstrap_consistency
+from .agent_bootstrap_handoff import install_agent_bootstrap_handoff
 
 # Routing successor extension: answers WHAT NEXT.
 install_successor_extension(RehydrationLoopRuntime)
@@ -285,8 +291,13 @@ if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
     FrontierRuntime.hydrate = _frontier_hydrate_content_digest
     FrontierRuntime._athena_content_digest_v1_registered = True
 
+# Bootstrap must consume canonical rehydration/terminal/handoff behavior rather
+# than recreate it. Install BOOT-001/002 consistency first, then continuation.
+install_bootstrap_consistency(AgentBootstrapRuntime)
+install_agent_bootstrap_handoff(AgentBootstrapRuntime)
+
 # Additive MCP surface union.
-for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS + SUCCESSOR_TOOLS + REHYDRATION_HANDOFF_TOOLS:
+for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS + SUCCESSOR_TOOLS + REHYDRATION_HANDOFF_TOOLS + AGENT_BOOT_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
         PROMPT_RUNTIME_TOOLS.append(_tool)
         PROMPT_RUNTIME_TOOL_NAMES.add(_tool["name"])
@@ -353,3 +364,19 @@ if not getattr(PromptRuntime, "_athena_rehydration_handoff_v1_registered", False
 
     PromptRuntime.call_tool = _prompt_call_with_handoff
     PromptRuntime._athena_rehydration_handoff_v1_registered = True
+
+if not getattr(PromptRuntime, "_athena_agent_bootstrap_v1_registered", False):
+    _prompt_call_without_bootstrap = PromptRuntime.call_tool
+
+    def _prompt_call_with_bootstrap(self, name, arguments):
+        if name in AGENT_BOOT_TOOL_NAMES:
+            runtime = getattr(self, "_agent_bootstrap_runtime_v1", None)
+            if runtime is None:
+                frontier_runtime = getattr(self, "_frontier_runtime_v1", None)
+                runtime = AgentBootstrapRuntime(self.git, self, frontier_runtime)
+                self._agent_bootstrap_runtime_v1 = runtime
+            return runtime.call_tool(name, arguments)
+        return _prompt_call_without_bootstrap(self, name, arguments)
+
+    PromptRuntime.call_tool = _prompt_call_with_bootstrap
+    PromptRuntime._athena_agent_bootstrap_v1_registered = True
