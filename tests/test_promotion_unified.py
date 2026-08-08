@@ -42,7 +42,7 @@ class PromotionUnifiedTests(unittest.TestCase):
         self.assertEqual(run['attestation_level'],'CALLER_BOUND')
         self.assertEqual(run['gates']['ci']['trust_class'],'CALLER_ATTESTED')
         self.assertEqual(run['gates']['external_verification']['status'],'MISSING')
-        self.assertIn('trusted verifier',run['boundary'])
+        self.assertIn('trusted host bridge',run['boundary'])
 
     def test_mcp_schema_does_not_allow_caller_to_inject_trusted_verification(self):
         head='abcdef1234567890';ci=self.witness(head,'ci');smoke=self.witness(head,'smoke')
