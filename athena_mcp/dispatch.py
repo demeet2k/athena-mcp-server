@@ -21,11 +21,18 @@ from .collective_joint import CollectiveJointRuntime
 from .collective_robust import CollectiveRobustRuntime
 from .collective_v6_protocol import CLAIM_NAMESPACE_LAW
 from .unified_manifest import build_unified_manifest,maxdev_law
+from .prompt_runtime import PromptRuntime,PROMPT_RUNTIME_TOOLS,PROMPT_RUNTIME_TOOL_NAMES
+
+_existing_prompt_tool_names={t['name'] for t in TOOLS}
+for _tool in PROMPT_RUNTIME_TOOLS:
+    if _tool['name'] not in _existing_prompt_tool_names:
+        TOOLS.append(_tool);_existing_prompt_tool_names.add(_tool['name'])
 
 NON_SELF_METERING={
     'athena_omega_state','athena_schema_status','athena_schema_plan','athena_schema_verify',
     'athena_self_test','athena_startup_health','athena_surface_audit','athena_runtime_manifest','athena_maxdev_law',
     'athena_benchmark','athena_git_status','athena_reconstruction_get','athena_reconstruction_verify','athena_reconstruction_recent',
+    'athena_prompt_hydrate','athena_prompt_compile','athena_prompt_freshness',
 }
 
 def _meter(server,name,started,status):
@@ -42,6 +49,11 @@ def _probabilistic(server):return CollectiveProbabilisticRuntime(_inference(serv
 def _adaptive(server):return CollectiveAdaptiveRuntime(_probabilistic(server))
 def _joint(server):return CollectiveJointRuntime(_adaptive(server))
 def _robust(server):return CollectiveRobustRuntime(_joint(server))
+def _prompt_runtime(server):
+    runtime=getattr(server,'prompt_runtime',None)
+    if runtime is None:
+        runtime=PromptRuntime(server.git);server.prompt_runtime=runtime
+    return runtime
 
 
 def handle(server,m):
@@ -59,7 +71,9 @@ def handle(server,m):
         try:
             td=next((t for t in TOOLS if t['name']==name),None)
             if td is None:raise KeyError(name)
-            validate(td['inputSchema'],args);value=server.call_tool(name,args);_meter(server,name,started,'OK')
+            validate(td['inputSchema'],args)
+            value=_prompt_runtime(server).call_tool(name,args) if name in PROMPT_RUNTIME_TOOL_NAMES else server.call_tool(name,args)
+            _meter(server,name,started,'OK')
             return server.result(mid,{'content':[{'type':'text','text':json.dumps(value,ensure_ascii=False,sort_keys=True)}],'structuredContent':value,'isError':False})
         except StaleTarget as e:
             _meter(server,name,started,'STALE_TARGET');return server.result(mid,{'content':[{'type':'text','text':str(e)}],'structuredContent':{'status':'STALE_TARGET','detail':str(e)},'isError':True})
@@ -72,6 +86,7 @@ def handle(server,m):
     if method=='resources/list':
         rs=[
             {'uri':'athena://manifest','name':'ATHENA Live Unified Runtime Manifest','mimeType':'application/json'},
+            {'uri':'athena://prompt/runtime','name':'Git-Native Modular Prompt Runtime','mimeType':'application/json'},
             {'uri':'athena://kc144/stations','name':'KC144 12x12 Station Registry','mimeType':'application/json'},
             {'uri':'athena://state/head','name':'Canonical State Head','mimeType':'application/json'},
             {'uri':'athena://registry','name':'Canonical Capability Registry','mimeType':'application/json'},
@@ -109,6 +124,8 @@ def handle(server,m):
         uri=params.get('uri');c=server.core
         if uri in AOR_DEVELOPMENT_RESOURCE_URIS:val=server.aor_development.read_resource(uri)
         elif uri=='athena://manifest':val=build_unified_manifest(server)
+        elif uri=='athena://prompt/runtime':
+            pr=_prompt_runtime(server);val=pr.hydrate(include_text=False) if pr.available else {'status':'UNAVAILABLE','reason':'configured ATHENA_GIT_ROOT does not contain prompts/PROMPT.manifest.json'}
         elif uri=='athena://kc144/stations':val=json.loads(station_manifest())
         elif uri=='athena://state/head':val=c.s.head('global') or {}
         elif uri=='athena://registry':val=c.s.rows('SELECT * FROM objects ORDER BY canonical_name')
@@ -118,7 +135,7 @@ def handle(server,m):
         elif uri=='athena://crystals':val=c.s.rows('SELECT crystal_id,oid,vid,mid,header,created_at FROM crystals ORDER BY created_at DESC LIMIT 1000')
         elif uri=='athena://math':val=c.s.rows('SELECT * FROM math_objects ORDER BY created_at DESC LIMIT 1000')
         elif uri=='athena://time/provenance':val=TIME_PROVENANCE
-        elif uri=='athena://transforms':val={'transforms':c.s.rows('SELECT t.*,p.mode,p.program_json,p.metric_json FROM transforms t LEFT JOIN transform_programs p ON p.transform_id=t.transform_id ORDER BY t.created_at DESC LIMIT 1000'),'executions':c.s.rows('SELECT * FROM transform_executions ORDER BY created_at DESC LIMIT 1000')}
+        elif uri=='athena://transforms':val={'transforms':c.s.rows('SELECT t.*,p.mode,p.program_json,p.metric_json FROM transforms t LEFT JOIN transform_programs p ON p.transform_id=t.transform_id ORDER BY t.created_at DESC LIMIT 1000'),'executions':c.s.rows('SELECT * FROM transform_executions ORDER BY t.created_at DESC LIMIT 1000')}
         elif uri=='athena://emissions':val=c.s.rows('SELECT envelope_id,crystal_id,emission_mid,visible_digest,created_at FROM emissions ORDER BY created_at DESC LIMIT 1000')
         elif uri=='athena://collective/runtime':val=server.collective.describe()
         elif uri=='athena://collective/growth':val=server.collective_growth.describe()
@@ -146,6 +163,13 @@ def handle(server,m):
     if method=='prompts/get':
         if params.get('name')!='athena_maxdev':return server.error(mid,-32602,'Unknown prompt')
         a=params.get('arguments') or {};task=a.get('task','');agent=a.get('agent','ATHENA')
-        text='ATHENA UNIFIED AOR×COLLECTIVE V13 MAXDEV\nAGENT='+str(agent)+'\nTASK='+str(task)+'\n'+maxdev_law()
-        return server.result(mid,{'description':'Unified AOR/Y1 developmental cortex × Collective V1–V13 organization/science/discovery/belief/inference/probabilistic/adaptive/joint/robust cycle','messages':[{'role':'user','content':{'type':'text','text':text}}]})
+        pr=_prompt_runtime(server)
+        if pr.available:
+            compiled=pr.compile(task=task,profile='MAXDEV',include_text=True)
+            text=compiled['compiled_text']+'\n[CURRENT TASK]\nAGENT='+str(agent)+'\nTASK='+str(task)+'\nPROMPT_STACK_DIGEST='+compiled['prompt_stack_digest']+'\nGIT_HEAD='+str(compiled['git_head'])
+            desc='Git-compiled ATHENA MAXDEV runtime addendum with exact prompt-stack ancestry'
+        else:
+            text='ATHENA UNIFIED AOR×COLLECTIVE V13 MAXDEV\nAGENT='+str(agent)+'\nTASK='+str(task)+'\n'+maxdev_law()
+            desc='Fallback unified AOR/Y1 developmental cortex × Collective V1–V13 cycle; Git prompt runtime unavailable'
+        return server.result(mid,{'description':desc,'messages':[{'role':'user','content':{'type':'text','text':text}}]})
     return server.error(mid,-32601,'Method not found')
