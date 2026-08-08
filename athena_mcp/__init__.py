@@ -8,6 +8,9 @@ reuses the existing MCP dispatcher rather than creating a second control plane.
 
 __version__ = "3.2.0"
 
+import hashlib
+import json
+
 from . import protocol as _protocol
 
 SERVER_INFO = {
@@ -23,6 +26,24 @@ _protocol.SERVER_INFO = dict(SERVER_INFO)
 # tools extend that family rather than duplicating dispatch/state/authority code.
 from .prompt_runtime import PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES
 from .frontier_runtime import FrontierRuntime, FRONTIER_TOOLS, FRONTIER_TOOL_NAMES
+
+# The prompt stack is a content-policy coordinate, not a synonym for repository
+# time. Keep git_head in ancestry for provenance while excluding it from the
+# prompt-stack digest. Git/head freshness remains a separate coordinate.
+if not getattr(PromptRuntime, "_athena_content_digest_v1_registered", False):
+    _prompt_compile_with_head_digest = PromptRuntime.compile
+
+    def _prompt_compile_content_digest(self, *args, **kwargs):
+        result = _prompt_compile_with_head_digest(self, *args, **kwargs)
+        ancestry = dict(result["ancestry"])
+        digest_basis = {k: v for k, v in ancestry.items() if k != "git_head"}
+        payload = json.dumps(digest_basis, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+        result["prompt_stack_digest"] = hashlib.sha256(payload).hexdigest()
+        result["prompt_stack_digest_basis"] = "content ancestry excluding git_head; git_head remains independent provenance/freshness coordinate"
+        return result
+
+    PromptRuntime.compile = _prompt_compile_content_digest
+    PromptRuntime._athena_content_digest_v1_registered = True
 
 for _tool in FRONTIER_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
