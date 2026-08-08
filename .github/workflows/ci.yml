@@ -29,9 +29,9 @@ jobs:
           from pathlib import Path
           s=Path('/tmp/athena-tests.log').read_text(errors='replace')
           marker='======================================================================'
-          failure=s[s.find(marker):] if marker in s else '\n'.join(s.splitlines()[-220:])
+          failure=s[s.find(marker):] if marker in s else '\n'.join(s.splitlines()[-240:])
           failure=failure.replace('%','%25').replace('\r','%0D').replace('\n','%0A')
-          print(failure[:28000])
+          print(failure[:30000])
           PY
             )
             echo "::error title=ATHENA full-suite traceback::$msg"
@@ -87,6 +87,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_collective_v10.py' -v
           python -m unittest discover -s tests -p 'test_collective_v10_adversarial.py' -v
           python -m unittest discover -s tests -p 'test_collective_v10_unified.py' -v
+      - name: V11 adaptive constructive adversarial and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v11.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v11_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v11_unified.py' -v
       - name: AOR Collective transport firewalls
         run: python -m unittest discover -s tests -p 'test_aor_collective_transport.py' -v
       - name: Exact-head promotion predicate
