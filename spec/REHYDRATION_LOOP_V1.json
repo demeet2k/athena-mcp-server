@@ -1,0 +1,94 @@
+{
+  "artifact": "ATHENA.REHYDRATION.LOOP.V1",
+  "coordinate": "ATHENA.KC144::GITΩ::REHYDRATION-LOOP::V1",
+  "harness_id": "HARNESS/ORCHESTRATION/REHYDRATE/SELF_PROMPT_GIT_LOOP/V1",
+  "authority_ceiling": "below host, system, developer, user, repository protection, and promotion authority",
+  "purpose": "Persist explicit bounded self-prompt cycles in Git so agents can finish one cycle, commit work, rehydrate exact shared state, and continue across turns or agents.",
+  "state_machine": {
+    "initial": "ABSENT",
+    "states": [
+      "ABSENT",
+      "ACTIVE",
+      "COMPLETE",
+      "HOLD_MAX_STEPS",
+      "HOLD_NO_PROGRESS",
+      "ABORTED"
+    ],
+    "transitions": [
+      "ABSENT -> ACTIVE: athena_rehydration_start",
+      "ACTIVE -> ACTIVE: observed completion + descendant work head + remaining budget",
+      "ACTIVE -> COMPLETE: observed SUCCEEDED completion with terminal=true",
+      "ACTIVE -> HOLD_MAX_STEPS: step ceiling reached",
+      "ACTIVE -> HOLD_NO_PROGRESS: no-progress ceiling or explicit non-failure hard hold",
+      "ACTIVE -> ABORTED: observed FAILED completion with hard_hold=true"
+    ]
+  },
+  "cycle": [
+    "hydrate exact prompt and optional SCHED frontier coordinates",
+    "compile a bounded self-prompt",
+    "execute one explicit agent cycle",
+    "commit substantive work to Git",
+    "submit observed completion and deliberation pass receipts",
+    "verify exact checkpoint ancestry and state/prompt digests",
+    "persist receipt, state and the next prompt in a CAS Git commit",
+    "optionally publish and freshly verify the shared remote frontier",
+    "resume explicitly in a later turn or agent"
+  ],
+  "default_depth_policy": {
+    "mode": "deep",
+    "passes": [
+      "reconstruct",
+      "retrieve",
+      "generate",
+      "attack",
+      "execute",
+      "verify",
+      "synthesize"
+    ]
+  },
+  "budgets": {
+    "max_steps": {"default": 64, "minimum": 1, "maximum": 256},
+    "max_no_progress": {"default": 3, "minimum": 1, "maximum": 16},
+    "max_prompt_chars": {"default": 32000, "minimum": 8000, "maximum": 120000}
+  },
+  "git_paths": {
+    "root": "prompts/rehydration/<loop_id>",
+    "state": "prompts/rehydration/<loop_id>/state.json",
+    "prompts": "prompts/rehydration/<loop_id>/prompts/<step>.md",
+    "receipts": "prompts/rehydration/<loop_id>/receipts/<step>.json",
+    "start_event": "prompts/rehydration/<loop_id>/events/0000-start.json"
+  },
+  "coordinates": [
+    "Git checkpoint head",
+    "Git work head",
+    "prompt-stack digest",
+    "frontier digest",
+    "loop-state digest",
+    "prompt digest",
+    "receipt digest",
+    "chain digest"
+  ],
+  "remote_modes": {
+    "REQUIRED": "fresh sync and post-write publication verification are mandatory",
+    "BEST_EFFORT": "local progress is allowed but never represented as durable shared return",
+    "DISABLED": "local/test mode"
+  },
+  "tools": [
+    "athena_rehydration_start",
+    "athena_rehydration_advance",
+    "athena_rehydration_resume",
+    "athena_rehydration_verify",
+    "athena_rehydration_index"
+  ],
+  "invariants": [
+    "one loop checkpoint is current per loop",
+    "advance requires the current checkpoint to be an ancestor of the work head",
+    "manual changes to state or prompt fail digest verification",
+    "SUCCEEDED and PARTIAL completions contain every required deliberation pass",
+    "only observed completion can advance",
+    "terminal loops cannot advance",
+    "no-progress cycles are bounded",
+    "local commit and shared publication remain separate states",
+    "loop verification establishes causal integrity, not world truth"
+  ]
+}
