@@ -1,7 +1,18 @@
 from __future__ import annotations
 
+from .collective_inference import CollectiveInferenceRuntime
+from .collective_v9_dispatch import call as call_v9
+from .collective_v9_protocol import COLLECTIVE_V9_TOOLS
+
+V9_NAMES={t['name'] for t in COLLECTIVE_V9_TOOLS}
+
+
+def _inference(belief):
+    return CollectiveInferenceRuntime(belief)
+
 
 def call(belief,name,a):
+    if name in V9_NAMES: return call_v9(_inference(belief),name,a)
     if name=='athena_belief_register': return belief.belief_register(a['context_key'],a['models'],a.get('replace',False))
     if name=='athena_belief_state': return belief.belief_state(a['context_key'])
     if name=='athena_belief_observe': return belief.belief_observe(a['context_key'],a['outcome'],a['likelihoods'],a.get('evidence_ref',''),a.get('actor','agent'))
