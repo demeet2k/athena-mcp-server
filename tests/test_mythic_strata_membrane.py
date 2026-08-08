@@ -38,6 +38,8 @@ class MythicStrataMembraneTests(unittest.TestCase):
         self.assertEqual(p["status"],"WITHIN_LAYER_ALLOWED")
         self.assertTrue(p["allowed"])
         self.assertFalse(p["identity_equivalence"])
+        self.assertFalse(p["semantic_equivalence"])
+        self.assertFalse(p["operator_equivalence"])
         self.assertEqual(p["execution_authority"],"NONE")
 
     def test_cross_layer_transport_requires_complete_source_bearing_bridge(self):
@@ -61,8 +63,26 @@ class MythicStrataMembraneTests(unittest.TestCase):
         self.assertEqual(allowed["status"],"BRIDGE_ALLOWED_WITH_LOSS")
         self.assertTrue(allowed["allowed"])
         self.assertFalse(allowed["identity_equivalence"])
+        self.assertFalse(allowed["semantic_equivalence"])
+        self.assertFalse(allowed["operator_equivalence"])
         self.assertEqual(allowed["transform_loss"],["decoder semantics differ"])
         self.assertEqual(allowed["execution_authority"],"NONE")
+
+    def test_explicit_bridge_never_upgrades_cross_layer_equivalence_claim(self):
+        bridge={
+            "source_ref":"source://comparison","evidence_standing":"SECONDARY_SCHOLARSHIP",
+            "invariants":["preserve symbol identity only"],
+            "transform_loss":["semantic interpretation differs by layer"],
+            "authority":"SCHOLARLY_MAPPING",
+        }
+        p=MythicStrataRuntime().transport(
+            L("historical"),L("modern"),"SEMANTIC_EQUIVALENCE",explicit_bridge=bridge,
+        )
+        self.assertEqual(p["status"],"HOLD_CROSS_LAYER_EQUIVALENCE")
+        self.assertFalse(p["allowed"])
+        self.assertFalse(p["semantic_equivalence"])
+        self.assertEqual(p["mapping_alternative"],"SEMANTIC_TRANSPORT")
+        self.assertTrue(p["bridge_supplied"])
 
     def test_bridge_cannot_escalate_target_standing_above_evidence(self):
         r=MythicStrataRuntime()
