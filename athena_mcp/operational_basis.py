@@ -37,6 +37,17 @@ _CONTROL_PREFIXES = (
     "athena_rehydration_",
 )
 
+# Current bounded provider membrane operations whose semantic class is claim /
+# execution even when the concrete name does not contain the word "claim".
+# This mapping is runtime metadata, not prompt policy and not execution authority.
+_CLAIM_EXECUTION_OPERATIONS = {
+    "athena_frontier_provider_status",
+    "athena_frontier_claim_prepare",
+    "athena_frontier_ready",
+    "athena_frontier_claim",
+    "athena_frontier_claim_reconcile",
+}
+
 
 def _canonical(value: Any) -> bytes:
     return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
@@ -68,7 +79,9 @@ def _capability_class(name: str) -> str:
     if name.startswith("athena_prompt_"):
         return "PROMPT"
     if name.startswith("athena_frontier_"):
-        return "CLAIM_EXECUTION" if "claim" in name else "FRONTIER_READ_SELECT"
+        if name in _CLAIM_EXECUTION_OPERATIONS or "claim" in name:
+            return "CLAIM_EXECUTION"
+        return "FRONTIER_READ_SELECT"
     if name.startswith("athena_rehydration_"):
         if "handoff" in name:
             return "HANDOFF"
