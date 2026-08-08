@@ -5,8 +5,11 @@
   "authority_ceiling": "coordination only; below branch protection, merge, release, source mutation, evidence promotion, and user authority",
   "composition": {
     "branch_work_runtime": "ATHENA.REHYDRATION.LOOP.V1",
-    "successor_source": "ATHENA.REHYDRATION.SUCCESSOR.BATON.V1",
-    "campaign_state": "Git-persisted append-only event chain plus current branch projection"
+    "routing_successor": "ATHENA.REHYDRATION.SUCCESSOR.BATON.V1 answers WHAT NEXT",
+    "rehydration_handoff": "ATHENA.REHYDRATION.HANDOFF.DELTA.V1 answers WHAT TO REHYDRATE",
+    "canonical_delta_core": "ATHENA.SUCCESSOR.BATON.V1",
+    "campaign_state": "Git-persisted append-only event chain plus current branch projection",
+    "law": "WHAT_NEXT != WHAT_TO_REHYDRATE"
   },
   "freshness": {
     "start": "expected_git_head must equal the observed current Git head after the configured shared-frontier sync",
@@ -27,11 +30,17 @@
     "claim": "assign a logical-clock lease to one branch",
     "release": "return a claimed branch to OPEN",
     "bind_loop": "bind a claimed branch to an exact V1 loop state/checkpoint",
-    "sync_branch": "project the bound loop state into campaign branch state",
-    "expand": "materialize SELECTED or AMBIGUOUS successor baton candidates as child branches subject to budgets",
+    "sync_branch": "project the bound loop state into campaign branch state; a future surface may also bind a canonical read-only handoff digest without rescoring routing",
+    "expand": "materialize SELECTED or AMBIGUOUS routing-successor candidates as child branches subject to budgets",
     "reconcile": "record an observed selection among WITNESSED branches; supersession is explicit, never inferred from omission",
     "resume": "return the full current branch frontier and campaign state",
     "verify": "verify event-chain, topology, branch-budget, depth and width invariants"
+  },
+  "handoff_boundary": {
+    "routing_baton_role": "select or preserve successor tasks",
+    "handoff_delta_role": "compress exact predecessor-to-successor state for another agent",
+    "campaign_rule": "branch expansion consumes routing successor; cross-agent hydration consumes handoff delta",
+    "nontransfer": "a handoff delta is receipt-bound context and never becomes routing or merge authority"
   },
   "expansion": {
     "SELECTED": "one child branch",
@@ -67,9 +76,11 @@
   },
   "laws": [
     "CAMPAIGN_BRANCH != BACKGROUND_WORKER",
+    "WHAT_NEXT != WHAT_TO_REHYDRATE",
     "AMBIGUITY MAY EXPAND INTO BOUNDED BRANCHES",
     "WIDTH/DEPTH/BRANCH BUDGETS FAIL CLOSED",
     "BRANCH_ROUTING != AUTHORITY",
+    "HANDOFF_DELTA != BRANCH_ROUTING",
     "UNMENTIONED BRANCH != SUPERSEDED BRANCH",
     "RECONCILIATION != GIT_MERGE",
     "CAMPAIGN COMPLETE REQUIRES OBSERVED INTEGRATION WITNESS",
