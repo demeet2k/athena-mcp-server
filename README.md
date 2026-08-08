@@ -2,11 +2,11 @@
 
 A from-first-principles ATHENA Git/MCP nervous substrate.
 
-Core law: one canonical state, explicit versions, exact ancestry, stale-write rejection, typed JSPACE graph/hypergraph, SCALE, KC144, open-world coordinate atlas, mathematical-object registry, executable transform calculus, public liminal telemetry, exact final-emission bytes, lossless RETURN, and a cost-aware collective-intelligence controller with persistent organizational memory.
+Core law: one canonical state, explicit versions, exact ancestry, stale-write rejection, typed JSPACE graph/hypergraph, SCALE, KC144, open-world coordinate atlas, mathematical-object registry, executable transform calculus, public liminal telemetry, exact final-emission bytes, lossless RETURN, and a cost-aware collective-intelligence controller with persistent organizational memory and bounded empirical learning.
 
 ## Runtime cycle
 
-`HYDRATE → RECONSTRUCT → PHEROMONE/ANTIBODY MEMORY → JSPACE → SCALE → KC144/POLYATLAS → CUT/MAXDEV → COLLECTIVE PLAN → RGO CALIBRATE → DEMAND ALLOCATE → BUILD/BRIDGE → QUORUM/VERIFY → HEALTH/RESTRUCTURE → JSPACE ALARM/TOPOLOGY CAS → LIFECYCLE/PHEROMONE → OBSERVED RGO → FINALIZE_OUTPUT → VERIFY → CONDITIONAL COMMIT → GLOBAL DIFFUSION`
+`HYDRATE → RECONSTRUCT → PHEROMONE/ANTIBODY MEMORY → BUDGET/POLICY STATE → JSPACE → SCALE → KC144/POLYATLAS → CUT/MAXDEV → COLLECTIVE PLAN → RGO CALIBRATE → COUNTERFACTUAL RANK → DEMAND ALLOCATE → EXECUTE/METER → QUORUM/VERIFY → HEALTH/RESTRUCTURE → JSPACE ALARM/TOPOLOGY CAS → OBSERVED RGO/POLICY UPDATE → MULTISCALE PHEROMONE/ELDER/ANTIBODY UPDATE → LIFECYCLE → FINALIZE_OUTPUT → VERIFY → CONDITIONAL COMMIT → GLOBAL DIFFUSION`
 
 ## Identity
 
@@ -19,6 +19,8 @@ Semantic CAS: `expected VID == current VID` else `STALE_TARGET`.
 Git CAS: `expected Git HEAD == current Git HEAD` else `STALE_GIT_HEAD`.
 
 Collective topology CAS: `expected topology version == current topology version` else `STALE_TOPOLOGY`.
+
+Learned organization policy CAS: `expected policy version == current policy version` else `STALE_POLICY`.
 
 ## Exact visible text
 
@@ -93,6 +95,52 @@ Resource: `athena://collective/v2`.
 Specification: `spec/COLLECTIVE_RUNTIME_V2.md`.
 
 Authority law: collective V2 state may steer organization, but canonical semantic mutation still requires expected-VID CAS and Git persistence still requires Git-head CAS. Collective topology never silently rewrites JSPACE.
+
+## Collective Runtime V3 — Self-Learning Collective Ecology
+
+V3 converts persistent memory into bounded empirical adaptation while keeping learning subordinate to measurement, versioning and rollback.
+
+### ΩBUDGET
+
+- `athena_budget_record` persists observed tokens/wall time/tool calls/compute/retrieval/storage/human-attention dimensions when available;
+- `athena_budget_summary` aggregates those observations plus MCP tool-call wall time automatically metered by dispatch;
+- token or compute usage is never fabricated when the host does not expose it.
+
+### ΩPOLICY
+
+- `athena_policy_state` / `athena_policy_score` expose the current bounded learned organization policy;
+- `athena_policy_update` requires an explicit normalized outcome and current expected policy version;
+- coefficients are bounded, L2-regularized, and updated with a sample-count-decaying learning rate;
+- `athena_policy_rollback` restores a prior before-state as a new version without erasing history.
+
+### ΩCOUNTERFACTUAL
+
+- `athena_counterfactual_simulate` ranks candidate organizations using deterministic RGO, V2 calibration, learned-policy reliability, risk and budget pressure;
+- its result is always `SIMULATE_ONLY`; it cannot mutate topology or certify its own prediction.
+
+### ΩELDER
+
+- `athena_elder_observe` accumulates measured reuse, prediction, repair, regression and generalization outcomes with contradiction penalty;
+- `athena_elder_rank` returns defeasible longitudinal authority;
+- age, repetition or popularity alone confer no seniority.
+
+### ΩIMMUNE++
+
+- `athena_antibody_record_outcome` records repair/regression outcomes and false positives;
+- `athena_antibody_evolve` creates variant families with parent lineage and optional expiry;
+- `athena_antibody_select` combines semantic match with empirical repair/regression reliability and status.
+
+### ΩPHEROMONE^N
+
+- `athena_pheromone_multiscale_reinforce` propagates reinforcement over declared `token → artifact → module → domain → system` coordinates with distance attenuation;
+- `athena_pheromone_multiscale_field` returns the resulting persistent scale fiber;
+- missing coordinates are never synthesized and local success does not receive global-strength reinforcement.
+
+Resource: `athena://collective/v3`.
+
+Specification: `spec/COLLECTIVE_RUNTIME_V3.md`.
+
+V3 authority law: `MEASURED_COST != ESTIMATED_COST`, `PREDICTION != OBSERVATION`, `LEARNED_POLICY != CANONICAL_TRUTH`, and `COUNTERFACTUAL != COMMIT`. Semantic/Git/topology/policy authority planes remain separate and versioned.
 
 ## Run
 
