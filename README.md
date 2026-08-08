@@ -1,10 +1,10 @@
-# ATHENA Canonical MCP v2.7 — Polycoordinate Crystal + Finite Belief-State Decision Runtime
+# ATHENA Canonical MCP v2.8 — Polycoordinate Crystal + Continuous Inference Decision Runtime
 
-ATHENA's executable Git/MCP nervous substrate combines canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, collective organization/memory/learning, causal experimental science, active discovery, stochastic/dual control, and V8 finite belief-state decision machinery.
+ATHENA's executable Git/MCP nervous substrate combines canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, collective organization/memory/learning, causal experimental science, active discovery, stochastic/dual control, finite belief-state decisions, and V9 continuous linear Bayesian inference with robust causal estimation.
 
 ## Runtime cycle
 
-`HYDRATE → CHOOSE MINIMUM-SUFFICIENT DEPTH → MEMORY/SCIENCE-SHADOW → REGIME/OOD → PREDICT/CALIBRATE → OPTIONAL FINITE BELIEF → LIVE HYPOTHESES → EIG OR DECISION-EVI EXPERIMENT DESIGN → CONDITIONAL CAUSAL IDENTIFICATION → OPTIONAL CAUSAL EFFECT ESTIMATE → PARETO/SCHEDULE → STATE MODEL/SCENARIO/DUAL OR BELIEF-DUAL PLAN → EXECUTE FIRST AUTHORIZED ACTION → OBSERVE/METER → EXPLICIT BELIEF/MODEL UPDATE → REPLICATE/FALSIFY → CREDIT → MEMORY/IMMUNE/ELDER → JSPACE/TOPOLOGY/PROJECTION/COMPENSATION → LIFECYCLE → FINALIZE/VERIFY → CONDITIONAL COMMIT → REPLAN/REATTACK`.
+`HYDRATE → CHOOSE MINIMUM-SUFFICIENT DEPTH → MEMORY/SCIENCE-SHADOW → REGIME/OOD → PREDICT/CALIBRATE → OPTIONAL FINITE OR GAUSSIAN BELIEF → LIVE HYPOTHESES → EIG/EVI/EVPI/EVSI DESIGN → CONDITIONAL CAUSAL IDENTIFICATION → OPTIONAL CAUSAL EFFECT/AIPW ESTIMATE → PARETO/SCHEDULE → STATE MODEL/SCENARIO/DUAL OR BELIEF POLICY → EXECUTE FIRST AUTHORIZED ACTION → OBSERVE/METER → EXPLICIT BELIEF/MODEL UPDATE → REPLICATE/FALSIFY → CREDIT → MEMORY/IMMUNE/ELDER → JSPACE/TOPOLOGY/PROJECTION/COMPENSATION → LIFECYCLE → FINALIZE/VERIFY → CONDITIONAL COMMIT → REPLAN/REATTACK`.
 
 ## Authority
 
@@ -14,7 +14,7 @@ ATHENA's executable Git/MCP nervous substrate combines canonical identity/versio
 - learned V3 policy: expected policy version;
 - topology→JSPACE remains a recovery saga, not a fictional cross-store transaction;
 - V5 semantic compensation retracts only active projection-owned semantic effects and never implies Git rollback;
-- V4–V8 statistical, belief, causal-estimation, scenario, experiment-design and replication state is evidential/control state and has no independent semantic-mutation authority.
+- V4–V9 statistical, belief, causal-estimation, graph-hypothesis, scenario, experiment-design and replication state is evidential/control state and has no independent semantic-mutation authority.
 
 `SID != OID != MID != VID != CID != EID != CRYS != ENV`.
 
@@ -34,9 +34,7 @@ ATHENA's executable Git/MCP nervous substrate combines canonical identity/versio
 - **V3:** observed budgets, bounded rollbackable learned policy, counterfactuals, elder authority, antibody evolution, multiscale pheromones.
 - **V4:** contextual UCB, causal-confidence credit/residual, worker-cost scheduling, learned diffusion, executable regressions, explicit-transition rollouts and topology→JSPACE sagas.
 
-Resources:
-
-`athena://collective/runtime`, `athena://collective/growth`, `athena://collective/v2`, `athena://collective/v3`, `athena://collective/v4`.
+Resources: `athena://collective/runtime`, `athena://collective/growth`, `athena://collective/v2`, `athena://collective/v3`, `athena://collective/v4`.
 
 Core laws: `MAX_GROWTH != MAX_ACTIVITY`; `MAX_INTEGRATION != MAX_CONNECTIVITY`; `UCB != TRUTH`; `UNKNOWN_COST != ZERO_COST`; `PROJECTION_SAGA != ATOMIC_TRANSACTION`.
 
@@ -65,177 +63,162 @@ V7 adds uncertainty-source diagnostics, empirical prequential bands, a bounded o
 Resource: `athena://collective/v7`  
 Spec: `spec/COLLECTIVE_RUNTIME_V7.md`
 
-Coordinate:
+Coordinate: `COLLECTIVE_DUAL_CONTROL=<UD,PI,CG,SM,SC,DC,CX,RI,RD,L>`.
 
-`COLLECTIVE_DUAL_CONTROL=<UD,PI,CG,SM,SC,DC,CX,RI,RD,L>`.
+`UNCERTAINTY_DECOMPOSITION != UNIQUE_PHYSICAL_TRUTH`; `ASSOCIATION_SKELETON != CAUSAL_DAG`; `STATE_DEPENDENT_TRANSITION_MODEL != WORLD_TRUTH`; `SCENARIO_TREE != OBSERVED_FUTURE`; `DUAL_CONTROL_PROXY != EXACT_BAYES_ADAPTIVE_CONTROL`.
 
-Key laws:
+## V8 — finite belief state + decision value
 
-- `UNCERTAINTY_DECOMPOSITION != UNIQUE_PHYSICAL_TRUTH`
-- `PREQUENTIAL_BAND != DISTRIBUTION_FREE_ARBITRARY-SHIFT GUARANTEE`
-- `ASSOCIATION_SKELETON != CAUSAL_DAG`
-- `STATE_DEPENDENT_TRANSITION_MODEL != WORLD_TRUTH`
-- `SCENARIO_TREE != OBSERVED_FUTURE`
-- `DUAL_CONTROL_PROXY != EXACT_BAYES_ADAPTIVE_CONTROL`
-- `FRONTDOOR/IV IDENTIFICATION != CAUSAL TRUTH OUTSIDE SUPPLIED DAG/ASSUMPTIONS`
-- `ESTIMATED_REPLICATION_INDEPENDENCE != FORMAL INDEPENDENCE`.
-
----
-
-# V8 — Finite Belief State + Decision Value
-
-V8 attacks the next tractable residual: instead of valuing uncertainty only through a parameter-information proxy, the runtime can maintain an explicit finite distribution over competing models and value information by how much it improves the downstream decision.
+V8 maintains an explicit finite probability distribution over competing models, updates it only from declared real observations, prices experiments by expected downstream decision improvement, adds depth-1 belief-aware control, assumption-scoped linear/Wald/mediation estimators, bootstrap association stability, contingent policies, and spectral evidence diversity.
 
 Resource: `athena://collective/v8`  
 Spec: `spec/COLLECTIVE_RUNTIME_V8.md`
 
-## ΩBELIEF
-
-Tools:
-
-- `athena_belief_register`
-- `athena_belief_state`
-- `athena_belief_observe`
-
-For models `M_i` with probabilities `p_i`, an explicit observed outcome with caller-supplied likelihood witness `L_i=P(y|M_i)` produces
+Finite Bayes update:
 
 `p_i' = p_i L_i / Σ_j p_j L_j`.
 
-Likelihood is required for every model. Design/planning operations never mutate belief automatically.
+Decision EVI:
 
-`BELIEF_POSTERIOR != CANONICAL_TRUTH` and `LIKELIHOOD_MODEL != OBSERVATION`.
+`EVI(e)=E_y[max_a EU(a|y,e)]-max_a EU(a)`.
 
-## ΩEVI — decision-theoretic value of information
+Coordinate:
 
-Tool:
+`COLLECTIVE_BELIEF=<BS,EVI,BD,CE,CB,CP,ER,L>`.
 
-- `athena_decision_evi`
+`BELIEF_POSTERIOR != CANONICAL_TRUTH`; `LIKELIHOOD_MODEL != OBSERVATION`; `EVI_DESIGN != RESULT`; `BELIEF_DUAL_CONTROL != EXACT_BAYES_ADAPTIVE_POMDP`; `CAUSAL_ESTIMATE != IDENTIFICATION_PROOF`; `BOOTSTRAP_STABILITY != CAUSAL_EDGE_PROBABILITY`; `CONTINGENT_POLICY != EXECUTION_HISTORY`; `SPECTRAL_EVIDENCE_DIVERSITY != FORMAL_INDEPENDENCE`.
 
-For action utilities `U(a,M_i)`:
+---
 
-`EU(a)=Σ_i p_i U(a,M_i)`
+# V9 — Continuous Inference + Robust Causal Decision Value
 
-and
+V9 extends V8 from a finite discrete model simplex into a tractable continuous parameter-belief surface and adds information-value ceilings, sample-information design, deeper finite contingent policies, cross-fitted AIPW estimation, specification robustness, uncertainty-preserving partial graphs and explicit evidence-dependence probability models.
 
-`V0=max_a EU(a)`.
+Resource: `athena://collective/v9`  
+Spec: `spec/COLLECTIVE_RUNTIME_V9.md`
 
-For experiment `e` with finite outcomes:
+## ΩGAUSSIAN-BELIEF
 
-`V(e)=Σ_y P(y|e) max_a EU(a|y,e)`
+Tools:
 
-and
+- `athena_gaussian_belief_register`
+- `athena_gaussian_belief_state`
+- `athena_gaussian_belief_observe`
 
-`EVI(e)=max(0,V(e)-V0)`.
+For linear observation `y=xᵀθ+ε`, `ε~N(0,σ²)`, V9 stores the Gaussian belief in natural coordinates `A=Σ⁻¹`, `b=Aμ` and updates
 
-This differs from entropy-only EIG: information receives value only if it can improve the supplied downstream decision. Ethics remains a hard gate; cost/risk/feasibility remain explicit. Result is `DESIGN_ONLY`.
+`A' = A + w xxᵀ/σ²`
 
-`EVI_DESIGN != EXPERIMENT_RESULT`.
+`b' = b + w xy/σ²`
 
-## ΩBELIEF-DUAL
+`Σ'=A'⁻¹`, `μ'=Σ'b'`.
 
-Tool:
+`GAUSSIAN_LINEAR_POSTERIOR != GENERAL_CONTINUOUS_BAYES`. Design/prediction calls never self-update the posterior.
 
-- `athena_belief_dual_control`
+## ΩEVPI / ΩEVSI
 
-A bounded depth-1 finite-belief controller combines immediate expected utility, expected best next-decision utility, information gain, risk and cost:
+Tools:
 
-`Q(a)=EU_now(a)+γ E[V_next|a]+λ_I EIG(a)-λ_R Risk(a)-Cost(a)`.
+- `athena_decision_evpi`
+- `athena_decision_evsi`
 
-Result is `BELIEF_DUAL_CONTROL_DEPTH1_PLAN_ONLY`.
+For linear action utility `U(a,θ)=c_a+q_aᵀθ`, V9 estimates
 
-It executes nothing and does not update belief.
+`EVPI ≈ E_θ[max_a U(a,θ)] - max_a U(a,E[θ])`
 
-`BELIEF_DUAL_CONTROL != EXACT_BAYES_ADAPTIVE_POMDP`.
+by posterior Monte Carlo.
 
-## ΩCAUSAL-EFFECT
+For a linear measurement design, EVSI simulates posterior-predictive observations, hypothetical posterior updates and downstream optimal decisions:
 
-Tool:
+`EVSI(e) ≈ E_y[max_a EU(a|y,e)] - max_a EU(a)`.
 
-- `athena_causal_effect_estimate`
+Both return sampling-error metadata. EVSI is `DESIGN_ONLY`; ethics/cost/risk/feasibility remain independent gates.
 
-Implemented assumption-scoped estimators:
+`MONTE_CARLO_EVPI_EVSI != EXACT_ANALYTIC_VALUE`.
 
-- `BACKDOOR_LINEAR`: treatment coefficient in `Y=β0+τT+γᵀZ+ε`;
-- `IV_WALD`: `τ=Cov(Z,Y)/Cov(Z,T)` with weak-first-stage rejection;
-- `FRONTDOOR_LINEAR`: linear mediation proxy `α_(T→M) β_(M→Y|T)`.
-
-These estimate only under the declared model/assumption surface. They do not replace V6/V7 identification checks or establish the causal graph. Explicit latent-confounding risk fails closed.
-
-`CAUSAL_ESTIMATE != IDENTIFICATION_PROOF`.
-
-## ΩBOOTSTRAP-GRAPH
+## ΩMULTISTAGE-BELIEF
 
 Tool:
 
-- `athena_causal_structure_bootstrap`
+- `athena_belief_policy_multistage`
 
-The runtime repeatedly resamples observations and reruns V7's transparent association-skeleton procedure. Edge support is
+V9 exactly recurses over a caller-declared finite model/outcome surface for horizon `H<=3`, producing a contingent action/observation/posterior policy tree.
 
-`support(e)=#bootstrap runs containing e / B`.
+Status: `FINITE_BELIEF_MULTISTAGE_POLICY_PLAN_ONLY`.
 
-Stable undirected edges and collider candidates are returned as graph hypotheses. No canonical JSPACE edge is created.
+No hypothetical branch mutates persistent belief or history.
 
-`BOOTSTRAP_ASSOCIATION_STABILITY != CAUSAL_EDGE_PROBABILITY`.
+`MULTISTAGE_FINITE_BELIEF_POLICY != GENERAL_POMDP`.
 
-## ΩCONTINGENT-POLICY
-
-Tool:
-
-- `athena_contingent_policy`
-
-For one experiment, V8 returns a depth-1 policy tree:
-
-`outcome → hypothetical posterior → best action`.
-
-Status: `CONTINGENT_POLICY_DEPTH1_DESIGN_ONLY`.
-
-No branch becomes observation or history until measured.
-
-## ΩEVIDENCE-SPECTRAL
+## ΩAIPW
 
 Tool:
 
-- `athena_evidence_spectral`
+- `athena_causal_aipw`
 
-Science-shadow witness similarity matrix `S` yields weighted effective count
+For binary treatment with propensity `e(X)` and outcome models `m_t(X)`, V9 computes the augmented inverse-probability score
 
-`N_eff=(Σ_i w_i)^2 / Σ_ij w_i w_j S_ij`
+`ψ=m1(X)-m0(X)+T(Y-m1(X))/e(X)-(1-T)(Y-m0(X))/(1-e(X))`.
 
-and spectral participation-ratio proxy
+It uses deterministic two-fold cross-fitting, logistic propensity nuisance models, ridge-linear outcome nuisance models, explicit propensity clipping, an influence-function standard error and a 95% interval.
 
-`D_PR=Tr(S)^2 / ||S||_F^2`.
+`AIPW_ESTIMATE != IDENTIFICATION_PROOF`; declared latent-confounding risk fails closed.
 
-Identical witness pipelines collapse toward one effective dimension; diverse metadata can increase effective evidence dimension. Missing comparable metadata is treated conservatively.
+## ΩROBUSTNESS
 
-`SPECTRAL_EVIDENCE_DIVERSITY != FORMAL_STATISTICAL_INDEPENDENCE`.
+Tool:
 
-## V8 coordinate
+- `athena_causal_robustness`
 
-`COLLECTIVE_BELIEF=<BS,EVI,BD,CE,CB,CP,ER,L>`
+Each declared adjustment covariate is omitted in turn and the resulting back-door linear estimate shift is reported. This is an observed specification diagnostic, not a formal hidden-confounding sensitivity bound.
 
-- `BS`: finite belief state
-- `EVI`: decision-value-of-information surface
-- `BD`: belief-aware dual-control plan
-- `CE`: conditional effect estimate
-- `CB`: bootstrap causal-structure stability
-- `CP`: contingent policy design
-- `ER`: evidence redundancy/effective-rank geometry
+## ΩPARTIAL-GRAPH
+
+Tool:
+
+- `athena_structure_partial`
+
+Stable V8 bootstrap association hypotheses are expressed with unresolved endpoints `X o-o Y`, preserving structural uncertainty instead of forcing orientation.
+
+`HEURISTIC_PARTIAL_GRAPH != FCI_PAG_OR_CPDAG_THEOREM` and it never mutates canonical JSPACE.
+
+## ΩEVIDENCE-DEPENDENCE
+
+Tool:
+
+- `athena_evidence_dependence_probability`
+
+A caller-declared logistic metadata model maps witness similarities/differences into pairwise dependence probabilities. Matching explicit independence keys force dependence probability 1; missing metadata contributes a visible conservative term rather than creating independence.
+
+`DEPENDENCE_PROBABILITY_MODEL != FORMAL_EVIDENCE_INDEPENDENCE`.
+
+## V9 coordinate
+
+`COLLECTIVE_INFERENCE=<GB,EVPI,EVSI,MP,AIPW,RB,PG,ED,L>`
+
+- `GB`: Gaussian parameter-belief state
+- `EVPI`: perfect-information value estimate
+- `EVSI`: sample-information value estimate
+- `MP`: multistage finite-belief policy
+- `AIPW`: robust causal estimate
+- `RB`: robustness perturbation
+- `PG`: partial structural-uncertainty graph
+- `ED`: evidence-dependence model
 - `L`: lineage/native context
 
-## V8 firewall
+## V9 firewall
 
-- `BELIEF_POSTERIOR != CANONICAL_TRUTH`
-- `LIKELIHOOD_MODEL != OBSERVATION`
-- `EVI_DESIGN != RESULT`
-- `BELIEF_DUAL_CONTROL != EXACT_BAYES_ADAPTIVE_POMDP`
-- `CAUSAL_ESTIMATE != IDENTIFICATION_PROOF`
-- `BOOTSTRAP_STABILITY != CAUSAL_EDGE_PROBABILITY`
-- `CONTINGENT_POLICY != EXECUTION_HISTORY`
-- `SPECTRAL_EVIDENCE_DIVERSITY != FORMAL_INDEPENDENCE`
+- `GAUSSIAN_LINEAR_POSTERIOR != GENERAL_CONTINUOUS_BAYES`
+- `MONTE_CARLO_EVPI_EVSI != EXACT_ANALYTIC_VALUE`
+- `MULTISTAGE_FINITE_BELIEF_POLICY != GENERAL_POMDP`
+- `AIPW_ESTIMATE != IDENTIFICATION_PROOF`
+- `ROBUSTNESS_PERTURBATION != HIDDEN_CONFOUNDING_BOUND`
+- `HEURISTIC_PARTIAL_GRAPH != FCI_PAG_OR_CPDAG_THEOREM`
+- `DEPENDENCE_PROBABILITY_MODEL != FORMAL_EVIDENCE_INDEPENDENCE`
 
 ## Run
 
 `python -m athena_mcp --db ./state/athena.db`
 
-MCP server package: `athena-canonical-mcp 2.7.0`  
+MCP server package: `athena-canonical-mcp 2.8.0`  
 MCP protocol revision: `2025-11-25`.
