@@ -13,9 +13,9 @@ class PromptRemoteSync:
     """Synchronize a prompt-brain checkout with its shared Git remote.
 
     This surface never creates a merge commit, never rewrites local history, and
-    never equates local persistence with shared delivery. It may only fetch and
-    fast-forward a clean current branch when local history is an ancestor of the
-    remote branch.
+    never equates local persistence with shared delivery. Pull-side synchronization
+    may only fast-forward a clean current branch. Publish may only perform an
+    ordinary non-force push when the remote branch is an ancestor of local HEAD.
     """
 
     def __init__(self, git: GitBackend):
@@ -144,11 +144,60 @@ class PromptRemoteSync:
             }
         return state
 
+    def publish(self, expected_git_head: str, remote: str = "origin"):
+        branch = self._require()
+        if self.git._git("status", "--porcelain"):
+            return {
+                "status": "DIRTY_WORKTREE_HOLD",
+                "branch": branch,
+                "remote": remote,
+                "local_head": self.git.head(),
+                "shared_frontier_verified": False,
+            }
+        local = self.git.head()
+        if local != expected_git_head:
+            return {
+                "status": "STALE_LOCAL_HEAD_HOLD",
+                "branch": branch,
+                "remote": remote,
+                "expected_git_head": expected_git_head,
+                "local_head": local,
+                "shared_frontier_verified": False,
+            }
+        state = self.status(remote=remote, fetch=True)
+        if state["status"] == "UP_TO_DATE":
+            return {**state, "status": "ALREADY_SHARED", "shared_frontier_verified": True}
+        if state["status"] != "AHEAD_LOCAL":
+            return {
+                **state,
+                "status": "PUBLISH_HOLD_" + state["status"],
+                "shared_frontier_verified": False,
+                "law": "publish requires remote ancestry of exact local HEAD; behind/diverged/unavailable states do not push",
+            }
+        p = _run(self.git.root, "push", remote, f"HEAD:refs/heads/{branch}")
+        if p.returncode:
+            return {
+                **state,
+                "status": "PUSH_FAILED_HOLD",
+                "shared_frontier_verified": False,
+                "error": p.stderr.strip() or p.stdout.strip(),
+            }
+        verified = self.status(remote=remote, fetch=True)
+        return {
+            **verified,
+            "status": "PUBLISHED_SHARED" if verified["status"] == "UP_TO_DATE" else "PUBLISH_VERIFY_HOLD",
+            "shared_frontier_verified": verified["status"] == "UP_TO_DATE",
+            "published_head": local,
+            "law": "durable cross-agent return requires post-push remote verification",
+        }
+
     def call_tool(self, name: str, args: dict):
         if name == "athena_prompt_remote_status":
             return self.status(args.get("remote", "origin"), bool(args.get("fetch", False)))
         if name == "athena_prompt_sync":
             return self.sync(args.get("remote", "origin"))
+        if name == "athena_prompt_publish":
+            return self.publish(args["expected_git_head"], args.get("remote", "origin"))
         raise KeyError(name)
 
 
@@ -168,6 +217,16 @@ PROMPT_REMOTE_TOOLS = [
         "inputSchema": {
             "type": "object",
             "properties": {"remote": {"type": "string"}},
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "athena_prompt_publish",
+        "description": "Publish an exact clean local prompt-brain HEAD by ordinary non-force push only when the fetched remote branch is its ancestor, then verify remote equality.",
+        "inputSchema": {
+            "type": "object",
+            "required": ["expected_git_head"],
+            "properties": {"expected_git_head": {"type": "string"}, "remote": {"type": "string"}},
             "additionalProperties": False,
         },
     },
