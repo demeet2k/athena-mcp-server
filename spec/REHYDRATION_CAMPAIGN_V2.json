@@ -23,7 +23,7 @@
     "bind_loop": "bind a claimed branch to an exact V1 loop state/checkpoint",
     "sync_branch": "project the bound loop state into campaign branch state",
     "expand": "materialize SELECTED or AMBIGUOUS successor baton candidates as child branches subject to budgets",
-    "reconcile": "record an observed selection among WITNESSED branches",
+    "reconcile": "record an observed selection among WITNESSED branches; supersession is explicit, never inferred from omission",
     "resume": "return the full current branch frontier and campaign state",
     "verify": "verify event-chain, topology, branch-budget, depth and width invariants"
   },
@@ -43,9 +43,9 @@
   },
   "reconciliation": {
     "eligible": "only WITNESSED branches may become ACCEPTED",
-    "nonselected_witnessed_or_blocked": "SUPERSEDED",
+    "supersede_branch_ids": "only explicitly named WITNESSED/BLOCKED branches become SUPERSEDED; unrelated branches remain unchanged",
     "nonterminal_result": "RECONCILED",
-    "terminal_result": "COMPLETE only with observed integration_witness.git_head",
+    "terminal_result": "COMPLETE only with observed integration_witness.git_head equal to the current observed Git head and no unresolved active frontier",
     "law": "RECONCILED != GIT_MERGED unless an external Git integration witness is supplied"
   },
   "persistence": {
@@ -55,11 +55,16 @@
     "batons": "batons/<sequence>-<baton_digest>.json",
     "digests": ["state_digest", "event_digest", "chain_digest"]
   },
+  "promotion_hold": {
+    "code": "CONTROL_PLANE_PROGRESS_ACCOUNTING",
+    "condition": "before MCP promotion, V1 loop substantive-work accounting must exclude sibling rehydration/campaign coordination-only commits so control-plane writes cannot satisfy a work-progress gate by themselves"
+  },
   "laws": [
     "CAMPAIGN_BRANCH != BACKGROUND_WORKER",
     "AMBIGUITY MAY EXPAND INTO BOUNDED BRANCHES",
     "WIDTH/DEPTH/BRANCH BUDGETS FAIL CLOSED",
     "BRANCH_ROUTING != AUTHORITY",
+    "UNMENTIONED BRANCH != SUPERSEDED BRANCH",
     "RECONCILIATION != GIT_MERGE",
     "CAMPAIGN COMPLETE REQUIRES OBSERVED INTEGRATION WITNESS",
     "CAMPAIGN VERIFY != BRANCH WORK TRUTH"
