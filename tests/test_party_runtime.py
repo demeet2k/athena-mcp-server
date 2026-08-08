@@ -2,9 +2,8 @@ import os
 import tempfile
 import unittest
 
-from athena_mcp.party_protocol import PARTY_TOOL_NAMES
-from athena_mcp.party_runtime import OUTPUT_HEADS, PartyRuntime, communication_metrics, party_bonus_rate
-from athena_mcp.party_server import PartyServer
+from athena_mcp.party_protocol import PARTY_RESOURCE, PARTY_TOOL_NAMES
+from athena_mcp.party_runtime import OUTPUT_HEADS, communication_metrics, party_bonus_rate
 from athena_mcp.server import Server
 
 
@@ -33,54 +32,81 @@ class PartyPureTests(unittest.TestCase):
         self.assertEqual(out["xp_multiplier"], 1.0)
 
 
-class PartyRuntimeTests(unittest.TestCase):
+class PartyNativeSurfaceTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.db = os.path.join(self.tmp.name, "athena.db")
         self.server = Server(self.db)
-        self.party = PartyRuntime(self.server)
+        self.surface = self.server.aor_development.party
+        self.party = self.surface.runtime
 
     def tearDown(self):
         self.server.store.db.close()
         self.tmp.cleanup()
 
-    def _formed_party(self):
+    def _formed_party(self, suffix=""):
         formed = self.party.form(
             "alpha",
             [
-                {"id": "goal-a", "required_capabilities": ["research"]},
-                {"id": "goal-b", "required_capabilities": ["build"]},
+                {"id": f"goal-a{suffix}", "required_capabilities": ["research"]},
+                {"id": f"goal-b{suffix}", "required_capabilities": ["build"]},
             ],
-            ["party-main"],
+            [f"party-main{suffix}"],
             capabilities=["research", "verify"],
-            name="Big 3 test party",
+            name=f"Big 3 test party{suffix}",
         )
         self.assertEqual(formed["rules"]["presence_xp"], 0)
         joined = self.party.join(formed["party_id"], "beta", capabilities=["build", "verify"])
         self.assertEqual(joined["presence_xp"], 0)
-        return formed["party_id"]
+        return formed["party_id"], f"party-main{suffix}", f"goal-a{suffix}", f"goal-b{suffix}"
 
-    def _braid(self, party_id):
+    def _planning_braid(self, party_id, channel):
         self.party.message(
             party_id,
             "alpha",
-            "party-main",
+            channel,
             "beta",
             "OFFER",
-            "I will take goal-a and publish evidence.",
+            "I will take the research goal and publish evidence.",
         )
         self.party.message(
             party_id,
             "beta",
-            "party-main",
+            channel,
             "alpha",
             "HANDOFF",
-            "I will take goal-b; send goal-a evidence here for joint verification.",
+            "I will take the build goal; send evidence here for joint verification.",
         )
 
-    def test_big3_3x5x7x9_and_capped_credit(self):
-        party_id = self._formed_party()
-        self._braid(party_id)
+    def _cycle_braid(self, party_id, channel, cycle_id):
+        self.party.message(
+            party_id,
+            "alpha",
+            channel,
+            "beta",
+            "RESULT",
+            "Research result is ready for the current party cycle.",
+            refs=[cycle_id],
+        )
+        self.party.message(
+            party_id,
+            "beta",
+            channel,
+            "alpha",
+            "VERIFY",
+            "Build result is ready and I verified the handoff for this cycle.",
+            refs=[cycle_id],
+        )
+
+    def _outcomes(self, goal_a, goal_b, suffix=""):
+        return [
+            {"outcome_ref": f"outcome-a{suffix}", "agent": "alpha", "goal_id": goal_a, "witness_ref": f"witness-a{suffix}", "status": "VERIFIED"},
+            {"outcome_ref": f"outcome-b{suffix}", "agent": "beta", "goal_id": goal_b, "witness_ref": f"witness-b{suffix}", "status": "VERIFIED"},
+        ]
+
+    def test_big3_3x5x7x9_and_capped_cycle_scoped_credit(self):
+        party_id, channel, goal_a, goal_b = self._formed_party()
+        self._planning_braid(party_id, channel)
         plan = self.party.steer(party_id, actor="alpha")
         self.assertEqual(plan["candidate_count"], 15)
         self.assertEqual(
@@ -91,13 +117,11 @@ class PartyRuntimeTests(unittest.TestCase):
         self.assertEqual(plan["heads"]["xp_multiplier"]["value"], 1.0)
         self.assertEqual(plan["pareto"]["model_count"], 16)
 
-        credited = self.party.credit(
+        self._cycle_braid(party_id, channel, plan["cycle_id"])
+        credited = self.surface._cycle_credit(
             party_id,
             plan["cycle_id"],
-            [
-                {"outcome_ref": "outcome-a", "agent": "alpha", "goal_id": "goal-a", "witness_ref": "witness-a", "status": "VERIFIED"},
-                {"outcome_ref": "outcome-b", "agent": "beta", "goal_id": "goal-b", "witness_ref": "witness-b", "status": "VERIFIED"},
-            ],
+            self._outcomes(goal_a, goal_b),
             [
                 {"agent": "alpha", "source_xp_ref": "quest-xp-alpha", "base_xp": 100, "witness_ref": "quest-xp-witness-alpha"},
                 {"agent": "beta", "source_xp_ref": "quest-xp-beta", "base_xp": 100, "witness_ref": "quest-xp-witness-beta"},
@@ -105,55 +129,77 @@ class PartyRuntimeTests(unittest.TestCase):
             actor="verifier",
         )
         self.assertEqual(credited["status"], "BONUS_CREDITED")
+        self.assertEqual(credited["credit"]["communication_scope"], "CURRENT_CYCLE_REFS_ONLY")
         self.assertGreater(credited["credit"]["bonus_rate"], 0.0)
         self.assertLessEqual(credited["credit"]["bonus_rate"], 0.05)
         self.assertEqual(len(credited["awards"]), 2)
         self.assertTrue(all(0 < row["bonus_xp"] <= 5 for row in credited["awards"]))
 
-        with self.assertRaises(ValueError):
-            self.party.credit(
-                party_id,
-                plan["cycle_id"],
-                [
-                    {"outcome_ref": "outcome-a2", "agent": "alpha", "goal_id": "goal-a", "witness_ref": "witness-a2", "status": "VERIFIED"},
-                    {"outcome_ref": "outcome-b2", "agent": "beta", "goal_id": "goal-b", "witness_ref": "witness-b2", "status": "VERIFIED"},
-                ],
-                [{"agent": "alpha", "source_xp_ref": "quest-xp-alpha", "base_xp": 100, "witness_ref": "quest-xp-witness-alpha"}],
-            )
-
-    def test_bonus_locks_without_communication(self):
-        party_id = self._formed_party()
+    def test_historical_braid_does_not_unlock_new_cycle(self):
+        party_id, channel, goal_a, goal_b = self._formed_party()
+        self._planning_braid(party_id, channel)
         plan = self.party.steer(party_id)
-        locked = self.party.credit(
+        locked = self.surface._cycle_credit(
             party_id,
             plan["cycle_id"],
-            [
-                {"outcome_ref": "outcome-a", "agent": "alpha", "goal_id": "goal-a", "witness_ref": "witness-a", "status": "VERIFIED"},
-                {"outcome_ref": "outcome-b", "agent": "beta", "goal_id": "goal-b", "witness_ref": "witness-b", "status": "VERIFIED"},
-            ],
+            self._outcomes(goal_a, goal_b),
             [{"agent": "alpha", "source_xp_ref": "quest-a", "base_xp": 100, "witness_ref": "quest-wa"}],
         )
         self.assertEqual(locked["status"], "BONUS_LOCKED")
         self.assertEqual(locked["credit"]["bonus_rate"], 0.0)
+        self.assertFalse(locked["credit"]["gates"]["communication"])
         self.assertEqual(locked["awards"], [])
 
+    def test_outcomes_and_upstream_xp_receipts_are_single_use(self):
+        party_id, channel, goal_a, goal_b = self._formed_party()
+        self._planning_braid(party_id, channel)
+        plan = self.party.steer(party_id)
+        self._cycle_braid(party_id, channel, plan["cycle_id"])
+        outcomes = self._outcomes(goal_a, goal_b)
+        self.surface._cycle_credit(
+            party_id,
+            plan["cycle_id"],
+            outcomes,
+            [
+                {"agent": "alpha", "source_xp_ref": "global-xp-alpha", "base_xp": 100, "witness_ref": "xpa"},
+                {"agent": "beta", "source_xp_ref": "global-xp-beta", "base_xp": 100, "witness_ref": "xpb"},
+            ],
+        )
+        with self.assertRaises(ValueError):
+            self.surface._cycle_credit(
+                party_id,
+                plan["cycle_id"],
+                outcomes,
+                [
+                    {"agent": "alpha", "source_xp_ref": "fresh-alpha", "base_xp": 100, "witness_ref": "fresh-a"},
+                    {"agent": "beta", "source_xp_ref": "fresh-beta", "base_xp": 100, "witness_ref": "fresh-b"},
+                ],
+            )
 
-class PartyServerSurfaceTests(unittest.TestCase):
-    def setUp(self):
-        self.tmp = tempfile.TemporaryDirectory()
-        self.db = os.path.join(self.tmp.name, "athena.db")
-        self.server = PartyServer(self.db)
+        party2, channel2, goal_a2, goal_b2 = self._formed_party("-2")
+        self._planning_braid(party2, channel2)
+        plan2 = self.party.steer(party2)
+        self._cycle_braid(party2, channel2, plan2["cycle_id"])
+        with self.assertRaises(ValueError):
+            self.surface._cycle_credit(
+                party2,
+                plan2["cycle_id"],
+                self._outcomes(goal_a2, goal_b2, "-2"),
+                [
+                    {"agent": "alpha", "source_xp_ref": "global-xp-alpha", "base_xp": 100, "witness_ref": "other-a"},
+                    {"agent": "beta", "source_xp_ref": "global-xp-beta", "base_xp": 100, "witness_ref": "other-b"},
+                ],
+            )
 
-    def tearDown(self):
-        self.server.store.db.close()
-        self.tmp.cleanup()
-
-    def test_default_surface_lists_party_tools(self):
+    def test_base_server_exports_party_tools_and_resource(self):
         response = self.server.handle({"jsonrpc": "2.0", "id": 1, "method": "tools/list"})
         names = {tool["name"] for tool in response["result"]["tools"]}
         self.assertTrue(PARTY_TOOL_NAMES <= names)
+        resources = self.server.handle({"jsonrpc": "2.0", "id": 2, "method": "resources/list"})
+        uris = {row["uri"] for row in resources["result"]["resources"]}
+        self.assertIn(PARTY_RESOURCE["uri"], uris)
 
-    def test_mcp_form_and_join(self):
+    def test_mcp_form_join_and_state_use_canonical_server(self):
         formed = self.server.handle(
             {
                 "jsonrpc": "2.0",
@@ -176,7 +222,15 @@ class PartyServerSurfaceTests(unittest.TestCase):
             }
         )
         self.assertFalse(joined["result"]["isError"])
-        self.assertEqual(len(joined["result"]["structuredContent"]["members"]), 2)
+        state = joined["result"]["structuredContent"]
+        self.assertEqual(len(state["members"]), 2)
+        read = self.server.handle(
+            {"jsonrpc": "2.0", "id": 3, "method": "resources/read", "params": {"uri": PARTY_RESOURCE["uri"]}}
+        )
+        self.assertIn("result", read)
+        text = read["result"]["contents"][0]["text"]
+        self.assertIn("CURRENT_CYCLE_REFS_ONLY", text)
+        self.assertIn("maximum_party_bonus_rate", text)
 
 
 if __name__ == "__main__":
