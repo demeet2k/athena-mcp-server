@@ -1,0 +1,23 @@
+from __future__ import annotations
+
+
+def _tool(name, description, required=(), properties=None):
+    return {"name":name,"description":description,"inputSchema":{"type":"object","required":list(required),"properties":properties or {},"additionalProperties":False}}
+
+STR={"type":"string"}; NUM={"type":"number"}; OBJ={"type":"object"}; BOOL={"type":"boolean"}; INT={"type":"integer"}
+
+COLLECTIVE_V9_TOOLS=[
+    _tool("athena_gaussian_belief_register","Register/reset a finite-dimensional Gaussian linear parameter belief in natural form. Not a GP/neural/nonparametric posterior.",( "context_key","parameters"),{"context_key":STR,"parameters":{"type":"array","minItems":1,"maxItems":32,"items":{"type":"string"}},"mean":OBJ,"prior_variance":NUM,"noise_variance":NUM,"metadata":OBJ,"replace":BOOL}),
+    _tool("athena_gaussian_belief_state","Read Gaussian linear belief mean/covariance and observation count.",( "context_key",),{"context_key":STR}),
+    _tool("athena_gaussian_belief_observe","Bayesian linear update from one explicit observed target and complete feature vector.",( "context_key","features","target"),{"context_key":STR,"features":OBJ,"target":NUM,"weight":NUM,"noise_variance":NUM,"evidence_ref":STR,"actor":STR}),
+    _tool("athena_decision_evpi","Estimate expected value of perfect information by Monte Carlo under the declared Gaussian linear belief and utility model.",( "context_key","actions"),{"context_key":STR,"actions":{"type":"array","minItems":1,"maxItems":128,"items":{"type":"object"}},"samples":{"type":"integer","minimum":50,"maximum":5000},"seed":INT}),
+    _tool("athena_decision_evsi","Estimate expected value of sample information for finite Gaussian linear experiment designs. DESIGN_ONLY.",( "context_key","actions","experiments"),{"context_key":STR,"actions":{"type":"array","minItems":1,"maxItems":128,"items":{"type":"object"}},"experiments":{"type":"array","minItems":1,"maxItems":256,"items":{"type":"object"}},"samples":{"type":"integer","minimum":50,"maximum":3000},"seed":INT,"cost_weight":NUM,"risk_weight":NUM}),
+    _tool("athena_belief_policy_multistage","Build an exact finite-model/outcome belief-policy tree for bounded horizon <=3. PLAN_ONLY; no belief mutation.",( "context_key","actions"),{"context_key":STR,"actions":{"type":"array","minItems":1,"maxItems":32,"items":{"type":"object"}},"horizon":{"type":"integer","minimum":1,"maximum":3},"discount":NUM,"information_weight":NUM}),
+    _tool("athena_causal_aipw","Cross-fitted AIPW estimate for binary treatment with linear outcome nuisances, logistic propensity, influence-function SE and CI. Assumption-scoped.",( "samples","treatment","outcome"),{"samples":{"type":"array","minItems":20,"maxItems":20000,"items":{"type":"object"}},"treatment":STR,"outcome":STR,"adjustment":{"type":"array","items":{"type":"string"},"maxItems":32},"assumptions":OBJ,"propensity_clip":NUM}),
+    _tool("athena_causal_robustness","Leave-one-adjustment-out robustness diagnostic around V8 linear back-door estimate. Not a formal hidden-confounding bound.",( "samples","treatment","outcome","adjustment"),{"samples":{"type":"array","minItems":6,"maxItems":20000,"items":{"type":"object"}},"treatment":STR,"outcome":STR,"adjustment":{"type":"array","minItems":1,"maxItems":32,"items":{"type":"string"}},"assumptions":OBJ}),
+    _tool("athena_structure_partial","Convert V8 bootstrap association stability into an uncertainty-preserving o-o partial graph. Not FCI/PAG/CPDAG theorem.",( "samples",),{"samples":{"type":"array","minItems":8,"maxItems":5000,"items":{"type":"object"}},"variables":{"type":"array","items":{"type":"string"},"maxItems":16},"association_threshold":NUM,"resamples":{"type":"integer","minimum":5,"maximum":300},"support_threshold":NUM,"seed":INT}),
+    _tool("athena_evidence_dependence_probability","Apply a caller-declared logistic metadata-dependence model to science-shadow witness pairs. Diagnostic, not formal independence inference.",( "claim_id",),{"claim_id":STR,"coefficients":OBJ,"dimensions":{"type":"array","items":{"type":"string"},"maxItems":16},"min_confidence":NUM}),
+]
+
+from .collective_v10_protocol import COLLECTIVE_V10_TOOLS
+COLLECTIVE_V9_TOOLS.extend(t for t in COLLECTIVE_V10_TOOLS if t['name'] not in {x['name'] for x in COLLECTIVE_V9_TOOLS})

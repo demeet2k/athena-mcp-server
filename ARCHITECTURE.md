@@ -1,8 +1,8 @@
-# ATHENA Unified Architecture — AΩR × Collective V1–V6
+# ATHENA Unified Architecture — AΩR × Collective V1–V10
 
 ## 1. Whole runtime graph
 
-ATHENA is one composed `Server`, not a stack of competing subclasses.
+ATHENA is one composed `Server`, not a stack of competing subclasses or parallel semantic authorities.
 
 ```text
 Git causal persistence
@@ -13,7 +13,11 @@ AOR developmental cortex ── Y1 authority ── EQ1 identity law
   ↕                      ↘
 SX1 → RAG1 → HUG ABI → GAP1 → FIELD1 → typed AOR×Collective transports
                                       ↕
-Collective V1 organization → Growth V1 → Memory V2 → Learning V3 → Ecology V4 → Science V5 → Discovery V6
+Collective V1 → Growth V1 → Memory V2 → Learning V3 → Ecology V4
+                                      ↓
+        Science V5 → Discovery V6 → Dual-Control V7 → Belief V8
+                                      ↓
+              Continuous Inference V9 → Probabilistic V10
                                       ↕
 SCHEMA2 / OMEGA1 / RECON1 / CYCLE1 / SELFTEST1 / STARTUP1
                                       ↕
@@ -22,7 +26,7 @@ SURFACE2 / COMPOSITION2 / PROMOTION1
 FINALIZE_OUTPUT / VERIFY_EMISSION / RETURN
 ```
 
-The system optimizes integration while preserving type/authority boundaries. More connectivity or more activity is not automatically better.
+The system optimizes useful observed gain while preserving type, evidence, authority, causality, state, and transaction boundaries. More models, more connectivity, or more activity are not automatically better.
 
 ## 2. Identity and coordinate law
 
@@ -32,13 +36,13 @@ Extended run identities remain distinct:
 
 `AORRUN != RAGRUN != EXTRUN != EXTTASK != EXTRES != HUGIMPL != HUGINV != GAPRUN != FIELDRUN != TRANSPORTRUN != CYCLE != CYCLEEV != PROMRUN != MIGRUN != OMEGA != RECONRUN`.
 
-Coordinate is navigation, never identity. `LOOKUP != DERIVATION`. Polycoordinate transforms record their mode and measured holonomy; closed-loop promotion requires derivational routes rather than aliases/lookups.
+Coordinate is navigation, never identity. `LOOKUP != DERIVATION`. Polycoordinate transforms record mode and measured holonomy; closed-loop promotion requires genuinely derivational routes rather than aliases/lookups.
 
 ## 3. AOR — developmental eligibility
 
 AOR answers **WHAT deserves developmental resources**.
 
-A candidate is rankable only after its required dimensions are known/comparable and its gates are satisfied. UNKNOWN is preserved rather than coerced to zero.
+A candidate is rankable only after required dimensions are known/comparable and its gates are satisfied. UNKNOWN is preserved instead of coerced to zero.
 
 Core laws:
 
@@ -49,7 +53,7 @@ Core laws:
 - claimed persistence requires `commit + receipt + verify`;
 - fake/unsupported/unhandled-contradiction/coordinate-loss defects fail closed;
 - Pareto alternatives and robustness state are preserved;
-- successor selection comes from unresolved eligible frontier, not textual order.
+- successor selection comes from unresolved eligible frontier, never textual order.
 
 ## 4. Y1 — canonical claim authority
 
@@ -61,7 +65,7 @@ Canonical claim authority is a persistent typed registry:
 - `+ → !`: witnessed execution/test transition;
 - `! → #`: explicit authorized canonicalization.
 
-Challenges block automatic routing. Authority is orthogonal to score, confidence, consensus, model posterior, reward, or popularity.
+Challenges block automatic routing. Authority is orthogonal to score, confidence, consensus, model posterior, reward, popularity, scientific-shadow state, or control value.
 
 Canonical RPC namespace:
 
@@ -73,7 +77,7 @@ Textual similarity is never enough to merge objects.
 
 UNKNOWN sameness preserves identities. `EQUIVALENT` requires witnessed sameness across governing dimensions such as semantic object, functional role, proof route, carrier, lineage, boundary, and failure role. Contradiction or conflict preserves all candidates.
 
-## 6. SX / RAG / HUG / GAP / FIELD
+## 6. Developmental compiler chain
 
 ### SX1
 
@@ -81,11 +85,11 @@ Creates bounded transform work contracts. Planning creates `PLANNED` tasks; only
 
 ### RAG1
 
-Ranks supplied/retrieved provenance records. Missing relevance/authority/cross-value/decision relevance remains UNKNOWN and enters measurement work. Retrieval `source_authority` is not Y1 authority. RAGRUN freezes EQ snapshot and selection state.
+Ranks supplied/retrieved provenance records. Missing relevance/authority/cross-value/decision relevance remains UNKNOWN and becomes measurement work. Retrieval `source_authority` is not Y1 authority. RAGRUN freezes EQ snapshot and selection state.
 
 ### HUG.ABI.1
 
-Preserves the exact interface `HUG(io,au,fx,lm,er,st)`. Registration is not execution. Candidate→tested requires a witnessed test; tested→canonical requires explicit authority. Canonical QHUG semantic equations remain unresolved unless a real implementation is registered and witnessed.
+Preserves the exact interface `HUG(io,au,fx,lm,er,st)`. Registration is not execution. Candidate→tested requires a witnessed test; tested→canonical requires explicit authority. Unknown semantic implementation fails closed rather than being simulated.
 
 ### GAP1
 
@@ -122,13 +126,13 @@ Firewalls:
 
 `AOR bridge score != measured bridge economics`.
 
-## 8. Collective V1–V6 — execution/science capacity
+## 8. Collective V1–V4 — resident organizational substrate
 
 Collective answers **HOW scarce capacity is organized after developmental eligibility exists**.
 
 ### V1 organization
 
-HIVE/SWARM/PACK/FLOCK/HERD/POD geometry, worker width, role allocation, bounded-neighbor topology, reserve, evidence-sensitive quorum/inhibition, advisory stigmergy and homeostasis.
+HIVE/SWARM/PACK/FLOCK/HERD/POD geometry, worker width, role allocation, bounded-neighbor topology, reserve, evidence-sensitive quorum/inhibition, advisory stigmergy, and homeostasis.
 
 `MAX_GROWTH != MAX_ACTIVITY`
 
@@ -146,7 +150,7 @@ Persistent pheromones, typed JSPACE invalidation, observed-RGO calibration, vers
 
 Observed budget memory, rollbackable regularized policy, simulate-only counterfactual ranking, elder state, empirical antibody families, multiscale pheromones, runtime usage metering.
 
-Canonical introspection is non-self-metering so OMEGA/health reads do not alter the state they observe.
+Canonical introspection is non-self-metering so OMEGA/schema/health/manifest reads do not alter the state they observe.
 
 ### Ecology V4
 
@@ -154,44 +158,97 @@ Contextual-UCB experiment selection, design-dependent credit, measured costs, sh
 
 `UCB != TRUTH`, `ASSOCIATION != CAUSATION`, `ROLLOUT != COMMIT`.
 
-### Science V5
+## 9. Collective V5–V10 — lazy science/inference/control ladder
 
-Full-covariance contextual Bayesian surface, empirical interval calibration, expected-information-gain experiment design, interaction/delayed credit, learned transitions, finite-horizon scheduling, witness cells, learned regime geometry, finite Pareto frontier, semantic projection compensation.
+These surfaces are constructed on tool/resource access. Their outputs remain model-, design-, or assumption-scoped until explicit external observation/witness routes them into evidence/authority.
 
-`POSTERIOR != TRUTH`
+### V5 Science
 
-`CALIBRATION != MODEL_VALIDITY`
+Full-covariance contextual Bayesian prediction, empirical calibration, EIG experiment design, interaction/delayed credit, transition modeling, finite scheduling, witness cells, learned regime geometry, finite Pareto frontier, projection compensation.
 
-`EIG != EVIDENCE`
+`POSTERIOR != TRUTH`; `CALIBRATION != MODEL_VALIDITY`; `EIG != EVIDENCE`; `TRANSITION_MODEL != WORLD`.
 
-`TRANSITION_MODEL != WORLD`
+### V6 Discovery
 
-`PARETO_FRONTIER != SINGLE_BEST`.
+Degree-2 nonlinear lift, OOD pressure, factor-space experiment generation, supplied-DAG back-door identification, higher-order factorial contrasts, multivariate transition uncertainty, MPC, exact bounded schedule certification, fail-closed witness capsules, interval-Pareto selection, replication/falsification science shadows.
 
-### Discovery V6
+`NONLINEAR_BASIS != UNIVERSAL_INFERENCE`; `OOD_SCORE != FACTUAL_FALSEHOOD`; `MPC_PLAN != EXECUTION`.
 
-Degree-2 nonlinear lift, OOD pressure, finite-factor experiment generation, conditional DAG/back-door identification, order-2..4 factorial contrasts, multivariate transition distribution, MPC, exact bounded scheduling certificates, fail-closed witness capsules, interval-Pareto experiment selection, replication/falsification science shadows.
+### V7 Dual Control
 
-`NONLINEAR_BASIS != UNIVERSAL_INFERENCE`
+Model-conditional uncertainty decomposition, prequential intervals, heuristic association skeleton, state-dependent transition regression, scenario/CVaR evaluation, dual-control proxy, BACKDOOR/FRONTDOOR/INSTRUMENT checks, replication-independence geometry, replication/falsifier design.
 
-`OOD_SCORE != FACTUAL_FALSEHOOD`
+`ASSOCIATION_SKELETON != CAUSAL_DAG`; `SCENARIO_TREE != FUTURE`; `DUAL_CONTROL_PROXY != EXACT_BELIEF_STATE_CONTROL`; `REPLICATION_EFFECTIVE_N != FORMAL_INDEPENDENCE`.
 
-`MPC_PLAN != EXECUTION`
+### V8 Finite Belief
 
-`BACKDOOR_SET != CAUSAL_TRUTH OUTSIDE THE SUPPLIED DAG`.
+Persistent finite hypothesis beliefs, observation-driven Bayes updates, EVI, belief action selection, assumption-scoped linear effect estimation, bootstrap structural stability, contingent policies, spectral evidence diversity.
 
-## 9. Claim namespace separation
+`BELIEF_POSTERIOR != CANONICAL_TRUTH`; `DESIGN != RESULT`; `BELIEF_POLICY != EXECUTION`; `BOOTSTRAP_EDGE_SUPPORT != CAUSAL_PROBABILITY`.
+
+### V9 Continuous Inference
+
+Finite-dimensional Gaussian-linear belief state, Monte-Carlo EVPI/EVSI, multistage finite-belief planning, AIPW estimation, adjustment robustness probes, heuristic partial graphs, evidence-dependence probabilities.
+
+`GAUSSIAN_LINEAR_POSTERIOR != GENERAL_CONTINUOUS_BAYES`; `AIPW_ESTIMATE != IDENTIFICATION_PROOF`; `HEURISTIC_PARTIAL_GRAPH != FCI/PAG/CPDAG_THEOREM`.
+
+### V10 Probabilistic World Model + Causal Control
+
+Six bounded probabilistic operator families:
+
+1. **Fixed-kernel GP** — exact small-data RBF posterior for stored rows and declared hyperparameters. Prediction does not self-train.
+2. **Bounded PC-stable** — Gaussian/linear conditional-independence structural hypothesis over ≤10 variables and capped conditioning depth. It writes no JSPACE edge.
+3. **Binary TMLE** — deterministic two-fold cross-fitted propensity/outcome nuisances, targeted fluctuation, ATE and influence-curve interval under declared identification assumptions. Latent-confounding risk fails closed.
+4. **E-value** — standard risk-ratio sensitivity metric, not a universal hidden-confounding theorem.
+5. **Finite POMDP** — exhaustive finite-state/action/observation/horizon search. Exact certificate only after complete bounded enumeration; truncation removes the certificate.
+6. **Evidence-dependence calibration** — logistic probability model trained only from externally labelled pair observations with complete shared schema.
+
+Constitutional boundaries:
+
+`FIXED_KERNEL_GP != GENERAL_WORLD_TRUTH`
+
+`GP_PREDICTION != OBSERVATION`
+
+`BOUNDED_PC_STABLE != FCI_OR_HIDDEN_CONFOUNDER_DISCOVERY`
+
+`PC_GRAPH != CANONICAL_JSPACE_GRAPH`
+
+`TMLE_ESTIMATE != IDENTIFICATION_PROOF`
+
+`FINITE_POMDP_CERTIFICATE != INFINITE_HORIZON_OR_REAL_WORLD_OPTIMALITY`
+
+`LEARNED_DEPENDENCE_MODEL != FORMAL_INDEPENDENCE_PROOF`.
+
+## 10. Claim namespace separation
 
 Two claim systems coexist but do not alias:
 
 - `athena_claim_*` — Y1 canonical authority;
-- `athena_discovery_claim_*` — V6 science-shadow replication/falsification graph.
+- `athena_discovery_claim_*` — V6–V10 science-shadow replication/falsification/evidence-navigation state.
 
-A V6 shadow state such as `REPLICATED_SUPPORT`, `FALSIFICATION_SIGNAL`, or `CONTESTED` is evidence-navigation metadata. It cannot implicitly promote/demote/challenge/canonicalize Y1.
+A science-shadow state cannot implicitly promote, demote, challenge, or canonicalize Y1. Model→authority transport must be explicit and witnessed.
 
-The model→authority bridge must be explicit and witnessed.
+## 11. No self-training / no semantic laundering
 
-## 10. Three independent CAS domains
+Forbidden shortcuts include:
+
+- predicted RGO → observed RGO;
+- counterfactual score → empirical reward;
+- transition prediction → transition observation;
+- rollout/scenario → observed trajectory;
+- dual-control/POMDP policy → executed action;
+- belief posterior → canonical truth;
+- GP prediction → GP observation;
+- replication design → replication witness;
+- model graph → JSPACE edge;
+- dependence prediction → calibration label;
+- science-shadow state → Y1 mutation.
+
+General law:
+
+`MODEL_OUTPUT --X--> OBSERVATION_WITHOUT_EXTERNAL_WITNESS`.
+
+## 12. Three independent CAS domains
 
 `CAS_OMEGA = CAS_semantic(VID) × CAS_git(HEAD) × CAS_topology(version)`.
 
@@ -199,9 +256,9 @@ The model→authority bridge must be explicit and witnessed.
 - stale topology version must not mutate semantic state or Git;
 - stale Git HEAD must not mutate semantic state or topology.
 
-Topology→JSPACE projection uses CAS preflight and a recovery journal. SQLite+Git are not one distributed transaction. Compensation removes only projection-owned active semantic edges; Git compensation remains separate.
+Topology→JSPACE projection uses CAS preflight and a recovery journal. SQLite+Git are not one distributed transaction. Compensation removes only projection-owned semantic edges; Git compensation remains separate.
 
-## 11. State foundation
+## 13. State foundation
 
 ### SCHEMA.2
 
@@ -209,7 +266,7 @@ Explicit additive migration ledger. V1 inventories the modular schema; v2 enforc
 
 ### OMEGA.1
 
-Digest-addressed current accessible state projection. It includes semantic head, Git, core/crystal, Collective V1–V4 resident state plus V5/V6 lazy-surface metadata, branch lifecycle, Y1, AOR, development organs, cycles, promotions, schema, reconstruction and pending mutations.
+Digest-addressed current accessible state. It includes semantic head, Git, core/crystal, Collective V1–V4 resident state, V5–V10 lazy-surface metadata, branch lifecycle, Y1, AOR, development organs, cycles, promotions, schema, reconstruction, and pending mutations.
 
 OMEGA is an observation of accessible runtime state, not unseen world state.
 
@@ -219,58 +276,56 @@ OMEGA is an observation of accessible runtime state, not unseen world state.
 
 Missing expected refs are explicit defects. Unlisted sources are never implied searched.
 
-## 12. CYCLE.1 — resumable developmental metabolism
+## 14. CYCLE.1 — resumable developmental metabolism
 
-`HYDRATE → RECONSTRUCT → MEMORY → EXTRACT → RETRIEVE → HUG → GAP → FIELD → MEASURE → AOR → COLLECTIVE → EXECUTE → VERIFY → LEARN → SUCCESSOR → COMPLETE`.
+`HYDRATE → RECONSTRUCT → MEMORY → EXTRACT → RETRIEVE → HUG → GAP → FIELD → MEASURE → AUTHORITY/AOR → COLLECTIVE(V1–V10) → EXECUTE → VERIFY → LEARN → SUCCESSOR → COMPLETE`.
 
-Typed wait states include:
+Typed wait states include `WAITING_INPUT`, `WAITING_MEASUREMENT`, `WAITING_CALIBRATION`, `WAITING_AUTHORITY`, `WAITING_HUG_IMPLEMENTATION`, `WAITING_COLLECTIVE_MEASUREMENT`, `WAITING_WORKERS`, `WAITING_EXECUTOR`, `WAITING_TEST`, `WAITING_REPAIR`, and `WAITING_CONTROL`.
 
-- `WAITING_INPUT`
-- `WAITING_MEASUREMENT`
-- `WAITING_CALIBRATION`
-- `WAITING_AUTHORITY`
-- `WAITING_HUG_IMPLEMENTATION`
-- `WAITING_COLLECTIVE_MEASUREMENT`
-- `WAITING_WORKERS`
-- `WAITING_EXECUTOR`
-- `WAITING_TEST`
-- `WAITING_REPAIR`
-- `WAITING_CONTROL`.
+A missing semantic executor is not simulated. Real execution requires a verified receipt; verification requires a witnessed test packet. Failed execution routes to unmeasured repair work rather than fake retry.
 
-A missing semantic executor is not simulated. Real execution requires a verified receipt; verification requires an explicit witnessed test packet. Failed execution routes to unmeasured repair work rather than fake retry.
-
-## 13. Integrity / readiness / promotion
+## 15. Integrity / readiness / promotion
 
 ### SURFACE.2
 
-Checks required tool/resource discovery across base, Collective V1–V6, AOR, developmental organs, state foundation and governance.
+Checks required tool/resource discovery across base, Collective V1–V10, AOR, developmental organs, state foundation, and governance.
 
 ### COMPOSITION.2
 
-Checks one `Server`, resident base/Collective V1–V4/AOR/state organs, governance presence, and representative read-only probes. V5/V6 are lazy tool/resource surfaces and are certified by SURFACE plus regression tests rather than falsely marked resident.
+Checks one `Server`, resident base/Collective V1–V4/AOR/state organs, governance presence, and representative read-only probes. V5–V10 are lazy tool/resource surfaces certified by SURFACE plus regression tests rather than falsely marked resident.
 
 ### SELFTEST.1
 
-Read-only synthesis of surface, composition, schema, OMEGA and sampled replay integrity. No run history is `N/A`; a real replay mismatch is `FAIL`.
+Read-only synthesis of surface, composition, schema, OMEGA, and sampled replay integrity. A real replay mismatch is `FAIL`.
 
 ### STARTUP.1
 
-Separates local readiness from external promotion. Reads remain available while degraded. `READY_LOCAL` means local substrate gates pass; it is not external CI qualification or semantic truth.
+Separates local readiness from external promotion. `READY_LOCAL` means local substrate gates pass; it is not external CI qualification or semantic truth.
 
 ### PROMOTION.1
 
-`QUALIFIED` requires one exact head with local SURFACE/COMPOSITION conditions, local Git agreement when configured, plus external CI and smoke attestations naming the same head. Synthetic unit-test attestations exercise the predicate only and are never represented as real GitHub evidence.
+`QUALIFIED` requires one exact head with local SURFACE/COMPOSITION conditions, local Git agreement when configured, plus external CI and smoke attestations naming the same head. A green older head never qualifies a newer head.
 
-## 14. Final output ABI
+## 16. CI constitution
+
+The release gate is:
+
+`syntax ∧ full-unit-suite ∧ critical-invariants ∧ dependent-smoke`.
+
+Critical-invariants independently runs migration/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, live manifest/MAXDEV, release metadata/RPC uniqueness, V6/Y1 namespace firewall, V7, V8/V9, V10 constructive/adversarial/unified boundaries, AOR×Collective transport, and promotion predicate.
+
+Smoke is withheld until all three prerequisite jobs pass. The one-process smoke spans V6 discovery, V7 dual control, V8 belief, V9 inference, V10 GP/POMDP, schema/SELFTEST, AOR, fail-closed HUG/CYCLE, and final emission verification.
+
+## 17. Final output ABI
 
 `FINALIZE_OUTPUT → ENV(HEADER + BODY) → VERIFY_EMISSION`.
 
-Visible output bytes become their own manifestation and coordinate surface. Signed/finalized bytes are never mutated afterward. RETURN/navigation and governing run references remain recoverable.
+Visible output bytes become their own manifestation and coordinate surface. Finalized bytes are never mutated afterward. RETURN/navigation and governing run references remain recoverable.
 
-## 15. Governing objective
+## 18. Governing objective
 
-The organism is not optimized for maximal work count. A useful abstract control objective is:
+A useful abstract control objective is:
 
 `J = UsefulObservedGain - CoordinationCost - Duplication - UnsupportedClaims - UnhandledContradiction - CoordinateLoss`.
 
-Development continues while there is actionable successor/residual/measurement/calibration/dependency/repair/experiment pressure. Otherwise the runtime returns an explicit continuation state instead of inventing activity.
+Development continues while there is actionable successor/residual/measurement/calibration/dependency/repair/experiment pressure. Otherwise the runtime returns an explicit continuation state rather than inventing activity.

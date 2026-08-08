@@ -29,14 +29,52 @@ jobs:
           from pathlib import Path
           s=Path('/tmp/athena-tests.log').read_text(errors='replace')
           marker='======================================================================'
-          failure=s[s.find(marker):] if marker in s else '\n'.join(s.splitlines()[-160:])
+          failure=s[s.find(marker):] if marker in s else '\n'.join(s.splitlines()[-260:])
           failure=failure.replace('%','%25').replace('\r','%0D').replace('\n','%0A')
-          print(failure[:24000])
+          print(failure[:32000])
           PY
             )
             echo "::error title=ATHENA full-suite traceback::$msg"
             exit "$code"
           fi
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Build wheel from declared pyproject backend
+        run: python -m pip wheel --no-deps . -w dist
+      - name: Clean-install wheel and verify composed package
+        shell: bash
+        run: |
+          rm -rf /tmp/athena-wheel
+          python -m pip install --no-deps --target /tmp/athena-wheel dist/*.whl
+          cd /tmp
+          PYTHONPATH=/tmp/athena-wheel python - <<'PY'
+          import importlib.resources
+          import tempfile
+          import athena_mcp
+          from athena_mcp.hub_server import HubServer
+          from athena_mcp.kc144_registry_pack import verify_pack
+          assert athena_mcp.__version__ == '3.0.0', athena_mcp.__version__
+          data=importlib.resources.files('athena_mcp').joinpath('data/kc144-core-registries.tar.xz')
+          assert data.is_file(), data
+          receipt=verify_pack(deep=True)
+          assert receipt['status']=='PASS', receipt
+          with tempfile.NamedTemporaryFile(suffix='.db') as handle:
+              server=HubServer(handle.name)
+              try:
+                  init=server.handle({'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-11-25'}})['result']
+                  assert init['serverInfo']['version']=='3.0.0', init
+                  names={item['name'] for item in server.handle({'jsonrpc':'2.0','id':2,'method':'tools/list'})['result']['tools']}
+                  for name in ('athena_gp_hyperfit','athena_system_upgrade_plan','athena_kc144_hub_validate'):
+                      assert name in names, name
+              finally:
+                  server.store.close()
+          print('PACKAGE PASS:', data)
+          PY
 
   critical-invariants:
     runs-on: ubuntu-latest
@@ -53,7 +91,9 @@ jobs:
       - name: Whole-cycle fail-closed metabolism
         run: python -m unittest discover -s tests -p 'test_cycle_unified.py' -v
       - name: Surface and composition integrity
-        run: python -m unittest discover -s tests -p 'test_surface_composition_unified.py' -v
+        run: |
+          python -m unittest discover -s tests -p 'test_surface_composition_unified.py' -v
+          python -m unittest discover -s tests -p 'test_composition_subclass_runtime.py' -v
       - name: Local self-test and startup readiness
         run: |
           python -m unittest discover -s tests -p 'test_self_test_unified.py' -v
@@ -62,43 +102,51 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_unified_manifest.py' -v
       - name: Release metadata and RPC namespace uniqueness
         run: python -m unittest discover -s tests -p 'test_metadata_consistency.py' -v
-      - name: V6 discovery/Y1 authority namespace firewall
-        run: python -m unittest discover -s tests -p 'test_collective_v6_unified.py' -v
-      - name: V7 dual-control causal and replication boundaries
-        run: python -m unittest discover -s tests -p 'test_collective_v7_unified.py' -v
+      - name: V6 upstream scientific diagnostics and unified Y1 firewall
+        run: |
+          python -m unittest discover -s tests -p 'test_00_collective_v6_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_00a_collective_v6_assertion_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_unified.py' -v
+      - name: V7 upstream dual-control suites and unified authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v7.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v7_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v7_unified.py' -v
+      - name: V8-V9 upstream belief inference suites and unified authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v8.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v8_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v9.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v9_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v8_v9_unified.py' -v
+      - name: V10 probabilistic constructive adversarial and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v10.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v10_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v10_unified.py' -v
+      - name: V11 adaptive constructive adversarial and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v11.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v11_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v11_unified.py' -v
       - name: AOR Collective transport firewalls
         run: python -m unittest discover -s tests -p 'test_aor_collective_transport.py' -v
       - name: Exact-head promotion predicate
         run: python -m unittest discover -s tests -p 'test_promotion_unified.py' -v
+      - name: KC144 topology registry polyatlas and composed hub
+        run: |
+          python -m unittest discover -s tests -p 'test_kc144_*.py' -v
+          python -m unittest discover -s tests -p 'test_command_hub.py' -v
+          python -m unittest discover -s tests -p 'test_hub_server.py' -v
+          python -m unittest discover -s tests -p 'test_field_surface_composition.py' -v
       - name: Whole-system witnessed upgrade and release plane
         run: python -m unittest discover -s tests -p 'test_system_upgrade.py' -v
 
-  package:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
-        with: {python-version: '3.12'}
-      - name: Build wheel from declared pyproject backend
-        run: python -m pip wheel --no-deps . -w dist
-      - name: Install and probe wheel from a clean working directory
-        shell: bash
-        run: |
-          rm -rf /tmp/athena-wheel
-          python -m pip install --no-deps --target /tmp/athena-wheel dist/*.whl
-          cd /tmp
-          PYTHONPATH=/tmp/athena-wheel python - <<'PY'
-          import importlib.resources
-          import athena_mcp
-          from athena_mcp.hub_server import HubServer
-          data=importlib.resources.files('athena_mcp').joinpath('data/kc144-core-registries.tar.xz')
-          assert data.is_file(), data
-          assert athena_mcp.__version__ == '2.5.0'
-          print('PACKAGE PASS:', data)
-          PY
-
   smoke:
-    needs: [syntax, unit, critical-invariants, package]
+    needs: [syntax, unit, package, critical-invariants]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5

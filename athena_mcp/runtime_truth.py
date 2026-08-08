@@ -1,402 +1,67 @@
 from __future__ import annotations
 
-"""Measured runtime capability and transport overlays for the KC144 crystal.
+"""V11-aware measured runtime truth overlay.
 
-The digest-bound structural manifest remains an immutable source snapshot. This
-module separately derives current organ and transport liveness from the actual
-MCP tool/resource surface. Discovery proves dispatch exposure only; it never
-promotes evidence, authority, empirical truth, release, merge or deployment.
+The original KC144 overlay is retained in ``runtime_truth_core`` as a
+replayable source snapshot.  This module changes only the active integration
+basis and expands the Collective capability contract through V11.  Surface
+presence is still dispatch evidence only: it is not semantic truth, Y1
+authority, merge authority, or deployment authority.
 """
 
 from typing import Any, Iterable
 
-INTEGRATION_BASE_SHA = "6e9f9cc57564c80e29874c276d21addb0c99d530"
-ACTIVE_PARENT_RUNTIME_SHA = INTEGRATION_BASE_SHA  # compatibility alias
-STRUCTURAL_SOURCE_SNAPSHOT_SHA = "6b643134ee26ce117c2b548b5a89edf5cec55934"
+from . import runtime_truth_core as _core
 
+INTEGRATION_BASE_SHA = "0d7b50f43859a27b4e386e89e198adb4d477e118"
+ACTIVE_PARENT_RUNTIME_SHA = INTEGRATION_BASE_SHA
+STRUCTURAL_SOURCE_SNAPSHOT_SHA = _core.STRUCTURAL_SOURCE_SNAPSHOT_SHA
 
-def _requirement(
-    identifier: str,
-    tools: tuple[str, ...],
-    resources: tuple[str, ...],
-    live_state: str = "LIVE_UNIFIED",
-    missing_state: str = "NOT_SURFACED",
-) -> dict[str, Any]:
-    return {
-        "id": identifier,
-        "required_tools": tools,
-        "required_resources": resources,
-        "live_state": live_state,
-        "missing_state": missing_state,
-    }
-
-
-ORGAN_CAPABILITY_REQUIREMENTS: tuple[dict[str, Any], ...] = (
-    _requirement(
-        "ORGAN.GIT_LEDGER",
-        ("athena_git_status", "athena_session_start", "athena_session_end"),
-        ("athena://state/head",),
-    ),
-    _requirement(
-        "ORGAN.CRYSTAL_RUNTIME",
-        (
-            "athena_crystallize_output",
-            "athena_finalize_output",
-            "athena_verify_emission",
-            "athena_dense_navigate",
-        ),
-        ("athena://crystals", "athena://emissions"),
-    ),
-    _requirement(
-        "ORGAN.COLLECTIVE_RUNTIME",
-        (
-            "athena_collective_plan",
-            "athena_collective_allocate",
-            "athena_pheromone_field",
-            "athena_bandit_select",
-            "athena_bayes_predict",
-            "athena_ood_score",
-            "athena_dual_control_plan",
-        ),
-        (
-            "athena://collective/runtime",
-            "athena://collective/growth",
-            "athena://collective/v2",
-            "athena://collective/v3",
-            "athena://collective/v4",
-            "athena://collective/v5",
-            "athena://collective/v6",
-            "athena://collective/v7",
-        ),
-    ),
-    _requirement(
-        "ORGAN.AOR_CORE",
-        (
-            "athena_orchestrate",
-            "athena_orchestration_get",
-            "athena_orchestration_replay",
-            "athena_orchestration_recent",
-            "athena_orchestration_robustness",
-        ),
-        (
-            "athena://orchestration/law",
-            "athena://orchestration/recent",
-            "athena://orchestration/robustness",
-        ),
-    ),
-    _requirement(
-        "ORGAN.BRANCH_EVOLUTION",
-        (
-            "athena_branch_observe",
-            "athena_branch_state",
-            "athena_branch_list",
-            "athena_branch_review",
-        ),
-        ("athena://branches",),
-    ),
-    _requirement(
-        "ORGAN.AUTHORITY_Y1",
-        (
-            "athena_claim_register",
-            "athena_claim_state",
-            "athena_claim_list",
-            "athena_claim_promote",
-            "athena_claim_challenge",
-        ),
-        ("athena://authority",),
-    ),
-    _requirement(
-        "ORGAN.EQ1",
-        (
-            "athena_equivalence_observe",
-            "athena_equivalence_state",
-            "athena_equivalence_resolve_conflict",
-            "athena_equivalence_snapshot",
-        ),
-        ("athena://equivalence",),
-    ),
-    _requirement(
-        "ORGAN.SX1",
-        (
-            "athena_extraction_plan",
-            "athena_extraction_task",
-            "athena_extraction_complete",
-            "athena_extraction_fail",
-            "athena_extraction_result",
-            "athena_extraction_expand_result",
-            "athena_extraction_frontier",
-            "athena_extraction_run",
-        ),
-        ("athena://extraction",),
-    ),
-    _requirement(
-        "ORGAN.RAG1",
-        (
-            "athena_retrieval_compile",
-            "athena_retrieval_get",
-            "athena_retrieval_replay",
-            "athena_retrieval_recent",
-        ),
-        ("athena://retrieval",),
-    ),
-    _requirement(
-        "ORGAN.HUG_ABI1",
-        (
-            "athena_hug_register",
-            "athena_hug_state",
-            "athena_hug_list",
-            "athena_hug_promote",
-            "athena_hug_plan",
-            "athena_hug_complete",
-            "athena_hug_fail",
-            "athena_hug_invocation",
-            "athena_hug_verify_packet",
-        ),
-        ("athena://hug",),
-        "LIVE_UNIFIED_FAIL_CLOSED",
-        "CONTRACT_PRESENT_NOT_SURFACED",
-    ),
-    _requirement(
-        "ORGAN.GAP1",
-        (
-            "athena_gap_compile",
-            "athena_gap_get",
-            "athena_gap_replay",
-            "athena_gap_recent",
-        ),
-        ("athena://gap",),
-    ),
-    _requirement(
-        "ORGAN.FIELD1",
-        (
-            "athena_field_compile",
-            "athena_field_get",
-            "athena_field_replay",
-            "athena_field_recent",
-        ),
-        ("athena://field",),
-    ),
-    _requirement(
-        "ORGAN.TRANSPORT1",
-        (
-            "athena_transport_pheromone_attention",
-            "athena_transport_alarm_to_gap",
-            "athena_transport_aor_to_collective",
-            "athena_transport_rgo_to_reward",
-            "athena_transport_bridge_to_collective",
-            "athena_transport_antibody_to_repair",
-            "athena_transport_get",
-            "athena_transport_replay",
-            "athena_transport_recent",
-        ),
-        ("athena://aor-collective/transport",),
-    ),
-    _requirement(
-        "ORGAN.CYCLE1",
-        (
-            "athena_cycle_start",
-            "athena_cycle_advance",
-            "athena_cycle_state",
-            "athena_cycle_replay",
-            "athena_cycle_recent",
-        ),
-        ("athena://cycle",),
-        "LIVE_UNIFIED_FAIL_CLOSED",
-    ),
-    _requirement(
-        "ORGAN.STATE_FOUNDATION1",
-        (
-            "athena_schema_status",
-            "athena_schema_plan",
-            "athena_schema_migrate",
-            "athena_schema_verify",
-            "athena_omega_state",
-            "athena_reconstruct_state",
-            "athena_reconstruction_get",
-            "athena_reconstruction_verify",
-            "athena_reconstruction_recent",
-        ),
-        ("athena://schema", "athena://state/omega", "athena://reconstruction"),
-    ),
-    _requirement(
-        "ORGAN.SELFTEST1",
-        ("athena_self_test",),
-        ("athena://self-test",),
-    ),
-    _requirement(
-        "ORGAN.STARTUP1",
-        ("athena_startup_health",),
-        ("athena://startup-health",),
-    ),
-    _requirement(
-        "ORGAN.SURFACE1",
-        ("athena_surface_audit",),
-        ("athena://surface",),
-    ),
-    _requirement(
-        "ORGAN.COMPOSITION1",
-        ("athena_surface_audit",),
-        ("athena://surface",),
-        "LIVE_UNIFIED_VIA_SURFACE_CERTIFICATE",
-    ),
-    _requirement(
-        "ORGAN.PROMOTION1",
-        (
-            "athena_promotion_evaluate",
-            "athena_promotion_get",
-            "athena_promotion_replay",
-            "athena_promotion_recent",
-        ),
-        ("athena://promotion",),
-        "LIVE_UNIFIED_FAIL_CLOSED",
-    ),
-    _requirement(
-        "ORGAN.UNIFIED_MANIFEST1",
-        ("athena_runtime_manifest", "athena_maxdev_law"),
-        ("athena://runtime/unified-manifest", "athena://runtime/maxdev"),
-    ),
-    _requirement(
-        "ORGAN.SYSTEM_UPGRADE1",
-        (
-            "athena_system_upgrade_manifest",
-            "athena_system_upgrade_plan",
-            "athena_system_upgrade_state",
-            "athena_system_upgrade_observe",
-            "athena_system_upgrade_refresh",
-            "athena_system_upgrade_replay",
-            "athena_system_upgrade_recent",
-            "athena_system_release_certificate",
-            "athena_system_release_get",
-            "athena_system_release_replay",
-            "athena_system_release_recent",
-        ),
-        (
-            "athena://system/upgrade",
-            "athena://system/upgrade/frontier",
-            "athena://system/release",
-        ),
-        "LIVE_UNIFIED_WITNESS_GATED",
-    ),
-    _requirement(
-        "ORGAN.TOPOLOGICAL_COMMAND_HUB",
-        (
-            "athena_kc144_hub_status",
-            "athena_kc144_hub_manifest",
-            "athena_kc144_hub_seat",
-            "athena_kc144_hub_inventory",
-            "athena_kc144_hub_graph",
-            "athena_kc144_hub_route",
-            "athena_kc144_hub_datasets",
-            "athena_kc144_hub_communication",
-            "athena_kc144_hub_readiness",
-            "athena_kc144_hub_validate",
-        ),
-        (
-            "athena://kc144/hub",
-            "athena://kc144/hub/manifest",
-            "athena://kc144/hub/inventory",
-            "athena://kc144/hub/graphs",
-            "athena://kc144/hub/datasets",
-            "athena://kc144/hub/communication",
-            "athena://kc144/hub/readiness",
-            "athena://kc144/hub/validation",
-        ),
-    ),
-    _requirement(
-        "ORGAN.KC144_REGISTRY_PACK",
-        (
-            "athena_kc144_registry_status",
-            "athena_kc144_registry_catalog",
-            "athena_kc144_registry_query",
-            "athena_kc144_registry_cross_search",
-            "athena_kc144_registry_source_bundle",
-            "athena_kc144_registry_cell_bundle",
-            "athena_kc144_completion_frontier",
-            "athena_kc144_registry_verify",
-        ),
-        (
-            "athena://kc144/registry/status",
-            "athena://kc144/registry/catalog",
-            "athena://kc144/registry/manifest",
-            "athena://kc144/registry/verification",
-            "athena://kc144/completion/frontier",
-        ),
-    ),
-    _requirement(
-        "ORGAN.KC144_POLYATLAS",
-        (
-            "athena_kc144_polyatlas_status",
-            "athena_kc144_polyatlas_manifest",
-            "athena_kc144_polyatlas_seat",
-            "athena_kc144_polyatlas_rosetta",
-            "athena_kc144_resolution_transport",
-            "athena_kc144_resolution_family",
-            "athena_kc144_sphere_atlas",
-            "athena_kc144_polyatlas_route",
-            "athena_kc144_polyatlas_validate",
-        ),
-        (
-            "athena://kc144/polyatlas/status",
-            "athena://kc144/polyatlas/manifest",
-            "athena://kc144/polyatlas/sources",
-            "athena://kc144/polyatlas/sphere",
-            "athena://kc144/polyatlas/family",
-            "athena://kc144/polyatlas/validation",
-        ),
-    ),
+_V11_TOOLS = (
+    "athena_belief_register",
+    "athena_decision_evi",
+    "athena_gaussian_belief_register",
+    "athena_decision_evpi",
+    "athena_structure_partial",
+    "athena_gp_register",
+    "athena_gp_predict",
+    "athena_pc_stable_discover",
+    "athena_causal_tmle_binary",
+    "athena_pomdp_solve",
+    "athena_gp_hyperfit",
+    "athena_gp_decision_evsi",
+    "athena_latent_project_admg",
+    "athena_causal_tmle_ensemble",
+    "athena_sensitivity_rr_surface",
+    "athena_bapomdp_solve",
+    "athena_evidence_dependence_interval",
+)
+_V11_RESOURCES = (
+    "athena://collective/v8",
+    "athena://collective/v9",
+    "athena://collective/v10",
+    "athena://collective/v11",
 )
 
 
-TRANSPORT_CAPABILITY_REQUIREMENTS: tuple[dict[str, Any], ...] = (
-    _requirement(
-        "TRANSPORT.PHEROMONE_TO_RAG",
-        ("athena_transport_pheromone_attention",),
-        ("athena://aor-collective/transport",),
-        "LIVE_ROUTING_PRIOR_NOT_EVIDENCE",
-    ),
-    _requirement(
-        "TRANSPORT.ALARM_TO_GAP",
-        ("athena_transport_alarm_to_gap",),
-        ("athena://aor-collective/transport",),
-        "LIVE_TYPED_INVALIDATION_PRESSURE",
-    ),
-    _requirement(
-        "TRANSPORT.RGO_TO_REWARD",
-        ("athena_transport_rgo_to_reward",),
-        ("athena://aor-collective/transport",),
-        "LIVE_WITNESSED_OUTCOME_GATED",
-    ),
-    _requirement(
-        "TRANSPORT.AOR_TO_COLLECTIVE",
-        ("athena_transport_aor_to_collective",),
-        ("athena://aor-collective/transport",),
-        "LIVE_UNMEASURED_RESOURCE_FIREWALL",
-    ),
-    _requirement(
-        "TRANSPORT.BRIDGE_TO_COLLECTIVE",
-        ("athena_transport_bridge_to_collective",),
-        ("athena://aor-collective/transport",),
-        "LIVE_EXPLICIT_ECONOMICS_REQUIRED",
-    ),
-    _requirement(
-        "TRANSPORT.ANTIBODY_TO_REPAIR",
-        ("athena_transport_antibody_to_repair",),
-        ("athena://aor-collective/transport",),
-        "LIVE_UNMEASURED_REPAIR_ONLY",
-    ),
-    _requirement(
-        "TRANSPORT.FIELD_TO_PROMOTION",
-        ("athena_field_compile", "athena_promotion_evaluate"),
-        ("athena://field", "athena://promotion"),
-        "LIVE_GATE_SEPARATED",
-    ),
-    _requirement(
-        "TRANSPORT.PROMOTION_TO_RETURN",
-        ("athena_promotion_replay", "athena_system_release_certificate"),
-        ("athena://promotion", "athena://system/release"),
-        "LIVE_EXACT_HEAD_RECEIPT_GATED",
-    ),
+def _augment_collective(requirement: dict[str, Any]) -> dict[str, Any]:
+    item = dict(requirement)
+    if item.get("id") != "ORGAN.COLLECTIVE_RUNTIME":
+        return item
+    item["required_tools"] = tuple(
+        dict.fromkeys((*item.get("required_tools", ()), *_V11_TOOLS))
+    )
+    item["required_resources"] = tuple(
+        dict.fromkeys((*item.get("required_resources", ()), *_V11_RESOURCES))
+    )
+    item["live_state"] = "LIVE_UNIFIED_V1_V11"
+    return item
+
+
+ORGAN_CAPABILITY_REQUIREMENTS = tuple(
+    _augment_collective(item) for item in _core.ORGAN_CAPABILITY_REQUIREMENTS
 )
+TRANSPORT_CAPABILITY_REQUIREMENTS = _core.TRANSPORT_CAPABILITY_REQUIREMENTS
 
 
 def _overlay(
@@ -433,39 +98,39 @@ def _overlay(
 
 
 def runtime_organ_overlay(
-    tool_names: Iterable[str],
-    resource_uris: Iterable[str] = (),
+    tool_names: Iterable[str], resource_uris: Iterable[str] = ()
 ) -> dict[str, dict[str, Any]]:
     return _overlay(ORGAN_CAPABILITY_REQUIREMENTS, tool_names, resource_uris)
 
 
 def runtime_transport_overlay(
-    tool_names: Iterable[str],
-    resource_uris: Iterable[str] = (),
+    tool_names: Iterable[str], resource_uris: Iterable[str] = ()
 ) -> dict[str, dict[str, Any]]:
     return _overlay(TRANSPORT_CAPABILITY_REQUIREMENTS, tool_names, resource_uris)
 
 
 def overlay_summary(
-    tool_names: Iterable[str],
-    resource_uris: Iterable[str] = (),
+    tool_names: Iterable[str], resource_uris: Iterable[str] = ()
 ) -> dict[str, Any]:
     overlay = runtime_organ_overlay(tool_names, resource_uris)
     return {
         "integration_base_sha": INTEGRATION_BASE_SHA,
         "active_parent_runtime_sha": ACTIVE_PARENT_RUNTIME_SHA,
         "structural_source_snapshot_sha": STRUCTURAL_SOURCE_SNAPSHOT_SHA,
+        "collective_release": "V11",
         "organs": overlay,
         "live": sorted(key for key, value in overlay.items() if value["surface_pass"]),
         "not_live": sorted(key for key, value in overlay.items() if not value["surface_pass"]),
         "all_required_live": all(value["surface_pass"] for value in overlay.values()),
-        "boundary": "surface liveness is dispatch discovery, not evidence, authority or semantic truth",
+        "boundary": (
+            "surface liveness is dispatch discovery, not evidence, authority, "
+            "semantic truth, merge, or deployment"
+        ),
     }
 
 
 def transport_overlay_summary(
-    tool_names: Iterable[str],
-    resource_uris: Iterable[str] = (),
+    tool_names: Iterable[str], resource_uris: Iterable[str] = ()
 ) -> dict[str, Any]:
     overlay = runtime_transport_overlay(tool_names, resource_uris)
     return {
@@ -475,7 +140,20 @@ def transport_overlay_summary(
         "not_live": sorted(key for key, value in overlay.items() if not value["surface_pass"]),
         "all_required_live": all(value["surface_pass"] for value in overlay.values()),
         "boundary": (
-            "transport liveness proves typed adapter availability only; each adapter retains "
-            "its source/evidence/measurement/authority firewall"
+            "transport liveness proves typed adapter availability only; each adapter "
+            "retains its source, evidence, measurement, and authority firewall"
         ),
     }
+
+
+__all__ = [
+    "INTEGRATION_BASE_SHA",
+    "ACTIVE_PARENT_RUNTIME_SHA",
+    "STRUCTURAL_SOURCE_SNAPSHOT_SHA",
+    "ORGAN_CAPABILITY_REQUIREMENTS",
+    "TRANSPORT_CAPABILITY_REQUIREMENTS",
+    "runtime_organ_overlay",
+    "runtime_transport_overlay",
+    "overlay_summary",
+    "transport_overlay_summary",
+]
