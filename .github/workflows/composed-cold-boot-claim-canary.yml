@@ -1,0 +1,57 @@
+name: Composed Cold Bootstrap Claim Canary
+
+on:
+  push:
+    branches:
+      - agent/frontier-claim-composed-canary-6ffb68c
+    paths:
+      - .github/workflows/composed-cold-boot-claim-canary.yml
+
+permissions:
+  contents: write
+
+jobs:
+  composed-cold-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact canary runner
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Run composed cold bootstrap claim refresh acceptance
+        id: canary
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CANDIDATE_HEAD: 6ffb68c98aac99831ce408633ce134dee1c4b9a4
+          TARGET_BRANCH: agent/frontier-claim-composed-target-6ffb68c
+          TARGET_SEED_HEAD: 6d7e59415863199d96d77e1d6cdc0c92c87d248b
+          WITNESS_PATH: composed-cold-boot-claim-witness.json
+        shell: bash
+        run: |
+          set +e
+          python tools/composed_cold_boot_claim_canary.py
+          code=$?
+          echo "exit_code=${code}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Upload sanitized composed witness
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: composed-cold-boot-claim-witness
+          path: composed-cold-boot-claim-witness.json
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Enforce composed acceptance result
+        if: always()
+        shell: bash
+        run: |
+          test "${{ steps.canary.outputs.exit_code }}" = "0"
