@@ -2,9 +2,10 @@
 
 `protocol.py` remains the mature schema registry. Package initialization owns the
 release identity and patches compatibility surfaces before dispatch observes them.
-Frontier V1, rehydration-loop V1, and the successor-baton V1 extension reuse the
-existing Git prompt runtime so long chains gain explicit self-steering without a
-second dispatcher, state store, or authority plane.
+Frontier V1, rehydration-loop V1, routing-successor V1, terminal-gate V1, and
+handoff-delta V1 reuse the existing Git prompt runtime so long chains gain
+self-steering, witnessed closure, and compressed handoff without a second
+control plane.
 """
 
 __version__ = "3.2.0"
@@ -23,10 +24,6 @@ SERVER_INFO = {
 
 _protocol.SERVER_INFO = dict(SERVER_INFO)
 
-# Prompt × frontier braid registration. The dispatcher already routes the
-# PROMPT_RUNTIME_TOOL_NAMES family through PromptRuntime.call_tool, so frontier,
-# rehydration, and successor tools extend that family rather than duplicating
-# dispatch, state, authority, or remote-delivery code.
 from .prompt_runtime import PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES
 from .frontier_runtime import FrontierRuntime, FRONTIER_TOOLS, FRONTIER_TOOL_NAMES
 from .rehydration_loop import (
@@ -40,9 +37,13 @@ from .rehydration_successor import (
     install_successor_extension,
 )
 from .rehydration_terminal import install_terminal_gate
+from .rehydration_handoff import (
+    REHYDRATION_HANDOFF_TOOLS,
+    REHYDRATION_HANDOFF_TOOL_NAMES,
+    RehydrationHandoffRuntime,
+)
 
-# Patch runtime behavior only. The canonical V1 five-tool rehydration membrane is
-# immutable; V1.1 preview tools are registered in their own additive namespace.
+# Routing successor extension: answers WHAT NEXT.
 install_successor_extension(RehydrationLoopRuntime)
 
 # Extend only the advance completion schema. Do not mutate REHYDRATION_TOOL_NAMES.
@@ -82,18 +83,8 @@ if not getattr(RehydrationLoopRuntime, "_athena_successor_v1_explicit_next_compa
 # self-steer instead of forcing human re-entry.
 install_terminal_gate(RehydrationLoopRuntime, REHYDRATION_TOOLS)
 
-# RHL-001/002/003 antibody family: persisted local loop state is not automatically
-# shared-current state. Every read-side continuation surface that can influence
-# routing or stopping decisions must refresh the shared branch first:
-#
-#   resume -> current handoff/prompt
-#   verify -> current shared chain integrity
-#   index  -> current shared loop inventory
-#
-# Clean behind checkouts may advance only by FF-only after a fresh fetch. Dirty,
-# ahead, diverged, or unverified states hold rather than returning a stale local
-# view as current. Local/offline experiments can explicitly select DISABLED mode
-# when they do not claim a shared-current witness.
+# RHL-001/002/003: every read-side continuation surface that can influence
+# routing or stopping decisions refreshes shared Git first.
 if not getattr(RehydrationLoopRuntime, "_athena_remote_fresh_reads_v2_registered", False):
     _rehydration_resume_local = RehydrationLoopRuntime.resume
     _rehydration_verify_local = RehydrationLoopRuntime.verify
@@ -192,9 +183,7 @@ if not getattr(RehydrationLoopRuntime, "_athena_remote_fresh_reads_v2_registered
         if _tool.get("name") in _rehydration_descriptions:
             _tool["description"] = _rehydration_descriptions[_tool["name"]]
 
-# The prompt stack is a content-policy coordinate, not a synonym for repository
-# time. Keep git_head in ancestry for provenance while excluding it from the
-# prompt-stack digest. Git/head freshness remains a separate coordinate.
+# Prompt-stack content identity excludes repository clock/provenance.
 if not getattr(PromptRuntime, "_athena_content_digest_v1_registered", False):
     _prompt_compile_with_head_digest = PromptRuntime.compile
 
@@ -210,17 +199,8 @@ if not getattr(PromptRuntime, "_athena_content_digest_v1_registered", False):
     PromptRuntime.compile = _prompt_compile_content_digest
     PromptRuntime._athena_content_digest_v1_registered = True
 
-# Frontier identity is a reduced-content coordinate, not a checkout, branch,
-# fetch-status or repository-clock coordinate. Source head and remote witness are
-# independent siblings. Include every runtime path actually available so replay
-# provenance is complete while environment metadata cannot perturb the digest.
-#
-# FBR-005 antibody: the append-only event projection intentionally remains a pure
-# replay of scheduler events, but provider claim creation is the real exclusion
-# boundary. A fixed claim file may therefore exist briefly before CLAIM_ACQUIRED
-# is appended. During that window, event-derived PENDING/READY state must not be
-# advertised as claimable work. Provider occupancy suppresses selection while a
-# typed residual preserves the event/claim disagreement for reconciliation.
+# Frontier identity is reduced-content identity. Provider claim occupancy is an
+# exclusion witness even during the brief claim/event reconciliation window.
 if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
     _frontier_source_with_local_fallback = FrontierRuntime._source
     _frontier_hydrate_with_environment_digest = FrontierRuntime.hydrate
@@ -247,9 +227,7 @@ if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
         packet["generated_from"] = runtime_paths
 
         provider_claim_paths = {
-            path
-            for path in runtime_paths
-            if "/claims/" in path and path.endswith(".json")
+            path for path in runtime_paths if "/claims/" in path and path.endswith(".json")
         }
         kept_ready = []
         suppressed = []
@@ -278,8 +256,7 @@ if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
             kept_ready.append(candidate)
         packet["ready_work"] = kept_ready
         packet["claim_readiness_suppressed"] = sorted(
-            suppressed,
-            key=lambda x: (str(x.get("run_id")), str(x.get("node_id"))),
+            suppressed, key=lambda x: (str(x.get("run_id")), str(x.get("node_id")))
         )
         packet["pressures"] = sorted(
             packet.get("pressures") or [],
@@ -308,7 +285,8 @@ if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
     FrontierRuntime.hydrate = _frontier_hydrate_content_digest
     FrontierRuntime._athena_content_digest_v1_registered = True
 
-for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS + SUCCESSOR_TOOLS:
+# Additive MCP surface union.
+for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS + SUCCESSOR_TOOLS + REHYDRATION_HANDOFF_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
         PROMPT_RUNTIME_TOOLS.append(_tool)
         PROMPT_RUNTIME_TOOL_NAMES.add(_tool["name"])
@@ -359,3 +337,19 @@ if not getattr(PromptRuntime, "_athena_rehydration_successor_v1_registered", Fal
 
     PromptRuntime.call_tool = _prompt_call_with_successor
     PromptRuntime._athena_rehydration_successor_v1_registered = True
+
+if not getattr(PromptRuntime, "_athena_rehydration_handoff_v1_registered", False):
+    _prompt_call_without_handoff = PromptRuntime.call_tool
+
+    def _prompt_call_with_handoff(self, name, arguments):
+        if name in REHYDRATION_HANDOFF_TOOL_NAMES:
+            runtime = getattr(self, "_rehydration_handoff_runtime_v1", None)
+            if runtime is None:
+                loop_runtime = getattr(self, "_rehydration_loop_runtime_v1", None)
+                runtime = RehydrationHandoffRuntime(self.git, self, loop_runtime)
+                self._rehydration_handoff_runtime_v1 = runtime
+            return runtime.call_tool(name, arguments)
+        return _prompt_call_without_handoff(self, name, arguments)
+
+    PromptRuntime.call_tool = _prompt_call_with_handoff
+    PromptRuntime._athena_rehydration_handoff_v1_registered = True
