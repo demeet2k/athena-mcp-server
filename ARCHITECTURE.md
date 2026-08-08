@@ -10,6 +10,8 @@
 7. EMISSION GATEWAY — crystallize exact body, assemble HEADER+BODY, create exact visible-byte emission manifestation, verify ENV digest across transport boundaries.
 8. Runtime — hydrate, conditional writes, telemetry, adoption, replayable session state and composed tool dispatch.
 
+Composition law: adding or upgrading one organ must preserve unrelated mature organs unless an explicit supersession/migration is declared and tested. AOR integration therefore must not silently remove transform execution, emission finalization, coordinate navigation, crystallization, session CAS or prior replay surfaces.
+
 AΩR closed loop:
 
 `RECONSTRUCT → EXTRACT → RETRIEVE → HUG → GRAPH → GAP → COMPILE → MEASURE → TEST → OBSERVE → REPAIR → RETEST → VERIFY → REWARD → REALLOCATE → OUTPUT → SUCCESSOR → REPLAY`
