@@ -1,0 +1,127 @@
+{
+  "acceptance_mapping": {
+    "10_campaign_success": "separate downstream standing; never inferred from ledger verification or runtime correctness",
+    "1_v2_core_transplant": "candidate branch must preserve exact pure blob identities and exclude stale initializer",
+    "2_ledger_source_contract": "compile rejects any source contract not bound to #177/#185 verification receipt",
+    "3_current_state_pulse_compiler": "historical pulse compiles to current SATISFIED/SUPERSEDED/RESIDUAL work packet with exact 4/3/3 accounting",
+    "4_loop_binding": "V2 branch remains coordination-only and binds actual work to explicit V1 rehydration loop state",
+    "5_authority_hold": "mutation requiring claim/provider authority HOLDs when current observed surface does not expose it",
+    "6_selective_satisfaction": "historical actions remain in packet and cannot be erased when satisfied/superseded",
+    "7_cold_resume": "same source/current coordinate/dispositions produce deterministic address and chain digests",
+    "8_terminus_law": "pulse 100 with no residual returns RESEED_REQUIRED, never mission COMPLETE",
+    "9_observed_execution": "requires a real receipt-bound pulse execution through current exposed runtime"
+  },
+  "artifact": "ATHENA.CAMPAIGN.V3.SPEC",
+  "laws": [
+    "LEDGER_VERIFIED != LEDGER_EXECUTED",
+    "ISSUE_PRESSURE != SCHED_READY",
+    "CAMPAIGN_BRANCH != BACKGROUND_WORKER",
+    "CAMPAIGN_ROUTING != EXECUTION_AUTHORITY",
+    "UNEXPOSED_OPERATION => HOLD",
+    "RECONCILIATION != GIT_MERGE",
+    "LOCAL_COMMIT != SHARED_RETURN",
+    "PRIVATE_CHAIN_OF_THOUGHT != CAMPAIGN_TELEMETRY",
+    "BOUNDED_CYCLE_COMPLETE != MISSION_COMPLETE",
+    "OBSERVABLE_CONTROL_COORDINATE != HIDDEN_PHYSICAL_OR_PRIVATE_MODEL_STATE"
+  ],
+  "liminal_coordinate": {
+    "artifact": "ATHENA.LIMINAL.COORDINATE.V1",
+    "axes": [
+      "athena_git_head",
+      "prompt_stack_digest",
+      "frontier_source_head",
+      "frontier_digest",
+      "sched_contract_digest",
+      "issue_pressure_digest",
+      "implementation_head",
+      "quest_issue",
+      "pulse_index",
+      "stage"
+    ],
+    "movement": "axis-wise before/after delta; missing/unobserved values remain unknown rather than zero",
+    "semantics": "exact address over observable Git/prompt/frontier/pressure/runtime seams; not hidden physical or private model state"
+  },
+  "parent_issue": 189,
+  "pulse_state": {
+    "action_effects": [
+      "READ_ONLY",
+      "ANALYSIS",
+      "ROUTING",
+      "VERIFY",
+      "MATERIAL_WRITE",
+      "CLAIM",
+      "PROVIDER_EFFECT",
+      "UNKNOWN"
+    ],
+    "required": [
+      "pulse_index",
+      "step_range",
+      "horizon_coverage",
+      "source",
+      "current_address",
+      "execution_surface",
+      "steps",
+      "residual_steps",
+      "holds",
+      "chain_digest",
+      "successor"
+    ],
+    "statuses": [
+      "ROUTABLE_NONMUTATING",
+      "READY_TO_BIND",
+      "HOLD_EXECUTION_AUTHORITY",
+      "HOLD_UNCLASSIFIED_EFFECT",
+      "HOLD_UNCLASSIFIED_CAPABILITY",
+      "HOLD_BOOT",
+      "PULSE_SATISFIED",
+      "RESEED_REQUIRED"
+    ],
+    "step_dispositions": [
+      "SATISFIED",
+      "SUPERSEDED",
+      "RESIDUAL"
+    ]
+  },
+  "source_contract": {
+    "actions_per_pulse": 10,
+    "horizon_pattern": [
+      "I",
+      "I",
+      "I",
+      "I",
+      "M",
+      "M",
+      "M",
+      "L",
+      "L",
+      "L"
+    ],
+    "horizon_totals_per_pulse": {
+      "I": 4,
+      "L": 3,
+      "M": 3
+    },
+    "ledger_verified": "PASS",
+    "source_issue": 177,
+    "total_pulses": 100,
+    "total_steps": 1000,
+    "verification_comment_id": 5228358747,
+    "verification_issue": 185
+  },
+  "status": "CANDIDATE",
+  "v2_transplant": {
+    "excluded": [
+      "athena_mcp/__init__.py"
+    ],
+    "law": "TRANSPLANT_PURE_SURFACES_ONLY; stale initializer/public registration is not reused",
+    "pure_blobs": {
+      "athena_mcp/rehydration_campaign.py": "6aa0bb2a9be96e97dfbc22e33319e4ebd73a386b",
+      "skills/git-rehydration-campaign/SKILL.md": "4f0079f402beaee9dfb1bdfcc249f6318360d6a9",
+      "spec/REHYDRATION_CAMPAIGN_V2.json": "6eb1101d920c073efb1862b5bc44a5764e073636",
+      "tests/test_rehydration_campaign.py": "3d011becee03f4e36eaad044477d1cf110bd3c48"
+    },
+    "source_head": "75533782c9dd4dcd3abd016f0cb60d6f96656ad5",
+    "source_pr": 50
+  },
+  "version": "3.0.0-candidate"
+}
