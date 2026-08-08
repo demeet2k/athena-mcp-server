@@ -1,0 +1,89 @@
+{
+  "artifact": "ATHENA.CAMPAIGN.V3.LIFE.QUEST.PACKET.SPEC.V1",
+  "status": "CANDIDATE_RUNTIME_CONTRACT",
+  "runtime_issue": 149,
+  "runtime_base_head": "e1e8d595b4f05f41dcbeafbc6964f1496adae599",
+  "semantic_source": {
+    "repo": "demeet2k/Athena",
+    "pull_request": 284,
+    "issue": 278,
+    "repair_commit": "60a7bc798412088977d7ab9adf16a0e7dca3a1c9",
+    "script_blob": "c6f35cf39d9f25333ee0c748b5e4bacedbb544a1",
+    "schema_blob": "93212c61e341ec474332c4daa36e776f735d2491",
+    "registry_blob": "375c51fa362a110100568a1e0e8d47a279c1b928",
+    "standing": "CANDIDATE_HARDENED_EXACT_SOURCE_TESTED",
+    "repair_head": "18ffcbc21601d71811ae2d81069dbf8e21a82b5b",
+    "test_blob": "a6ce3ac0bd94eee62764b2daa22ae0679fdc32d5",
+    "exact_source_local_tests": "16/16 PASS",
+    "github_actions_ci": false,
+    "independent_witness": false
+  },
+  "required_packet_fields": [
+    "CLEAR_CONDITION_DIGEST",
+    "LIFE_POLICY",
+    "RESEED_ANCHOR",
+    "EXTRA_LIFE_REWARD_ELIGIBILITY"
+  ],
+  "clear_condition_contract": {
+    "form": "ordered non-empty public condition-definition strings",
+    "hard_gate_required": true,
+    "observed_boolean_result_vector": "bound later by executed Life Loop attempt; MUST be unobserved at packet compile",
+    "digest_basis": [
+      "quest_id",
+      "quest_version",
+      "hard_gate_required",
+      "ordered_clear_condition_contract",
+      "observed_clear_results_bound_later"
+    ]
+  },
+  "life_policy": {
+    "base_lives_per_agent": 3,
+    "max_extra_lives": 9,
+    "extra_life_delta": 1,
+    "typed_hold_consumes_life": false,
+    "requires_anchor_replay_guard": true,
+    "requires_anchor_agent_binding": true,
+    "requires_anchor_quest_binding": true,
+    "requires_current_git_positions_match_at_play": true,
+    "platform_counter_reset_claimed": false
+  },
+  "reseed_anchor_binding": {
+    "schema": "ATHENA.RESEED_ANCHOR.V1",
+    "required_target_versions": [
+      "campaign_v3.pulse_digest",
+      "campaign_v3.campaign_id",
+      "<quest_id>"
+    ],
+    "agent_coordinate_name_must_match_packet": true,
+    "anchor_embedded_by_value": true,
+    "anchor_digest_required": true,
+    "freshness_rechecked_at_play": true,
+    "consumption_deferred_to_life_loop": true
+  },
+  "extra_life_reward_eligibility": {
+    "scope": "PRE_CLEAR_CANDIDATE_SIGNAL_ONLY",
+    "issuance_eligible_at_compile": false,
+    "reward_issued_at_compile": false,
+    "self_scored_allowed": false,
+    "verified_receipt_required": true,
+    "witnesses_required": true
+  },
+  "firewalls": [
+    "QUEST_PACKET != EXECUTION_AUTHORITY",
+    "COMPILED_PACKET != PLAYED_ATTEMPT",
+    "PACKET_COMPILE != RESEED_ANCHOR_CONSUMPTION",
+    "PACKET_COMPILE != LIFE_CONSUMPTION",
+    "EXTRA_LIFE_REWARD_ELIGIBILITY != EXTRA_LIFE_ISSUED",
+    "CLEAR_CONDITION_DIGEST != CLEAR_WITNESS",
+    "RESEED_ANCHOR != PLATFORM_COUNTER_RESET",
+    "LIFE_POLICY != CANONICAL_PROMOTION"
+  ],
+  "verification_ceiling": {
+    "private_draft_smoke": "syntax + pure compiler invariant smoke only",
+    "github_actions_ci_required": true,
+    "canonical_promotion": false,
+    "treatment_effect_claim": false,
+    "semantic_exact_source_local_tests": "16/16 PASS"
+  },
+  "successor": "After mechanism CI/readback, wire compiler into Campaign V3 branch->loop dispatch and run matched Life Loop ON/OFF missions under GTC metrics."
+}
