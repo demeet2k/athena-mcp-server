@@ -10,177 +10,153 @@ Legacy admission remains:
 
 ---
 
-# 2.8.0 -> 2.9.0
+# 2.9.0 -> 3.0.0
 
-`athena-canonical-mcp 2.9.0` adds **Collective Probabilistic V10** on top of the V1–V9 organization/memory/learning/ecology/science/discovery/dual-control/belief/inference stack.
+`athena-canonical-mcp 3.0.0` adds **Collective Adaptive V11** on top of V1–V10.
 
-The migration is additive. Existing V8/V9 finite/Gaussian beliefs, causal estimates, graph hypotheses and evidence-dependence surfaces are not silently converted into V10 GP, PC-stable, TMLE, POMDP or calibrated-dependence objects.
+The migration is additive. Existing Gaussian/GP beliefs, graph hypotheses, TMLE/AIPW estimates, sensitivity results, POMDP policies and evidence-dependence labels/models remain distinct. V11 does not bulk-reinterpret historical state as adaptive-model evidence.
 
-## New persistent V10 surfaces
+## New persistent V11 surface
 
-V10 creates lazily and non-destructively:
+- `collective_v11_gp_hyperfits`.
 
-- `collective_v10_gp_models`
-- `collective_v10_dependence_labels`
-- `collective_v10_dependence_models`.
+This journal records finite-grid GP hyperparameter evaluations and whether an explicitly CAS-authorized winner was applied. Existing GP observations remain in the V10 GP model table.
 
-A GP model is a separate explicitly registered object with fixed kernel/noise hyperparameters and its own observed rows.
+## New V11 MCP tools
 
-Dependence labels are externally supplied calibration observations. Historical witness metadata or V9 dependence probabilities are **not** silently relabeled as ground truth.
-
-## New V10 MCP tools
-
-- `athena_gp_register`
-- `athena_gp_state`
-- `athena_gp_observe`
-- `athena_gp_predict`
-- `athena_pc_stable_discover`
-- `athena_causal_tmle_binary`
-- `athena_sensitivity_evalue`
-- `athena_pomdp_solve`
-- `athena_evidence_dependence_observe`
-- `athena_evidence_dependence_fit`
-- `athena_evidence_dependence_predict`.
+- `athena_gp_hyperfit`
+- `athena_gp_decision_evsi`
+- `athena_latent_project_admg`
+- `athena_causal_tmle_ensemble`
+- `athena_sensitivity_rr_surface`
+- `athena_bapomdp_solve`
+- `athena_evidence_dependence_interval`.
 
 New resource:
 
-`athena://collective/v10`.
+`athena://collective/v11`.
 
-## Gaussian-linear -> fixed-kernel GP migration
+## Fixed GP -> adaptive GP migration
 
-V9 Gaussian belief remains the correct state for a finite-dimensional linear observation model:
+V10 GP remains an exact bounded posterior conditional on fixed declared RBF hyperparameters.
 
-`theta|D ~ N(mu,Sigma)`.
+V11 hyperfit evaluates a finite visible grid using
 
-V10 GP is a different nonlinear model family over observed input-output rows with a declared fixed RBF kernel:
+`log p(y|X,theta) = -1/2 y^T K^-1 y - 1/2 log|K| - n/2 log(2pi)`.
 
-`k(x,z)=sigma_f^2 exp(-||x-z||^2/(2 l^2))`.
+Historical GP observations are not changed during design-only fitting.
 
-No V9 Gaussian belief is silently converted into GP training data or hyperparameters.
+Applying a winner is explicit and requires the current `expected_observation_count`; stale observed-row state rejects. This is an additional GP model-state CAS, not a semantic-state mutation.
 
-A V10 GP must be explicitly registered. Only `athena_gp_observe` appends observed targets. `athena_gp_predict` is read-only.
+`MARGINAL_LIKELIHOOD_OPTIMUM != TRUE_KERNEL`.
 
-The exact posterior calculation is conditional on the declared fixed kernel/noise values and the bounded stored dataset.
+## EVSI -> GP decision-EVSI migration
 
-`FIXED_KERNEL_GP != GENERAL_WORLD_TRUTH`.
+V9 EVSI remains correct for Gaussian **linear parameter** measurement designs.
 
-## Structure migration
+V11 GP-EVSI is a separate nonlinear GP object using joint posterior covariance between action and measurement points:
 
-V7 association skeletons, V8 bootstrap stability and V9 heuristic partial graphs remain valid scoped hypotheses.
+`mu_a' = mu_a + Cov(f_a,f_e)/(Var(f_e)+sigma_e^2)*(y_e-mu_e)`.
 
-V10 `athena_pc_stable_discover` adds a separate bounded Gaussian PC-stable procedure:
+Do not rename V9 EVSI histories as GP-EVSI. Different model/observation assumptions govern them.
 
-- Fisher-z conditional-independence testing;
-- stable-level edge removals;
-- explicit separation sets;
-- collider orientation;
-- bounded Meek R1/R2 closure;
-- conditioning depth <=3 and variables <=10.
+GP-EVSI is design-only and never creates GP observations.
 
-Existing V9 `o-o` edges are not retroactively relabeled as PC-stable output. PC-stable output itself is not FCI/PAG hidden-confounder discovery and creates no canonical JSPACE edge.
+## PC/partial graph -> supplied latent projection migration
 
-## AIPW -> TMLE migration
+V7–V10 observational graph hypotheses remain unchanged.
 
-V9 AIPW remains available for binary treatment with numeric outcome under its declared nuisance models/assumptions.
+V11 latent projection does not discover hidden variables from those graph outputs. It accepts a separately supplied causal DAG plus an explicit latent-node set and transforms that declared model into restricted observed directed/bidirected geometry.
 
-V10 adds a separate binary-treatment/binary-outcome TMLE surface with cross-fitted logistic nuisance fits, propensity clipping, a logistic targeting fluctuation, targeted counterfactual risks and an influence-curve interval.
+No PC/partial edge is automatically converted into a bidirected confounding edge. No projection call creates JSPACE edges.
 
-Historical AIPW estimates are not reclassified as TMLE estimates. Identification remains a separate prerequisite/authority surface.
+`SUPPLIED_DAG_LATENT_PROJECTION != DATA_DISCOVERED_PAG`.
 
-`TMLE_ESTIMATE != IDENTIFICATION_PROOF`.
+## TMLE -> stacked TMLE migration
 
-Declared latent-confounding risk fails closed.
+V10 single-logistic-nuisance TMLE remains available.
 
-## Sensitivity migration
+V11 adds a separate transparent nuisance ensemble using deterministic validation-weighted simple, linear and degree-2 logistic candidates inside cross-fitting. Existing V10 TMLE records are not relabeled as ensemble estimates.
 
-V9 leave-one-adjustment robustness remains an observed-specification perturbation diagnostic.
+The stronger nuisance surface does not weaken causal identification requirements.
 
-V10 adds the standard risk-ratio E-value metric:
+`STACKED_TMLE != SUPER_LEARNER_THEOREM`.
 
-`E=RR+sqrt(RR(RR-1))`
+Declared latent-confounding risk still fails closed.
 
-for `RR>=1`, with reciprocal handling for protective associations and optional closest-to-null CI limit.
+## E-value -> RR sensitivity surface migration
 
-Do not rename old robustness shifts as E-values; these are different sensitivity objects.
+V10 point/CI E-value remains a one-number sensitivity summary.
 
-`E_VALUE != UNIVERSAL_HIDDEN_CONFOUNDING_BOUND`.
+V11 adds a declared two-dimensional bias-factor grid:
 
-## Finite multistage policy -> POMDP migration
+`BF=RR_EU*RR_UY/(RR_EU+RR_UY-1)`.
 
-V9 finite-belief policy recursion operates over model likelihood/utility branches without hidden-state transition dynamics.
+Historical E-values are not converted into surface cells. The grid encodes explicit hidden-confounding strength assumptions and reports toward-null adjusted associations.
 
-V10 `athena_pomdp_solve` is a distinct finite-state control model with:
+`RR_BIAS_FACTOR_SURFACE != UNIVERSAL_HIDDEN_CONFOUNDING_BOUND`.
 
-- hidden-state belief;
-- action reward by state;
-- state transitions;
-- observation emissions;
-- Bayes filtering;
-- finite horizon `H<=4`.
+## POMDP -> finite-model Bayes-adaptive POMDP migration
 
-No V9 policy tree is automatically migrated into a POMDP model.
+V10 assumes one supplied transition/observation model.
 
-Exact certificate is returned only when the entire supplied finite action/observation tree completes before the node limit:
+V11 `athena_bapomdp_solve` instead takes a finite set of candidate models with explicit priors and common action IDs. Its hidden state is `(M,S)`, with model identity static but uncertain. Observations update posterior mass over both `M` and `S`.
 
-`EXACT_FOR_SUPPLIED_FINITE_MODEL_AND_HORIZON`.
+No V10 POMDP policy is silently converted into a model prior.
 
-A node-limited run returns `NODE_LIMIT_NO_EXACT_CERTIFICATE`.
+A completed bounded search certifies only:
 
-`FINITE_POMDP_CERTIFICATE != INFINITE_HORIZON_OR_REAL_WORLD_OPTIMALITY`.
+`EXACT_FOR_SUPPLIED_STATIC_MODEL_SET_STATE_SPACE_ACTIONS_OBSERVATIONS_AND_HORIZON`.
 
-## Evidence-dependence calibration migration
+Node-limited search returns no certificate.
 
-V9 can calculate dependence probabilities from caller-declared coefficients.
+`FINITE_MODEL_BAPOMDP != GENERAL_BAYES_ADAPTIVE_CONTROL`.
 
-V10 adds explicit supervised calibration:
+## Evidence-dependence uncertainty migration
 
-1. record externally labelled pair examples;
-2. require at least 20 labels with complete shared features;
-3. fit a scoped logistic dependence model;
-4. expose training log loss/accuracy;
-5. predict under that fitted scope.
+V10 fitted dependence coefficients and external labels remain the source model/data.
 
-V9 model outputs cannot become V10 calibration labels automatically.
+V11 adds a model-conditional Laplace/Hessian uncertainty calculation around those fitted logits. Existing point predictions are not reclassified as calibrated intervals.
 
-Predictions never create labels or retrain themselves.
-
-`LEARNED_DEPENDENCE_MODEL != FORMAL_INDEPENDENCE_PROOF`.
+`LAPLACE_DEPENDENCE_INTERVAL != CALIBRATED_COVERAGE_GUARANTEE`.
 
 ## Authority compatibility
 
-2.9.0 does not weaken earlier authority planes:
+3.0.0 does not weaken earlier authority planes:
 
 - semantic writes retain VID/event-head authority;
 - Git writes retain Git-head CAS;
 - topology retains topology-version CAS;
-- V3 policy retains policy-version CAS;
-- projection/compensation retain explicit recovery authority;
-- V4–V10 predictions, posteriors, graph hypotheses, causal estimates, sensitivity metrics, plans and evidence-dependence state remain evidential/advisory unless separately promoted under canonical mutation law.
+- learned policy retains policy-version CAS;
+- GP hyperparameter application gains its own exact observed-row-count precondition;
+- projection/compensation retain their existing recovery authority;
+- V4–V11 prediction, belief, causal-estimation, sensitivity, graph, policy and evidence-dependence surfaces remain evidential/advisory unless separately promoted through canonical mutation law.
 
-A very narrow GP posterior variance, highly stable PC orientation, small TMLE p-like interval, large E-value, exact finite POMDP certificate or high learned dependence probability does not silently mutate canon.
+A marginal-likelihood optimum, large GP-EVSI, bidirected latent projection, tight stacked-TMLE interval, strong sensitivity surface, exact finite BA-POMDP certificate, or narrow dependence interval never silently mutates canon.
 
-## V10 migration firewall
+## V11 migration firewall
 
-- fixed-kernel GP != general world truth;
-- GP posterior != observation;
-- bounded PC-stable != FCI/hidden-confounder discovery;
-- TMLE estimate != identification proof;
-- E-value != universal hidden-confounding bound;
-- finite POMDP certificate != infinite-horizon/real-world optimum;
-- learned dependence probability != formal statistical independence;
+- marginal-likelihood optimum != true kernel;
+- GP decision EVSI != observed evidence;
+- supplied-DAG latent projection != data-discovered PAG;
+- stacked TMLE != universal Super Learner theorem;
+- stacked TMLE estimate != identification proof;
+- RR bias-factor surface != universal hidden-confounding theorem;
+- finite-model BA-POMDP certificate != general/real-world optimality;
+- Laplace dependence interval != calibrated coverage guarantee;
+- model exactness != model correctness;
 - model/simulation output != observation;
-- unknown cost != zero cost;
-- computational exactness within a model != correctness of the model.
+- unknown cost != zero cost.
 
 ## Deployment check
 
 After upgrade verify:
 
-1. package version and MCP `SERVER_INFO.version` both equal `2.9.0`;
-2. every V10 tool appears in `tools/list`;
-3. `athena://collective/v10` appears and reads as `COLLECTIVE_RUNTIME_V10`;
-4. legacy V1–V9 tests pass;
-5. constructive V10 tests pass;
-6. adversarial V10 tests pass;
-7. stdio `python -m athena_mcp` crosses V9 continuous inference plus V10 GP observation/prediction, TMLE, E-value, exact finite POMDP and exact emission verification;
+1. package and MCP server version both equal `3.0.0`;
+2. all seven V11 tools appear in `tools/list`;
+3. `athena://collective/v11` reads as `COLLECTIVE_RUNTIME_V11`;
+4. legacy V1–V10 tests pass;
+5. constructive V11 tests pass;
+6. adversarial V11 tests pass;
+7. stdio `python -m athena_mcp` crosses V11 GP hyperfit/GP-EVSI, supplied latent projection, ensemble TMLE, sensitivity surface and exact finite-model BA-POMDP before exact emission verification;
 8. canonical brain promotion occurs only after the exact final runtime/version/documentation head passes CI.
