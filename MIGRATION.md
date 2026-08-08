@@ -1,6 +1,6 @@
 # ATHENA Unified Migration Law — v3.1 / Collective V1–V12
 
-This repository has passed through historical active-tree reset, AOR×Collective constitutional braid, parallel Collective successor development, explicit ancestry repair, and repository-brain consistency repair. Migration therefore distinguishes **content**, **runtime integration**, **release identity**, **verification**, **authority**, **control-plane state**, and **Git ancestry**.
+This repository has passed through historical active-tree reset, AOR×Collective constitutional braid, parallel Collective successor development, explicit ancestry repair, repository-brain consistency repair, and PROMOTION.2 trust-boundary hardening. Migration therefore distinguishes **content**, **runtime integration**, **release identity**, **verification**, **authority**, **attestation**, **trusted qualification**, **control-plane state**, and **Git ancestry**.
 
 `UNKNOWN / LEGACY != GARBAGE`
 
@@ -14,7 +14,11 @@ This repository has passed through historical active-tree reset, AOR×Collective
 
 `GREEN OLD HEAD != QUALIFIED NEW HEAD`
 
-`CI PASS != LIVE PROMRUN`
+`CALLER_ATTESTATION != TRUSTED_EXTERNAL_VERIFICATION`
+
+`ATTESTED_READY != QUALIFIED`
+
+`CI PASS != LIVE TRUSTED PROMRUN`
 
 `RUNTIME STATE != GITHUB CONTROL-PLANE STATE`
 
@@ -38,8 +42,10 @@ One composed runtime contains:
 - typed AOR×Collective transport;
 - CYCLE.1;
 - SCHEMA.2 / OMEGA.1 / RECON.1;
-- SELFTEST.1 / STARTUP.1 / SURFACE.2 / COMPOSITION.2 / PROMOTION.1 predicates;
+- SELFTEST.1 / STARTUP.1 / SURFACE.2 / COMPOSITION.2 / PROMOTION.2;
 - exact final-emission verification.
+
+Historical PROMOTION.1 receipts remain versioned/replayable but are no longer sufficient to describe the current qualification trust contract.
 
 ## 2. Historical reset and ancestry boundary
 
@@ -49,13 +55,15 @@ Legacy admission remains:
 
 `DISCOVER → HASH → CLASSIFY → CCR SEARCH → OID/VID → SOURCE → KC144 → JSPACE → SCALE → TEST/EVIDENCE → STATUS`.
 
-A newer green successor must preserve the current master ancestry, including the post-V11 repository-brain consistency merge/repair, rather than replacing master with an older otherwise-green snapshot.
+A newer green successor must preserve the current master ancestry, including the post-V11 repository-brain consistency repair and PROMOTION.2 trust-boundary hardening, rather than replacing master with an older otherwise-green snapshot.
 
 ## 3. Database migration — SCHEMA.2
 
 Schema adoption remains additive and receipt-bearing. Unknown legacy tables/rows survive unless an explicitly authorized migration owns them. Future schema versions fail closed rather than silently downgrading.
 
 V12 itself adds no new persistent SQL table: its hyperposterior/BMA/PAG/g-formula/chance-control results are read-only computation surfaces over existing state and caller inputs. This is intentional; `NO_NEW_TABLE != NO_NEW_CAPABILITY`.
+
+PROMOTION.2 reuses the existing versioned `promotion_runs` ledger while storing version-specific certificate semantics so historical PROMOTION.1 receipts remain replayable under the evaluator that created them.
 
 ## 4. Claim namespace / authority firewall
 
@@ -215,9 +223,9 @@ Unified gate:
 
 `syntax ∧ unit ∧ critical-invariants ∧ dependent-smoke`.
 
-Critical invariants include schema/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, documentation consistency, V6↔Y1 firewall, V7, V8/V9, V10, V11, **V12 constructive/adversarial/unified authority tests**, AOR×Collective transport, and promotion predicate.
+Critical invariants include schema/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, documentation consistency, V6↔Y1 firewall, V7, V8/V9, V10, V11, **V12 constructive/adversarial/unified authority tests**, AOR×Collective transport, and PROMOTION.2 caller/trusted qualification separation.
 
-Smoke runs only after the first three jobs pass and spans V6→V12 plus AOR/state/CYCLE/final-emission paths in one process.
+Smoke runs only after the first three jobs pass and spans V6→V12 plus AOR/state/CYCLE, PROMOTION.2 caller-bound readiness, and final-emission paths in one process.
 
 ## 11. Parallel-lineage repair law
 
@@ -227,22 +235,48 @@ When AOR constitutional and Collective successor branches evolve in parallel, su
 
 Never reuse qualification evidence from an older head.
 
+PROMOTION.2 itself is a concrete example: V12 development began from the repository-brain-repair head; master later advanced with trusted-verifier hardening, so V12 must preserve that master ancestry and rerun the four gates before merge.
+
 ## 12. Git ancestry / merge law
 
 Copying current-master files is not lineage reconciliation. A true braid preserves the relevant parent graph. Before final merge, confirm current master has not advanced incompatibly. If it has, merge/reconcile that ancestry into the V12 candidate and rerun all four gates.
 
 The final merged master SHA must independently pass syntax, unit, critical invariants and dependent smoke. Feature-branch success alone does not qualify the master release.
 
-## 13. Promotion semantics
+## 13. Promotion semantics — PROMOTION.2
 
-PROMOTION.1 is a runtime ledger/predicate distinct from GitHub CI. Predicate tests prove behavior; they do **not** fabricate a live PROMRUN.
+PROMOTION.2 separates **caller-bound exact-head readiness** from **trusted external qualification**.
 
-`CI PASS != LIVE PROMRUN`.
+MCP-visible `athena_promotion_evaluate` accepts the candidate head plus caller-supplied CI/smoke witness packets. If the local Server/SURFACE/COMPOSITION/configured-Git gates and both packets agree on one successful head, the result is:
 
-A private canonical-brain pin may be updated only after the exact final public runtime master head is verified and read back.
+`ATTESTED_READY`.
+
+Those packets are typed `CALLER_ATTESTED`. They prove packet consistency; the runtime does not pretend it independently queried the external provider.
+
+Current trusted status:
+
+`QUALIFIED`
+
+requires an additional host-internal verifier receipt binding:
+
+- verifier identity;
+- verification reference;
+- exact Git head;
+- exact CI reference;
+- exact smoke reference.
+
+The ordinary MCP schema has no field for that trusted packet, so an MCP caller cannot self-mint `QUALIFIED`.
+
+`ATTESTED_READY + TRUSTED_HOST_VERIFIER → QUALIFIED`.
+
+Historical PROMOTION.1 receipts remain frozen and replayable under their V1 evaluator, but historical `QUALIFIED` is counted separately from current PROMOTION.2 trusted qualification.
+
+`CI PASS != LIVE TRUSTED PROMRUN`.
+
+A private canonical-brain pin may be updated only after the exact final public runtime master head is verified and read back. The pin may cite GitHub Actions as an external witness, but it must not claim a runtime PROMOTION.2 `QUALIFIED` receipt unless the trusted host bridge actually produced one.
 
 ## 14. External GitHub control-plane boundary
 
-Branch protection, repository description/settings, tags, Releases, PR state and merge state are not runtime state. They must be queried/changed using GitHub control-plane capabilities. Absence of a capability is an unresolved infrastructure constraint, not permission to claim the setting changed.
+Branch protection, repository description/settings, tags, Releases, PR state, merge state, and the trusted promotion-verifier bridge are not runtime state. They must be queried/changed using GitHub/host control-plane capabilities. Absence of a capability is an unresolved infrastructure constraint, not permission to claim the setting changed or a trusted qualification occurred.
 
 `RUNTIME STATE != GITHUB CONTROL-PLANE STATE`.
