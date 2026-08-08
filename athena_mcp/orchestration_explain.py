@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, Iterable, Mapping
+from typing import Any, Dict, Iterable, Mapping, Optional
 
 from .orchestration_score import finite_number
 
@@ -8,8 +8,6 @@ BENEFIT_METRICS = ("delta_j", "information_gain", "bridge", "option_value")
 
 
 def _successor_vector(row: Mapping[str, Any]):
-    # Pareto comparisons must use the same scoring basis as scalar selection.
-    # When a metric contract is present, scoring_source is nondimensionalized.
     src = row.get("scoring_source") or row.get("source") or {}
     values = {}
     for name in BENEFIT_METRICS + ("cost",):
@@ -49,55 +47,33 @@ def measurement_requests(rows: Iterable[Mapping[str, Any]]) -> list[Dict[str, An
                 blocked.append(formula)
                 missing.update(score.get("missing", []))
         if blocked:
-            requests.append({
-                "candidate": row["id"],
-                "missing_metrics": sorted(missing),
-                "blocked_formulas": sorted(blocked),
-                "measurement_pressure": len(blocked),
-            })
-    return sorted(requests, key=lambda x: (-x["measurement_pressure"], x["candidate"]))
+            requests.append({"candidate":row["id"],"missing_metrics":sorted(missing),"blocked_formulas":sorted(blocked),"measurement_pressure":len(blocked)})
+    return sorted(requests,key=lambda x:(-x["measurement_pressure"],x["candidate"]))
 
 
-def decision_explanation(rows: Iterable[Mapping[str, Any]], next_id: str | None) -> Dict[str, Any]:
-    rows = list(rows)
-    by_id = {str(row["id"]): row for row in rows}
-    chosen = by_id.get(next_id) if next_id is not None else None
-    chosen_value = None
-    if chosen is not None and chosen["scores"]["successor"].get("status") == "KNOWN":
-        chosen_value = chosen["scores"]["successor"]["value"]
+def decision_explanation(rows: Iterable[Mapping[str, Any]], next_id: str | None, allocated_ids: Optional[set[str]]=None, budget_active: bool=False) -> Dict[str, Any]:
+    rows=list(rows); by_id={str(row["id"]):row for row in rows}; chosen=by_id.get(next_id) if next_id is not None else None
+    chosen_value=None
+    if chosen is not None and chosen["scores"]["successor"].get("status")=="KNOWN": chosen_value=chosen["scores"]["successor"]["value"]
+    allocated_ids=set(allocated_ids or set())
 
-    rejected = []
+    rejected=[]
     for row in rows:
-        if next_id is not None and row["id"] == next_id:
-            continue
-        reasons = []
-        if row.get("resolved"):
-            reasons.append("already_resolved")
-        if not row.get("dependency", {}).get("ready", True):
-            reasons.extend(row["dependency"].get("blockers", []))
-        if row.get("gate", {}).get("status") == "BLOCKED":
-            reasons.extend("gate:" + x for x in row["gate"].get("blocked_by", []))
-        calibration = (row.get("metric_calibration") or {}).get("successor") or {}
-        if calibration.get("status") == "BLOCKED":
-            reasons.append("metric_calibration_blocked")
-        score = row["scores"]["successor"]
-        if score.get("status") == "UNKNOWN":
-            reasons.append("successor_score_unknown")
-        elif score.get("status") == "INVALID":
-            reasons.append("successor_score_invalid")
-        elif not row.get("rankable_successor"):
-            reasons.append("not_successor_eligible")
-        elif chosen_value is not None and float(score["value"]) < float(chosen_value):
-            reasons.append("lower_successor_score")
-        elif chosen_value is not None and float(score["value"]) == float(chosen_value):
-            reasons.append("tie_broken_by_frontier_then_id")
-        if not reasons:
-            reasons.append("not_selected")
-        rejected.append({"candidate": row["id"], "reasons": sorted(set(reasons))})
+        if next_id is not None and row["id"]==next_id: continue
+        reasons=[]
+        if row.get("resolved"): reasons.append("already_resolved")
+        if not row.get("dependency",{}).get("ready",True): reasons.extend(row["dependency"].get("blockers",[]))
+        if row.get("gate",{}).get("status")=="BLOCKED": reasons.extend("gate:"+x for x in row["gate"].get("blocked_by",[]))
+        calibration=(row.get("metric_calibration") or {}).get("successor") or {}
+        if calibration.get("status")=="BLOCKED": reasons.append("metric_calibration_blocked")
+        score=row["scores"]["successor"]
+        if score.get("status")=="UNKNOWN": reasons.append("successor_score_unknown")
+        elif score.get("status")=="INVALID": reasons.append("successor_score_invalid")
+        elif not row.get("rankable_successor"): reasons.append("not_successor_eligible")
+        elif budget_active and str(row["id"]) not in allocated_ids: reasons.append("not_budget_allocated")
+        elif chosen_value is not None and float(score["value"])<float(chosen_value): reasons.append("lower_successor_score")
+        elif chosen_value is not None and float(score["value"])==float(chosen_value): reasons.append("tie_broken_by_frontier_then_id")
+        if not reasons: reasons.append("not_selected")
+        rejected.append({"candidate":row["id"],"reasons":sorted(set(reasons))})
 
-    return {
-        "selected": next_id,
-        "selection_rule": "highest KNOWN successor score on the declared scoring basis among unresolved dependency-ready promotion-gate-passing calibration-allowed candidates; frontier score then id break ties",
-        "selected_successor_score": chosen_value,
-        "rejected": sorted(rejected, key=lambda x: x["candidate"]),
-    }
+    return {"selected":next_id,"selection_rule":"highest KNOWN successor score on the declared scoring basis among unresolved dependency-ready promotion-gate-passing calibration-allowed candidates, constrained to budget allocation when active; frontier score then id break ties","selected_successor_score":chosen_value,"rejected":sorted(rejected,key=lambda x:x["candidate"])}
