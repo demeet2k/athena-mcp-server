@@ -35,6 +35,11 @@ from .rehydration_successor import (
     SUCCESSOR_TOOL_NAMES,
     install_successor_extension,
 )
+from .rehydration_regret import (
+    REGRET_AB_TOOLS,
+    REGRET_AB_TOOL_NAMES,
+    install_regret_ab_extension,
+)
 from .rehydration_terminal import install_terminal_gate
 from .rehydration_handoff import (
     REHYDRATION_HANDOFF_TOOLS,
@@ -51,6 +56,10 @@ from .agent_bootstrap_handoff import install_agent_bootstrap_handoff
 
 # Routing successor extension: answers WHAT NEXT.
 install_successor_extension(RehydrationLoopRuntime)
+
+# Read-only V1 x V2 decision analysis. This wraps call_tool only; it does not
+# alter advance(), automatic successor selection, closure, claim, or handoff.
+install_regret_ab_extension(RehydrationLoopRuntime)
 
 # Extend only the advance completion schema. Do not mutate REHYDRATION_TOOL_NAMES.
 for _tool in REHYDRATION_TOOLS:
@@ -297,7 +306,7 @@ install_bootstrap_consistency(AgentBootstrapRuntime)
 install_agent_bootstrap_handoff(AgentBootstrapRuntime)
 
 # Additive MCP surface union.
-for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS + SUCCESSOR_TOOLS + REHYDRATION_HANDOFF_TOOLS + AGENT_BOOT_TOOLS:
+for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS + SUCCESSOR_TOOLS + REGRET_AB_TOOLS + REHYDRATION_HANDOFF_TOOLS + AGENT_BOOT_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
         PROMPT_RUNTIME_TOOLS.append(_tool)
         PROMPT_RUNTIME_TOOL_NAMES.add(_tool["name"])
@@ -348,6 +357,21 @@ if not getattr(PromptRuntime, "_athena_rehydration_successor_v1_registered", Fal
 
     PromptRuntime.call_tool = _prompt_call_with_successor
     PromptRuntime._athena_rehydration_successor_v1_registered = True
+
+if not getattr(PromptRuntime, "_athena_rehydration_regret_ab_v2_registered", False):
+    _prompt_call_without_regret_ab = PromptRuntime.call_tool
+
+    def _prompt_call_with_regret_ab(self, name, arguments):
+        if name in REGRET_AB_TOOL_NAMES:
+            runtime = getattr(self, "_rehydration_loop_runtime_v1", None)
+            if runtime is None:
+                runtime = RehydrationLoopRuntime(self.git, self)
+                self._rehydration_loop_runtime_v1 = runtime
+            return runtime.call_tool(name, arguments)
+        return _prompt_call_without_regret_ab(self, name, arguments)
+
+    PromptRuntime.call_tool = _prompt_call_with_regret_ab
+    PromptRuntime._athena_rehydration_regret_ab_v2_registered = True
 
 if not getattr(PromptRuntime, "_athena_rehydration_handoff_v1_registered", False):
     _prompt_call_without_handoff = PromptRuntime.call_tool

@@ -9,6 +9,7 @@ from .rehydration_loop import REHYDRATION_TOOLS, RehydrationLoopRuntime, _state_
 ARTIFACT = "ATHENA.REHYDRATION.TERMINAL.GATE.V1"
 PREVIEW_ARTIFACT = "ATHENA.REHYDRATION.SUCCESSOR.PREVIEW.MEMBRANE.V1"
 PROMPT_CONTRACT_ARTIFACT = "ATHENA.REHYDRATION.PROMPT.CLOSURE.CONTRACT.V1"
+REGRET_COMPARE_TOOL = "athena_rehydration_successor_regret_compare"
 
 
 def _nonempty_text(value: Any) -> str:
@@ -23,7 +24,7 @@ def evaluate_terminal_request(runtime: RehydrationLoopRuntime, loop_id: str, com
     """Evaluate a terminal request as a closure claim, never as self-authenticating truth.
 
     This evaluator is deliberately self-sufficient because it is used both by the
-    mutating advance path and by standalone successor preview. Closure therefore
+    mutating advance path and by standalone successor previews. Closure therefore
     cannot rely on a later core validator to add missing observation/pass checks.
     """
 
@@ -157,10 +158,29 @@ def evaluate_terminal_request(runtime: RehydrationLoopRuntime, loop_id: str, com
     }
 
 
-def _preview_hold(status: str, *, loop_id: str, remote_sync: dict, detail: dict | None = None) -> dict:
+def _preview_hold(
+    status: str,
+    *,
+    loop_id: str,
+    remote_sync: dict,
+    requested_tool: str = "athena_rehydration_successor_preview",
+    detail: dict | None = None,
+) -> dict:
+    laws = [
+        "SUCCESSOR_PREVIEW != EXECUTION_AUTHORITY",
+        "LOCAL_PREVIEW_STATE != SHARED_CURRENT_STATE",
+        "STALE_PREVIEW => REHYDRATE_BEFORE_ROUTING",
+        "TERMINAL_REQUEST != TERMINAL_VERDICT",
+    ]
+    if requested_tool == REGRET_COMPARE_TOOL:
+        laws.extend([
+            "SUCCESSOR_REGRET_COMPARE != EXECUTION_AUTHORITY",
+            "LOCAL_AB_PREVIEW != SHARED_CURRENT_AB_PREVIEW",
+        ])
     return {
         "artifact": PREVIEW_ARTIFACT,
         "status": status,
+        "requested_tool": requested_tool,
         "loop_id": loop_id,
         "selected": None,
         "candidates": [],
@@ -169,12 +189,7 @@ def _preview_hold(status: str, *, loop_id: str, remote_sync: dict, detail: dict 
         "remote_sync": remote_sync,
         "requires_rehydrate": True,
         "detail": dict(detail or {}),
-        "laws": [
-            "SUCCESSOR_PREVIEW != EXECUTION_AUTHORITY",
-            "LOCAL_PREVIEW_STATE != SHARED_CURRENT_STATE",
-            "STALE_PREVIEW => REHYDRATE_BEFORE_ROUTING",
-            "TERMINAL_REQUEST != TERMINAL_VERDICT",
-        ],
+        "laws": laws,
     }
 
 
@@ -236,7 +251,7 @@ Declared stop conditions for this loop: {json.dumps(stop_conditions, ensure_asci
 
 
 def install_terminal_gate(runtime_cls=RehydrationLoopRuntime, tool_list=None) -> None:
-    """Install fail-closed terminal gating, preview membrane, and prompt closure law."""
+    """Install fail-closed terminal gating, shared-fresh preview membrane, and prompt closure law."""
 
     if getattr(runtime_cls, "_athena_terminal_gate_v1_registered", False):
         return
@@ -269,9 +284,11 @@ def install_terminal_gate(runtime_cls=RehydrationLoopRuntime, tool_list=None) ->
         return result
 
     def call_tool_with_terminal_preview_membrane(self, name: str, a: dict):
-        if name != "athena_rehydration_successor_preview":
+        preview_tools = {"athena_rehydration_successor_preview", REGRET_COMPARE_TOOL}
+        if name not in preview_tools:
             return original_call(self, name, a)
 
+        is_regret = name == REGRET_COMPARE_TOOL
         loop_id = a["loop_id"]
         remote = a.get("remote", "origin")
         mode = self._remote_mode(a.get("shared_remote_mode", "REQUIRED"))
@@ -281,10 +298,12 @@ def install_terminal_gate(runtime_cls=RehydrationLoopRuntime, tool_list=None) ->
             remote_sync = self.remote_sync.sync(remote)
             if mode == "REQUIRED" and not remote_sync.get("shared_frontier_verified"):
                 return _preview_hold(
-                    "REHYDRATION_SUCCESSOR_PREVIEW_SHARED_FRONTIER_HOLD",
+                    "REHYDRATION_SUCCESSOR_REGRET_COMPARE_SHARED_FRONTIER_HOLD"
+                    if is_regret else "REHYDRATION_SUCCESSOR_PREVIEW_SHARED_FRONTIER_HOLD",
                     loop_id=loop_id,
                     remote_sync=remote_sync,
-                    detail={"law": "LOCAL_PREVIEW_STATE != SHARED_CURRENT_STATE"},
+                    requested_tool=name,
+                    detail={"law": "LOCAL_AB_PREVIEW != SHARED_CURRENT_AB_PREVIEW" if is_regret else "LOCAL_PREVIEW_STATE != SHARED_CURRENT_STATE"},
                 )
 
         state, paths = self._read_state(loop_id)
@@ -293,9 +312,10 @@ def install_terminal_gate(runtime_cls=RehydrationLoopRuntime, tool_list=None) ->
         expected_digest = a["expected_state_digest"]
         if stored_digest != computed_digest:
             return _preview_hold(
-                "TAMPERED_SUCCESSOR_PREVIEW_STATE_HOLD",
+                "TAMPERED_SUCCESSOR_REGRET_COMPARE_STATE_HOLD" if is_regret else "TAMPERED_SUCCESSOR_PREVIEW_STATE_HOLD",
                 loop_id=loop_id,
                 remote_sync=remote_sync,
+                requested_tool=name,
                 detail={
                     "expected_state_digest": expected_digest,
                     "stored_state_digest": stored_digest,
@@ -304,9 +324,10 @@ def install_terminal_gate(runtime_cls=RehydrationLoopRuntime, tool_list=None) ->
             )
         if expected_digest != stored_digest:
             return _preview_hold(
-                "STALE_SUCCESSOR_PREVIEW",
+                "STALE_SUCCESSOR_REGRET_COMPARE" if is_regret else "STALE_SUCCESSOR_PREVIEW",
                 loop_id=loop_id,
                 remote_sync=remote_sync,
+                requested_tool=name,
                 detail={
                     "expected_state_digest": expected_digest,
                     "current_state_digest": stored_digest,
@@ -335,7 +356,10 @@ def install_terminal_gate(runtime_cls=RehydrationLoopRuntime, tool_list=None) ->
         result["preview_membrane"] = PREVIEW_ARTIFACT
         result["remote_sync"] = remote_sync
         result["shared_frontier_verified"] = bool(remote_sync.get("shared_frontier_verified"))
-        result["freshness_law"] = "SUCCESSOR_PREVIEW_SYNC_SHARED_GIT_BEFORE_ROUTING"
+        result["freshness_law"] = (
+            "SUCCESSOR_REGRET_COMPARE_SYNC_SHARED_GIT_BEFORE_ANALYSIS"
+            if is_regret else "SUCCESSOR_PREVIEW_SYNC_SHARED_GIT_BEFORE_ROUTING"
+        )
         result["closure_law"] = "SUCCESSOR_PREVIEW_APPLIES_TERMINAL_GATE_BEFORE_COMPILER"
         result["preview_verification"] = (
             "SHARED_CURRENT"
@@ -355,6 +379,13 @@ def install_terminal_gate(runtime_cls=RehydrationLoopRuntime, tool_list=None) ->
         ):
             if law not in laws:
                 laws.append(law)
+        if is_regret:
+            for law in (
+                "SUCCESSOR_REGRET_COMPARE != EXECUTION_AUTHORITY",
+                "LOCAL_AB_PREVIEW != SHARED_CURRENT_AB_PREVIEW",
+            ):
+                if law not in laws:
+                    laws.append(law)
         result["laws"] = laws
         return result
 
@@ -410,4 +441,31 @@ def install_terminal_gate(runtime_cls=RehydrationLoopRuntime, tool_list=None) ->
         completion["description"] = (
             "Observed completion candidate. terminal=true is only a closure request; the runtime preview membrane applies "
             "the witnessed terminal gate before the lower successor compiler may return TERMINAL."
+        )
+
+    # AB-001: any successor analysis that can influence a future routing decision
+    # must inherit the same shared-freshness and closure membrane as V1 preview.
+    try:
+        from .rehydration_regret import REGRET_AB_TOOLS
+    except ImportError:
+        REGRET_AB_TOOLS = []
+    for tool in REGRET_AB_TOOLS:
+        if tool.get("name") != REGRET_COMPARE_TOOL:
+            continue
+        tool["description"] = (
+            "Fresh-sync shared Git, verify the exact current loop state digest, apply the witnessed terminal-closure gate, "
+            "then run a read-only V1 x V2 successor regret/VOC comparison over the current loop state."
+        )
+        schema = tool.setdefault("inputSchema", {"type": "object", "properties": {}})
+        props = schema.setdefault("properties", {})
+        props.setdefault("shared_remote_mode", {
+            "type": "string",
+            "enum": ["REQUIRED", "BEST_EFFORT", "DISABLED"],
+            "description": "Default REQUIRED. DISABLED is local-only and never claims shared-current A/B analysis.",
+        })
+        props.setdefault("remote", {"type": "string"})
+        completion = props.setdefault("completion", {"type": ["object", "null"]})
+        completion["description"] = (
+            "Observed completion candidate. terminal=true is only a closure request; the shared preview membrane applies "
+            "the same witnessed terminal gate before V1/V2 analysis."
         )
