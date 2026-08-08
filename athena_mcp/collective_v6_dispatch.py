@@ -2,6 +2,16 @@ from __future__ import annotations
 
 import itertools
 
+from .collective_dual_control import CollectiveDualControlRuntime
+from .collective_v7_dispatch import call as call_v7
+from .collective_v7_protocol import COLLECTIVE_V7_TOOLS
+
+V7_NAMES={t['name'] for t in COLLECTIVE_V7_TOOLS}
+
+
+def _dual(discovery):
+    return CollectiveDualControlRuntime(discovery)
+
 
 def _experiment_generate(discovery,a):
     hypotheses=a['hypotheses']; factors=a['factors']
@@ -38,6 +48,7 @@ def _experiment_generate(discovery,a):
 
 
 def call(discovery,name,a):
+    if name in V7_NAMES: return call_v7(_dual(discovery),name,a)
     if name=='athena_ood_observe': return discovery.ood_observe(a['features'],a['regime'],a.get('scope','global'))
     if name=='athena_ood_score': return discovery.ood_score(a['features'],a['regime'],a.get('scope','global'),a.get('ridge',.05))
     if name=='athena_nonlinear_predict': return discovery.nonlinear_predict(a['features'],a['regime'],a['arm_id'],a.get('scope','global'),a.get('target_coverage',.90),a.get('ridge',1.0),a.get('ood_gain',1.5))
