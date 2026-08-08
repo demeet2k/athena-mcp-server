@@ -47,8 +47,14 @@ def _selection_from_packet(frontier: dict) -> dict:
 
 
 def _install_shared_fresh_verify_index(runtime_cls) -> None:
-    """Preserve RHL-002/RHL-003 when braiding bootstrap with newer master."""
+    """Compatibility only for pre-RHL-002/003 parents.
 
+    Current master already owns the canonical `_athena_remote_fresh_reads_v2_registered`
+    membrane. Bootstrap must consume that law rather than double-wrap verify/index.
+    """
+
+    if getattr(runtime_cls, "_athena_remote_fresh_reads_v2_registered", False):
+        return
     flag = "_athena_remote_fresh_verify_index_compat_v1_registered"
     if getattr(runtime_cls, flag, False):
         return
@@ -120,18 +126,7 @@ def _install_shared_fresh_verify_index(runtime_cls) -> None:
 
 
 def install_bootstrap_consistency(runtime_cls) -> None:
-    """Install bootstrap consistency plus shared-fresh/terminal sibling antibodies.
-
-    BOOT-001 binds returned next-work selection to the exact frontier digest in the
-    same packet. BOOT-002 advances a live session's comparison checkpoint after a
-    successful refresh. RHL-002/RHL-003 preserve shared-fresh verify/index while
-    the feature lineage retains the independently witnessed RHL-001 resume wrapper.
-
-    RHL-004 is installed here after the successor extension is already active and
-    before that extension's explicit-next compatibility shim. The gate still runs
-    before the successor compiler itself; master terminal regressions are carried
-    into this braid and are the authority on behavioral equivalence.
-    """
+    """Install BOOT-001/002 while preserving canonical rehydration antibodies."""
 
     _install_shared_fresh_verify_index(RehydrationLoopRuntime)
     if not getattr(RehydrationLoopRuntime, "_athena_terminal_gate_v1_installed", False):
