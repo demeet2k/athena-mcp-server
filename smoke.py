@@ -13,7 +13,7 @@ def call(name,args,request_id):
 
 def resource(uri,request_id):return json.loads(rpc('resources/read',{'uri':uri},request_id)['contents'][0]['text'])
 
-init=rpc('initialize',{'protocolVersion':'2025-11-25','capabilities':{},'clientInfo':{'name':'smoke','version':'5'}},1);assert init['serverInfo']['version']=='2.8.0',init
+init=rpc('initialize',{'protocolVersion':'2025-11-25','capabilities':{},'clientInfo':{'name':'smoke','version':'5'}},1);assert init['serverInfo']['version']=='2.9.0',init
 p.stdin.write(json.dumps({'jsonrpc':'2.0','method':'notifications/initialized'})+'\n');p.stdin.flush()
 tools=rpc('tools/list',{},2)['tools'];names={x['name'] for x in tools}
 for n in ('athena_orchestrate','athena_cycle_start','athena_self_test','athena_schema_migrate','athena_experiment_design','athena_causal_identify','athena_dual_control_plan','athena_belief_register','athena_decision_evi','athena_gaussian_belief_register','athena_decision_evpi','athena_structure_partial','athena_gp_register','athena_gp_predict','athena_pc_stable_discover','athena_causal_tmle_binary','athena_pomdp_solve','athena_discovery_claim_register','athena_claim_register','athena_finalize_output'):
