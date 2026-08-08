@@ -3,7 +3,10 @@ from __future__ import annotations
 from typing import Any,Dict
 
 COMPOSITION_VERSION='ATHENA.COMPOSITION.2'
-DIRECT_ORGANS=('core','crystal','git','collective','collective_growth','collective_memory','branches','authority','orchestration','aor_development')
+DIRECT_ORGANS=(
+    'core','crystal','git','collective','collective_growth','collective_memory','collective_learning','collective_ecology',
+    'branches','authority','orchestration','aor_development',
+)
 DEVELOPMENT_ORGANS=('equivalence','extraction','retrieval','hug','gap','field','transport','integrity','cycle')
 GOVERNANCE_ORGANS=('promotion','state_foundation','self_test','startup')
 
@@ -22,6 +25,7 @@ def composition_certificate(server,run_probes=True)->Dict[str,Any]:
         checks={
             'core':lambda:server.core.benchmark(),'crystal':lambda:server.crystal.benchmark_extension(),
             'collective':lambda:server.collective.describe(),'collective_growth':lambda:server.collective_growth.describe(),'collective_memory':lambda:server.collective_memory.describe(),
+            'collective_learning':lambda:server.collective_learning.describe(),'collective_ecology':lambda:server.collective_ecology.describe(),
             'branch':lambda:server.branches.list(limit=1),'authority':lambda:server.authority.list(limit=1),
             'equivalence':lambda:dev.equivalence.benchmark(),'extraction':lambda:dev.extraction.benchmark(),'retrieval':lambda:dev.retrieval.recent(1),
             'hug':lambda:dev.hug.list(limit=1),'gap':lambda:dev.gap.recent(1),'field':lambda:dev.field.recent(1),'transport':lambda:dev.transport.runtime.recent(1),
@@ -46,6 +50,6 @@ def composition_certificate(server,run_probes=True)->Dict[str,Any]:
         'development_organs':{'status':'PASS' if not missing_development else 'FAIL','required':list(DEVELOPMENT_ORGANS),'missing':missing_development},
         'governance_organs':{'status':'PASS' if not missing_governance else 'FAIL','required':list(GOVERNANCE_ORGANS),'missing':missing_governance},
         'read_only_probes':probes,'probe_status':probe_status,
-        'law':'composition integrity requires one Server with initialized mature base/Collective/AOR/FIELD/transport/CYCLE/state-foundation/startup/self-test/promotion organs and successful representative read-only paths',
-        'boundary':'certifies runtime wiring/dispatch reachability and organ presence; migration currency, external CI/smoke and semantic truth are separate gates',
+        'law':'composition integrity requires one Server with resident Collective V1-V4 + AOR/FIELD/transport/CYCLE/state-foundation/startup/self-test/promotion organs; V5 science and V6 discovery are lazily constructed but their advertised surfaces are required by SURFACE.2',
+        'boundary':'certifies runtime wiring/dispatch reachability and organ presence; model validity, migration currency, external CI/smoke and semantic truth are separate gates',
     }
