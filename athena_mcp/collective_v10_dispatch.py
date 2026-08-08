@@ -1,7 +1,14 @@
 from __future__ import annotations
 
+from .collective_adaptive import CollectiveAdaptiveRuntime
+from .collective_v11_dispatch import call as call_v11
+from .collective_v11_protocol import COLLECTIVE_V11_TOOLS
+
+V11_NAMES={t['name'] for t in COLLECTIVE_V11_TOOLS}
+
 
 def call(prob,name,a):
+    if name in V11_NAMES: return call_v11(CollectiveAdaptiveRuntime(prob),name,a)
     if name=='athena_gp_register': return prob.gp_register(a['context_key'],a['features'],a.get('length_scale',1.0),a.get('signal_variance',1.0),a.get('noise_variance',.05),a.get('metadata'),a.get('replace',False))
     if name=='athena_gp_state': return prob.gp_state(a['context_key'])
     if name=='athena_gp_observe': return prob.gp_observe(a['context_key'],a['features'],a['target'],a.get('evidence_ref',''),a.get('actor','agent'))
