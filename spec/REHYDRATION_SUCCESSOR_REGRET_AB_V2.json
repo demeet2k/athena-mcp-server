@@ -1,0 +1,84 @@
+{
+  "artifact": "ATHENA.REHYDRATION.SUCCESSOR.REGRET.AB.V2",
+  "status": "EXPERIMENTAL_READ_ONLY",
+  "purpose": "Compare canonical V1 successor routing with a bounded-simplex minimax-regret and one-step value-of-computation analysis over the exact same V1 Pareto candidates.",
+  "canonical_source": "ATHENA.REHYDRATION.SUCCESSOR.BATON.V1",
+  "tool": "athena_rehydration_successor_regret_compare",
+  "routing_authority": "NONE_ADDED",
+  "candidate_contract": {
+    "collector": "canonical V1 SuccessorCompiler",
+    "v2_input": "exact V1 pareto_candidate_ids subset",
+    "mutation": "none"
+  },
+  "freshness_membrane": {
+    "antibody": "AB-001",
+    "law": "LOCAL_AB_PREVIEW != SHARED_CURRENT_AB_PREVIEW",
+    "default_mode": "REQUIRED",
+    "required_flow": "shared Git sync -> verify current stored/computed/expected loop state digest -> apply witnessed terminal closure gate -> run V1/V2 analysis",
+    "unverified_remote": "REHYDRATION_SUCCESSOR_REGRET_COMPARE_SHARED_FRONTIER_HOLD",
+    "stale_expected_state": "STALE_SUCCESSOR_REGRET_COMPARE",
+    "tampered_state": "TAMPERED_SUCCESSOR_REGRET_COMPARE_STATE_HOLD",
+    "disabled_mode": "LOCAL_ONLY_UNVERIFIED",
+    "reuse": "extends the canonical successor preview membrane instead of creating a second freshness implementation"
+  },
+  "preference_geometry": {
+    "dimensions": [
+      "utility",
+      "dependency_unblocking",
+      "uncertainty_reduction",
+      "novelty",
+      "risk",
+      "cost",
+      "repetition"
+    ],
+    "carrier": "box-constrained simplex",
+    "support": "exact descending residual allocation",
+    "support_complexity": "O(7 log 7)",
+    "frontier_complexity": "O(n^2 * 7 log 7)"
+  },
+  "calibration": {
+    "point": "normalized oriented magnitude of the V1 signed routing weights",
+    "law": "radius=0 must reproduce V1 selection/tie semantics",
+    "tie_unit_repair": "V2 tie epsilon equals V1 tie epsilon divided by total oriented V1 weight magnitude",
+    "failure": "CALIBRATION_FAILURE_HOLD"
+  },
+  "sensitivity": {
+    "default_radii": [0.0, 0.02, 0.05, 0.1, 0.2, 1.0],
+    "observables": [
+      "largest_tested_stable_radius",
+      "first_semantic_change_radius",
+      "minimax_regret",
+      "active_rival_id",
+      "witness_weights",
+      "regret_dimensions"
+    ]
+  },
+  "value_of_computation": {
+    "form": "VOC_1(m)=R0-E[R_after_m]-lambda^T c(m)",
+    "pruning_bound": "VOC_1(m) <= R0-lambda^T c(m)",
+    "nonpositive": "STOP_COMPUTING",
+    "authority_required": "OUTSIDE_INFORMATION_VOC"
+  },
+  "known_residuals": [
+    "V1 source-heuristic routing metrics are still point values; point heuristic != observed certainty",
+    "production behavioral gain has not been witnessed",
+    "automatic successor execution remains V1"
+  ],
+  "laws": [
+    "READ_ONLY_AB != AUTO_ROUTING_MUTATION",
+    "V2_CONSUMES_V1_PARETO_SET",
+    "RADIUS_ZERO_MUST_REPRODUCE_V1_SEMANTICS",
+    "LOCAL_AB_PREVIEW != SHARED_CURRENT_AB_PREVIEW",
+    "STALE_AB_PREVIEW => REHYDRATE_BEFORE_ANALYSIS",
+    "ROUTING_ANALYSIS != EVIDENCE",
+    "ROUTING_ANALYSIS != AUTHORITY",
+    "AUTHORITY_REQUIRED_QUERY != INFORMATION_VOC",
+    "NONPOSITIVE_VOC => STOP_OPTIONAL_COMPUTATION",
+    "V1_HEURISTIC_POINT_METRIC != OBSERVED_CERTAINTY"
+  ],
+  "promotion_boundary": {
+    "automatic_successor_routing": "UNCHANGED",
+    "behavioral_gain": "NOT_YET_WITNESSED",
+    "production_adoption": "HOLD"
+  }
+}
