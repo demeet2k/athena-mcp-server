@@ -162,7 +162,6 @@ class RehydrationEpochRolloverTests(unittest.TestCase):
         root, origin, runtime = _seed_shared_brain(base)
         started = _start_epoch(runtime)
         parent_state_path = started["state_path"]
-        parent_state_blob_before = _run(root, "rev-parse", f"{started['checkpoint_head']}:{parent_state_path}").stdout.strip()
 
         held = _material_and_hold(
             runtime,
@@ -177,6 +176,9 @@ class RehydrationEpochRolloverTests(unittest.TestCase):
         self.assertIn(TOOL_NAME, held["compiled_self_prompt"])
         self.assertIn("HOLD_MAX_STEPS != MISSION_COMPLETE", held["compiled_self_prompt"])
         self.assertLessEqual(len(held["compiled_self_prompt"]), 8000)
+        # Rollover immutability is relative to the finished epoch, not the earlier
+        # ACTIVE state. Bind the witness to the exact held parent checkpoint.
+        parent_state_blob_before = _run(root, "rev-parse", f"{held['checkpoint_head']}:{parent_state_path}").stdout.strip()
 
         rolled = _roll(runtime, held, max_epochs=3, max_total_steps=3)
         self.assertEqual(rolled["status"], "EPOCH_STARTED", rolled)
@@ -275,8 +277,6 @@ class RehydrationEpochRolloverTests(unittest.TestCase):
         })
         self.assertEqual(fake["status"], "EPOCH_PARENT_NOT_MAX_STEPS_HOLD")
 
-        # Reach the max step hold without self-steering, proving rollover will not
-        # fabricate a successor task simply because the epoch budget ended.
         _write(root, "work1.txt", "first\n")
         _run(root, "add", "work1.txt")
         _run(root, "commit", "-m", "first")
