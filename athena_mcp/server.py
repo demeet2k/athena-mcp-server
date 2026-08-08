@@ -7,6 +7,7 @@ from .kc144 import station_manifest
 from .validate import validate
 from .bootstrap import bootstrap
 from .git_backend import GitBackend, GitStaleHead, GitStateError
+from .crystal_runtime import CrystalRuntime
 
 from .protocol import PROTOCOL_VERSION, SERVER_INFO, TOOLS, PROMPTS
 
@@ -20,7 +21,7 @@ class RateLimiter:
 
 class Server:
     def __init__(self,db,git_root=None):
-        self.store=Store(db); self.core=AthenaCore(self.store); bootstrap(self.core); self.rate=RateLimiter()
+        self.store=Store(db); self.core=AthenaCore(self.store); bootstrap(self.core); self.crystal=CrystalRuntime(self.core); self.rate=RateLimiter()
         self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'), autocommit=False)
     def result(self,id,result): return {"jsonrpc":"2.0","id":id,"result":result}
     def error(self,id,code,msg,data=None):
@@ -52,8 +53,15 @@ class Server:
                 ev=c.event(result['end_eid']); result['git']=self.git.checkpoint(expected,ev,c.hydrate(),actor='ATHENA',message=f"athena session {a['session_id']}")
             return result
         if name=='athena_git_status': return self.git.status()
+        if name=='athena_add_hyperedge': return self.crystal.add_hyperedge(a['relation'],a['members'],a.get('actor','agent'),a.get('attrs'))
+        if name=='athena_crystallize_output': return self.crystal.crystallize_output(a['semantic'],a['text'],a['native_locator'],a['agent'],a['task'],a['seq'],a.get('expected_vid'),a.get('carrier','text/plain'),a.get('edges'),a.get('hyperedges'),a.get('math_objects'),a.get('coordinates'),a.get('cut_lm'),a.get('evidence'),a.get('scale_promotions'),a.get('session_id'),a.get('ephemeris'),a.get('status','CRYSTALLIZED'))
+        if name=='athena_dense_navigate': return self.crystal.dense_navigate(a['identifier'])
+        if name=='athena_register_transform': return self.crystal.register_transform(a['src_chart'],a['dst_chart'],a.get('operator_oid'),a.get('operator_vid'),a.get('status','FORMALIZED'),a.get('loss_model'),a.get('actor','agent'))
+        if name=='athena_coordinate_matrix': return self.crystal.coordinate_matrix(a.get('subject_id'))
+        if name=='athena_record_holonomy': return self.crystal.record_holonomy(a['subject_id'],a['route'],a['start'],a['returned'],a['defect'],a.get('metric'),a.get('status','MEASURED'),a.get('actor','agent'))
+        if name=='athena_graph_path': return self.crystal.graph_path(a['src'],a['dst'],a.get('relations'),a.get('max_depth',12))
         if name=='athena_benchmark':
-            r=c.benchmark(); r['git']=self.git.status(); return r
+            r=c.benchmark(); r.update(self.crystal.benchmark_extension()); r['git']=self.git.status(); return r
         raise KeyError(name)
     def handle(self,m):
         from .dispatch import handle
