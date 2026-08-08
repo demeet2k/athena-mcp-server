@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+import json
 from typing import Any, Mapping
 
 from .campaign_v3_ledger import PULSE_ARTIFACT
@@ -7,11 +9,24 @@ from .campaign_v3_ledger import PULSE_ARTIFACT
 ARTIFACT = "ATHENA.CAMPAIGN.V3.LOOP.BINDING.V1"
 
 
+def _sha(value: Any) -> str:
+    raw = json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()
+
+
 def _git_head(runtime: Any) -> str:
     git = getattr(runtime, "git", None)
     if git is None or not hasattr(git, "head"):
         raise ValueError("runtime does not expose git.head()")
     return str(git.head())
+
+
+def _pulse_integrity(pulse: Mapping[str, Any]) -> bool:
+    digest = str(pulse.get("pulse_digest") or "")
+    if not digest:
+        return False
+    basis = {k: v for k, v in pulse.items() if k != "pulse_digest"}
+    return digest == _sha(basis)
 
 
 def _exposed_operations(surface: Mapping[str, Any] | None) -> set[str]:
@@ -32,9 +47,7 @@ def _exposed_operations(surface: Mapping[str, Any] | None) -> set[str]:
         names.add("athena_frontier_claim")
     basis = surface.get("operational_basis") or {}
     for row in basis.get("descriptors") or []:
-        if not isinstance(row, Mapping):
-            continue
-        if row.get("current_exposure") is False:
+        if not isinstance(row, Mapping) or row.get("current_exposure") is False:
             continue
         operation = row.get("operation")
         if operation:
@@ -47,6 +60,32 @@ def _residual_action(pulse: Mapping[str, Any], step: int) -> Mapping[str, Any] |
         if int(row.get("step") or -1) == int(step):
             return row
     return None
+
+
+def _base_result(
+    *,
+    status: str,
+    campaign_id: str,
+    branch_id: str,
+    residual_step: int,
+    standing: str,
+    failures: list[str] | None = None,
+    holds: list[dict[str, Any]] | None = None,
+    **extra: Any,
+) -> dict[str, Any]:
+    return {
+        "artifact": ARTIFACT,
+        "status": status,
+        "campaign_id": campaign_id,
+        "branch_id": branch_id,
+        "residual_step": int(residual_step),
+        "standing": standing,
+        "failures": list(failures or []),
+        "holds": list(holds or []),
+        "execution_authority_granted": False,
+        "work_executed": False,
+        **extra,
+    }
 
 
 def bind_current_pulse_branch_to_loop(
@@ -79,7 +118,7 @@ def bind_current_pulse_branch_to_loop(
 ) -> dict[str, Any]:
     """Lease one Campaign V3 residual branch and bind it to one explicit loop.
 
-    The transaction persists coordination only. It does not execute the residual,
+    This transaction persists coordination only. It does not execute the residual,
     create scheduler/provider authority, or convert ledger/basis state into READY.
     Material work occurs only through a later explicit RehydrationLoop advance.
     """
@@ -89,15 +128,19 @@ def bind_current_pulse_branch_to_loop(
 
     if pulse.get("artifact") != PULSE_ARTIFACT:
         failures.append("PULSE_ARTIFACT_INVALID")
+    if not _pulse_integrity(pulse):
+        failures.append("PULSE_DIGEST_INVALID")
     if pulse.get("execution_authorized") is not False:
         failures.append("PULSE_AUTHORITY_FIREWALL_MISSING")
     current_address = pulse.get("current_coordinates") or {}
     pulse_head = str(current_address.get("git_head") or "")
     if pulse_head != str(expected_git_head):
         failures.append(f"STALE_PULSE_HEAD:{pulse_head}!={expected_git_head}")
-    if int(residual_step) not in {int(x) for x in (pulse.get("residual_steps") or [])}:
-        failures.append("STEP_NOT_RESIDUAL")
+
     action = _residual_action(pulse, int(residual_step))
+    residual_set = {int(x) for x in (pulse.get("residual_steps") or [])}
+    if int(residual_step) not in residual_set:
+        failures.append("STEP_NOT_RESIDUAL")
     if action is None:
         failures.append("RESIDUAL_ACTION_MISSING")
     elif str(action.get("current_state") or "").upper() != "RESIDUAL":
@@ -122,33 +165,26 @@ def bind_current_pulse_branch_to_loop(
         failures.append(f"STALE_PRE_LEASE_HEAD:{pre_lease_head}!={expected_git_head}")
 
     if failures:
-        return {
-            "artifact": ARTIFACT,
-            "status": "HOLD_INVALID_BINDING_INPUT",
-            "failures": failures,
-            "holds": holds,
-            "campaign_id": campaign_id,
-            "branch_id": branch_id,
-            "residual_step": int(residual_step),
-            "pre_lease_head": pre_lease_head,
-            "standing": "BINDING_NOT_STARTED",
-            "execution_authority_granted": False,
-            "work_executed": False,
-        }
+        return _base_result(
+            status="HOLD_INVALID_BINDING_INPUT",
+            campaign_id=campaign_id,
+            branch_id=branch_id,
+            residual_step=residual_step,
+            standing="BINDING_NOT_STARTED",
+            failures=failures,
+            holds=holds,
+            pre_lease_head=pre_lease_head,
+        )
     if holds:
-        return {
-            "artifact": ARTIFACT,
-            "status": "HOLD",
-            "failures": [],
-            "holds": holds,
-            "campaign_id": campaign_id,
-            "branch_id": branch_id,
-            "residual_step": int(residual_step),
-            "pre_lease_head": pre_lease_head,
-            "standing": "UNEXPOSED_OPERATION_NOT_BOUND",
-            "execution_authority_granted": False,
-            "work_executed": False,
-        }
+        return _base_result(
+            status="HOLD",
+            campaign_id=campaign_id,
+            branch_id=branch_id,
+            residual_step=residual_step,
+            standing="UNEXPOSED_OPERATION_NOT_BOUND",
+            holds=holds,
+            pre_lease_head=pre_lease_head,
+        )
 
     try:
         lease = campaign_runtime.claim(
@@ -162,19 +198,15 @@ def bind_current_pulse_branch_to_loop(
             remote=remote,
         )
     except Exception as exc:
-        return {
-            "artifact": ARTIFACT,
-            "status": "HOLD_CAMPAIGN_LEASE_FAILED",
-            "failures": [f"CAMPAIGN_LEASE_FAILED:{type(exc).__name__}:{exc}"],
-            "holds": [],
-            "campaign_id": campaign_id,
-            "branch_id": branch_id,
-            "residual_step": int(residual_step),
-            "pre_lease_head": pre_lease_head,
-            "standing": "LEASE_NOT_ACQUIRED",
-            "execution_authority_granted": False,
-            "work_executed": False,
-        }
+        return _base_result(
+            status="HOLD_CAMPAIGN_LEASE_FAILED",
+            campaign_id=campaign_id,
+            branch_id=branch_id,
+            residual_step=residual_step,
+            standing="LEASE_NOT_ACQUIRED",
+            failures=[f"CAMPAIGN_LEASE_FAILED:{type(exc).__name__}:{exc}"],
+            pre_lease_head=pre_lease_head,
+        )
 
     lease_state_digest = str(lease.get("state_digest") or "")
     post_lease_head = str(lease.get("checkpoint_head") or "")
@@ -185,20 +217,16 @@ def bind_current_pulse_branch_to_loop(
         or post_lease_head == str(pre_lease_head)
         or observed_post_lease_head != post_lease_head
     ):
-        return {
-            "artifact": ARTIFACT,
-            "status": "HOLD_CAMPAIGN_LEASE_RECEIPT",
-            "failures": ["CAMPAIGN_LEASE_RECEIPT_INVALID_OR_HEAD_NOT_ADVANCED"],
-            "holds": [],
-            "campaign_id": campaign_id,
-            "branch_id": branch_id,
-            "residual_step": int(residual_step),
-            "pre_lease_head": pre_lease_head,
-            "post_lease_head": post_lease_head or observed_post_lease_head,
-            "standing": "LEASE_RECEIPT_INCOMPLETE",
-            "execution_authority_granted": False,
-            "work_executed": False,
-        }
+        return _base_result(
+            status="HOLD_CAMPAIGN_LEASE_RECEIPT",
+            campaign_id=campaign_id,
+            branch_id=branch_id,
+            residual_step=residual_step,
+            standing="LEASE_RECEIPT_INCOMPLETE",
+            failures=["CAMPAIGN_LEASE_RECEIPT_INVALID_OR_HEAD_NOT_ADVANCED"],
+            pre_lease_head=pre_lease_head,
+            post_lease_head=post_lease_head or observed_post_lease_head,
+        )
 
     task = str((action or {}).get("text") or "").strip()
     try:
@@ -221,33 +249,29 @@ def bind_current_pulse_branch_to_loop(
             stop_conditions=list(stop_conditions or []),
         )
     except Exception as exc:
-        return {
-            "artifact": ARTIFACT,
-            "status": "HOLD_LOOP_START_FAILED",
-            "failures": [f"LOOP_START_FAILED:{type(exc).__name__}:{exc}"],
-            "holds": [
-                {
-                    "kind": "LEASED_NOT_BOUND",
-                    "reason": "Campaign lease exists but loop start failed; release/recover the exact leased branch before retry.",
-                    "recovery": {
-                        "campaign_id": campaign_id,
-                        "branch_id": branch_id,
-                        "agent": agent,
-                        "expected_state_digest": lease_state_digest,
-                        "expected_checkpoint_head": post_lease_head,
-                    },
-                }
-            ],
+        recovery = {
             "campaign_id": campaign_id,
             "branch_id": branch_id,
-            "residual_step": int(residual_step),
-            "pre_lease_head": pre_lease_head,
-            "post_lease_head": post_lease_head,
-            "loop_start_expected_head": post_lease_head,
-            "standing": "LEASED_NOT_BOUND",
-            "execution_authority_granted": False,
-            "work_executed": False,
+            "agent": agent,
+            "expected_state_digest": lease_state_digest,
+            "expected_checkpoint_head": post_lease_head,
         }
+        return _base_result(
+            status="HOLD_LOOP_START_FAILED",
+            campaign_id=campaign_id,
+            branch_id=branch_id,
+            residual_step=residual_step,
+            standing="LEASED_NOT_BOUND",
+            failures=[f"LOOP_START_FAILED:{type(exc).__name__}:{exc}"],
+            holds=[{
+                "kind": "LEASED_NOT_BOUND",
+                "reason": "Campaign lease exists but loop start failed; release/recover the exact leased branch before retry.",
+                "recovery": recovery,
+            }],
+            pre_lease_head=pre_lease_head,
+            post_lease_head=post_lease_head,
+            loop_start_expected_head=post_lease_head,
+        )
 
     loop_id = str(loop.get("loop_id") or "")
     loop_state_digest = str(loop.get("state_digest") or "")
@@ -260,26 +284,21 @@ def bind_current_pulse_branch_to_loop(
         or not loop_checkpoint_head
         or loop_checkpoint_head != observed_loop_head
     ):
-        return {
-            "artifact": ARTIFACT,
-            "status": "HOLD_LOOP_START_RECEIPT",
-            "failures": ["LOOP_START_RECEIPT_INVALID"],
-            "holds": [
-                {
-                    "kind": "LEASED_LOOP_RECEIPT_INCOMPLETE",
-                    "reason": "Do not start a second loop until the first loop/checkpoint is reconciled.",
-                }
-            ],
-            "campaign_id": campaign_id,
-            "branch_id": branch_id,
-            "residual_step": int(residual_step),
-            "loop_id": loop_id or None,
-            "post_lease_head": post_lease_head,
-            "post_loop_start_head": observed_loop_head,
-            "standing": "LEASED_LOOP_RECEIPT_INCOMPLETE",
-            "execution_authority_granted": False,
-            "work_executed": False,
-        }
+        return _base_result(
+            status="HOLD_LOOP_START_RECEIPT",
+            campaign_id=campaign_id,
+            branch_id=branch_id,
+            residual_step=residual_step,
+            standing="LEASED_LOOP_RECEIPT_INCOMPLETE",
+            failures=["LOOP_START_RECEIPT_INVALID"],
+            holds=[{
+                "kind": "LEASED_LOOP_RECEIPT_INCOMPLETE",
+                "reason": "Do not start a second loop until the first loop/checkpoint is reconciled.",
+            }],
+            loop_id=loop_id or None,
+            post_lease_head=post_lease_head,
+            post_loop_start_head=observed_loop_head,
+        )
 
     try:
         bound = campaign_runtime.bind_loop(
@@ -294,58 +313,50 @@ def bind_current_pulse_branch_to_loop(
             remote=remote,
         )
     except Exception as exc:
-        return {
-            "artifact": ARTIFACT,
-            "status": "HOLD_CAMPAIGN_BIND_FAILED",
-            "failures": [f"CAMPAIGN_BIND_FAILED:{type(exc).__name__}:{exc}"],
-            "holds": [
-                {
-                    "kind": "LOOP_EXISTS_CAMPAIGN_UNBOUND",
-                    "reason": "The explicit loop already exists. Resume/rebind that loop; duplicate loop start is forbidden.",
-                    "loop_id": loop_id,
-                    "loop_state_digest": loop_state_digest,
-                    "loop_checkpoint_head": loop_checkpoint_head,
-                }
-            ],
-            "campaign_id": campaign_id,
-            "branch_id": branch_id,
-            "residual_step": int(residual_step),
-            "loop_id": loop_id,
-            "pre_lease_head": pre_lease_head,
-            "post_lease_head": post_lease_head,
-            "post_loop_start_head": loop_checkpoint_head,
-            "standing": "LOOP_EXISTS_CAMPAIGN_UNBOUND",
-            "execution_authority_granted": False,
-            "work_executed": False,
-        }
+        return _base_result(
+            status="HOLD_CAMPAIGN_BIND_FAILED",
+            campaign_id=campaign_id,
+            branch_id=branch_id,
+            residual_step=residual_step,
+            standing="LOOP_EXISTS_CAMPAIGN_UNBOUND",
+            failures=[f"CAMPAIGN_BIND_FAILED:{type(exc).__name__}:{exc}"],
+            holds=[{
+                "kind": "LOOP_EXISTS_CAMPAIGN_UNBOUND",
+                "reason": "The explicit loop already exists. Resume/rebind that loop; duplicate loop start is forbidden.",
+                "loop_id": loop_id,
+                "loop_state_digest": loop_state_digest,
+                "loop_checkpoint_head": loop_checkpoint_head,
+            }],
+            loop_id=loop_id,
+            pre_lease_head=pre_lease_head,
+            post_lease_head=post_lease_head,
+            post_loop_start_head=loop_checkpoint_head,
+        )
 
     post_bind_head = str(bound.get("checkpoint_head") or "")
     observed_post_bind_head = _git_head(campaign_runtime)
     if not post_bind_head or post_bind_head != observed_post_bind_head or post_bind_head == loop_checkpoint_head:
-        return {
-            "artifact": ARTIFACT,
-            "status": "HOLD_BIND_RECEIPT",
-            "failures": ["BIND_RECEIPT_INVALID_OR_HEAD_NOT_ADVANCED"],
-            "holds": [],
-            "campaign_id": campaign_id,
-            "branch_id": branch_id,
-            "residual_step": int(residual_step),
-            "loop_id": loop_id,
-            "post_lease_head": post_lease_head,
-            "post_loop_start_head": loop_checkpoint_head,
-            "post_bind_head": post_bind_head or observed_post_bind_head,
-            "standing": "BOUND_RECEIPT_INCOMPLETE",
-            "execution_authority_granted": False,
-            "work_executed": False,
-        }
+        return _base_result(
+            status="HOLD_BIND_RECEIPT",
+            campaign_id=campaign_id,
+            branch_id=branch_id,
+            residual_step=residual_step,
+            standing="BOUND_RECEIPT_INCOMPLETE",
+            failures=["BIND_RECEIPT_INVALID_OR_HEAD_NOT_ADVANCED"],
+            loop_id=loop_id,
+            post_lease_head=post_lease_head,
+            post_loop_start_head=loop_checkpoint_head,
+            post_bind_head=post_bind_head or observed_post_bind_head,
+        )
 
     return {
-        "artifact": ARTIFACT,
-        "status": "BOUND",
-        "standing": "BOUND_LOOP_NOT_WORK_EXECUTED",
-        "campaign_id": campaign_id,
-        "branch_id": branch_id,
-        "residual_step": int(residual_step),
+        **_base_result(
+            status="BOUND",
+            campaign_id=campaign_id,
+            branch_id=branch_id,
+            residual_step=residual_step,
+            standing="BOUND_LOOP_NOT_WORK_EXECUTED",
+        ),
         "task": task,
         "loop_id": loop_id,
         "loop_state_digest": loop_state_digest,
@@ -354,10 +365,9 @@ def bind_current_pulse_branch_to_loop(
         "post_lease_head": post_lease_head,
         "post_loop_start_head": loop_checkpoint_head,
         "post_bind_head": post_bind_head,
-        "execution_authority_granted": False,
-        "work_executed": False,
         "next": "RESUME_EXPLICIT_LOOP_AND_EXECUTE_ONE_LAWFUL_CYCLE",
         "laws": [
+            "PULSE_DIGEST_VERIFIED_BEFORE_LEASE",
             "CAMPAIGN_BRANCH_LEASE != SCHEDULER_CLAIM",
             "CAMPAIGN_BINDING != WORK_EXECUTION",
             "POST_LEASE_HEAD != PRE_LEASE_HEAD",

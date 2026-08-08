@@ -1,12 +1,19 @@
 from __future__ import annotations
 
+import hashlib
 import inspect
+import json
 import unittest
 
 from athena_mcp.campaign_v3_binding import ARTIFACT, bind_current_pulse_branch_to_loop
 from athena_mcp.campaign_v3_ledger import PULSE_ARTIFACT
 from athena_mcp.rehydration_campaign import RehydrationCampaignRuntime
 from athena_mcp.rehydration_loop import RehydrationLoopRuntime
+
+
+def _sha(value) -> str:
+    raw = json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()
 
 
 class _Git:
@@ -68,7 +75,7 @@ class _Loop:
 
 
 def _pulse(head: str = "H0") -> dict:
-    return {
+    value = {
         "artifact": PULSE_ARTIFACT,
         "execution_authorized": False,
         "current_coordinates": {"git_head": head},
@@ -77,6 +84,15 @@ def _pulse(head: str = "H0") -> dict:
             {"step": 1, "horizon": "I", "text": "execute verified residual", "current_state": "RESIDUAL", "history_preserved": True}
         ],
     }
+    value["pulse_digest"] = _sha(value)
+    return value
+
+
+def _reseal(pulse: dict) -> dict:
+    pulse = dict(pulse)
+    pulse.pop("pulse_digest", None)
+    pulse["pulse_digest"] = _sha(pulse)
+    return pulse
 
 
 def _bind(**overrides):
@@ -120,6 +136,15 @@ class CampaignV3BindingTests(unittest.TestCase):
         self.assertEqual(campaign.bind_calls[0]["expected_checkpoint_head"], "H1")
         self.assertEqual(git.head(), "H3")
 
+    def test_tampered_pulse_digest_holds_before_mutation(self):
+        pulse = _pulse()
+        pulse["actions"][0]["text"] = "tampered after compilation"
+        _, campaign, loop, result = _bind(pulse=pulse)
+        self.assertEqual(result["status"], "HOLD_INVALID_BINDING_INPUT")
+        self.assertIn("PULSE_DIGEST_INVALID", result["failures"])
+        self.assertEqual(campaign.claim_calls, [])
+        self.assertEqual(loop.start_calls, [])
+
     def test_stale_pulse_head_holds_before_mutation(self):
         git = _Git("H0")
         campaign = _Campaign(git)
@@ -134,6 +159,7 @@ class CampaignV3BindingTests(unittest.TestCase):
         pulse = _pulse()
         pulse["residual_steps"] = []
         pulse["actions"][0]["current_state"] = "SATISFIED"
+        pulse = _reseal(pulse)
         _, campaign, loop, result = _bind(pulse=pulse)
         self.assertEqual(result["status"], "HOLD_INVALID_BINDING_INPUT")
         self.assertIn("STEP_NOT_RESIDUAL", result["failures"])
@@ -152,10 +178,10 @@ class CampaignV3BindingTests(unittest.TestCase):
 
     def test_exposed_operation_still_does_not_grant_execution_authority(self):
         _, _, _, result = _bind(
-            required_operation="athena_agent_bootstrap",
+            required_operation="athena_frontier_claim",
             execution_surface={
                 "operational_basis": {
-                    "descriptors": [{"operation": "athena_agent_bootstrap", "current_exposure": True}]
+                    "descriptors": [{"operation": "athena_frontier_claim", "current_exposure": True}]
                 }
             },
         )

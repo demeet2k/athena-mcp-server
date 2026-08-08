@@ -2,9 +2,9 @@
   "artifact": "ATHENA.CAMPAIGN.V3.LOOP.BINDING.CONTRACT.V1",
   "status": "CANDIDATE",
   "parent_pressure": "demeet2k/Athena#189",
-  "purpose": "Bind one current Campaign V3 RESIDUAL action to one explicit Git-persisted RehydrationLoop V1 checkpoint without granting scheduler/provider execution authority.",
+  "purpose": "Bind one tamper-evident current Campaign V3 RESIDUAL action to one explicit Git-persisted RehydrationLoop V1 checkpoint without granting scheduler/provider execution authority.",
   "transaction": [
-    "verify pulse/current Git coordinate and residual standing",
+    "verify pulse artifact + pulse_digest + current Git coordinate + RESIDUAL standing",
     "verify any explicitly required operation is currently exposed",
     "campaign.claim(expected campaign state + checkpoint, branch, agent)",
     "observe H_post_lease and require it differs from H_pre_lease",
@@ -17,12 +17,14 @@
   "causal_head_law": "H_pre_lease -> H_post_lease -> H_post_loop_start -> H_post_bind",
   "input_firewalls": [
     "PULSE_ARTIFACT must be ATHENA.CAMPAIGN.V3.PULSE.COMPILATION.V1",
+    "pulse_digest must re-verify immediately before campaign lease",
     "pulse.execution_authorized must remain false",
     "pulse.current_coordinates.git_head must equal expected_git_head",
     "residual_step must be explicitly RESIDUAL",
     "unexposed required_operation => HOLD before campaign mutation"
   ],
   "failure_recovery": {
+    "invalid_or_tampered_pulse": "HOLD before mutation",
     "lease_failed": "no loop start",
     "lease_receipt_invalid": "HOLD before loop start",
     "loop_start_failed_after_lease": "LEASED_NOT_BOUND with exact release coordinates",
@@ -38,6 +40,7 @@
     "next": "RESUME_EXPLICIT_LOOP_AND_EXECUTE_ONE_LAWFUL_CYCLE"
   },
   "laws": [
+    "PULSE_DIGEST_VERIFIED_BEFORE_LEASE",
     "CAMPAIGN_BRANCH_LEASE != SCHEDULER_CLAIM",
     "CAMPAIGN_BINDING != WORK_EXECUTION",
     "POST_LEASE_HEAD != PRE_LEASE_HEAD",
