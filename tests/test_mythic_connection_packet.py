@@ -101,6 +101,11 @@ class MythicConnectionPacketTests(unittest.TestCase):
         packet["operators"][0]["transforms"]["x"]["op"] = "add"
         self.assert_hold_code(packet, "UNSUPPORTED_TRANSFORM")
 
+    def test_python_tuple_cannot_bypass_json_array_contract(self):
+        packet = valid_packet()
+        packet["feature_basis"] = ("x",)
+        self.assert_hold_code(packet, "NON_JSON_VALUE")
+
     def test_nonempty_historical_mapping_is_rejected(self):
         packet = valid_packet()
         packet["historical_mapping"]["edges"] = [{"source": "Yijing", "target": "synthetic"}]
