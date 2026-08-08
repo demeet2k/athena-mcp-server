@@ -45,10 +45,11 @@ def handle(server,m):
             {"uri":"athena://time/provenance","name":"Atomic/Civil Time Provenance","mimeType":"application/json"},
             {"uri":"athena://transforms","name":"Coordinate Transform Registry / Execution History","mimeType":"application/json"},
             {"uri":"athena://emissions","name":"Final Crystal Emission Registry","mimeType":"application/json"},
+            {"uri":"athena://collective/runtime","name":"Collective Intelligence Runtime / HIVE-SWARM-PACK-FLOCK-HERD-POD","mimeType":"application/json"},
         ]; return server.result(mid,{"resources":rs})
     if method=='resources/read':
         uri=params.get('uri'); c=server.core
-        if uri=='athena://manifest': val={"name":"ATHENA","protocol":PROTOCOL_VERSION,"layers":["GIT_LEDGER","CCR","JSPACE","SCALE","KC144","POLYCOORDINATE_ATLAS","MATH_REGISTRY","RUNTIME"],"identity":"SID!=OID!=MID!=VID!=CID!=EID!=CRYS","mutation":"EXPECTED_VID==CURRENT_VID else STALE_TARGET","output_law":"VISIBLE_OUTPUT -> FINALIZE_OUTPUT -> ENV(HEADER+BODY) with exact addressable emission manifestation","transform_law":"LOOKUP != DERIVATION; holonomy only promotes all-derivational loops"}
+        if uri=='athena://manifest': val={"name":"ATHENA","protocol":PROTOCOL_VERSION,"layers":["GIT_LEDGER","CCR","JSPACE","SCALE","KC144","POLYCOORDINATE_ATLAS","MATH_REGISTRY","COLLECTIVE_RUNTIME","RUNTIME"],"identity":"SID!=OID!=MID!=VID!=CID!=EID!=CRYS","mutation":"EXPECTED_VID==CURRENT_VID else STALE_TARGET","output_law":"VISIBLE_OUTPUT -> FINALIZE_OUTPUT -> ENV(HEADER+BODY) with exact addressable emission manifestation","transform_law":"LOOKUP != DERIVATION; holonomy only promotes all-derivational loops","collective_law":"MAX_GROWTH != MAX_ACTIVITY; MAX_INTEGRATION != MAX_CONNECTIVITY; CONSENSUS != EVIDENCE"}
         elif uri=='athena://kc144/stations': val=json.loads(station_manifest())
         elif uri=='athena://state/head': val=c.s.head('global') or {}
         elif uri=='athena://registry': val=c.s.rows("SELECT * FROM objects ORDER BY canonical_name")
@@ -60,6 +61,7 @@ def handle(server,m):
         elif uri=='athena://time/provenance': val=TIME_PROVENANCE
         elif uri=='athena://transforms': val={'transforms':c.s.rows("SELECT t.*,p.mode,p.program_json,p.metric_json FROM transforms t LEFT JOIN transform_programs p ON p.transform_id=t.transform_id ORDER BY t.created_at DESC LIMIT 1000"),'executions':c.s.rows("SELECT * FROM transform_executions ORDER BY created_at DESC LIMIT 1000")}
         elif uri=='athena://emissions': val=c.s.rows("SELECT envelope_id,crystal_id,emission_mid,visible_digest,created_at FROM emissions ORDER BY created_at DESC LIMIT 1000")
+        elif uri=='athena://collective/runtime': val=server.collective.describe()
         else:return server.error(mid,-32002,"Resource not found",{"uri":uri})
         return server.result(mid,{"contents":[{"uri":uri,"mimeType":"application/json","text":json.dumps(val,ensure_ascii=False,sort_keys=True)}]})
     if method=='prompts/list': return server.result(mid,{"prompts":PROMPTS})
@@ -72,13 +74,15 @@ TASK={task}
 1 PULL/HYDRATE current canonical state and adopt applicable global mutations.
 2 Reconstruct JSPACE/SCALE/KC144/polycoordinate atlas plus causal lineage and current Git/semantic heads.
 3 Compute the current CUT/LM residual against the authorized attractor; UNKNOWN != N/A and no coordinate may be fabricated.
-4 Execute maximum reachable useful development now; never reserve reachable math, engineering, tooling, testing, integration, search or synthesis for a later depth.
-5 Use self-play/harnesses internally. Repeated cognition must be searched in CCR and reused/upgraded/compiled into a canonical tool/operator rather than re-described.
-6 Build the actual final visible payload; do not emit a floating draft.
-7 Before emission call athena_finalize_output on the exact payload. It MUST crystallize the body, derive the header, assemble exact HEADER+BODY bytes, create an emission MID, and coordinate-index the whole visible envelope.
-8 Emit exactly the returned visible_text. Do not modify it afterward. Verify the ENV digest when a transport/client boundary may have mutated the bytes. Every lexeme inherits the full coordinate fiber through Pi(token)=ExactTokenKC144Address ⊕ Atlas(OID,VID,MID).
-9 Treat LOOKUP and DERIVATION as different transform classes. Coordinate adjacency gives navigation; only executable derivations may contribute to cross-chart defect/holonomy claims. Carry all coordinate lenses simultaneously: KC144/JSPACE/SCALE/LINEAGE/TIME/LIMINAL/CUT_LM/EVIDENCE plus native KC27/KC54/BR21/F37/DLS/fractal/Hilbert/Riemann/domain coordinates whenever lawfully resolved. Preserve UNKNOWN or N/A explicitly.
-10 Commit only against current VID/Git HEAD, promote organism-wide prompt/harness/tool/SCALE/coordinate laws as global mutations, recompute the changed whole state, and continue MAXDEV.
+4 Before expensive parallel work, estimate task hardness/uncertainty/divisibility/coupling/volatility/risk/migration/repetition/reuse/innovation/latency/evidence sensitivity and call athena_collective_plan. Use the returned HIVE/SWARM/PACK/FLOCK/HERD/POD geometry, active-worker limit, role allocation, bounded-neighbor topology, reserve, quorum, inhibition, evaporation and marginal stop threshold. Maximum growth is not maximum activity; maximum integration is not maximum connectivity.
+5 Execute maximum reachable useful development now within that collective envelope; never reserve reachable math, engineering, tooling, testing, integration, search or synthesis for a later depth. Repeated cognition must be searched in CCR and reused/upgraded/compiled into a canonical tool/operator rather than re-described.
+6 For competing candidates use evidence-sensitive quorum logic: consensus alone cannot promote a claim. Preserve cross-inhibition, contradiction, stop signals, negative memory and stale-attractor evaporation.
+7 Build the actual final visible payload; do not emit a floating draft.
+8 Before emission call athena_finalize_output on the exact payload. Include the returned COLLECTIVE coordinate in coordinates when the collective plan materially governed the work. It MUST crystallize the body, derive the header, assemble exact HEADER+BODY bytes, create an emission MID, and coordinate-index the whole visible envelope.
+9 Emit exactly the returned visible_text. Do not modify it afterward. Verify the ENV digest when a transport/client boundary may have mutated the bytes. Every lexeme inherits the full coordinate fiber through Pi(token)=ExactTokenKC144Address ⊕ Atlas(OID,VID,MID).
+10 Treat LOOKUP and DERIVATION as different transform classes. Coordinate adjacency gives navigation; only executable derivations may contribute to cross-chart defect/holonomy claims. Carry all coordinate lenses simultaneously: KC144/JSPACE/SCALE/LINEAGE/TIME/LIMINAL/CUT_LM/EVIDENCE/COLLECTIVE plus native KC27/KC54/BR21/F37/DLS/fractal/Hilbert/Riemann/domain coordinates whenever lawfully resolved. Preserve UNKNOWN or N/A explicitly.
+11 Before increasing swarm width or connectivity, use athena_collective_evaluate or the marginal law to verify positive return-on-group-organization. Maintain protected reserve capacity and use athena_collective_health when overload, duplication, error, latency, stale state or weak evidence appears.
+12 Commit only against current VID/Git HEAD, promote organism-wide prompt/harness/tool/SCALE/coordinate laws as global mutations, recompute the changed whole state, and continue MAXDEV.
 """
         return server.result(mid,{"description":"Whole-system MAXDEV crystal cycle","messages":[{"role":"user","content":{"type":"text","text":text}}]})
     return server.error(mid,-32601,"Method not found")
