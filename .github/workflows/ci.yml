@@ -9,8 +9,8 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
-      - name: Compile runtime and tests
-        run: python -m compileall -q athena_mcp tests smoke.py
+      - name: Compile runtime tests deployment and smoke
+        run: python -m compileall -q athena_mcp tests deploy scripts smoke.py
 
   unit:
     runs-on: ubuntu-latest
@@ -29,7 +29,7 @@ jobs:
           from pathlib import Path
           s=Path('/tmp/athena-tests.log').read_text(errors='replace')
           marker='======================================================================'
-          failure=s[s.find(marker):] if marker in s else '\n'.join(s.splitlines()[-260:])
+          failure=s[s.find(marker):] if marker in s else '\n'.join(s.splitlines()[-300:])
           failure=failure.replace('%','%25').replace('\r','%0D').replace('\n','%0A')
           print(failure[:32000])
           PY
@@ -56,21 +56,24 @@ jobs:
           import importlib.resources
           import tempfile
           import athena_mcp
-          from athena_mcp.hub_server import HubServer
+          from athena_mcp.deployment_hub import DeploymentHubServer
           from athena_mcp.kc144_registry_pack import verify_pack
-          assert athena_mcp.__version__ == '3.0.0', athena_mcp.__version__
+          assert athena_mcp.__version__ == '3.1.0', athena_mcp.__version__
           data=importlib.resources.files('athena_mcp').joinpath('data/kc144-core-registries.tar.xz')
           assert data.is_file(), data
           receipt=verify_pack(deep=True)
           assert receipt['status']=='PASS', receipt
           with tempfile.NamedTemporaryFile(suffix='.db') as handle:
-              server=HubServer(handle.name)
+              server=DeploymentHubServer(handle.name)
               try:
                   init=server.handle({'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-11-25'}})['result']
-                  assert init['serverInfo']['version']=='3.0.0', init
+                  assert init['serverInfo']['version']=='3.1.0', init
+                  assert init['serverInfo']['httpAdapter']=='ATHENA.JSONRPC.HTTP.ADAPTER.1', init
                   names={item['name'] for item in server.handle({'jsonrpc':'2.0','id':2,'method':'tools/list'})['result']['tools']}
-                  for name in ('athena_gp_hyperfit','athena_system_upgrade_plan','athena_kc144_hub_validate'):
+                  for name in ('athena_gp_hyperfit','athena_system_upgrade_plan','athena_kc144_hub_validate','athena_deployment_manifest'):
                       assert name in names, name
+                  uris={item['uri'] for item in server.handle({'jsonrpc':'2.0','id':3,'method':'resources/list'})['result']['resources']}
+                  assert 'athena://deployment' in uris, uris
               finally:
                   server.store.close()
           print('PACKAGE PASS:', data)
@@ -144,9 +147,86 @@ jobs:
           python -m unittest discover -s tests -p 'test_field_surface_composition.py' -v
       - name: Whole-system witnessed upgrade and release plane
         run: python -m unittest discover -s tests -p 'test_system_upgrade.py' -v
+      - name: Deployment contract secure host and exact-digest artifacts
+        run: |
+          python -m unittest discover -s tests -p 'test_deployment.py' -v
+          python -m unittest discover -s tests -p 'test_deployment_hub.py' -v
+          python -m unittest discover -s tests -p 'test_http_host.py' -v
+          python -m unittest discover -s tests -p 'test_deploy_artifacts.py' -v
+          python -m unittest discover -s tests -p 'test_release_distribution.py' -v
+
+  container:
+    needs: [syntax]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Build non-root runtime image
+        run: |
+          epoch=$(git show -s --format=%ct HEAD)
+          docker build \
+            --build-arg VERSION=3.1.0 \
+            --build-arg VCS_REF="$GITHUB_SHA" \
+            --build-arg SOURCE_DATE_EPOCH="$epoch" \
+            -t "athena-ci:$GITHUB_SHA" .
+      - name: Verify secure single-writer container and persistent restart
+        shell: bash
+        run: |
+          set -euo pipefail
+          token='ci-token-with-more-than-sixteen-bytes'
+          volume="athena-ci-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          docker volume create "$volume" >/dev/null
+          cleanup() {
+            docker rm -f athena-ci >/dev/null 2>&1 || true
+            docker volume rm "$volume" >/dev/null 2>&1 || true
+          }
+          trap cleanup EXIT
+          start() {
+            docker run -d --name athena-ci \
+              --read-only \
+              --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,uid=65532,gid=65532 \
+              --cap-drop ALL \
+              --security-opt no-new-privileges \
+              -e ATHENA_HTTP_TOKEN="$token" \
+              -e ATHENA_SCHEMA_MIGRATE=true \
+              -v "$volume:/var/lib/athena" \
+              -p 127.0.0.1:8765:8765 \
+              "athena-ci:$GITHUB_SHA" >/dev/null
+          }
+          await_ready() {
+            for _ in $(seq 1 60); do
+              if curl --silent --fail http://127.0.0.1:8765/readyz >/tmp/ready.json; then
+                return 0
+              fi
+              sleep 1
+            done
+            docker logs athena-ci
+            return 1
+          }
+          start
+          await_ready
+          python - <<'PY'
+          import json, urllib.request
+          token='ci-token-with-more-than-sixteen-bytes'
+          payload={'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-11-25'}}
+          req=urllib.request.Request('http://127.0.0.1:8765/mcp',data=json.dumps(payload).encode(),headers={'Content-Type':'application/json','Authorization':'Bearer '+token},method='POST')
+          value=json.loads(urllib.request.urlopen(req,timeout=20).read())
+          assert value['result']['serverInfo']['version']=='3.1.0', value
+          assert value['result']['serverInfo']['httpAdapter']=='ATHENA.JSONRPC.HTTP.ADAPTER.1', value
+          payload={'jsonrpc':'2.0','id':2,'method':'tools/list'}
+          req=urllib.request.Request('http://127.0.0.1:8765/mcp',data=json.dumps(payload).encode(),headers={'Content-Type':'application/json','Authorization':'Bearer '+token},method='POST')
+          tools=json.loads(urllib.request.urlopen(req,timeout=20).read())['result']['tools']
+          assert 'athena_deployment_manifest' in {x['name'] for x in tools}
+          PY
+          test "$(docker inspect -f '{{.Config.User}}' athena-ci)" = '65532:65532'
+          test "$(docker inspect -f '{{.HostConfig.ReadonlyRootfs}}' athena-ci)" = 'true'
+          docker rm -f athena-ci >/dev/null
+          start
+          await_ready
+          curl --silent --fail http://127.0.0.1:8765/healthz >/tmp/health.json
+          echo 'CONTAINER PASS: non-root + read-only + exact host + persistent schema restart'
 
   smoke:
-    needs: [syntax, unit, package, critical-invariants]
+    needs: [syntax, unit, package, critical-invariants, container]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
