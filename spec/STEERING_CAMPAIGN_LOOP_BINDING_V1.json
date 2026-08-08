@@ -7,9 +7,11 @@
     "candidate": "exact candidate_id with standing CAMPAIGN_CANDIDATE_NOT_EXECUTION_AUTHORITY",
     "campaign": "fresh RESUMED + verify PASS with expected state_digest/checkpoint",
     "branch": "OPEN branch materialized from the exact candidate_id and same normalized task",
-    "git": "exact expected current head before claim"
+    "git": "exact expected current head before claim",
+    "loop_runtime": "the same V1 persistence/runtime object dereferenced by campaign_runtime.bind_loop"
   },
   "transaction": [
+    "verify campaign_runtime.loop_runtime and supplied loop_runtime share the same persistence surface",
     "fresh campaign resume",
     "campaign verify PASS",
     "exact Git-head guard",
@@ -32,6 +34,7 @@
     "non-residual compilation",
     "compiler failures or unresolved holds",
     "candidate identity/standing/task mismatch",
+    "campaign/supplied loop-runtime persistence-surface mismatch",
     "stale campaign state/checkpoint",
     "campaign verify failure",
     "stale Git head",
@@ -48,6 +51,7 @@
     "REHYDRATION_RESUME = HANDOFF_PACKET_NOT_AUTHORITY",
     "CAMPAIGN_CANDIDATE != EXECUTION_AUTHORITY",
     "BRANCH_ROUTING != AUTHORITY",
+    "CAMPAIGN_LOOP_RUNTIME = BIND_LOOP_RUNTIME",
     "NO_REHYDRATION_ADVANCE_IN_LOOP_BINDING",
     "LOCAL_COMMIT != SHARED_RETURN unless publication is verified"
   ],
