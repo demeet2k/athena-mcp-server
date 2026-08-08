@@ -1,5 +1,7 @@
+import tempfile
 import unittest
 from athena_mcp.collective_growth import CollectiveGrowthRuntime
+from athena_mcp.server import Server
 
 
 class CollectiveGrowthTests(unittest.TestCase):
@@ -45,6 +47,19 @@ class CollectiveGrowthTests(unittest.TestCase):
         self.assertEqual(d['old'], 'PRUNE_REFERENCE')
         self.assertEqual(d['root'], 'KEEP_REFERENCE')
         self.assertEqual(d['weak'], 'QUARANTINE')
+
+    def test_mcp_growth_discovery_call_and_resource(self):
+        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+            srv = Server(f.name)
+            names = [x['name'] for x in srv.handle({'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']]
+            for name in ('athena_collective_allocate','athena_bridge_account','athena_collective_restructure','athena_dependency_alarm','athena_artifact_lifecycle'):
+                self.assertIn(name, names)
+            call = srv.handle({'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'athena_bridge_account','arguments':{'bridge':{'expected_future_uses':10,'route_saving_per_use':2,'build_cost':5}}}})
+            self.assertFalse(call['result']['isError'])
+            self.assertEqual(call['result']['structuredContent']['decision'], 'BUILD')
+            resource = srv.handle({'jsonrpc':'2.0','id':3,'method':'resources/read','params':{'uri':'athena://collective/growth'}})
+            self.assertIn('COLLECTIVE_GROWTH_V1', resource['result']['contents'][0]['text'])
+            srv.store.close()
 
 
 if __name__ == '__main__':
