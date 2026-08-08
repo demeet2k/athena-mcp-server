@@ -18,14 +18,21 @@ from .mythic_strata_surface import (
     MYTHIC_STRATA_TOOL_NAMES,
     MYTHIC_STRATA_RESOURCE_URIS,
 )
+from .mythic_holonomy_surface import (
+    MythicHolonomySurface,
+    MYTHIC_HOLONOMY_RESOURCES,
+    MYTHIC_HOLONOMY_TOOLS,
+    MYTHIC_HOLONOMY_TOOL_NAMES,
+    MYTHIC_HOLONOMY_RESOURCE_URIS,
+)
 
-# Compatibility seam: preserve the tested source-backed BNMK V2 runtime behind the
-# stable six-tool ABI while composing the independent MCK V1 + strata surfaces.
-# No surface receives authority from the others merely by sharing this dispatcher.
-BIONANOMACHINE_TOOLS=list(BIONANO_TOOLS)+list(MYTHIC_COMPUTATION_TOOLS)+list(MYTHIC_STRATA_TOOLS)
-BIONANOMACHINE_RESOURCES=[BIONANO_RESOURCE]+list(MYTHIC_COMPUTATION_RESOURCES)+list(MYTHIC_STRATA_RESOURCES)
-BIONANOMACHINE_TOOL_NAMES=set(BIONANO_TOOL_NAMES)|set(MYTHIC_COMPUTATION_TOOL_NAMES)|set(MYTHIC_STRATA_TOOL_NAMES)
-BIONANOMACHINE_RESOURCE_URIS={BIONANO_RESOURCE['uri']}|set(MYTHIC_COMPUTATION_RESOURCE_URIS)|set(MYTHIC_STRATA_RESOURCE_URIS)
+# Compatibility seam: preserve the source-backed BNMK V2 runtime and existing MCK
+# surfaces while composing the read-only held-out evaluator. Shared dispatch does
+# not transfer authority between organs.
+BIONANOMACHINE_TOOLS=list(BIONANO_TOOLS)+list(MYTHIC_COMPUTATION_TOOLS)+list(MYTHIC_STRATA_TOOLS)+list(MYTHIC_HOLONOMY_TOOLS)
+BIONANOMACHINE_RESOURCES=[BIONANO_RESOURCE]+list(MYTHIC_COMPUTATION_RESOURCES)+list(MYTHIC_STRATA_RESOURCES)+list(MYTHIC_HOLONOMY_RESOURCES)
+BIONANOMACHINE_TOOL_NAMES=set(BIONANO_TOOL_NAMES)|set(MYTHIC_COMPUTATION_TOOL_NAMES)|set(MYTHIC_STRATA_TOOL_NAMES)|set(MYTHIC_HOLONOMY_TOOL_NAMES)
+BIONANOMACHINE_RESOURCE_URIS={BIONANO_RESOURCE['uri']}|set(MYTHIC_COMPUTATION_RESOURCE_URIS)|set(MYTHIC_STRATA_RESOURCE_URIS)|set(MYTHIC_HOLONOMY_RESOURCE_URIS)
 
 
 class BionanomachineSurface:
@@ -33,8 +40,11 @@ class BionanomachineSurface:
         self.runtime=EvidenceBionanomachineRuntime()
         self.mck=MythicComputationSurface()
         self.strata=MythicStrataSurface()
+        self.holonomy=MythicHolonomySurface()
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        handled,value=self.holonomy.call_tool(name,args)
+        if handled:return True,value
         handled,value=self.strata.call_tool(name,args)
         if handled:return True,value
         handled,value=self.mck.call_tool(name,args)
@@ -49,34 +59,19 @@ class BionanomachineSurface:
         return False,None
 
     def read_resource(self,uri:str):
-        if uri in MYTHIC_STRATA_RESOURCE_URIS:
-            return self.strata.read_resource(uri)
-        if uri in MYTHIC_COMPUTATION_RESOURCE_URIS:
-            return self.mck.read_resource(uri)
+        if uri in MYTHIC_HOLONOMY_RESOURCE_URIS:return self.holonomy.read_resource(uri)
+        if uri in MYTHIC_STRATA_RESOURCE_URIS:return self.strata.read_resource(uri)
+        if uri in MYTHIC_COMPUTATION_RESOURCE_URIS:return self.mck.read_resource(uri)
         if uri!=BIONANO_RESOURCE['uri']:raise KeyError(uri)
         return {
-            'version':BIONANO_VERSION,
-            'evidence_version':'BNMK.ADAPTER20.V2',
-            'catalog':self.runtime.catalog(False,False),
-            'benchmark':self.runtime.benchmark(),
-            'laws':[
-                'BIOLOGICAL_MECHANISM != SOFTWARE_IMPLEMENTATION',
-                'MECHANISTIC_ANALOGY != CAUSAL_EQUIVALENCE',
-                'USER_SEED != VERIFIED_EMPIRICAL_CONSTANT',
-                'PRIMARY_SOURCE != UNIVERSAL_CONSTANT',
-                'PRIMARY_SOURCE_SUPPORT != EXECUTION_AUTHORITY',
-                'INTERFACE_MATCH_PROXY != PHYSICAL_IMPEDANCE',
-                'AVAILABLE_TEST != APPLICABLE_TEST',
-                'PARTS_LIST != ASSEMBLED_CAPABILITY',
-                'ASSEMBLY_GRAPH != FUNCTION_GRAPH',
-                'ROUTE_EXISTS != INTERFACE_MATCHED',
-            ],
+            'version':BIONANO_VERSION,'evidence_version':'BNMK.ADAPTER20.V2',
+            'catalog':self.runtime.catalog(False,False),'benchmark':self.runtime.benchmark(),
+            'laws':['BIOLOGICAL_MECHANISM != SOFTWARE_IMPLEMENTATION','MECHANISTIC_ANALOGY != CAUSAL_EQUIVALENCE','USER_SEED != VERIFIED_EMPIRICAL_CONSTANT','PRIMARY_SOURCE != UNIVERSAL_CONSTANT','PRIMARY_SOURCE_SUPPORT != EXECUTION_AUTHORITY','INTERFACE_MATCH_PROXY != PHYSICAL_IMPEDANCE','AVAILABLE_TEST != APPLICABLE_TEST','PARTS_LIST != ASSEMBLED_CAPABILITY','ASSEMBLY_GRAPH != FUNCTION_GRAPH','ROUTE_EXISTS != INTERFACE_MATCHED'],
             'authority':'PRIMARY_SOURCE_CONDITIONED_MECHANISM_LIBRARY; COMPUTATIONAL_TRANSFER_REMAINS_ANALOGY_ONLY'
         }
 
     def benchmark(self):
-        result={}
-        result.update(self.runtime.benchmark())
-        result.update(self.mck.benchmark())
+        result={};result.update(self.runtime.benchmark());result.update(self.mck.benchmark())
         result['mck_strata']=self.strata.benchmark()
+        result['mck_holonomy']={'standing':'REQUIRES_FROZEN_PACKET_INPUT','authority':'READ_ONLY_REPRESENTATION_BENCHMARK_ONLY'}
         return result
