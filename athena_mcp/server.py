@@ -9,6 +9,7 @@ from .bootstrap import bootstrap
 from .git_backend import GitBackend, GitStaleHead, GitStateError
 from .crystal_runtime import CrystalRuntime
 from .orchestration_branch import BranchLedger
+from .orchestration_branch_protocol import BRANCH_RESOURCE, BRANCH_TOOLS, BRANCH_TOOL_NAMES
 from .orchestration_runtime import OrchestrationRuntime
 
 from .protocol import PROTOCOL_VERSION, SERVER_INFO, TOOLS, PROMPTS
@@ -25,6 +26,7 @@ class Server:
     def __init__(self,db,git_root=None):
         self.store=Store(db); self.core=AthenaCore(self.store); bootstrap(self.core); self.crystal=CrystalRuntime(self.core); self.branches=BranchLedger(self.core); self.orchestration=OrchestrationRuntime(self.core,self.branches); self.rate=RateLimiter()
         self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'), autocommit=False)
+        self._branch_tools={tool['name']:tool for tool in BRANCH_TOOLS}
     def result(self,id,result): return {"jsonrpc":"2.0","id":id,"result":result}
     def error(self,id,code,msg,data=None):
         e={"code":code,"message":msg};
@@ -76,8 +78,37 @@ class Server:
         if name=='athena_benchmark':
             r=c.benchmark(); r.update(self.crystal.benchmark_extension()); r.update(self.orchestration.benchmark()); r.update(self.branches.benchmark()); r['git']=self.git.status(); return r
         raise KeyError(name)
+    def _branch_resource_value(self):
+        return {
+            "law": {
+                "statuses":["ACTIVE","HIBERNATED","REVIEW"],
+                "observation":"calibrated reward + verified witness",
+                "triggers":["new_evidence","new_gap","bridge_demand"],
+                "hibernate_is_erase":False,
+                "resurrection":"HIBERNATED -> REVIEW on verified trigger; REVIEW/HIBERNATED -> ACTIVE only after witnessed reward threshold",
+            },
+            "branches":self.branches.list(limit=200),
+            "benchmark":self.branches.benchmark(),
+        }
     def handle(self,m):
         from .dispatch import handle
+        method=m.get('method'); params=m.get('params') or {}; mid=m.get('id')
+        if method=='tools/list':
+            base=handle(self,m); tools=list(base['result']['tools'])+list(BRANCH_TOOLS); base['result']['tools']=sorted({tool['name']:tool for tool in tools}.values(),key=lambda x:x['name']); return base
+        if method=='tools/call' and params.get('name') in BRANCH_TOOL_NAMES:
+            name=params['name']; args=params.get('arguments') or {}
+            if not self.rate.allow(name): return self.result(mid,{"content":[{"type":"text","text":"Rate limit exceeded; retry later."}],"isError":True})
+            try:
+                validate(self._branch_tools[name]['inputSchema'],args); value=self.call_tool(name,args)
+                return self.result(mid,{"content":[{"type":"text","text":json.dumps(value,ensure_ascii=False,sort_keys=True)}],"structuredContent":value,"isError":False})
+            except (ValueError,KeyError) as exc:
+                return self.result(mid,{"content":[{"type":"text","text":str(exc)}],"isError":True})
+        if method=='resources/list':
+            base=handle(self,m); resources=list(base['result']['resources']);
+            if BRANCH_RESOURCE['uri'] not in {r['uri'] for r in resources}: resources.append(BRANCH_RESOURCE)
+            base['result']['resources']=resources; return base
+        if method=='resources/read' and params.get('uri')==BRANCH_RESOURCE['uri']:
+            value=self._branch_resource_value(); return self.result(mid,{"contents":[{"uri":BRANCH_RESOURCE['uri'],"mimeType":"application/json","text":json.dumps(value,ensure_ascii=False,sort_keys=True)}]})
         return handle(self,m)
 
 def main(argv=None):
