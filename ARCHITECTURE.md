@@ -1,4 +1,4 @@
-# ATHENA Unified Architecture — AΩR × Collective V1–V12
+# ATHENA Unified Architecture — AΩR × Collective V1–V13
 
 ## 1. Whole runtime graph
 
@@ -17,7 +17,7 @@ Collective V1 → Growth V1 → Memory V2 → Learning V3 → Ecology V4
                                       ↓
 Science V5 → Discovery V6 → Dual-Control V7 → Belief V8 → Inference V9
                                       ↓
-Probabilistic V10 → Adaptive World Model V11 → Joint World-Model Belief V12
+Probabilistic V10 → Adaptive V11 → Joint Belief V12 → Robust Continuous/Causal V13
                                       ↕
 SCHEMA2 / OMEGA1 / RECON1 / CYCLE1 / SELFTEST1 / STARTUP1
                                       ↕
@@ -26,214 +26,159 @@ SURFACE2 / COMPOSITION2 / PROMOTION2
 FINALIZE_OUTPUT / VERIFY_EMISSION / RETURN
 ```
 
-Release coordinate: `athena-canonical-mcp 3.1.0`.
+Release coordinate: `athena-canonical-mcp 3.2.0`.
 
-Live architecture artifact: `ATHENA.RUNTIME.UNIFIED.7`.
+Live architecture artifact: `ATHENA.RUNTIME.UNIFIED.8`.
 
-The governing design principle is type preservation: model output, evidence, authority, execution, observation, persistence, identity, coordinates, caller attestation, trusted verification, and optimization certificates are separate semantic planes.
+The governing principle is type preservation: model output, evidence, authority, execution, observation, persistence, identity, coordinates, caller attestation, trusted verification, approximation witnesses and optimization certificates remain separate semantic planes.
 
-## 2. Identity and coordinate law
+## 2. Identity / coordinate / transaction law
 
 `SID != OID != MID != VID != CID != EID != CRYS != ENV`.
 
-Run identities remain distinct:
-
 `AORRUN != RAGRUN != EXTRUN != EXTTASK != EXTRES != HUGIMPL != HUGINV != GAPRUN != FIELDRUN != TRANSPORTRUN != CYCLE != CYCLEEV != PROMRUN != MIGRUN != OMEGA != RECONRUN`.
 
-Coordinates navigate; they do not establish identity or truth. `LOOKUP != DERIVATION`. Holonomy is measured only when every route edge is derivational.
+Coordinates navigate; they do not establish truth. `LOOKUP != DERIVATION`.
 
-## 3. AOR, Y1, EQ1
+Canonical write domains remain independent:
+
+`CAS_OMEGA = CAS_semantic(VID) × CAS_git(HEAD) × CAS_topology(version)`.
+
+V11 GP observed-row CAS is a model-local mutation guard, not semantic authority. V12/V13 computations add no new canonical write domain.
+
+## 3. AOR / Y1 / EQ1
 
 AOR answers **WHAT deserves developmental resources**. Collective answers **HOW capacity is organized** once work is eligible. Y1 governs canonical claim authority. EQ1 governs witnessed equivalence collapse.
 
-AOR rankability requires known/comparable governing metrics and satisfied dependency, authority, test, persistence, contradiction, fake, and support gates. UNKNOWN remains UNKNOWN.
-
-Y1 follows typed authority progression `? → + → ! → #`. Canonical RPC namespace is `athena_claim_*`; V6–V12 discovery/replication science-shadow namespace is `athena_discovery_claim_*`. These namespaces cannot alias. Model/shadow state enters Y1 only through explicit witnessed transport.
+Y1 progression is `? → + → ! → #`. Canonical RPC namespace is `athena_claim_*`; V6–V13 science-shadow namespace is `athena_discovery_claim_*`. Model/shadow state enters Y1 only through explicit witnessed transport.
 
 ## 4. Developmental compiler chain
 
-SX1 creates bounded extraction work contracts. RAG1 ranks actual provenance records. HUG.ABI.1 preserves exact `HUG(io,au,fx,lm,er,st)` interface and fails closed when semantic execution is missing. GAP1 computes witnessed directed reachability rather than theorem/causal entailment. FIELD1 assembles actual residual work and preserves UNMEASURED/CONFLICT states.
+SX1 creates bounded extraction contracts. RAG1 ranks actual provenance. HUG.ABI.1 preserves exact `HUG(io,au,fx,lm,er,st)` and fails closed without an implementation. GAP1 computes witnessed directed reachability rather than theorem/causal entailment. FIELD1 assembles residual work while preserving UNMEASURED/CONFLICT states.
 
-Typed AOR×Collective transports include pheromone→attention, dependency alarm→GAP pressure, AOR frontier→Collective task contract, observed RGO→reward observation, bridge candidate→bridge economics, and antibody match→repair candidate. None promotes routing signals into evidence by adjacency.
+Typed AOR×Collective transports do not launder routing signals into evidence.
 
-## 5. Collective V1–V4 — resident organizational substrate
+## 5. Resident substrate V1–V4
 
-V1/Growth V1 provide worker geometry, bounded topology, reserve, quorum/inhibition, demand allocation, bridge economics and lifecycle. V2 adds persistent organizational memory. V3 adds bounded empirical policy learning and metering. V4 adds contextual bandits, design-dependent credit, measured costs, bounded scheduling, rollouts and projection sagas.
+V1/Growth: collective form, worker geometry, bounded topology, reserve, quorum/inhibition, demand allocation, bridge economics, lifecycle.
 
-## 6. Collective V5–V12 — lazy science/inference/control ladder
+V2: persistent pheromones, topology history, failure antibodies.
 
-These surfaces are constructed on tool/resource access. Their outputs remain model-, design-, estimate-, or assumption-scoped until an explicit witness routes them into evidence/authority.
+V3: bounded empirical policy adaptation, elders, runtime metering.
 
-### V5 Science
+V4: contextual-UCB ecology, design-dependent credit, measured costs, diffusion, schedules, rollouts, projection sagas.
 
-Contextual Bayes, calibration, EIG, interactions/delayed credit, transitions, scheduling, witness cells, regime geometry, Pareto frontier, projection compensation.
+## 6. Lazy model/science/control ladder V5–V13
 
-### V6 Discovery
+V5–V13 are instantiated on tool/resource access and remain model/design/assumption scoped until explicitly witnessed into authority/evidence.
 
-Nonlinear/OOD inference, experiment generation, supplied-DAG back-door identification, higher-order contrasts, stochastic transition models, MPC, bounded exact scheduling, witness capsules and science-shadow replication/falsification.
+### V5–V9
 
-### V7 Dual Control
+V5 correlated Bayes/calibration/EIG/interactions/transitions/Pareto; V6 nonlinear/OOD discovery, supplied-DAG identification, higher-order contrasts, MPC and science shadows; V7 uncertainty/prequential/state-dynamics/scenario/dual-control/replication; V8 finite model belief/EVI/effect/bootstrap/contingent policy; V9 Gaussian-linear parameter belief, EVPI/EVSI, AIPW, robustness, partial graphs and dependence probabilities.
 
-Uncertainty decomposition, prequential intervals, association skeleton, state-dependent transitions, scenario/CVaR, dual-control proxy, extended supplied-DAG checks, replication independence/design.
+### V10 — probabilistic world model
 
-### V8 Finite Belief
+Fixed-kernel exact bounded GP, bounded PC-stable, binary TMLE, E-value, finite POMDP, labelled dependence calibration.
 
-Persistent finite model belief, observation-driven Bayes updates, EVI, belief control, assumption-scoped effect estimation, bootstrap structural stability, contingent policies and spectral evidence diversity.
+`GP_PREDICTION != OBSERVATION`; `PC_GRAPH != CANONICAL_JSPACE_GRAPH`; `TMLE_ESTIMATE != IDENTIFICATION_PROOF`.
 
-### V9 Continuous Inference
+### V11 — adaptive world model
 
-Gaussian-linear belief state, Monte-Carlo EVPI/EVSI, finite-belief multistage planning, AIPW, observed specification robustness, heuristic partial graphs and dependence probabilities.
+Finite-grid GP hyperfit with observation-count CAS, GP decision EVSI, supplied-DAG latent projection, stacked binary TMLE, RR sensitivity surface, finite-model BA-POMDP and dependence intervals.
 
-### V10 Probabilistic World Model
+`MARGINAL_LIKELIHOOD_OPTIMUM != TRUE_KERNEL`; `SUPPLIED_DAG_LATENT_PROJECTION != DATA_DISCOVERED_PAG`; `FINITE_MODEL_BAPOMDP != GENERAL_BAYES_ADAPTIVE_CONTROL`.
 
-Fixed-kernel exact small-data RBF GP, bounded PC-stable, binary TMLE, E-value, finite exact-enumeration POMDP and externally labelled dependence calibration.
+### V12 — joint structural world-model belief
 
-`GP_PREDICTION != OBSERVATION`.
+Finite-grid GP hyperposterior, BMA prediction with within/between-model variance, deterministic subset-GP reference error, BMA GP EVSI, bounded PAG candidate, two-timepoint parametric g-formula and independent-Gaussian chance-constrained resources.
 
-`PC_GRAPH != CANONICAL_JSPACE_GRAPH`.
+`COLLECTIVE_JOINT=<HP,BM,SG,PG,LC,JV,CC,L>`.
 
-`TMLE_ESTIMATE != IDENTIFICATION_PROOF`.
+### V13 — robust continuous-bayes / causal-control
 
-`FINITE_POMDP_CERTIFICATE != REAL_WORLD_OPTIMALITY`.
+V13 adds seven bounded operators:
 
-### V11 Adaptive World Model + Latent Causal Geometry
+1. **QMC hyperbelief** — Halton log-space quadrature over a positive GP hyperparameter box:
+   `w_i ∝ exp L(theta_i)` under the visible log-uniform box prior.
+   `QMC_CONTINUOUS_HYPERPOSTERIOR != EXACT_CONTINUOUS_HYPERPARAMETER_BAYES`.
 
-V11 adapts individual model components:
+2. **FITC inducing approximation** — deterministic farthest-point inducing rows, FITC diagonal residual, query-level error relative to exact current bounded GP:
+   `FITC_INDUCING_GP != FULL_GP_POSTERIOR_OR_VARIATIONAL_OPTIMUM`.
 
-1. finite-grid GP marginal-likelihood hyperfit with observed-row CAS;
-2. GP decision EVSI;
-3. supplied-DAG latent ADMG projection;
-4. stacked-nuisance binary TMLE;
-5. two-dimensional RR sensitivity;
-6. static-model-index bounded Bayes-adaptive POMDP;
-7. Laplace evidence-dependence interval.
+3. **Joint experiment design** — downstream decision EVSI plus expected hypermodel entropy reduction before explicit weighting:
+   `JOINT_MODEL_INFORMATION_DESIGN != OBSERVATION`.
 
-`MARGINAL_LIKELIHOOD_OPTIMUM != TRUE_KERNEL`.
+4. **FCI-lite** — all observed-variable conditioning subsets up to a declared bound, separation sets, collider arrowheads and limited propagation:
+   `BOUNDED_FCI_LITE != FCI_RFCI_PAG_THEOREM`.
 
-`SUPPLIED_DAG_LATENT_PROJECTION != DATA_DISCOVERED_PAG`.
+5. **Sequential two-timepoint logistic TMLE** — for `X→A1→L1→A2→Y`, stage-2 pseudo outcomes preserve observed `A1,L1` histories while applying target `A2`; stage-1 then learns/evaluates target `A1`:
+   `STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION`.
+   `TWO_TIMEPOINT_SEQUENTIAL_TMLE != GENERAL_LONGITUDINAL_TMLE_THEOREM_OR_IDENTIFICATION_PROOF`.
 
-`STACKED_TMLE != SUPER_LEARNER_THEOREM`.
+6. **Dynamic two-timepoint policy value** — deterministic `A1=π1(X)`, `A2=π2(X,A1,L1)` policies valued through the bounded parametric longitudinal model:
+   `DYNAMIC_GFORMULA_POLICY_VALUE != GENERAL_OFF_POLICY_CAUSAL_VALUE`.
 
-`FINITE_MODEL_BAPOMDP != GENERAL_BAYES_ADAPTIVE_CONTROL`.
+7. **Correlated robust resources** — declared covariance plus ellipsoidal mean uncertainty:
+   `mu(S)+rho||u(S)||_2+z_(1-alpha)sqrt(1_S^T Sigma 1_S) <= B`.
+   Small finite enumeration can certify the declared model; large-n greedy fallback has no optimality certificate.
+   `ELLIPSOIDAL_GAUSSIAN_ROBUST_PLAN != GENERAL_DISTRIBUTIONALLY_ROBUST_OPTIMIZATION`.
 
-### V12 Joint Structural World-Model Belief
+V13 coordinate:
 
-V12 preserves uncertainty across multiple planes rather than selecting one local winner.
+`COLLECTIVE_ROBUST=<HB,FG,JD,FC,LT,DP,DR,L>`.
 
-#### Finite-grid hyperparameter posterior
+## 7. No-self-training / no-semantic-laundering
 
-For explicit candidates `theta_i`:
-
-`w_i ∝ p(theta_i) exp(log p(y|X,theta_i))`.
-
-The state exposes entropy and effective model count.
-
-`FINITE_GRID_HYPERPOSTERIOR != CONTINUOUS_HYPERPARAMETER_BAYES`.
-
-#### Bayesian-model-averaged GP
-
-`mu = sum_i w_i mu_i`
-
-`Var = sum_i w_i v_i + sum_i w_i(mu_i-mu)^2`.
-
-The second term preserves between-kernel uncertainty.
-
-`BMA_GP_POSTERIOR != WORLD_TRUTH`.
-
-#### Subset GP approximation
-
-A deterministic farthest-point subset of observed rows provides a bounded approximation and is compared against the exact current bounded GP reference at the requested query.
-
-`SUBSET_GP_APPROXIMATION != FULL_GP_POSTERIOR`.
-
-#### BMA GP decision value
-
-Candidate measurements may hypothetically update both finite kernel weights and within-kernel action means. This is decision design only.
-
-`BMA_GP_EVSI != OBSERVATION`.
-
-#### Bounded PAG candidate
-
-Observed Gaussian CI tests, separation sets, unshielded colliders and limited conservative propagation produce circle/arrow/tail endpoint hypotheses.
-
-`BOUNDED_PAG_CANDIDATE != FCI_RFCI_PAG_THEOREM`.
-
-No graph hypothesis writes JSPACE.
-
-#### Two-timepoint causal policy g-formula
-
-For binary `A1 → L1 → A2 → Y`, V12 estimates static-regime risks by integrating a logistic intermediate model and logistic outcome model over the empirical baseline distribution.
-
-`TWO_TIMEPOINT_GFORMULA != LONGITUDINAL_TMLE_OR_IDENTIFICATION_PROOF`.
-
-Declared latent-confounding risk fails closed.
-
-#### Chance-constrained resource plan
-
-For independent-Gaussian candidate resource consumptions:
-
-`mu_r(S)+z_(1-alpha)sigma_r(S) <= B_r`.
-
-Small problems are exhaustively enumerated. Exactness is only for the declared finite approximation. Larger problems return an uncertified greedy plan.
-
-`GAUSSIAN_INDEPENDENT_CHANCE_CERTIFICATE != DISTRIBUTION_FREE_RESOURCE_GUARANTEE`.
-
-## 7. No self-training / semantic laundering
-
-Forbidden shortcuts include predicted RGO→observed RGO, rollout/scenario→observed trajectory, belief/POMDP policy→executed action, GP prediction/EVSI→GP observation, hyperposterior/BMA simulation→observation, partial/PC/PAG candidate→JSPACE edge, g-formula estimate→identification proof, chance plan→resource execution, dependence prediction→calibration label, science-shadow/model state→Y1 mutation, and caller-supplied CI/smoke packets→trusted qualification.
-
-General laws:
+Forbidden shortcuts include prediction→observation, simulation/design→evidence, partial/PC/PAG/FCI-lite candidate→JSPACE edge, causal estimate→identification proof, policy value→execution, robust plan→resource expenditure, science-shadow/model state→Y1 mutation, and caller CI/smoke packet→trusted qualification.
 
 `MODEL_OUTPUT --X--> OBSERVATION_OR_AUTHORITY_WITHOUT_EXTERNAL_WITNESS`.
 
 `CALLER_ATTESTATION --X--> QUALIFIED_WITHOUT_TRUSTED_VERIFIER`.
 
-## 8. Transaction domains
+## 8. State foundation / OMEGA
 
-`CAS_OMEGA = CAS_semantic(VID) × CAS_git(HEAD) × CAS_topology(version)`.
+SCHEMA.2 supplies additive verified migration. OMEGA.1 is digest-addressed accessible state. RECON.1 persists exact consulted/expected-source contracts.
 
-Staleness in one domain must not mutate the others. V11 GP hyperparameter application adds a model-local observed-row CAS. V12 computations do not create a new canonical write domain.
+OMEGA advertises resident V1–V4 plus explicit lazy V5–V13 surfaces. OMEGA does not imply unseen world state, external sources or trusted promotion verification.
 
-## 9. State foundation
+## 9. CYCLE.1
 
-SCHEMA.2 supplies additive migration and critical table/column verification. OMEGA.1 is digest-addressed current accessible state. RECON.1 persists consulted/expected-source reconstruction receipts.
+`HYDRATE → RECONSTRUCT → MEMORY → EXTRACT → RETRIEVE → HUG → GAP → FIELD → MEASURE → AUTHORITY/AOR → COLLECTIVE(V1–V13) → EXECUTE → VERIFY → LEARN → SUCCESSOR → COMPLETE`.
 
-OMEGA advertises resident V1–V4 plus explicit lazy V5–V12 surfaces. OMEGA is accessible runtime state, not unseen world state.
+Typed `WAITING_*` states stop at missing semantic prerequisites.
 
-## 10. CYCLE.1
+## 10. SURFACE / COMPOSITION / PROMOTION
 
-`HYDRATE → RECONSTRUCT → MEMORY → EXTRACT → RETRIEVE → HUG → GAP → FIELD → MEASURE → AUTHORITY/AOR → COLLECTIVE(V1–V12) → EXECUTE → VERIFY → LEARN → SUCCESSOR → COMPLETE`.
+SURFACE.2 requires base + Collective V1–V13 + AOR + developmental + state + governance tool/resource union.
 
-Typed `WAITING_*` states stop at missing semantic prerequisites. A missing executor is not simulated.
+COMPOSITION.2 verifies one `Server`; V5–V13 are explicitly lazy rather than resident duplicates.
 
-## 11. Integrity / readiness / promotion
+SELFTEST/STARTUP are local health/readiness only.
 
-SURFACE.2 requires base + Collective V1–V12 + AOR + developmental + state + governance tools/resources.
+PROMOTION.2 separates caller-bound exact-head attestation from trusted qualification. `ATTESTED_READY` can be reached from local gates + caller CI/smoke packets. `QUALIFIED` additionally requires a host-internal trusted verifier receipt binding the exact head and exact CI/smoke references. The MCP schema exposes no caller field for that receipt.
 
-COMPOSITION.2 verifies one `Server`, resident base/V1–V4/AOR/state organs and representative probes. V5–V12 are explicitly lazy.
+V13 deliberately leaves `UNRESOLVED_EXTERNAL_PROMOTION_VERIFIER` unresolved rather than adding a caller-mintable verifier.
 
-SELFTEST.1 / STARTUP.1 are local health/readiness only.
+## 11. Live architecture ABI
 
-PROMOTION.2 separates exact-head caller attestation from trusted qualification. `athena_promotion_evaluate` can reach `ATTESTED_READY` when local surface/composition/Git gates and caller-bound CI/smoke packets agree on one head. `QUALIFIED` additionally requires a host-internal trusted verifier receipt binding that same head and exact CI/smoke refs. The ordinary MCP schema cannot supply that trusted receipt. Historical PROMOTION.1 receipts remain versioned/replayable but are not current trusted qualification.
+`ATHENA.RUNTIME.UNIFIED.8` is the live machine-readable artifact. Compatibility retains `.1` through `.7`.
 
-## 12. Live architecture ABI
+The manifest advertises `COLLECTIVE_ROBUST_V13`, V1–V13 cycle/navigation, V13 invariants, PROMOTION.2 trust separation and V13 residual boundaries.
 
-`ATHENA.RUNTIME.UNIFIED.7` is the live machine-readable artifact. Compatibility retains `.1` through `.6`.
-
-The manifest advertises `COLLECTIVE_JOINT_V12`, V1–V12 navigation/cycle, V12 invariants, PROMOTION.2 trust separation, unresolved longitudinal/general-Bayes/formal-causal/stochastic-control/trusted-verifier boundaries, and `ATHENA UNIFIED MAXDEV V12`.
-
-## 13. CI constitution
+## 12. CI constitution
 
 `syntax ∧ full-unit-suite ∧ critical-invariants ∧ dependent-smoke`.
 
-Critical stages include repository-brain documentation consistency, PROMOTION.2 caller/trusted separation, and explicit V12 constructive/adversarial/unified authority tests. Smoke is dependent on the first three jobs and crosses V6→V12 plus state/AOR/fail-closed CYCLE, PROMOTION.2 caller-bound readiness, and final emission verification.
+Critical stages explicitly include V13 constructive/adversarial/unified authority tests and documentation consistency. Smoke cannot run until the first three jobs pass and crosses representative V13 behavior plus PROMOTION.2 caller-bound readiness in one process.
 
-## 14. External control-plane boundary
+`CI_PASS != LIVE_TRUSTED_PROMRUN`.
 
-Repository branch protection, description/settings, tags, Releases, PR/merge state, and the trusted promotion-verifier bridge are outside the runtime architecture ABI. They require actual GitHub/host control-plane observation/actions and are never inferred from CI, OMEGA, SELFTEST, caller attestations, or ATTESTED_READY.
+## 13. External control plane
 
-## 15. Governing objective
+Branch protection, repository settings/description, tags, Releases, PR/merge state and the trusted promotion-verifier bridge remain external control-plane state. They require actual GitHub/host observation/actions and are never inferred from OMEGA, SELFTEST, caller attestations, or `ATTESTED_READY`.
+
+## 14. Governing objective
 
 `J = UsefulObservedGain - CoordinationCost - Duplication - UnsupportedClaims - UnhandledContradiction - CoordinateLoss`.
 
-Development continues only while actionable successor/residual/measurement/calibration/dependency/repair/experiment pressure exists. Otherwise the system returns an explicit continuation state rather than manufacturing activity.
+Development continues while actionable successor/residual/measurement/calibration/dependency/repair/experiment pressure remains; otherwise return exact continuation state instead of manufacturing activity.
