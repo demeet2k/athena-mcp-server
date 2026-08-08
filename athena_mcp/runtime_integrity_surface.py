@@ -32,7 +32,7 @@ INTEGRITY_RESOURCE_URIS={resource['uri'] for resource in INTEGRITY_RESOURCES}
 
 
 class RuntimeIntegritySurface:
-    """State foundation, local health, self-certification and promotion boundary."""
+    """State foundation, local health, self-certification and promotion trust boundary."""
 
     def __init__(self,server,development):
         self.server=server;self.development=development
@@ -68,6 +68,8 @@ class RuntimeIntegritySurface:
         if name=='athena_surface_audit':return True,self.surface_audit(args.get('run_probes',True))
         if name=='athena_promotion_evaluate':
             surface=self.surface_audit(True);local_git=self.server.git.status()
+            # MCP callers can bind exact-head CI/smoke claims but cannot inject the
+            # trusted host-verifier receipt required for PROMOTION.2 QUALIFIED.
             return True,self.promotion.evaluate('Server',args['git_head'],surface,args['ci_witness'],args['smoke_witness'],local_git,args.get('actor','agent'),args.get('persist',True))
         if name=='athena_promotion_get':return True,self.promotion.get(args['run_id'])
         if name=='athena_promotion_replay':return True,self.promotion.replay(args['run_id'])
@@ -80,19 +82,19 @@ class RuntimeIntegritySurface:
         if uri==STARTUP_HEALTH_RESOURCE['uri']:
             return {'version':'ATHENA.STARTUP.1','latest':self.startup.evaluate(False),'law':'local startup readiness is typed separately from external promotion; reads remain available while degraded and write blocking requires explicit per-tool policy'}
         if uri==SELF_TEST_RESOURCE['uri']:
-            return {'version':'ATHENA.SELFTEST.1','description':self.self_test.describe(),'latest':self.self_test.run(10,True),'law':'local readiness requires surface+composition+schema+OMEGA+sampled replay health; external CI/smoke remain separate promotion attestations'}
+            return {'version':'ATHENA.SELFTEST.1','description':self.self_test.describe(),'latest':self.self_test.run(10,True),'law':'local readiness requires surface+composition+schema+OMEGA+sampled replay health; trusted external qualification remains a separate promotion trust plane'}
         if uri in STATE_FOUNDATION_RESOURCE_URIS:return self.state_foundation.read_resource(uri)
         if uri==SURFACE_RESOURCE['uri']:
-            return {'contract':contract_manifest(),'audit':self.surface_audit(True),'law':'SURFACE.2 discovery PASS is necessary but not sufficient; unified promotion additionally requires COMPOSITION.2, schema/state/startup/self-test health and exact-head external CI/smoke witnesses'}
+            return {'contract':contract_manifest(),'audit':self.surface_audit(True),'law':'SURFACE.2 discovery PASS is necessary but not sufficient; PROMOTION.2 ATTESTED_READY also requires exact-head caller CI/smoke packets, while QUALIFIED additionally requires a host-internal trusted verifier receipt'}
         if uri==PROMOTION_RESOURCE['uri']:
             return {
-                'version':'ATHENA.PROMOTION.1','benchmark':self.promotion.benchmark(),'recent':self.promotion.recent(50),
-                'law':'QUALIFIED iff unified Server + SURFACE.2 + COMPOSITION.2 + local Git match when configured + external CI and smoke attestations all PASS on the same exact head',
-                'boundary':'CI/smoke witness packets are external attestations supplied by caller; PROMRUN preserves exact refs/head/conclusion but does not independently query GitHub',
+                'version':'ATHENA.PROMOTION.2','compat':['ATHENA.PROMOTION.1'],'benchmark':self.promotion.benchmark(),'recent':self.promotion.recent(50),
+                'law':'ATTESTED_READY iff unified Server + SURFACE.2 + COMPOSITION.2 + configured local Git gate + caller-bound CI/smoke packets all PASS on the same exact head; QUALIFIED additionally requires a host-internal trusted verifier receipt binding that head and the exact CI/smoke refs',
+                'boundary':'MCP caller witness packets are not independently fetched or verified and can never mint PROMOTION.2 QUALIFIED. Historical PROMOTION.1 receipts remain versioned/replayable but are reported separately from current trusted qualification.',
             }
         raise KeyError(uri)
 
     def benchmark(self):
         result={};result.update(self.promotion.benchmark());result.update(self.state_foundation.benchmark())
-        result['self_test_version']='ATHENA.SELFTEST.1';result['startup_health_version']='ATHENA.STARTUP.1';result['unified_manifest_version']=UNIFIED_MANIFEST_VERSION
+        result['self_test_version']='ATHENA.SELFTEST.1';result['startup_health_version']='ATHENA.STARTUP.1';result['unified_manifest_version']=UNIFIED_MANIFEST_VERSION;result['promotion_version']='ATHENA.PROMOTION.2'
         return result
