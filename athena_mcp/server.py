@@ -11,14 +11,18 @@ from .crystal_runtime import CrystalRuntime
 from .collective_runtime import CollectiveRuntime
 from .collective_growth import CollectiveGrowthRuntime
 from .collective_memory import CollectiveMemoryRuntime
+from .collective_learning import CollectiveLearningRuntime
+from .collective_v3_dispatch import call as call_collective_v3
 
 from .protocol import PROTOCOL_VERSION, SERVER_INFO, TOOLS, PROMPTS
 from .collective_protocol import COLLECTIVE_TOOLS
 from .collective_growth_protocol import COLLECTIVE_GROWTH_TOOLS
 from .collective_v2_protocol import COLLECTIVE_V2_TOOLS
+from .collective_v3_protocol import COLLECTIVE_V3_TOOLS
 
 _existing_tool_names={t['name'] for t in TOOLS}
-TOOLS.extend(t for t in COLLECTIVE_TOOLS + COLLECTIVE_GROWTH_TOOLS + COLLECTIVE_V2_TOOLS if t['name'] not in _existing_tool_names)
+TOOLS.extend(t for t in COLLECTIVE_TOOLS + COLLECTIVE_GROWTH_TOOLS + COLLECTIVE_V2_TOOLS + COLLECTIVE_V3_TOOLS if t['name'] not in _existing_tool_names)
+COLLECTIVE_V3_NAMES={t['name'] for t in COLLECTIVE_V3_TOOLS}
 
 class RateLimiter:
     def __init__(self,limit=240,window=60): self.limit=limit; self.window=window; self.h=defaultdict(deque)
@@ -30,7 +34,7 @@ class RateLimiter:
 
 class Server:
     def __init__(self,db,git_root=None):
-        self.store=Store(db); self.core=AthenaCore(self.store); bootstrap(self.core); self.crystal=CrystalRuntime(self.core); self.collective=CollectiveRuntime(); self.collective_growth=CollectiveGrowthRuntime(); self.collective_memory=CollectiveMemoryRuntime(self.store,self.collective,self.collective_growth); self.rate=RateLimiter()
+        self.store=Store(db); self.core=AthenaCore(self.store); bootstrap(self.core); self.crystal=CrystalRuntime(self.core); self.collective=CollectiveRuntime(); self.collective_growth=CollectiveGrowthRuntime(); self.collective_memory=CollectiveMemoryRuntime(self.store,self.collective,self.collective_growth); self.collective_learning=CollectiveLearningRuntime(self.store,self.collective,self.collective_memory); self.rate=RateLimiter()
         self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'), autocommit=False)
     def result(self,id,result): return {"jsonrpc":"2.0","id":id,"result":result}
     def error(self,id,code,msg,data=None):
@@ -93,8 +97,9 @@ class Server:
         if name=='athena_topology_rollback': return self.collective_memory.topology_rollback(a['topology_id'],a['txid'],a['expected_version'],a.get('actor','agent'))
         if name=='athena_failure_antibody_register': return self.collective_memory.register_failure_antibody(a['signature'],a.get('trigger'),a.get('detector'),a.get('repair'),a.get('evidence'),a.get('regression_refs'),a.get('scope','global'),a.get('actor','agent'))
         if name=='athena_failure_antibody_match': return self.collective_memory.match_failure_antibodies(a['event'],a.get('tags'),a.get('scope'),a.get('threshold',0.35),a.get('limit',10),a.get('record_hits',True))
+        if name in COLLECTIVE_V3_NAMES: return call_collective_v3(self.collective_learning,name,a)
         if name=='athena_benchmark':
-            r=c.benchmark(); r.update(self.crystal.benchmark_extension()); r['git']=self.git.status(); r['collective_runtime']=self.collective.describe()['version']; r['collective_growth']=self.collective_growth.describe()['version']; r['collective_memory']=self.collective_memory.describe(); return r
+            r=c.benchmark(); r.update(self.crystal.benchmark_extension()); r['git']=self.git.status(); r['collective_runtime']=self.collective.describe()['version']; r['collective_growth']=self.collective_growth.describe()['version']; r['collective_memory']=self.collective_memory.describe(); r['collective_learning']=self.collective_learning.describe(); return r
         raise KeyError(name)
     def handle(self,m):
         from .dispatch import handle
