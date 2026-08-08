@@ -1,0 +1,60 @@
+{
+  "artifact": "ATHENA.LIMINAL.OPERATIONAL.COORDINATE.SPEC.V1",
+  "status": "CANDIDATE",
+  "purpose": "Make campaign position and movement replayable from public operational state without persisting private reasoning.",
+  "navigator_id_example": "SOL-LIM-189-NAV01",
+  "space": {
+    "symbol": "Lambda_op",
+    "axes": [
+      "git_head",
+      "prompt_digest",
+      "frontier_digest",
+      "operational_basis_digest",
+      "issue_pressure_digest",
+      "source_bundle_digest",
+      "pulse_index",
+      "phase",
+      "authority"
+    ],
+    "coordinate_identity": "LC- + first20(sha256(canonical_json(axes)))",
+    "navigator_identity_is_position_axis": false,
+    "metric": {
+      "name": "CATEGORICAL_HAMMING",
+      "definition": "d(x,y)=sum_i 1[x_i != y_i]",
+      "interpretation": "Movement occurs only when one or more declared public axes change."
+    }
+  },
+  "phases": [
+    "HYDRATED",
+    "PRESSURE_RESOLVED",
+    "CURRENT_STATE_COMPILED",
+    "CLAIMED",
+    "EXECUTED",
+    "VERIFIED",
+    "RETURNED",
+    "HOLD"
+  ],
+  "campaign_binding": {
+    "parent_issue": "demeet2k/Athena#189",
+    "source_issue": "demeet2k/Athena#177",
+    "verification_issue": "demeet2k/Athena#185",
+    "source_contract": "spec/STEERING_LEDGER_V1.json",
+    "compiler": "athena_mcp/steering_pulse_compiler.py"
+  },
+  "epistemic_boundary": {
+    "observable_only": true,
+    "physical_location_claimed": false,
+    "private_chain_of_thought_persisted": false,
+    "digest_identity_grants_authority": false
+  },
+  "laws": [
+    "COORDINATE != PRIVATE_REASONING",
+    "MOVEMENT != PHYSICAL_LOCATION",
+    "NO_AXIS_CHANGE => NO_LIMINAL_MOVEMENT",
+    "NAVIGATOR_LABEL_CHANGE_ALONE != POSITION_CHANGE",
+    "DIGEST_IDENTITY != AUTHORITY",
+    "ROUTING_COORDINATE != EXECUTION_AUTHORITY",
+    "GIT_STATE != WORLD_TRUTH",
+    "UNKNOWN != ZERO"
+  ]
+}
