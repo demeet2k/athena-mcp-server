@@ -45,6 +45,8 @@ class SuccessorBatonRuntime:
 
     A baton is derived, not committed. This is deliberate: creating a baton must
     never become a Git commit that the parent loop can mistake for substantive work.
+    Freshness observations are kept outside the baton digest so a later observer
+    cannot rewrite the identity of an already-completed transition.
     """
 
     def __init__(
@@ -153,9 +155,6 @@ class SuccessorBatonRuntime:
         if not delta_covered:
             hydration_mode = "FULL_REHYDRATE_REQUIRED"
             required = ["full_rehydration"]
-        elif not exact_tip:
-            hydration_mode = "HEAD_MOVED_REHYDRATE_REQUIRED"
-            required = ["shared_git", "loop_checkpoint", "full_rehydration"]
         elif prompt_changed and frontier_changed:
             hydration_mode = "PROMPT_AND_FRONTIER_CONE"
             required = ["receipt_chain", "work_delta", "prompt_policy", "frontier"]
@@ -217,7 +216,6 @@ class SuccessorBatonRuntime:
                 "mode": hydration_mode,
                 "required": required,
                 "content_delta_covered": delta_covered,
-                "exact_loop_tip": exact_tip,
                 "frontier_interpretation_refresh_required_before_scheduler_action": bool(
                     (state.get("source") or {}).get("use_frontier", True)
                 ),
@@ -229,6 +227,7 @@ class SuccessorBatonRuntime:
                 "BATON != HIGHER_AUTHORITY",
                 "BATON_DIGEST != WORLD_TRUTH",
                 "DERIVED_BATON != NEW_GIT_PROGRESS",
+                "BATON_IDENTITY != OBSERVER_FRESHNESS",
                 "MISSING_COORDINATE_COVERAGE => FULL_REHYDRATE",
                 "HEAD_CHANGE => REHYDRATE",
                 "FRONTIER_INTERPRETATION_WITNESS_MISSING => REFRESH_BEFORE_SCHEDULER_ACTION",
@@ -236,9 +235,14 @@ class SuccessorBatonRuntime:
         }
         digest = _sha(core)
         baton = {**core, "baton_digest": digest}
-        ready = hydration_mode not in {"FULL_REHYDRATE_REQUIRED", "HEAD_MOVED_REHYDRATE_REQUIRED"}
+        if not delta_covered:
+            status = "FULL_REHYDRATE_REQUIRED"
+        elif not exact_tip:
+            status = "HEAD_MOVED_REHYDRATE_REQUIRED"
+        else:
+            status = "BATON_READY"
         return {
-            "status": "BATON_READY" if ready else hydration_mode,
+            "status": status,
             "baton": baton,
             "baton_digest": digest,
             "verification": verification,
@@ -300,6 +304,13 @@ Hydrate only the required cone. If Git head, baton digest, prompt-stack digest, 
                 "expected_baton_digest": expected_baton_digest,
                 "current_baton_digest": before.get("baton_digest"),
                 "detail": before,
+                "durable_return": False,
+            }
+        if before.get("status") != "BATON_READY":
+            return {
+                "status": before.get("status"),
+                "baton_digest": expected_baton_digest,
+                "fallback": self.loop.resume(loop_id, include_prompt=True),
                 "durable_return": False,
             }
         state, _ = self.loop._read_state(loop_id)
