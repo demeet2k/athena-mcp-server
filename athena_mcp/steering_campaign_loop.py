@@ -13,6 +13,7 @@ LAWS = [
     "REHYDRATION_RESUME = HANDOFF_PACKET_NOT_AUTHORITY",
     "CAMPAIGN_CANDIDATE != EXECUTION_AUTHORITY",
     "BRANCH_ROUTING != AUTHORITY",
+    "CAMPAIGN_LOOP_RUNTIME = BIND_LOOP_RUNTIME",
     "NO_REHYDRATION_ADVANCE_IN_LOOP_BINDING",
 ]
 
@@ -93,6 +94,18 @@ def bind_candidate_to_v1_loop(
     if candidate_hold is not None:
         return candidate_hold
     assert candidate is not None
+
+    # RehydrationCampaignRuntime.bind_loop() dereferences campaign_runtime.loop_runtime.
+    # Starting/validating a loop through a different runtime could therefore create a
+    # valid loop on one persistence surface that the campaign cannot read back.  The
+    # production campaign runtime always carries loop_runtime; test doubles without
+    # that attribute inherit the explicitly supplied runtime.
+    campaign_loop_runtime = getattr(campaign_runtime, "loop_runtime", loop_runtime)
+    if campaign_loop_runtime is not loop_runtime:
+        return _hold(
+            "LOOP_RUNTIME_MISMATCH",
+            "campaign runtime and supplied V1 loop runtime do not share the same persistence surface",
+        )
 
     campaign_before = campaign_runtime.resume(campaign_id)
     if campaign_before.get("status") != "RESUMED":
