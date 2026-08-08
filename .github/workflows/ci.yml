@@ -99,6 +99,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_collective_v12.py' -v
           python -m unittest discover -s tests -p 'test_collective_v12_adversarial.py' -v
           python -m unittest discover -s tests -p 'test_collective_v12_unified.py' -v
+      - name: V13 robust continuous-bayes causal-control and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v13.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v13_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v13_unified.py' -v
       - name: AOR Collective transport firewalls
         run: python -m unittest discover -s tests -p 'test_aor_collective_transport.py' -v
       - name: Promotion trust and exact-head predicate
