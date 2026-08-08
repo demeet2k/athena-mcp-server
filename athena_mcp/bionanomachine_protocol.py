@@ -4,22 +4,25 @@ BIONANO_VERSION='BNMK.V1'
 BIONANO_RESOURCE={
     'uri':'athena://bio/nanomachines/v1',
     'name':'ATHENA Bionanomachine Mechanism Kernel V1',
-    'description':'12-archetype/12-facet KC144 mechanism atlas with evidence-aware biological-to-computational transfer.'
+    'description':'Stable BNMK.V1 MCP ABI with a 12-archetype/12-facet KC144 mechanism atlas and BNMK.ADAPTER20.V2 primary-source-conditioned evidence layer.'
 }
 
 BIONANO_TOOLS=[
     {
         'name':'athena_bionano_catalog',
-        'description':'Return the BNMK 12-archetype/14-seed catalog, 12 mechanism facets, KC144 coordinate law, and epistemic firewalls. User seed values remain distinct from verified empirical constants.',
+        'description':'Return the BNMK 12-archetype KC144 catalog. The stable 14-seed view is preserved; V2 additionally reports 20 source-backed adapters (14 seeds + 6 expansions), primary-source counts, operator phylogeny and optional evidence packets. Conditioned measurements are never universal constants.',
         'inputSchema':{
             'type':'object',
-            'properties':{'include_atlas':{'type':'boolean'}},
+            'properties':{
+                'include_atlas':{'type':'boolean'},
+                'include_evidence':{'type':'boolean'}
+            },
             'additionalProperties':False
         }
     },
     {
         'name':'athena_bionano_compile',
-        'description':'Compile one known seed machine into the evidence-aware 4D/12D/KC144 machine contract. Unknown IDs HOLD rather than fabricating a classification.',
+        'description':'Compile one known BNMK machine into the evidence-aware 4D/12D/KC144 contract, primary-source witness, conditioned quantitative claims, row associations and state cycle. Unknown IDs HOLD rather than fabricating a classification.',
         'inputSchema':{
             'type':'object','required':['machine_id'],
             'properties':{'machine_id':{'type':'string','minLength':1}},
@@ -28,7 +31,7 @@ BIONANO_TOOLS=[
     },
     {
         'name':'athena_bionano_transfer',
-        'description':'Map a known biological mechanism into a target ATHENA problem as an explicit COMPUTATIONAL_ANALOGY with portable operators, nonportable context and transfer loss. It does not assert causal equivalence.',
+        'description':'Map a known biological mechanism into a target ATHENA problem as explicit COMPUTATIONAL_ANALOGY. Primary source support improves the mechanism model but never grants execution authority or causal equivalence.',
         'inputSchema':{
             'type':'object','required':['machine_id','target'],
             'properties':{
@@ -83,7 +86,7 @@ BIONANO_TOOLS=[
     },
     {
         'name':'athena_bionano_assembly',
-        'description':'Return a parts/subassembly/functional-sequence machine packet. The T4-like phage seed preserves the supplied 15-part exploded drawing and four-stage sequence as USER_VISUAL provenance, not independently verified nomenclature.',
+        'description':'Return an assembly/function packet. T4 preserves the supplied 15-part USER_VISUAL BOM separately from the primary-source-conditioned infection transition sequence; other machines return generic functional modules rather than fabricated native subunit inventories.',
         'inputSchema':{
             'type':'object','required':['machine_id'],
             'properties':{'machine_id':{'type':'string','minLength':1}},
