@@ -53,9 +53,9 @@ class CollectiveV11UnifiedTests(unittest.TestCase):
         self.tool('athena_claim_register',{'claim_id':'CLAIM.Y1.V11','source_ref':'source://canonical'})
         for i in range(40):self.tool('athena_evidence_dependence_observe',{'scope':'V11','features':{'same_dataset':float(i%2)},'label':i%2})
         self.tool('athena_evidence_dependence_fit',{'scope':'V11','iterations':500})
-        before=self.server.store.one("SELECT COUNT(*) AS n FROM collective_v10_dependence_observations WHERE scope='V11'")['n']
+        before=self.server.store.one("SELECT COUNT(*) AS n FROM collective_v10_dependence_labels WHERE scope='V11'")['n']
         interval=self.tool('athena_evidence_dependence_interval',{'scope':'V11','features':{'same_dataset':1.0}});self.assertEqual(interval['status'],'LOGISTIC_DEPENDENCE_LAPLACE_INTERVAL')
-        after=self.server.store.one("SELECT COUNT(*) AS n FROM collective_v10_dependence_observations WHERE scope='V11'")['n'];self.assertEqual(before,after)
+        after=self.server.store.one("SELECT COUNT(*) AS n FROM collective_v10_dependence_labels WHERE scope='V11'")['n'];self.assertEqual(before,after)
         rows=[{'T':i%2,'Y':(i//2)%2,'X':i/80} for i in range(80)]
         blocked=self.tool('athena_causal_tmle_ensemble',{'samples':rows,'treatment':'T','outcome':'Y','adjustment':['X'],'assumptions':{'latent_confounding_possible':True}});self.assertEqual(blocked['status'],'UNIDENTIFIED_LATENT_CONFOUNDING_RISK')
         y1=self.tool('athena_claim_state',{'claim_id':'CLAIM.Y1.V11'});self.assertEqual(y1['y'],'?');self.assertEqual(y1['status'],'ACTIVE')
