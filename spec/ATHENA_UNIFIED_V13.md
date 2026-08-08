@@ -95,7 +95,7 @@ Complete possible-d-sep, discriminating paths, selection-bias semantics and full
 
 ## 8. V13 longitudinal targeting
 
-For `X -> A1 -> L1 -> A2 -> Y`, V13 estimates static two-timepoint regime risk through sequential logistic targeting.
+`athena_longitudinal_tmle` estimates static two-timepoint regime risk for `X -> A1 -> L1 -> A2 -> Y` through sequential logistic targeting.
 
 The stage-2 pseudo-outcome retains **observed A1/L1 history** while setting only the second treatment to the target intervention. Its stage-2 clever covariate vanishes for histories incompatible with target A1. Stage 1 then learns the targeted pseudo-outcome over observed A1 before evaluating the target first intervention.
 
