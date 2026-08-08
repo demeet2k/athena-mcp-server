@@ -39,6 +39,25 @@ from .rehydration_successor import install_successor_extension
 # completion schema extensions are part of the same PromptRuntime surface.
 install_successor_extension(RehydrationLoopRuntime, REHYDRATION_TOOLS, REHYDRATION_TOOL_NAMES)
 
+# Backward-compatibility law: an existing V1 caller that explicitly supplied a
+# next_task keeps that routing decision unless it explicitly opts into
+# self_steer=true. Omission means AUTO only when successor choice was left open.
+# This prevents the new routing heuristic from silently rewriting already
+# witnessed V1 completion semantics.
+if not getattr(RehydrationLoopRuntime, "_athena_successor_v1_explicit_next_compat", False):
+    _rehydration_advance_with_successor = RehydrationLoopRuntime.advance
+
+    def _rehydration_advance_preserve_explicit_next(self, *args, **kwargs):
+        completion = dict(kwargs.get("completion") or {})
+        explicit_next = completion.get("next_task")
+        if "self_steer" not in completion and isinstance(explicit_next, str) and explicit_next.strip():
+            completion["self_steer"] = False
+            kwargs["completion"] = completion
+        return _rehydration_advance_with_successor(self, *args, **kwargs)
+
+    RehydrationLoopRuntime.advance = _rehydration_advance_preserve_explicit_next
+    RehydrationLoopRuntime._athena_successor_v1_explicit_next_compat = True
+
 # The prompt stack is a content-policy coordinate, not a synonym for repository
 # time. Keep git_head in ancestry for provenance while excluding it from the
 # prompt-stack digest. Git/head freshness remains a separate coordinate.
