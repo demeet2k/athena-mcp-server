@@ -1,20 +1,21 @@
 # Architecture
 
 0. Git causal persistence — literal history and checkpoint CAS.
-1. CCR — deterministic functional identity for reusable capability.
-2. JSPACE — typed semantic multigraph over objects, versions, events, manifestations, agents and mutations.
+1. CCR — deterministic reusable capability identity.
+2. JSPACE — typed semantic graph/hypergraph.
 3. SCALE — `S0 event → S1 delta → S2 relation → S3 motif → S4 generator → S5 organ law`.
-4. KC144 — immutable 12×12 host topology; coordinate is never identity.
-5. Polycoordinate/transform runtime — open-world charts, executable derivations, measured holonomy, exact visible-output coordinates.
-6. COLLECTIVE V1 — HIVE/SWARM/PACK/FLOCK/HERD/POD geometry, dynamic width, roles, bounded topology, quorum/inhibition, reserve and homeostasis.
-7. COLLECTIVE GROWTH — demand allocation, bridge accounting, FISSION/FUSE/HOLD pressure, alarm propagation, lifecycle/apoptosis.
-8. COLLECTIVE MEMORY V2 — persistent pheromones, typed JSPACE invalidation, observed-RGO calibration, topology CAS/rollback, failure antibodies.
-9. COLLECTIVE LEARNING V3 — measured resource metabolism, bounded rollbackable learned policy, counterfactuals, elder authority, antibody evolution, multiscale pheromones.
-10. COLLECTIVE ECOLOGY V4 — task regimes, contextual-UCB experiment selection, causal-confidence credit/residual, worker budget scheduling, learned diffusion, executable regression witnesses, uncertainty-banded rollouts, topology→JSPACE recovery sagas.
-11. COLLECTIVE SCIENCE V5 — full-covariance contextual uncertainty + empirical interval calibration, information-gain experiment design, factorial interaction/delayed credit, learned transition dynamics, multi-period scheduling, stronger constrained witness cells, learned regime geometry, Pareto-front search, projection-edge compensation.
-12. COLLECTIVE DISCOVERY V6 — degree-2 nonlinear Bayesian lift + empirical OOD geometry, factor-space experiment generation, supplied-DAG back-door identification, higher-order factorial contrasts, multivariate transition covariance, receding-horizon MPC, exact small-model schedule certification, fail-closed namespace witness capsules, Pareto experiment selection, and replication/falsification science shadows.
-13. COLLECTIVE DUAL CONTROL V7 — model-conditional uncertainty decomposition, prequential empirical coverage bands, observational association-skeleton/v-structure hypotheses, ridge state-dependent stochastic transition models, bounded moment scenario/CVaR evaluation, control+information dual-control proxy planning, supplied-DAG BACKDOOR/FRONTDOOR/INSTRUMENT identification checks, replication effective-N geometry and diverse replication/falsifier design.
-14. Runtime — hydrate, conditional writes, telemetry, adoption, replayable sessions, exact final emission.
+4. KC144 — immutable host topology; coordinate is never identity.
+5. Polycoordinate/transform runtime — open-world charts, executable derivations, measured holonomy and exact visible-output coordinates.
+6. COLLECTIVE V1 — form, dynamic width, roles, reserve, bounded topology, quorum/inhibition and homeostasis.
+7. COLLECTIVE GROWTH — demand, bridge economics, fission/fusion pressure, alarms and lifecycle.
+8. COLLECTIVE MEMORY V2 — persistent pheromones, typed invalidation, RGO calibration, topology CAS/rollback, antibodies.
+9. COLLECTIVE LEARNING V3 — measured budgets, bounded policy learning, counterfactuals, elders, immune evolution, multiscale pheromones.
+10. COLLECTIVE ECOLOGY V4 — contextual UCB, causal-confidence credit/residual, worker cost, adaptive diffusion, regression execution, rollouts, projection sagas.
+11. COLLECTIVE SCIENCE V5 — full-covariance contextual Bayes, empirical calibration, EIG design, interaction/delayed credit, learned transitions, multi-period scheduling, regime geometry, Pareto, semantic compensation.
+12. COLLECTIVE DISCOVERY V6 — nonlinear/OOD, generated experiment spaces, supplied-DAG back-door ID, higher-order interactions, multivariate transitions, MPC, schedule certificates, fail-closed capsules, Pareto experiment selection, replication/falsification shadows.
+13. COLLECTIVE DUAL CONTROL V7 — uncertainty decomposition, prequential bands, association-skeleton hypotheses, state-dependent dynamics, scenario/CVaR evaluation, control+information planning, BACKDOOR/FRONTDOOR/IV checks, replication independence/design.
+14. COLLECTIVE BELIEF V8 — persistent finite model beliefs, explicit Bayes observation updates, decision EVI, depth-1 belief-aware control, assumption-scoped effect estimates, bootstrap structure stability, contingent policies and spectral evidence diversity.
+15. Runtime — hydrate, conditional writes, telemetry, sessions, finalization and exact emission verification.
 
 ## Objective hierarchy
 
@@ -22,166 +23,199 @@ Base:
 
 `J = w_O·O - w_C·C`.
 
-Normalized organization comparison:
+Organization comparison:
 
 `RGO = mean(O)/(1+mean(C))`.
 
-V2: `predicted_RGO -> observed_RGO -> calibrated_RGO`.
+V4 experiment selection:
 
-V3: `explicit observed reward -> bounded versioned policy update -> rollbackable policy state`.
+`UCB = mean + alpha * uncertainty`.
 
-V4: `context + regime + arm history -> <mean,uncertainty,UCB>` plus `outcome -> <credit,causal confidence,residual>`.
+V5 experiment information:
 
-V5: `correlated context -> <posterior mean,covariance,calibrated interval>`; `hypotheses + candidate experiments -> expected information gain`; `factorial/delayed outcomes -> qualified credit`; `observed transitions -> shrinkage dynamics`; `candidate organizations -> Pareto frontier`.
+`EIG = H(prior)-E[H(posterior)]`.
 
-V6: `raw context -> <nonlinear basis, empirical OOD pressure>`; `hypotheses + finite factor space -> generated experiment frontier`; `supplied causal DAG -> conditional back-door adjustment sets`; `observed transition vectors -> multivariate delta covariance`; `model + uncertainty -> receding-horizon plan`; `small fully declared schedule -> exact finite-model certificate`; `claim -> replication/falsification witness graph`.
+V7 dual-control proxy:
 
-V7: `Bayesian/OOD/calibration state -> uncertainty-source diagnostic`; `retained pre-update residuals -> empirical prequential band`; `observational samples -> association skeleton/v-structure hypotheses`; `before-state + action -> state-dependent delta distribution`; `state model -> finite scenario/CVaR surface`; `control reward + parameter information - predictive risk -> bounded dual-control proxy`; `supplied DAG -> BACKDOOR/FRONTDOOR/INSTRUMENT conditional identification`; `witness metadata -> replication effective-N + diverse next-test design`.
+`Q = control + lambda_I*information - lambda_R*risk`.
+
+V8 finite decision value:
+
+`EU(a)=sum_i p_i U(a,M_i)`
+
+`V0=max_a EU(a)`
+
+`EVI(e)=max(0, sum_y P(y|e) max_a EU(a|y,e) - V0)`.
+
+V8 belief-control depth-1 score:
+
+`Q_B(a)=EU_now(a)+gamma E[V_next|a]+lambda_I EIG(a)-lambda_R risk(a)-cost(a)`.
+
+The key progression is:
+
+`uncertainty bonus → entropy information → control+information proxy → explicit finite belief + downstream decision value`.
 
 ## Current developmental metabolism
 
 `HYDRATE`
-`-> MINIMUM-SUFFICIENT RUNTIME DEPTH`
-`-> MEMORY/ANTIBODY/ELDER/SCIENCE-SHADOW`
-`-> COARSE+LEARNED REGIME + OOD`
-`-> BAYES/CALIBRATION/NONLINEAR BASIS`
-`-> OPTIONAL UNCERTAINTY DECOMPOSITION/PREQUENTIAL BAND`
-`-> LIVE CAUSAL/MECHANISTIC HYPOTHESES`
-`-> OPTIONAL ASSOCIATION-SKELETON HYPOTHESIS GENERATION`
-`-> GENERATE/RANK EXPERIMENTS`
-`-> CONDITIONAL BACKDOOR/FRONTDOOR/IV IDENTIFICATION`
-`-> PARETO EXPERIMENT FRONTIER`
-`-> COLLECTIVE PLAN`
-`-> CERTIFIED/HEURISTIC MULTIPERIOD SCHEDULE`
-`-> STATE-DEPENDENT TRANSITION MODEL`
-`-> OPTIONAL SCENARIO/CVAR EVALUATION`
-`-> OPTIONAL DUAL-CONTROL PLAN`
-`-> EXECUTE FIRST AUTHORIZED ACTION`
-`-> OBSERVE/METER`
-`-> QUORUM/FALSIFICATION/WITNESS`
-`-> DIRECT/HIGHER-INTERACTION/DELAYED CREDIT`
-`-> BAYES/BANDIT/POLICY/TRANSITION UPDATE`
-`-> REPLICATION-INDEPENDENCE/REPLICATION-DESIGN UPDATE`
-`-> PHEROMONE/DIFFUSION/IMMUNE/ELDER UPDATE`
-`-> JSPACE/TOPOLOGY/PROJECTION/COMPENSATION`
-`-> LIFECYCLE`
-`-> FINALIZE/VERIFY/COMMIT`
-`-> REPLAN/REATTACK`.
+`→ CHOOSE MINIMUM-SUFFICIENT DEPTH`
+`→ MEMORY/ANTIBODY/ELDER/SCIENCE-SHADOW`
+`→ REGIME/OOD/PREDICTIVE STATE`
+`→ OPTIONAL FINITE MODEL BELIEF`
+`→ LIVE HYPOTHESES`
+`→ EIG OR EVI EXPERIMENT DESIGN`
+`→ CONDITIONAL CAUSAL IDENTIFICATION`
+`→ OPTIONAL ASSUMPTION-SCOPED EFFECT ESTIMATE`
+`→ PARETO/SCHEDULE`
+`→ STATE MODEL/SCENARIO/DUAL OR BELIEF-DUAL PLAN`
+`→ EXECUTE FIRST AUTHORIZED ACTION`
+`→ OBSERVE/METER`
+`→ EXPLICIT BELIEF/BAYES/TRANSITION UPDATE`
+`→ REPLICATION/FALSIFICATION/EVIDENCE-DIVERSITY UPDATE`
+`→ CREDIT`
+`→ MEMORY/IMMUNE/ELDER`
+`→ JSPACE/TOPOLOGY/PROJECTION/COMPENSATION`
+`→ LIFECYCLE`
+`→ FINALIZE/VERIFY/CONDITIONAL COMMIT`
+`→ REPLAN`.
 
-## Authority surfaces
+## Authority planes
 
-- semantic state: expected-VID / semantic event-head authority;
+- canonical semantic state: expected VID / semantic event head;
 - Git state: expected Git HEAD;
-- topology state: expected topology version;
-- V3 learned policy: expected policy version;
-- V4–V7 statistical/control/design state: observational predictive/design evidence only, never semantic authority;
-- V6/V7 causal-identification state: a theorem/query result relative to a supplied graph/assumption surface, never independent proof that the supplied graph is true;
-- V7 observational skeleton/v-structure output: hypothesis-generation metadata only, not a causal graph authority;
-- science-shadow replication/falsification state: evidence-navigation metadata, never a hidden canonical-object mutation;
-- V7 replication effective-N: metadata-similarity diagnostic, not formal independence proof;
-- diffusion/pheromone: routing priors, not dependency truth;
-- learned regimes/OOD: transfer/calibration neighborhoods, not semantic identity or truth labels;
-- Pareto/scenario/dual-control surfaces: planning/tradeoff simulations, not execution or canonical fact;
-- projection/compensation: semantic recovery operations with separate Git consequences.
+- topology: expected topology version;
+- learned policy: expected policy version;
+- projection/compensation: explicit saga/semantic-head authority;
+- V4–V8 predictive, belief, experiment, causal-estimation, scenario and evidence-diversity state: advisory/evidential/control surfaces only.
 
-## V7 uncertainty boundary
+A V8 posterior or estimator never inherits semantic mutation authority simply because it is more mathematically sophisticated.
 
-V7 separates useful diagnostics without pretending uncertainty has a unique physical factorization. Using V5/V6 ridge posterior leverage `h(phi)=phi^T A^-1 phi`, residual noise, OOD pressure and empirical calibration error, it exposes aleatoric/noise, parameter-epistemic, distribution-shift and calibration-error proxies. The quadrature total is routing evidence only.
+## Belief-state boundary
 
-`UNCERTAINTY_DECOMPOSITION != UNIQUE_PHYSICAL_DECOMPOSITION`.
+V8 stores a finite model distribution:
 
-## V7 prequential-coverage boundary
+`p_i >= 0`, `sum_i p_i=1`.
 
-V5 retained pre-update prediction errors are reused as prequential nonconformity scores. A finite empirical residual quantile forms a current prediction band, widened by V6 OOD pressure. Too few scores returns `INSUFFICIENT_PREQUENTIAL_SCORES` rather than a fabricated coverage claim.
+An actual declared observation with explicit likelihood witness updates by
 
-`PREQUENTIAL_EMPIRICAL_INTERVAL != DISTRIBUTION_FREE_CONFORMAL_GUARANTEE UNDER ARBITRARY SHIFT`.
+`p_i' = p_i L_i / sum_j p_j L_j`.
 
-## V7 causal-skeleton boundary
+Planning, EVI, contingent-policy and belief-dual calls are read-only with respect to belief. Only `athena_belief_observe` mutates the belief distribution.
 
-Marginal and one-variable partial correlations can remove weak association edges and produce candidate collider motifs. This is transparent bounded hypothesis generation, not calibrated PC/FCI causal discovery.
+`BELIEF_POSTERIOR != CANONICAL_TRUTH`.
 
-`ASSOCIATION_SKELETON != CAUSAL_DAG`; `V_STRUCTURE_CANDIDATE != CAUSAL_ORIENTATION`.
+`LIKELIHOOD_MODEL != OBSERVATION`.
 
-## State-dependent transition boundary
+## EIG versus EVI
 
-V7 fits ridge action-specific delta models
+V5 EIG values entropy reduction in the supplied hypothesis model.
 
-`Delta = B phi(x) + epsilon`
+V8 EVI values information according to whether it changes the optimal downstream decision:
 
-from real V5 before/after observations. Residual covariance plus query-state leverage yields a predictive covariance surface. Unseen actions remain unmodeled.
+`EVI=E[max_a EU(a|new evidence)]-max_a EU(a|current evidence)`.
 
-`STATE_DEPENDENT_TRANSITION_MODEL != WORLD_TRUTH`.
+Thus a high-information experiment may have near-zero EVI when every possible result implies the same action.
 
-## Scenario / dual-control boundary
+`EVI_DESIGN != RESULT`.
 
-V7 scenario evaluation uses a bounded three-branch dominant-covariance moment tree for caller-supplied short action sequences and reports expected return plus lower-tail CVaR. It is `SIMULATE_ONLY`.
+## Causal identification versus estimation
 
-V7 dual control optimizes a bounded proxy:
+V6/V7 identification checks remain assumption/graph witnesses.
 
-`control + lambda_I * information - lambda_R * risk`.
+V8 estimation adds narrow numeric estimators:
 
-Parameter information is derived from state-model leverage. The lawful loop remains:
+- BACKDOOR_LINEAR: treatment coefficient after supplied adjustment;
+- IV_WALD: covariance ratio with weak-first-stage rejection;
+- FRONTDOOR_LINEAR: product-of-coefficients mediation proxy.
 
-`PLAN -> EXECUTE_FIRST_AUTHORIZED_ACTION -> OBSERVE_REAL_NEXT_STATE -> RECORD -> REPLAN`.
+Identification and estimation remain distinct:
 
-`SCENARIO_TREE != OBSERVED_FUTURE`; `DUAL_CONTROL_PROXY != EXACT_BELIEF_STATE_OPTIMAL_CONTROL`.
+`IDENTIFICATION != ESTIMATION`.
 
-## Extended causal-identification boundary
+`CAUSAL_ESTIMATE != IDENTIFICATION_PROOF`.
 
-V7 retains V6 BACKDOOR checks and adds supplied-DAG FRONTDOOR and INSTRUMENT criterion checks. A passing result means the declared graph/observability/assumption surface satisfies the runtime's bounded criterion. It does not prove the graph is the real data-generating graph and does not estimate the causal effect itself.
+Explicit latent-confounding risk fails closed.
 
-`FRONTDOOR_OR_IV_IDENTIFICATION != CAUSAL_TRUTH OUTSIDE SUPPLIED DAG/ASSUMPTIONS`.
+## Bootstrap graph boundary
 
-## Replication independence/design boundary
+V7 generates an observational association skeleton/v-structure candidate surface.
 
-Witness evidence metadata is compared across dataset, implementation, method, operator, environment and seed-family dimensions. Confidence-weighted effective evidence count is
+V8 bootstrap repeatedly resamples observations and recomputes that heuristic. Support
 
-`N_eff = (sum_i w_i)^2 / sum_ij w_i w_j s_ij`.
+`support(e)=count(e present)/B`
 
-Identical pipelines collapse toward effective `N=1`; diverse evidence can approach raw witness count. Missing comparable metadata defaults conservatively rather than assuming independence.
+is a stability score for the procedure, not a causal edge posterior or PAG theorem. No bootstrap call creates JSPACE edges.
 
-Replication/falsifier design uses expected evidential power × diversity × feasibility minus cost/risk. It returns `DESIGN_ONLY`.
+`BOOTSTRAP_STABILITY != CAUSAL_EDGE_PROBABILITY`.
 
-`ESTIMATED_REPLICATION_INDEPENDENCE != FORMAL_STATISTICAL_INDEPENDENCE`; `REPLICATION_DESIGN != REPLICATION_RESULT`.
+## Contingent-policy boundary
 
-## V1–V6 boundaries retained
+For one finite experiment V8 can construct
 
-V6 nonlinear/OOD, experiment-generation, back-door, higher-order interaction, MPC, exact-small scheduling, witness-capsule, Pareto and science-shadow laws remain in force. V5 projection compensation remains a narrow semantic inverse; Git compensation remains separate. Unknown resource costs and missing factorial cells never become favorable zeros.
+`outcome → hypothetical posterior → best action`.
 
-## Non-negotiable V7 firewall
+That is a depth-1 policy design. It is not an executed branch, observation or historical fact.
+
+`CONTINGENT_POLICY != EXECUTION_HISTORY`.
+
+## Evidence spectral boundary
+
+Witness metadata induces similarity matrix `S`. V8 reports
+
+`N_eff=(sum_i w_i)^2 / sum_ij w_i w_j S_ij`
+
+and participation-ratio proxy
+
+`D_PR=Tr(S)^2 / ||S||_F^2`.
+
+This measures redundancy/effective evidence dimension. It does not prove formal statistical independence.
+
+`SPECTRAL_EVIDENCE_DIVERSITY != FORMAL_INDEPENDENCE`.
+
+## Resource and scheduling boundary
+
+Automatically observable: MCP call count and wall time. Other dimensions remain caller/host observable only when actually available.
+
+`UNKNOWN_COST != ZERO_COST`.
+
+V4 provides immediate allocation, V5 finite-horizon beam scheduling, V6 small-model exact enumeration certificates. A certificate is scoped to its declared model and constraints.
+
+## Witness boundary
+
+V5 witness cells are process-constrained but non-hermetic. V6 stronger capsules require bubblewrap and fail closed when unavailable. Neither gives a theorem about kernel/native-runtime security.
+
+## Projection boundary
+
+SQLite semantic state and Git remain separate stores. Topology→JSPACE uses explicit saga states. V5 compensation is a narrow event-sourced semantic inverse for active projection-owned edges; Git recovery remains separate.
+
+## Non-negotiable epistemic firewall
 
 - identity != coordinate
-- tested != current != canonical != integrated
 - UNKNOWN != N/A
 - UNKNOWN_COST != ZERO_COST
 - prediction != observation
-- posterior != truth
+- posterior/belief != canonical truth
+- likelihood model != observation
 - calibration != model validity
-- uncertainty decomposition != unique physical decomposition
-- prequential empirical band != universal distribution-free coverage
-- nonlinear basis != universal inference
-- OOD score != factual falsehood
-- generated/design experiment != result
+- EIG/EVI != evidence
+- experiment design != result
 - association skeleton != causal DAG
-- v-structure candidate != causal orientation
-- back-door/front-door/IV identification != causal truth outside supplied DAG/assumptions
-- attribution != causal proof
-- missing factorial cell != zero interaction
-- transition/state model != world truth
+- bootstrap stability != causal edge probability
+- back-door/front-door/instrument ID != graph-independent causal truth
+- causal estimate != identification proof
+- missing factorial cell != zero effect
+- state model != world truth
 - scenario tree != observed future
-- MPC/dual-control plan != execution
-- dual-control proxy != exact Bayes-adaptive optimal control
-- rollout != training observation
-- bounded/certified schedule claims are scoped to the declared search/model
-- witness cell/capsule != kernel/VM security proof
-- Pareto frontier/experiment selection != single best action
-- replication/falsification state != canonical truth
-- estimated replication independence != formal independence proof
-- replication/falsifier design != result
-- projection saga != atomic transaction
+- dual/belief-control plan != execution
+- bounded dual control != exact Bayes-adaptive POMDP
+- contingent policy != execution history
+- Pareto frontier != single best action
+- evidence effective-rank != formal independence
+- replication design != replication result
+- witness pass != universal proof
+- projection saga != atomic distributed transaction
 - semantic compensation != Git rollback
 - local success != global authority
-- pruning removes active routing privilege, never required lineage
 
 ## Coordinate fibers
 
@@ -195,4 +229,6 @@ V6 nonlinear/OOD, experiment-generation, back-door, higher-order interaction, MP
 
 `COLLECTIVE_DISCOVERY=<NL,OOD,EG,CI,HI,TD,MPC,CS,HC,PB,RF,L>`
 
-`COLLECTIVE_DUAL_CONTROL=<UD,PI,CG,SM,SC,DC,CX,RI,RD,L>`.
+`COLLECTIVE_DUAL_CONTROL=<UD,PI,CG,SM,SC,DC,CX,RI,RD,L>`
+
+`COLLECTIVE_BELIEF=<BS,EVI,BD,CE,CB,CP,ER,L>`.
