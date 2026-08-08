@@ -73,7 +73,7 @@ jobs:
 
           [project]
           name = "athena-canonical-mcp"
-          version = "2.6.0"
+          version = "2.5.0"
           description = "Canonical KC144/JSPACE/SCALE command crystal with causal science, collective V7, exact polyatlas coordinates, and digest-bound topology"
           requires-python = ">=3.11"
           dependencies = []
@@ -99,7 +99,7 @@ jobs:
           import tomllib
           from pathlib import Path
           p=tomllib.loads(Path('pyproject.toml').read_text())
-          assert p['project']['version']=='2.6.0'
+          assert p['project']['version']=='2.5.0'
           assert p['project']['scripts']['athena-mcp']=='athena_mcp.hub_server:main'
           assert 'data/*.xz' in p['tool']['setuptools']['package-data']['athena_mcp']
           PY
