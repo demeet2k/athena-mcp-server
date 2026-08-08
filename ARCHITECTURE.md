@@ -9,26 +9,37 @@
 6. COLLECTIVE runtime — selects HIVE/SWARM/PACK/FLOCK/HERD/POD execution geometry, right-sizes worker count from marginal utility, preserves reserve capacity, allocates roles and bounded-neighbor topology, performs evidence-sensitive quorum/inhibition, advisory stigmergic reinforcement/evaporation, and homeostatic overload control.
 7. COLLECTIVE GROWTH — demand-sensitive task allocation, living-bridge accounting, FISSION/FUSE/HOLD structural pressure, dependency-scoped alarm waves, and lineage-preserving artifact lifecycle/apoptosis.
 8. COLLECTIVE MEMORY V2 — persistent pheromone field, typed JSPACE invalidation compiler, observed-RGO calibration, versioned/CAS collective topology transactions with rollback witnesses, and failure-antibody detector/repair/regression memory.
-9. Runtime — hydrate, conditional writes, telemetry, adoption, replayable session state and exact final emission.
+9. COLLECTIVE LEARNING V3 — measured resource metabolism, bounded versioned organization-policy learning with rollback, counterfactual organization ranking, evidence-backed elder authority, empirical antibody-family evolution, and attenuated multiscale pheromone transport.
+10. Runtime — hydrate, conditional writes, telemetry, adoption, replayable session state and exact final emission.
 
 Collective optimization target:
 
 `J = w_O·O - w_C·C`
 
-with explicit organization comparison through `RGO = mean(O)/(1+mean(C))` and empirical correction through predicted-versus-observed RGO calibration.
+with explicit organization comparison through `RGO = mean(O)/(1+mean(C))`, empirical predicted-versus-observed RGO calibration, and bounded learned-policy correction whose authority scales with observed sample reliability.
 
 Growth metabolism:
 
-`HYDRATE -> PHEROMONE/ANTIBODY MEMORY -> TASK FIELD -> COLLECTIVE PLAN -> RGO CALIBRATION -> DEMAND ALLOCATION -> BUILD/BRIDGE ACCOUNTING -> QUORUM -> HEALTH -> JSPACE ALARM -> FISSION/FUSION CAS -> LIFECYCLE/PHEROMONE -> OBSERVED RGO -> COMMIT`.
+`HYDRATE -> MEMORY/ANTIBODY QUERY -> BUDGET/POLICY STATE -> TASK FIELD -> COLLECTIVE PLAN -> RGO CALIBRATION -> COUNTERFACTUAL RANK -> DEMAND ALLOCATION -> EXECUTE/METER -> QUORUM -> OBSERVED RGO/POLICY UPDATE -> MULTISCALE PHEROMONE/ELDER/ANTIBODY UPDATE -> JSPACE ALARM -> FISSION/FUSION CAS -> LIFECYCLE -> FINALIZE/VERIFY/COMMIT`.
 
 Authority surfaces:
 
 - semantic state: expected-VID CAS;
 - Git state: expected-Git-head CAS;
 - collective topology: expected-topology-version CAS;
+- learned organization policy: expected-policy-version CAS;
 - collective topology does not silently rewrite canonical JSPACE;
+- learned policy does not silently rewrite semantic truth or topology;
 - rollback is a new witnessed transaction, never deletion of history;
-- failure-antibody matches route verification/repair but do not prove common cause.
+- counterfactual organization rankings are simulation outputs, not commits;
+- failure-antibody matches route verification/repair but do not prove common cause;
+- elder authority is measured and defeasible, never conferred by age alone.
+
+Measured-resource boundary:
+
+- MCP tool-call count and wall time are observable and automatically metered;
+- token, compute, storage, retrieval and human-attention dimensions are stored when an observable caller supplies them;
+- unobserved resource dimensions remain UNKNOWN and are not reverse-engineered from proxies.
 
 Non-negotiable laws:
 - same namespace != same lineage
@@ -42,6 +53,10 @@ Non-negotiable laws:
 - maximum growth != maximum activity
 - maximum integration != maximum connectivity
 - consensus != evidence
+- prediction != observation
+- learned policy != canonical truth
+- counterfactual != commit
+- measured cost != estimated cost
 - preserve reserve when feasible
 - stop adding workers when marginal output <= marginal coordination cost
 - recruitment requires inhibition/contradiction/evaporation
@@ -50,6 +65,10 @@ Non-negotiable laws:
 - invalidation transport must use typed relation semantics; unknown relation orientation is ignored rather than fabricated
 - persistent route priority must remain erasable by age/staleness/contradiction
 - predicted organizational fitness must be reconciled against observed outcomes
+- organization-policy learning is bounded, regularized, versioned and rollbackable
 - topology mutation requires CAS + before/after witness + rollback path
 - diagnosed failures should become detector + repair + regression antibodies
+- antibody variants require empirical outcome tracking and remain hypotheses
+- multiscale pheromone propagation attenuates with scale distance; local success cannot receive global-strength promotion by default
+- elder authority derives from repeated reuse/prediction/repair/regression/generalization success with contradiction penalty
 - pruning removes active priority, never required lineage
