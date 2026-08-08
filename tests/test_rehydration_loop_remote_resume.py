@@ -90,6 +90,58 @@ def _passes() -> list[dict]:
     ]
 
 
+def _start_shared_loop(runtime: RehydrationLoopRuntime) -> dict:
+    return runtime.start(
+        goal="Develop the feature across multiple cold agents",
+        task="Implement the first bounded slice",
+        expected_git_head=runtime.git.head(),
+        actor="agent-a",
+        use_frontier=False,
+        fetch=False,
+        shared_remote_mode="REQUIRED",
+        max_steps=16,
+        max_no_progress=3,
+        depth_mode="deep",
+    )
+
+
+def _advance_from_cold_agent(origin: Path, base: Path, started: dict, actor: str = "agent-b") -> tuple[Path, dict]:
+    agent = base / actor
+    _clone(origin, agent, actor)
+    runtime = _runtime(agent)
+    resumed = runtime.resume(started["loop_id"])
+    if resumed["status"] != "RESUMED":
+        raise AssertionError(resumed)
+    _write(agent, "feature.txt", f"feature from cold {actor}\n")
+    _run(agent, "add", "feature.txt")
+    _run(agent, "commit", "-m", f"{actor} implements first slice")
+    work_head = _run(agent, "rev-parse", "HEAD").stdout.strip()
+    _run(agent, "push", "origin", "main")
+    advanced = runtime.advance(
+        loop_id=started["loop_id"],
+        expected_checkpoint_head=resumed["checkpoint_head"],
+        expected_state_digest=resumed["state_digest"],
+        expected_prompt_digest=resumed["prompt_digest"],
+        completion={
+            "status": "SUCCEEDED",
+            "observed": True,
+            "terminal": False,
+            "hard_hold": False,
+            "summary": f"cold {actor} implemented and verified the first slice",
+            "progress_delta": 1.0,
+            "passes": _passes(),
+            "tests": [{"name": "cold-agent-work", "status": "PASS", "evidence_ref": f"git://{work_head}"}],
+            "evidence_refs": [f"git://{work_head}"],
+            "residuals": ["second bounded slice remains"],
+            "next_task": "Harden the feature from the shared successor checkpoint",
+            "handoff_to": "agent-a",
+        },
+        actor=actor,
+        shared_remote_mode="REQUIRED",
+    )
+    return agent, advanced
+
+
 class RehydrationLoopRemoteResumeTests(unittest.TestCase):
     def test_stale_existing_agent_auto_syncs_before_resume(self):
         td = tempfile.TemporaryDirectory()
@@ -98,63 +150,12 @@ class RehydrationLoopRemoteResumeTests(unittest.TestCase):
         agent_a, origin = _seed_prompt_brain(base)
         runtime_a = _runtime(agent_a)
 
-        started = runtime_a.start(
-            goal="Develop the feature across multiple cold agents",
-            task="Implement the first bounded slice",
-            expected_git_head=runtime_a.git.head(),
-            actor="agent-a",
-            use_frontier=False,
-            fetch=False,
-            shared_remote_mode="REQUIRED",
-            max_steps=16,
-            max_no_progress=3,
-            depth_mode="deep",
-        )
+        started = _start_shared_loop(runtime_a)
         self.assertEqual(started["status"], "STARTED")
         self.assertTrue(started["durable_return"])
         start_checkpoint = started["checkpoint_head"]
 
-        # Agent B is a genuinely cold checkout created only after A has published
-        # the loop. Its first operation is resume, not a copied in-memory packet.
-        agent_b = base / "agent-b"
-        _clone(origin, agent_b, "agent-b")
-        runtime_b = _runtime(agent_b)
-        resumed_b = runtime_b.resume(started["loop_id"])
-        self.assertEqual(resumed_b["status"], "RESUMED")
-        self.assertTrue(resumed_b["shared_frontier_verified"])
-        self.assertEqual(resumed_b["checkpoint_head"], start_checkpoint)
-        self.assertEqual(resumed_b["step_index"], 0)
-
-        # B performs material work and shares that work commit before asking the
-        # loop to advance. The advance commit then publishes the new checkpoint.
-        _write(agent_b, "feature.txt", "feature from cold agent B\n")
-        _run(agent_b, "add", "feature.txt")
-        _run(agent_b, "commit", "-m", "agent B implements first slice")
-        work_head = _run(agent_b, "rev-parse", "HEAD").stdout.strip()
-        _run(agent_b, "push", "origin", "main")
-
-        advanced = runtime_b.advance(
-            loop_id=started["loop_id"],
-            expected_checkpoint_head=resumed_b["checkpoint_head"],
-            expected_state_digest=resumed_b["state_digest"],
-            expected_prompt_digest=resumed_b["prompt_digest"],
-            completion={
-                "status": "SUCCEEDED",
-                "observed": True,
-                "terminal": False,
-                "hard_hold": False,
-                "summary": "cold agent B implemented and verified the first slice",
-                "progress_delta": 1.0,
-                "passes": _passes(),
-                "tests": [{"name": "cold-agent-work", "status": "PASS", "evidence_ref": f"git://{work_head}"}],
-                "evidence_refs": [f"git://{work_head}"],
-                "residuals": ["second bounded slice remains"],
-                "next_task": "Harden the feature from the shared successor checkpoint",
-                "handoff_to": "agent-a",
-            },
-            actor="agent-b",
-            shared_remote_mode="REQUIRED",
-        )
+        _, advanced = _advance_from_cold_agent(origin, base, started)
         self.assertEqual(advanced["status"], "ACTIVE")
         self.assertTrue(advanced["durable_return"])
         self.assertEqual(advanced["step_index"], 1)
@@ -175,11 +176,54 @@ class RehydrationLoopRemoteResumeTests(unittest.TestCase):
         self.assertIn("Harden the feature from the shared successor checkpoint", resumed_a["compiled_self_prompt"])
         self.assertEqual(runtime_a.verify(started["loop_id"])["status"], "PASS")
 
-    def test_resume_holds_when_shared_remote_cannot_be_verified(self):
+    def test_stale_verify_and_index_auto_sync_before_reading(self):
         td = tempfile.TemporaryDirectory()
         self.addCleanup(td.cleanup)
         base = Path(td.name)
         agent_a, origin = _seed_prompt_brain(base)
+        runtime_a = _runtime(agent_a)
+        started = _start_shared_loop(runtime_a)
+        start_checkpoint = started["checkpoint_head"]
+
+        # Clone an index observer while shared state is still at step 0. Both A
+        # and the observer must remain stale while B later publishes step 1.
+        observer = base / "observer"
+        _clone(origin, observer, "observer")
+        runtime_observer = _runtime(observer)
+        self.assertEqual(_run(observer, "rev-parse", "HEAD").stdout.strip(), start_checkpoint)
+
+        _, advanced = _advance_from_cold_agent(origin, base, started)
+        successor_checkpoint = advanced["checkpoint_head"]
+        self.assertNotEqual(successor_checkpoint, start_checkpoint)
+        self.assertEqual(_run(agent_a, "rev-parse", "HEAD").stdout.strip(), start_checkpoint)
+        self.assertEqual(_run(observer, "rev-parse", "HEAD").stdout.strip(), start_checkpoint)
+
+        # Pre-RHL-002 this could PASS the internally valid but obsolete step-0
+        # chain. The shared-fresh verifier must FF first and prove step 1 instead.
+        verified = runtime_a.verify(started["loop_id"])
+        self.assertEqual(verified["status"], "PASS")
+        self.assertTrue(verified["shared_frontier_verified"])
+        self.assertEqual(verified["remote_sync"]["status"], "FAST_FORWARDED")
+        self.assertEqual(verified["step_count"], 1)
+        self.assertEqual(verified["checkpoint_head"], successor_checkpoint)
+        self.assertEqual(_run(agent_a, "rev-parse", "HEAD").stdout.strip(), successor_checkpoint)
+
+        # Pre-RHL-003 the observer could inventory the old step-0 tip. Index must
+        # independently refresh and return the current shared checkpoint/step.
+        indexed = runtime_observer.index()
+        self.assertEqual(indexed["status"], "OK")
+        self.assertTrue(indexed["shared_frontier_verified"])
+        self.assertEqual(indexed["remote_sync"]["status"], "FAST_FORWARDED")
+        loop = next(row for row in indexed["loops"] if row["loop_id"] == started["loop_id"])
+        self.assertEqual(loop["step_index"], 1)
+        self.assertEqual(loop["checkpoint_head"], successor_checkpoint)
+        self.assertEqual(_run(observer, "rev-parse", "HEAD").stdout.strip(), successor_checkpoint)
+
+    def test_rehydration_reads_hold_when_shared_remote_cannot_be_verified(self):
+        td = tempfile.TemporaryDirectory()
+        self.addCleanup(td.cleanup)
+        base = Path(td.name)
+        agent_a, _ = _seed_prompt_brain(base)
         runtime = _runtime(agent_a)
         started = runtime.start(
             goal="Persist one resumable loop",
@@ -192,15 +236,18 @@ class RehydrationLoopRemoteResumeTests(unittest.TestCase):
         )
         self.assertTrue(started["durable_return"])
 
-        # Remove the configured remote after the durable start. Direct resume must
-        # no longer silently trust the local checkpoint as shared-current state.
+        # Remove the configured remote after the durable start. All read-side
+        # surfaces that claim shared-current state must fail closed.
         _run(agent_a, "remote", "remove", "origin")
-        value = runtime.call_tool("athena_rehydration_resume", {
-            "loop_id": started["loop_id"],
-            "include_prompt": False,
-        })
-        self.assertEqual(value["status"], "REHYDRATION_RESUME_SHARED_FRONTIER_HOLD")
-        self.assertFalse(value["durable_return"])
+        cases = (
+            ("athena_rehydration_resume", {"loop_id": started["loop_id"], "include_prompt": False}, "REHYDRATION_RESUME_SHARED_FRONTIER_HOLD"),
+            ("athena_rehydration_verify", {"loop_id": started["loop_id"]}, "REHYDRATION_VERIFY_SHARED_FRONTIER_HOLD"),
+            ("athena_rehydration_index", {}, "REHYDRATION_INDEX_SHARED_FRONTIER_HOLD"),
+        )
+        for tool, args, expected in cases:
+            value = runtime.call_tool(tool, args)
+            self.assertEqual(value["status"], expected, value)
+            self.assertFalse(value["durable_return"])
 
 
 if __name__ == "__main__":

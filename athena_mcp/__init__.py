@@ -75,14 +75,39 @@ if not getattr(RehydrationLoopRuntime, "_athena_successor_v1_explicit_next_compa
     RehydrationLoopRuntime.advance = _rehydration_advance_preserve_explicit_next
     RehydrationLoopRuntime._athena_successor_v1_explicit_next_compat = True
 
-# RHL-001 antibody: a persisted local loop checkpoint is not automatically the
-# shared current checkpoint. Resume must refresh the shared branch before reading
-# state, otherwise an already-open checkout can return RESUMED from an obsolete
-# state.json after a sibling has advanced the loop. A clean behind checkout may
-# fast-forward. Dirty, ahead, diverged, or unverified remote state holds instead
-# of presenting stale local prompt state as the current handoff.
-if not getattr(RehydrationLoopRuntime, "_athena_remote_fresh_resume_v1_registered", False):
+# RHL-001/002/003 antibody family: persisted local loop state is not automatically
+# shared-current state. Every read-side continuation surface that can influence
+# routing or stopping decisions must refresh the shared branch first:
+#
+#   resume -> current handoff/prompt
+#   verify -> current shared chain integrity
+#   index  -> current shared loop inventory
+#
+# Clean behind checkouts may advance only by FF-only after a fresh fetch. Dirty,
+# ahead, diverged, or unverified states hold rather than returning a stale local
+# view as current. Local/offline experiments can explicitly select DISABLED mode
+# when they do not claim a shared-current witness.
+if not getattr(RehydrationLoopRuntime, "_athena_remote_fresh_reads_v2_registered", False):
     _rehydration_resume_local = RehydrationLoopRuntime.resume
+    _rehydration_verify_local = RehydrationLoopRuntime.verify
+    _rehydration_index_local = RehydrationLoopRuntime.index
+
+    def _rehydration_sync_before_read(self, operation, shared_remote_mode="REQUIRED", remote="origin"):
+        mode = self._remote_mode(shared_remote_mode)
+        if mode == "DISABLED":
+            return mode, {
+                "status": "DISABLED",
+                "remote": remote,
+                "shared_frontier_verified": False,
+            }
+        remote_sync = self.remote_sync.sync(remote)
+        if mode == "REQUIRED" and not remote_sync.get("shared_frontier_verified"):
+            raise GitStateError(json.dumps({
+                "status": f"REHYDRATION_{operation}_SHARED_FRONTIER_HOLD",
+                "remote_sync": remote_sync,
+                "law": "LOCAL_LOOP_VIEW != SHARED_CURRENT_LOOP_VIEW",
+            }, sort_keys=True))
+        return mode, remote_sync
 
     def _rehydration_resume_remote_fresh(
         self,
@@ -91,22 +116,9 @@ if not getattr(RehydrationLoopRuntime, "_athena_remote_fresh_resume_v1_registere
         shared_remote_mode="REQUIRED",
         remote="origin",
     ):
-        mode = self._remote_mode(shared_remote_mode)
-        if mode == "DISABLED":
-            remote_sync = {
-                "status": "DISABLED",
-                "remote": remote,
-                "shared_frontier_verified": False,
-            }
-        else:
-            remote_sync = self.remote_sync.sync(remote)
-            if mode == "REQUIRED" and not remote_sync.get("shared_frontier_verified"):
-                raise GitStateError(json.dumps({
-                    "status": "REHYDRATION_RESUME_SHARED_FRONTIER_HOLD",
-                    "remote_sync": remote_sync,
-                    "law": "LOCAL_LOOP_CHECKPOINT != SHARED_CURRENT_CHECKPOINT",
-                }, sort_keys=True))
-
+        mode, remote_sync = _rehydration_sync_before_read(
+            self, "RESUME", shared_remote_mode, remote
+        )
         result = _rehydration_resume_local(self, loop_id, include_prompt)
         result["remote_sync"] = remote_sync
         result["shared_frontier_verified"] = bool(remote_sync.get("shared_frontier_verified"))
@@ -115,15 +127,63 @@ if not getattr(RehydrationLoopRuntime, "_athena_remote_fresh_resume_v1_registere
             result["status"] = "RESUMED_UNVERIFIED"
         return result
 
+    def _rehydration_verify_remote_fresh(
+        self,
+        loop_id,
+        shared_remote_mode="REQUIRED",
+        remote="origin",
+    ):
+        mode, remote_sync = _rehydration_sync_before_read(
+            self, "VERIFY", shared_remote_mode, remote
+        )
+        result = _rehydration_verify_local(self, loop_id)
+        result["remote_sync"] = remote_sync
+        result["shared_frontier_verified"] = bool(remote_sync.get("shared_frontier_verified"))
+        result["freshness_law"] = "VERIFY_SYNC_SHARED_GIT_BEFORE_REPLAYING_LOOP_CHAIN"
+        if mode == "BEST_EFFORT" and not result["shared_frontier_verified"] and result.get("status") == "PASS":
+            result["status"] = "PASS_UNVERIFIED"
+        return result
+
+    def _rehydration_index_remote_fresh(
+        self,
+        shared_remote_mode="REQUIRED",
+        remote="origin",
+    ):
+        mode, remote_sync = _rehydration_sync_before_read(
+            self, "INDEX", shared_remote_mode, remote
+        )
+        result = _rehydration_index_local(self)
+        result["remote_sync"] = remote_sync
+        result["shared_frontier_verified"] = bool(remote_sync.get("shared_frontier_verified"))
+        result["freshness_law"] = "INDEX_SYNC_SHARED_GIT_BEFORE_LISTING_LOOP_TIPS"
+        if mode == "BEST_EFFORT" and not result["shared_frontier_verified"] and result.get("status") == "OK":
+            result["status"] = "OK_UNVERIFIED"
+        return result
+
     RehydrationLoopRuntime.resume = _rehydration_resume_remote_fresh
+    RehydrationLoopRuntime.verify = _rehydration_verify_remote_fresh
+    RehydrationLoopRuntime.index = _rehydration_index_remote_fresh
     RehydrationLoopRuntime._athena_remote_fresh_resume_v1_registered = True
+    RehydrationLoopRuntime._athena_remote_fresh_reads_v2_registered = True
+
+    _rehydration_descriptions = {
+        "athena_rehydration_resume": (
+            "Fresh-sync the shared Git branch, then resume the persisted rehydration loop at its exact current "
+            "prompt/state/chain coordinates. Clean behind checkouts fast-forward; dirty, ahead, diverged, or "
+            "unverified shared state holds rather than returning a stale local handoff."
+        ),
+        "athena_rehydration_verify": (
+            "Fresh-sync the shared Git branch, then replay and verify the current persisted loop chain, prompt/receipt "
+            "digests, sequential steps, and Git ancestry. PASS is shared-current causal-integrity evidence, not world truth."
+        ),
+        "athena_rehydration_index": (
+            "Fresh-sync the shared Git branch, then list current Git-persisted rehydration loops and their status, step, "
+            "state/chain digests, and checkpoint heads. Unverified shared state holds instead of returning stale inventory."
+        ),
+    }
     for _tool in REHYDRATION_TOOLS:
-        if _tool.get("name") == "athena_rehydration_resume":
-            _tool["description"] = (
-                "Fresh-sync the shared Git branch, then resume the persisted rehydration loop at its exact current "
-                "prompt/state/chain coordinates. Clean behind checkouts fast-forward; dirty, ahead, diverged, or "
-                "unverified shared state holds rather than returning a stale local handoff."
-            )
+        if _tool.get("name") in _rehydration_descriptions:
+            _tool["description"] = _rehydration_descriptions[_tool["name"]]
 
 # The prompt stack is a content-policy coordinate, not a synonym for repository
 # time. Keep git_head in ancestry for provenance while excluding it from the
