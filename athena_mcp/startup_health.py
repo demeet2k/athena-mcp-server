@@ -1,26 +1,21 @@
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any,Dict
+
+from .state_foundation_surface import CRITICAL_REQUIRED_COLUMNS,CRITICAL_REQUIRED_TABLES
 
 STARTUP_HEALTH_VERSION='ATHENA.STARTUP.1'
 
 
 class StartupHealth:
-    """Read-only startup/readiness classifier.
+    """Read-only startup/readiness classifier; does not silently change write semantics."""
 
-    The runtime remains inspectable while degraded. This object does not itself
-    block writes; it provides the typed state later mutation policies may gate
-    against. That separation avoids silently changing legacy write semantics.
-    """
     def __init__(self,server,integrity):self.server=server;self.integrity=integrity
 
     def evaluate(self,run_replay_samples=False)->Dict[str,Any]:
         surface=self.integrity.surface_audit(True)
         foundation=self.integrity.state_foundation
-        schema=foundation.schema.verify(
-            __import__('athena_mcp.state_foundation_surface',fromlist=['CRITICAL_REQUIRED_TABLES']).CRITICAL_REQUIRED_TABLES,
-            __import__('athena_mcp.state_foundation_surface',fromlist=['CRITICAL_REQUIRED_COLUMNS']).CRITICAL_REQUIRED_COLUMNS,
-        )
+        schema=foundation.schema.verify(CRITICAL_REQUIRED_TABLES,CRITICAL_REQUIRED_COLUMNS)
         gates={'surface':surface['surface_status'],'composition':surface['composition']['status'],'schema':schema['status']}
         selftest=None
         if run_replay_samples or all(v=='PASS' for v in gates.values()):
