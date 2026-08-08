@@ -4,6 +4,7 @@ import unittest
 
 import athena_mcp
 from athena_mcp import agent_bootstrap as _boot
+from athena_mcp.agent_bootstrap_consistency import install_bootstrap_consistency
 from athena_mcp.capability_basis import derive_operational_basis
 from athena_mcp.git_backend import GitBackend
 from athena_mcp.prompt_runtime import PROMPT_RUNTIME_TOOL_NAMES
@@ -174,6 +175,60 @@ class CapabilityBasisBootstrapTests(unittest.TestCase):
         self.assertEqual(packet["address"]["prompt_stack_digest"], "prompt-digest")
         self.assertEqual(packet["address"]["frontier_digest"], "frontier-digest")
         self.assertIsNotNone(packet["address"]["operational_basis_digest"])
+
+    def test_installer_preserves_minimal_runtime_abis(self):
+        class BootstrapOnly:
+            def bootstrap(self, *args, **kwargs):
+                return {
+                    "status": "BOOTSTRAPPED",
+                    "frontier": {
+                        "status": "HYDRATED",
+                        "frontier_digest": "f",
+                        "ready_work": [],
+                    },
+                    "address": {},
+                    "execution_surface": {},
+                    "holds": [],
+                    "laws": [],
+                }
+
+        class BootstrapAndRefresh:
+            def bootstrap(self, *args, **kwargs):
+                return {
+                    "status": "BOOTSTRAPPED",
+                    "frontier": {
+                        "status": "HYDRATED",
+                        "frontier_digest": "f",
+                        "ready_work": [],
+                    },
+                    "address": {},
+                    "execution_surface": {},
+                    "holds": [],
+                    "laws": [],
+                }
+
+            def refresh(self, *args, **kwargs):
+                return {
+                    "status": "BOOTSTRAPPED",
+                    "refresh": {
+                        "changed": {},
+                        "affected_dependency_cone": [],
+                    },
+                }
+
+        install_bootstrap_consistency(BootstrapOnly)
+        self.assertFalse(hasattr(BootstrapOnly, "refresh"))
+        self.assertTrue(hasattr(BootstrapOnly, "call_tool"))
+        basis = BootstrapOnly().call_tool("athena_capability_basis", {})
+        self.assertEqual(basis["status"], "PASS")
+        with self.assertRaises(KeyError):
+            BootstrapOnly().call_tool("unknown_tool", {})
+
+        install_bootstrap_consistency(BootstrapAndRefresh)
+        self.assertTrue(hasattr(BootstrapAndRefresh, "refresh"))
+        self.assertTrue(hasattr(BootstrapAndRefresh, "call_tool"))
+        basis = BootstrapAndRefresh().call_tool("athena_capability_basis", {})
+        self.assertEqual(basis["status"], "PASS")
 
 
 if __name__ == "__main__":
