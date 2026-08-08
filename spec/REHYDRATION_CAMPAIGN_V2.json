@@ -8,6 +8,12 @@
     "successor_source": "ATHENA.REHYDRATION.SUCCESSOR.BATON.V1",
     "campaign_state": "Git-persisted append-only event chain plus current branch projection"
   },
+  "freshness": {
+    "start": "expected_git_head must equal the observed current Git head after the configured shared-frontier sync",
+    "mutation": "expected campaign checkpoint must remain the current campaign-state commit and an ancestor of the current work head",
+    "qualification": "the campaign implementation branch must rehydrate the current master frontier before any exact-head CI result can qualify merge",
+    "law": "OLDER_GREEN_CI + NEW_MASTER != CURRENT_QUALIFICATION"
+  },
   "campaign_states": ["ACTIVE", "RECONCILED", "COMPLETE", "ABORTED"],
   "branch_states": ["OPEN", "CLAIMED", "ACTIVE", "WITNESSED", "BLOCKED", "EXPANDED", "ACCEPTED", "SUPERSEDED"],
   "budgets": {
