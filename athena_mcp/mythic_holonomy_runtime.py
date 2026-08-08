@@ -29,6 +29,11 @@ LAWS=[
     "CALLER_PACKET_REF != VERIFIED_REMOTE_READ",
 ]
 
+_VECTOR_KEYS=[
+    "role_delta","decoder_delta","ontology_delta","authority_delta",
+    "standing_delta","provenance_delta","invariant_violations","unaccounted_loss",
+]
+
 
 def _uniq(items):
     out=[];seen=set()
@@ -114,6 +119,10 @@ def _nonzero_vector(v:Dict[str,Any])->bool:
     return any(float(x)!=0.0 for x in v.values())
 
 
+def _zero_vector()->Dict[str,int]:
+    return {k:0 for k in _VECTOR_KEYS}
+
+
 class MythicHolonomyRuntime:
     def __init__(self):
         self.strata=MythicStrataRuntime()
@@ -138,6 +147,19 @@ class MythicHolonomyRuntime:
                 layers[layer["layer_id"]]=layer
         return families,layers
 
+    def _lawful_transport_edges(self,cases:List[Dict[str,Any]])->Dict[str,set]:
+        """Build path-order evidence from independently frozen lawful transport cases."""
+        edges:Dict[str,set]={}
+        for case in cases:
+            if case.get("operation")!="SEMANTIC_TRANSPORT" or case.get("expected_class")!="ALLOW_WITH_LOSS":
+                continue
+            path=list(case.get("path") or [])
+            if len(path)<2:
+                continue
+            bucket=edges.setdefault(str(case.get("family_id") or ""),set())
+            bucket.update(zip(path,path[1:]))
+        return edges
+
     def _edgewise(self,path:List[str],case:Dict[str,Any],layers:Dict[str,Dict[str,Any]])->Dict[str,Any]:
         receipts=[];allowed=True
         for a,b in zip(path,path[1:]):
@@ -155,12 +177,12 @@ class MythicHolonomyRuntime:
         if op=="SEMANTIC_EQUIVALENCE":
             return {"status":"UNSCOPED_EQUIVALENCE_ADMITTED","allowed":True,"equivalence_claimed":True,"expected_pass":False}
         if op=="HOLONOMY_LOOP":
-            zero={k:0 for k in ["role_delta","decoder_delta","ontology_delta","authority_delta","standing_delta","provenance_delta","invariant_violations","unaccounted_loss"]}
+            zero=_zero_vector()
             return {"status":"UNSCOPED_LOOP_COLLAPSED","allowed":True,"holonomy_vector":zero,"holonomy_nonzero":False,"expected_pass":False}
         if op=="PATH_ORDER_COMPARE":
             return {"status":"UNSCOPED_ORDER_COLLAPSED","allowed":True,"path_order_sensitive":False,"expected_pass":False}
         if op=="SAME_LAYER_CONTROL":
-            zero={k:0 for k in ["role_delta","decoder_delta","ontology_delta","authority_delta","standing_delta","provenance_delta","invariant_violations","unaccounted_loss"]}
+            zero=_zero_vector()
             return {"status":"UNSCOPED_SAME_LAYER","allowed":True,"holonomy_vector":zero,"holonomy_nonzero":False,"expected_pass":case.get("expected_class")=="ZERO_HOLONOMY_CONTROL"}
         return {"status":"UNSCOPED_TRANSPORT_ADMITTED","allowed":True,"expected_pass":case.get("expected_class")=="ALLOW_WITH_LOSS"}
 
@@ -180,7 +202,7 @@ class MythicHolonomyRuntime:
             return {"status":"EDGEWISE_ONLY_NO_ORDER_LEDGER","allowed":edge["allowed"],"receipts":edge["receipts"],"path_order_sensitive":False,"expected_pass":False}
         edge=self._edgewise(path,case,layers)
         if op=="SAME_LAYER_CONTROL":
-            zero={k:0 for k in ["role_delta","decoder_delta","ontology_delta","authority_delta","standing_delta","provenance_delta","invariant_violations","unaccounted_loss"]}
+            zero=_zero_vector()
             return {"status":"EDGEWISE_SAME_LAYER","allowed":edge["allowed"],"receipts":edge["receipts"],"holonomy_vector":zero,"holonomy_nonzero":False,"expected_pass":edge["allowed"] and case.get("expected_class")=="ZERO_HOLONOMY_CONTROL"}
         return {"status":"EDGEWISE_TRANSPORT","allowed":edge["allowed"],"receipts":edge["receipts"],"expected_pass":edge["allowed"] and case.get("expected_class")=="ALLOW_WITH_LOSS"}
 
@@ -205,7 +227,7 @@ class MythicHolonomyRuntime:
                 return {"allowed":False,"status":receipt["status"],"receipts":receipts,"provenance":_uniq(provenance),"loss_ledger":_uniq(losses),"invariant_ledger":_uniq(invariants)}
         return {"allowed":True,"status":"COMPOSED","receipts":receipts,"provenance":_uniq(provenance),"loss_ledger":_uniq(losses),"invariant_ledger":_uniq(invariants),"end_layer":layers[path[-1]]}
 
-    def _a2(self,case:Dict[str,Any],layers:Dict[str,Dict[str,Any]])->Dict[str,Any]:
+    def _a2(self,case:Dict[str,Any],layers:Dict[str,Dict[str,Any]],lawful_edges:Dict[str,set])->Dict[str,Any]:
         op=case["operation"];path=list(case["path"]);expected=case.get("expected_class")
         if op=="SEMANTIC_EQUIVALENCE":
             src=layers[path[0]];dst=layers[path[-1]]
@@ -215,10 +237,24 @@ class MythicHolonomyRuntime:
             canonical=self._compose(path,case,layers)
             canonical_edges=list(zip(path,path[1:]))
             permuted=[path[0],path[-1]]+path[1:-1] if len(path)>=3 else list(reversed(path))
-            allowed_edges=set(canonical_edges)
-            permutation_requires_unsupported_edge=any(edge not in allowed_edges for edge in zip(permuted,permuted[1:]))
-            order_sensitive=(permuted!=path) and permutation_requires_unsupported_edge
-            return {"status":"PATH_ORDER_EVALUATED","allowed":canonical.get("allowed",False),"canonical_path":path,"permuted_path":permuted,"canonical_composition":canonical,"path_order_sensitive":order_sensitive,"expected_pass":canonical.get("allowed",False) and order_sensitive and expected=="NONCOMMUTATIVE_EXPECTED","law":"PATH_LEDGER_ORDER != UNORDERED_LAYER_SET"}
+            permuted_edges=list(zip(permuted,permuted[1:]))
+            evidence_edges=set(lawful_edges.get(str(case.get("family_id") or ""),set()))
+            canonical_supported=bool(canonical_edges) and all(edge in evidence_edges for edge in canonical_edges)
+            permuted_supported=bool(permuted_edges) and all(edge in evidence_edges for edge in permuted_edges)
+            order_sensitive=(permuted!=path) and canonical_supported and not permuted_supported
+            return {
+                "status":"PATH_ORDER_EVALUATED",
+                "allowed":canonical.get("allowed",False),
+                "canonical_path":path,
+                "permuted_path":permuted,
+                "canonical_composition":canonical,
+                "frozen_lawful_edges":[list(edge) for edge in sorted(evidence_edges)],
+                "canonical_supported_by_frozen_transport_cases":canonical_supported,
+                "permuted_supported_by_frozen_transport_cases":permuted_supported,
+                "path_order_sensitive":order_sensitive,
+                "expected_pass":canonical.get("allowed",False) and order_sensitive and expected=="NONCOMMUTATIVE_EXPECTED",
+                "law":"PATH_ORDER_CLAIM_REQUIRES_INDEPENDENT_FROZEN_TRANSPORT_EDGE_SUPPORT",
+            }
         if op=="HOLONOMY_LOOP":
             if len(path)<2 or path[-1]!=path[0]:
                 return {"status":"HOLD_LOOP_NOT_CLOSED","allowed":False,"expected_pass":False}
@@ -260,7 +296,13 @@ class MythicHolonomyRuntime:
             standing_violations+=int(float(vec.get("standing_delta",0))>0)
             for rec in (comp or {}).get("receipts",[]) if isinstance(comp,dict) else []:
                 authority_violations+=int(rec.get("execution_authority") not in {None,"NONE"})
-        return {"arm":arm,"cases":len(cases),"expected_class_passed":expected_pass,"false_equivalence_claims":false_eq,"lawful_bridges_retained":lawful_retained,"false_holds_on_lawful_transport":false_holds,"standing_amplification_violations":standing_violations,"authority_minting_violations":authority_violations,"composed_paths":composed_n,"composed_paths_with_provenance":prov_ok,"composed_paths_with_loss_or_same_layer_exemption":loss_ok}
+        return {
+            "arm":arm,"cases":len(cases),"expected_class_passed":expected_pass,
+            "false_equivalence_claims":false_eq,"lawful_bridges_retained":lawful_retained,
+            "false_holds_on_lawful_transport":false_holds,"standing_amplification_violations":standing_violations,
+            "authority_minting_violations":authority_violations,"composed_paths":composed_n,
+            "composed_paths_with_provenance":prov_ok,"composed_paths_with_loss_or_same_layer_exemption":loss_ok,
+        }
 
     def evaluate(self,packet:Dict[str,Any],source_packet_ref:str="",source_packet_blob_sha:str="")->Dict[str,Any]:
         ok,errors=self._validate(packet)
@@ -274,5 +316,21 @@ class MythicHolonomyRuntime:
                 if lid not in layers:missing.append(f"layer:{lid}")
         if missing:
             return {"version":HOLONOMY_VERSION,"status":"HOLD_UNRESOLVED_PACKET_REFERENCES","errors":_uniq(missing),"authority":"NONE","laws":list(LAWS)}
-        a0=[self._a0(c,layers) for c in cases];a1=[self._a1(c,layers) for c in cases];a2=[self._a2(c,layers) for c in cases]
-        return {"version":HOLONOMY_VERSION,"status":"HELD_OUT_PACKET_EVALUATED","source_packet_ref":source_packet_ref,"source_packet_blob_sha":source_packet_blob_sha,"source_packet_ref_verified":False,"packet_identity":{"artifact":packet.get("artifact"),"version":packet.get("version"),"families":len(families),"cases":len(cases)},"distance_semantics":deepcopy(packet.get("distance_semantics")),"scalarization":"DISABLED_V0","arms":{"A0_UNSCOPED_REFERENCE":{"summary":self._summarize("A0",a0,cases),"results":a0},"A1_EDGEWISE_STRATA":{"summary":self._summarize("A1",a1,cases),"results":a1},"A2_COMPOSED_HOLONOMY":{"summary":self._summarize("A2",a2,cases),"results":a2}},"authority":"READ_ONLY_REPRESENTATION_BENCHMARK_ONLY","practitioner_review":"HOLD_EXTERNAL_REVIEW","mck_v2_promotion":False,"general_effectiveness":"UNKNOWN","laws":list(LAWS)}
+        lawful_edges=self._lawful_transport_edges(cases)
+        a0=[self._a0(c,layers) for c in cases]
+        a1=[self._a1(c,layers) for c in cases]
+        a2=[self._a2(c,layers,lawful_edges) for c in cases]
+        return {
+            "version":HOLONOMY_VERSION,"status":"HELD_OUT_PACKET_EVALUATED",
+            "source_packet_ref":source_packet_ref,"source_packet_blob_sha":source_packet_blob_sha,
+            "source_packet_ref_verified":False,
+            "packet_identity":{"artifact":packet.get("artifact"),"version":packet.get("version"),"families":len(families),"cases":len(cases)},
+            "distance_semantics":deepcopy(packet.get("distance_semantics")),"scalarization":"DISABLED_V0",
+            "arms":{
+                "A0_UNSCOPED_REFERENCE":{"summary":self._summarize("A0",a0,cases),"results":a0},
+                "A1_EDGEWISE_STRATA":{"summary":self._summarize("A1",a1,cases),"results":a1},
+                "A2_COMPOSED_HOLONOMY":{"summary":self._summarize("A2",a2,cases),"results":a2},
+            },
+            "authority":"READ_ONLY_REPRESENTATION_BENCHMARK_ONLY","practitioner_review":"HOLD_EXTERNAL_REVIEW",
+            "mck_v2_promotion":False,"general_effectiveness":"UNKNOWN","laws":list(LAWS),
+        }
