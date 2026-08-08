@@ -1,0 +1,43 @@
+{
+  "artifact": "ATHENA.STEERING.PULSE.OPERATIONAL_BASIS.CONTRACT.V1",
+  "status": "CANDIDATE_CURRENT_MASTER_INTEGRATION",
+  "parent_compiler": "ATHENA.STEERING.PULSE.COMPILER.CONTRACT.V1",
+  "runtime_basis": "OPERATIONAL_BASIS_V1",
+  "purpose": "Bind Campaign V3 current-state pulse routing to the actually registered current MCP control-plane surface without widening authority.",
+  "required_inputs": {
+    "current_address.operational_basis_digest": "exact current bootstrap/address basis digest",
+    "operational_basis.artifact": "OPERATIONAL_BASIS_V1",
+    "operational_basis.status": "OPERATIONAL_BASIS_READY",
+    "operational_basis.basis_digest": "must equal current_address.operational_basis_digest",
+    "operational_basis.descriptors": "registered current descriptors; only current_exposure=true operations are projected"
+  },
+  "fail_closed": [
+    "basis artifact mismatch",
+    "basis status not READY",
+    "missing address or basis digest",
+    "digest mismatch",
+    "missing or malformed descriptor list"
+  ],
+  "projection": {
+    "operation_rule": "descriptor.current_exposure == true AND non-empty descriptor.operation",
+    "feature_branch_names": "ignored",
+    "issue_or_CI_claims": "ignored",
+    "authority": "descriptor/exposure is routing evidence only; it never grants execution authority"
+  },
+  "delegation": "After basis validation, delegate exact pulse/evidence/4-3-3/residual semantics to athena_mcp.steering_pulse.compile_pulse using only the projected current operations.",
+  "laws": [
+    "OPERATIONAL_BASIS_DIGEST_MATCH_REQUIRED",
+    "CURRENT_EXPOSURE_DESCRIPTOR_REQUIRED",
+    "FEATURE_BRANCH != CURRENT_RUNTIME_EXPOSURE",
+    "DESCRIPTOR != EXECUTION_AUTHORITY",
+    "UNREADY_OPERATIONAL_BASIS => HOLD",
+    "UNEXPOSED_REQUIRED_OPERATION => HOLD",
+    "CAMPAIGN_CANDIDATE != EXECUTION_AUTHORITY"
+  ],
+  "non_goals": [
+    "register campaign or claim tools",
+    "treat a feature branch as current exposure",
+    "execute a steering-ledger action",
+    "promote Campaign V3"
+  ]
+}
