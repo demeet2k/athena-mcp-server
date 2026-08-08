@@ -27,6 +27,7 @@ LAWS=[
     "SELF_GENERATED_SCORE != INDEPENDENT_WITNESS",
     "BENCHMARK_GAIN != MCK_V2_PROMOTION",
     "CALLER_PACKET_REF != VERIFIED_REMOTE_READ",
+    "HOLONOMY_LOOP_REQUIRES_INDEPENDENT_FROZEN_TRANSPORT_EDGE_SUPPORT",
 ]
 
 _VECTOR_KEYS=[
@@ -148,7 +149,7 @@ class MythicHolonomyRuntime:
         return families,layers
 
     def _lawful_transport_edges(self,cases:List[Dict[str,Any]])->Dict[str,set]:
-        """Build path-order evidence from independently frozen lawful transport cases."""
+        """Build higher-order path evidence from independently frozen lawful transport cases."""
         edges:Dict[str,set]={}
         for case in cases:
             if case.get("operation")!="SEMANTIC_TRANSPORT" or case.get("expected_class")!="ALLOW_WITH_LOSS":
@@ -259,14 +260,53 @@ class MythicHolonomyRuntime:
             if len(path)<2 or path[-1]!=path[0]:
                 return {"status":"HOLD_LOOP_NOT_CLOSED","allowed":False,"expected_pass":False}
             forward=path[:-1]
+            loop_edges=list(zip(forward,forward[1:]))
+            evidence_edges=set(lawful_edges.get(str(case.get("family_id") or ""),set()))
+            unsupported=[edge for edge in loop_edges if edge not in evidence_edges]
+            loop_supported=bool(loop_edges) and not unsupported
+            if not loop_supported:
+                return {
+                    "status":"HOLD_LOOP_UNSUPPORTED_BY_FROZEN_TRANSPORT_CASES",
+                    "allowed":False,
+                    "projection_back_to":path[0],
+                    "loop_edges":[list(edge) for edge in loop_edges],
+                    "frozen_lawful_edges":[list(edge) for edge in sorted(evidence_edges)],
+                    "loop_supported_by_frozen_transport_cases":False,
+                    "unsupported_loop_edges":[list(edge) for edge in unsupported],
+                    "holonomy_nonzero":None,
+                    "expected_pass":False,
+                    "law":"HOLONOMY_LOOP_REQUIRES_INDEPENDENT_FROZEN_TRANSPORT_EDGE_SUPPORT",
+                }
             composed=self._compose(forward,case,layers)
             if not composed.get("allowed"):
-                return {"status":composed.get("status"),"allowed":False,"composition":composed,"expected_pass":False}
+                return {
+                    "status":composed.get("status"),
+                    "allowed":False,
+                    "composition":composed,
+                    "loop_edges":[list(edge) for edge in loop_edges],
+                    "frozen_lawful_edges":[list(edge) for edge in sorted(evidence_edges)],
+                    "loop_supported_by_frozen_transport_cases":True,
+                    "unsupported_loop_edges":[],
+                    "expected_pass":False,
+                }
             start=layers[path[0]];end=layers[forward[-1]]
             required=_uniq(list(case.get("source_refs") or [])+list(start.get("provenance") or [])+list(end.get("provenance") or []))
             vector=_distance(start,end,required,composed.get("provenance",[]),composed.get("invariant_ledger",[]),case.get("bridge_invariants",[]),composed.get("loss_ledger",[]))
             nonzero=_nonzero_vector(vector)
-            return {"status":"HOLONOMY_VECTOR_COMPUTED","allowed":True,"composition":composed,"projection_back_to":path[0],"holonomy_vector":vector,"holonomy_nonzero":nonzero,"expected_pass":nonzero and expected=="NONZERO_HOLONOMY_EXPECTED","law":"H_gamma_IS_REPRESENTATION_DRIFT_VECTOR_NOT_METAPHYSICAL_QUANTITY"}
+            return {
+                "status":"HOLONOMY_VECTOR_COMPUTED",
+                "allowed":True,
+                "composition":composed,
+                "projection_back_to":path[0],
+                "loop_edges":[list(edge) for edge in loop_edges],
+                "frozen_lawful_edges":[list(edge) for edge in sorted(evidence_edges)],
+                "loop_supported_by_frozen_transport_cases":True,
+                "unsupported_loop_edges":[],
+                "holonomy_vector":vector,
+                "holonomy_nonzero":nonzero,
+                "expected_pass":nonzero and expected=="NONZERO_HOLONOMY_EXPECTED",
+                "law":"H_gamma_IS_REPRESENTATION_DRIFT_VECTOR_NOT_METAPHYSICAL_QUANTITY",
+            }
         composed=self._compose(path,case,layers)
         if not composed.get("allowed"):
             return {"status":composed.get("status"),"allowed":False,"composition":composed,"expected_pass":False}
