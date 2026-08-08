@@ -7,6 +7,7 @@ from .frontier_claim import (
 from .frontier_claim_idempotency import install_frontier_claim_idempotency
 from .frontier_claim_internal_compat import install_frontier_claim_internal_compat
 from .frontier_claim_provider import install_frontier_claim_provider
+from .frontier_claim_provider_guard import install_frontier_claim_provider_guard
 from .frontier_runtime import FrontierRuntime, FRONTIER_TOOLS, FRONTIER_TOOL_NAMES
 from .prompt_runtime import PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES
 
@@ -18,6 +19,7 @@ install_frontier_claim_extension(FrontierRuntime, FRONTIER_TOOLS)
 install_frontier_claim_idempotency(FrontierClaimRuntime, FRONTIER_CLAIM_TOOLS)
 install_frontier_claim_internal_compat(FrontierClaimRuntime)
 install_frontier_claim_provider(FrontierClaimRuntime, FRONTIER_CLAIM_TOOLS)
+install_frontier_claim_provider_guard(FrontierClaimRuntime)
 FRONTIER_TOOL_NAMES.update(FRONTIER_CLAIM_TOOL_NAMES)
 for _tool in FRONTIER_CLAIM_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
