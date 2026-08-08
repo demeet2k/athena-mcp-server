@@ -1,13 +1,13 @@
 RECOVERY_RESOURCE = {
     "uri": "athena://recovery/google-docs/v1",
-    "name": "Revision-bound Google Docs organ recovery registry V1",
+    "name": "Revision-bound Google Docs organ recovery registry V2-compatible resource",
     "mimeType": "application/json",
 }
 
 RECOVERY_TOOLS = [
     {
         "name": "athena_recovery_organs",
-        "description": "List revision-bound recovered Google Docs organs by status, family, or semantic text. Read-only; search hits/misses are not implementation proof.",
+        "description": "List revision-bound recovered Google Docs organs by status, family, source, or semantic text. Read-only; search hits/misses are not implementation proof.",
         "inputSchema": {
             "type": "object",
             "properties": {
@@ -22,6 +22,16 @@ RECOVERY_TOOLS = [
     {
         "name": "athena_recovery_organ",
         "description": "Get one recovered organ with Drive source/revision, semantic signature, current-runtime references, residuals, and claim boundary.",
+        "inputSchema": {
+            "type": "object",
+            "required": ["organ_id"],
+            "properties": {"organ_id": {"type": "string", "minLength": 1}},
+            "additionalProperties": False
+        }
+    },
+    {
+        "name": "athena_recovery_holoaddress",
+        "description": "Build a read-only HoloAddress dereference/reentry packet for one recovered organ. It preserves source/revision lookup and semantic seed without fabricating source-content digests or authority.",
         "inputSchema": {
             "type": "object",
             "required": ["organ_id"],

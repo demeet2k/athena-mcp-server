@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Dict
 
-from .drive_recovery_registry import DriveRecoveryRegistryRuntime
+from .drive_recovery_registry_v2 import DriveRecoveryRegistryRuntime
 from .drive_recovery_protocol import RECOVERY_RESOURCE
 
 
@@ -20,6 +20,8 @@ class DriveRecoverySurface:
             )
         if name == "athena_recovery_organ":
             return True, self.runtime.get(args["organ_id"])
+        if name == "athena_recovery_holoaddress":
+            return True, self.runtime.holoaddress(args["organ_id"])
         if name == "athena_recovery_frontier":
             return True, self.runtime.frontier(
                 limit=args.get("limit", 10),
@@ -42,5 +44,6 @@ class DriveRecoverySurface:
                 "version": state["version"],
                 "organ_count": state["organ_count"],
                 "revision_pinned_count": state["revision_pinned_count"],
+                "formal_residual_issue": state["formal_residual_issue"],
             }
         }
