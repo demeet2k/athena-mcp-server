@@ -1,10 +1,10 @@
-# ATHENA Canonical MCP v2.9 — Polycoordinate Crystal + Probabilistic Causal-Control Runtime
+# ATHENA Canonical MCP v3.0 — Polycoordinate Crystal + Adaptive World-Model Runtime
 
-ATHENA's executable Git/MCP nervous substrate combines canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, collective organization/memory/learning, causal experimental science, active discovery, stochastic/dual control, finite and continuous belief-state decisions, and V10 nonlinear probabilistic/causal-control machinery.
+ATHENA's executable Git/MCP substrate combines canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, collective organization/memory/learning, causal experimental science, active discovery, dual control, finite/continuous belief, nonlinear probabilistic modeling, and V11 adaptive world-model control.
 
 ## Runtime cycle
 
-`HYDRATE → CHOOSE MINIMUM-SUFFICIENT DEPTH → MEMORY/SCIENCE-SHADOW → REGIME/OOD → PREDICT/CALIBRATE → OPTIONAL FINITE/GAUSSIAN/GP MODEL → LIVE HYPOTHESES → EIG/EVI/EVPI/EVSI DESIGN → CONDITIONAL CAUSAL IDENTIFICATION → OPTIONAL LINEAR/AIPW/TMLE EFFECT ESTIMATE + SENSITIVITY → PARTIAL STRUCTURE HYPOTHESIS → PARETO/SCHEDULE → STATE MODEL/SCENARIO/DUAL/BELIEF/POMDP PLAN → EXECUTE FIRST AUTHORIZED ACTION → OBSERVE/METER → EXPLICIT MODEL UPDATE → REPLICATE/FALSIFY/DEPENDENCE CALIBRATE → CREDIT → MEMORY/IMMUNE/ELDER → JSPACE/TOPOLOGY/PROJECTION/COMPENSATION → LIFECYCLE → FINALIZE/VERIFY → CONDITIONAL COMMIT → REPLAN/REATTACK`.
+`HYDRATE → CHOOSE MINIMUM-SUFFICIENT DEPTH → MEMORY/SCIENCE-SHADOW → REGIME/OOD → PREDICT/CALIBRATE → OPTIONAL FINITE/GAUSSIAN/GP MODEL → OPTIONAL MODEL ADAPTATION → LIVE HYPOTHESES → EIG/EVI/EVPI/EVSI/GP-EVSI DESIGN → CONDITIONAL CAUSAL IDENTIFICATION → OPTIONAL LINEAR/AIPW/TMLE/STACKED-TMLE EFFECT ESTIMATE + SENSITIVITY → STRUCTURAL/LATENT GRAPH HYPOTHESIS → PARETO/SCHEDULE → STATE MODEL/SCENARIO/DUAL/BELIEF/POMDP/BA-POMDP PLAN → EXECUTE FIRST AUTHORIZED ACTION → OBSERVE/METER → EXPLICIT MODEL UPDATE → REPLICATE/FALSIFY/DEPENDENCE CALIBRATE → CREDIT → MEMORY/IMMUNE/ELDER → JSPACE/TOPOLOGY/PROJECTION/COMPENSATION → LIFECYCLE → FINALIZE/VERIFY → CONDITIONAL COMMIT → REPLAN`.
 
 ## Authority
 
@@ -12,9 +12,9 @@ ATHENA's executable Git/MCP nervous substrate combines canonical identity/versio
 - Git state: expected Git-head CAS;
 - collective topology: expected topology version;
 - learned V3 policy: expected policy version;
-- topology→JSPACE remains a recovery saga, not a fictional cross-store transaction;
-- V5 semantic compensation retracts only active projection-owned semantic effects and never implies Git rollback;
-- V4–V10 statistical, belief, causal-estimation, graph-hypothesis, scenario, experiment-design, GP, POMDP and evidence-dependence state is evidential/control state and has no independent semantic-mutation authority.
+- topology→JSPACE is a recovery saga, not a fictional cross-store transaction;
+- V5 semantic compensation is separate from Git rollback;
+- V4–V11 statistical, belief, causal-estimation, graph-hypothesis, scenario, GP/model-adaptation, policy and evidence-dependence state is evidential/control state and has no independent semantic-mutation authority.
 
 `SID != OID != MID != VID != CID != EID != CRYS != ENV`.
 
@@ -29,207 +29,200 @@ ATHENA's executable Git/MCP nervous substrate combines canonical identity/versio
 ## V1–V4 — organization → memory → bounded experimental ecology
 
 - **V1:** HIVE/SWARM/PACK/FLOCK/HERD/POD, dynamic width, roles, reserve, sparse topology, quorum/inhibition, homeostasis.
-- **Growth:** demand allocation, bridge economics, FISSION/FUSE/HOLD, dependency alarms, lineage-preserving lifecycle.
-- **V2:** persistent pheromones, typed JSPACE invalidation, RGO calibration, topology CAS/rollback, failure antibodies.
+- **Growth:** demand allocation, bridge economics, fission/fusion pressure, alarms, lineage-preserving lifecycle.
+- **V2:** persistent pheromones, typed invalidation, RGO calibration, topology CAS/rollback, failure antibodies.
 - **V3:** observed budgets, bounded rollbackable learned policy, counterfactuals, elder authority, antibody evolution, multiscale pheromones.
-- **V4:** contextual UCB, causal-confidence credit/residual, worker-cost scheduling, learned diffusion, executable regressions, explicit-transition rollouts and topology→JSPACE sagas.
+- **V4:** contextual UCB, causal-confidence credit/residual, worker-cost scheduling, learned diffusion, executable regressions, rollouts and topology→JSPACE sagas.
 
 Resources: `athena://collective/runtime`, `athena://collective/growth`, `athena://collective/v2`, `athena://collective/v3`, `athena://collective/v4`.
 
-Core laws: `MAX_GROWTH != MAX_ACTIVITY`; `MAX_INTEGRATION != MAX_CONNECTIVITY`; `UCB != TRUTH`; `UNKNOWN_COST != ZERO_COST`; `PROJECTION_SAGA != ATOMIC_TRANSACTION`.
+## V5 — causal experimental science
 
-## V5 — causal experimental operating system
-
-Full-covariance Bayesian context state, retained pre-update interval calibration, expected-information-gain experiment ranking, factorial/delayed credit, learned transition summaries, multi-period beam scheduling, process-constrained witness cells, learned regimes, Pareto frontiers and narrow semantic compensation.
+Full-covariance contextual Bayes, pre-update empirical calibration, EIG experiment ranking, factorial/delayed credit, learned transitions, finite-horizon scheduling, process-constrained witnesses, learned regimes, Pareto frontiers and semantic compensation.
 
 Resource: `athena://collective/v5`  
 Spec: `spec/COLLECTIVE_RUNTIME_V5.md`
 
-`POSTERIOR != TRUTH`; `EIG != EVIDENCE`; `DESIGN != RESULT`; `INTERACTION != CAUSATION WITHOUT IDENTIFICATION`; `TRANSITION_MODEL != WORLD`; `PARETO_FRONTIER != SINGLE_BEST`.
+`POSTERIOR != TRUTH`; `EIG != EVIDENCE`; `DESIGN != RESULT`; `TRANSITION_MODEL != WORLD`; `PARETO_FRONTIER != SINGLE_BEST`.
 
 ## V6 — active discovery + stochastic control
 
-Degree-2 nonlinear Bayesian lift, empirical OOD geometry, finite factor-space experiment generation, supplied-DAG back-door identification, order-2..4 factorial contrasts, multivariate transition covariance, receding-horizon MPC, exact small-model schedule certification, fail-closed bubblewrap witness capsules, interval-Pareto experiment selection and science-shadow replication/falsification claims.
+Degree-2 nonlinear Bayesian lift, empirical OOD geometry, finite experiment generation, supplied-DAG back-door identification, higher-order factorial contrasts, multivariate transition covariance, MPC, exact small-model schedule certificates, fail-closed stronger witness capsules, interval-Pareto experiment selection and science-shadow replication/falsification.
 
 Resource: `athena://collective/v6`  
 Spec: `spec/COLLECTIVE_RUNTIME_V6.md`
 
-`NONLINEAR_BASIS != UNIVERSAL_INFERENCE`; `OOD != FALSEHOOD`; `GENERATED_EXPERIMENT != RESULT`; `MPC_PLAN != EXECUTION`; `REPLICATION_STATE != CANON`.
-
 ## V7 — dual control + conditional causal discovery
 
-V7 adds uncertainty-source diagnostics, empirical prequential bands, a bounded observational association-skeleton/v-structure hypothesis generator, state-dependent ridge transition models, three-branch moment scenario/CVaR evaluation, a bounded control+information proxy, supplied-DAG BACKDOOR/FRONTDOOR/INSTRUMENT checks, and metadata-based replication-independence/design surfaces.
+Uncertainty-source diagnostics, prequential bands, observational association-skeleton/v-structure hypotheses, state-dependent transition models, scenario/CVaR evaluation, control+information planning, BACKDOOR/FRONTDOOR/INSTRUMENT checks and replication-independence/design surfaces.
 
 Resource: `athena://collective/v7`  
-Spec: `spec/COLLECTIVE_RUNTIME_V7.md`
-
 Coordinate: `COLLECTIVE_DUAL_CONTROL=<UD,PI,CG,SM,SC,DC,CX,RI,RD,L>`.
 
-`UNCERTAINTY_DECOMPOSITION != UNIQUE_PHYSICAL_TRUTH`; `ASSOCIATION_SKELETON != CAUSAL_DAG`; `STATE_DEPENDENT_TRANSITION_MODEL != WORLD_TRUTH`; `SCENARIO_TREE != OBSERVED_FUTURE`; `DUAL_CONTROL_PROXY != EXACT_BAYES_ADAPTIVE_CONTROL`.
+## V8 — finite belief + downstream decision value
 
-## V8 — finite belief state + decision value
-
-V8 maintains an explicit finite probability distribution over competing models, updates it only from declared real observations, prices experiments by expected downstream decision improvement, adds depth-1 belief-aware control, assumption-scoped linear/Wald/mediation estimators, bootstrap association stability, contingent policies, and spectral evidence diversity.
+Persistent finite model distributions, explicit Bayes observation updates, EVI, depth-1 belief control, bounded effect estimators, bootstrap structure stability, contingent policy and spectral evidence diversity.
 
 Resource: `athena://collective/v8`  
-Spec: `spec/COLLECTIVE_RUNTIME_V8.md`
-
-`p_i' = p_i L_i / Σ_j p_j L_j`.
-
-`EVI(e)=E_y[max_a EU(a|y,e)]-max_a EU(a)`.
-
 Coordinate: `COLLECTIVE_BELIEF=<BS,EVI,BD,CE,CB,CP,ER,L>`.
 
-`BELIEF_POSTERIOR != CANONICAL_TRUTH`; `EVI_DESIGN != RESULT`; `CAUSAL_ESTIMATE != IDENTIFICATION_PROOF`; `CONTINGENT_POLICY != EXECUTION_HISTORY`.
+`BELIEF_POSTERIOR != CANONICAL_TRUTH`; `LIKELIHOOD_MODEL != OBSERVATION`; `EVI_DESIGN != RESULT`.
 
-## V9 — continuous inference + robust causal decision value
+## V9 — continuous linear inference
 
-V9 extends the finite simplex into a tractable continuous Gaussian linear parameter belief, Monte-Carlo EVPI/EVSI, bounded multistage finite-belief policies, cross-fitted AIPW, leave-one-adjustment robustness, uncertainty-preserving partial graphs and declared evidence-dependence probability models.
+Finite-dimensional Gaussian parameter belief, Monte-Carlo EVPI/EVSI, bounded multistage finite-belief policies, cross-fitted AIPW, specification robustness, unresolved partial graph geometry and explicit evidence-dependence probability models.
 
 Resource: `athena://collective/v9`  
-Spec: `spec/COLLECTIVE_RUNTIME_V9.md`
-
-For linear observation `y=xᵀθ+ε`:
-
-`A'=A+wxxᵀ/σ²`, `b'=b+wxy/σ²`, `Σ'=A'⁻¹`, `μ'=Σ'b'`.
-
-AIPW score:
-
-`ψ=m1(X)-m0(X)+T(Y-m1(X))/e(X)-(1-T)(Y-m0(X))/(1-e(X))`.
-
 Coordinate: `COLLECTIVE_INFERENCE=<GB,EVPI,EVSI,MP,AIPW,RB,PG,ED,L>`.
 
-`GAUSSIAN_LINEAR_POSTERIOR != GENERAL_CONTINUOUS_BAYES`; `MONTE_CARLO_EVPI_EVSI != EXACT_ANALYTIC_VALUE`; `AIPW_ESTIMATE != IDENTIFICATION_PROOF`; `HEURISTIC_PARTIAL_GRAPH != FCI_PAG_OR_CPDAG_THEOREM`.
+For `y=x^T theta+epsilon`, natural-coordinate update is
+
+`A'=A+wxx^T/sigma^2`, `b'=b+wxy/sigma^2`, `Sigma'=A'^-1`, `mu'=Sigma'b'`.
+
+`GAUSSIAN_LINEAR_POSTERIOR != GENERAL_CONTINUOUS_BAYES`; `AIPW_ESTIMATE != IDENTIFICATION_PROOF`.
+
+## V10 — nonlinear probabilistic causal control
+
+V10 adds exact small-data fixed-RBF GP regression, bounded Gaussian PC-stable discovery, binary-treatment/binary-outcome TMLE, the standard risk-ratio E-value, exact bounded finite POMDP control and supervised evidence-dependence calibration.
+
+Resource: `athena://collective/v10`  
+Spec: `spec/COLLECTIVE_RUNTIME_V10.md`  
+Coordinate: `COLLECTIVE_PROBABILISTIC=<GP,PC,TM,SV,PM,ED,L>`.
+
+RBF GP:
+
+`k(x,z)=sigma_f^2 exp(-||x-z||^2/(2l^2))`
+
+`mu*=k_*^T(K+sigma_n^2 I)^-1 y`
+
+`var(f*)=k(x*,x*)-k_*^T(K+sigma_n^2 I)^-1 k_*`.
+
+Finite-POMDP Bellman recursion:
+
+`V_H(b)=max_a[R(b,a)+gamma sum_o P(o|b,a)V_(H-1)(tau(b,a,o))]`.
+
+`FIXED_KERNEL_GP != GENERAL_WORLD_TRUTH`; `BOUNDED_PC_STABLE != FCI_OR_HIDDEN_CONFOUNDER_DISCOVERY`; `TMLE_ESTIMATE != IDENTIFICATION_PROOF`; `FINITE_POMDP_CERTIFICATE != REAL_WORLD_OPTIMALITY`.
 
 ---
 
-# V10 — Probabilistic World Model + Causal Control
+# V11 — Adaptive World Model + Latent Causal Geometry
 
-V10 adds stronger nonlinear and causal machinery while keeping every claim scoped to the exact model that is actually executable in the dependency-free runtime.
+V11 attacks a different residual: model assumptions can now be *adapted or explicitly transformed* under witnessed constraints instead of remaining completely fixed.
 
-Resource: `athena://collective/v10`  
-Spec: `spec/COLLECTIVE_RUNTIME_V10.md`
+Resource: `athena://collective/v11`  
+Spec: `spec/COLLECTIVE_RUNTIME_V11.md`
 
-## ΩGP — fixed-kernel exact Gaussian process
+## ΩGP-HYPER — marginal-likelihood kernel adaptation
 
-Tools:
+Tool: `athena_gp_hyperfit`.
 
-- `athena_gp_register`
-- `athena_gp_state`
-- `athena_gp_observe`
-- `athena_gp_predict`
+For each finite candidate RBF hyperparameter tuple, V11 evaluates
 
-For fixed RBF kernel
+`log p(y|X,theta_K) = -1/2 y^T K_y^-1 y - 1/2 log|K_y| - n/2 log(2pi)`.
 
-`k(x,z)=σ_f² exp(-||x-z||²/(2ℓ²))`,
+The operation is design-only by default. Applying the winning candidate requires `apply=true` plus an exact `expected_observation_count`; stale GP state rejects. Hyperfit receipts are journaled in `collective_v11_gp_hyperfits`.
 
-V10 computes exact small-data GP regression for the stored observations:
+`MARGINAL_LIKELIHOOD_OPTIMUM != TRUE_KERNEL`.
 
-`μ*=k_*ᵀ(K+σ_n²I)⁻¹y`
+## ΩGP-EVSI — decision-valued measurement selection
 
-`var(f*)=k(x*,x*)-k_*ᵀ(K+σ_n²I)⁻¹k_*`.
+Tool: `athena_gp_decision_evsi`.
 
-Hyperparameters remain explicit/fixed and the scoped dataset is capped at 128 rows.
+For candidate measurement `e` and action point `a`, the conditional-Gaussian hypothetical posterior mean is
 
-`FIXED_KERNEL_GP != GENERAL_WORLD_TRUTH`; `GP_POSTERIOR != OBSERVATION`.
+`mu_a' = mu_a + Cov(f_a,f_e)/(Var(f_e)+sigma_e^2)*(y_e-mu_e)`.
 
-## ΩPC — bounded Gaussian PC-stable
+Monte Carlo predictive observations estimate the expected improvement in the best downstream action. Ethics, feasibility, cost and risk remain separate gates. The result is `GP_DECISION_EVSI_DESIGN_ONLY` and never creates training observations.
 
-Tool: `athena_pc_stable_discover`.
+`GP_DECISION_EVSI != OBSERVATION`.
 
-V10 performs stable-level Gaussian conditional-independence testing for up to 10 variables and conditioning depth up to 3, retaining separation sets, orienting supported collider motifs and applying bounded Meek R1/R2 closure.
+## ΩLATENT-PROJECTION — explicit hidden-variable geometry
 
-Fisher-z CI testing uses
+Tool: `athena_latent_project_admg`.
 
-`z=atanh(r)*sqrt(n-k-3)`.
+Given a **supplied** acyclic causal DAG plus explicit latent nodes, V11 projects it to an observed mixed graph. Latent-only internal directed paths produce observed directed edges; explicit common latent ancestors can produce bidirected edges. Endpoint marks remain visible.
 
-Output is `PC_STABLE_BOUNDED_PARTIAL_GRAPH`.
+This is a causal-model transform, not observational hidden-confounder discovery, and it never writes JSPACE.
 
-`BOUNDED_PC_STABLE != FCI_OR_HIDDEN_CONFOUNDER_DISCOVERY`; graph output never silently mutates JSPACE.
+`SUPPLIED_DAG_LATENT_PROJECTION != DATA_DISCOVERED_PAG`.
 
-## ΩTMLE
+## ΩSTACKED-TMLE — transparent nonlinear nuisance ensemble
 
-Tool: `athena_causal_tmle_binary`.
+Tool: `athena_causal_tmle_ensemble`.
 
-For binary treatment and binary outcome, V10 uses deterministic two-fold cross-fitting with logistic propensity and outcome nuisances, clever covariate
+The binary-treatment/binary-outcome TMLE now uses deterministic outer cross-fitting plus a small validation-weighted nuisance library containing simple, linear and degree-2 polynomial/interaction logistic candidates. Validation log loss creates visible ensemble weights; targeting and influence-curve uncertainty remain explicit.
 
-`H=T/e(X)-(1-T)/(1-e(X))`,
+`STACKED_TMLE != SUPER_LEARNER_THEOREM`; identification remains separate and declared latent-confounding risk fails closed.
 
-a one-dimensional logistic targeting fluctuation, targeted counterfactual predictions, an ATE, influence-curve standard error and 95% interval.
+## ΩSENSITIVITY-SURFACE
 
-`TMLE_ESTIMATE != IDENTIFICATION_PROOF`; declared latent-confounding risk fails closed.
+Tool: `athena_sensitivity_rr_surface`.
 
-## ΩSENSITIVITY — E-value
+For declared confounder-exposure and confounder-outcome strengths:
 
-Tool: `athena_sensitivity_evalue`.
+`BF = RR_EU*RR_UY/(RR_EU+RR_UY-1)`.
 
-For `RR>=1`:
+V11 returns the full two-dimensional bias-factor grid and identifies supplied combinations capable of shifting the observed association to the null under this model.
 
-`E=RR+sqrt(RR(RR-1))`.
+`RR_BIAS_FACTOR_SURFACE != UNIVERSAL_HIDDEN_CONFOUNDING_BOUND`.
 
-Protective risk ratios use the reciprocal; an optional closest-to-null CI limit is transformed separately.
+## ΩBA-POMDP — exact bounded model-uncertain control
 
-`E_VALUE != UNIVERSAL_HIDDEN_CONFOUNDING_BOUND`.
+Tool: `athena_bapomdp_solve`.
 
-## ΩPOMDP — exact bounded finite belief control
+V10 assumes one known finite POMDP. V11 introduces a static uncertain model index `M`, making the hidden state `(M,S)`. Observations update posterior mass over both model identity and physical hidden state while actions affect state transitions and rewards.
 
-Tool: `athena_pomdp_solve`.
+The exact bounded solver supports <=4 models, <=6 states, <=6 common actions, <=8 observation symbols, and horizon <=3. Exhaustive completion yields
 
-For a fully declared model with at most 8 states, 8 actions, 8 observations/action and horizon `H<=4`, V10 recursively enumerates action/observation branches and Bayes-updates hidden-state belief.
+`FINITE_MODEL_BAYES_ADAPTIVE_POMDP_EXACT_HORIZON_CERTIFIED`
 
-A completed search returns:
+with certificate
 
-`FINITE_POMDP_EXACT_HORIZON_CERTIFIED`
+`EXACT_FOR_SUPPLIED_STATIC_MODEL_SET_STATE_SPACE_ACTIONS_OBSERVATIONS_AND_HORIZON`.
 
-with
+Node-limited search gets no certificate. Every result is `PLAN_ONLY`.
 
-`EXACT_FOR_SUPPLIED_FINITE_MODEL_AND_HORIZON`.
+`FINITE_MODEL_BAPOMDP != GENERAL_BAYES_ADAPTIVE_CONTROL`.
 
-Node-limit termination returns no exact certificate. All results are `PLAN_ONLY`.
+## ΩDEPENDENCE-UNCERTAINTY
 
-`FINITE_POMDP_CERTIFICATE != INFINITE_HORIZON_OR_REAL_WORLD_OPTIMALITY`.
+Tool: `athena_evidence_dependence_interval`.
 
-## ΩDEPENDENCE-CALIBRATION
+V10 fits evidence-dependence logistic coefficients from external labels. V11 reconstructs a regularized observed-information/Hessian matrix and uses a Laplace approximation for query-logit uncertainty:
 
-Tools:
+`Var(eta) ~= phi^T H^-1 phi`.
 
-- `athena_evidence_dependence_observe`
-- `athena_evidence_dependence_fit`
-- `athena_evidence_dependence_predict`
+The interval is transformed through the sigmoid. It remains conditional on the model and labelled calibration sample.
 
-Unlike V9's caller-declared coefficient surface, V10 can fit a scoped logistic dependence model from at least 20 **externally labelled** evidence-pair examples with a complete feature schema:
+`LAPLACE_DEPENDENCE_INTERVAL != CALIBRATED_COVERAGE_GUARANTEE`.
 
-`P(dep=1|z)=sigmoid(β₀+βᵀz)`.
+## V11 coordinate
 
-Prediction never creates labels or retrains the model. Training log loss/accuracy remain visible.
+`COLLECTIVE_ADAPTIVE=<GH,GV,LP,SL,SS,BP,EU,L>`
 
-`LEARNED_DEPENDENCE_MODEL != FORMAL_INDEPENDENCE_PROOF`.
-
-## V10 coordinate
-
-`COLLECTIVE_PROBABILISTIC=<GP,PC,TM,SV,PM,ED,L>`
-
-- `GP`: Gaussian-process posterior state
-- `PC`: bounded PC-stable graph hypothesis
-- `TM`: TMLE estimate
-- `SV`: sensitivity/E-value surface
-- `PM`: finite-POMDP plan/certificate
-- `ED`: calibrated evidence-dependence state
+- `GH`: GP hyperparameter adaptation
+- `GV`: GP decision-value measurement state
+- `LP`: supplied latent-projection geometry
+- `SL`: stacked TMLE state
+- `SS`: sensitivity surface
+- `BP`: finite-model Bayes-adaptive policy/certificate
+- `EU`: evidence-dependence uncertainty
 - `L`: lineage/native context
 
-## V10 firewall
+## V11 firewall
 
-- `FIXED_KERNEL_GP != GENERAL_WORLD_TRUTH`
-- `GP_POSTERIOR != OBSERVATION`
-- `BOUNDED_PC_STABLE != FCI_OR_HIDDEN_CONFOUNDER_DISCOVERY`
-- `TMLE_ESTIMATE != IDENTIFICATION_PROOF`
-- `E_VALUE != UNIVERSAL_HIDDEN_CONFOUNDING_BOUND`
-- `FINITE_POMDP_CERTIFICATE != INFINITE_HORIZON_OR_REAL_WORLD_OPTIMALITY`
-- `LEARNED_DEPENDENCE_MODEL != FORMAL_INDEPENDENCE_PROOF`
+- `MARGINAL_LIKELIHOOD_OPTIMUM != TRUE_KERNEL`
+- `GP_DECISION_EVSI != OBSERVATION`
+- `SUPPLIED_DAG_LATENT_PROJECTION != DATA_DISCOVERED_PAG`
+- `STACKED_TMLE != SUPER_LEARNER_THEOREM`
+- `RR_BIAS_FACTOR_SURFACE != UNIVERSAL_HIDDEN_CONFOUNDING_BOUND`
+- `FINITE_MODEL_BAPOMDP != GENERAL_BAYES_ADAPTIVE_CONTROL`
+- `LAPLACE_DEPENDENCE_INTERVAL != CALIBRATED_COVERAGE_GUARANTEE`
+- `MODEL_EXACTNESS != MODEL_CORRECTNESS`
 
 ## Run
 
 `python -m athena_mcp --db ./state/athena.db`
 
-MCP server package: `athena-canonical-mcp 2.9.0`  
+MCP server package: `athena-canonical-mcp 3.0.0`  
 MCP protocol revision: `2025-11-25`.
