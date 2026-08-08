@@ -45,10 +45,12 @@ from .agent_bootstrap import (
     AGENT_BOOT_TOOL_NAMES,
     AgentBootstrapRuntime,
 )
+from .agent_bootstrap_consistency import install_bootstrap_consistency
 
 # Patch runtime behavior only. The canonical V1 five-tool rehydration membrane is
 # immutable; V1.1 preview tools are registered in their own additive namespace.
 install_successor_extension(RehydrationLoopRuntime)
+install_bootstrap_consistency(AgentBootstrapRuntime)
 
 # Extend only the advance completion schema. Do not mutate REHYDRATION_TOOL_NAMES.
 for _tool in REHYDRATION_TOOLS:
