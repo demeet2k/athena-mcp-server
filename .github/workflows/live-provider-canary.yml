@@ -1,0 +1,35 @@
+name: Live Provider Canary
+
+on:
+  push:
+    branches:
+      - agent/frontier-claim-live-canary-df4d4143
+    paths:
+      - .github/workflows/live-provider-canary.yml
+
+permissions:
+  contents: write
+
+jobs:
+  live-provider-canary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TARGET_BRANCH: agent/frontier-claim-live-target-df4d4143
+      TARGET_RUN_ID: run.live-provider-canary.df4d4143
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Exercise create / idempotent readback / collision
+        run: PYTHONPATH=. python tools/live_provider_canary.py
+      - name: Upload sanitized witness
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-provider-canary-witness-df4d4143
+          path: live-provider-canary-witness.json
+          if-no-files-found: error
+          retention-days: 7
