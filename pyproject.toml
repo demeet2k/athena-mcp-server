@@ -10,7 +10,8 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.scripts]
-athena-mcp = "athena_mcp.server:main"
+athena-mcp = "athena_mcp.party_server:main"
+athena-core-mcp = "athena_mcp.server:main"
 
 [tool.setuptools.packages.find]
 include = ["athena_mcp*"]
