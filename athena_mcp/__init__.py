@@ -2,8 +2,10 @@
 
 `protocol.py` remains the mature schema registry. Package initialization owns the
 release identity and patches compatibility surfaces before dispatch observes them.
-Frontier V1 is registered as an explicit extension of the Git prompt runtime so it
-reuses the existing MCP dispatcher rather than creating a second control plane.
+Frontier V1 and the rehydration-loop V1 harness are explicit extensions of the
+Git prompt runtime so they reuse the existing MCP dispatcher, prompt CAS, remote
+freshness membrane, and authority boundaries instead of creating another control
+plane.
 """
 
 __version__ = "3.2.0"
@@ -21,11 +23,17 @@ SERVER_INFO = {
 
 _protocol.SERVER_INFO = dict(SERVER_INFO)
 
-# Prompt × frontier braid registration.  The dispatcher already routes the
+# Prompt × frontier braid registration. The dispatcher already routes the
 # PROMPT_RUNTIME_TOOL_NAMES family through PromptRuntime.call_tool, so frontier
-# tools extend that family rather than duplicating dispatch/state/authority code.
+# and rehydration tools extend that family rather than duplicating dispatch,
+# state, authority, or remote-delivery code.
 from .prompt_runtime import PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES
 from .frontier_runtime import FrontierRuntime, FRONTIER_TOOLS, FRONTIER_TOOL_NAMES
+from .rehydration_loop import (
+    REHYDRATION_TOOLS,
+    REHYDRATION_TOOL_NAMES,
+    RehydrationLoopRuntime,
+)
 
 # The prompt stack is a content-policy coordinate, not a synonym for repository
 # time. Keep git_head in ancestry for provenance while excluding it from the
@@ -86,7 +94,7 @@ if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
     FrontierRuntime.hydrate = _frontier_hydrate_content_digest
     FrontierRuntime._athena_content_digest_v1_registered = True
 
-for _tool in FRONTIER_TOOLS:
+for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
         PROMPT_RUNTIME_TOOLS.append(_tool)
         PROMPT_RUNTIME_TOOL_NAMES.add(_tool["name"])
@@ -107,3 +115,18 @@ if not getattr(PromptRuntime, "_athena_frontier_v1_registered", False):
 
     PromptRuntime.call_tool = _prompt_call_with_frontier
     PromptRuntime._athena_frontier_v1_registered = True
+
+if not getattr(PromptRuntime, "_athena_rehydration_loop_v1_registered", False):
+    _prompt_call_without_rehydration = PromptRuntime.call_tool
+
+    def _prompt_call_with_rehydration(self, name, arguments):
+        if name in REHYDRATION_TOOL_NAMES:
+            runtime = getattr(self, "_rehydration_loop_runtime_v1", None)
+            if runtime is None:
+                runtime = RehydrationLoopRuntime(self.git, self)
+                self._rehydration_loop_runtime_v1 = runtime
+            return runtime.call_tool(name, arguments)
+        return _prompt_call_without_rehydration(self, name, arguments)
+
+    PromptRuntime.call_tool = _prompt_call_with_rehydration
+    PromptRuntime._athena_rehydration_loop_v1_registered = True
