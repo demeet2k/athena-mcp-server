@@ -19,9 +19,18 @@ from .kc144_registry_pack import manifest as registry_manifest
 from .kc144_registry_pack import query_registry, source_bundle as registry_source_bundle
 from .kc144_registry_pack import status as registry_status, verify_pack
 from .kc144_registry_protocol import REGISTRY_RESOURCES, REGISTRY_TOOLS
+from .kc144_polyatlas import gid_decompositions as polyatlas_decompositions
+from .kc144_polyatlas import manifest as polyatlas_manifest
+from .kc144_polyatlas import polyatlas_route
+from .kc144_polyatlas import resolution_family, resolution_transport
+from .kc144_polyatlas import rosetta_address
+from .kc144_polyatlas import sphere_atlas, sphere_cell
+from .kc144_polyatlas import status as polyatlas_status
+from .kc144_polyatlas import validate as polyatlas_validate
+from .kc144_polyatlas_protocol import POLYATLAS_RESOURCES, POLYATLAS_TOOLS
 
 _existing_tools = {item["name"] for item in TOOLS}
-for tool in HUB_TOOLS + REGISTRY_TOOLS:
+for tool in HUB_TOOLS + REGISTRY_TOOLS + POLYATLAS_TOOLS:
     if tool["name"] not in _existing_tools:
         TOOLS.append(tool)
         _existing_tools.add(tool["name"])
@@ -41,7 +50,7 @@ class HubServer(UnifiedServer):
             runtime_probe=self._runtime_probe,
             resource_uris=[
                 item["uri"]
-                for item in AOR_DEVELOPMENT_RESOURCES + HUB_RESOURCES + REGISTRY_RESOURCES
+                for item in AOR_DEVELOPMENT_RESOURCES + HUB_RESOURCES + REGISTRY_RESOURCES + POLYATLAS_RESOURCES
             ],
         )
 
@@ -73,13 +82,21 @@ class HubServer(UnifiedServer):
         if name == "athena_kc144_hub_status":
             result = self._remove_discharged_field_blocker(hub.status())
             result["authoritative_registry_pack"] = registry_status()
+            result["polyatlas"] = polyatlas_status()
             return result
         if name == "athena_kc144_hub_manifest":
             result = hub.manifest(arguments.get("include_edges", False), arguments.get("include_dynamic_inventory", True))
             result["authoritative_registry_pack"] = registry_status()
+            result["polyatlas"] = polyatlas_manifest()
             return result
         if name == "athena_kc144_hub_seat":
-            return hub.seat(arguments["gid"], arguments.get("include_fibres", True))
+            gid = arguments["gid"]
+            result = hub.seat(gid, arguments.get("include_fibres", True))
+            result["polyatlas"] = {
+                "decompositions": polyatlas_decompositions(gid),
+                "sphere": sphere_cell(gid),
+            }
+            return result
         if name == "athena_kc144_hub_inventory":
             return hub.inventory(arguments.get("kind"), arguments.get("state"), arguments.get("gid"), arguments.get("query"), arguments.get("limit", 1000))
         if name == "athena_kc144_hub_graph":
@@ -93,14 +110,63 @@ class HubServer(UnifiedServer):
         if name == "athena_kc144_hub_readiness":
             result = self._remove_discharged_field_blocker(hub.readiness())
             result["authoritative_registry_pack"] = registry_status()
+            result["polyatlas"] = polyatlas_status()
             return result
         if name == "athena_kc144_hub_validate":
             result = hub.validate()
             pack = verify_pack(deep=True)
             result["authoritative_registry_pack"] = pack
-            if pack["status"] != "PASS":
+            atlas = polyatlas_validate(include_details=False)
+            result["polyatlas"] = atlas
+            if pack["status"] != "PASS" or atlas["status"] != "PASS":
                 result["overall_status"] = "FAIL"
             return result
+
+        if name == "athena_kc144_polyatlas_status":
+            return polyatlas_status()
+        if name == "athena_kc144_polyatlas_manifest":
+            return polyatlas_manifest()
+        if name == "athena_kc144_polyatlas_seat":
+            gid = arguments["gid"]
+            return {
+                "version": polyatlas_status()["version"],
+                "gid": gid,
+                "decompositions": polyatlas_decompositions(gid),
+                "sphere": sphere_cell(gid, radius=arguments.get("radius", 1.0)),
+            }
+        if name == "athena_kc144_polyatlas_rosetta":
+            return rosetta_address(
+                arguments["chapter"],
+                arguments["shelf"],
+                conjugate=arguments.get("conjugate", 0),
+                element=arguments.get("element", 0),
+                target_resolution=arguments.get("target_resolution", 21),
+            )
+        if name == "athena_kc144_resolution_transport":
+            return resolution_transport(
+                arguments["source_resolution"],
+                arguments["target_resolution"],
+                arguments["station"],
+            )
+        if name == "athena_kc144_resolution_family":
+            return resolution_family(
+                start_multiplier=arguments.get("start_multiplier", 1),
+                count=arguments.get("count", 10),
+            )
+        if name == "athena_kc144_sphere_atlas":
+            return sphere_atlas(
+                offset=arguments.get("offset", 0),
+                limit=arguments.get("limit", 144),
+                radius=arguments.get("radius", 1.0),
+            )
+        if name == "athena_kc144_polyatlas_route":
+            return polyatlas_route(
+                arguments["src"],
+                arguments["dst"],
+                layers=arguments.get("layers"),
+            )
+        if name == "athena_kc144_polyatlas_validate":
+            return polyatlas_validate(include_details=arguments.get("include_details", True))
 
         if name == "athena_kc144_registry_status":
             return registry_status(verify=arguments.get("verify", False))
@@ -143,6 +209,7 @@ class HubServer(UnifiedServer):
             result = super().call_tool(name, arguments)
             result["kc144_command_hub"] = self._remove_discharged_field_blocker(hub.status())
             result["kc144_registry_pack"] = registry_status()
+            result["kc144_polyatlas"] = polyatlas_status()
             return result
         return super().call_tool(name, arguments)
 
