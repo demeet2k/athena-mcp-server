@@ -10,6 +10,8 @@ from .git_backend import GitBackend, GitStaleHead, GitStateError
 from .crystal_runtime import CrystalRuntime
 from .orchestration_branch import BranchLedger
 from .orchestration_branch_protocol import BRANCH_RESOURCE, BRANCH_TOOLS, BRANCH_TOOL_NAMES
+from .orchestration_robustness import successor_robustness
+from .orchestration_robustness_protocol import ROBUSTNESS_RESOURCE, ROBUSTNESS_TOOLS, ROBUSTNESS_TOOL_NAMES
 from .orchestration_runtime import OrchestrationRuntime
 
 from .protocol import PROTOCOL_VERSION, SERVER_INFO, TOOLS, PROMPTS
@@ -26,7 +28,7 @@ class Server:
     def __init__(self,db,git_root=None):
         self.store=Store(db); self.core=AthenaCore(self.store); bootstrap(self.core); self.crystal=CrystalRuntime(self.core); self.branches=BranchLedger(self.core); self.orchestration=OrchestrationRuntime(self.core,self.branches); self.rate=RateLimiter()
         self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'), autocommit=False)
-        self._branch_tools={tool['name']:tool for tool in BRANCH_TOOLS}
+        self._branch_tools={tool['name']:tool for tool in BRANCH_TOOLS}; self._robustness_tools={tool['name']:tool for tool in ROBUSTNESS_TOOLS}
     def result(self,id,result): return {"jsonrpc":"2.0","id":id,"result":result}
     def error(self,id,code,msg,data=None):
         e={"code":code,"message":msg};
@@ -54,6 +56,9 @@ class Server:
         if name=='athena_orchestrate': return self.orchestration.compile(seed=a['seed'],candidates=a.get('candidates'),residuals=a.get('residuals'),budget=a.get('budget'),metric_contract=a.get('metric_contract'),actor=a.get('actor','agent'),task=a.get('task',''),session_id=a.get('session_id'),persist=a.get('persist',True))
         if name=='athena_orchestration_get': return self.orchestration.get(a['run_id'])
         if name=='athena_orchestration_replay': return self.orchestration.replay(a['run_id'])
+        if name=='athena_orchestration_robustness':
+            stored=self.orchestration.get(a['run_id']); rows=stored['output'].get('budgeted_successor_frontier') or stored['output'].get('successor_frontier') or []
+            result=successor_robustness(rows,a.get('relative_perturbation',0.05)); result['run_id']=a['run_id']; result['decision_digest']=stored['decision_digest']; return result
         if name=='athena_session_start': return c.session_start(a['agent'],a['task'],self.git.head() if self.git.enabled else None)
         if name=='athena_session_end':
             gh=self.git.head() if self.git.enabled else None
@@ -79,36 +84,30 @@ class Server:
             r=c.benchmark(); r.update(self.crystal.benchmark_extension()); r.update(self.orchestration.benchmark()); r.update(self.branches.benchmark()); r['git']=self.git.status(); return r
         raise KeyError(name)
     def _branch_resource_value(self):
-        return {
-            "law": {
-                "statuses":["ACTIVE","HIBERNATED","REVIEW"],
-                "observation":"calibrated reward + verified witness",
-                "triggers":["new_evidence","new_gap","bridge_demand"],
-                "hibernate_is_erase":False,
-                "resurrection":"HIBERNATED -> REVIEW on verified trigger; REVIEW/HIBERNATED -> ACTIVE only after witnessed reward threshold",
-            },
-            "branches":self.branches.list(limit=200),
-            "benchmark":self.branches.benchmark(),
-        }
+        return {"law":{"statuses":["ACTIVE","HIBERNATED","REVIEW"],"observation":"calibrated reward + verified witness","triggers":["new_evidence","new_gap","bridge_demand"],"hibernate_is_erase":False,"resurrection":"HIBERNATED -> REVIEW on verified trigger; REVIEW/HIBERNATED -> ACTIVE only after witnessed reward threshold"},"branches":self.branches.list(limit=200),"benchmark":self.branches.benchmark()}
+    def _robustness_resource_value(self):
+        return {"version":"ROBUSTNESS.1","score_law":"S=delta_j*information_gain*bridge*option_value/cost","critical_perturbation":"eps*=(q^(1/5)-1)/(q^(1/5)+1), q=S1/S2 for positive top-two scores","boundary":"local rank sensitivity only; no truth probability or causal claim"}
     def handle(self,m):
         from .dispatch import handle
         method=m.get('method'); params=m.get('params') or {}; mid=m.get('id')
         if method=='tools/list':
-            base=handle(self,m); tools=list(base['result']['tools'])+list(BRANCH_TOOLS); base['result']['tools']=sorted({tool['name']:tool for tool in tools}.values(),key=lambda x:x['name']); return base
-        if method=='tools/call' and params.get('name') in BRANCH_TOOL_NAMES:
-            name=params['name']; args=params.get('arguments') or {}
+            base=handle(self,m); tools=list(base['result']['tools'])+list(BRANCH_TOOLS)+list(ROBUSTNESS_TOOLS); base['result']['tools']=sorted({tool['name']:tool for tool in tools}.values(),key=lambda x:x['name']); return base
+        if method=='tools/call' and params.get('name') in BRANCH_TOOL_NAMES|ROBUSTNESS_TOOL_NAMES:
+            name=params['name']; args=params.get('arguments') or {}; schemas={**self._branch_tools,**self._robustness_tools}
             if not self.rate.allow(name): return self.result(mid,{"content":[{"type":"text","text":"Rate limit exceeded; retry later."}],"isError":True})
             try:
-                validate(self._branch_tools[name]['inputSchema'],args); value=self.call_tool(name,args)
+                validate(schemas[name]['inputSchema'],args); value=self.call_tool(name,args)
                 return self.result(mid,{"content":[{"type":"text","text":json.dumps(value,ensure_ascii=False,sort_keys=True)}],"structuredContent":value,"isError":False})
-            except (ValueError,KeyError) as exc:
-                return self.result(mid,{"content":[{"type":"text","text":str(exc)}],"isError":True})
+            except (ValueError,KeyError) as exc: return self.result(mid,{"content":[{"type":"text","text":str(exc)}],"isError":True})
         if method=='resources/list':
-            base=handle(self,m); resources=list(base['result']['resources']);
-            if BRANCH_RESOURCE['uri'] not in {r['uri'] for r in resources}: resources.append(BRANCH_RESOURCE)
+            base=handle(self,m); resources=list(base['result']['resources']); known={r['uri'] for r in resources}
+            for resource in (BRANCH_RESOURCE,ROBUSTNESS_RESOURCE):
+                if resource['uri'] not in known: resources.append(resource)
             base['result']['resources']=resources; return base
         if method=='resources/read' and params.get('uri')==BRANCH_RESOURCE['uri']:
             value=self._branch_resource_value(); return self.result(mid,{"contents":[{"uri":BRANCH_RESOURCE['uri'],"mimeType":"application/json","text":json.dumps(value,ensure_ascii=False,sort_keys=True)}]})
+        if method=='resources/read' and params.get('uri')==ROBUSTNESS_RESOURCE['uri']:
+            value=self._robustness_resource_value(); return self.result(mid,{"contents":[{"uri":ROBUSTNESS_RESOURCE['uri'],"mimeType":"application/json","text":json.dumps(value,ensure_ascii=False,sort_keys=True)}]})
         return handle(self,m)
 
 def main(argv=None):
