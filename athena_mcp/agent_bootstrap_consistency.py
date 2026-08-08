@@ -176,6 +176,15 @@ def _current_operational_basis() -> dict:
 
 
 def _install_capability_basis(runtime_cls) -> None:
+    """Install basis observation without assuming the full AgentBootstrap ABI.
+
+    The consistency installer is also exercised against intentionally minimal
+    dummy runtimes. Bootstrap is required; refresh and prior call_tool are
+    optional compatibility surfaces. Capability-basis registration therefore
+    must preserve those narrower classes instead of widening their interface
+    assumptions as a side effect of installation.
+    """
+
     _register_capability_basis_tool()
 
     if BASIS_ADDRESS_KEY not in _boot._ADDRESS_KEYS:
@@ -186,8 +195,8 @@ def _install_capability_basis(runtime_cls) -> None:
         return
 
     original_bootstrap = runtime_cls.bootstrap
-    original_refresh = runtime_cls.refresh
-    original_call_tool = runtime_cls.call_tool
+    original_refresh = getattr(runtime_cls, "refresh", None)
+    original_call_tool = getattr(runtime_cls, "call_tool", None)
 
     def bootstrap_with_operational_basis(self, *args, **kwargs):
         packet = original_bootstrap(self, *args, **kwargs)
@@ -223,26 +232,31 @@ def _install_capability_basis(runtime_cls) -> None:
             self._sessions[session_id]["address"] = dict(address)
         return packet
 
-    def refresh_with_operational_basis(self, *args, **kwargs):
-        packet = original_refresh(self, *args, **kwargs)
-        refresh = packet.get("refresh")
-        if isinstance(refresh, dict):
-            changed = refresh.get("changed") or {}
-            affected = list(refresh.get("affected_dependency_cone") or [])
-            if changed.get(BASIS_ADDRESS_KEY) and "operational_basis" not in affected:
-                affected.append("operational_basis")
-            refresh["affected_dependency_cone"] = affected
-            refresh["operational_basis_changed"] = bool(changed.get(BASIS_ADDRESS_KEY))
-            refresh["requires_replan"] = any(bool(value) for value in changed.values())
-        return packet
+    runtime_cls.bootstrap = bootstrap_with_operational_basis
+
+    if original_refresh is not None:
+        def refresh_with_operational_basis(self, *args, **kwargs):
+            packet = original_refresh(self, *args, **kwargs)
+            refresh = packet.get("refresh")
+            if isinstance(refresh, dict):
+                changed = refresh.get("changed") or {}
+                affected = list(refresh.get("affected_dependency_cone") or [])
+                if changed.get(BASIS_ADDRESS_KEY) and "operational_basis" not in affected:
+                    affected.append("operational_basis")
+                refresh["affected_dependency_cone"] = affected
+                refresh["operational_basis_changed"] = bool(changed.get(BASIS_ADDRESS_KEY))
+                refresh["requires_replan"] = any(bool(value) for value in changed.values())
+            return packet
+
+        runtime_cls.refresh = refresh_with_operational_basis
 
     def call_tool_with_operational_basis(self, name: str, arguments: dict):
         if name in CAPABILITY_BASIS_TOOL_NAMES:
             return _current_operational_basis()
+        if original_call_tool is None:
+            raise KeyError(name)
         return original_call_tool(self, name, arguments)
 
-    runtime_cls.bootstrap = bootstrap_with_operational_basis
-    runtime_cls.refresh = refresh_with_operational_basis
     runtime_cls.call_tool = call_tool_with_operational_basis
     setattr(runtime_cls, flag, True)
 
