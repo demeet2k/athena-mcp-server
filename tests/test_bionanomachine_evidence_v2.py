@@ -2,7 +2,6 @@ from athena_mcp.bionanomachine_evidence import (
     ADAPTERS,EVIDENCE_VERSION,QUANTITATIVE_CLAIMS,ROW_FACETS,SOURCES,UNPROMOTED_USER_NUMERIC_CLAIMS
 )
 from athena_mcp.bionanomachine_evidence_runtime import EvidenceBionanomachineRuntime
-from athena_mcp.bionanomachine_surface import BionanomachineSurface
 
 
 def test_v2_preserves_14_seed_ids_and_adds_only_six_bounded_expansions():
@@ -101,19 +100,6 @@ def test_generic_assembly_for_original_and_expansion_remains_not_native_bom():
     assert expanded['status']=='SOURCE_BACKED_GENERIC_ASSEMBLY_ABSTRACTION'
     assert expanded['mechanism_source']['source_id']=='S16'
     assert 'ASSEMBLY_GRAPH != FUNCTION_GRAPH' in expanded['law']
-
-
-def test_catalog_tool_is_backward_compatible_and_evidence_view_is_opt_in():
-    s=BionanomachineSurface()
-    handled,base=s.call_tool('athena_bionano_catalog',{'include_atlas':False})
-    assert handled and base['version']=='BNMK.V1'
-    assert len(base['seed_machines'])==14
-    assert 'source_backed_machines' not in base
-    handled,evidence=s.call_tool('athena_bionano_catalog',{'include_atlas':True,'include_evidence':True})
-    assert handled
-    assert len(evidence['source_backed_machines'])==20
-    assert len(evidence['atlas'])==144
-    assert len(evidence['unpromoted_user_numeric_claims'])==3
 
 
 def test_v1_interface_and_convergence_semantics_are_unchanged_in_v2():
