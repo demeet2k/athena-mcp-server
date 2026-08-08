@@ -10,6 +10,7 @@ from .collective_science import CollectiveScienceRuntime
 from .collective_discovery import CollectiveDiscoveryRuntime
 from .collective_dual_control import CollectiveDualControlRuntime
 from .collective_belief import CollectiveBeliefRuntime
+from .collective_inference import CollectiveInferenceRuntime
 
 def _meter(server,name,started,status):
     try:
@@ -28,6 +29,9 @@ def _dual(server):
 
 def _belief(server):
     return CollectiveBeliefRuntime(_dual(server))
+
+def _inference(server):
+    return CollectiveInferenceRuntime(_belief(server))
 
 def handle(server,m):
     mid=m.get('id'); method=m.get('method'); params=m.get('params') or {}
@@ -81,10 +85,11 @@ def handle(server,m):
             {"uri":"athena://collective/v6","name":"Collective Runtime V6 / nonlinear-OOD-experiment generation-causal ID-higher interactions-stochastic control-certificates-science shadows","mimeType":"application/json"},
             {"uri":"athena://collective/v7","name":"Collective Runtime V7 / uncertainty decomposition-prequential bands-causal skeleton-state models-scenarios-dual control-frontdoor-IV-replication independence","mimeType":"application/json"},
             {"uri":"athena://collective/v8","name":"Collective Runtime V8 / finite beliefs-EVI-belief dual control-effect estimates-bootstrap graph-contingent policy-spectral evidence diversity","mimeType":"application/json"},
+            {"uri":"athena://collective/v9","name":"Collective Runtime V9 / Gaussian beliefs-EVPI-EVSI-multistage belief policies-AIPW-robustness-partial graphs-evidence dependence","mimeType":"application/json"},
         ]; return server.result(mid,{"resources":rs})
     if method=='resources/read':
         uri=params.get('uri'); c=server.core
-        if uri=='athena://manifest': val={"name":"ATHENA","protocol":PROTOCOL_VERSION,"layers":["GIT_LEDGER","CCR","JSPACE","SCALE","KC144","POLYCOORDINATE_ATLAS","MATH_REGISTRY","COLLECTIVE_RUNTIME","COLLECTIVE_GROWTH","COLLECTIVE_MEMORY","COLLECTIVE_LEARNING","COLLECTIVE_ECOLOGY","COLLECTIVE_SCIENCE","COLLECTIVE_DISCOVERY","COLLECTIVE_DUAL_CONTROL","COLLECTIVE_BELIEF","RUNTIME"],"identity":"SID!=OID!=MID!=VID!=CID!=EID!=CRYS","mutation":"EXPECTED_VID==CURRENT_VID else STALE_TARGET; policy/topology/projection writes retain separate CAS/recovery authority; V7/V8 belief, estimator, structure-bootstrap, scenario and planning state has no independent canonical mutation authority","output_law":"VISIBLE_OUTPUT -> FINALIZE_OUTPUT -> ENV(HEADER+BODY) with exact addressable emission manifestation","transform_law":"LOOKUP != DERIVATION; holonomy only promotes all-derivational loops","collective_law":"MAX_GROWTH != MAX_ACTIVITY; PREDICTION != OBSERVATION; POSTERIOR/BELIEF != TRUTH; OOD != FALSEHOOD; EIG/EVI DESIGN != EVIDENCE; ASSOCIATION/BOOTSTRAP STABILITY != CAUSAL DAG; CAUSAL ESTIMATE != IDENTIFICATION PROOF; BACKDOOR/FRONTDOOR/IV identification is conditional on supplied graph assumptions; STATE_MODEL != WORLD; SCENARIO/CONTINGENT POLICY != OBSERVED HISTORY; DUAL_CONTROL/BELIEF_CONTROL != EXACT BAYES-ADAPTIVE CONTROL; EVIDENCE EFFECTIVE-RANK != INDEPENDENCE PROOF"}
+        if uri=='athena://manifest': val={"name":"ATHENA","protocol":PROTOCOL_VERSION,"layers":["GIT_LEDGER","CCR","JSPACE","SCALE","KC144","POLYCOORDINATE_ATLAS","MATH_REGISTRY","COLLECTIVE_RUNTIME","COLLECTIVE_GROWTH","COLLECTIVE_MEMORY","COLLECTIVE_LEARNING","COLLECTIVE_ECOLOGY","COLLECTIVE_SCIENCE","COLLECTIVE_DISCOVERY","COLLECTIVE_DUAL_CONTROL","COLLECTIVE_BELIEF","COLLECTIVE_INFERENCE","RUNTIME"],"identity":"SID!=OID!=MID!=VID!=CID!=EID!=CRYS","mutation":"EXPECTED_VID==CURRENT_VID else STALE_TARGET; policy/topology/projection writes retain separate CAS/recovery authority; V7-V9 belief, estimator, graph-hypothesis, scenario and planning state has no independent canonical mutation authority","output_law":"VISIBLE_OUTPUT -> FINALIZE_OUTPUT -> ENV(HEADER+BODY) with exact addressable emission manifestation","transform_law":"LOOKUP != DERIVATION; holonomy only promotes all-derivational loops","collective_law":"PREDICTION != OBSERVATION; POSTERIOR/BELIEF != TRUTH; GAUSSIAN_LINEAR_POSTERIOR != GENERAL_CONTINUOUS_BAYES; EVPI/EVSI are model-conditional Monte Carlo estimates; AIPW != IDENTIFICATION_PROOF; HEURISTIC_PARTIAL_GRAPH != PAG/FCI THEOREM; EVIDENCE_DEPENDENCE_MODEL != FORMAL_INDEPENDENCE; PLAN != EXECUTION"}
         elif uri=='athena://kc144/stations': val=json.loads(station_manifest())
         elif uri=='athena://state/head': val=c.s.head('global') or {}
         elif uri=='athena://registry': val=c.s.rows("SELECT * FROM objects ORDER BY canonical_name")
@@ -105,35 +110,31 @@ def handle(server,m):
         elif uri=='athena://collective/v6': val={"runtime":_discovery(server).describe()}
         elif uri=='athena://collective/v7': val={"runtime":_dual(server).describe()}
         elif uri=='athena://collective/v8': val={"runtime":_belief(server).describe()}
+        elif uri=='athena://collective/v9': val={"runtime":_inference(server).describe()}
         else:return server.error(mid,-32002,"Resource not found",{"uri":uri})
         return server.result(mid,{"contents":[{"uri":uri,"mimeType":"application/json","text":json.dumps(val,ensure_ascii=False,sort_keys=True)}]})
     if method=='prompts/list': return server.result(mid,{"prompts":PROMPTS})
     if method=='prompts/get':
         if params.get('name')!='athena_maxdev': return server.error(mid,-32602,"Unknown prompt")
         a=params.get('arguments') or {}; task=a.get('task',''); agent=a.get('agent','ATHENA')
-        text=f"""ATHENA MAXDEV CRYSTAL CYCLE — FINITE BELIEF STATE + DECISION VALUE V8
+        text=f"""ATHENA MAXDEV CRYSTAL CYCLE — CONTINUOUS INFERENCE + ROBUST CAUSAL DECISION VALUE V9
 AGENT={agent}
 TASK={task}
-1 HYDRATE exact canonical state and applicable global mutations. Select the minimum sufficient runtime depth; maximum capability does not require maximum machinery on every task.
-2 Reconstruct JSPACE/SCALE/KC144/polycoordinate lineage and exact semantic/Git/topology/policy heads. UNKNOWN != N/A; UNKNOWN_COST != ZERO_COST; model belief never outranks canonical semantic authority.
-3 Compute CUT/LM. Use V1–V7 when sufficient. Enter V8 only when explicit competing model beliefs, decision value of information, assumption-scoped effect estimation, structure stability, contingent action design or evidence redundancy materially changes the next decision.
-4 For explicit model uncertainty, register/read `athena_belief_register` / `athena_belief_state`. Belief probabilities are a finite model state, not canonical truth.
-5 Update belief only after an actual declared observation with `athena_belief_observe`, supplying a likelihood for every model and retaining an evidence reference. Planning/EVI/contingent-policy calls never update belief themselves.
-6 When the purpose of an experiment is downstream decision improvement, use `athena_decision_evi` rather than entropy alone. EVI = expected optimal post-information utility minus current optimal utility, under the supplied finite model/action/outcome assumptions. DESIGN_ONLY; ethics, cost, risk and feasibility remain separate gates.
-7 Use `athena_belief_dual_control` only when immediate utility, future decision utility and information value genuinely trade off. It is a depth-1 finite-belief proxy, PLAN_ONLY, not a Bayes-adaptive POMDP solution.
-8 Use V6/V7 causal identification before causal estimation. `athena_causal_effect_estimate` may estimate BACKDOOR_LINEAR, IV_WALD or FRONTDOOR_LINEAR effects only under explicit assumptions. Estimation does not establish identification; latent-confounding risk fails closed.
-9 Use `athena_causal_structure_bootstrap` to measure resampling stability of V7 association-skeleton/v-structure hypotheses. Bootstrap support is procedural stability, not causal edge probability, FCI/PAG truth or permission to mutate JSPACE.
-10 Use `athena_contingent_policy` when one experiment has discrete outcomes that would justify different next actions. Returned outcome→posterior→action branches are DESIGN_ONLY and do not become observed history until an outcome is actually measured.
-11 Use `athena_evidence_spectral` to detect redundant witness pipelines. Effective-N and participation ratio are metadata-similarity diagnostics; missing metadata never creates independence and spectral diversity is not a formal statistical-independence theorem.
-12 Preserve V7 OOD/prequential/dual-control boundaries. A finite belief can coexist with OOD, state-dynamic and scenario uncertainty; do not collapse all uncertainty into one scalar when the distinction affects action.
-13 Preserve V5/V6 Pareto and scheduling scope. A belief-aware decision may still have plural objectives and resource constraints; EVI does not authorize hidden scalarization or unmeasured cost.
-14 Execute the first authorized real action only after design/authority gates. Observe real outcomes, meter consequences and update the appropriate belief/model/evidence state explicitly.
-15 Query antibodies and science shadows before repeating expensive work. Replication counts, effective-N and spectral rank route evidence acquisition but never silently promote or delete canonical claims.
-16 After observations, perform justified causal/direct/interaction/delayed credit and update Bayesian/bandit/policy/transition/OOD/belief state only from actual measurements. Preserve failed hypotheses and residual uncertainty.
-17 Apply topology/JSPACE/Git changes only through established CAS/recovery/compensation surfaces. V8 adds no semantic mutation shortcut.
-18 Run lifecycle and preserve lineage, negative evidence, model history and effect-estimator assumptions.
-19 Finalize and verify the exact visible payload. Attach COLLECTIVE_BELIEF=<BS,EVI,BD,CE,CB,CP,ER,L> only when V8 materially governed execution; omit it otherwise.
-20 V8 FIREWALL: BELIEF_POSTERIOR != CANONICAL_TRUTH; LIKELIHOOD_MODEL != OBSERVATION; EVI_DESIGN != RESULT; BELIEF_DUAL_CONTROL != EXACT_BAYES_ADAPTIVE_POMDP; CAUSAL_ESTIMATE != IDENTIFICATION_PROOF; BOOTSTRAP_STABILITY != CAUSAL_EDGE_PROBABILITY; CONTINGENT_POLICY != EXECUTION_HISTORY; SPECTRAL_EVIDENCE_DIVERSITY != FORMAL_INDEPENDENCE.
+1 HYDRATE exact canonical state and choose the minimum sufficient runtime depth. V9 is optional high-depth machinery, not default ceremony.
+2 Preserve identity/authority: model beliefs, simulations, estimators and graph hypotheses never mutate canon without the existing semantic CAS/evidence path.
+3 Use V8 finite belief/EVI when the live uncertainty is a small discrete model set. Use V9 Gaussian belief only when a finite-dimensional continuous linear parameter posterior is materially useful.
+4 Update athena_gaussian_belief_observe only from an explicit observed target with a complete feature vector. EVPI, EVSI and planning calls are read-only.
+5 Use athena_decision_evpi as an approximate upper value ceiling under the declared Gaussian utility model; retain Monte-Carlo error and seed. EVPI is not universal truth value.
+6 Use athena_decision_evsi to price a specific linear measurement design. It remains DESIGN_ONLY; ethics, cost, risk and feasibility are independent gates.
+7 Use athena_belief_policy_multistage only for small finite model/outcome horizons <=3. It is a contingent design tree, not execution history or a general POMDP solution.
+8 Keep causal identification separate from estimation. Use athena_causal_aipw only for binary treatment under explicit identification/positivity/consistency assumptions. AIPW returns an estimate, influence-function SE and interval; declared latent confounding fails closed.
+9 Use athena_causal_robustness as an observed-specification perturbation diagnostic only; leave-one-adjustment sensitivity is not a hidden-confounding bound.
+10 Use athena_structure_partial to preserve o-o endpoint uncertainty around stable association hypotheses. HEURISTIC_PARTIAL_GRAPH != PAG/FCI/CPDAG theorem and never mutates JSPACE.
+11 Use athena_evidence_dependence_probability only with a visible declared metadata model. Its probabilities are model outputs, not formal independence facts; missing metadata does not imply independence.
+12 Preserve V5-V8 OOD, prequential, EVI, Pareto, scenario, replication and evidence firewalls; higher numeric resolution does not grant higher semantic authority.
+13 Execute only authorized real actions/experiments, then observe and explicitly update the corresponding model/belief/evidence state. Plans never train themselves.
+14 Finalize/verify exact visible output and attach COLLECTIVE_INFERENCE=<GB,EVPI,EVSI,MP,AIPW,RB,PG,ED,L> only when V9 materially governed execution.
+15 V9 FIREWALL: GAUSSIAN_LINEAR_POSTERIOR != GENERAL_CONTINUOUS_BAYES; MONTE_CARLO_EVPI_EVSI != EXACT_VALUE; MULTISTAGE_FINITE_BELIEF_POLICY != GENERAL_POMDP; AIPW_ESTIMATE != IDENTIFICATION_PROOF; ROBUSTNESS_PERTURBATION != HIDDEN_CONFOUNDING_BOUND; HEURISTIC_PARTIAL_GRAPH != PAG_OR_FCI_THEOREM; DEPENDENCE_PROBABILITY_MODEL != FORMAL_INDEPENDENCE.
 """
-        return server.result(mid,{"description":"Whole-system MAXDEV finite-belief/decision-value cycle","messages":[{"role":"user","content":{"type":"text","text":text}}]})
+        return server.result(mid,{"description":"Whole-system MAXDEV continuous-inference/robust-causal cycle","messages":[{"role":"user","content":{"type":"text","text":text}}]})
     return server.error(mid,-32601,"Method not found")
