@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
+import tempfile
+import unittest
 from pathlib import Path
-
-import pytest
+from unittest.mock import patch
 
 from athena_mcp.git_backend import GitBackend, GitStaleHead
 from athena_mcp.prompt_runtime import PromptRuntime, PROMPT_RUNTIME_TOOL_NAMES
@@ -12,7 +14,8 @@ from athena_mcp.prompt_runtime import PromptRuntime, PROMPT_RUNTIME_TOOL_NAMES
 
 def _run(root: Path, *args: str) -> str:
     p = subprocess.run(["git", "-C", str(root), *args], text=True, capture_output=True)
-    assert p.returncode == 0, p.stderr or p.stdout
+    if p.returncode:
+        raise AssertionError(p.stderr or p.stdout)
     return p.stdout.strip()
 
 
@@ -22,8 +25,8 @@ def _write(root: Path, rel: str, text: str) -> None:
     p.write_text(text, encoding="utf-8")
 
 
-def _brain(tmp_path: Path) -> PromptRuntime:
-    root = tmp_path / "brain"
+def _brain(base: Path) -> PromptRuntime:
+    root = base / "brain"
     root.mkdir()
     _run(root, "init")
     _run(root, "config", "user.name", "test")
@@ -67,131 +70,115 @@ def _brain(tmp_path: Path) -> PromptRuntime:
     return PromptRuntime(GitBackend(root))
 
 
-def test_compile_is_deterministic_and_selector_expands_build(tmp_path, monkeypatch):
-    monkeypatch.delenv("ATHENA_GIT_AUTOPUSH", raising=False)
-    runtime = _brain(tmp_path)
-    a = runtime.compile(task="implement service", profile="BUILD", include_text=True)
-    b = runtime.compile(task="implement service", profile="BUILD", include_text=True)
-    assert a["prompt_stack_digest"] == b["prompt_stack_digest"]
-    assert a["compiled_text"] == b["compiled_text"]
-    assert "crystal_navigation" not in a["selected_modules"]
-    math = runtime.compile(task="deep math graph proof", profile="BUILD", include_text=False)
-    assert "crystal_navigation" in math["selected_modules"]
+class PromptRuntimeTests(unittest.TestCase):
+    def _runtime(self):
+        td = tempfile.TemporaryDirectory()
+        self.addCleanup(td.cleanup)
+        return _brain(Path(td.name))
 
+    def test_compile_is_deterministic_and_selector_expands_build(self):
+        runtime = self._runtime()
+        a = runtime.compile(task="implement service", profile="BUILD", include_text=True)
+        b = runtime.compile(task="implement service", profile="BUILD", include_text=True)
+        self.assertEqual(a["prompt_stack_digest"], b["prompt_stack_digest"])
+        self.assertEqual(a["compiled_text"], b["compiled_text"])
+        self.assertNotIn("crystal_navigation", a["selected_modules"])
+        math = runtime.compile(task="deep math graph proof", profile="BUILD", include_text=False)
+        self.assertIn("crystal_navigation", math["selected_modules"])
 
-def test_proposal_is_cas_guarded_and_does_not_auto_activate(tmp_path, monkeypatch):
-    monkeypatch.delenv("ATHENA_GIT_AUTOPUSH", raising=False)
-    runtime = _brain(tmp_path)
-    head = runtime.git.head()
-    result = runtime.propose(
-        module_id="self_engineering",
-        content="SELF V2\n",
-        defect="repeated stale coordination",
-        expected_effect="rehydrate before shared mutation",
-        scope=["profile:BUILD"],
-        tests=["deterministic compile"],
-        falsifier="no reduction in stale actions",
-        rollback="git revert candidate promotion",
-        expected_git_head=head,
-        actor="tester",
-        profile="BUILD",
-    )
-    assert result["metadata"]["status"] == "CANDIDATE"
-    compiled = runtime.compile(task="build", profile="BUILD", include_text=False)
-    assert compiled["selected_overlays"] == []
-    assert result["git"]["shared_remote"] is False
-
-
-def test_stale_head_rejects_prompt_write(tmp_path, monkeypatch):
-    monkeypatch.delenv("ATHENA_GIT_AUTOPUSH", raising=False)
-    runtime = _brain(tmp_path)
-    old = runtime.git.head()
-    _write(runtime.git.root, "prompts/external.md", "new sibling state\n")
-    _run(runtime.git.root, "add", ".")
-    _run(runtime.git.root, "commit", "-m", "sibling change")
-    with pytest.raises(GitStaleHead):
-        runtime.propose(
+    @patch.dict(os.environ, {"ATHENA_GIT_AUTOPUSH": "0"})
+    def test_proposal_is_cas_guarded_and_does_not_auto_activate(self):
+        runtime = self._runtime()
+        result = runtime.propose(
             module_id="self_engineering",
-            content="STALE\n",
-            defect="x",
-            expected_effect="y",
+            content="SELF V2\n",
+            defect="repeated stale coordination",
+            expected_effect="rehydrate before shared mutation",
             scope=["profile:BUILD"],
-            tests=["z"],
-            falsifier="f",
-            rollback="r",
-            expected_git_head=old,
+            tests=["deterministic compile"],
+            falsifier="no reduction in stale actions",
+            rollback="git revert candidate promotion",
+            expected_git_head=runtime.git.head(),
             actor="tester",
             profile="BUILD",
         )
+        self.assertEqual(result["metadata"]["status"], "CANDIDATE")
+        compiled = runtime.compile(task="build", profile="BUILD", include_text=False)
+        self.assertEqual(compiled["selected_overlays"], [])
+        self.assertFalse(result["git"]["shared_remote"])
+
+    @patch.dict(os.environ, {"ATHENA_GIT_AUTOPUSH": "0"})
+    def test_stale_head_rejects_prompt_write(self):
+        runtime = self._runtime()
+        old = runtime.git.head()
+        _write(runtime.git.root, "prompts/external.md", "new sibling state\n")
+        _run(runtime.git.root, "add", ".")
+        _run(runtime.git.root, "commit", "-m", "sibling change")
+        with self.assertRaises(GitStaleHead):
+            runtime.propose(
+                module_id="self_engineering",
+                content="STALE\n",
+                defect="x",
+                expected_effect="y",
+                scope=["profile:BUILD"],
+                tests=["z"],
+                falsifier="f",
+                rollback="r",
+                expected_git_head=old,
+                actor="tester",
+                profile="BUILD",
+            )
+
+    @patch.dict(os.environ, {"ATHENA_GIT_AUTOPUSH": "0"})
+    def test_tested_candidate_can_activate_only_in_declared_scope(self):
+        runtime = self._runtime()
+        proposed = runtime.propose(
+            module_id="self_engineering",
+            content="SELF SCOPED V2\n",
+            defect="build routing defect",
+            expected_effect="improved build routing",
+            scope=["profile:BUILD"],
+            tests=["shadow build"],
+            falsifier="build metric does not improve",
+            rollback="remove overlay",
+            expected_git_head=runtime.git.head(),
+            actor="tester",
+            profile="BUILD",
+        )
+        tested = runtime.record_experiment(
+            proposed["candidate_ref"], runtime.git.head(), observed=True, verdict="PASS",
+            observations={"verified_gain": 1.0, "baseline": 0.0},
+            evidence_refs=["test://shadow-build"], actor="verifier",
+        )
+        self.assertEqual(tested["candidate_status"], "TESTED")
+        activated = runtime.activate(
+            proposed["candidate_ref"], runtime.git.head(), scope=["profile:BUILD"],
+            experiment_refs=[tested["experiment_ref"]],
+            witness={"status": "PASS", "ref": "test://shadow-build"}, actor="verifier",
+        )
+        build = runtime.compile(task="build service", profile="BUILD", include_text=True)
+        self.assertIn(activated["overlay"]["overlay_id"], build["selected_overlays"])
+        self.assertIn("SELF SCOPED V2", build["compiled_text"])
+        maxdev = runtime.compile(task="general", profile="MAXDEV", include_text=True)
+        self.assertNotIn(activated["overlay"]["overlay_id"], maxdev["selected_overlays"])
+
+    def test_unobserved_experiment_cannot_claim_pass(self):
+        runtime = self._runtime()
+        proposed = runtime.propose(
+            module_id="self_engineering", content="SELF CANDIDATE\n", defect="d", expected_effect="e",
+            scope=["profile:BUILD"], tests=["t"], falsifier="f", rollback="r",
+            expected_git_head=runtime.git.head(), actor="tester", profile="BUILD",
+        )
+        with self.assertRaisesRegex(ValueError, "unobserved"):
+            runtime.record_experiment(proposed["candidate_ref"], runtime.git.head(), False, "PASS", {}, [], "tester")
+
+    def test_tool_surface_contains_full_v1_mutation_membrane(self):
+        self.assertTrue({
+            "athena_prompt_hydrate", "athena_prompt_compile", "athena_prompt_freshness",
+            "athena_prompt_propose", "athena_prompt_experiment", "athena_prompt_activate",
+            "athena_prompt_promote",
+        }.issubset(PROMPT_RUNTIME_TOOL_NAMES))
 
 
-def test_tested_candidate_can_activate_only_in_declared_scope(tmp_path, monkeypatch):
-    monkeypatch.delenv("ATHENA_GIT_AUTOPUSH", raising=False)
-    runtime = _brain(tmp_path)
-    proposed = runtime.propose(
-        module_id="self_engineering",
-        content="SELF SCOPED V2\n",
-        defect="build routing defect",
-        expected_effect="improved build routing",
-        scope=["profile:BUILD"],
-        tests=["shadow build"],
-        falsifier="build metric does not improve",
-        rollback="remove overlay",
-        expected_git_head=runtime.git.head(),
-        actor="tester",
-        profile="BUILD",
-    )
-    tested = runtime.record_experiment(
-        proposed["candidate_ref"],
-        runtime.git.head(),
-        observed=True,
-        verdict="PASS",
-        observations={"verified_gain": 1.0, "baseline": 0.0},
-        evidence_refs=["test://shadow-build"],
-        actor="verifier",
-    )
-    assert tested["candidate_status"] == "TESTED"
-    activated = runtime.activate(
-        proposed["candidate_ref"],
-        runtime.git.head(),
-        scope=["profile:BUILD"],
-        experiment_refs=[tested["experiment_ref"]],
-        witness={"status": "PASS", "ref": "test://shadow-build"},
-        actor="verifier",
-    )
-    build = runtime.compile(task="build service", profile="BUILD", include_text=True)
-    assert activated["overlay"]["overlay_id"] in build["selected_overlays"]
-    assert "SELF SCOPED V2" in build["compiled_text"]
-    maxdev = runtime.compile(task="general", profile="MAXDEV", include_text=True)
-    assert activated["overlay"]["overlay_id"] not in maxdev["selected_overlays"]
-
-
-def test_unobserved_experiment_cannot_claim_pass(tmp_path):
-    runtime = _brain(tmp_path)
-    proposed = runtime.propose(
-        module_id="self_engineering",
-        content="SELF CANDIDATE\n",
-        defect="d",
-        expected_effect="e",
-        scope=["profile:BUILD"],
-        tests=["t"],
-        falsifier="f",
-        rollback="r",
-        expected_git_head=runtime.git.head(),
-        actor="tester",
-        profile="BUILD",
-    )
-    with pytest.raises(ValueError, match="unobserved"):
-        runtime.record_experiment(proposed["candidate_ref"], runtime.git.head(), False, "PASS", {}, [], "tester")
-
-
-def test_tool_surface_contains_full_v1_mutation_membrane():
-    assert {
-        "athena_prompt_hydrate",
-        "athena_prompt_compile",
-        "athena_prompt_freshness",
-        "athena_prompt_propose",
-        "athena_prompt_experiment",
-        "athena_prompt_activate",
-        "athena_prompt_promote",
-    }.issubset(PROMPT_RUNTIME_TOOL_NAMES)
+if __name__ == "__main__":
+    unittest.main()
