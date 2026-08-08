@@ -7,6 +7,7 @@ from .prompt_runtime_git import PromptRuntimeGit
 from .prompt_runtime_promotion import PromptRuntimePromotionMixin
 from .prompt_runtime_proposal import PromptRuntimeProposalMixin
 from .prompt_runtime_records import PromptRuntimeRecordsMixin
+from .prompt_runtime_remote import PromptRuntimeRemoteMixin
 from .prompt_runtime_selection import PromptRuntimeSelectionMixin
 from .prompt_runtime_types import AUTHORITY_LAW, PROMPT_RESOURCE_URI, PROMPT_RUNTIME_VERSION
 
@@ -14,6 +15,7 @@ from .prompt_runtime_types import AUTHORITY_LAW, PROMPT_RESOURCE_URI, PROMPT_RUN
 class PromptRuntimeSurface(
     PromptRuntimePromotionMixin,
     PromptRuntimeProposalMixin,
+    PromptRuntimeRemoteMixin,
     PromptRuntimeSelectionMixin,
     PromptRuntimeCompileMixin,
     PromptRuntimeRecordsMixin,
@@ -54,6 +56,9 @@ class PromptRuntimeSurface(
                 "athena_prompt_hydrate",
                 "athena_prompt_compile",
                 "athena_prompt_freshness",
+                "athena_prompt_remote_status",
+                "athena_prompt_sync",
+                "athena_prompt_publish",
                 "athena_prompt_propose",
                 "athena_prompt_experiment",
                 "athena_prompt_activate",
@@ -61,10 +66,12 @@ class PromptRuntimeSurface(
             ],
             "authority_law": AUTHORITY_LAW,
             "non_goals": [
-                "remote repository fetch",
+                "implicit remote fetch",
+                "network mutation during hydrate/compile",
+                "implicit push after local mutation",
+                "force push or automatic merge",
                 "automatic self-promotion",
                 "host instruction mutation",
-                "automatic push/deploy",
                 "experiment-to-observation fabrication",
                 "filename-inferred goal or pressure authority",
             ],
@@ -89,6 +96,21 @@ class PromptRuntimeSurface(
             )
         if name == "athena_prompt_freshness":
             return True, self.freshness(last_git_head=args["last_git_head"])
+        if name == "athena_prompt_remote_status":
+            return True, self.remote_status(
+                remote=args.get("remote", "origin"),
+                fetch=bool(args.get("fetch", False)),
+            )
+        if name == "athena_prompt_sync":
+            return True, self.remote_sync(
+                expected_git_head=args["expected_git_head"],
+                remote=args.get("remote", "origin"),
+            )
+        if name == "athena_prompt_publish":
+            return True, self.remote_publish(
+                expected_git_head=args["expected_git_head"],
+                remote=args.get("remote", "origin"),
+            )
         if name == "athena_prompt_propose":
             return True, self.propose(
                 expected_git_head=args["expected_git_head"],
@@ -156,6 +178,9 @@ class PromptRuntimeSurface(
             "frontier_refs": (
                 "goal/pressure/work references are returned only when explicitly declared by active state; absent declarations remain UNDECLARED"
             ),
+            "remote_transport": (
+                "hydrate/compile are local and network-silent; explicit sync is exact-head clean fast-forward only; explicit publish is non-force remote-ancestry gated and post-fetch verified"
+            ),
             "promotion": (
                 "candidate + passed witnessed experiments + evidence + explicit authority witness; history remains"
             ),
@@ -171,4 +196,5 @@ class PromptRuntimeSurface(
             "prompt_runtime_stack_digest": status.get("stack_digest"),
             "prompt_runtime_head": (status.get("git") or {}).get("head"),
             "prompt_runtime_frontier_status": (status.get("frontier_refs") or {}).get("status"),
+            "prompt_runtime_remote_tools": 3,
         }

@@ -53,10 +53,57 @@ PROMPT_RUNTIME_TOOLS = [
         },
     },
     {
+        "name": "athena_prompt_remote_status",
+        "description": (
+            "Inspect the local prompt-brain branch against one validated Git remote. With fetch=false this is tracking-ref observation only; with fetch=true it performs "
+            "an explicit noninteractive, timeout-bounded fetch under the shared prompt lock. It never changes local HEAD or publishes."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "remote": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"},
+                "fetch": {"type": "boolean"},
+            },
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "athena_prompt_sync",
+        "description": (
+            "Fresh-fetch and synchronize a clean named prompt-brain branch only by exact-head fast-forward. Requires expected_git_head; ahead, diverged, dirty, detached, "
+            "unreachable or failed-fetch states hold without merge, reset, rebase or push. Post-operation fresh-fetch equality is required for shared-frontier verification."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "required": ["expected_git_head"],
+            "properties": {
+                "expected_git_head": {"type": "string", "minLength": 1},
+                "remote": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"},
+            },
+            "additionalProperties": False,
+        },
+    },
+    {
+        "name": "athena_prompt_publish",
+        "description": (
+            "Publish an exact clean local prompt-brain HEAD only after a fresh fetch proves the remote branch is its ancestor. Uses an ordinary non-force push, "
+            "never creates or merges a branch implicitly, and requires post-push fresh-fetch equality before reporting durable shared return."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "required": ["expected_git_head"],
+            "properties": {
+                "expected_git_head": {"type": "string", "minLength": 1},
+                "remote": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"},
+            },
+            "additionalProperties": False,
+        },
+    },
+    {
         "name": "athena_prompt_propose",
         "description": (
             "Create an immutable CANDIDATE prompt module plus append-only PROMPT_PROPOSAL event on a local Git descendant. "
-            "Requires exact expected HEAD, measured defect/effect contract, metrics, tests and rollback. Proposal never activates or promotes itself."
+            "Requires exact expected HEAD, measured defect/effect contract, metrics, tests and rollback. Proposal never activates, promotes or publishes itself."
         ),
         "inputSchema": {
             "type": "object",
@@ -85,7 +132,7 @@ PROMPT_RUNTIME_TOOLS = [
         "name": "athena_prompt_experiment",
         "description": (
             "Append a prompt experiment record and PROMPT_TEST event at exact Git HEAD. PLANNED/RUNNING records may not masquerade as observations; "
-            "PASSED/FAILED/INCONCLUSIVE require explicit observed rows and an execution witness. The active/canonical prompt state is not mutated."
+            "PASSED/FAILED/INCONCLUSIVE require explicit observed rows and an execution witness. The active/canonical prompt state is not mutated or published."
         ),
         "inputSchema": {
             "type": "object",
@@ -108,7 +155,7 @@ PROMPT_RUNTIME_TOOLS = [
         "name": "athena_prompt_activate",
         "description": (
             "Activate a tested candidate only within an explicit scope. Requires exact HEAD, PASSED witnessed experiment refs and an ACTIVATE_SCOPED authority witness. "
-            "The mutation changes only prompts/state/ACTIVE.json; ACTIVE_SCOPED remains non-canonical."
+            "The mutation changes only prompts/state/ACTIVE.json; ACTIVE_SCOPED remains non-canonical and local until explicitly published."
         ),
         "inputSchema": {
             "type": "object",
@@ -138,7 +185,7 @@ PROMPT_RUNTIME_TOOLS = [
         "name": "athena_prompt_promote",
         "description": (
             "Promote a candidate into an existing canonical repository module under exact Git-head and candidate-base CAS. "
-            "Requires PASSED witnessed experiments, evidence refs, explicit PROMOTE authority witness and rollback plan. Candidate history is preserved; host authority is unchanged."
+            "Requires PASSED witnessed experiments, evidence refs, explicit PROMOTE authority witness and rollback plan. Candidate history is preserved; host authority is unchanged; publication remains explicit."
         ),
         "inputSchema": {
             "type": "object",
