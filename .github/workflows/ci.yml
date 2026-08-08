@@ -1,11 +1,108 @@
 name: CI
+
 on: [push, pull_request]
+
 jobs:
-  test:
+  syntax:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
-      - run: python -m unittest discover -s tests -v
-      - run: python smoke.py
+      - name: Compile runtime and tests
+        run: python -m compileall -q athena_mcp tests smoke.py
+
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Full unit suite
+        shell: bash
+        run: |
+          set +e
+          python -m unittest discover -s tests -v 2>&1 | tee /tmp/athena-tests.log
+          code=${PIPESTATUS[0]}
+          if [ "$code" -ne 0 ]; then
+            msg=$(python - <<'PY'
+          from pathlib import Path
+          s=Path('/tmp/athena-tests.log').read_text(errors='replace')
+          marker='======================================================================'
+          failure=s[s.find(marker):] if marker in s else '\n'.join(s.splitlines()[-240:])
+          failure=failure.replace('%','%25').replace('\r','%0D').replace('\n','%0A')
+          print(failure[:30000])
+          PY
+            )
+            echo "::error title=ATHENA full-suite traceback::$msg"
+            exit "$code"
+          fi
+
+  critical-invariants:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Schema migration and restart durability
+        run: python -m unittest discover -s tests -p 'test_state_foundation_unified.py' -v
+      - name: Unknown legacy-state preservation
+        run: python -m unittest discover -s tests -p 'test_legacy_migration_preservation.py' -v
+      - name: Three independent CAS domains
+        run: python -m unittest discover -s tests -p 'test_three_domain_cas_unified.py' -v
+      - name: Whole-cycle fail-closed metabolism
+        run: python -m unittest discover -s tests -p 'test_cycle_unified.py' -v
+      - name: Surface and composition integrity
+        run: python -m unittest discover -s tests -p 'test_surface_composition_unified.py' -v
+      - name: Local self-test and startup readiness
+        run: |
+          python -m unittest discover -s tests -p 'test_self_test_unified.py' -v
+          python -m unittest discover -s tests -p 'test_startup_health_unified.py' -v
+      - name: Live runtime manifest and MAXDEV law
+        run: python -m unittest discover -s tests -p 'test_unified_manifest.py' -v
+      - name: Release metadata and RPC namespace uniqueness
+        run: python -m unittest discover -s tests -p 'test_metadata_consistency.py' -v
+      - name: V6 upstream scientific diagnostics and unified Y1 firewall
+        run: |
+          python -m unittest discover -s tests -p 'test_00_collective_v6_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_00a_collective_v6_assertion_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_unified.py' -v
+      - name: V7 upstream dual-control suites and unified authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v7.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v7_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v7_unified.py' -v
+      - name: V8-V9 upstream belief inference suites and unified authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v8.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v8_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v9.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v9_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v8_v9_unified.py' -v
+      - name: V10 probabilistic constructive adversarial and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v10.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v10_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v10_unified.py' -v
+      - name: V11 adaptive constructive adversarial and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v11.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v11_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v11_unified.py' -v
+      - name: AOR Collective transport firewalls
+        run: python -m unittest discover -s tests -p 'test_aor_collective_transport.py' -v
+      - name: Exact-head promotion predicate
+        run: python -m unittest discover -s tests -p 'test_promotion_unified.py' -v
+
+  smoke:
+    needs: [syntax, unit, critical-invariants]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: MCP smoke
+        run: python smoke.py

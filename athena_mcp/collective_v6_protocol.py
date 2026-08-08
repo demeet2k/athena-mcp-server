@@ -19,10 +19,21 @@ COLLECTIVE_V6_TOOLS=[
     _tool("athena_schedule_certified","Exhaustively enumerate small finite schedules under dependencies, worker capability, horizon and explicit budgets. Returns an exact certificate only if search completes; otherwise degrades explicitly.",( "tasks","workers"),{"tasks":{"type":"array","minItems":1,"maxItems":32,"items":{"type":"object"}},"workers":{"type":"array","minItems":1,"maxItems":32,"items":{"type":"object"}},"horizon":{"type":"integer","minimum":1,"maximum":200},"budget":OBJ,"max_nodes":{"type":"integer","minimum":1,"maximum":2000000},"exact_task_limit":{"type":"integer","minimum":1,"maximum":10},"discount":NUM}),
     _tool("athena_witness_capsule","Execute a repository unittest only when bubblewrap namespace isolation is available; otherwise fail closed with HERMETIC_UNAVAILABLE. Never silently falls back.",( "regression_ref",),{"regression_ref":STR,"timeout_s":NUM}),
     _tool("athena_pareto_bandit_select","Identify the interval-possible Pareto frontier and choose an uncertainty-rich frontier candidate for experimentation. EXPERIMENT_SELECTION_ONLY.",( "candidates",),{"candidates":{"type":"array","minItems":1,"maxItems":1000,"items":{"type":"object"}},"directions":OBJ,"exploration_weight":NUM}),
-    _tool("athena_claim_register","Register a science-shadow claim record without mutating canonical semantic truth.",( "claim_key","statement"),{"claim_key":STR,"statement":STR,"scope":STR}),
-    _tool("athena_claim_witness","Attach a SUPPORTS/FALSIFIES/INCONCLUSIVE test, replication or falsifier witness with an explicit independence key.",( "claim_id","kind","result","independence_key"),{"claim_id":STR,"kind":STR,"result":STR,"independence_key":STR,"confidence":NUM,"evidence":OBJ,"actor":STR}),
-    _tool("athena_claim_state","Summarize independent supporting/falsifying witness groups for a science-shadow claim. Evidential metadata only; no canonical rewrite.",( "claim_id",),{"claim_id":STR,"min_independent_support":{"type":"integer","minimum":1,"maximum":100}}),
+    _tool("athena_discovery_claim_register","Register a V6 science-shadow claim record without mutating Y1 canonical claim authority.",( "claim_key","statement"),{"claim_key":STR,"statement":STR,"scope":STR}),
+    _tool("athena_discovery_claim_witness","Attach a SUPPORTS/FALSIFIES/INCONCLUSIVE science-shadow witness with an explicit independence key. This never promotes Y1 authority.",( "claim_id","kind","result","independence_key"),{"claim_id":STR,"kind":STR,"result":STR,"independence_key":STR,"confidence":NUM,"evidence":OBJ,"actor":STR}),
+    _tool("athena_discovery_claim_state","Summarize independent V6 science-shadow witness groups. Evidential metadata only; no Y1 canonical rewrite.",( "claim_id",),{"claim_id":STR,"min_independent_support":{"type":"integer","minimum":1,"maximum":100}}),
 ]
 
+# V7 is a successor science/control layer over V6 discovery. It is chained through
+# this registry so the existing V5->V6 compatibility path can advertise/route it
+# without introducing another Server inheritance layer.
 from .collective_v7_protocol import COLLECTIVE_V7_TOOLS
-COLLECTIVE_V6_TOOLS.extend(t for t in COLLECTIVE_V7_TOOLS if t['name'] not in {x['name'] for x in COLLECTIVE_V6_TOOLS})
+_existing={tool['name'] for tool in COLLECTIVE_V6_TOOLS}
+COLLECTIVE_V6_TOOLS.extend(tool for tool in COLLECTIVE_V7_TOOLS if tool['name'] not in _existing)
+COLLECTIVE_V6_TOOL_NAMES={tool['name'] for tool in COLLECTIVE_V6_TOOLS}
+
+CLAIM_NAMESPACE_LAW={
+    'canonical_authority_prefix':'athena_claim_',
+    'discovery_shadow_prefix':'athena_discovery_claim_',
+    'law':'V6/V7 science-shadow claims and Y1 canonical authority are distinct registries; shared RPC names are forbidden',
+}

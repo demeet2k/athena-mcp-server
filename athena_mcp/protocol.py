@@ -1,5 +1,5 @@
 PROTOCOL_VERSION="2025-11-25"
-SERVER_INFO={"name":"athena-canonical-mcp","version":"3.0.0","description":"Canonical KC144/JSPACE/SCALE developmental control, adaptive Gaussian-process decision value, latent causal geometry, robust TMLE, and finite Bayes-adaptive control substrate"}
+SERVER_INFO={"name":"athena-canonical-mcp","version":"2.9.0","description":"Canonical KC144/JSPACE/SCALE developmental control, nonlinear probabilistic inference, causal estimation, and finite belief control substrate"}
 
 TOOLS=[
 {"name":"athena_register","description":"Create or reuse one canonical capability identity from a functional signature.","inputSchema":{"type":"object","required":["kind","domain","verb","object_name","method","input_contract","output_contract"],"properties":{"kind":{"type":"string"},"domain":{"type":"string"},"verb":{"type":"string"},"object_name":{"type":"string"},"method":{"type":"string"},"input_contract":{},"output_contract":{},"constraints":{"type":"object"},"payload":{},"actor":{"type":"string"}},"additionalProperties":False}},

@@ -11,13 +11,7 @@ import time
 from .identity import event_id, digest
 from .collective_discovery import CollectiveDiscoveryRuntime
 from .collective_v6_dispatch import call as call_v6
-from .collective_v6_protocol import COLLECTIVE_V6_TOOLS
-
-V6_NAMES={t['name'] for t in COLLECTIVE_V6_TOOLS}
-
-
-def _discovery(science):
-    return CollectiveDiscoveryRuntime(science)
+from .collective_v6_protocol import COLLECTIVE_V6_TOOL_NAMES
 
 
 def _witness_cell(science,a):
@@ -83,7 +77,8 @@ def _projection_compensate(science,a):
 
 
 def call(science, core, name, a):
-    if name in V6_NAMES: return call_v6(_discovery(science),name,a)
+    if name in COLLECTIVE_V6_TOOL_NAMES:
+        return call_v6(CollectiveDiscoveryRuntime(science),name,a)
     if name=='athena_bayes_predict': return science.bayes_predict(a['features'],a['regime'],a['arm_id'],a.get('scope','global'),a.get('target_coverage',.90),a.get('ridge',1.0))
     if name=='athena_bayes_observe': return science.bayes_observe(a['features'],a['reward'],a['regime'],a['arm_id'],a.get('scope','global'),a.get('actor','agent'),a.get('weight',1.0),a.get('target_coverage',.90),a.get('ridge',1.0))
     if name=='athena_uncertainty_calibrate': return science.uncertainty_calibration(a.get('scope','global'),a.get('regime'),a.get('arm_id'),a.get('target_coverage',.90))

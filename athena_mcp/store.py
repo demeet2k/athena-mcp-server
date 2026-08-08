@@ -84,7 +84,7 @@ class Store:
             self.db.execute("INSERT OR IGNORE INTO edges VALUES(?,?,?,?,?,?,?)",(edge_id,src,relation,dst,eid,json.dumps(attrs,sort_keys=True),time.time()))
     def put_agent_event(self,eid,p):
         with self.db:
-            self.db.execute("INSERT OR REPLACE INTO agent_events VALUES(?,?,?,?,?,?,?,?,?,?,?)",
+            self.db.execute("INSERT OR REPLACE INTO agent_events VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",
                 (eid,p['agent'],p.get('task',''),int(p.get('seq',0)),p.get('intent',''),p.get('action',''),p.get('status',''),float(p.get('progress',0)),float(p.get('pressure',0)),float(p.get('uncertainty',0)),json.dumps(p,sort_keys=True,ensure_ascii=False),time.time()))
     def search(self,q,limit=20):
         like=f"%{q}%"
