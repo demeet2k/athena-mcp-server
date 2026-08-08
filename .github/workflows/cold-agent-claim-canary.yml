@@ -1,0 +1,61 @@
+name: Cold Agent Claim Provider Canary
+
+on:
+  push:
+    branches:
+      - agent/frontier-claim-cold-canary-85f98155
+    paths:
+      - .github/workflows/cold-agent-claim-canary.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cold-agent-claim:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact canary runner
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Run two-cold-agent bounded provider race
+        id: canary
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CANDIDATE_HEAD: 85f98155f9085ea14de462837ba5ba67fef42344
+          TARGET_BRANCH: agent/frontier-claim-cold-target-85f98155
+          TARGET_SEED_HEAD: 69a957ea04fb328f0bfb98c6a8bdab5dd502cdca
+          TARGET_RUN_ID: run.cold-canary
+          TARGET_NODE_ID: build
+          WITNESS_PATH: cold-agent-claim-canary-witness.json
+        shell: bash
+        run: |
+          set +e
+          python tools/cold_agent_claim_canary.py | tee cold-agent-claim-canary.log
+          code=${PIPESTATUS[0]}
+          echo "exit_code=${code}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Upload sanitized canary witness
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cold-agent-claim-canary-witness
+          path: |
+            cold-agent-claim-canary-witness.json
+            cold-agent-claim-canary.log
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Enforce canary result
+        if: always()
+        shell: bash
+        run: |
+          test "${{ steps.canary.outputs.exit_code }}" = "0"
