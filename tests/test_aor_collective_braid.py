@@ -69,7 +69,8 @@ class AorCollectiveBraidTests(unittest.TestCase):
 
     def test_unified_manifest_states_authority_boundary(self):
         payload=json.loads(self.rpc('resources/read',{'uri':'athena://manifest'})['result']['contents'][0]['text'])
-        self.assertIn('AOR_DECISION_CORTEX',payload['layers']);self.assertIn('COLLECTIVE_MEMORY_V2',payload['layers']);self.assertIn('pheromone/consensus never become evidence',payload['braid_law'])
+        self.assertIn('AOR_DECISION_CORTEX',payload['layers']);self.assertIn('COLLECTIVE_MEMORY_V2',payload['layers']);self.assertIn('AUTHORITY_Y1',payload['layers'])
+        self.assertIn('consensus/pheromone/reward',payload['braid_law']);self.assertIn('never typed authority or evidence',payload['braid_law'])
 
 
 if __name__=='__main__':unittest.main()
