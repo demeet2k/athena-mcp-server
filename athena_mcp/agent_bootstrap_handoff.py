@@ -320,3 +320,11 @@ def install_agent_bootstrap_handoff(runtime_cls) -> None:
                 "Refresh AGENT_BOOT_V1 factorized coordinates and report affected dependency cones, including "
                 "rehydration handoff when continuation state changes independently."
             )
+
+    # BOOT-003 must be outermost: shared Git freshness has to precede prompt/world
+    # composition as well as continuation indexing. Installing it here guarantees
+    # the handoff wrapper exists first, then the shared-fresh snapshot membrane
+    # wraps the complete one-call boot/refresh surface.
+    from .agent_bootstrap_shared_fresh import install_agent_bootstrap_shared_fresh
+
+    install_agent_bootstrap_shared_fresh(runtime_cls)

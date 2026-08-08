@@ -153,6 +153,7 @@ class BootstrapHandoffTests(unittest.TestCase):
             agent_id="a1",
             task="build",
             fetch=False,
+            shared_remote_mode="DISABLED",
             continuation_shared_remote_mode="DISABLED",
         )
         self.assertEqual(packet["status"], "BOOTSTRAPPED")
