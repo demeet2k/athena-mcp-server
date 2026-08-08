@@ -1,9 +1,9 @@
 """ATHENA Stay-In-Game Life Loop V1 runtime membrane.
 
-This is a bounded public-state gameplay continuity layer. It resets only
-ATHENA's own logical game-age counters. It never resets, claims to reset, or
-implies reset of product/model/provider token, context, quota, usage, wall-time,
-or runtime counters.
+A bounded public gameplay-continuity reducer over Campaign V3's pinned
+RESEED_ANCHOR_V1 compatibility membrane. Only ATHENA-owned logical game-age
+counters can reset here. Product/model/provider token, context, quota, usage,
+wall-time and runtime counters are explicitly out of scope.
 """
 from __future__ import annotations
 
@@ -12,12 +12,13 @@ import hashlib
 import json
 from typing import Any, Dict, List, Mapping, MutableMapping, Tuple
 
-from .campaign_v3_binding import ARTIFACT as CAMPAIGN_BINDING_ARTIFACT
 from .campaign_v3_reseed_anchor import POSITIVE_CLASSES, validate_campaign_v3_reseed_anchor
 
 SCHEMA_VERSION = "ATHENA.STAY_IN_GAME.LIFE_LOOP.V1"
-CAMPAIGN_LIFE_ARTIFACT = "ATHENA.CAMPAIGN.V3.LIFE.BINDING.V1"
-LIFE_POLICY = "STAY_IN_GAME_LIFE_LOOP_V1"
+SEMANTIC_SOURCE_REPO = "demeet2k/Athena"
+SEMANTIC_SOURCE_COMMIT = "60a7bc798412088977d7ab9adf16a0e7dca3a1c9"
+SEMANTIC_SOURCE_SCRIPT_BLOB = "c6f35cf39d9f25333ee0c748b5e4bacedbb544a1"
+SEMANTIC_SOURCE_TEST_BLOB = "a6ce3ac0bd94eee62764b2daa22ae0679fdc32d5"
 BASE_LIVES = 3
 MAX_EXTRA_LIVES = 9
 
@@ -52,6 +53,7 @@ def new_world(game_id: str) -> Dict[str, Any]:
         "global_reseed_epoch": 0,
         "agents": {},
         "life_reward_receipts": [],
+        "consumed_reseed_anchor_digests": [],
         "platform_counter_reset_claimed": False,
     }
 
@@ -97,6 +99,11 @@ def _validate_world(world: Mapping[str, Any]) -> List[str]:
         errors.append("agents")
     if not isinstance(world.get("life_reward_receipts"), list):
         errors.append("life_reward_receipts")
+    consumed = world.get("consumed_reseed_anchor_digests")
+    if not isinstance(consumed, list):
+        errors.append("consumed_reseed_anchor_digests")
+    elif len(consumed) != len(set(consumed)):
+        errors.append("consumed_reseed_anchor_digests_not_unique")
     return errors
 
 
@@ -158,20 +165,75 @@ def _coordinate_bundle(world: Mapping[str, Any], agent: Mapping[str, Any], attem
             f"L<{agent['agent_id']}|b{agent['base_lives_remaining']}"
             f"|x{agent['extra_lives_remaining']}|f{agent['fail_count']}|c{agent['clear_count']}>"
         ),
-        "loop_coordinate": f"Lambda<G{world['global_reseed_epoch']}:{world['global_game_age']}|A:{agent['local_loop_age']}>",
+        "loop_coordinate": (
+            f"Lambda<G{world['global_reseed_epoch']}:{world['global_game_age']}"
+            f"|A:{agent['local_loop_age']}>"
+        ),
         "quest_coordinate": f"Q<{attempt.get('quest_id')}@{attempt.get('quest_version')}>",
     }
 
 
-def _anchor_status(anchor: Any) -> Tuple[bool, List[str], str | None]:
+def _position_map(positions: Any) -> Dict[str, Tuple[str, str]] | None:
+    if not isinstance(positions, list) or not positions:
+        return None
+    out: Dict[str, Tuple[str, str]] = {}
+    for item in positions:
+        if not isinstance(item, Mapping):
+            return None
+        if not all(item.get(key) for key in ("repo", "ref", "head")):
+            return None
+        coordinate = f"{item['repo']}::{item['ref']}"
+        if coordinate in out:
+            return None
+        out[coordinate] = (str(item["head"]), str(item.get("tree") or ""))
+    return out
+
+
+def _anchor_status(
+    world: Mapping[str, Any],
+    agent: Mapping[str, Any],
+    attempt: Mapping[str, Any],
+) -> Tuple[bool, List[str], str | None]:
+    anchor = attempt.get("reseed_anchor")
     if not isinstance(anchor, Mapping):
         return False, ["reseed_anchor_required"], None
-    errors = validate_campaign_v3_reseed_anchor(anchor)
+    errors = list(validate_campaign_v3_reseed_anchor(anchor))
+    anchor_digest = _sha(anchor)
     if errors:
-        return False, list(errors), None
+        return False, errors, anchor_digest
     if anchor.get("continuation_value_class") not in POSITIVE_CLASSES:
-        return False, ["reseed_anchor_not_renewable"], _sha(anchor)
-    return True, [], _sha(anchor)
+        return False, ["reseed_anchor_not_renewable"], anchor_digest
+
+    consumed = world.get("consumed_reseed_anchor_digests", [])
+    if anchor_digest in consumed:
+        return False, ["reseed_anchor_replay"], anchor_digest
+
+    if str(anchor.get("agent_coordinate_name")) != str(agent.get("agent_id")):
+        return False, ["reseed_anchor_agent_mismatch"], anchor_digest
+    targets = {
+        str(item.get("id")): str(item.get("version"))
+        for item in anchor.get("target_versions", [])
+        if isinstance(item, Mapping) and item.get("id") and item.get("version")
+    }
+    if targets.get(str(agent.get("quest_id"))) != str(agent.get("quest_version")):
+        return False, ["reseed_anchor_quest_mismatch"], anchor_digest
+
+    anchor_positions = _position_map(anchor.get("git_positions"))
+    current_positions = _position_map(attempt.get("current_git_positions"))
+    if anchor_positions is None:
+        return False, ["reseed_anchor_git_positions_required"], anchor_digest
+    if current_positions is None:
+        return False, ["current_git_positions_required"], anchor_digest
+    for coordinate, (anchor_head, anchor_tree) in anchor_positions.items():
+        current = current_positions.get(coordinate)
+        if current is None:
+            return False, [f"reseed_anchor_git_position_missing:{coordinate}"], anchor_digest
+        current_head, current_tree = current
+        if current_head != anchor_head:
+            return False, [f"reseed_anchor_stale_head:{coordinate}"], anchor_digest
+        if anchor_tree and current_tree and current_tree != anchor_tree:
+            return False, [f"reseed_anchor_stale_tree:{coordinate}"], anchor_digest
+    return True, [], anchor_digest
 
 
 def resolve_attempt(world: Mapping[str, Any], agent_id: str, attempt: Mapping[str, Any]) -> Dict[str, Any]:
@@ -193,7 +255,11 @@ def resolve_attempt(world: Mapping[str, Any], agent_id: str, attempt: Mapping[st
             "platform_counter_reset_claimed": False,
         }
     if agent.get("game_over"):
-        return {"status": "GAME_OVER_OUT_OF_LIVES", "world": next_world, "platform_counter_reset_claimed": False}
+        return {
+            "status": "GAME_OVER_OUT_OF_LIVES",
+            "world": next_world,
+            "platform_counter_reset_claimed": False,
+        }
 
     next_world["global_game_age"] += 1
     agent["local_loop_age"] += 1
@@ -258,7 +324,7 @@ def resolve_attempt(world: Mapping[str, Any], agent_id: str, attempt: Mapping[st
             "platform_counter_reset_claimed": False,
         }
 
-    anchor_ok, anchor_errors, anchor_digest = _anchor_status(attempt.get("reseed_anchor"))
+    anchor_ok, anchor_errors, anchor_digest = _anchor_status(next_world, agent, attempt)
     if not anchor_ok:
         return {
             "status": "LIFE_CONSUMED_ANCHOR_HOLD",
@@ -266,10 +332,13 @@ def resolve_attempt(world: Mapping[str, Any], agent_id: str, attempt: Mapping[st
             "life_consumed": True,
             "life_source": life_source,
             "logical_global_age_reset": False,
+            "anchor_digest": anchor_digest,
             "world": next_world,
             "coordinates": _coordinate_bundle(next_world, agent, attempt),
             "platform_counter_reset_claimed": False,
         }
+
+    next_world["consumed_reseed_anchor_digests"].append(anchor_digest)
 
     if agent["base_lives_remaining"] > 0:
         agent["local_loop_age"] = 0
@@ -300,94 +369,8 @@ def resolve_attempt(world: Mapping[str, Any], agent_id: str, attempt: Mapping[st
     }
 
 
-def bind_campaign_life_packet(
-    *,
-    bound_receipt: Mapping[str, Any],
-    quest_id: str,
-    quest_version: str,
-    clear_condition_digest: str,
-    reseed_anchor: Mapping[str, Any],
-    extra_life_reward_eligibility: bool,
-) -> Dict[str, Any]:
-    """Compile the Life Loop continuation membrane around an already-bound Campaign V3 loop.
-
-    This function grants no scheduler or execution authority and executes no work.
-    It only makes continuation semantics explicit for the subsequent public loop attempt.
-    """
-    failures: List[str] = []
-    if bound_receipt.get("artifact") != CAMPAIGN_BINDING_ARTIFACT:
-        failures.append("CAMPAIGN_BINDING_ARTIFACT_INVALID")
-    if bound_receipt.get("status") != "BOUND":
-        failures.append("CAMPAIGN_NOT_BOUND")
-    if bound_receipt.get("standing") != "BOUND_LOOP_NOT_WORK_EXECUTED":
-        failures.append("CAMPAIGN_BINDING_STANDING_INVALID")
-    if bound_receipt.get("execution_authority_granted") is not False:
-        failures.append("CAMPAIGN_BINDING_AUTHORITY_FIREWALL_MISSING")
-    if bound_receipt.get("work_executed") is not False:
-        failures.append("CAMPAIGN_BINDING_ALREADY_EXECUTED_OR_INVALID")
-    if not str(bound_receipt.get("campaign_id") or "").strip():
-        failures.append("CAMPAIGN_ID_REQUIRED")
-    if not str(bound_receipt.get("branch_id") or "").strip():
-        failures.append("BRANCH_ID_REQUIRED")
-    if not str(bound_receipt.get("loop_id") or "").strip():
-        failures.append("LOOP_ID_REQUIRED")
-    if not str(quest_id or "").strip():
-        failures.append("QUEST_ID_REQUIRED")
-    if not str(quest_version or "").strip():
-        failures.append("QUEST_VERSION_REQUIRED")
-    if not str(clear_condition_digest or "").strip():
-        failures.append("CLEAR_CONDITION_DIGEST_REQUIRED")
-    if not isinstance(extra_life_reward_eligibility, bool):
-        failures.append("EXTRA_LIFE_REWARD_ELIGIBILITY_MUST_BE_BOOLEAN")
-
-    anchor_ok, anchor_errors, anchor_digest = _anchor_status(reseed_anchor)
-    if not anchor_ok:
-        failures.extend(f"RESEED_ANCHOR:{error}" for error in anchor_errors)
-
-    if failures:
-        return {
-            "artifact": CAMPAIGN_LIFE_ARTIFACT,
-            "status": "HOLD_INVALID_CAMPAIGN_LIFE_BINDING",
-            "failures": failures,
-            "execution_authority_granted": False,
-            "work_executed": False,
-            "platform_counter_reset_claimed": False,
-        }
-
-    return {
-        "artifact": CAMPAIGN_LIFE_ARTIFACT,
-        "status": "BOUND",
-        "standing": "LIFE_POLICY_BOUND_LOOP_NOT_WORK_EXECUTED",
-        "campaign_id": str(bound_receipt["campaign_id"]),
-        "branch_id": str(bound_receipt["branch_id"]),
-        "residual_step": int(bound_receipt.get("residual_step") or 0),
-        "loop_id": str(bound_receipt["loop_id"]),
-        "loop_state_digest": str(bound_receipt.get("loop_state_digest") or ""),
-        "campaign_state_digest": str(bound_receipt.get("campaign_state_digest") or ""),
-        "quest_id": str(quest_id),
-        "quest_version": str(quest_version),
-        "CLEAR_CONDITION_DIGEST": str(clear_condition_digest),
-        "LIFE_POLICY": LIFE_POLICY,
-        "RESEED_ANCHOR": copy.deepcopy(dict(reseed_anchor)),
-        "RESEED_ANCHOR_DIGEST": anchor_digest,
-        "EXTRA_LIFE_REWARD_ELIGIBILITY": extra_life_reward_eligibility,
-        "execution_authority_granted": False,
-        "work_executed": False,
-        "platform_counter_reset_claimed": False,
-        "next": "RESUME_EXPLICIT_LOOP_AND_RESOLVE_PUBLIC_ATTEMPT",
-        "laws": [
-            "CAMPAIGN_BINDING_PRECEDES_LIFE_POLICY_BINDING",
-            "LIFE_POLICY_BINDING != WORK_EXECUTION",
-            "TYPED_HOLD != FAILED_PLAY",
-            "FAIL_CLEAR_CONSUMES_EXACTLY_ONE_LIFE",
-            "RESEED_ANCHOR_V1_IS_CONTINUITY_AUTHORITY",
-            "LOGICAL_GAME_AGE_RESET != PLATFORM_COUNTER_RESET",
-        ],
-    }
-
-
 class StayInGameLifeLoopRuntime:
-    """Thin stateless MCP adapter over the public Life Loop reducer."""
+    """Thin stateless MCP adapter over the public hardened Life Loop reducer."""
 
     def __init__(self, server: Any):
         self.server = server
@@ -398,34 +381,28 @@ class StayInGameLifeLoopRuntime:
     def agent_enter(self, world: Mapping[str, Any], agent_id: str, quest_id: str, quest_version: str) -> Dict[str, Any]:
         next_world = copy.deepcopy(dict(world))
         agent = enter_agent(next_world, agent_id, quest_id, quest_version)
-        return {"status": "ENTERED", "world": next_world, "agent": agent, "platform_counter_reset_claimed": False}
+        return {
+            "status": "ENTERED",
+            "world": next_world,
+            "agent": agent,
+            "platform_counter_reset_claimed": False,
+        }
 
     def resolve(self, world: Mapping[str, Any], agent_id: str, attempt: Mapping[str, Any]) -> Dict[str, Any]:
         return resolve_attempt(world, agent_id, attempt)
 
-    def campaign_bind(
-        self,
-        bound_receipt: Mapping[str, Any],
-        quest_id: str,
-        quest_version: str,
-        clear_condition_digest: str,
-        reseed_anchor: Mapping[str, Any],
-        extra_life_reward_eligibility: bool,
-    ) -> Dict[str, Any]:
-        return bind_campaign_life_packet(
-            bound_receipt=bound_receipt,
-            quest_id=quest_id,
-            quest_version=quest_version,
-            clear_condition_digest=clear_condition_digest,
-            reseed_anchor=reseed_anchor,
-            extra_life_reward_eligibility=extra_life_reward_eligibility,
-        )
-
     def resource(self) -> Dict[str, Any]:
         return {
             "schema_version": SCHEMA_VERSION,
-            "campaign_binding_artifact": CAMPAIGN_LIFE_ARTIFACT,
-            "life_policy": LIFE_POLICY,
+            "semantic_source": {
+                "repo": SEMANTIC_SOURCE_REPO,
+                "commit": SEMANTIC_SOURCE_COMMIT,
+                "script_blob": SEMANTIC_SOURCE_SCRIPT_BLOB,
+                "test_blob": SEMANTIC_SOURCE_TEST_BLOB,
+                "standing": "MERGED_HARDENED_EXACT_SOURCE_LOCAL_16_OF_16",
+                "github_actions_ci": False,
+                "independent_witness": False,
+            },
             "base_lives": BASE_LIVES,
             "max_extra_lives": MAX_EXTRA_LIVES,
             "hold_classes": sorted(HOLD_CLASSES),
@@ -437,8 +414,10 @@ class StayInGameLifeLoopRuntime:
                 "VERIFIED_NON_SELF_SCORED_REWARD_CAN_GRANT_ONE_EXTRA_LIFE",
                 "EXTRA_LIFE_REWARD_RECEIPTS_ARE_IDEMPOTENT",
                 "FAIL_CLEAR_CONSUMES_EXACTLY_ONE_LIFE",
+                "SUCCESSFUL_RESEED_CONSUMES_UNIQUE_ANCHOR_DIGEST",
+                "RESEED_ANCHOR_BINDS_AGENT_AND_QUEST",
+                "RESEED_ANCHOR_GIT_POSITIONS_MUST_MATCH_CURRENT_PUBLIC_OBSERVATION",
                 "GLOBAL_RESEED_RESETS_ONLY_PUBLIC_ATHENA_LOGICAL_GAME_AGE",
-                "RESEED_ANCHOR_V1_IS_CONTINUITY_AUTHORITY",
                 "NO_PROVIDER_MODEL_PRODUCT_CONTEXT_TOKEN_QUOTA_RESET_AUTHORITY",
             ],
         }
@@ -447,9 +426,13 @@ class StayInGameLifeLoopRuntime:
         return {
             "stay_in_game_life_loop_v1": {
                 "schema_version": SCHEMA_VERSION,
-                "campaign_binding_artifact": CAMPAIGN_LIFE_ARTIFACT,
+                "semantic_source_commit": SEMANTIC_SOURCE_COMMIT,
+                "semantic_source_script_blob": SEMANTIC_SOURCE_SCRIPT_BLOB,
                 "base_lives": BASE_LIVES,
                 "max_extra_lives": MAX_EXTRA_LIVES,
+                "anchor_replay_guard": True,
+                "anchor_subject_binding": True,
+                "play_time_git_freshness": True,
                 "public_state_only": True,
                 "platform_counter_reset_claimed": False,
             }
