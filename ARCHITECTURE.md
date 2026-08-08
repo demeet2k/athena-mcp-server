@@ -15,45 +15,38 @@
 12. COLLECTIVE DISCOVERY V6 — nonlinear/OOD, generated experiment spaces, supplied-DAG back-door ID, higher-order interactions, multivariate transitions, MPC, schedule certificates, fail-closed capsules, Pareto experiment selection, replication/falsification shadows.
 13. COLLECTIVE DUAL CONTROL V7 — uncertainty decomposition, prequential bands, association-skeleton hypotheses, state-dependent dynamics, scenario/CVaR evaluation, control+information planning, BACKDOOR/FRONTDOOR/IV checks, replication independence/design.
 14. COLLECTIVE BELIEF V8 — persistent finite model beliefs, explicit Bayes observation updates, decision EVI, depth-1 belief-aware control, assumption-scoped effect estimates, bootstrap structure stability, contingent policies and spectral evidence diversity.
-15. Runtime — hydrate, conditional writes, telemetry, sessions, finalization and exact emission verification.
+15. COLLECTIVE INFERENCE V9 — finite-dimensional Gaussian parameter beliefs, Monte-Carlo EVPI/EVSI, bounded multistage finite-belief policies, cross-fitted AIPW, specification robustness, uncertainty-preserving partial graphs and explicit evidence-dependence probability models.
+16. Runtime — hydrate, conditional writes, telemetry, sessions, finalization and exact emission verification.
 
 ## Objective hierarchy
 
-Base:
+Base: `J = w_O·O - w_C·C`.
 
-`J = w_O·O - w_C·C`.
+Organization: `RGO = mean(O)/(1+mean(C))`.
 
-Organization comparison:
+V4 experiment selection: `UCB = mean + alpha * uncertainty`.
 
-`RGO = mean(O)/(1+mean(C))`.
+V5 information: `EIG = H(prior)-E[H(posterior)]`.
 
-V4 experiment selection:
-
-`UCB = mean + alpha * uncertainty`.
-
-V5 experiment information:
-
-`EIG = H(prior)-E[H(posterior)]`.
-
-V7 dual-control proxy:
-
-`Q = control + lambda_I*information - lambda_R*risk`.
+V7 dual-control proxy: `Q = control + lambda_I*information - lambda_R*risk`.
 
 V8 finite decision value:
 
 `EU(a)=sum_i p_i U(a,M_i)`
 
-`V0=max_a EU(a)`
+`EVI(e)=E_y[max_a EU(a|y,e)]-max_a EU(a)`.
 
-`EVI(e)=max(0, sum_y P(y|e) max_a EU(a|y,e) - V0)`.
+V9 continuous decision value under `theta~N(mu,Sigma)`:
 
-V8 belief-control depth-1 score:
+`EVPI ~= E_theta[max_a U(a,theta)] - max_a U(a,E[theta])`
 
-`Q_B(a)=EU_now(a)+gamma E[V_next|a]+lambda_I EIG(a)-lambda_R risk(a)-cost(a)`.
+and for measurement design `e`
 
-The key progression is:
+`EVSI(e) ~= E_y[max_a EU(a|y,e)] - max_a EU(a)`.
 
-`uncertainty bonus → entropy information → control+information proxy → explicit finite belief + downstream decision value`.
+The progression is:
+
+`uncertainty bonus → entropy information → control+information proxy → finite belief/decision value → continuous parameter belief + sample/perfect-information value`.
 
 ## Current developmental metabolism
 
@@ -61,17 +54,17 @@ The key progression is:
 `→ CHOOSE MINIMUM-SUFFICIENT DEPTH`
 `→ MEMORY/ANTIBODY/ELDER/SCIENCE-SHADOW`
 `→ REGIME/OOD/PREDICTIVE STATE`
-`→ OPTIONAL FINITE MODEL BELIEF`
+`→ OPTIONAL FINITE OR GAUSSIAN BELIEF`
 `→ LIVE HYPOTHESES`
-`→ EIG OR EVI EXPERIMENT DESIGN`
+`→ EIG/EVI/EVPI/EVSI DESIGN`
 `→ CONDITIONAL CAUSAL IDENTIFICATION`
-`→ OPTIONAL ASSUMPTION-SCOPED EFFECT ESTIMATE`
+`→ OPTIONAL EFFECT/AIPW ESTIMATION + ROBUSTNESS`
 `→ PARETO/SCHEDULE`
-`→ STATE MODEL/SCENARIO/DUAL OR BELIEF-DUAL PLAN`
+`→ STATE MODEL/SCENARIO/DUAL OR MULTISTAGE BELIEF POLICY`
 `→ EXECUTE FIRST AUTHORIZED ACTION`
 `→ OBSERVE/METER`
 `→ EXPLICIT BELIEF/BAYES/TRANSITION UPDATE`
-`→ REPLICATION/FALSIFICATION/EVIDENCE-DIVERSITY UPDATE`
+`→ REPLICATION/FALSIFICATION/EVIDENCE-DEPENDENCE UPDATE`
 `→ CREDIT`
 `→ MEMORY/IMMUNE/ELDER`
 `→ JSPACE/TOPOLOGY/PROJECTION/COMPENSATION`
@@ -86,107 +79,84 @@ The key progression is:
 - topology: expected topology version;
 - learned policy: expected policy version;
 - projection/compensation: explicit saga/semantic-head authority;
-- V4–V8 predictive, belief, experiment, causal-estimation, scenario and evidence-diversity state: advisory/evidential/control surfaces only.
+- V4–V9 predictive, belief, experiment, causal-estimation, scenario, graph-hypothesis and evidence-dependence state: advisory/evidential/control surfaces only.
 
-A V8 posterior or estimator never inherits semantic mutation authority simply because it is more mathematically sophisticated.
+A higher-resolution posterior or estimator never inherits semantic mutation authority.
 
-## Belief-state boundary
+## Finite versus continuous belief
 
-V8 stores a finite model distribution:
+V8 stores finite model probabilities `p_i` and updates from complete likelihood witnesses.
 
-`p_i >= 0`, `sum_i p_i=1`.
+V9 stores `theta~N(mu,Sigma)` for a finite-dimensional linear observation model. In natural coordinates `A=Sigma^-1`, `b=A mu`, one observed `y=x^T theta+epsilon` updates
 
-An actual declared observation with explicit likelihood witness updates by
+`A'=A+wxx^T/sigma^2`
 
-`p_i' = p_i L_i / sum_j p_j L_j`.
+`b'=b+wxy/sigma^2`.
 
-Planning, EVI, contingent-policy and belief-dual calls are read-only with respect to belief. Only `athena_belief_observe` mutates the belief distribution.
+Only explicit observations update either belief system. Query, EVPI, EVSI and planning operations are read-only.
 
 `BELIEF_POSTERIOR != CANONICAL_TRUTH`.
 
-`LIKELIHOOD_MODEL != OBSERVATION`.
+`GAUSSIAN_LINEAR_POSTERIOR != GENERAL_CONTINUOUS_BAYES`.
 
-## EIG versus EVI
+## EIG, EVI, EVPI and EVSI
 
-V5 EIG values entropy reduction in the supplied hypothesis model.
+- V5 EIG values entropy reduction.
+- V8 EVI values information only when it improves the downstream finite-model decision.
+- V9 EVPI estimates the model-conditional upper value of perfect parameter information.
+- V9 EVSI estimates the value of a specific noisy linear measurement design.
 
-V8 EVI values information according to whether it changes the optimal downstream decision:
-
-`EVI=E[max_a EU(a|new evidence)]-max_a EU(a|current evidence)`.
-
-Thus a high-information experiment may have near-zero EVI when every possible result implies the same action.
-
-`EVI_DESIGN != RESULT`.
+EVPI/EVSI are Monte Carlo estimates with reported sampling error and fixed seed; they are not exact analytic values or universal values of truth.
 
 ## Causal identification versus estimation
 
-V6/V7 identification checks remain assumption/graph witnesses.
+V6/V7 graph checks remain identification witnesses under explicit assumptions.
 
-V8 estimation adds narrow numeric estimators:
+V8 adds narrow BACKDOOR_LINEAR, IV_WALD and FRONTDOOR_LINEAR estimates.
 
-- BACKDOOR_LINEAR: treatment coefficient after supplied adjustment;
-- IV_WALD: covariance ratio with weak-first-stage rejection;
-- FRONTDOOR_LINEAR: product-of-coefficients mediation proxy.
+V9 adds cross-fitted AIPW for binary treatment:
 
-Identification and estimation remain distinct:
+`psi=m1(X)-m0(X)+T(Y-m1(X))/e(X)-(1-T)(Y-m0(X))/(1-e(X))`.
 
-`IDENTIFICATION != ESTIMATION`.
+Estimate `tau_hat=mean(psi)`; influence-function `SE≈sd(psi)/sqrt(n)`.
 
-`CAUSAL_ESTIMATE != IDENTIFICATION_PROOF`.
+AIPW's double-robust interpretation remains conditional on identification, positivity, consistency and nuisance regularity. Explicit latent-confounding risk fails closed.
 
-Explicit latent-confounding risk fails closed.
+`AIPW_ESTIMATE != IDENTIFICATION_PROOF`.
 
-## Bootstrap graph boundary
+V9 leave-one-adjustment robustness measures observed specification sensitivity only; it is not a hidden-confounding bound.
 
-V7 generates an observational association skeleton/v-structure candidate surface.
+## Structural uncertainty
 
-V8 bootstrap repeatedly resamples observations and recomputes that heuristic. Support
+V7 association skeletons and V8 bootstrap support remain hypothesis surfaces.
 
-`support(e)=count(e present)/B`
+V9 expresses stable undirected hypotheses as `X o-o Y`, explicitly preserving unresolved endpoints. `HEURISTIC_PARTIAL_GRAPH` is not an FCI PAG, CPDAG theorem or causal posterior and creates no JSPACE edge.
 
-is a stability score for the procedure, not a causal edge posterior or PAG theorem. No bootstrap call creates JSPACE edges.
+## Multistage policy boundary
 
-`BOOTSTRAP_STABILITY != CAUSAL_EDGE_PROBABILITY`.
+V8 exposes depth-1 contingent policies. V9 exactly recurses over finite caller-declared model/outcome spaces for horizon `H<=3`.
 
-## Contingent-policy boundary
+The returned policy tree is `PLAN_ONLY`; no hypothetical posterior becomes history. This remains bounded finite recursion rather than a general POMDP or belief-MDP solver.
 
-For one finite experiment V8 can construct
+## Evidence dependence
 
-`outcome → hypothetical posterior → best action`.
+V8 metadata similarity matrix `S` yields effective-N and participation-ratio redundancy measures.
 
-That is a depth-1 policy design. It is not an executed branch, observation or historical fact.
+V9 optionally applies a caller-declared logistic metadata model to produce pairwise dependence probabilities. The result is conditional on that declared model; missing metadata remains ambiguity/dependence pressure rather than independence.
 
-`CONTINGENT_POLICY != EXECUTION_HISTORY`.
-
-## Evidence spectral boundary
-
-Witness metadata induces similarity matrix `S`. V8 reports
-
-`N_eff=(sum_i w_i)^2 / sum_ij w_i w_j S_ij`
-
-and participation-ratio proxy
-
-`D_PR=Tr(S)^2 / ||S||_F^2`.
-
-This measures redundancy/effective evidence dimension. It does not prove formal statistical independence.
-
-`SPECTRAL_EVIDENCE_DIVERSITY != FORMAL_INDEPENDENCE`.
+`DEPENDENCE_PROBABILITY_MODEL != FORMAL_EVIDENCE_INDEPENDENCE`.
 
 ## Resource and scheduling boundary
 
-Automatically observable: MCP call count and wall time. Other dimensions remain caller/host observable only when actually available.
+Automatically observable: MCP call count and wall time. Other dimensions remain caller/host observable only when actually available. `UNKNOWN_COST != ZERO_COST`.
 
-`UNKNOWN_COST != ZERO_COST`.
+V4 immediate allocation, V5 finite-horizon beam scheduling and V6 small-model exact scheduling remain available. V9 does not claim globally certified stochastic scheduling.
 
-V4 provides immediate allocation, V5 finite-horizon beam scheduling, V6 small-model exact enumeration certificates. A certificate is scoped to its declared model and constraints.
+## Witness and projection boundaries
 
-## Witness boundary
+V5 witness cells are process-constrained; V6 stronger capsules fail closed without bubblewrap. Neither proves kernel/native-runtime security.
 
-V5 witness cells are process-constrained but non-hermetic. V6 stronger capsules require bubblewrap and fail closed when unavailable. Neither gives a theorem about kernel/native-runtime security.
-
-## Projection boundary
-
-SQLite semantic state and Git remain separate stores. Topology→JSPACE uses explicit saga states. V5 compensation is a narrow event-sourced semantic inverse for active projection-owned edges; Git recovery remains separate.
+SQLite semantic state and Git remain separate stores. Topology→JSPACE uses recovery sagas; semantic compensation remains distinct from Git rollback.
 
 ## Non-negotiable epistemic firewall
 
@@ -195,23 +165,20 @@ SQLite semantic state and Git remain separate stores. Topology→JSPACE uses exp
 - UNKNOWN_COST != ZERO_COST
 - prediction != observation
 - posterior/belief != canonical truth
-- likelihood model != observation
-- calibration != model validity
-- EIG/EVI != evidence
+- Gaussian linear posterior != general continuous Bayes
+- likelihood/model != observation
+- EIG/EVI/EVPI/EVSI design value != evidence
+- Monte-Carlo information value != exact analytic value
 - experiment design != result
-- association skeleton != causal DAG
-- bootstrap stability != causal edge probability
-- back-door/front-door/instrument ID != graph-independent causal truth
-- causal estimate != identification proof
-- missing factorial cell != zero effect
+- association/bootstrap/partial graph != causal DAG/PAG truth
+- causal estimate/AIPW != identification proof
+- robustness perturbation != hidden-confounding bound
 - state model != world truth
-- scenario tree != observed future
+- scenario/policy tree != observed future/history
 - dual/belief-control plan != execution
-- bounded dual control != exact Bayes-adaptive POMDP
-- contingent policy != execution history
+- multistage finite belief policy != general POMDP
 - Pareto frontier != single best action
-- evidence effective-rank != formal independence
-- replication design != replication result
+- evidence effective-rank/dependence model != formal independence
 - witness pass != universal proof
 - projection saga != atomic distributed transaction
 - semantic compensation != Git rollback
@@ -231,4 +198,6 @@ SQLite semantic state and Git remain separate stores. Topology→JSPACE uses exp
 
 `COLLECTIVE_DUAL_CONTROL=<UD,PI,CG,SM,SC,DC,CX,RI,RD,L>`
 
-`COLLECTIVE_BELIEF=<BS,EVI,BD,CE,CB,CP,ER,L>`.
+`COLLECTIVE_BELIEF=<BS,EVI,BD,CE,CB,CP,ER,L>`
+
+`COLLECTIVE_INFERENCE=<GB,EVPI,EVSI,MP,AIPW,RB,PG,ED,L>`.
