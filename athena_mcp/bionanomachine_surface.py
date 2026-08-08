@@ -4,17 +4,31 @@ from typing import Any,Dict
 
 from .bionanomachine_protocol import BIONANO_RESOURCE,BIONANO_TOOLS,BIONANO_TOOL_NAMES,BIONANO_VERSION
 from .bionanomachine_evidence_runtime import EvidenceBionanomachineRuntime
+from .mythic_computation_surface import (
+    MythicComputationSurface,
+    MYTHIC_COMPUTATION_RESOURCES,
+    MYTHIC_COMPUTATION_TOOLS,
+    MYTHIC_COMPUTATION_TOOL_NAMES,
+    MYTHIC_COMPUTATION_RESOURCE_URIS,
+)
 
-BIONANOMACHINE_TOOLS=list(BIONANO_TOOLS)
-BIONANOMACHINE_RESOURCES=[BIONANO_RESOURCE]
-BIONANOMACHINE_TOOL_NAMES=set(BIONANO_TOOL_NAMES)
-BIONANOMACHINE_RESOURCE_URIS={BIONANO_RESOURCE['uri']}
+# Compatibility seam: AorDevelopmentSurface already composes this extension bundle.
+# Preserve the MCK extension exports while upgrading only the BNMK runtime behind
+# the existing six-tool ABI. Both organs remain isolated in their own runtime modules.
+BIONANOMACHINE_TOOLS=list(BIONANO_TOOLS)+list(MYTHIC_COMPUTATION_TOOLS)
+BIONANOMACHINE_RESOURCES=[BIONANO_RESOURCE]+list(MYTHIC_COMPUTATION_RESOURCES)
+BIONANOMACHINE_TOOL_NAMES=set(BIONANO_TOOL_NAMES)|set(MYTHIC_COMPUTATION_TOOL_NAMES)
+BIONANOMACHINE_RESOURCE_URIS={BIONANO_RESOURCE['uri']}|set(MYTHIC_COMPUTATION_RESOURCE_URIS)
 
 
 class BionanomachineSurface:
-    def __init__(self):self.runtime=EvidenceBionanomachineRuntime()
+    def __init__(self):
+        self.runtime=EvidenceBionanomachineRuntime()
+        self.mck=MythicComputationSurface()
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        handled,value=self.mck.call_tool(name,args)
+        if handled:return True,value
         r=self.runtime
         if name=='athena_bionano_catalog':return True,r.catalog(args.get('include_atlas',False),args.get('include_evidence',False))
         if name=='athena_bionano_compile':return True,r.compile(args['machine_id'])
@@ -25,6 +39,8 @@ class BionanomachineSurface:
         return False,None
 
     def read_resource(self,uri:str):
+        if uri in MYTHIC_COMPUTATION_RESOURCE_URIS:
+            return self.mck.read_resource(uri)
         if uri!=BIONANO_RESOURCE['uri']:raise KeyError(uri)
         return {
             'version':BIONANO_VERSION,
@@ -44,4 +60,8 @@ class BionanomachineSurface:
             'authority':'PRIMARY_SOURCE_CONDITIONED_MECHANISM_LIBRARY; COMPUTATIONAL_TRANSFER_REMAINS_ANALOGY_ONLY'
         }
 
-    def benchmark(self):return self.runtime.benchmark()
+    def benchmark(self):
+        result={}
+        result.update(self.runtime.benchmark())
+        result.update(self.mck.benchmark())
+        return result
