@@ -34,7 +34,6 @@ def composition_certificate(server,run_probes=True)->Dict[str,Any]:
             'schema':(lambda:integrity.state_foundation.schema.status()) if integrity and integrity.state_foundation else None,
             'reconstruction':(lambda:integrity.state_foundation.reconstruction.recent(1)) if integrity and integrity.state_foundation else None,
             'self_test':(lambda:integrity.self_test.describe()) if integrity and integrity.self_test else None,
-            # Avoid evaluate() here: STARTUP -> SURFACE -> COMPOSITION would recurse.
             'startup':(lambda:{'version':'ATHENA.STARTUP.1'}) if integrity and integrity.startup else None,
         }
         for name,fn in checks.items():
@@ -50,6 +49,6 @@ def composition_certificate(server,run_probes=True)->Dict[str,Any]:
         'development_organs':{'status':'PASS' if not missing_development else 'FAIL','required':list(DEVELOPMENT_ORGANS),'missing':missing_development},
         'governance_organs':{'status':'PASS' if not missing_governance else 'FAIL','required':list(GOVERNANCE_ORGANS),'missing':missing_governance},
         'read_only_probes':probes,'probe_status':probe_status,
-        'law':'composition integrity requires one Server with resident Collective V1-V4 + AOR/FIELD/transport/CYCLE/state-foundation/startup/self-test/promotion organs; V5 science and V6 discovery are lazily constructed but their advertised surfaces are required by SURFACE.2',
+        'law':'composition integrity requires one Server with resident Collective V1-V4 + AOR/FIELD/transport/CYCLE/state-foundation/startup/self-test/promotion organs; V5-V12 science/inference/control/adaptation/joint-model surfaces are lazily constructed but their advertised surfaces are required by SURFACE.2',
         'boundary':'certifies runtime wiring/dispatch reachability and organ presence; model validity, migration currency, external CI/smoke and semantic truth are separate gates',
     }
