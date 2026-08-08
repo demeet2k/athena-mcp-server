@@ -1,0 +1,57 @@
+name: Campaign V3 Loop Binding Canary
+
+on:
+  push:
+    branches:
+      - agent/campaign-v3-loop-bind-canary-1a90f44
+    paths:
+      - .github/workflows/campaign-v3-loop-binding-canary.yml
+
+permissions:
+  contents: write
+
+jobs:
+  loop-binding-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out exact canary runner
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Run Campaign V3 loop-binding transaction
+        id: canary
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CANDIDATE_HEAD: 1a90f44cbbdbdcacc64544a8ddabf52711f48fbc
+          TARGET_BRANCH: agent/campaign-v3-loop-bind-target-1a90f44
+          TARGET_SEED_HEAD: b7ca865d55bec63474b4aed3f3013c7d73d8db37
+          WITNESS_PATH: campaign-v3-loop-binding-witness.json
+        shell: bash
+        run: |
+          set +e
+          python tools/campaign_v3_loop_binding_canary.py
+          code=$?
+          echo "exit_code=${code}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Upload sanitized loop-binding witness
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: campaign-v3-loop-binding-witness
+          path: campaign-v3-loop-binding-witness.json
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Enforce loop-binding acceptance result
+        if: always()
+        shell: bash
+        run: |
+          test "${{ steps.canary.outputs.exit_code }}" = "0"
