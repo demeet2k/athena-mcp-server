@@ -3,6 +3,7 @@ import tomllib
 import unittest
 from pathlib import Path
 
+import athena_mcp
 from athena_mcp.protocol import SERVER_INFO
 from athena_mcp.server import Server
 
@@ -11,18 +12,21 @@ class MetadataConsistencyTests(unittest.TestCase):
     def test_package_and_server_versions_match_current_release(self):
         root=Path(__file__).resolve().parents[1]
         project=tomllib.loads((root/'pyproject.toml').read_text())['project']
+        self.assertEqual(project['version'],'3.0.0')
+        self.assertEqual(athena_mcp.__version__,'3.0.0')
+        self.assertEqual(project['version'],athena_mcp.__version__)
         self.assertEqual(project['version'],SERVER_INFO['version'])
         self.assertEqual(project['name'],SERVER_INFO['name'])
-        self.assertEqual(project['version'],'2.9.0')
         description=project['description'].lower()
-        for phrase in ('nonlinear probabilistic','causal','finite belief'):
+        for phrase in ('adaptive probabilistic','causal sensitivity','finite belief-state'):
             self.assertIn(phrase,description)
 
     def test_v5_v11_and_claim_namespaces_are_exposed_without_collision(self):
         with tempfile.NamedTemporaryFile(suffix='.db') as f:
             srv=Server(f.name)
             init=srv.handle({'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-11-25'}})['result']
-            self.assertEqual(init['serverInfo']['version'],'2.9.0')
+            self.assertEqual(init['serverInfo']['version'],'3.0.0')
+            self.assertEqual(init['serverInfo'],SERVER_INFO)
             tools=srv.handle({'jsonrpc':'2.0','id':2,'method':'tools/list'})['result']['tools']
             names=[x['name'] for x in tools]
             self.assertEqual(len(names),len(set(names)),'tool registry must not contain duplicate RPC names')
