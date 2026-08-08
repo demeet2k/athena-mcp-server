@@ -173,6 +173,9 @@ def validate_campaign_v3_reseed_anchor(anchor: Mapping[str, Any]) -> list[str]:
     ):
         if key not in anchor:
             errors.append(f"missing:{key}")
+    for key in ("anchor_id", "run_id", "agent_coordinate_name"):
+        if key in anchor and not str(anchor.get(key) or "").strip():
+            errors.append(f"{key}_required")
     if anchor.get("pulse_age_after") != 0:
         errors.append("pulse_age_after_must_be_zero")
     if not isinstance(anchor.get("reseed_epoch"), int) or int(anchor.get("reseed_epoch", -1)) < 0:
@@ -300,11 +303,20 @@ def compile_campaign_v3_reseed_anchor(
         raise ValueError("invalid or tampered Campaign V3 pulse")
     if pulse.get("execution_authorized") is not False:
         raise ValueError("Campaign V3 pulse must remain non-authoritative")
-    if not str(campaign_id or "").strip() or not str(campaign_state_digest or "").strip() or not str(campaign_checkpoint_head or "").strip():
+    campaign_id = str(campaign_id or "").strip()
+    campaign_state_digest = str(campaign_state_digest or "").strip()
+    campaign_checkpoint_head = str(campaign_checkpoint_head or "").strip()
+    anchor_id = str(anchor_id or "").strip()
+    run_id = str(run_id or "").strip()
+    agent_coordinate_name = str(agent_coordinate_name or "").strip()
+    if not campaign_id or not campaign_state_digest or not campaign_checkpoint_head:
         raise ValueError("campaign identity/state/checkpoint are required")
+    if not anchor_id or not run_id or not agent_coordinate_name:
+        raise ValueError("anchor/run/agent identities are required")
     if int(reseed_epoch) < 0 or int(pulse_age_before) < 0:
         raise ValueError("reseed epoch and pulse age must be nonnegative")
-    if int(pulse.get("pulse_index") or 0) == 100 and not then_current_rehydrated:
+    pulse_index = int(pulse.get("pulse_index") or 0)
+    if pulse_index == 100 and not then_current_rehydrated:
         raise ValueError("pulse 100 requires then-current rehydration before reseed compilation")
     if stop_class == "SUCCESS_CLOSED":
         raise ValueError("bounded Campaign V3 pulse cannot self-certify campaign success")
@@ -315,6 +327,16 @@ def compile_campaign_v3_reseed_anchor(
     primary = next((row for row in positions if row["repo"] == primary_repo and row["ref"] == primary_ref), None)
     if primary is None:
         raise ValueError("primary Git coordinate must exist in git_positions")
+    if pulse_index == 100:
+        pulse_coordinates = pulse.get("current_coordinates")
+        if not isinstance(pulse_coordinates, Mapping):
+            raise ValueError("pulse 100 requires current rehydration coordinates")
+        if pulse_coordinates.get("shared_fresh") is not True:
+            raise ValueError("pulse 100 requires shared-fresh then-current coordinates")
+        pulse_head = str(pulse_coordinates.get("git_head") or "").strip()
+        primary_head = str(primary.get("head") or "").strip()
+        if not pulse_head or pulse_head != primary_head:
+            raise ValueError("pulse 100 then-current head must equal primary Git head")
 
     durable = _nonempty_strings(durable_returns)
     witness_values = _nonempty_strings(witnesses)
@@ -381,11 +403,11 @@ def compile_campaign_v3_reseed_anchor(
     primary_before = None if primary_head_before is None else str(primary_head_before)
     anchor = {
         "schema_version": SCHEMA_VERSION,
-        "anchor_id": str(anchor_id),
+        "anchor_id": anchor_id,
         "parent_anchor_id": parent_anchor_id,
         "parent_reseed_epoch": parent_reseed_epoch,
-        "run_id": str(run_id),
-        "agent_coordinate_name": str(agent_coordinate_name),
+        "run_id": run_id,
+        "agent_coordinate_name": agent_coordinate_name,
         "reseed_epoch": int(reseed_epoch),
         "pulse_age_before": int(pulse_age_before),
         "pulse_age_after": 0,
