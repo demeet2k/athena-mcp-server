@@ -70,9 +70,35 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_aor_collective_transport.py' -v
       - name: Exact-head promotion predicate
         run: python -m unittest discover -s tests -p 'test_promotion_unified.py' -v
+      - name: Whole-system witnessed upgrade and release plane
+        run: python -m unittest discover -s tests -p 'test_system_upgrade.py' -v
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Build wheel without network-dependent isolation
+        run: python -m pip wheel --no-deps --no-build-isolation . -w dist
+      - name: Install and probe wheel from a clean working directory
+        shell: bash
+        run: |
+          rm -rf /tmp/athena-wheel
+          python -m pip install --no-deps --target /tmp/athena-wheel dist/*.whl
+          cd /tmp
+          PYTHONPATH=/tmp/athena-wheel python - <<'PY'
+          import importlib.resources
+          import athena_mcp
+          from athena_mcp.hub_server import HubServer
+          data=importlib.resources.files('athena_mcp').joinpath('data/kc144-core-registries.tar.xz')
+          assert data.is_file(), data
+          assert athena_mcp.__version__ == '2.5.0'
+          print('PACKAGE PASS:', data)
+          PY
 
   smoke:
-    needs: [syntax, unit, critical-invariants]
+    needs: [syntax, unit, critical-invariants, package]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
