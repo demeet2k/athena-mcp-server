@@ -83,6 +83,14 @@ class ReleaseDistributionTests(unittest.TestCase):
         self.assertNotIn('athena_mcp.hub_server',w)
         self.assertNotIn('kc144-core-registries.tar.xz',w)
 
+    def test_release_workflow_uses_least_privilege_until_manual_publish(self):
+        w=self.workflow
+        self.assertIn('permissions:\n  contents: read\n  actions: read\n  checks: read',w)
+        publish=w[w.index('\n  publish:'):]
+        self.assertIn('permissions:\n      contents: write\n      actions: read\n      checks: read',publish)
+        self.assertEqual(w.count('contents: write'),1,w)
+        self.assertNotIn('contents: write',w[:w.index('\n  publish:')])
+
     def test_package_readiness_binds_trusted_receipt_to_same_release_head(self):
         w=self.workflow
         for fragment in (
