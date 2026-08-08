@@ -4,12 +4,12 @@ HOLONOMY_VERSION="MCK.HOLONOMY.RUNTIME.V0"
 HOLONOMY_RESOURCE={
     "uri":"athena://symbolic/computation/mck/holonomy/v0",
     "name":"ATHENA MCK Semantic Holonomy Evaluator V0",
-    "description":"Read-only held-out evaluator for source-stratified semantic transport. Reports vector drift, provenance/loss accounting and A0/A1/A2 comparison without MCK.V2, practitioner, predictive or metaphysical authority."
+    "description":"Read-only held-out evaluator for source-stratified semantic transport. Reports vector drift, provenance/loss accounting and A0/A1/A2 comparison. V0 loop vectors are explicitly open-path representation-drift proxies because no typed projection-back operator is defined; true closed-loop holonomy remains UNKNOWN. No MCK.V2, practitioner, predictive or metaphysical authority."
 }
 
 HOLONOMY_TOOLS=[{
     "name":"athena_mck_holonomy_evaluate",
-    "description":"Evaluate a frozen MCK held-out packet through A0 unscoped reference, A1 edge-wise strata, and A2 composed provenance/loss/holonomy ledger. Scalarization is disabled; H_gamma is a representation-drift vector, not a metaphysical quantity.",
+    "description":"Evaluate a frozen MCK held-out packet through A0 unscoped reference, A1 edge-wise strata, and A2 composed provenance/loss with an explicitly typed V0 open-path representation-drift proxy for loop cases. Scalarization is disabled; the proxy is not a computed closed-loop holonomy and H_gamma is not a metaphysical quantity.",
     "inputSchema":{
         "type":"object",
         "required":["packet"],
