@@ -4,7 +4,7 @@ import copy
 import hashlib
 import json
 import math
-from collections.abc import Mapping, Sequence
+from collections.abc import Mapping
 from typing import Any, Dict, Optional, Tuple
 
 from athena_mcp.mythic_connection_control import (
@@ -52,7 +52,7 @@ def _require(condition: bool, code: str, detail: str = "") -> None:
 
 
 def _is_sequence(value: Any) -> bool:
-    return isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray))
+    return isinstance(value, list)
 
 
 def _scan_reserved_keys(value: Any, path: str = "$") -> None:
