@@ -57,7 +57,7 @@ class CrystalGraphMixin:
             program=json.loads(t['program_json']) if t.get('program_json') else None
             result=evaluate(program,source_value)
         metric=json.loads(t['metric_json']) if t.get('metric_json') else {'type':'EXACT'}
-        comparison=compare(result,target_value,metric) target_value is not None else {'status':'NO_RESOLVED_TARGET','metric':None}
+        comparison=compare(result,target_value,metric) if target_value is not None else {'status':'NO_RESOLVED_TARGET','metric':None}
         return source_value,result,target_value,comparison
     def apply_transform(self,subject_id,src_chart,dst_chart,source_value=None,persist=False,actor='agent'):
         t=self._transform(src_chart,dst_chart)
@@ -91,7 +91,7 @@ class CrystalGraphMixin:
             else:out['holonomy']={'status':'N/A_LOOKUP_ROUTE','reason':'Holonomy is not promoted when any edge is a subject lookup rather than a derivation.'}
         return out
     def coordinate_matrix(self,subject_id=None):
-        charts=self.s.rows("SELECT chart_id,name FROM coordinate_charts ORDER BY name"); transforms=self.s.rows("SELECT t.*,p.mode,P.program_json FROM transforms t LEFT JOIN transform_programs p ON p.transform_id=t.transform_id ORDER BY t.src_chart,t.dst_chart,t.created_at"); coords=self.s.rows("SELECT chart_id,status FROM coordinates WHERE subject_id=?",(subject_id,)) if subject_id else []
+        charts=self.s.rows("SELECT chart_id,name FROM coordinate_charts ORDER BY name"); transforms=self.s.rows("SELECT t.*,p.mode,p.program_json FROM transforms t LEFT JOIN transform_programs p ON p.transform_id=t.transform_id ORDER BY t.src_chart,t.dst_chart,t.created_at"); coords=self.s.rows("SELECT chart_id,status FROM coordinates WHERE subject_id=?",(subject_id,)) if subject_id else []
         status={r['chart_id']:r['status'] for r in coords}; resolved=[c['chart_id'] for c in charts if status.get(c['chart_id']) in ('RESOLVED','PARTIAL')]; latest={}
         for t in transforms:latest[(t['src_chart'],t['dst_chart'])]=t
         capacity=len(resolved)*(len(resolved)-1); registered=sum((a,b) in latest for a in resolved for b in resolved if a!=b); executable=sum(bool((a,b) in latest and (latest[(a,b)].get('mode')=='LOOKUP' or latest[(a,b)].get('program_json'))) for a in resolved for b in resolved if a!=b); deriv=sum(bool((a,b) in latest and latest[(a,b)].get('mode') in DERIVATIONAL_MODES and latest[(a,b)].get('program_json')) for a in resolved for b in resolved if a!=b)
