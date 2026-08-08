@@ -17,7 +17,6 @@ def _safe(call,unknown_label):
 
 
 def project_omega(server)->Dict[str,Any]:
-    """Project current accessible runtime state into one addressable OMEGA packet."""
     dev=getattr(server,'aor_development',None);integrity=getattr(dev,'integrity',None) if dev else None;foundation=getattr(integrity,'state_foundation',None) if integrity else None
     semantic_head=server.store.head('global')
     state={
@@ -38,10 +37,11 @@ def project_omega(server)->Dict[str,Any]:
                 'dual_control_v7':'constructed on V7 tool/resource access; uncertainty decomposition, causal skeletons, scenario/dual-control plans and replication geometry remain model/science-shadow state',
                 'belief_v8':'constructed on V8 tool/resource access; finite beliefs, EVI/effect/bootstrap/policy and spectral evidence geometry remain model/science-shadow state',
                 'inference_v9':'constructed on V9 tool/resource access; Gaussian beliefs, EVPI/EVSI, AIPW/robustness, partial graphs and dependence models remain model-conditional state',
+                'probabilistic_v10':'constructed on V10 tool/resource access; fixed-kernel GP, bounded PC-stable, TMLE, E-value, finite-POMDP and learned-dependence surfaces remain model/assumption-scoped state',
             },
         },'collective state unavailable'),
         'branches':_safe(lambda:{'benchmark':server.branches.benchmark(),'review':server.branches.list(status='REVIEW',limit=100),'hibernated':server.branches.list(status='HIBERNATED',limit=100)},'branch lifecycle unavailable'),
-        'authority':_safe(lambda:{'benchmark':server.authority.benchmark(),'challenged':server.authority.list(status='CHALLENGED',limit=100),'canonical_challenged':server.authority.list(status='CANONICAL_CHALLENGED',limit=100),'claim_namespace':'athena_claim_* canonical Y1; athena_discovery_claim_* V6-V9 science-shadow only'},'authority state unavailable'),
+        'authority':_safe(lambda:{'benchmark':server.authority.benchmark(),'challenged':server.authority.list(status='CHALLENGED',limit=100),'canonical_challenged':server.authority.list(status='CANONICAL_CHALLENGED',limit=100),'claim_namespace':'athena_claim_* canonical Y1; athena_discovery_claim_* V6-V10 science-shadow/model evidence only'},'authority state unavailable'),
         'aor':_safe(lambda:{'benchmark':server.orchestration.benchmark(),'recent':server.orchestration.recent(20)},'AOR runtime unavailable'),
         'development':_safe(lambda:dev.benchmark() if dev else {},'development surface unavailable'),
         'cycles':_safe(lambda:dev.cycle.recent(20) if dev and hasattr(dev,'cycle') else [],'cycle runtime unavailable'),
@@ -50,7 +50,7 @@ def project_omega(server)->Dict[str,Any]:
         'schema_status':_safe(lambda:foundation.schema.status() if foundation else {},'schema status unavailable'),
         'reconstruction':_safe(lambda:foundation.reconstruction.recent(20) if foundation else [],'reconstruction ledger unavailable'),
         'pending_mutations':_safe(lambda:server.core.pending_mutations('ATHENA.OMEGA.1'),'pending mutation query unavailable'),
-        'boundary':'OMEGA covers accessible runtime/ledger state only; V5-V9 lazy model construction, absent external sources and unseen world state remain explicit rather than inferred',
+        'boundary':'OMEGA covers accessible runtime/ledger state only; V5-V10 lazy model construction, absent external sources and unseen world state remain explicit rather than inferred',
     }
     digest_source={k:v for k,v in state.items() if k not in {'omega_id','state_digest'}};state_digest=_digest(digest_source);state['state_digest']=state_digest;state['omega_id']='OMEGA.'+state_digest[:24];return state
 
