@@ -49,6 +49,6 @@ def composition_certificate(server,run_probes=True)->Dict[str,Any]:
         'development_organs':{'status':'PASS' if not missing_development else 'FAIL','required':list(DEVELOPMENT_ORGANS),'missing':missing_development},
         'governance_organs':{'status':'PASS' if not missing_governance else 'FAIL','required':list(GOVERNANCE_ORGANS),'missing':missing_governance},
         'read_only_probes':probes,'probe_status':probe_status,
-        'law':'composition integrity requires one Server with resident Collective V1-V4 + AOR/FIELD/transport/CYCLE/state-foundation/startup/self-test/promotion organs; V5-V12 science/inference/control/adaptation/joint-model surfaces are lazily constructed but their advertised surfaces are required by SURFACE.2',
-        'boundary':'certifies runtime wiring/dispatch reachability and organ presence; model validity, migration currency, external CI/smoke and semantic truth are separate gates',
+        'law':'composition integrity requires one Server with resident Collective V1-V4 + AOR/FIELD/transport/CYCLE/state-foundation/startup/self-test/promotion organs; V5-V13 science/inference/control/adaptation/joint/robust surfaces are lazily constructed but their advertised surfaces are required by SURFACE.2',
+        'boundary':'certifies runtime wiring/dispatch reachability and organ presence; model validity, migration currency, trusted external promotion verification, external CI/smoke and semantic truth are separate gates',
     }

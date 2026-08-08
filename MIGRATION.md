@@ -1,12 +1,8 @@
-# ATHENA Unified Migration Law — v3.1 / Collective V1–V12
+# ATHENA Unified Migration Law — v3.2 / Collective V1–V13
 
-This repository has passed through historical active-tree reset, AOR×Collective constitutional braid, parallel Collective successor development, explicit ancestry repair, repository-brain consistency repair, and PROMOTION.2 trust-boundary hardening. Migration therefore distinguishes **content**, **runtime integration**, **release identity**, **verification**, **authority**, **attestation**, **trusted qualification**, **control-plane state**, and **Git ancestry**.
+Migration distinguishes **content**, **runtime integration**, **release identity**, **verification**, **authority**, **attestation**, **trusted qualification**, **control-plane state**, and **Git ancestry**.
 
 `UNKNOWN / LEGACY != GARBAGE`
-
-`PRUNE / HIBERNATE != ERASE`
-
-`OLD API NAME != PERMANENT AUTHORITY`
 
 `FILE EXISTS != ORGAN INTEGRATED`
 
@@ -20,263 +16,208 @@ This repository has passed through historical active-tree reset, AOR×Collective
 
 `CI PASS != LIVE TRUSTED PROMRUN`
 
-`RUNTIME STATE != GITHUB CONTROL-PLANE STATE`
+`RUNTIME STATE != GITHUB CONTROL-PLANE STATE`.
 
 ## 1. Current executable target
 
-Current release identity:
+`athena-canonical-mcp 3.2.0`
 
-`athena-canonical-mcp 3.1.0`
+`ATHENA.RUNTIME.UNIFIED.8`
 
-Live runtime brain:
+One composed runtime contains base CCR/JSPACE/SCALE/KC144/polycoordinate/crystal/Git, resident Collective V1–V4, lazy V5–V13 science/inference/control layers, AOR/Y1/EQ/developmental organs, CYCLE.1, SCHEMA.2/OMEGA.1/RECON.1, SELFTEST/STARTUP/SURFACE/COMPOSITION/PROMOTION.2 and final-emission verification.
 
-`ATHENA.RUNTIME.UNIFIED.7`
+## 2. Ancestry law
 
-One composed runtime contains:
+Pre-rebuild state remains in Git history. Legacy existence is not canonicality.
 
-- base CCR/JSPACE/SCALE/KC144/polycoordinate/crystal/Git substrate;
-- Collective V1 + Growth V1 + Memory V2 + Learning V3 + Ecology V4;
-- lazy Science V5 + Discovery V6 + Dual-Control V7 + Belief V8 + Continuous Inference V9 + Probabilistic V10 + Adaptive V11 + Joint V12;
-- AOR.3 + branch evolution + Y1 authority;
-- EQ.1 / SX.1 / RAG.1 / HUG.ABI.1 / GAP.1 / FIELD.1;
-- typed AOR×Collective transport;
-- CYCLE.1;
-- SCHEMA.2 / OMEGA.1 / RECON.1;
-- SELFTEST.1 / STARTUP.1 / SURFACE.2 / COMPOSITION.2 / PROMOTION.2;
-- exact final-emission verification.
+A successor branch must preserve current master ancestry. If master moves while the successor is being developed:
 
-Historical PROMOTION.1 receipts remain versioned/replayable but are no longer sufficient to describe the current qualification trust contract.
+`FETCH(master) -> CLASSIFY(delta) -> BRAID -> FOUR_GATE_CI -> RACE_CHECK`.
 
-## 2. Historical reset and ancestry boundary
+Copying current files is not equivalent to preserving parent history. Do not reuse CI evidence from an older head for a newer head.
 
-Pre-rebuild repository state remains in Git history. Legacy existence does not make a file canonical.
+## 3. Schema / persistence
 
-Legacy admission remains:
+SCHEMA.2 remains additive and receipt-bearing. Unknown legacy tables/rows survive unless an explicitly authorized migration owns them.
 
-`DISCOVER → HASH → CLASSIFY → CCR SEARCH → OID/VID → SOURCE → KC144 → JSPACE → SCALE → TEST/EVIDENCE → STATUS`.
+V12 and V13 add no required persistent SQL table for their new model outputs. QMC particles, FITC predictions, joint designs, structural candidates, longitudinal estimates/policy values and robust resource plans are read-only computation surfaces unless an existing explicit observation/persistence operator owns a write.
 
-A newer green successor must preserve the current master ancestry, including the post-V11 repository-brain consistency repair and PROMOTION.2 trust-boundary hardening, rather than replacing master with an older otherwise-green snapshot.
+`NO_NEW_TABLE != NO_NEW_CAPABILITY`.
 
-## 3. Database migration — SCHEMA.2
+PROMOTION.2 reuses the versioned `promotion_runs` ledger and preserves PROMOTION.1 replay semantics separately.
 
-Schema adoption remains additive and receipt-bearing. Unknown legacy tables/rows survive unless an explicitly authorized migration owns them. Future schema versions fail closed rather than silently downgrading.
+## 4. Authority firewall
 
-V12 itself adds no new persistent SQL table: its hyperposterior/BMA/PAG/g-formula/chance-control results are read-only computation surfaces over existing state and caller inputs. This is intentional; `NO_NEW_TABLE != NO_NEW_CAPABILITY`.
-
-PROMOTION.2 reuses the existing versioned `promotion_runs` ledger while storing version-specific certificate semantics so historical PROMOTION.1 receipts remain replayable under the evaluator that created them.
-
-## 4. Claim namespace / authority firewall
-
-Canonical Y1 remains:
-
-- `athena_claim_register`
-- `athena_claim_state`
-- `athena_claim_promote`
-- `athena_claim_challenge`
-- `athena_claim_resolve_canonical_challenge`.
-
-Science-shadow replication/falsification remains:
-
-- `athena_discovery_claim_register`
-- `athena_discovery_claim_witness`
-- `athena_discovery_claim_state`.
-
-Migration law:
+Canonical Y1 remains `athena_claim_*`. Science-shadow replication/falsification remains `athena_discovery_claim_*`.
 
 `SCIENCE_SHADOW --explicit witnessed evidence route--> Y1 consideration`
 
-never:
+never
 
-`SCIENCE_SHADOW --implicit RPC alias--> Y1 mutation`.
+`SCIENCE_SHADOW --adjacency--> Y1 mutation`.
 
-V7–V12 evidence/model/control operators may consume or produce science-shadow/model state but cannot mutate Y1 by adjacency.
+V7–V13 model/control surfaces cannot mutate Y1 merely because a prediction, estimate, policy, graph or resource plan looks strong.
 
-## 5. Introspection / observer-effect law
+## 5. Observer-effect law
 
-Canonical introspection remains non-self-metering. OMEGA, schema status/verify, SELFTEST, STARTUP, SURFACE, runtime manifest/MAXDEV, benchmark/Git status and reconstruction reads must not change the state they are inspecting merely by observation.
+OMEGA/schema status/SELFTEST/STARTUP/SURFACE/manifest/MAXDEV/benchmark/Git-status/reconstruction and model-design/prediction calls must not mutate the state they inspect merely by observation.
 
-`OBSERVE(OMEGA) != MUTATE(OMEGA)`.
+`OBSERVE != TRAIN`.
 
-## 6. Runtime surface integration rule
+`DESIGN != OBSERVATION`.
 
-A file is not a live organ merely because it exists. Integration requires:
+## 6. Live-organ integration rule
 
-1. tool schema advertised;
+A successor organ is live only when:
+
+1. schema advertised;
 2. dispatcher route exists;
-3. organ resident or explicitly classified lazy;
-4. resource surface exists where applicable;
+3. resident/lazy classification is explicit;
+4. resource surface exists;
 5. SURFACE.2 requires it;
-6. COMPOSITION.2 correctly classifies resident versus lazy state;
-7. constructive/adversarial/unified regression witnesses exist;
-8. CI has a dedicated critical stage when constitutionally important;
-9. smoke crosses representative behavior;
+6. COMPOSITION.2 describes it correctly;
+7. constructive/adversarial/unified tests exist;
+8. CI has a dedicated stage when constitutionally important;
+9. subprocess smoke crosses representative behavior;
 10. manifest and OMEGA describe it;
-11. README/ARCHITECTURE/MIGRATION/current unified spec agree with the live artifact.
+11. README/ARCHITECTURE/MIGRATION/current unified spec agree.
 
-`test_documentation_consistency.py` makes repository-brain drift CI-visible.
+Documentation drift is a CI-visible defect.
 
-## 7. V6 → V11 preserved migrations
+## 7. Preserved V10–V12 semantics
 
-The existing progression is preserved without reinterpretation:
+V10 fixed-kernel GP / bounded PC / TMLE / POMDP remains V10 state.
 
-- V7 adds bounded dual-control/extended causal/replication geometry;
-- V8 adds finite model belief/EVI;
-- V9 adds Gaussian-linear parameter belief, EVPI/EVSI and AIPW;
-- V10 adds fixed-kernel exact GP, bounded PC-stable, binary TMLE, E-value, finite POMDP and externally labelled dependence calibration;
-- V11 adds finite-grid GP hyperfit with observed-row CAS, GP decision EVSI, supplied-DAG latent ADMG projection, stacked nuisance TMLE, RR sensitivity surface, finite-model BAPOMDP and dependence intervals.
+V11 GP hyperfit winner / supplied-DAG latent projection / stacked TMLE / finite-model BA-POMDP remains V11 state.
 
-Historical states remain typed as the layer that generated them. No V10 GP point prediction is relabelled as V12 BMA prediction; no V11 hyperfit winner is automatically treated as a finite-grid posterior.
+V12 finite-grid GP hyperposterior / BMA / subset-GP / bounded PAG / two-timepoint g-formula / independent-Gaussian chance plan remains V12 state.
 
-## 8. V11 → V12 — fixed winners to joint bounded uncertainty
+No historical result is silently relabelled as the stronger V13 algorithm.
 
-V12 is a **joint-uncertainty extension**, not a license to promote model mixtures into truth.
+## 8. V12 -> V13 — finite model sets to bounded continuous/robust approximations
 
-### Finite GP hyperparameter posterior
+V13 is a **bounded successor**, not proof that the general forms are solved.
 
-V11 can rank/apply one finite-grid hyperparameter winner. V12 `athena_gp_hyperposterior` instead normalizes the entire visible candidate set:
+### 8.1 Finite hyperparameter grid -> continuous-domain QMC
 
-`w_i ∝ prior_i * exp(log p(y|X,theta_i))`.
+V12:
 
-`FINITE_GRID_HYPERPOSTERIOR != CONTINUOUS_HYPERPARAMETER_BAYES`.
+`pi(theta)=sum_i w_i delta(theta_i)` on an explicit finite grid.
 
-Existing V11 hyperfit receipts remain model-selection receipts and are not retroactively converted into posterior priors.
+V13 `athena_gp_hyperqmc` instead samples a declared positive continuous hyperparameter box in log coordinates using deterministic Halton points and reweights them by exact bounded GP marginal likelihood.
 
-### Bayesian-model-averaged GP prediction
+`QMC_CONTINUOUS_HYPERPOSTERIOR != EXACT_CONTINUOUS_HYPERPARAMETER_BAYES`.
 
-V12 `athena_gp_bma_predict` combines model means and retains both within-model and between-model uncertainty:
+Existing V12 finite posterior rows/outputs are not retroactively interpreted as continuous quadrature.
 
-`Var = E[Var(Y|M)] + Var(E[Y|M])`.
+### 8.2 Subset approximation -> FITC inducing approximation
 
-`BMA_GP_POSTERIOR != WORLD_TRUTH`.
+V12 subset-GP performs exact GP inference on a selected observed subset.
 
-A historical fixed-GP prediction remains a fixed-GP prediction.
+V13 FITC retains all observations through a diagonal conditional-residual correction while using a smaller inducing representation and returns query-level error against the exact current bounded GP.
 
-### Deterministic subset GP approximation
+`FITC_INDUCING_GP != FULL_GP_POSTERIOR_OR_VARIATIONAL_OPTIMUM`.
 
-`athena_gp_sparse_predict` selects a farthest-point subset of current GP observations and returns explicit query-level error relative to the exact bounded current GP reference.
+`QUERY_REFERENCE_ERROR != GLOBAL_ERROR_GUARANTEE`.
 
-`SUBSET_GP_APPROXIMATION != FULL_GP_POSTERIOR`.
+### 8.3 Decision EVSI -> joint decision + model information
 
-Do not migrate this surface into a claim of sparse variational GP or inducing-point optimality.
+V13 `athena_gp_joint_design` keeps downstream decision improvement and expected hypermodel entropy reduction as separate reported quantities before explicit scalar weighting.
 
-### BMA GP decision EVSI
+No hypothetical measurement becomes a GP row.
 
-`athena_gp_bma_decision_evsi` hypothetically updates both finite model weights and within-model GP action means under simulated measurements. It remains `DESIGN_ONLY`.
+### 8.4 Bounded PAG -> bounded FCI-lite
 
-`BMA_GP_EVSI != OBSERVATION`.
+V13 expands observational conditioning to all observed-variable subsets up to a declared small order, retains separation sets and applies collider/limited propagation rules.
 
-No hypothetical sample becomes an observation or hyperparameter update.
+`BOUNDED_FCI_LITE != FCI_RFCI_PAG_THEOREM`.
 
-### Bounded PAG candidate
+Complete possible-d-sep, discriminating paths, selection-bias semantics and PAG completeness remain unresolved. Existing V9/V10/V12 graph objects stay typed as the algorithm that produced them. No V13 call writes JSPACE.
 
-V12 `athena_pag_candidate_discover` adds a new observed-data structural hypothesis surface using bounded Gaussian CI tests, separation sets, collider arrowheads and limited endpoint propagation.
+### 8.5 Parametric g-formula -> history-preserving sequential targeting
 
-Existing V9 partial graphs, V10 PC-stable graphs and V11 supplied-DAG latent projections remain distinct objects.
+V13 `athena_longitudinal_tmle` targets a binary two-timepoint static regime over
 
-`BOUNDED_PAG_CANDIDATE != FCI_RFCI_PAG_THEOREM`.
+`X -> A1 -> L1 -> A2 -> Y`.
 
-No call creates canonical JSPACE causal edges.
+Critical migration invariant:
 
-### Two-timepoint parametric g-formula
+`STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION`.
 
-V12 adds a static two-timepoint binary treatment-regime estimator over `A1 → L1 → A2 → Y` with optional baseline covariates.
+Stage 2 evaluates target A2 while retaining each row's observed A1/L1 history; the stage-2 clever covariate is zero when observed A1 is incompatible with target A1. Stage 1 then learns the targeted pseudo-outcome over observed A1 before evaluating target A1.
 
-`TWO_TIMEPOINT_GFORMULA != LONGITUDINAL_TMLE_OR_IDENTIFICATION_PROOF`.
+`TWO_TIMEPOINT_SEQUENTIAL_TMLE != GENERAL_LONGITUDINAL_TMLE_THEOREM_OR_IDENTIFICATION_PROOF`.
 
-Sequential exchangeability, positivity, consistency and nuisance-model correctness remain explicit assumptions. Declared latent-confounding risk fails closed.
+Declared latent confounding fails closed.
 
-Historical cross-sectional TMLE/AIPW results are not reclassified as longitudinal policy values.
+### 8.6 Static regimes -> deterministic dynamic two-timepoint policies
 
-### Chance-constrained resource selection
+V13 supports deterministic static or linear-threshold policies:
 
-V12 models candidate resource consumption using explicit mean/std packets and the assumption of independent Gaussian consumptions within each resource dimension.
+`A1=pi1(X)`
 
-Small finite candidate sets are exhaustively enumerated under one-sided Gaussian bounds:
+`A2=pi2(X,A1,L1)`.
 
-`mu_r(S)+z_(1-alpha)sigma_r(S) <= B_r`.
+Value is computed through the bounded parametric longitudinal model.
 
-Exact certificate:
+`DYNAMIC_GFORMULA_POLICY_VALUE != GENERAL_OFF_POLICY_CAUSAL_VALUE`.
 
-`EXACT_ENUMERATION_UNDER_DECLARED_INDEPENDENT_GAUSSIAN_RESOURCE_MODEL`.
+Policy ranking remains PLAN_ONLY.
 
-Above the exact threshold, fallback is explicitly greedy with no optimality certificate.
+### 8.7 Independent Gaussian resources -> correlated Gaussian + ellipsoidal mean ambiguity
 
-`GAUSSIAN_INDEPENDENT_CHANCE_CERTIFICATE != DISTRIBUTION_FREE_RESOURCE_GUARANTEE`.
+V13 accepts caller-declared covariance `Sigma_r` and per-candidate mean uncertainty `u_i` with radius `rho`:
 
-No returned allocation executes resources by itself.
+`mu_r(S)+rho||u_r(S)||_2+z_(1-alpha)sqrt(1_S^T Sigma_r 1_S) <= B_r`.
+
+Small finite problems can be exhaustively enumerated under that declared model. Larger problems return greedy selection with no exact certificate.
+
+`ELLIPSOIDAL_GAUSSIAN_ROBUST_PLAN != GENERAL_DISTRIBUTIONALLY_ROBUST_OPTIMIZATION`.
+
+No plan spends resources by itself.
 
 ## 9. OMEGA / manifest migration
 
-OMEGA remains a versioned whole-state projection ABI while contents expand. V1–V4 are resident; V5–V12 are explicit lazy surfaces.
+OMEGA remains `ATHENA.OMEGA.1` as a versioned whole-state projection ABI while its contents expand. It now names lazy V5–V13 surfaces.
 
-Current live architecture artifact:
+Live architecture becomes:
 
-`ATHENA.RUNTIME.UNIFIED.7`
+`ATHENA.RUNTIME.UNIFIED.8`.
 
-Compatibility retains `.1` through `.6`.
+Compatibility retains `.1` through `.7`.
 
-Model-layer additions must update OMEGA/manifest metadata, layers/invariants/unresolved boundary, MAXDEV law, SURFACE requirements, resource list/read handlers, tests, smoke, CI, and repository-brain documentation.
+Manifest navigation/cycle/claim-namespace law/MAXDEV/unresolved boundaries all advance to V13 while retaining PROMOTION.2 trust separation.
 
 ## 10. CI migration
 
-Unified gate:
+Release gate remains:
 
 `syntax ∧ unit ∧ critical-invariants ∧ dependent-smoke`.
 
-Critical invariants include schema/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, documentation consistency, V6↔Y1 firewall, V7, V8/V9, V10, V11, **V12 constructive/adversarial/unified authority tests**, AOR×Collective transport, and PROMOTION.2 caller/trusted qualification separation.
+The critical lattice now contains a dedicated:
 
-Smoke runs only after the first three jobs pass and spans V6→V12 plus AOR/state/CYCLE, PROMOTION.2 caller-bound readiness, and final-emission paths in one process.
+`V13 robust continuous-bayes causal-control and authority boundaries`
 
-## 11. Parallel-lineage repair law
+stage running constructive, adversarial and unified V13 tests.
 
-When AOR constitutional and Collective successor branches evolve in parallel, successor code is braided into the constitutional substrate rather than replacing it.
+Smoke runs only after syntax, unit and critical gates pass and traverses V13 QMC/FITC/joint-design/FCI-lite/longitudinal/policy/resource behavior plus state/AOR/fail-closed CYCLE/final emission/PROMOTION.2 readiness.
 
-`GREEN_UNIFIED_n → FETCH(master) → DELTA → BRAID → FOUR_GATE_CI → FETCH(master) → {stable: merge-lineage, moved: recurse}`.
+## 11. PROMOTION.2
 
-Never reuse qualification evidence from an older head.
+MCP-visible exact-head caller packets may reach `ATTESTED_READY` only.
 
-PROMOTION.2 itself is a concrete example: V12 development began from the repository-brain-repair head; master later advanced with trusted-verifier hardening, so V12 must preserve that master ancestry and rerun the four gates before merge.
+Current `QUALIFIED` additionally requires a genuinely host-internal trusted verifier receipt binding the exact head and exact CI/smoke references.
 
-## 12. Git ancestry / merge law
+The V13 runtime intentionally **does not expose** a caller-callable trusted verifier. Such an endpoint would let the same trust domain mint its own independent verification and would recreate the boundary PROMOTION.2 was designed to prevent.
 
-Copying current-master files is not lineage reconciliation. A true braid preserves the relevant parent graph. Before final merge, confirm current master has not advanced incompatibly. If it has, merge/reconcile that ancestry into the V12 candidate and rerun all four gates.
+`UNRESOLVED_EXTERNAL_PROMOTION_VERIFIER` remains correct until a real host/control-plane verifier exists.
 
-The final merged master SHA must independently pass syntax, unit, critical invariants and dependent smoke. Feature-branch success alone does not qualify the master release.
+## 12. Final release / private canonical pin
 
-## 13. Promotion semantics — PROMOTION.2
+The final merged public `master` SHA must independently pass all four gates. Feature-branch PASS is insufficient.
 
-PROMOTION.2 separates **caller-bound exact-head readiness** from **trusted external qualification**.
+Only after exact merged-master readback and CI PASS may the private canonical brain pin the runtime. The private brain may cite GitHub Actions as external evidence but may not claim a runtime PROMOTION.2 `QUALIFIED` receipt without a real trusted verifier receipt.
 
-MCP-visible `athena_promotion_evaluate` accepts the candidate head plus caller-supplied CI/smoke witness packets. If the local Server/SURFACE/COMPOSITION/configured-Git gates and both packets agree on one successful head, the result is:
+## 13. External control-plane boundary
 
-`ATTESTED_READY`.
-
-Those packets are typed `CALLER_ATTESTED`. They prove packet consistency; the runtime does not pretend it independently queried the external provider.
-
-Current trusted status:
-
-`QUALIFIED`
-
-requires an additional host-internal verifier receipt binding:
-
-- verifier identity;
-- verification reference;
-- exact Git head;
-- exact CI reference;
-- exact smoke reference.
-
-The ordinary MCP schema has no field for that trusted packet, so an MCP caller cannot self-mint `QUALIFIED`.
-
-`ATTESTED_READY + TRUSTED_HOST_VERIFIER → QUALIFIED`.
-
-Historical PROMOTION.1 receipts remain frozen and replayable under their V1 evaluator, but historical `QUALIFIED` is counted separately from current PROMOTION.2 trusted qualification.
-
-`CI PASS != LIVE TRUSTED PROMRUN`.
-
-A private canonical-brain pin may be updated only after the exact final public runtime master head is verified and read back. The pin may cite GitHub Actions as an external witness, but it must not claim a runtime PROMOTION.2 `QUALIFIED` receipt unless the trusted host bridge actually produced one.
-
-## 14. External GitHub control-plane boundary
-
-Branch protection, repository description/settings, tags, Releases, PR state, merge state, and the trusted promotion-verifier bridge are not runtime state. They must be queried/changed using GitHub/host control-plane capabilities. Absence of a capability is an unresolved infrastructure constraint, not permission to claim the setting changed or a trusted qualification occurred.
-
-`RUNTIME STATE != GITHUB CONTROL-PLANE STATE`.
+Branch protection, repository settings/description, tags, Releases, PR/merge state and trusted promotion verification remain external control-plane state. They require actual GitHub/host APIs and are never inferred from runtime OMEGA/SELFTEST/CI or caller attestations.

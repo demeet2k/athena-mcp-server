@@ -18,6 +18,7 @@ from .collective_inference import CollectiveInferenceRuntime
 from .collective_probabilistic import CollectiveProbabilisticRuntime
 from .collective_adaptive import CollectiveAdaptiveRuntime
 from .collective_joint import CollectiveJointRuntime
+from .collective_robust import CollectiveRobustRuntime
 from .collective_v6_protocol import CLAIM_NAMESPACE_LAW
 from .unified_manifest import build_unified_manifest,maxdev_law
 
@@ -40,6 +41,7 @@ def _inference(server):return CollectiveInferenceRuntime(_belief(server))
 def _probabilistic(server):return CollectiveProbabilisticRuntime(_inference(server))
 def _adaptive(server):return CollectiveAdaptiveRuntime(_probabilistic(server))
 def _joint(server):return CollectiveJointRuntime(_adaptive(server))
+def _robust(server):return CollectiveRobustRuntime(_joint(server))
 
 
 def handle(server,m):
@@ -94,6 +96,7 @@ def handle(server,m):
             {'uri':'athena://collective/v10','name':'Collective Probabilistic Runtime V10','mimeType':'application/json'},
             {'uri':'athena://collective/v11','name':'Collective Adaptive Runtime V11','mimeType':'application/json'},
             {'uri':'athena://collective/v12','name':'Collective Joint Structural World-Model Runtime V12','mimeType':'application/json'},
+            {'uri':'athena://collective/v13','name':'Collective Robust Continuous-Bayes and Causal-Control Runtime V13','mimeType':'application/json'},
             {'uri':'athena://orchestration/law','name':'AOR Developmental Decision Cortex Law','mimeType':'application/json'},
             {'uri':'athena://orchestration/recent','name':'Recent Persisted AORRUN Receipts','mimeType':'application/json'},
             {'uri':'athena://orchestration/robustness','name':'AOR Successor Robustness Law','mimeType':'application/json'},
@@ -131,17 +134,18 @@ def handle(server,m):
         elif uri=='athena://collective/v10':val={'runtime':_probabilistic(server).describe(),'claim_namespace':CLAIM_NAMESPACE_LAW,'boundary':'V10 GP/PC/TMLE/E-value/POMDP/dependence-calibration outputs are model/assumption scoped; predictions/discovery/plans do not become observations, JSPACE edges, execution, or Y1 authority without explicit witnessed transport'}
         elif uri=='athena://collective/v11':val={'runtime':_adaptive(server).describe(),'claim_namespace':CLAIM_NAMESPACE_LAW,'boundary':'V11 GP hyperfit/EVSI, supplied-DAG ADMG projection, stacked TMLE, RR sensitivity, finite-model BAPOMDP and dependence intervals remain model/assumption scoped; design/projection/policy/interval outputs do not become observation, JSPACE, execution, or Y1 authority by adjacency'}
         elif uri=='athena://collective/v12':val={'runtime':_joint(server).describe(),'claim_namespace':CLAIM_NAMESPACE_LAW,'boundary':'V12 finite-grid GP hyperposterior/BMA, subset-GP approximation, PAG candidate, longitudinal g-formula, BMA GP EVSI and chance-constrained planning remain bounded model/assumption surfaces; none become observation, full FCI/PAG truth, causal identification, execution, or Y1 authority by adjacency'}
+        elif uri=='athena://collective/v13':val={'runtime':_robust(server).describe(),'claim_namespace':CLAIM_NAMESPACE_LAW,'boundary':'V13 QMC continuous-domain GP hyperbelief, FITC inducing approximation, joint model-information design, FCI-lite candidate, two-timepoint sequential TMLE, dynamic policy g-formula and correlated Gaussian/ellipsoidal robust resource plans remain bounded model/assumption surfaces; none become exact continuous Bayes, full FCI/RFCI, general longitudinal identification, execution, trusted promotion verification, or Y1 authority by adjacency'}
         elif uri=='athena://orchestration/law':val={**orchestration_law(),'authority_law':'Y in {?,+,!,#} is persistent, non-skippable and distinct from score/confidence/consensus/reward; linked candidates snapshot Y state into AORRUN','dedup_law':'UNKNOWN sameness preserves identity; only witnessed contradiction-free EQ1 components may collapse'}
         elif uri=='athena://orchestration/recent':val=server.orchestration.recent(50)
         elif uri=='athena://orchestration/robustness':val={'version':'AOR.3.2','successor_factor_count':SUCCESSOR_FACTOR_COUNT,'law':'q*((1-eps)/(1+eps))^5; eps*=(q^(1/5)-1)/(q^(1/5)+1)','boundary':'rank sensitivity, not truth probability or causal evidence'}
         elif uri=='athena://branches':val={'benchmark':server.branches.benchmark(),'recent':server.branches.list(limit=100),'law':'branch lifecycle is basis-specific witnessed EWMA state; hibernate != erase; resurrection requires new evidence/gap/bridge pressure plus policy thresholds'}
-        elif uri=='athena://authority':val={'benchmark':server.authority.benchmark(),'claims':server.authority.list(limit=100),'law':'?->+ verified evidence; +->! witnessed execution; !-># explicit authorized canonicalization; challenges block automatic routing; authority != confidence != consensus != reward; V6-V12 model/science-shadow state cannot alias or implicitly mutate this registry'}
+        elif uri=='athena://authority':val={'benchmark':server.authority.benchmark(),'claims':server.authority.list(limit=100),'law':'?->+ verified evidence; +->! witnessed execution; !-># explicit authorized canonicalization; challenges block automatic routing; authority != confidence != consensus != reward; V6-V13 model/science-shadow state cannot alias or implicitly mutate this registry'}
         else:return server.error(mid,-32002,'Resource not found',{'uri':uri})
         return server.result(mid,{'contents':[{'uri':uri,'mimeType':'application/json','text':json.dumps(val,ensure_ascii=False,sort_keys=True)}]})
     if method=='prompts/list':return server.result(mid,{'prompts':PROMPTS})
     if method=='prompts/get':
         if params.get('name')!='athena_maxdev':return server.error(mid,-32602,'Unknown prompt')
         a=params.get('arguments') or {};task=a.get('task','');agent=a.get('agent','ATHENA')
-        text='ATHENA UNIFIED AOR×COLLECTIVE V12 MAXDEV\nAGENT='+str(agent)+'\nTASK='+str(task)+'\n'+maxdev_law()
-        return server.result(mid,{'description':'Unified AOR/Y1 developmental cortex × Collective V1–V12 organization/science/discovery/belief/inference/probabilistic/adaptive/joint cycle','messages':[{'role':'user','content':{'type':'text','text':text}}]})
+        text='ATHENA UNIFIED AOR×COLLECTIVE V13 MAXDEV\nAGENT='+str(agent)+'\nTASK='+str(task)+'\n'+maxdev_law()
+        return server.result(mid,{'description':'Unified AOR/Y1 developmental cortex × Collective V1–V13 organization/science/discovery/belief/inference/probabilistic/adaptive/joint/robust cycle','messages':[{'role':'user','content':{'type':'text','text':text}}]})
     return server.error(mid,-32601,'Method not found')

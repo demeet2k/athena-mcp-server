@@ -15,3 +15,6 @@ COLLECTIVE_V12_TOOLS=[
     _tool("athena_longitudinal_gformula","Estimate static two-timepoint treatment-regime risks with a transparent parametric g-formula over one binary intermediate variable. Assumption-scoped.",( "samples","treatment1","intermediate","treatment2","outcome"),{"samples":{"type":"array","minItems":80,"maxItems":20000,"items":{"type":"object"}},"treatment1":STR,"intermediate":STR,"treatment2":STR,"outcome":STR,"baseline":{"type":"array","maxItems":16,"items":{"type":"string"}},"regimes":{"type":"array","maxItems":16,"items":{"type":"object"}},"assumptions":OBJ}),
     _tool("athena_chance_resource_select","Select a value-maximizing small finite candidate subset subject to independent-Gaussian one-sided resource chance constraints; exact only under declared finite-model assumptions.",( "candidates","budgets"),{"candidates":{"type":"array","minItems":1,"maxItems":24,"items":{"type":"object"}},"budgets":OBJ,"alpha":NUM,"exact_limit":{"type":"integer","minimum":1,"maximum":18}}),
 ]
+
+from .collective_v13_protocol import COLLECTIVE_V13_TOOLS
+COLLECTIVE_V12_TOOLS.extend(t for t in COLLECTIVE_V13_TOOLS if t['name'] not in {x['name'] for x in COLLECTIVE_V12_TOOLS})
