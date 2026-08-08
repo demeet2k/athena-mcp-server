@@ -15,3 +15,6 @@ COLLECTIVE_V11_TOOLS=[
     _tool("athena_bapomdp_solve","Exactly solve a bounded finite-horizon POMDP with a static uncertain model index when the full joint model-state tree completes. PLAN_ONLY.",( "states","initial_state_belief","models"),{"states":{"type":"array","minItems":1,"maxItems":6,"items":{"type":"string"}},"initial_state_belief":OBJ,"models":{"type":"array","minItems":1,"maxItems":4,"items":{"type":"object"}},"horizon":{"type":"integer","minimum":1,"maximum":3},"discount":NUM,"max_nodes":{"type":"integer","minimum":100,"maximum":300000}}),
     _tool("athena_evidence_dependence_interval","Return a Laplace/Hessian logit interval around a fitted V10 evidence-dependence probability. Model-conditional diagnostic.",( "scope","features"),{"scope":STR,"features":OBJ,"confidence_z":NUM,"l2":NUM}),
 ]
+
+from .collective_v12_protocol import COLLECTIVE_V12_TOOLS
+COLLECTIVE_V11_TOOLS.extend(t for t in COLLECTIVE_V12_TOOLS if t['name'] not in {x['name'] for x in COLLECTIVE_V11_TOOLS})

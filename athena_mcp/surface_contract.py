@@ -12,6 +12,7 @@ from .collective_v8_protocol import COLLECTIVE_V8_TOOLS
 from .collective_v9_protocol import COLLECTIVE_V9_TOOLS
 from .collective_v10_protocol import COLLECTIVE_V10_TOOLS
 from .collective_v11_protocol import COLLECTIVE_V11_TOOLS
+from .collective_v12_protocol import COLLECTIVE_V12_TOOLS
 from .aor_protocol import AOR_TOOLS
 from .orchestration_branch_protocol import BRANCH_TOOLS
 from .orchestration_authority_protocol import AUTHORITY_TOOLS
@@ -47,7 +48,7 @@ REQUIRED_TOOLS={
  'base':BASE_REQUIRED,
  'collective_v1':_names(COLLECTIVE_TOOLS),'collective_growth':_names(COLLECTIVE_GROWTH_TOOLS),'collective_v2':_names(COLLECTIVE_V2_TOOLS),
  'collective_v3':_names(COLLECTIVE_V3_TOOLS),'collective_v4_v5_v6':_names(COLLECTIVE_V4_TOOLS),'collective_v7':_names(COLLECTIVE_V7_TOOLS),
- 'collective_v8':_names(COLLECTIVE_V8_TOOLS),'collective_v9':_names(COLLECTIVE_V9_TOOLS),'collective_v10':_names(COLLECTIVE_V10_TOOLS),'collective_v11':_names(COLLECTIVE_V11_TOOLS),
+ 'collective_v8':_names(COLLECTIVE_V8_TOOLS),'collective_v9':_names(COLLECTIVE_V9_TOOLS),'collective_v10':_names(COLLECTIVE_V10_TOOLS),'collective_v11':_names(COLLECTIVE_V11_TOOLS),'collective_v12':_names(COLLECTIVE_V12_TOOLS),
  'aor_core':_names(AOR_TOOLS)|_names(ROBUSTNESS_TOOLS),'branch':_names(BRANCH_TOOLS),'authority':_names(AUTHORITY_TOOLS),
  'equivalence':_names(EQUIVALENCE_TOOLS),'extraction':_names(EXTRACTION_TOOLS),'retrieval':_names(RETRIEVAL_TOOLS),'hug':_names(HUG_TOOLS),'gap':_names(GAP_TOOLS),
  'field':_names(FIELD_TOOLS),'transport':_names(TRANSPORT_TOOLS),'cycle':_names(CYCLE_TOOLS),'state_foundation':_names(STATE_FOUNDATION_TOOLS),
@@ -57,7 +58,7 @@ REQUIRED_TOOLS={
 
 REQUIRED_RESOURCES={
  'base':{'athena://manifest','athena://kc144/stations','athena://state/head','athena://registry','athena://jspace','athena://scale','athena://coordinate/charts','athena://crystals','athena://math','athena://time/provenance','athena://transforms','athena://emissions'},
- 'collective':{'athena://collective/runtime','athena://collective/growth','athena://collective/v2','athena://collective/v3','athena://collective/v4','athena://collective/v5','athena://collective/v6','athena://collective/v7','athena://collective/v8','athena://collective/v9','athena://collective/v10','athena://collective/v11'},
+ 'collective':{'athena://collective/runtime','athena://collective/growth','athena://collective/v2','athena://collective/v3','athena://collective/v4','athena://collective/v5','athena://collective/v6','athena://collective/v7','athena://collective/v8','athena://collective/v9','athena://collective/v10','athena://collective/v11','athena://collective/v12'},
  'aor_core':{'athena://orchestration/law','athena://orchestration/recent','athena://orchestration/robustness','athena://branches','athena://authority'},
  'development':{EQUIVALENCE_RESOURCE['uri'],EXTRACTION_RESOURCE['uri'],RETRIEVAL_RESOURCE['uri'],HUG_RESOURCE['uri'],GAP_RESOURCE['uri'],FIELD_RESOURCE['uri']},
  'transport':{TRANSPORT_RESOURCE['uri']},'cycle':{CYCLE_RESOURCE['uri']},
@@ -79,7 +80,7 @@ def contract_manifest()->Dict[str,Any]:
         'version':SURFACE_VERSION,'required_tools':{k:sorted(v) for k,v in REQUIRED_TOOLS.items()},
         'required_resources':{k:sorted(v) for k,v in REQUIRED_RESOURCES.items()},
         'tool_count':len(_flatten(REQUIRED_TOOLS)),'resource_count':len(_flatten(REQUIRED_RESOURCES)),
-        'law':'promoted unified runtime must preserve every mature base + Collective V1-V11 + AOR + FIELD/transport/CYCLE + state-foundation + startup/self-test + live-manifest + governance surface unless explicit versioned supersession/migration changes this contract',
+        'law':'promoted unified runtime must preserve every mature base + Collective V1-V12 + AOR + FIELD/transport/CYCLE + state-foundation + startup/self-test + live-manifest + governance surface unless explicit versioned supersession/migration changes this contract',
     }
 
 

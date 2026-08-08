@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "athena-canonical-mcp"
-version = "3.0.0"
-description = "Canonical KC144/JSPACE/SCALE developmental control with adaptive probabilistic inference, causal sensitivity, and finite belief-state planning"
+version = "3.1.0"
+description = "Canonical KC144/JSPACE/SCALE developmental control with joint GP model uncertainty, bounded causal-policy inference, and chance-constrained planning"
 requires-python = ">=3.11"
 dependencies = []
 
