@@ -1,0 +1,65 @@
+{
+  "artifact": "ATHENA.STEERING.CAMPAIGN.LOOP.BINDING.CONTRACT.V1",
+  "status": "CANDIDATE_ACCEPTANCE_STEP_4",
+  "purpose": "Bind one evidence-qualified Campaign V3 residual branch to an explicit current V1 rehydration loop without treating loop creation or binding as work execution.",
+  "inputs": {
+    "pulse_compilation": "ATHENA.STEERING.PULSE.COMPILATION.V1 with status RESIDUAL_CANDIDATES and no failures/holds",
+    "candidate": "exact candidate_id with standing CAMPAIGN_CANDIDATE_NOT_EXECUTION_AUTHORITY",
+    "campaign": "fresh RESUMED + verify PASS with expected state_digest/checkpoint",
+    "branch": "OPEN branch materialized from the exact candidate_id and same normalized task",
+    "git": "exact expected current head before claim",
+    "loop_runtime": "the same V1 persistence/runtime object dereferenced by campaign_runtime.bind_loop"
+  },
+  "transaction": [
+    "verify campaign_runtime.loop_runtime and supplied loop_runtime share the same persistence surface",
+    "fresh campaign resume",
+    "campaign verify PASS",
+    "exact Git-head guard",
+    "branch/candidate identity guard",
+    "campaign claim",
+    "start explicit V1 rehydration loop at post-claim checkpoint",
+    "fresh V1 resume as canonical handoff packet",
+    "V1 verify PASS",
+    "campaign.bind_loop using exact loop_id/state_digest",
+    "fresh campaign resume",
+    "campaign verify PASS",
+    "read back exact bound loop"
+  ],
+  "success": {
+    "status": "BOUND",
+    "standing": "BOUND_NOT_EXECUTED",
+    "next": "EXECUTE_EXPLICIT_V1_LOOP_CYCLE_OR_HOLD"
+  },
+  "holds": [
+    "non-residual compilation",
+    "compiler failures or unresolved holds",
+    "candidate identity/standing/task mismatch",
+    "campaign/supplied loop-runtime persistence-surface mismatch",
+    "stale campaign state/checkpoint",
+    "campaign verify failure",
+    "stale Git head",
+    "branch not OPEN",
+    "branch/candidate mismatch",
+    "V1 loop resume/state/checkpoint drift",
+    "V1 loop verify failure",
+    "post-bind campaign resume/verify failure",
+    "binding readback mismatch"
+  ],
+  "firewalls": [
+    "LOOP_CREATED != WORK_EXECUTED",
+    "LOOP_BOUND != CAMPAIGN_PULSE_EXECUTED",
+    "REHYDRATION_RESUME = HANDOFF_PACKET_NOT_AUTHORITY",
+    "CAMPAIGN_CANDIDATE != EXECUTION_AUTHORITY",
+    "BRANCH_ROUTING != AUTHORITY",
+    "CAMPAIGN_LOOP_RUNTIME = BIND_LOOP_RUNTIME",
+    "NO_REHYDRATION_ADVANCE_IN_LOOP_BINDING",
+    "LOCAL_COMMIT != SHARED_RETURN unless publication is verified"
+  ],
+  "non_goals": [
+    "materialize campaign branches from candidates",
+    "advance the V1 loop",
+    "execute historical steering-ledger actions",
+    "register a new public MCP tool",
+    "claim Campaign V3 success"
+  ]
+}

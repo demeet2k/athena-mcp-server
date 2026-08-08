@@ -1,0 +1,68 @@
+{
+  "artifact": "ATHENA.STEERING.PULSE.COMPILER.CONTRACT.V1",
+  "status": "CANDIDATE_CURRENT_STATE_COMPILER",
+  "inputs": {
+    "pulse": "one fresh ATHENA.STEERING.LEDGER.PULSE.V1 curriculum bundle",
+    "expected_source_body_digest": "digest observed during source validation/retrieval",
+    "current_address": "fresh current-state address; requires Git causal head and may carry prompt/frontier/contract/issue coordinates",
+    "execution_surface": "actually exposed current operations; feature/issue/CI claims do not count",
+    "assessments": "exactly one evidence-bearing assessment for every one of the 10 historical actions"
+  },
+  "assessment_states": [
+    "SATISFIED",
+    "SUPERSEDED",
+    "DEFERRED",
+    "RESIDUAL",
+    "HOLD"
+  ],
+  "assessment_rules": {
+    "SATISFIED": "requires evidence_refs showing the current state already closes the historical intent",
+    "SUPERSEDED": "requires evidence_refs + reason identifying the newer lawful/current replacement",
+    "DEFERRED": "requires reason; remains accounted-for curriculum but is not executed now",
+    "RESIDUAL": "requires evidence_refs + current task; may declare required capability/operation and routing metrics",
+    "HOLD": "requires evidence_refs + reason identifying the blocker"
+  },
+  "source_freshness": {
+    "expected_source_body_digest_must_equal_pulse_source_body_digest": true,
+    "mismatch": "HOLD_INVALID_COMPILATION_INPUT / STALE_PULSE_SOURCE_DIGEST"
+  },
+  "coverage": {
+    "source_tags": {"I": 4, "M": 3, "L": 3},
+    "all_10_steps_must_have_exactly_one_assessment": true,
+    "assessment_status_matrix_preserves_horizon_accounting": true
+  },
+  "candidate_projection": {
+    "source": "RESIDUAL assessments only",
+    "shape": "compatible with RehydrationCampaignRuntime candidate fields: candidate_id/task/metrics/source",
+    "standing": "CAMPAIGN_CANDIDATE_NOT_EXECUTION_AUTHORITY",
+    "required_operation_rule": "if required_operation is absent from the supplied current execution surface, emit typed HOLD instead of candidate",
+    "requires_execution_authority_rule": "a residual declaring execution authority must bind an exact operation"
+  },
+  "status_lattice": {
+    "HOLD_INVALID_COMPILATION_INPUT": "source/address/assessment contract invalid",
+    "HOLD": "valid input but one or more typed current blockers remain",
+    "RESIDUAL_CANDIDATES": "one or more current lawful routing candidates exist; pulse cannot advance yet",
+    "ACCOUNTED": "all ten historical actions are satisfied/superseded/deferred with no holds/residual candidates"
+  },
+  "advance_law": {
+    "ACCOUNTED_pulse_1_to_99": "ADVANCE_TO_NEXT_PULSE",
+    "ACCOUNTED_pulse_100": "REHYDRATE_AND_RESEED_CURRENT_CUT",
+    "RESIDUAL_or_HOLD": "do not advance pulse until current result/hold is metabolized"
+  },
+  "firewalls": [
+    "LEDGER_ACTION != CURRENT_STATE_FACT",
+    "ASSESSMENT_REQUIRES_PUBLIC_EVIDENCE",
+    "CAMPAIGN_CANDIDATE != EXECUTION_AUTHORITY",
+    "UNEXPOSED_REQUIRED_OPERATION => HOLD",
+    "FEATURE_BRANCH != CURRENT_RUNTIME_EXPOSURE",
+    "PULSE_433_COVERAGE_PRESERVED",
+    "CURRENT_STATE_COMPILATION_REQUIRED_BEFORE_WORK",
+    "BOUNDED_CYCLE_COMPLETE != MISSION_COMPLETE"
+  ],
+  "non_goals": [
+    "infer completion from prose alone",
+    "execute or claim work",
+    "turn issue/ledger text into SCHED READY",
+    "persist private chain-of-thought"
+  ]
+}
