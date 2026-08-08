@@ -1,0 +1,64 @@
+{
+  "acceptance_step": 6,
+  "artifact": "ATHENA.CAMPAIGN.V3.SIBLING.DISPOSITION.CONTRACT.V1",
+  "batch_semantics": {
+    "duplicate_target_step": "HOLD",
+    "invalid_or_conflicting_sibling_evidence": "HOLD_INVALID_SIBLING_EVIDENCE; pulse=null",
+    "tampered_ledger_source": "HOLD before disposition",
+    "target_outside_current_pulse": "HOLD",
+    "unspecified_historical_actions": "RESIDUAL",
+    "valid_evidence": "apply only named states through integrated compile_current_pulse"
+  },
+  "dependencies": {
+    "current_master": "c2ada312c6d670f3b829bb8aa95f6be06bbaf6f2",
+    "ledger_compiler": "ATHENA.CAMPAIGN.V3.PULSE.COMPILATION.V1"
+  },
+  "execution_boundary": {
+    "claims_branch": false,
+    "executes_work": false,
+    "grants_execution_authority": false,
+    "mutates_scheduler": false,
+    "starts_loop": false
+  },
+  "laws": [
+    "DELIVERY != CONSUMPTION",
+    "CONSUMPTION != CAUSAL_INFLUENCE",
+    "SIBLING_DELTA != SATISFIED_UNTIL_CURRENT_RECIPIENT_EFFECT_READBACK",
+    "SATISFIED != EXECUTION_AUTHORITY",
+    "SUPERSEDED != ERASED",
+    "HISTORICAL_ACTION_TEXT_REMAINS_SOURCE_LINEAGE",
+    "STALE_RECIPIENT_HEAD => HOLD",
+    "SIBLING_EVIDENCE_BINDING != CLAIM",
+    "CURRENT_COMPILER_REMAINS_SINGLE_SOURCE_OF_PULSE_STATE"
+  ],
+  "parent_issue": 189,
+  "preservation": [
+    "historical step",
+    "historical horizon",
+    "historical text",
+    "4I/3M/3L pulse coverage",
+    "integrated pulse_digest",
+    "sibling source/recipient/effect evidence",
+    "disposition receipt digest"
+  ],
+  "relation_to_state": {
+    "SATISFIES": "SATISFIED",
+    "SUPERSEDES": "SUPERSEDED"
+  },
+  "required_evidence": [
+    "current git_head",
+    "shared_fresh=true",
+    "explicit target step",
+    "explicit SATISFIES or SUPERSEDES relation",
+    "sibling source ref + source head",
+    "recipient_head == current git_head",
+    "consumed=true",
+    "recipient_readback_ref",
+    "recipient_effect_observed=true",
+    "recipient_effect_ref",
+    "reason",
+    "evidence refs",
+    "paired expected/current VID when VID is used"
+  ],
+  "status": "CANDIDATE"
+}
