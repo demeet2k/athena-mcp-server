@@ -1,0 +1,29 @@
+{
+  "artifact": "ATHENA.CAMPAIGN.V3.PRIVATE.SOURCE.STRICT.V1",
+  "status": "CANDIDATE",
+  "purpose": "Define the only entrypoint eligible for real private Campaign V3 source consumption without a free-form durable reference channel.",
+  "private_locator_input": {
+    "type": "sha256",
+    "format": "64 lowercase hex",
+    "plaintext_locator_accepted": false
+  },
+  "durable_private_ref": {
+    "format": "opaque:<64 lowercase hex>",
+    "caller_free_form_text": false
+  },
+  "real_private_source_eligibility": {
+    "strict_entrypoint_required": true,
+    "base_low_level_helper": "INTERNAL_NOT_ELIGIBLE_FOR_REAL_PRIVATE_SOURCE",
+    "tool_registered": false
+  },
+  "laws": [
+    "REAL_PRIVATE_SOURCE_CONSUMER => STRICT_ENTRYPOINT_ONLY",
+    "PRIVATE_LOCATOR_DIGEST != PRIVATE_LOCATOR_TEXT",
+    "FREE_FORM_PRIVATE_REF => HOLD",
+    "STRICT_OPAQUE_REF = opaque:<sha256>",
+    "PRIVATE_PAYLOAD != DURABLE_SOURCE_IDENTITY",
+    "PAYLOAD_DIGEST_MATCH != EXECUTION_AUTHORITY",
+    "OPAQUE_LOOP_BOUND != WORK_EXECUTED",
+    "CAMPAIGN_SUCCESS = HOLD"
+  ]
+}
