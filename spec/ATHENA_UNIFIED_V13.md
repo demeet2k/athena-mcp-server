@@ -2,13 +2,15 @@
 
 Package target: `athena-canonical-mcp 3.2.0`
 
-Live architecture artifact: `ATHENA.RUNTIME.UNIFIED.8`
+Live architecture artifact: `ATHENA.RUNTIME.UNIFIED.9`
 
 Runtime root: one composed `Server`.
 
+Trusted qualification organ: `GITHUB_PROMOTION_VERIFIER.1`.
+
 Canonical coordinate:
 
-`ATHENA_UNIFIED_V13=<CCR,JSPACE,SCALE,KC144,AOR,Y1,EQ,SX,RAG,HUG,GAP,FIELD,TRANSPORT,CYCLE,SCHEMA,OMEGA,RECON,SELFTEST,STARTUP,SURFACE,COMPOSITION,PROMOTION2,COLLECTIVE(V1-V13),FINAL>`
+`ATHENA_UNIFIED_V13=<CCR,JSPACE,SCALE,KC144,AOR,Y1,EQ,SX,RAG,HUG,GAP,FIELD,TRANSPORT,CYCLE,SCHEMA,OMEGA,RECON,SELFTEST,STARTUP,SURFACE,COMPOSITION,PROMOTION2,GITHUB_VERIFIER,COLLECTIVE(V1-V13),FINAL>`
 
 V13 robust coordinate:
 
@@ -30,6 +32,8 @@ V13 robust coordinate:
 
 `ATTESTED_READY != QUALIFIED`.
 
+`CHECKS_FROM_DIFFERENT_SUITES_OR_RUNS != ONE_TRUSTED_QUALIFICATION`.
+
 Canonical Y1 authority RPCs remain `athena_claim_*`.
 
 Science-shadow discovery/replication/falsification RPCs remain `athena_discovery_claim_*`.
@@ -48,7 +52,7 @@ V5–V13 remain lazy science/inference/control layers instantiated through tool/
 
 `LAZY != RESIDENT_DUPLICATE_RUNTIME`.
 
-SURFACE.2 requires every V13 tool plus `athena://collective/v13`. COMPOSITION.2 verifies one runtime rather than a successor subclass stack.
+SURFACE.2 requires every V13 tool plus `athena://collective/v13`. PROMOTION tools include the caller-bound evaluator and the separate GitHub verifier. COMPOSITION.2 verifies one runtime rather than a successor subclass stack.
 
 ## 3. Developmental cycle
 
@@ -133,7 +137,7 @@ Small finite problems may receive an exhaustive-enumeration certificate. Large p
 
 `MODEL_EXACTNESS != MODEL_CORRECTNESS`.
 
-## 11. No-self-training / no-semantic-laundering
+## 11. No-self-training / no-semantic-laundering / no-self-qualification
 
 Forbidden implicit transitions include:
 
@@ -153,41 +157,88 @@ Forbidden implicit transitions include:
 
 `science/model state -> Y1 authority`;
 
-`caller CI/smoke packet -> trusted QUALIFIED`.
+`caller CI/smoke packet -> trusted QUALIFIED`;
+
+`successful checks from different GitHub suites/runs -> one trusted qualification`.
 
 ## 12. PROMOTION.2 trust boundary
 
 MCP-visible `athena_promotion_evaluate` may produce `ATTESTED_READY` from exact-head caller-bound CI/smoke packets plus local gates.
 
-Current `QUALIFIED` additionally requires a genuinely host-internal trusted verifier receipt binding:
+`QUALIFIED` additionally requires a genuinely host-internal trusted verifier receipt binding:
 
 - exact head;
 - exact CI reference;
 - exact smoke reference;
 - verifier identity and verification reference.
 
-The ordinary MCP input schema intentionally exposes no trusted-verifier field.
+The ordinary caller-attestation schema intentionally exposes no trusted-verifier field.
 
-V13 **does not implement a caller-callable verifier**, because doing so would recreate self-qualification.
+Historical PROMOTION.1 receipts remain versioned/replayable under their historical predicate and are accounted separately from current trusted qualification.
 
-`UNRESOLVED_EXTERNAL_PROMOTION_VERIFIER` remains the correct state until a real host/control-plane bridge exists.
+## 13. GITHUB_PROMOTION_VERIFIER.1
 
-## 13. Live ABI / CI constitution
+`athena_promotion_verify_github` is the first implemented trusted host verifier.
 
-`ATHENA.RUNTIME.UNIFIED.8` retains compatibility with `.1` through `.7` and advertises `COLLECTIVE_ROBUST_V13`.
+The caller supplies only target SHA plus actor/persistence/timeout controls. Trusted repository, HTTPS API base, optional token, host Actions run, trusted app slug and required check names are not caller fields.
 
-Release gate:
+Host trust roots include:
+
+- `ATHENA_GITHUB_REPOSITORY` / `GITHUB_REPOSITORY`;
+- `ATHENA_GITHUB_API_URL` / `GITHUB_API_URL` and HTTPS enforcement;
+- optional host token;
+- `ATHENA_GITHUB_RUN_ID` / `GITHUB_RUN_ID` when present;
+- trusted app fixed to `github-actions`;
+- required checks fixed to `{syntax, unit, critical-invariants, smoke}`.
+
+For target `h`, the verifier independently fetches GitHub check-runs, filters exact-head trusted-app rows, binds the host run when configured, groups rows by `check_suite.id`, and accepts only **one coherent suite** where all four checks are `completed/success`.
+
+It never combines successes across runs/suites.
+
+On success it constructs CI/smoke/trusted-verifier references internally and invokes PROMOTION.2. On failure it persists no PROMRUN.
+
+## 14. Live ABI / CI constitution
+
+`ATHENA.RUNTIME.UNIFIED.9` retains compatibility with `.1` through `.8`, advertises `COLLECTIVE_ROBUST_V13`, and adds `GITHUB_PROMOTION_VERIFIER.1` without changing package 3.2.0 or defining V14.
+
+Readiness remains:
 
 `syntax ∧ full-unit-suite ∧ critical-invariants ∧ dependent-smoke`.
 
-The critical job must run V13 constructive, adversarial and unified-authority tests separately. The dependent subprocess smoke must cross representative V13 calls and PROMOTION.2 caller-bound readiness in one server process.
+The critical job separately runs V13 constructive/adversarial/unified-authority tests, repository-brain consistency, GitHub verifier adversarial tests and PROMOTION.2 separation.
 
-`CI_PASS != LIVE_TRUSTED_PROMRUN`.
+The dependent subprocess smoke crosses representative V13 calls and public PROMOTION.2 caller-bound readiness in one server process. Smoke does not perform live external qualification.
 
-## 14. External control plane
+A fifth job:
 
-Repository settings, branch protection, tags, Releases, PR/merge state and the trusted promotion verifier are external control-plane state. OMEGA, SELFTEST, STARTUP, caller witness packets and GitHub Actions success do not imply those external states were changed or independently verified.
+`promotion-qualification needs [syntax, unit, critical-invariants, smoke]`
 
-## 15. Successor boundary
+checks out the exact push/PR head, binds host repository/API/run identity, executes `scripts/qualify_github_head.py`, persists a real `QUALIFIED` PROMRUN in a qualification runtime database, immediately replays it, and uploads `promotion-receipt-<sha>`.
 
-Unresolved after V13 include exact/scalable continuous hyperparameter Bayes, optimized variational inducing inference, neural Bayesian world models, full FCI/RFCI/PAG completeness, calibrated structural posteriors, cross-fitted arbitrary-horizon longitudinal TMLE, stochastic/dynamic intervention policies beyond two times, doubly robust general off-policy policy value, robust continuous-state Bayes-adaptive control, general Wasserstein/f-divergence DRO, multistage stochastic resources, and a genuine trusted host promotion-verifier bridge.
+Short retries tolerate only GitHub check-index propagation. They never lower the coherent-suite evidence requirement.
+
+`FOUR_GATE_PASS != LIVE_TRUSTED_PROMRUN`.
+
+`PROMRUN_ON_HEAD_A != QUALIFICATION_OF_HEAD_B`.
+
+## 15. Witnessed promotion law
+
+The verifier is not canonical because its source file exists or unit tests pass. Each candidate SHA must earn an actual host-bound run where readiness passes, GitHub verification independently observes one coherent exact-head suite, a `QUALIFIED` PROMRUN is persisted/replayed, and the receipt artifact is uploaded.
+
+An earlier receipt proves the verifier design worked on that earlier SHA; it never transfers qualification to later documentation, ancestry, PR, or merge SHAs.
+
+## 16. External control plane
+
+The verifier reads trusted GitHub Actions/check state. It does not administer the repository.
+
+Repository settings, branch protection, tags, Releases, PR/merge state and related administrative state require explicit GitHub control-plane observation/actions. OMEGA, SELFTEST, STARTUP, caller witness packets, Actions success, `ATTESTED_READY`, and even a trusted PROMRUN do not imply those settings changed.
+
+`TRUSTED_RUNTIME_QUALIFICATION != GITHUB_ADMIN_HARDENING`.
+
+Other CI providers require separate host-bound trusted verifier implementations rather than caller assertions.
+
+## 17. Successor boundary
+
+Unresolved after V13 + GitHub verifier include exact/scalable continuous hyperparameter Bayes, optimized variational inducing inference, neural Bayesian world models, full FCI/RFCI/PAG completeness, calibrated structural posteriors, cross-fitted arbitrary-horizon longitudinal TMLE, stochastic/dynamic intervention policies beyond two times, doubly robust general off-policy policy value, robust continuous-state Bayes-adaptive control, general Wasserstein/f-divergence DRO, multistage stochastic resources, and non-GitHub trusted promotion-verifier integrations.
+
+None of these residuals is permission to invent V14 without a real successor delta.

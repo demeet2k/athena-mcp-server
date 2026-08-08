@@ -87,10 +87,10 @@ class PromotionUnifiedTests(unittest.TestCase):
 
     def test_promotion_resource_and_benchmark_state_current_trust_boundary(self):
         payload=json.loads(self.rpc('resources/read',{'uri':'athena://promotion'})['result']['contents'][0]['text'])
-        self.assertEqual(payload['version'],PROMOTION_VERSION);self.assertIn(PROMOTION_V1_VERSION,payload['compat']);self.assertIn('ATTESTED_READY',payload['law']);self.assertIn('trusted verifier',payload['law']);self.assertIn('caller witness packets',payload['boundary'])
+        self.assertEqual(payload['version'],PROMOTION_VERSION);self.assertIn(PROMOTION_V1_VERSION,payload['compat']);self.assertIn('ATTESTED_READY',payload['law']);self.assertIn('trusted verifier',payload['law']);self.assertIn('MCP caller witness packets',payload['boundary']);self.assertIn('github_verifier',payload)
         bench=self.tool('athena_benchmark',{})
         self.assertIn('promotion_attested_ready',bench);self.assertIn('promotion_v1_qualified_historical',bench);self.assertEqual(bench['promotion_version'],PROMOTION_VERSION)
-        self.assertEqual(bench['unified_manifest_version'],'ATHENA.RUNTIME.UNIFIED.8')
+        self.assertEqual(bench['unified_manifest_version'],'ATHENA.RUNTIME.UNIFIED.9');self.assertEqual(bench['github_promotion_verifier_version'],'ATHENA.GITHUB.PROMOTION.VERIFIER.1')
 
 
 if __name__=='__main__':unittest.main()
