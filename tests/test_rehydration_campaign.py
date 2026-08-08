@@ -199,7 +199,10 @@ class RehydrationCampaignTests(unittest.TestCase):
         children = [b for b in expanded["frontier"] if b["parent_branch_id"] == parent]
         self.assertEqual(len(children), 2)
         self.assertEqual({b["task"] for b in children}, {"Explore transport path", "Explore state path"})
-        self.assertEqual(runtime.verify(started["campaign_id"])["status"], "PASS")
+        self.assertEqual({b["depth"] for b in children}, {1})
+        verified = runtime.verify(started["campaign_id"])
+        self.assertEqual(verified["status"], "PASS", verified)
+        self.assertFalse(any(x.startswith("PARENT_DEPTH") for x in verified["failures"]))
 
     def test_width_budget_holds_without_mutation(self):
         runtime, loop, _ = self._runtime()
@@ -265,7 +268,7 @@ class RehydrationCampaignTests(unittest.TestCase):
         )
         self.assertEqual(synced["branch_status"], "BLOCKED")
 
-    def test_terminal_reconciliation_requires_integration_witness(self):
+    def test_terminal_reconciliation_requires_current_integration_witness(self):
         runtime, loop, _ = self._runtime()
         started = self._start(runtime)
         branch = started["frontier"][0]["branch_id"]
@@ -275,6 +278,14 @@ class RehydrationCampaignTests(unittest.TestCase):
                 campaign_id=started["campaign_id"], expected_state_digest=synced["state_digest"],
                 expected_checkpoint_head=synced["checkpoint_head"], selected_branch_ids=[branch],
                 observed=True, summary="select branch", terminal=True, shared_remote_mode="DISABLED",
+            )
+        with self.assertRaisesRegex(ValueError, "current observed Git head"):
+            runtime.reconcile(
+                campaign_id=started["campaign_id"], expected_state_digest=synced["state_digest"],
+                expected_checkpoint_head=synced["checkpoint_head"], selected_branch_ids=[branch],
+                observed=True, summary="stale integration", terminal=True,
+                integration_witness={"observed": True, "git_head": "0" * 40},
+                shared_remote_mode="DISABLED",
             )
         final = runtime.reconcile(
             campaign_id=started["campaign_id"], expected_state_digest=synced["state_digest"],
@@ -286,6 +297,38 @@ class RehydrationCampaignTests(unittest.TestCase):
         self.assertEqual(final["status"], "COMPLETE")
         verified = runtime.verify(started["campaign_id"])
         self.assertEqual(verified["status"], "PASS", verified)
+
+    def test_reconciliation_does_not_silently_supersede_unmentioned_branch(self):
+        runtime, loop, _ = self._runtime()
+        started = self._start(runtime, initial_tasks=["Branch A", "Branch B"])
+        a, b = [x["branch_id"] for x in started["frontier"]]
+        synced_a = self._claim_bind_sync_complete(runtime, loop, started, a, loop_id="LOOP-A")
+        result = runtime.reconcile(
+            campaign_id=started["campaign_id"], expected_state_digest=synced_a["state_digest"],
+            expected_checkpoint_head=synced_a["checkpoint_head"], selected_branch_ids=[a],
+            observed=True, summary="accept A while B remains independent", terminal=False,
+            shared_remote_mode="DISABLED",
+        )
+        self.assertEqual(result["status"], "RECONCILED")
+        resumed = runtime.resume(started["campaign_id"])
+        rows = {x["branch_id"]: x for x in resumed["branches"]}
+        self.assertEqual(rows[a]["status"], "ACCEPTED")
+        self.assertEqual(rows[b]["status"], "OPEN")
+
+    def test_terminal_reconciliation_rejects_unresolved_independent_branch(self):
+        runtime, loop, _ = self._runtime()
+        started = self._start(runtime, initial_tasks=["Branch A", "Branch B"])
+        a, b = [x["branch_id"] for x in started["frontier"]]
+        synced_a = self._claim_bind_sync_complete(runtime, loop, started, a, loop_id="LOOP-A")
+        with self.assertRaisesRegex(ValueError, "unresolved branches"):
+            runtime.reconcile(
+                campaign_id=started["campaign_id"], expected_state_digest=synced_a["state_digest"],
+                expected_checkpoint_head=synced_a["checkpoint_head"], selected_branch_ids=[a],
+                observed=True, summary="attempt premature terminal", terminal=True,
+                integration_witness={"observed": True, "git_head": runtime.git.head()},
+                shared_remote_mode="DISABLED",
+            )
+        self.assertEqual(runtime.resume(started["campaign_id"])["branches"][1]["status"], "OPEN")
 
     def test_reconciliation_is_not_git_merge_authority(self):
         runtime, loop, _ = self._runtime()
