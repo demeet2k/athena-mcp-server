@@ -10,174 +10,177 @@ Legacy admission remains:
 
 ---
 
-# 2.7.0 -> 2.8.0
+# 2.8.0 -> 2.9.0
 
-`athena-canonical-mcp 2.8.0` adds **Collective Inference V9** on top of the V1–V8 organization/memory/learning/ecology/science/discovery/dual-control/belief stack.
+`athena-canonical-mcp 2.9.0` adds **Collective Probabilistic V10** on top of the V1–V9 organization/memory/learning/ecology/science/discovery/dual-control/belief/inference stack.
 
-The migration is additive. No finite V8 belief, canonical object, graph edge, policy state, transition row or science-shadow witness is silently reinterpreted as a stronger V9 inference object.
+The migration is additive. Existing V8/V9 finite/Gaussian beliefs, causal estimates, graph hypotheses and evidence-dependence surfaces are not silently converted into V10 GP, PC-stable, TMLE, POMDP or calibrated-dependence objects.
 
-## New persistent V9 surfaces
+## New persistent V10 surfaces
 
-V9 creates lazily and non-destructively:
+V10 creates lazily and non-destructively:
 
-- `collective_v9_gaussian_beliefs`
-- `collective_v9_robust_effects`.
+- `collective_v10_gp_models`
+- `collective_v10_dependence_labels`
+- `collective_v10_dependence_models`.
 
-Gaussian parameter beliefs are distinct from V8 finite model beliefs and V5 contextual Bayesian arms. Existing finite probabilities are not transformed into Gaussian means/covariances.
+A GP model is a separate explicitly registered object with fixed kernel/noise hyperparameters and its own observed rows.
 
-Robust effect rows are distinct from V8 point estimators and V6/V7 identification records.
+Dependence labels are externally supplied calibration observations. Historical witness metadata or V9 dependence probabilities are **not** silently relabeled as ground truth.
 
-## New V9 MCP tools
+## New V10 MCP tools
 
-- `athena_gaussian_belief_register`
-- `athena_gaussian_belief_state`
-- `athena_gaussian_belief_observe`
-- `athena_decision_evpi`
-- `athena_decision_evsi`
-- `athena_belief_policy_multistage`
-- `athena_causal_aipw`
-- `athena_causal_robustness`
-- `athena_structure_partial`
-- `athena_evidence_dependence_probability`.
+- `athena_gp_register`
+- `athena_gp_state`
+- `athena_gp_observe`
+- `athena_gp_predict`
+- `athena_pc_stable_discover`
+- `athena_causal_tmle_binary`
+- `athena_sensitivity_evalue`
+- `athena_pomdp_solve`
+- `athena_evidence_dependence_observe`
+- `athena_evidence_dependence_fit`
+- `athena_evidence_dependence_predict`.
 
 New resource:
 
-`athena://collective/v9`.
+`athena://collective/v10`.
 
-## Finite -> continuous belief migration
+## Gaussian-linear -> fixed-kernel GP migration
 
-V8 finite belief remains
+V9 Gaussian belief remains the correct state for a finite-dimensional linear observation model:
 
-`P(M_i|D)`
+`theta|D ~ N(mu,Sigma)`.
 
-over an explicit discrete model set.
+V10 GP is a different nonlinear model family over observed input-output rows with a declared fixed RBF kernel:
 
-V9 Gaussian belief is a different object:
+`k(x,z)=sigma_f^2 exp(-||x-z||^2/(2 l^2))`.
 
-`theta|D ~ N(mu,Sigma)`
+No V9 Gaussian belief is silently converted into GP training data or hyperparameters.
 
-for a declared finite-dimensional linear parameter vector.
+A V10 GP must be explicitly registered. Only `athena_gp_observe` appends observed targets. `athena_gp_predict` is read-only.
 
-It must be explicitly registered. Historical model scores or V8 probabilities are not silently moment-matched into a Gaussian posterior.
+The exact posterior calculation is conditional on the declared fixed kernel/noise values and the bounded stored dataset.
 
-The V9 update path requires one actual numeric target and a complete design vector:
+`FIXED_KERNEL_GP != GENERAL_WORLD_TRUTH`.
 
-`A'=A+wxx^T/sigma^2`
+## Structure migration
 
-`b'=b+wxy/sigma^2`.
+V7 association skeletons, V8 bootstrap stability and V9 heuristic partial graphs remain valid scoped hypotheses.
 
-Only `athena_gaussian_belief_observe` mutates that posterior. EVPI/EVSI/policy calls are read-only.
+V10 `athena_pc_stable_discover` adds a separate bounded Gaussian PC-stable procedure:
 
-`GAUSSIAN_LINEAR_POSTERIOR != GENERAL_CONTINUOUS_BAYES`.
+- Fisher-z conditional-independence testing;
+- stable-level edge removals;
+- explicit separation sets;
+- collider orientation;
+- bounded Meek R1/R2 closure;
+- conditioning depth <=3 and variables <=10.
 
-## EVI -> EVPI / EVSI migration
+Existing V9 `o-o` edges are not retroactively relabeled as PC-stable output. PC-stable output itself is not FCI/PAG hidden-confounder discovery and creates no canonical JSPACE edge.
 
-V8 EVI remains the correct operator for finite discrete model/outcome designs.
+## AIPW -> TMLE migration
 
-V9 EVPI is a Monte-Carlo estimate of the value ceiling under a Gaussian linear parameter/utility model:
+V9 AIPW remains available for binary treatment with numeric outcome under its declared nuisance models/assumptions.
 
-`EVPI ~= E_theta[max_a U(a,theta)]-max_a U(a,Etheta)`.
+V10 adds a separate binary-treatment/binary-outcome TMLE surface with cross-fitted logistic nuisance fits, propensity clipping, a logistic targeting fluctuation, targeted counterfactual risks and an influence-curve interval.
 
-V9 EVSI estimates the expected downstream decision improvement from one declared noisy linear measurement design.
+Historical AIPW estimates are not reclassified as TMLE estimates. Identification remains a separate prerequisite/authority surface.
 
-Do not rename historical EIG or EVI values as EVPI/EVSI. These quantities condition on different model spaces and observation assumptions.
+`TMLE_ESTIMATE != IDENTIFICATION_PROOF`.
 
-Returned Monte-Carlo standard error and seed are part of the witness.
+Declared latent-confounding risk fails closed.
 
-`MONTE_CARLO_EVPI_EVSI != EXACT_ANALYTIC_VALUE`.
+## Sensitivity migration
 
-## Belief-policy migration
+V9 leave-one-adjustment robustness remains an observed-specification perturbation diagnostic.
 
-V8 contingent policy is depth-1.
+V10 adds the standard risk-ratio E-value metric:
 
-V9 `athena_belief_policy_multistage` exactly recurses over the caller-declared finite model/outcome surface for horizon up to three.
+`E=RR+sqrt(RR(RR-1))`
 
-No previous scenario or contingent branch is converted into history. Policy construction is read-only and `PLAN_ONLY`.
+for `RR>=1`, with reciprocal handling for protective associations and optional closest-to-null CI limit.
 
-`MULTISTAGE_FINITE_BELIEF_POLICY != GENERAL_POMDP`.
+Do not rename old robustness shifts as E-values; these are different sensitivity objects.
 
-## Causal-estimation migration
+`E_VALUE != UNIVERSAL_HIDDEN_CONFOUNDING_BOUND`.
 
-V6/V7 identification checks remain the authority surface for whether an effect is recoverable under a supplied graph/design.
+## Finite multistage policy -> POMDP migration
 
-V8 narrow linear/Wald/mediation point estimators remain available.
+V9 finite-belief policy recursion operates over model likelihood/utility branches without hidden-state transition dynamics.
 
-V9 adds deterministic two-fold cross-fitted AIPW for binary treatment, with logistic propensity nuisance fit, ridge outcome nuisance fits, propensity clipping, influence-function standard error and approximate 95% interval.
+V10 `athena_pomdp_solve` is a distinct finite-state control model with:
 
-The operation does not promote old linear estimates or identification checks automatically.
+- hidden-state belief;
+- action reward by state;
+- state transitions;
+- observation emissions;
+- Bayes filtering;
+- finite horizon `H<=4`.
 
-AIPW's double-robust interpretation remains conditional on identification, positivity, consistency and nuisance-model conditions.
+No V9 policy tree is automatically migrated into a POMDP model.
 
-`AIPW_ESTIMATE != IDENTIFICATION_PROOF`.
+Exact certificate is returned only when the entire supplied finite action/observation tree completes before the node limit:
 
-Explicit `latent_confounding_possible=true` fails closed.
+`EXACT_FOR_SUPPLIED_FINITE_MODEL_AND_HORIZON`.
 
-## Robustness migration
+A node-limited run returns `NODE_LIMIT_NO_EXACT_CERTIFICATE`.
 
-V9 leave-one-adjustment-out robustness recomputes V8 back-door linear estimates while omitting each declared observed adjustment in turn.
+`FINITE_POMDP_CERTIFICATE != INFINITE_HORIZON_OR_REAL_WORLD_OPTIMALITY`.
 
-It diagnoses specification sensitivity among observed covariates only.
+## Evidence-dependence calibration migration
 
-It is not a hidden-confounding sensitivity theorem, E-value or Rosenbaum bound.
+V9 can calculate dependence probabilities from caller-declared coefficients.
 
-## Partial-graph migration
+V10 adds explicit supervised calibration:
 
-V7/V8 association-skeleton/bootstrap objects remain unchanged.
+1. record externally labelled pair examples;
+2. require at least 20 labels with complete shared features;
+3. fit a scoped logistic dependence model;
+4. expose training log loss/accuracy;
+5. predict under that fitted scope.
 
-V9 `athena_structure_partial` presents stable undirected hypotheses as `o-o` endpoints to preserve unresolved orientation.
+V9 model outputs cannot become V10 calibration labels automatically.
 
-This is a heuristic partial graph. It must not be migrated or relabeled as an FCI PAG/CPDAG without a future valid structural-discovery procedure.
+Predictions never create labels or retrain themselves.
 
-No call creates canonical JSPACE causal edges.
-
-## Evidence-dependence migration
-
-V7 effective-N and V8 spectral participation ratio remain descriptive redundancy surfaces.
-
-V9 adds a caller-declared logistic metadata-dependence model. Pairwise probabilities are conditional on those visible coefficients and metadata comparisons.
-
-Existing independence keys and witness metadata are not reinterpreted as ground-truth dependence labels.
-
-Missing comparable metadata contributes conservative dependence pressure rather than zero dependence.
-
-`DEPENDENCE_PROBABILITY_MODEL != FORMAL_EVIDENCE_INDEPENDENCE`.
+`LEARNED_DEPENDENCE_MODEL != FORMAL_INDEPENDENCE_PROOF`.
 
 ## Authority compatibility
 
-2.8.0 does not weaken earlier authority planes:
+2.9.0 does not weaken earlier authority planes:
 
 - semantic writes retain VID/event-head authority;
 - Git writes retain Git-head CAS;
 - topology retains topology-version CAS;
 - V3 policy retains policy-version CAS;
 - projection/compensation retain explicit recovery authority;
-- V4–V9 statistical, belief, estimator, graph-hypothesis, experiment and control state remains evidential/advisory unless separately promoted through canonical mutation law.
+- V4–V10 predictions, posteriors, graph hypotheses, causal estimates, sensitivity metrics, plans and evidence-dependence state remain evidential/advisory unless separately promoted under canonical mutation law.
 
-A narrow posterior interval, large AIPW t-ratio or high dependence probability never silently mutates canon.
+A very narrow GP posterior variance, highly stable PC orientation, small TMLE p-like interval, large E-value, exact finite POMDP certificate or high learned dependence probability does not silently mutate canon.
 
-## V9 migration firewall
+## V10 migration firewall
 
-- Gaussian linear posterior != general continuous Bayes;
-- Monte-Carlo EVPI/EVSI != exact analytic decision value;
-- EVPI/EVSI design value != observed evidence;
-- multistage finite belief policy != general POMDP or executed history;
-- AIPW estimate != identification proof;
-- robustness perturbation != hidden-confounding bound;
-- heuristic partial graph != PAG/FCI/CPDAG theorem;
-- dependence probability model != formal statistical independence;
+- fixed-kernel GP != general world truth;
+- GP posterior != observation;
+- bounded PC-stable != FCI/hidden-confounder discovery;
+- TMLE estimate != identification proof;
+- E-value != universal hidden-confounding bound;
+- finite POMDP certificate != infinite-horizon/real-world optimum;
+- learned dependence probability != formal statistical independence;
 - model/simulation output != observation;
 - unknown cost != zero cost;
-- higher mathematical resolution != semantic authority.
+- computational exactness within a model != correctness of the model.
 
 ## Deployment check
 
 After upgrade verify:
 
-1. package version and MCP `SERVER_INFO.version` both equal `2.8.0`;
-2. every V9 tool appears in `tools/list`;
-3. `athena://collective/v9` appears and reads as `COLLECTIVE_RUNTIME_V9`;
-4. legacy V1–V8 tests pass;
-5. constructive V9 tests pass;
-6. adversarial V9 tests pass;
-7. stdio `python -m athena_mcp` crosses V8 finite belief plus V9 Gaussian belief registration/observation, EVPI/EVSI, AIPW and exact emission verification;
+1. package version and MCP `SERVER_INFO.version` both equal `2.9.0`;
+2. every V10 tool appears in `tools/list`;
+3. `athena://collective/v10` appears and reads as `COLLECTIVE_RUNTIME_V10`;
+4. legacy V1–V9 tests pass;
+5. constructive V10 tests pass;
+6. adversarial V10 tests pass;
+7. stdio `python -m athena_mcp` crosses V9 continuous inference plus V10 GP observation/prediction, TMLE, E-value, exact finite POMDP and exact emission verification;
 8. canonical brain promotion occurs only after the exact final runtime/version/documentation head passes CI.
