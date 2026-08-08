@@ -14,6 +14,7 @@ import hashlib
 import json
 
 from . import protocol as _protocol
+from .git_backend import GitStateError
 
 SERVER_INFO = {
     "name": "athena-canonical-mcp",
@@ -34,6 +35,56 @@ from .rehydration_loop import (
     REHYDRATION_TOOL_NAMES,
     RehydrationLoopRuntime,
 )
+
+# RHL-001 antibody: a persisted local loop checkpoint is not automatically the
+# shared current checkpoint. Resume must refresh the shared branch before reading
+# state, otherwise an already-open checkout can return RESUMED from an obsolete
+# state.json after a sibling has advanced the loop. A clean behind checkout may
+# fast-forward. Dirty, ahead, diverged, or unverified remote state holds instead
+# of presenting stale local prompt state as the current handoff.
+if not getattr(RehydrationLoopRuntime, "_athena_remote_fresh_resume_v1_registered", False):
+    _rehydration_resume_local = RehydrationLoopRuntime.resume
+
+    def _rehydration_resume_remote_fresh(
+        self,
+        loop_id,
+        include_prompt=True,
+        shared_remote_mode="REQUIRED",
+        remote="origin",
+    ):
+        mode = self._remote_mode(shared_remote_mode)
+        if mode == "DISABLED":
+            remote_sync = {
+                "status": "DISABLED",
+                "remote": remote,
+                "shared_frontier_verified": False,
+            }
+        else:
+            remote_sync = self.remote_sync.sync(remote)
+            if mode == "REQUIRED" and not remote_sync.get("shared_frontier_verified"):
+                raise GitStateError(json.dumps({
+                    "status": "REHYDRATION_RESUME_SHARED_FRONTIER_HOLD",
+                    "remote_sync": remote_sync,
+                    "law": "LOCAL_LOOP_CHECKPOINT != SHARED_CURRENT_CHECKPOINT",
+                }, sort_keys=True))
+
+        result = _rehydration_resume_local(self, loop_id, include_prompt)
+        result["remote_sync"] = remote_sync
+        result["shared_frontier_verified"] = bool(remote_sync.get("shared_frontier_verified"))
+        result["freshness_law"] = "RESUME_SYNC_SHARED_GIT_BEFORE_READING_LOOP_STATE"
+        if mode == "BEST_EFFORT" and not result["shared_frontier_verified"] and result.get("status") == "RESUMED":
+            result["status"] = "RESUMED_UNVERIFIED"
+        return result
+
+    RehydrationLoopRuntime.resume = _rehydration_resume_remote_fresh
+    RehydrationLoopRuntime._athena_remote_fresh_resume_v1_registered = True
+    for _tool in REHYDRATION_TOOLS:
+        if _tool.get("name") == "athena_rehydration_resume":
+            _tool["description"] = (
+                "Fresh-sync the shared Git branch, then resume the persisted rehydration loop at its exact current "
+                "prompt/state/chain coordinates. Clean behind checkouts fast-forward; dirty, ahead, diverged, or "
+                "unverified shared state holds rather than returning a stale local handoff."
+            )
 
 # The prompt stack is a content-policy coordinate, not a synonym for repository
 # time. Keep git_head in ancestry for provenance while excluding it from the
