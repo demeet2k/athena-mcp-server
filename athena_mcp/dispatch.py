@@ -11,6 +11,7 @@ from .collective_discovery import CollectiveDiscoveryRuntime
 from .collective_dual_control import CollectiveDualControlRuntime
 from .collective_belief import CollectiveBeliefRuntime
 from .collective_inference import CollectiveInferenceRuntime
+from .collective_probabilistic import CollectiveProbabilisticRuntime
 
 def _meter(server,name,started,status):
     try:
@@ -32,6 +33,9 @@ def _belief(server):
 
 def _inference(server):
     return CollectiveInferenceRuntime(_belief(server))
+
+def _probabilistic(server):
+    return CollectiveProbabilisticRuntime(_inference(server))
 
 def handle(server,m):
     mid=m.get('id'); method=m.get('method'); params=m.get('params') or {}
@@ -86,10 +90,11 @@ def handle(server,m):
             {"uri":"athena://collective/v7","name":"Collective Runtime V7 / uncertainty decomposition-prequential bands-causal skeleton-state models-scenarios-dual control-frontdoor-IV-replication independence","mimeType":"application/json"},
             {"uri":"athena://collective/v8","name":"Collective Runtime V8 / finite beliefs-EVI-belief dual control-effect estimates-bootstrap graph-contingent policy-spectral evidence diversity","mimeType":"application/json"},
             {"uri":"athena://collective/v9","name":"Collective Runtime V9 / Gaussian beliefs-EVPI-EVSI-multistage belief policies-AIPW-robustness-partial graphs-evidence dependence","mimeType":"application/json"},
+            {"uri":"athena://collective/v10","name":"Collective Runtime V10 / fixed-kernel GP-PC-stable-TMLE-E-value-finite POMDP-calibrated evidence dependence","mimeType":"application/json"},
         ]; return server.result(mid,{"resources":rs})
     if method=='resources/read':
         uri=params.get('uri'); c=server.core
-        if uri=='athena://manifest': val={"name":"ATHENA","protocol":PROTOCOL_VERSION,"layers":["GIT_LEDGER","CCR","JSPACE","SCALE","KC144","POLYCOORDINATE_ATLAS","MATH_REGISTRY","COLLECTIVE_RUNTIME","COLLECTIVE_GROWTH","COLLECTIVE_MEMORY","COLLECTIVE_LEARNING","COLLECTIVE_ECOLOGY","COLLECTIVE_SCIENCE","COLLECTIVE_DISCOVERY","COLLECTIVE_DUAL_CONTROL","COLLECTIVE_BELIEF","COLLECTIVE_INFERENCE","RUNTIME"],"identity":"SID!=OID!=MID!=VID!=CID!=EID!=CRYS","mutation":"EXPECTED_VID==CURRENT_VID else STALE_TARGET; policy/topology/projection writes retain separate CAS/recovery authority; V7-V9 belief, estimator, graph-hypothesis, scenario and planning state has no independent canonical mutation authority","output_law":"VISIBLE_OUTPUT -> FINALIZE_OUTPUT -> ENV(HEADER+BODY) with exact addressable emission manifestation","transform_law":"LOOKUP != DERIVATION; holonomy only promotes all-derivational loops","collective_law":"PREDICTION != OBSERVATION; POSTERIOR/BELIEF != TRUTH; GAUSSIAN_LINEAR_POSTERIOR != GENERAL_CONTINUOUS_BAYES; EVPI/EVSI are model-conditional Monte Carlo estimates; AIPW != IDENTIFICATION_PROOF; HEURISTIC_PARTIAL_GRAPH != PAG/FCI THEOREM; EVIDENCE_DEPENDENCE_MODEL != FORMAL_INDEPENDENCE; PLAN != EXECUTION"}
+        if uri=='athena://manifest': val={"name":"ATHENA","protocol":PROTOCOL_VERSION,"layers":["GIT_LEDGER","CCR","JSPACE","SCALE","KC144","POLYCOORDINATE_ATLAS","MATH_REGISTRY","COLLECTIVE_RUNTIME","COLLECTIVE_GROWTH","COLLECTIVE_MEMORY","COLLECTIVE_LEARNING","COLLECTIVE_ECOLOGY","COLLECTIVE_SCIENCE","COLLECTIVE_DISCOVERY","COLLECTIVE_DUAL_CONTROL","COLLECTIVE_BELIEF","COLLECTIVE_INFERENCE","COLLECTIVE_PROBABILISTIC","RUNTIME"],"identity":"SID!=OID!=MID!=VID!=CID!=EID!=CRYS","mutation":"EXPECTED_VID==CURRENT_VID else STALE_TARGET; policy/topology/projection writes retain separate CAS/recovery authority; V7-V10 belief, estimator, graph-hypothesis, scenario, planning, GP and dependence-calibration state has no independent canonical mutation authority","output_law":"VISIBLE_OUTPUT -> FINALIZE_OUTPUT -> ENV(HEADER+BODY) with exact addressable emission manifestation","transform_law":"LOOKUP != DERIVATION; holonomy only promotes all-derivational loops","collective_law":"PREDICTION != OBSERVATION; POSTERIOR/BELIEF != TRUTH; FIXED_KERNEL_GP != GENERAL_WORLD_TRUTH; BOUNDED_PC_STABLE != FCI_OR_HIDDEN_CONFOUNDER_DISCOVERY; TMLE_ESTIMATE != IDENTIFICATION_PROOF; E_VALUE != UNIVERSAL_HIDDEN_CONFOUNDING_BOUND; FINITE_POMDP_CERTIFICATE != INFINITE_HORIZON_OR_REAL_WORLD_OPTIMALITY; LEARNED_DEPENDENCE_MODEL != FORMAL_INDEPENDENCE_PROOF; PLAN != EXECUTION"}
         elif uri=='athena://kc144/stations': val=json.loads(station_manifest())
         elif uri=='athena://state/head': val=c.s.head('global') or {}
         elif uri=='athena://registry': val=c.s.rows("SELECT * FROM objects ORDER BY canonical_name")
@@ -111,30 +116,30 @@ def handle(server,m):
         elif uri=='athena://collective/v7': val={"runtime":_dual(server).describe()}
         elif uri=='athena://collective/v8': val={"runtime":_belief(server).describe()}
         elif uri=='athena://collective/v9': val={"runtime":_inference(server).describe()}
+        elif uri=='athena://collective/v10': val={"runtime":_probabilistic(server).describe()}
         else:return server.error(mid,-32002,"Resource not found",{"uri":uri})
         return server.result(mid,{"contents":[{"uri":uri,"mimeType":"application/json","text":json.dumps(val,ensure_ascii=False,sort_keys=True)}]})
     if method=='prompts/list': return server.result(mid,{"prompts":PROMPTS})
     if method=='prompts/get':
         if params.get('name')!='athena_maxdev': return server.error(mid,-32602,"Unknown prompt")
         a=params.get('arguments') or {}; task=a.get('task',''); agent=a.get('agent','ATHENA')
-        text=f"""ATHENA MAXDEV CRYSTAL CYCLE — CONTINUOUS INFERENCE + ROBUST CAUSAL DECISION VALUE V9
+        text=f"""ATHENA MAXDEV CRYSTAL CYCLE — PROBABILISTIC WORLD MODEL + CAUSAL CONTROL V10
 AGENT={agent}
 TASK={task}
-1 HYDRATE exact canonical state and choose the minimum sufficient runtime depth. V9 is optional high-depth machinery, not default ceremony.
-2 Preserve identity/authority: model beliefs, simulations, estimators and graph hypotheses never mutate canon without the existing semantic CAS/evidence path.
-3 Use V8 finite belief/EVI when the live uncertainty is a small discrete model set. Use V9 Gaussian belief only when a finite-dimensional continuous linear parameter posterior is materially useful.
-4 Update athena_gaussian_belief_observe only from an explicit observed target with a complete feature vector. EVPI, EVSI and planning calls are read-only.
-5 Use athena_decision_evpi as an approximate upper value ceiling under the declared Gaussian utility model; retain Monte-Carlo error and seed. EVPI is not universal truth value.
-6 Use athena_decision_evsi to price a specific linear measurement design. It remains DESIGN_ONLY; ethics, cost, risk and feasibility are independent gates.
-7 Use athena_belief_policy_multistage only for small finite model/outcome horizons <=3. It is a contingent design tree, not execution history or a general POMDP solution.
-8 Keep causal identification separate from estimation. Use athena_causal_aipw only for binary treatment under explicit identification/positivity/consistency assumptions. AIPW returns an estimate, influence-function SE and interval; declared latent confounding fails closed.
-9 Use athena_causal_robustness as an observed-specification perturbation diagnostic only; leave-one-adjustment sensitivity is not a hidden-confounding bound.
-10 Use athena_structure_partial to preserve o-o endpoint uncertainty around stable association hypotheses. HEURISTIC_PARTIAL_GRAPH != PAG/FCI/CPDAG theorem and never mutates JSPACE.
-11 Use athena_evidence_dependence_probability only with a visible declared metadata model. Its probabilities are model outputs, not formal independence facts; missing metadata does not imply independence.
-12 Preserve V5-V8 OOD, prequential, EVI, Pareto, scenario, replication and evidence firewalls; higher numeric resolution does not grant higher semantic authority.
-13 Execute only authorized real actions/experiments, then observe and explicitly update the corresponding model/belief/evidence state. Plans never train themselves.
-14 Finalize/verify exact visible output and attach COLLECTIVE_INFERENCE=<GB,EVPI,EVSI,MP,AIPW,RB,PG,ED,L> only when V9 materially governed execution.
-15 V9 FIREWALL: GAUSSIAN_LINEAR_POSTERIOR != GENERAL_CONTINUOUS_BAYES; MONTE_CARLO_EVPI_EVSI != EXACT_VALUE; MULTISTAGE_FINITE_BELIEF_POLICY != GENERAL_POMDP; AIPW_ESTIMATE != IDENTIFICATION_PROOF; ROBUSTNESS_PERTURBATION != HIDDEN_CONFOUNDING_BOUND; HEURISTIC_PARTIAL_GRAPH != PAG_OR_FCI_THEOREM; DEPENDENCE_PROBABILITY_MODEL != FORMAL_INDEPENDENCE.
+1 HYDRATE exact canonical state and choose the minimum sufficient runtime depth. V10 is optional high-depth machinery, never default ceremony.
+2 Preserve identity/authority: GP predictions, PC graph hypotheses, TMLE estimates, sensitivity metrics, POMDP policies and dependence probabilities never mutate canon without existing semantic authority/evidence paths.
+3 Use V9 Gaussian linear belief when a linear continuous posterior is sufficient. Use V10 fixed-kernel GP only when nonlinear smooth interpolation and predictive covariance materially change the decision.
+4 GP training accepts only explicit observed targets. `athena_gp_predict` is read-only. Fixed RBF hyperparameters remain explicit; GP posterior uncertainty is conditional on that kernel/model.
+5 Use `athena_pc_stable_discover` only when Gaussian/linear conditional-independence assumptions and bounded conditioning depth are appropriate. Preserve unresolved o-o edges; PC-stable output is not FCI/PAG or hidden-confounder proof and never silently writes JSPACE.
+6 Keep causal identification separate from estimation. Use `athena_causal_tmle_binary` only for binary treatment/outcome under explicit exchangeability/positivity/consistency assumptions. Declared latent confounding fails closed. TMLE interval is an influence-curve large-sample diagnostic, not an identification theorem.
+7 Use `athena_sensitivity_evalue` only for risk-ratio-scale sensitivity questions. E-value is a scoped unmeasured-confounding strength metric, not a universal hidden-confounding bound or permission to ignore causal assumptions.
+8 Use `athena_pomdp_solve` only for small explicitly complete finite state/action/transition/observation models. `EXACT_FOR_SUPPLIED_FINITE_MODEL_AND_HORIZON` requires exhaustive search completion. Node-limited search carries no exact certificate. Every result is PLAN_ONLY.
+9 Use `athena_evidence_dependence_observe` only for externally labelled dependence examples. Predictions/models never create their own calibration labels. Fit/predict only within the explicit scope and complete feature schema; calibration fit remains population conditional.
+10 Preserve V5-V9 EIG/EVI/EVPI/EVSI, OOD, prequential, Pareto, robustness and belief firewalls. Higher mathematical resolution never creates stronger semantic authority by itself.
+11 Execute only the first authorized real action/experiment, observe reality, then update the corresponding GP/belief/model/evidence state explicitly. Simulation branches and predictions never train themselves.
+12 Preserve resource/unknown-cost and witness/canonical boundaries. Exact computational certificates are always scoped to complete declared models.
+13 Finalize and verify the exact visible payload. Attach COLLECTIVE_PROBABILISTIC=<GP,PC,TM,SV,PM,ED,L> only when V10 materially governed execution; omit it otherwise.
+14 V10 FIREWALL: FIXED_KERNEL_GP != GENERAL_WORLD_TRUTH; GP_POSTERIOR != OBSERVATION; BOUNDED_PC_STABLE != FCI_OR_HIDDEN_CONFOUNDER_DISCOVERY; TMLE_ESTIMATE != IDENTIFICATION_PROOF; E_VALUE != UNIVERSAL_HIDDEN_CONFOUNDING_BOUND; FINITE_POMDP_CERTIFICATE != INFINITE_HORIZON_OR_REAL_WORLD_OPTIMALITY; LEARNED_DEPENDENCE_MODEL != FORMAL_INDEPENDENCE_PROOF.
 """
-        return server.result(mid,{"description":"Whole-system MAXDEV continuous-inference/robust-causal cycle","messages":[{"role":"user","content":{"type":"text","text":text}}]})
+        return server.result(mid,{"description":"Whole-system MAXDEV probabilistic-world-model/causal-control cycle","messages":[{"role":"user","content":{"type":"text","text":text}}]})
     return server.error(mid,-32601,"Method not found")
