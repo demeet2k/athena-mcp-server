@@ -28,17 +28,17 @@ class OrchestrationRuntime:
         self.core = core; self.s = core.s
         with self.s.db: self.s.db.executescript(ORCHESTRATION_SCHEMA)
         seeds = [
-            ("ALGO","DEVELOPMENT","COMPILE","ORCHESTRATION_FRONTIER","AOR3_UNKNOWN_SAFE",{"seed":"any","candidates":"explicit metrics","residuals":"explicit metrics"},{"frontier":"ranked","measurement_frontier":"unknown-safe","pareto_frontier":"ids","next":"candidate|none","decision_digest":"sha256"}),
+            ("ALGO","DEVELOPMENT","COMPILE","ORCHESTRATION_FRONTIER","AOR3_UNKNOWN_SAFE",{"seed":"any","candidates":"explicit metrics","residuals":"explicit metrics","metric_contract":"basis/scales"},{"frontier":"ranked","measurement_frontier":"unknown-safe","calibration_frontier":"basis-safe","pareto_frontier":"ids","next":"candidate|none","decision_digest":"sha256"}),
             ("TOOL","REPLAY","VERIFY","ORCHESTRATION_RUN","AOR_DECISION_DIGEST",{"run_id":"AORRUN"},{"status":"REPLAY_MATCH|REPLAY_DIVERGED","stored_digest":"sha256","recomputed_digest":"sha256"}),
         ]
         for args in seeds: self.core.register(*args,actor="GENESIS.AOR.3",status="CANONICAL")
 
-    def compile(self, seed: Any, candidates=None, residuals=None, budget: Optional[Mapping[str, Any]]=None, actor: str="agent", task: str="", session_id: Optional[str]=None, persist: bool=True):
-        inputs={"seed":seed,"candidates":list(candidates or []),"residuals":list(residuals or []),"budget":dict(budget or {})}
+    def compile(self, seed: Any, candidates=None, residuals=None, budget: Optional[Mapping[str, Any]]=None, metric_contract: Optional[Mapping[str, Any]]=None, actor: str="agent", task: str="", session_id: Optional[str]=None, persist: bool=True):
+        inputs={"seed":seed,"candidates":list(candidates or []),"residuals":list(residuals or []),"budget":dict(budget or {}),"metric_contract":dict(metric_contract or {})}
         output=compile_orchestration(**inputs)
         if not persist: return {**output,"persisted":False}
         parent=self.s.head("global"); parent_eid=parent["eid"] if parent else None
-        event_payload={"operation":"AOR_COMPILE","actor":actor,"task":task,"session_id":session_id,"decision_digest":output["decision_digest"],"next":output["next"]["id"] if output.get("next") else None,"grow":output["grow"]["id"] if output.get("grow") else None,"pareto":output.get("pareto_successor_frontier",[])}
+        event_payload={"operation":"AOR_COMPILE","actor":actor,"task":task,"session_id":session_id,"metric_basis":output.get("metric_contract",{}).get("basis_id"),"metric_strict":output.get("metric_contract",{}).get("strict"),"decision_digest":output["decision_digest"],"next":output["next"]["id"] if output.get("next") else None,"grow":output["grow"]["id"] if output.get("grow") else None,"pareto":output.get("pareto_successor_frontier",[])}
         eid=event_id("AOR_COMPILE",actor,parent_eid,event_payload); ed=digest(event_payload,32)
         run_id="AORRUN."+digest({"eid":eid,"decision":output["decision_digest"]},24)
         with self.s.db:
@@ -57,7 +57,7 @@ class OrchestrationRuntime:
 
     def replay(self,run_id:str):
         stored=self.get(run_id); recomputed=compile_orchestration(**stored["input"]); match=recomputed["decision_digest"]==stored["decision_digest"]
-        return {"run_id":run_id,"status":"REPLAY_MATCH" if match else "REPLAY_DIVERGED","stored_decision_digest":stored["decision_digest"],"recomputed_decision_digest":recomputed["decision_digest"],"match":match,"stored_next":(stored["output"].get("next") or {}).get("id"),"recomputed_next":(recomputed.get("next") or {}).get("id"),"stored_grow":(stored["output"].get("grow") or {}).get("id"),"recomputed_grow":(recomputed.get("grow") or {}).get("id"),"stored_pareto":stored["output"].get("pareto_successor_frontier",[]),"recomputed_pareto":recomputed.get("pareto_successor_frontier",[])}
+        return {"run_id":run_id,"status":"REPLAY_MATCH" if match else "REPLAY_DIVERGED","stored_decision_digest":stored["decision_digest"],"recomputed_decision_digest":recomputed["decision_digest"],"match":match,"stored_metric_basis":stored["output"].get("metric_contract"),"recomputed_metric_basis":recomputed.get("metric_contract"),"stored_next":(stored["output"].get("next") or {}).get("id"),"recomputed_next":(recomputed.get("next") or {}).get("id"),"stored_grow":(stored["output"].get("grow") or {}).get("id"),"recomputed_grow":(recomputed.get("grow") or {}).get("id"),"stored_pareto":stored["output"].get("pareto_successor_frontier",[]),"recomputed_pareto":recomputed.get("pareto_successor_frontier",[])}
 
     def benchmark(self):
         count=self.s.one("SELECT COUNT(*) n FROM orchestration_runs")["n"]; matches=0; checked=0
