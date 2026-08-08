@@ -56,6 +56,8 @@ class CollectiveRuntimeV13Tests(unittest.TestCase):
             srv=Server(f.name);rows=self._long_rows()
             tmle=srv.call_tool('athena_longitudinal_tmle',{'samples':rows,'treatment1':'A1','intermediate':'L1','treatment2':'A2','outcome':'Y','baseline':['X']})
             self.assertEqual(tmle['status'],'TWO_TIMEPOINT_SEQUENTIAL_LOGISTIC_TMLE_ESTIMATED_UNDER_ASSUMPTIONS')
+            self.assertEqual(tmle['targeting_history'],'OBSERVED_A1_L1_RETAINED_FOR_STAGE2_PSEUDO_OUTCOME; A1_INTERVENTION_APPLIED_AT_STAGE1_EVALUATION')
+            self.assertTrue(all(r['targeting_history']=='STAGE2_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION' for r in tmle['regimes']))
             risks={(r['a1'],r['a2']):r['estimated_risk'] for r in tmle['regimes']}
             self.assertGreater(risks[(1,1)],risks[(0,0)])
             self.assertGreater(tmle['risk_contrast'],0)
