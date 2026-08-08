@@ -10,9 +10,11 @@ from .orchestration_retrieval import RetrievalLedger,retrieval_law
 from .orchestration_retrieval_protocol import RETRIEVAL_RESOURCE,RETRIEVAL_TOOLS
 from .orchestration_hug import HugRegistry,HUG_PARAMS
 from .orchestration_hug_protocol import HUG_RESOURCE,HUG_TOOLS
+from .orchestration_gap import GapLedger
+from .orchestration_gap_protocol import GAP_RESOURCE,GAP_TOOLS
 
-AOR_DEVELOPMENT_TOOLS=list(EQUIVALENCE_TOOLS)+list(EXTRACTION_TOOLS)+list(RETRIEVAL_TOOLS)+list(HUG_TOOLS)
-AOR_DEVELOPMENT_RESOURCES=[EQUIVALENCE_RESOURCE,EXTRACTION_RESOURCE,RETRIEVAL_RESOURCE,HUG_RESOURCE]
+AOR_DEVELOPMENT_TOOLS=list(EQUIVALENCE_TOOLS)+list(EXTRACTION_TOOLS)+list(RETRIEVAL_TOOLS)+list(HUG_TOOLS)+list(GAP_TOOLS)
+AOR_DEVELOPMENT_RESOURCES=[EQUIVALENCE_RESOURCE,EXTRACTION_RESOURCE,RETRIEVAL_RESOURCE,HUG_RESOURCE,GAP_RESOURCE]
 AOR_DEVELOPMENT_TOOL_NAMES={tool['name'] for tool in AOR_DEVELOPMENT_TOOLS}
 AOR_DEVELOPMENT_RESOURCE_URIS={resource['uri'] for resource in AOR_DEVELOPMENT_RESOURCES}
 
@@ -22,8 +24,9 @@ class AorDevelopmentSurface:
     EQ1 owns conservative identity collapse. SX1 creates bounded witnessed work.
     RAG1 ranks only supplied records and freezes EQ state. HUG.ABI.1 preserves
     HUG(io,au,fx,lm,er,st) but refuses semantic execution until an exact
-    implementation identity has been registered and witnessed to the required
-    maturity. No development organ may fabricate another organ's evidence.
+    implementation identity has been registered and witnessed. GAP1 computes
+    witnessed directed reachability only; it never upgrades graph navigation
+    into logical/causal proof. No organ may fabricate another organ's evidence.
     """
     def __init__(self,server):
         self.server=server;self.core=server.core
@@ -31,6 +34,7 @@ class AorDevelopmentSurface:
         self.extraction=ExtractionLedger(self.core)
         self.retrieval=RetrievalLedger(self.core)
         self.hug=HugRegistry(self.core)
+        self.gap=GapLedger(self.core)
 
     def _retrieval_eq_snapshot(self,args):
         if args.get('eq_snapshot') is not None:return dict(args['eq_snapshot'])
@@ -64,6 +68,10 @@ class AorDevelopmentSurface:
         if name=='athena_hug_fail':return True,self.hug.fail(args['invocation_id'],args['reason'],args['witness'],args.get('actor','agent'))
         if name=='athena_hug_invocation':return True,self.hug.invocation(args['invocation_id'])
         if name=='athena_hug_verify_packet':return True,self.hug.verify_packet(args['invocation_id'])
+        if name=='athena_gap_compile':return True,self.gap.compile(args['task_ref'],args['sources'],args['edges'],args['targets'],args['policy'],args.get('actor','agent'),args.get('persist',True))
+        if name=='athena_gap_get':return True,self.gap.get(args['run_id'])
+        if name=='athena_gap_replay':return True,self.gap.replay(args['run_id'])
+        if name=='athena_gap_recent':return True,self.gap.recent(args.get('limit',50))
         return False,None
 
     def read_resource(self,uri:str):
@@ -75,7 +83,9 @@ class AorDevelopmentSurface:
             return {'law':retrieval_law(),'benchmark':self.retrieval.benchmark(),'eq_integration':'equivalence_context freezes current EQ1 snapshot before selection; explicit eq_snapshot may be supplied for replay/transport','boundary':'RAG1 ranks only supplied candidate records; source_authority is retrieval provenance quality, not Y1 authority; pheromone priority is not injected as evidence or score'}
         if uri==HUG_RESOURCE['uri']:
             return {'version':'HUG.ABI.1','signature':'HUG(io,au,fx,lm,er,st)','parameters':list(HUG_PARAMS),'benchmark':self.hug.benchmark(),'law':'registered implementation identity + exact six parameter meanings + schemas are required; registration=CANDIDATE; CANDIDATE->TESTED requires witnessed test; TESTED->CANONICAL explicit authority; HUGINV plan is not execution; completion requires real output plus verified receipt','semantic_status':'CANONICAL_QHUG_ALGORITHM_UNRESOLVED_UNLESS_AN_ACTUAL_IMPLEMENTATION_IS_REGISTERED_AND_WITNESSED','replay_boundary':'athena_hug_verify_packet proves frozen packet integrity only; semantic replay requires a real executor'}
+        if uri==GAP_RESOURCE['uri']:
+            return {'version':'GAP.1','closure_kind':'WITNESSED_DIRECTED_REACHABILITY_NOT_LOGICAL_PROOF','benchmark':self.gap.benchmark(),'law':'gap = explicit target nodes - witnessed directed reachability closure under frozen typed-edge policy; uncovered KNOWN residuals rank by severity*leverage*information_gain/cost; incomplete residuals enter measurement_plan','epistemic_boundary':'reachability/navigation closure is not logical or causal entailment; stronger closure operators require separately registered semantics'}
         raise KeyError(uri)
 
     def benchmark(self):
-        result={};result.update(self.equivalence.benchmark());result.update(self.extraction.benchmark());result.update(self.retrieval.benchmark());result.update(self.hug.benchmark());return result
+        result={};result.update(self.equivalence.benchmark());result.update(self.extraction.benchmark());result.update(self.retrieval.benchmark());result.update(self.hug.benchmark());result.update(self.gap.benchmark());return result
