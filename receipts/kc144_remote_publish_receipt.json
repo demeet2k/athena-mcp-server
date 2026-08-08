@@ -1,0 +1,23 @@
+{
+  "authority_boundary": "This receipt certifies the uploaded registry bytes and tested composed runtime. Pull-request mergeability, review approval, and any later merged-head validation remain separate gates.",
+  "branch": "agent/kc144-topological-command-hub",
+  "completion_frontier_probe": "TASK.000",
+  "field_version": "FIELD.1",
+  "integrated_parent_commit": "814355b89c51ca444975eea3520c80785c97779b",
+  "integration_job_id": 93074826955,
+  "integration_run_id": 31246088819,
+  "integration_status": "PASS",
+  "mcp_live_tool_count": 114,
+  "pull_request": 28,
+  "registry_archive": {
+    "git_blob_sha": "3ea0419404966c30544411fbcfed21c101ebef82",
+    "path": "athena_mcp/data/kc144-core-registries.tar.xz",
+    "sha256": "312d984d988797311ac42e1d8b2323b9d8e87877c1c05679a93189c18e861f7d",
+    "size_bytes": 1300124
+  },
+  "repository": "demeet2k/athena-mcp-server",
+  "runtime_overlay_sha256": "43f5a506c3ca0737a7d690fd52e05d1a67a9a159e800f3a66bfc221ea3512a1e",
+  "test_count": 99,
+  "test_result": "PASS",
+  "version": "ATHENA.KC144.REMOTE.PUBLISH.RECEIPT.1"
+}
