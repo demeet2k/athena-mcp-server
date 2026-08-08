@@ -205,8 +205,11 @@ class AgentBootstrapRuntimeTests(unittest.TestCase):
         self.assertEqual(a["composite_digest"], b["composite_digest"])
         self.assertNotEqual(a["prompt"]["prompt_stack_digest"], a["frontier"]["frontier_digest"])
         self.assertEqual(a["issue_pressure"]["relevant"][0]["standing"], "PRESSURE_ONLY")
-        self.assertFalse(a["execution_surface"]["claim_tool_exposed"])
-        self.assertNotIn("athena_frontier_claim", FRONTIER_TOOL_NAMES)
+        self.assertTrue(a["execution_surface"]["claim_tool_exposed"])
+        self.assertIn("athena_frontier_claim", FRONTIER_TOOL_NAMES)
+        self.assertEqual(a["execution_surface"]["standing"], "OBSERVED_TOOL_SURFACE")
+        self.assertEqual(a["execution_surface"]["law"], "ISSUE_OR_DESIGN_ASSERTION != EXPOSED_EXECUTION_TOOL")
+        self.assertTrue(a["return_contract"]["refresh_before_consequential_action"])
 
     def test_issue_pressure_change_only_changes_issue_coordinate(self):
         runtime, _, issues = self._runtime()
