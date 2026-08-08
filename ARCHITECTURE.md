@@ -1,170 +1,169 @@
 # Architecture
 
 0. Git causal persistence — literal history and checkpoint CAS.
-1. CCR — deterministic functional identity for every reusable capability.
-2. JSPACE — typed semantic multigraph over objects, versions, events, agents, manifestations and mutations.
+1. CCR — deterministic functional identity for reusable capability.
+2. JSPACE — typed semantic multigraph over objects, versions, events, manifestations, agents and mutations.
 3. SCALE — `S0 event → S1 delta → S2 relation → S3 motif → S4 generator → S5 organ law`.
 4. KC144 — immutable 12×12 host topology; coordinate is never identity.
-5. Polycoordinate/transform runtime — open-world charts, executable transforms, measured holonomy, exact output coordinates.
-6. COLLECTIVE runtime — selects HIVE/SWARM/PACK/FLOCK/HERD/POD execution geometry, right-sizes worker count from marginal utility, preserves reserve capacity, allocates roles and bounded-neighbor topology, performs evidence-sensitive quorum/inhibition, advisory stigmergic reinforcement/evaporation, and homeostatic overload control.
-7. COLLECTIVE GROWTH — demand-sensitive task allocation, living-bridge accounting, FISSION/FUSE/HOLD structural pressure, dependency-scoped alarm waves, and lineage-preserving artifact lifecycle/apoptosis.
-8. COLLECTIVE MEMORY V2 — persistent pheromone field, typed JSPACE invalidation compiler, observed-RGO calibration, versioned/CAS collective topology transactions with rollback witnesses, and failure-antibody detector/repair/regression memory.
-9. COLLECTIVE LEARNING V3 — measured resource metabolism, bounded versioned organization-policy learning with rollback, counterfactual organization ranking, evidence-backed elder authority, empirical antibody-family evolution, and attenuated multiscale pheromone transport.
-10. COLLECTIVE ECOLOGY V4 — observable task-regime partitioning, uncertainty-aware contextual-bandit experiment selection, causal-confidence credit assignment with unattributed residual, measured per-worker budget scheduling, shrinkage-learned scale diffusion, restricted executable regression witnesses, uncertainty-banded multi-step rollouts, and recoverable topology→JSPACE projection sagas.
-11. Runtime — hydrate, conditional writes, telemetry, adoption, replayable session state and exact final emission.
+5. Polycoordinate/transform runtime — open-world charts, executable derivations, measured holonomy, exact visible-output coordinates.
+6. COLLECTIVE V1 — HIVE/SWARM/PACK/FLOCK/HERD/POD geometry, dynamic width, roles, bounded topology, quorum/inhibition, reserve and homeostasis.
+7. COLLECTIVE GROWTH — demand allocation, bridge accounting, FISSION/FUSE/HOLD pressure, alarm propagation, lifecycle/apoptosis.
+8. COLLECTIVE MEMORY V2 — persistent pheromones, typed JSPACE invalidation, observed-RGO calibration, topology CAS/rollback, failure antibodies.
+9. COLLECTIVE LEARNING V3 — measured resource metabolism, bounded rollbackable learned policy, counterfactuals, elder authority, antibody evolution, multiscale pheromones.
+10. COLLECTIVE ECOLOGY V4 — task regimes, contextual-UCB experiment selection, causal-confidence credit/residual, worker budget scheduling, learned diffusion, executable regression witnesses, uncertainty-banded rollouts, topology→JSPACE recovery sagas.
+11. COLLECTIVE SCIENCE V5 — full-covariance contextual uncertainty + empirical interval calibration, active information-gain experiment design, factorial interaction and delayed credit, learned transition dynamics, multi-period scheduling, stronger constrained witness cells, learned regime geometry, Pareto-front organization search, and projection-edge compensation algebra.
+12. Runtime — hydrate, conditional writes, telemetry, adoption, replayable sessions, exact final emission.
 
-## Collective objective hierarchy
+## Objective hierarchy
 
-Base organization objective:
+Base:
 
 `J = w_O·O - w_C·C`.
 
-Normalized comparison:
+Normalized organization comparison:
 
 `RGO = mean(O)/(1+mean(C))`.
 
-V2 adds empirical correction:
+V2: `predicted_RGO -> observed_RGO -> calibrated_RGO`.
 
-`predicted_RGO -> observed_RGO -> calibrated_RGO`.
+V3: `explicit observed reward -> bounded versioned policy update -> rollbackable policy state`.
 
-V3 adds bounded learned policy:
+V4: `context + regime + arm history -> <mean,uncertainty,UCB>` plus `outcome -> <credit,causal confidence,residual>`.
 
-`explicit observed reward -> versioned policy update -> rollbackable policy state`.
+V5: `correlated context -> <posterior mean,covariance,calibrated interval>`; `hypotheses + candidate experiments -> expected information gain`; `observed factorial/delayed outcomes -> identified/qualified credit`; `observed action transitions -> shrinkage transition model`; `candidate organizations -> non-dominated Pareto frontier`.
 
-V4 adds experimental uncertainty and causal-credit surfaces:
-
-`context + regime + arm history -> <mean,uncertainty,UCB>`
-
-and
-
-`outcome_delta -> <credited interventions, causal confidence, unattributed residual>`.
-
-A high exploration score is allowed to increase the probability of **testing** an option; it is forbidden from increasing the option's factual authority merely because it was explored.
-
-## Growth metabolism
+## Current developmental metabolism
 
 `HYDRATE`
-`-> MEMORY/ANTIBODY/ELDER QUERY`
-`-> TASK REGIME`
-`-> BUDGET/POLICY/POSTERIOR STATE`
+`-> MEMORY/ANTIBODY/ELDER`
+`-> COARSE+LEARNED REGIME`
+`-> BAYES/CALIBRATION`
+`-> LIVE HYPOTHESES`
+`-> ACTIVE EXPERIMENT DESIGN`
+`-> PARETO FRONTIER`
 `-> COLLECTIVE PLAN`
-`-> RGO CALIBRATION`
-`-> UCB EXPERIMENT SELECTION`
-`-> OPTIONAL UNCERTAINTY-BANDED ROLLOUT`
-`-> BUDGET-AWARE WORKER SCHEDULING`
-`-> EXECUTION + RESOURCE METERING`
-`-> QUORUM / VERIFICATION / FALSIFICATION`
-`-> OBSERVED OUTCOME`
-`-> CAUSAL-CONFIDENCE CREDIT`
-`-> BANDIT / POLICY / WORKER-COST UPDATE`
-`-> DIFFUSION / PHEROMONE / ELDER / ANTIBODY UPDATE`
-`-> JSPACE INVALIDATION`
-`-> TOPOLOGY CAS / OPTIONAL PROJECTION SAGA`
+`-> MULTIPERIOD RESOURCE SCHEDULE`
+`-> EXECUTE/METER`
+`-> QUORUM/FALSIFICATION/WITNESS`
+`-> OBSERVE`
+`-> DIRECT/INTERACTION/DELAYED CREDIT`
+`-> BAYES/BANDIT/POLICY UPDATE`
+`-> TRANSITION MODEL UPDATE`
+`-> LEARNED-TRANSITION ROLLOUT`
+`-> PHEROMONE/DIFFUSION/IMMUNE/ELDER`
+`-> JSPACE/TOPOLOGY/PROJECTION/COMPENSATION`
 `-> LIFECYCLE`
-`-> FINALIZE / VERIFY / COMMIT`.
+`-> FINALIZE/VERIFY/COMMIT`.
 
 ## Authority surfaces
 
-- semantic state: expected-VID CAS;
-- Git state: expected-Git-head CAS;
-- collective topology: expected-topology-version CAS;
-- learned organization policy: expected-policy-version CAS;
-- contextual bandit state: observational action/reward memory, not canonical semantic authority;
-- causal-credit state: evidential attribution surface, never silent proof of causality;
-- diffusion state: empirical routing prior, not JSPACE dependency truth;
-- projection state: recovery saga that may bridge topology to JSPACE only after exact head preflight.
+- semantic state: expected-VID / semantic event-head authority;
+- Git state: expected Git HEAD;
+- topology state: expected topology version;
+- V3 learned policy: expected policy version;
+- V4/V5 bandit/Bayesian/transition state: observational predictive evidence only, never semantic authority;
+- causal-credit state: attribution evidence, with identification class and residual rather than hidden causal promotion;
+- diffusion/pheromone: routing priors, not dependency truth;
+- learned regimes: transfer neighborhoods, not object identity;
+- Pareto front: tradeoff set, not a canonical single winner;
+- projection/compensation: semantic recovery operations with separate Git consequences.
 
-Collective topology does not silently rewrite canonical JSPACE. Learned policy does not silently rewrite semantic truth or topology. Bandit posterior does not certify a claim. Credit confidence does not erase unattributed outcome residual. Rollback is a new witnessed transaction, never deletion of history. Counterfactual and rollout rankings are simulation outputs, not commits. Failure-antibody matches route verification/repair but do not prove common cause. Elder authority is measured and defeasible, never conferred by age alone.
+## Bayesian/calibration boundary
 
-## Measured-resource boundary
+V5 full-covariance contextual state uses
 
-Automatically observable in this MCP runtime:
+`A = λI + Σwφφᵀ`, `θ̂=A⁻¹b`, `Σ=A⁻¹`.
 
-- tool-call count;
-- tool-call wall time.
+Predictive intervals are calibrated only from retained **pre-update** predictions and later observations. Empirical coverage can widen/narrow interval scale, but does not prove the underlying reward model is correct or transport calibration across distribution shift.
 
-Stored when an observable caller supplies them:
+`POSTERIOR != TRUTH` and `COVERAGE_CALIBRATION != MODEL_VALIDITY`.
 
-- token count;
-- compute units;
-- retrieval operations;
-- storage bytes;
-- human attention minutes;
-- CPU time;
-- GPU time;
-- energy joules;
-- peak memory;
-- network bytes.
+## Active experiment boundary
 
-Unobserved dimensions remain `UNKNOWN`. `UNKNOWN_COST != ZERO_COST`. Worker scheduling applies uncertainty pressure instead of converting missing measurements into free resources.
+For explicit hypotheses and caller-supplied outcome likelihoods, V5 ranks candidate experiments by expected entropy reduction adjusted by feasibility/cost/risk. Ethics remains a hard eligibility gate.
 
-## Experimental-learning boundary
+`EXPECTED_INFORMATION_GAIN != EVIDENCE` and `DESIGN != RESULT`.
 
-The V4 contextual-bandit layer is an experiment selector. Its upper confidence bound is:
+## Causal boundary
 
-`UCB = mean + alpha * uncertainty`.
+V4 one-step intervention credit retains causal confidence/residual. V5 additionally supports:
 
-This creates lawful exploration pressure without conflating option value with truth. Posterior updates require explicit observed reward.
+- main present-vs-absent contrasts;
+- pairwise `μ11-μ10-μ01+μ00` interactions only when all four cells exist;
+- delayed `ΔY × causal_confidence × discount^delay` credit.
 
-The V4 causal-credit layer preserves the distinction between a useful association and an identified causal effect. Randomization, controls, direct measurement, isolation, replication, and counterfactual evidence raise confidence; otherwise credit remains explicitly associational and a residual term remains unassigned.
+A missing factorial cell remains `UNIDENTIFIED`; a numerical interaction is not promoted to causal without design confidence. Temporal delay alone never proves cause.
 
-## Projection boundary
+## Transition/rollout boundary
 
-Topology and JSPACE are distinct stores. A projection plan derives structural edges from topology state, then preflights exact topology version and semantic event head. Optional Git persistence also preflights exact Git HEAD.
+V5 learns action-conditioned feature deltas with shrinkage toward zero. Unobserved features remain unchanged/unknown. Learned-transition rollouts remain `SIMULATE_ONLY` and cannot train their own model.
 
-Because semantic SQLite mutation and Git commit cannot be made one physical ACID transaction by the current runtime, V4 uses a saga:
+`TRANSITION_MODEL != WORLD_TRUTH`; `ROLLOUT != EXECUTION`.
 
-`PREPARED -> SEMANTIC_APPLIED -> GIT_COMMITTED? -> COMPLETED`.
+## Resource/scheduling boundary
 
-Failure before semantic application gives `ABORTED`. Failure after partial semantic application gives `COMPENSATION_REQUIRED`.
+Automatically observable: MCP tool calls and wall time.
 
-The runtime MUST NOT describe this sequence as atomic distributed rollback.
+Caller-observable optional dimensions include tokens, compute, retrieval, storage, attention, CPU/GPU time, energy, memory and network bytes.
 
-## Non-negotiable laws
+Unknown dimensions remain `UNKNOWN`, never zero.
 
-- same namespace != same lineage
-- delivered != hydrated != consumed != adopted
-- coordinate != identity
+V5 multi-period scheduling respects explicit dependencies, durations, worker capacity, horizon and known budgets through bounded beam search. It deliberately returns no global optimality proof.
+
+## Witness boundary
+
+V5 witness cells execute repository-owned unittest references only and add Python isolation, sanitized environment, temporary HOME, timeout, Python socket denial, and POSIX resource limits where available. They are stronger process cells, but not OS/VM-level hermetic sandboxes.
+
+## Projection/compensation boundary
+
+V4 projection remains a cross-store recovery saga:
+
+`PREPARED -> SEMANTIC_APPLIED -> GIT_COMMITTED? -> COMPLETED`
+
+with `ABORTED` before semantic effects and `COMPENSATION_REQUIRED` after partial effects.
+
+V5 adds a narrow semantic inverse: active edges whose parsed attributes contain the exact projection ID can be retracted under current semantic-head CAS, with `COMPENSATE_EDGE` events. The saga may become `COMPENSATED`. If a Git commit exists, Git compensation remains separately required; V5 does not rewrite Git history automatically.
+
+## Non-negotiable science firewall
+
+- identity != coordinate
 - tested != current != canonical != integrated
 - UNKNOWN != N/A
-- UNKNOWN cost != zero cost
-- compression requires RETURN
-- global mutations require next-cycle adoption
-- public telemetry never stores private chain-of-thought
-- maximum growth != maximum activity
-- maximum integration != maximum connectivity
-- consensus != evidence
+- UNKNOWN_COST != ZERO_COST
 - prediction != observation
-- learned policy != canonical truth
-- counterfactual != commit
-- rollout != commit
-- exploration score != evidence
+- posterior != truth
+- calibration != model validity
+- expected information gain != evidence
+- experiment design != experiment result
+- counterfactual != observation
 - UCB != truth
-- bandit prediction != reward
+- bandit/Bayesian prediction != reward
 - association != causation
 - attribution != causal proof
-- regime transfer != identity
-- measured cost != estimated cost
+- missing factorial contrast != zero interaction
+- temporal delay != causation
+- learned policy != canonical truth
+- learned regime != semantic identity
+- transition model != world truth
+- rollout != execution/commit
+- bounded schedule != global optimum
 - diffusion posterior != causal path
+- pheromone != authority
+- elder != oracle
 - regression pass != universal proof
+- witness cell != hermetic sandbox
+- Pareto frontier != single best action
 - projection saga != atomic transaction
-- preserve reserve when feasible
-- stop adding workers when marginal output <= marginal coordination cost
-- recruitment requires inhibition/contradiction/evaporation
-- allocate by demand × fit × available capacity, not equal participation
-- budget-aware scheduling must distinguish EXPLICIT / MEASURED_HISTORY / UNKNOWN resource models
-- build bridges only when expected saved work exceeds build + maintenance + locked capacity
-- invalidation transport must use typed relation semantics; unknown relation orientation is ignored rather than fabricated
-- persistent route priority must remain erasable by age/staleness/contradiction
-- predicted organizational fitness must be reconciled against observed outcomes
-- organization-policy learning is bounded, regularized, versioned and rollbackable
-- bandit state updates only from explicit observed reward
-- multi-intervention outcomes require credit decomposition before per-action learning when causal attribution is uncertain
-- topology mutation requires CAS + before/after witness + rollback path
-- topology→JSPACE projection requires exact head preflight + recovery journal
-- diagnosed failures should become detector + repair + regression antibodies
-- executable regression witnesses are restricted to repository-owned unittest references; arbitrary commands are prohibited
-- antibody variants require empirical outcome tracking and remain hypotheses
-- multiscale pheromone propagation attenuates or learns through shrinkage; local success cannot receive global-strength promotion without evidence
-- elder authority derives from repeated reuse/prediction/repair/regression/generalization success with contradiction penalty
-- pruning removes active priority, never required lineage
+- semantic compensation != Git rollback
+- local success != global authority
+- pruning removes active routing privilege, never required lineage
+
+## Coordinate fibers
+
+`COLLECTIVE=<F,R,N,D,Q,C,O,H,L>`
+
+`COLLECTIVE_LEARNING=<B,P,CF,E,A,MS,L>`
+
+`COLLECTIVE_ECOLOGY=<RG,X,CR,WS,DF,RW,RO,PS,L>`
+
+`COLLECTIVE_SCIENCE=<BY,CAL,ED,IX,DL,TR,SC,WC,RG,PF,CP,L>`.
