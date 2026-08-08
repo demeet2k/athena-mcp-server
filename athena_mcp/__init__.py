@@ -2,10 +2,9 @@
 
 `protocol.py` remains the mature schema registry. Package initialization owns the
 release identity and patches compatibility surfaces before dispatch observes them.
-Frontier V1 and the rehydration-loop V1 harness are explicit extensions of the
-Git prompt runtime so they reuse the existing MCP dispatcher, prompt CAS, remote
-freshness membrane, and authority boundaries instead of creating another control
-plane.
+Frontier V1, rehydration-loop V1, and the successor-baton V1 extension reuse the
+existing Git prompt runtime so long chains gain explicit self-steering without a
+second dispatcher, state store, or authority plane.
 """
 
 __version__ = "3.2.0"
@@ -25,9 +24,9 @@ SERVER_INFO = {
 _protocol.SERVER_INFO = dict(SERVER_INFO)
 
 # Prompt × frontier braid registration. The dispatcher already routes the
-# PROMPT_RUNTIME_TOOL_NAMES family through PromptRuntime.call_tool, so frontier
-# and rehydration tools extend that family rather than duplicating dispatch,
-# state, authority, or remote-delivery code.
+# PROMPT_RUNTIME_TOOL_NAMES family through PromptRuntime.call_tool, so frontier,
+# rehydration, and successor tools extend that family rather than duplicating
+# dispatch, state, authority, or remote-delivery code.
 from .prompt_runtime import PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES
 from .frontier_runtime import FrontierRuntime, FRONTIER_TOOLS, FRONTIER_TOOL_NAMES
 from .rehydration_loop import (
@@ -35,6 +34,46 @@ from .rehydration_loop import (
     REHYDRATION_TOOL_NAMES,
     RehydrationLoopRuntime,
 )
+from .rehydration_successor import (
+    SUCCESSOR_TOOLS,
+    SUCCESSOR_TOOL_NAMES,
+    install_successor_extension,
+)
+
+# Patch runtime behavior only. The canonical V1 five-tool rehydration membrane is
+# immutable; V1.1 preview tools are registered in their own additive namespace.
+install_successor_extension(RehydrationLoopRuntime)
+
+# Extend only the advance completion schema. Do not mutate REHYDRATION_TOOL_NAMES.
+for _tool in REHYDRATION_TOOLS:
+    if _tool.get("name") != "athena_rehydration_advance":
+        continue
+    _completion_schema = (((_tool.get("inputSchema") or {}).get("properties") or {}).get("completion") or {})
+    _completion_props = _completion_schema.setdefault("properties", {})
+    _completion_props.setdefault("self_steer", {"type": "boolean"})
+    _completion_props.setdefault("successor_candidates", {"type": "array", "items": {"type": ["object", "string"]}})
+    _completion_props.setdefault("successor_policy", {"type": "object"})
+    _completion_props["self_steer"]["description"] = (
+        "Optional. Omitted=AUTO: steer only when next_task is absent; an explicit V1 next_task is preserved. "
+        "true forces successor compilation; false disables it."
+    )
+
+# Backward-compatibility law: an existing V1 caller that explicitly supplied a
+# next_task keeps that routing decision unless it explicitly opts into
+# self_steer=true. Omission means AUTO only when successor choice was left open.
+if not getattr(RehydrationLoopRuntime, "_athena_successor_v1_explicit_next_compat", False):
+    _rehydration_advance_with_successor = RehydrationLoopRuntime.advance
+
+    def _rehydration_advance_preserve_explicit_next(self, *args, **kwargs):
+        completion = dict(kwargs.get("completion") or {})
+        explicit_next = completion.get("next_task")
+        if "self_steer" not in completion and isinstance(explicit_next, str) and explicit_next.strip():
+            completion["self_steer"] = False
+            kwargs["completion"] = completion
+        return _rehydration_advance_with_successor(self, *args, **kwargs)
+
+    RehydrationLoopRuntime.advance = _rehydration_advance_preserve_explicit_next
+    RehydrationLoopRuntime._athena_successor_v1_explicit_next_compat = True
 
 # RHL-001 antibody: a persisted local loop checkpoint is not automatically the
 # shared current checkpoint. Resume must refresh the shared branch before reading
@@ -202,7 +241,7 @@ if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
     FrontierRuntime.hydrate = _frontier_hydrate_content_digest
     FrontierRuntime._athena_content_digest_v1_registered = True
 
-for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS:
+for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS + SUCCESSOR_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
         PROMPT_RUNTIME_TOOLS.append(_tool)
         PROMPT_RUNTIME_TOOL_NAMES.add(_tool["name"])
@@ -238,3 +277,18 @@ if not getattr(PromptRuntime, "_athena_rehydration_loop_v1_registered", False):
 
     PromptRuntime.call_tool = _prompt_call_with_rehydration
     PromptRuntime._athena_rehydration_loop_v1_registered = True
+
+if not getattr(PromptRuntime, "_athena_rehydration_successor_v1_registered", False):
+    _prompt_call_without_successor = PromptRuntime.call_tool
+
+    def _prompt_call_with_successor(self, name, arguments):
+        if name in SUCCESSOR_TOOL_NAMES:
+            runtime = getattr(self, "_rehydration_loop_runtime_v1", None)
+            if runtime is None:
+                runtime = RehydrationLoopRuntime(self.git, self)
+                self._rehydration_loop_runtime_v1 = runtime
+            return runtime.call_tool(name, arguments)
+        return _prompt_call_without_successor(self, name, arguments)
+
+    PromptRuntime.call_tool = _prompt_call_with_successor
+    PromptRuntime._athena_rehydration_successor_v1_registered = True
