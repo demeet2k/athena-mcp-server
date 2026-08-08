@@ -44,7 +44,7 @@ class Server:
         if name=='athena_pending_mutations': return c.pending_mutations(a['agent'])
         if name=='athena_adopt_mutation': return c.adopt_mutation(a['agent'],a['mutation_id'])
         if name=='athena_hydrate': return c.hydrate(a.get('agent'))
-        if name=='athena_orchestrate': return self.orchestration.compile(a['seed'],a.get('candidates'),a.get('residuals'),a.get('budget'),a.get('actor','agent'),a.get('task',''),a.get('session_id'),a.get('persist',True))
+        if name=='athena_orchestrate': return self.orchestration.compile(seed=a['seed'],candidates=a.get('candidates'),residuals=a.get('residuals'),budget=a.get('budget'),metric_contract=a.get('metric_contract'),actor=a.get('actor','agent'),task=a.get('task',''),session_id=a.get('session_id'),persist=a.get('persist',True))
         if name=='athena_orchestration_get': return self.orchestration.get(a['run_id'])
         if name=='athena_orchestration_replay': return self.orchestration.replay(a['run_id'])
         if name=='athena_session_start': return c.session_start(a['agent'],a['task'],self.git.head() if self.git.enabled else None)
