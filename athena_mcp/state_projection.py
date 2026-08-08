@@ -35,10 +35,11 @@ def project_omega(server)->Dict[str,Any]:
             'lazy_surfaces':{
                 'science_v5':'constructed on V5 tool/resource access; posterior/design/rollout state remains model-conditional',
                 'discovery_v6':'constructed on V6 tool/resource access; shadow claims use athena_discovery_claim_* and never alias Y1 authority',
+                'dual_control_v7':'constructed on V7 tool/resource access; uncertainty decomposition, causal skeletons, scenario/dual-control plans and replication geometry remain model/science-shadow state',
             },
         },'collective state unavailable'),
         'branches':_safe(lambda:{'benchmark':server.branches.benchmark(),'review':server.branches.list(status='REVIEW',limit=100),'hibernated':server.branches.list(status='HIBERNATED',limit=100)},'branch lifecycle unavailable'),
-        'authority':_safe(lambda:{'benchmark':server.authority.benchmark(),'challenged':server.authority.list(status='CHALLENGED',limit=100),'canonical_challenged':server.authority.list(status='CANONICAL_CHALLENGED',limit=100),'claim_namespace':'athena_claim_* canonical Y1; athena_discovery_claim_* V6 science-shadow only'},'authority state unavailable'),
+        'authority':_safe(lambda:{'benchmark':server.authority.benchmark(),'challenged':server.authority.list(status='CHALLENGED',limit=100),'canonical_challenged':server.authority.list(status='CANONICAL_CHALLENGED',limit=100),'claim_namespace':'athena_claim_* canonical Y1; athena_discovery_claim_* V6/V7 science-shadow only'},'authority state unavailable'),
         'aor':_safe(lambda:{'benchmark':server.orchestration.benchmark(),'recent':server.orchestration.recent(20)},'AOR runtime unavailable'),
         'development':_safe(lambda:dev.benchmark() if dev else {},'development surface unavailable'),
         'cycles':_safe(lambda:dev.cycle.recent(20) if dev and hasattr(dev,'cycle') else [],'cycle runtime unavailable'),
@@ -47,7 +48,7 @@ def project_omega(server)->Dict[str,Any]:
         'schema_status':_safe(lambda:foundation.schema.status() if foundation else {},'schema status unavailable'),
         'reconstruction':_safe(lambda:foundation.reconstruction.recent(20) if foundation else [],'reconstruction ledger unavailable'),
         'pending_mutations':_safe(lambda:server.core.pending_mutations('ATHENA.OMEGA.1'),'pending mutation query unavailable'),
-        'boundary':'OMEGA covers accessible runtime/ledger state only; V5/V6 lazy model construction, absent external sources and unseen world state remain explicit rather than inferred',
+        'boundary':'OMEGA covers accessible runtime/ledger state only; V5/V6/V7 lazy model construction, absent external sources and unseen world state remain explicit rather than inferred',
     }
     digest_source={k:v for k,v in state.items() if k not in {'omega_id','state_digest'}};state_digest=_digest(digest_source);state['state_digest']=state_digest;state['omega_id']='OMEGA.'+state_digest[:24];return state
 
