@@ -1,0 +1,41 @@
+{
+  "artifact": "ATHENA.LIMINAL.CAMPAIGN.FIBRE.SPEC.V1",
+  "status": "CANDIDATE",
+  "purpose": "Attach Campaign V3 pulse-compilation state to the observable liminal runtime without creating a competing core coordinate.",
+  "parent_charts": {
+    "active": "ATHENA.LIMINAL.RUNTIME.v1",
+    "union_candidate": "ATHENA.LIMINAL.RUNTIME.v2.CANDIDATE",
+    "relationship": "TASK_LOCAL_LOSSY_FIBRE"
+  },
+  "notation": "CF=<H,PD,FD,OBD,IPD,SBD,CD,pulse,phase,authority>",
+  "axes": [
+    "git_head",
+    "prompt_stack_digest",
+    "frontier_digest",
+    "operational_basis_digest",
+    "issue_pressure_digest",
+    "source_body_digest",
+    "compilation_digest",
+    "pulse_index",
+    "phase",
+    "authority"
+  ],
+  "identity": "LCF- + first20(sha256(canonical_json(axes)))",
+  "metric": "d_CF(x,y)=sum_i 1[x_i != y_i]",
+  "compiler_source": "athena_mcp/steering_pulse.py :: ATHENA.STEERING.PULSE.COMPILATION.V1",
+  "projection_loss": [
+    "RID/AID are run metadata rather than hashed position axes",
+    "tree/surface/operator/object/version/time/KC144/return remain in parent chart",
+    "one CF coordinate may correspond to multiple parent-chart positions",
+    "d_CF is categorical task distance only"
+  ],
+  "laws": [
+    "CAMPAIGN_FIBRE != FULL_LIMINAL_COORDINATE",
+    "COORDINATE != PRIVATE_REASONING",
+    "MOVEMENT != PHYSICAL_LOCATION",
+    "DIGEST_IDENTITY != AUTHORITY",
+    "NAVIGATOR_LABEL_CHANGE_ALONE != POSITION_CHANGE",
+    "NO_AXIS_CHANGE => NO_CAMPAIGN_FIBRE_MOVEMENT",
+    "PROJECTION_LOSS_MUST_REMAIN_EXPLICIT"
+  ]
+}
