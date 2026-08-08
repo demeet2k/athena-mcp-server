@@ -5,6 +5,7 @@ import json
 import os
 import sys
 
+from .composition_integrity import composition_certificate
 from .stack_server import STACK_LAYERS,STACK_VERSION,StackServer,stack_manifest
 from .orchestration_field import FieldLedger
 from .orchestration_field_protocol import FIELD_RESOURCE,FIELD_TOOLS
@@ -13,7 +14,7 @@ from .surface_contract import audit_surface,contract_manifest
 from .surface_protocol import SURFACE_RESOURCE,SURFACE_TOOLS,SURFACE_TOOL_NAMES
 from .validate import validate
 
-FIELD_STACK_VERSION="AOR.STACK.3+FIELD.1+AOR.3.2"
+FIELD_STACK_VERSION="AOR.STACK.3+FIELD.1+AOR.3.4"
 
 
 def field_stack_manifest():
@@ -40,23 +41,25 @@ def field_stack_manifest():
             "role":"mature-organ discovery contract and anti-regression audit",
             "epistemic_status":"DISCOVERY_COMPOSITION_AUDIT",
         },
+        {
+            "index":len(base["layers"])+3,
+            "name":"COMPOSITION1",
+            "server":"FieldServer",
+            "role":"MRO + organ-instance + representative read-only dispatch certificate",
+            "epistemic_status":"RUNTIME_WIRING_NOT_SEMANTIC_PROOF",
+        },
     ]
     return {
         **base,
         "version":FIELD_STACK_VERSION,
         "layers":layers,
         "default_candidate":"FieldServer",
-        "promotion_gate":"athena_surface_audit.status == PASS and full CI + smoke PASS on exact head",
+        "promotion_gate":"athena_surface_audit.status == PASS (surface + composition) and full CI + smoke PASS on exact head",
     }
 
 
 class FieldServer(StackServer):
-    """Promoted fully composed ATHENA runtime candidate.
-
-    Server chain: base -> authority -> equivalence/extraction -> retrieval -> HUG
-    -> GAP -> stack -> FIELD, while base also carries branch evolution, AORRUN,
-    robustness, transforms, emissions, sessions and Git CAS.
-    """
+    """Promoted fully composed ATHENA runtime candidate."""
     def __init__(self,db,git_root=None):
         super().__init__(db,git_root)
         self.field=FieldLedger(self.core)
@@ -68,15 +71,20 @@ class FieldServer(StackServer):
         resources=self.handle({"jsonrpc":"2.0","id":"surface-resources","method":"resources/list"})["result"]["resources"]
         return [tool["name"] for tool in tools],[resource["uri"] for resource in resources]
 
-    def surface_audit(self):
+    def surface_audit(self,run_probes=True):
         tool_names,resource_uris=self._discovered_surface()
-        return audit_surface(tool_names,resource_uris)
+        surface=audit_surface(tool_names,resource_uris)
+        composition=composition_certificate(self,run_probes=run_probes)
+        surface["surface_status"]=surface["status"]
+        surface["composition"]=composition
+        surface["status"]="PASS" if surface["surface_status"]=="PASS" and composition["status"]=="PASS" else "FAIL"
+        return surface
 
     def call_tool(self,name,args):
         if name in FIELD_TOOL_NAMES:return call_field_tool(self.field,name,args)
         if name=="athena_surface_audit":return self.surface_audit()
         if name=="athena_benchmark":
-            result=super().call_tool(name,args);result.update(self.field.benchmark());result["surface_audit"]=self.surface_audit()["status"];return result
+            result=super().call_tool(name,args);result.update(self.field.benchmark());audit=self.surface_audit();result["surface_audit"]=audit["status"];result["composition_audit"]=audit["composition"]["status"];return result
         return super().call_tool(name,args)
 
     def handle(self,message):
@@ -101,7 +109,7 @@ class FieldServer(StackServer):
             value=field_resource_value(self.field)
             return self.result(mid,{"contents":[{"uri":FIELD_RESOURCE["uri"],"mimeType":"application/json","text":json.dumps(value,ensure_ascii=False,sort_keys=True)}]})
         if method=="resources/read" and params.get("uri")==SURFACE_RESOURCE["uri"]:
-            tools,resources=self._discovered_surface();value={"contract":contract_manifest(),"audit":audit_surface(tools,resources)}
+            value={"contract":contract_manifest(),"audit":self.surface_audit()}
             return self.result(mid,{"contents":[{"uri":SURFACE_RESOURCE["uri"],"mimeType":"application/json","text":json.dumps(value,ensure_ascii=False,sort_keys=True)}]})
         if method=="resources/read" and params.get("uri")=="athena://stack":
             value=field_stack_manifest()
@@ -113,6 +121,7 @@ class FieldServer(StackServer):
                 content["text"]=content.get("text","")+"""
 19 FIELD/PHI: `Phi=maxSX(q,B,C,eco{K,H,S,a,Z})` is not a license for a magic idea generator. FIELD.1 assembles actual unresolved work emitted by SX.1, RAG.1, Y.1, GAP.1, HUG.ABI.1, branch REVIEW and AOR measurement/calibration into typed action candidates with exact source receipts and dependency edges. Generated actions are `metric_state=UNMEASURED`; do not invent readiness/gain/cost/DeltaJ/etc. Exact identical action signatures may merge provenance. If explicit measurements disagree on an exact action, mark `metric_state=CONFLICT`, strip disputed AOR operands and route to remeasurement/adjudication. Preserve ecosystem constraints as data, then hand FIELD candidates to AOR only after lawful measurement/calibration/gating. Persist exact module inputs and candidate/provenance graph as FIELDRUN for replay.
 20 SURFACE/PROMOTION: the package default may claim a mature organ only when the composed runtime exposes it under ATHENA.SURFACE.1. `athena_surface_audit.status=PASS` plus exact-head CI/smoke is the promotion gate. A new organ extends the surface; it does not silently replace unrelated tools/resources. Robustness certificates remain post-decision rank sensitivity bound to AORRUN decision_digest, not hidden NEXT score terms.
+21 COMPOSITION/ABI: discovery is necessary but not sufficient. COMPOSITION.1 also verifies the expected server MRO, initialized mature organ instances, and representative read-only calls through BRANCH/Y/RAG/HUG/GAP/FIELD. Composition PASS certifies wiring/dispatch reachability, not the semantic truth of each organ. Any MRO break, missing organ instance or failed read-only probe blocks runtime promotion.
 """
             return base
         return super().handle(message)
