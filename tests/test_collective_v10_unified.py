@@ -39,7 +39,9 @@ class CollectiveV10UnifiedTests(unittest.TestCase):
         self.assertEqual(blocked['status'],'UNIDENTIFIED_LATENT_CONFOUNDING_RISK')
         states=['G','B'];actions=[{'id':'safe','reward_by_state':{'G':.4,'B':.4},'transition':{'G':{'G':1.0,'B':0.0},'B':{'G':0.0,'B':1.0}},'observation':{'G':{'n':1.0},'B':{'n':1.0}}}]
         plan=self.tool('athena_pomdp_solve',{'states':states,'initial_belief':{'G':.5,'B':.5},'actions':actions,'horizon':2,'max_nodes':5000})
-        self.assertEqual(plan['certificate'],'EXACT_FOR_SUPPLIED_FINITE_MODEL_AND_HORIZON');self.assertIn('supplied finite model',plan['law'])
+        self.assertEqual(plan['certificate'],'EXACT_FOR_SUPPLIED_FINITE_MODEL_AND_HORIZON')
+        self.assertIn('exact only for the supplied finite states/actions/transitions/observations/rewards and bounded horizon',plan['law'])
+        self.assertIn('not infinite-horizon or real-world optimality',plan['law'])
 
     def test_dependence_calibration_is_model_state_not_y1_authority(self):
         self.tool('athena_claim_register',{'claim_id':'CLAIM.Y1.V10','source_ref':'source://canonical'})
