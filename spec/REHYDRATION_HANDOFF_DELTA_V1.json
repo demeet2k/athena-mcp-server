@@ -1,0 +1,91 @@
+{
+  "artifact": "ATHENA.REHYDRATION.HANDOFF.DELTA.V1",
+  "coordinate": "ATHENA.KC144::GITΩ::REHYDRATION::HANDOFF-DELTA::V1",
+  "purpose": "Compress one verified rehydration transition into the minimum causally sufficient context a successor agent must hydrate.",
+  "semantic_boundary": {
+    "routing_successor": "WHAT NEXT should be attempted; owned by ATHENA.REHYDRATION.SUCCESSOR.BATON.V1 when that extension is present",
+    "handoff_delta": "WHAT STATE the successor must rehydrate before acting",
+    "law": "WHAT_NEXT != WHAT_TO_REHYDRATE"
+  },
+  "source_of_truth": "ATHENA.REHYDRATION.LOOP.V1 state, prompt and receipt hash chain",
+  "persistence_law": "handoff delta is a deterministic projection and creates no Git commit",
+  "transition": {
+    "predecessor": [
+      "checkpoint_head",
+      "state_digest",
+      "prompt_digest",
+      "chain_digest",
+      "prompt_stack_digest",
+      "frontier_digest"
+    ],
+    "successor": [
+      "checkpoint_head",
+      "work_head",
+      "state_digest",
+      "prompt_digest",
+      "chain_digest",
+      "prompt_stack_digest",
+      "frontier_digest"
+    ],
+    "work": [
+      "receipt_digest",
+      "material_work_paths",
+      "completion_summary",
+      "tests",
+      "evidence_refs",
+      "residuals",
+      "next_task",
+      "handoff_to"
+    ],
+    "optional_bound_context": "completion.successor_baton is surfaced as routing_successor when present and remains bound indirectly by the completion receipt digest"
+  },
+  "hydration_modes": {
+    "DELTA_ONLY": "prompt and frontier content identities are unchanged; consume receipt/work/residual cone only",
+    "PROMPT_CONE": "prompt-stack identity changed; expand current prompt-policy cone plus work delta",
+    "FRONTIER_CONE": "frontier identity changed; expand current frontier cone plus work delta",
+    "PROMPT_AND_FRONTIER_CONE": "both content identities changed; expand both cones",
+    "FULL_REHYDRATE_REQUIRED": "required predecessor/current coordinate coverage is absent",
+    "HEAD_MOVED_REHYDRATE_REQUIRED": "handoff identity remains stable but observer is no longer at the exact loop checkpoint"
+  },
+  "identity_law": {
+    "handoff_digest": "SHA-256 identity inherited from the verified transition projection",
+    "excluded_from_identity": [
+      "current observer Git head",
+      "remote sync result",
+      "freshness observation"
+    ],
+    "reason": "freshness may invalidate consumption but cannot rewrite the identity of a completed predecessor transition"
+  },
+  "coverage": {
+    "delta_safe_requires": [
+      "verified rehydration chain",
+      "previous prompt-stack digest",
+      "current prompt-stack digest",
+      "previous frontier digest",
+      "current frontier digest"
+    ],
+    "not_yet_paired_in_v1_receipts": [
+      "frontier source head",
+      "scheduler interpretation contract",
+      "remote witness"
+    ],
+    "consequence": "refresh frontier interpretation/witness before consequential scheduler action"
+  },
+  "public_tools": [
+    "athena_rehydration_handoff_delta",
+    "athena_rehydration_handoff_resume"
+  ],
+  "internal_projection_core": "athena_mcp.successor_baton.SuccessorBatonRuntime",
+  "laws": [
+    "WHAT_NEXT != WHAT_TO_REHYDRATE",
+    "ROUTING_SUCCESSOR != HANDOFF_DELTA",
+    "HANDOFF_DELTA != HIGHER_AUTHORITY",
+    "DERIVED_HANDOFF != NEW_GIT_PROGRESS",
+    "HANDOFF_IDENTITY != OBSERVER_FRESHNESS",
+    "MISSING_COORDINATE_COVERAGE => FULL_REHYDRATE",
+    "HEAD_CHANGE => REHYDRATE",
+    "FRONTIER_INTERPRETATION_WITNESS_MISSING => REFRESH_BEFORE_SCHEDULER_ACTION"
+  ],
+  "target_metric": "handoff_delta_prompt_chars / full_rehydration_prompt_chars",
+  "optimization_goal": "reduce handoff context cost while preserving verified causal continuity and fail-closed freshness"
+}
