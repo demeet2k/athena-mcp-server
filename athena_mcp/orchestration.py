@@ -9,6 +9,7 @@ from .orchestration_explain import decision_explanation, measurement_requests, p
 from .orchestration_gate import promotion_gate
 from .orchestration_graph import candidate_id, dependency_graph
 from .orchestration_metric import calibration_requests, contract_summary, formula_calibration, normalize_item
+from .orchestration_reward import reallocation_plan
 from .orchestration_score import (
     REWARD_NEGATIVE,
     REWARD_POSITIVE,
@@ -18,8 +19,10 @@ from .orchestration_score import (
     reward_score,
     successor_score,
 )
+from .orchestration_successor import successor_packet
+from .orchestration_test import validation_bundle
 
-AOR_VERSION = "AOR.3"
+AOR_VERSION = "AOR.3.1"
 
 TRANSFORMS = (
     "decompose", "formalize", "dual", "invert", "compose", "recur",
@@ -34,8 +37,9 @@ EDGE_TYPES = (
 
 RUN_STAGES = (
     "reconstruct", "extract", "retrieve", "hug", "graph", "gap", "compile",
-    "measure", "calibrate", "test", "observe", "repair", "retest", "verify",
-    "reward", "reallocate", "allocate_budget", "output", "successor", "replay",
+    "measure", "calibrate", "validate_test", "validate_persistence", "test",
+    "observe", "repair", "retest", "verify", "reward", "reallocate",
+    "allocate_budget", "output", "successor", "replay",
 )
 
 TEST_BRANCHES = ("main", "counter", "edge", "fail")
@@ -48,9 +52,9 @@ def _numeric_positive(value: Any) -> bool:
     except (TypeError, ValueError): return False
 
 
-def _allocation(item: Mapping[str, Any], reward: Mapping[str, Any], reward_calibration: Mapping[str, Any], gate: Mapping[str, Any], dep: Mapping[str, Any]) -> List[str]:
+def _allocation(item: Mapping[str, Any], reward: Mapping[str, Any], reward_calibration: Mapping[str, Any], gate: Mapping[str, Any], dep: Mapping[str, Any], validation: Mapping[str, Any]) -> List[str]:
     if not dep.get("ready", True): return ["resolve_dependency"]
-    if gate.get("status") == "BLOCKED": return ["branch", "repair", "retest"]
+    if gate.get("status") == "BLOCKED" or validation.get("status") == "BLOCKED": return ["branch", "repair", "retest"]
     if not reward_calibration.get("ranking_allowed", True): return ["calibrate_metrics"]
     if reward.get("status") != "KNOWN": return ["measure"]
     value = float(reward["value"])
@@ -65,6 +69,7 @@ def _candidate_row(raw_item: Mapping[str, Any], scoring_item: Mapping[str, Any],
     successor = successor_score(scoring_item)
     reward = reward_score(scoring_item)
     gate = promotion_gate(raw_item)
+    validation = validation_bundle(raw_item)
     calibration = {
         "frontier": formula_calibration(calibration_report, "frontier"),
         "successor": formula_calibration(calibration_report, "successor"),
@@ -75,6 +80,7 @@ def _candidate_row(raw_item: Mapping[str, Any], scoring_item: Mapping[str, Any],
         unresolved
         and dep.get("ready", True)
         and gate["status"] == "PASS"
+        and validation["promotion_allowed"]
         and calibration["frontier"]["ranking_allowed"]
         and frontier["status"] == "KNOWN"
     )
@@ -82,6 +88,7 @@ def _candidate_row(raw_item: Mapping[str, Any], scoring_item: Mapping[str, Any],
         unresolved
         and dep.get("ready", True)
         and gate["status"] == "PASS"
+        and validation["promotion_allowed"]
         and calibration["successor"]["ranking_allowed"]
         and successor["status"] == "KNOWN"
     )
@@ -91,13 +98,14 @@ def _candidate_row(raw_item: Mapping[str, Any], scoring_item: Mapping[str, Any],
         "resolved": not unresolved,
         "dependency": dep,
         "gate": gate,
+        "validation": validation,
         "metric_calibration": calibration,
         "metric_report": dict(calibration_report),
         "scores": {"frontier": frontier, "successor": successor, "reward": reward},
         "rankable_frontier": rankable_frontier,
         "rankable_successor": rankable_successor,
         "unknown_metrics": unknown,
-        "allocation": _allocation(raw_item, reward, calibration["reward"], gate, dep),
+        "allocation": _allocation(raw_item, reward, calibration["reward"], gate, dep, validation),
         "source": dict(raw_item),
         "scoring_source": dict(scoring_item),
     }
@@ -131,14 +139,15 @@ def orchestration_law() -> Dict[str, Any]:
         "unknown_law": "UNKNOWN != 0; incomplete required formulas are non-rankable and route to measurement",
         "metric_law": "cross-candidate arithmetic is performed on one declared basis; x'=(x-offset)/abs(scale). strict basis blocks formulas with uncalibrated/invalid operands; non-strict basis exposes WARN_RAW",
         "gap_law": "grow = argmax(severity * leverage * information_gain / cost) over KNOWN calibration-allowed residual scores",
-        "frontier_law": "F = argmax(readiness * gain * independence * bridge / cost) over unresolved dependency-ready gate-passing KNOWN calibration-allowed candidates",
-        "successor_law": "next = highest successor score among budget-allocated unresolved dependency-ready gate-passing KNOWN calibration-allowed candidates when budget constraints are active",
+        "frontier_law": "F = argmax(readiness * gain * independence * bridge / cost) over unresolved dependency-ready gate-passing validation-passing KNOWN calibration-allowed candidates",
+        "successor_law": "next = structured highest successor route among budget-allocated unresolved dependency-ready gate-passing validation-passing KNOWN calibration-allowed candidates; no textual-order fallback",
         "pareto_law": "preserve all successor candidates not dominated on the same scoring basis over delta_j, information_gain, bridge, option_value and cost",
         "budget_law": "resource allocation maximizes sum(readiness*gain*independence*bridge) subject to raw resource_cost/cost capacity and max_branches; exact enumeration for <=18 costed candidates, otherwise explicitly heuristic greedy density",
-        "reward": {"positive": list(REWARD_POSITIVE), "negative": list(REWARD_NEGATIVE)},
-        "test": {"branches": list(TEST_BRANCHES), "claim_requires": ["procedure", "observation", "result", "witness"]},
-        "transaction": {"stages": ["attempt", "action", "commit?", "receipt", "verify", "rollback?"], "persisted_claim_requires": ["commit", "receipt", "verify"], "fake_success": False},
-        "allocation": {"high_reward": ["deepen", "replicate", "braid"], "low_reward_duplicate": ["hibernate"], "unknown_reward": ["measure"], "uncalibrated_strict_reward": ["calibrate_metrics"], "dependency_blocked": ["resolve_dependency"], "gate_blocked": ["branch", "repair", "retest"], "hibernate_is_erase": False},
+        "reward": {"positive": list(REWARD_POSITIVE), "negative": list(REWARD_NEGATIVE), "reallocation": "known positive reward deepens/replicates/braids; low-reward duplicates hibernate without erasure; unknown reward routes to measurement"},
+        "test": {"branches": list(TEST_BRANCHES), "claim_requires": ["procedure", "observation", "result", "witness"], "invalid_claim": "BLOCK_PROMOTION"},
+        "transaction": {"stages": ["attempt", "action", "commit?", "receipt", "verify", "rollback?"], "persisted_claim_requires": ["commit", "receipt", "verify"], "invalid_claim": "BLOCK_PROMOTION", "fake_success": False},
+        "allocation": {"high_reward": ["deepen", "replicate", "braid"], "low_reward_duplicate": ["hibernate"], "unknown_reward": ["measure"], "uncalibrated_strict_reward": ["calibrate_metrics"], "dependency_blocked": ["resolve_dependency"], "gate_or_validation_blocked": ["branch", "repair", "retest"], "hibernate_is_erase": False},
+        "continuation": {"deadend": ["backtrack", "nearest_live_branch", "reseed_from_residual"], "stop": "only when requested object complete and no actionable frontier/residual/measurement/calibration/dependency pressure remains"},
         "carrier_budget_law": "P* = argmax_|P|<=B(development + extraction + graph + coordinates + evidence + replay + navigation + successor)",
     }
 
@@ -176,6 +185,7 @@ def compile_orchestration(
     successor_frontier = sorted((row for row in rows if row["rankable_successor"]), key=_successor_sort)
     measurement_frontier = [row for row in frontier if row["unknown_metrics"]]
     calibration_frontier = [row for row in frontier if any((row["metric_calibration"][name]["status"] == "BLOCKED") for name in ("frontier", "successor", "reward"))]
+    validation_frontier = [row for row in frontier if row["validation"]["status"] == "BLOCKED"]
     measurement_plan = measurement_requests(frontier)
     pareto_ids = pareto_successor_frontier(successor_frontier)
 
@@ -201,9 +211,21 @@ def compile_orchestration(
     residual_frontier = sorted(residual_rows, key=lambda row: rank_key(row["score"], row["id"]))
     known_residuals = [row for row in residual_frontier if row["score"]["status"] == "KNOWN" and row["metric_calibration"]["ranking_allowed"]]
 
-    next_id = budgeted_successor_frontier[0]["id"] if budgeted_successor_frontier else None
+    next_row = budgeted_successor_frontier[0] if budgeted_successor_frontier else None
+    next_id = next_row["id"] if next_row else None
     explanation = decision_explanation(frontier, next_id, allocated_ids, budget_active)
     metric_summary = contract_summary(metric_contract)
+    reward_reallocation = reallocation_plan(frontier)
+    calibration_plan = sorted(calibration_plan, key=lambda x: (not x["strict_block"], x["candidate"], x["formula"]))
+    successor = successor_packet(
+        next_row,
+        budgeted_successor_frontier,
+        known_residuals,
+        measurement_plan,
+        calibration_plan,
+        dep_graph["cycles"],
+        (budget or {}).get("return_coordinate"),
+    )
     decision = {
         "metric_basis": metric_summary,
         "budget_allocation": {k: allocation_plan.get(k) for k in ("status","solver","optimality","capacity","max_branches","selected","used","remaining","utility")},
@@ -213,9 +235,12 @@ def compile_orchestration(
         "pareto_successor_frontier": pareto_ids,
         "measurement_frontier": [row["id"] for row in measurement_frontier],
         "calibration_frontier": [row["id"] for row in calibration_frontier],
+        "validation_frontier": [row["id"] for row in validation_frontier],
         "grow": known_residuals[0]["id"] if known_residuals else None,
         "next": next_id,
+        "successor_status": successor["status"],
         "dependency_cycles": dep_graph["cycles"],
+        "reallocation": {"active": reward_reallocation["active"], "blocked": reward_reallocation["blocked"], "dormant": reward_reallocation["dormant"]},
     }
 
     result = {
@@ -223,6 +248,7 @@ def compile_orchestration(
         "seed": seed,
         "budget": dict(budget or {}),
         "allocation_plan": allocation_plan,
+        "reward_reallocation": reward_reallocation,
         "metric_contract": metric_summary,
         "law": orchestration_law(),
         "extraction_plan": [{"transform": transform, "seed": seed} for transform in TRANSFORMS],
@@ -236,12 +262,14 @@ def compile_orchestration(
         "measurement_frontier": measurement_frontier,
         "measurement_plan": measurement_plan,
         "calibration_frontier": calibration_frontier,
-        "calibration_plan": sorted(calibration_plan, key=lambda x: (not x["strict_block"], x["candidate"], x["formula"])),
+        "calibration_plan": calibration_plan,
+        "validation_frontier": validation_frontier,
         "residual_frontier": residual_frontier,
         "grow": known_residuals[0] if known_residuals else None,
-        "next": budgeted_successor_frontier[0] if budgeted_successor_frontier else None,
+        "next": next_row,
+        "successor": successor,
         "decision_explanation": explanation,
-        "return": {"required": ["result", "math", "graph", "coordinates", "evidence", "residuals", "witnesses", "delta", "next"], "missing_witness": "downgrade", "missing_coordinate": "repair_before_promotion", "unknown_metric": "measure_not_zero", "uncalibrated_metric": "calibrate_before_ranking_when_strict", "dependency_blocked": "resolve_dependency", "invalid_budget": "block_budgeted_successor", "error": ["rollback", "branch"], "high_residual": "continue"},
+        "return": {"required": ["result", "math", "graph", "coordinates", "evidence", "residuals", "witnesses", "delta", "next"], "missing_witness": "downgrade_and_block_claimed_test", "missing_coordinate": "repair_before_promotion", "unknown_metric": "measure_not_zero", "uncalibrated_metric": "calibrate_before_ranking_when_strict", "dependency_blocked": "resolve_dependency", "invalid_budget": "block_budgeted_successor", "invalid_persistence_claim": "block_promotion_until_commit_receipt_verify", "error": ["rollback", "branch"], "high_residual": "continue"},
     }
     result["decision_digest"] = _decision_digest(decision)
     return result
