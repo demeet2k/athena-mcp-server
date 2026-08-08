@@ -1,6 +1,6 @@
 # ATHENA Unified Architecture — AΩR × Collective V1–V12
 
-## 1. Whole runtime graph
+## 1. Whole runtime + qualification graph
 
 ATHENA is one composed `Server`, not competing subclass stacks or parallel semantic authorities.
 
@@ -23,12 +23,21 @@ SCHEMA2 / OMEGA1 / RECON1 / CYCLE1 / SELFTEST1 / STARTUP1
                                       ↕
 SURFACE2 / COMPOSITION2 / PROMOTION2
                                       ↕
+GITHUB_PROMOTION_VERIFIER1
+                                      ↕
+exact-head GitHub Actions run/check-suite
+{syntax, unit, critical-invariants, smoke}
+                                      ↓
+QUALIFIED PROMRUN + replay + receipt artifact
+                                      ↕
 FINALIZE_OUTPUT / VERIFY_EMISSION / RETURN
 ```
 
 Release coordinate: `athena-canonical-mcp 3.1.0`.
 
-Live architecture artifact: `ATHENA.RUNTIME.UNIFIED.7`.
+Live architecture artifact: `ATHENA.RUNTIME.UNIFIED.8`.
+
+`.8` is a governance/trust promotion over the existing V12 scientific frontier, **not** a Collective V13 model layer.
 
 The governing design principle is type preservation: model output, evidence, authority, execution, observation, persistence, identity, coordinates, caller attestation, trusted verification, and optimization certificates are separate semantic planes.
 
@@ -180,13 +189,15 @@ Small problems are exhaustively enumerated. Exactness is only for the declared f
 
 ## 7. No self-training / semantic laundering
 
-Forbidden shortcuts include predicted RGO→observed RGO, rollout/scenario→observed trajectory, belief/POMDP policy→executed action, GP prediction/EVSI→GP observation, hyperposterior/BMA simulation→observation, partial/PC/PAG candidate→JSPACE edge, g-formula estimate→identification proof, chance plan→resource execution, dependence prediction→calibration label, science-shadow/model state→Y1 mutation, and caller-supplied CI/smoke packets→trusted qualification.
+Forbidden shortcuts include predicted RGO→observed RGO, rollout/scenario→observed trajectory, belief/POMDP policy→executed action, GP prediction/EVSI→GP observation, hyperposterior/BMA simulation→observation, partial/PC/PAG candidate→JSPACE edge, g-formula estimate→identification proof, chance plan→resource execution, dependence prediction→calibration label, science-shadow/model state→Y1 mutation, caller-supplied CI/smoke packets→trusted qualification, and successful checks from unrelated runs/suites→one synthetic qualification.
 
 General laws:
 
 `MODEL_OUTPUT --X--> OBSERVATION_OR_AUTHORITY_WITHOUT_EXTERNAL_WITNESS`.
 
 `CALLER_ATTESTATION --X--> QUALIFIED_WITHOUT_TRUSTED_VERIFIER`.
+
+`CHECKS_FROM_DIFFERENT_SUITES_OR_RUNS --X--> QUALIFICATION`.
 
 ## 8. Transaction domains
 
@@ -216,21 +227,50 @@ SELFTEST.1 / STARTUP.1 are local health/readiness only.
 
 PROMOTION.2 separates exact-head caller attestation from trusted qualification. `athena_promotion_evaluate` can reach `ATTESTED_READY` when local surface/composition/Git gates and caller-bound CI/smoke packets agree on one head. `QUALIFIED` additionally requires a host-internal trusted verifier receipt binding that same head and exact CI/smoke refs. The ordinary MCP schema cannot supply that trusted receipt. Historical PROMOTION.1 receipts remain versioned/replayable but are not current trusted qualification.
 
+### GITHUB_PROMOTION_VERIFIER.1
+
+`athena_promotion_verify_github` implements one trusted host bridge without accepting caller-selected trust roots.
+
+Trusted inputs come from host environment:
+
+- repository identity;
+- HTTPS GitHub API base;
+- optional host token;
+- current Actions run ID when present;
+- trusted app fixed to `github-actions`;
+- required checks fixed to `{syntax, unit, critical-invariants, smoke}`.
+
+For requested head `h`, the verifier independently fetches GitHub check-runs, keeps exact-head rows from the trusted app, binds them to the host run when configured, groups them by check-suite ID, and accepts only a **single coherent suite** in which all four checks are `completed/success`.
+
+On success it constructs CI/smoke/trusted-verifier refs internally and invokes PROMOTION.2. On failure it persists no PROMRUN.
+
 ## 12. Live architecture ABI
 
-`ATHENA.RUNTIME.UNIFIED.7` is the live machine-readable artifact. Compatibility retains `.1` through `.6`.
+`ATHENA.RUNTIME.UNIFIED.8` is the live machine-readable artifact. Compatibility retains `.1` through `.7`.
 
-The manifest advertises `COLLECTIVE_JOINT_V12`, V1–V12 navigation/cycle, V12 invariants, PROMOTION.2 trust separation, unresolved longitudinal/general-Bayes/formal-causal/stochastic-control/trusted-verifier boundaries, and `ATHENA UNIFIED MAXDEV V12`.
+The manifest advertises `COLLECTIVE_JOINT_V12`, V1–V12 navigation/cycle, the exact V12 model boundaries above, PROMOTION.2 trust separation, `GITHUB_PROMOTION_VERIFIER.1`, unresolved longitudinal/general-Bayes/formal-causal/stochastic-control/non-GitHub-verifier boundaries, and `ATHENA UNIFIED MAXDEV V12`.
 
-## 13. CI constitution
+## 13. CI constitution and trust succession
+
+Readiness is four independent jobs:
 
 `syntax ∧ full-unit-suite ∧ critical-invariants ∧ dependent-smoke`.
 
-Critical stages include repository-brain documentation consistency, PROMOTION.2 caller/trusted separation, and explicit V12 constructive/adversarial/unified authority tests. Smoke is dependent on the first three jobs and crosses V6→V12 plus state/AOR/fail-closed CYCLE, PROMOTION.2 caller-bound readiness, and final emission verification.
+Critical stages include repository-brain consistency, GitHub-verifier adversarial tests, PROMOTION.2 caller/trusted separation, and explicit V6→V12 constructive/adversarial/unified authority tests. Smoke is dependent on the first three jobs and crosses V6→V12 plus state/AOR/fail-closed CYCLE, caller-bound readiness, and final emission verification.
+
+A fifth dependent job runs only after readiness:
+
+`promotion-qualification needs [syntax, unit, critical-invariants, smoke]`.
+
+It checks out the exact PR head or push SHA, binds host repository/API/run identity, executes `scripts/qualify_github_head.py`, persists a `QUALIFIED` PROMRUN in the qualification runtime DB, replays it, and uploads `promotion-receipt-<sha>`.
+
+Retries tolerate only GitHub check-index propagation; they never lower the evidence requirement. The receipt artifact is evidence for that exact CI head and does not imply persistence in an unrelated long-lived production database.
 
 ## 14. External control-plane boundary
 
-Repository branch protection, description/settings, tags, Releases, PR/merge state, and the trusted promotion-verifier bridge are outside the runtime architecture ABI. They require actual GitHub/host control-plane observation/actions and are never inferred from CI, OMEGA, SELFTEST, caller attestations, or ATTESTED_READY.
+The verifier **reads** trusted GitHub check state. Repository branch protection, description/settings, tags, Releases, PR/merge state and other administrative controls remain separate external state. They require actual GitHub control-plane observation/actions and are never inferred from CI, OMEGA, SELFTEST, caller attestations, `ATTESTED_READY`, or even a trusted PROMRUN.
+
+Non-GitHub CI providers remain optional integrations requiring their own host-bound trusted verifier implementations rather than caller assertions.
 
 ## 15. Governing objective
 
