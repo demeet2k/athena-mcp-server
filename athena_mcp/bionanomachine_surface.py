@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any,Dict
 
 from .bionanomachine_protocol import BIONANO_RESOURCE,BIONANO_TOOLS,BIONANO_TOOL_NAMES,BIONANO_VERSION
-from .bionanomachine_runtime import BionanomachineRuntime
+from .bionanomachine_evidence_runtime import EvidenceBionanomachineRuntime
 from .mythic_computation_surface import (
     MythicComputationSurface,
     MYTHIC_COMPUTATION_RESOURCES,
@@ -19,9 +19,9 @@ from .mythic_strata_surface import (
     MYTHIC_STRATA_RESOURCE_URIS,
 )
 
-# Compatibility seam: AorDevelopmentSurface already composes this extension bundle.
-# Preserve historical export names while unioning independently named MCK surfaces.
-# The strata membrane is additive: the original six MCK tools remain unchanged.
+# Compatibility seam: preserve the tested source-backed BNMK V2 runtime behind the
+# stable six-tool ABI while composing the independent MCK V1 + strata surfaces.
+# No surface receives authority from the others merely by sharing this dispatcher.
 BIONANOMACHINE_TOOLS=list(BIONANO_TOOLS)+list(MYTHIC_COMPUTATION_TOOLS)+list(MYTHIC_STRATA_TOOLS)
 BIONANOMACHINE_RESOURCES=[BIONANO_RESOURCE]+list(MYTHIC_COMPUTATION_RESOURCES)+list(MYTHIC_STRATA_RESOURCES)
 BIONANOMACHINE_TOOL_NAMES=set(BIONANO_TOOL_NAMES)|set(MYTHIC_COMPUTATION_TOOL_NAMES)|set(MYTHIC_STRATA_TOOL_NAMES)
@@ -30,7 +30,7 @@ BIONANOMACHINE_RESOURCE_URIS={BIONANO_RESOURCE['uri']}|set(MYTHIC_COMPUTATION_RE
 
 class BionanomachineSurface:
     def __init__(self):
-        self.runtime=BionanomachineRuntime()
+        self.runtime=EvidenceBionanomachineRuntime()
         self.mck=MythicComputationSurface()
         self.strata=MythicStrataSurface()
 
@@ -40,7 +40,7 @@ class BionanomachineSurface:
         handled,value=self.mck.call_tool(name,args)
         if handled:return True,value
         r=self.runtime
-        if name=='athena_bionano_catalog':return True,r.catalog(args.get('include_atlas',False))
+        if name=='athena_bionano_catalog':return True,r.catalog(args.get('include_atlas',False),args.get('include_evidence',False))
         if name=='athena_bionano_compile':return True,r.compile(args['machine_id'])
         if name=='athena_bionano_transfer':return True,r.transfer(args['machine_id'],args['target'],args.get('constraints'))
         if name=='athena_bionano_interface_match':return True,r.interface_match(args['producer'],args['consumer'])
@@ -56,18 +56,22 @@ class BionanomachineSurface:
         if uri!=BIONANO_RESOURCE['uri']:raise KeyError(uri)
         return {
             'version':BIONANO_VERSION,
-            'catalog':self.runtime.catalog(False),
+            'evidence_version':'BNMK.ADAPTER20.V2',
+            'catalog':self.runtime.catalog(False,False),
             'benchmark':self.runtime.benchmark(),
             'laws':[
                 'BIOLOGICAL_MECHANISM != SOFTWARE_IMPLEMENTATION',
                 'MECHANISTIC_ANALOGY != CAUSAL_EQUIVALENCE',
                 'USER_SEED != VERIFIED_EMPIRICAL_CONSTANT',
+                'PRIMARY_SOURCE != UNIVERSAL_CONSTANT',
+                'PRIMARY_SOURCE_SUPPORT != EXECUTION_AUTHORITY',
                 'INTERFACE_MATCH_PROXY != PHYSICAL_IMPEDANCE',
                 'AVAILABLE_TEST != APPLICABLE_TEST',
                 'PARTS_LIST != ASSEMBLED_CAPABILITY',
+                'ASSEMBLY_GRAPH != FUNCTION_GRAPH',
                 'ROUTE_EXISTS != INTERFACE_MATCHED',
             ],
-            'authority':'MODELED_OPERATOR_LIBRARY_ONLY'
+            'authority':'PRIMARY_SOURCE_CONDITIONED_MECHANISM_LIBRARY; COMPUTATIONAL_TRANSFER_REMAINS_ANALOGY_ONLY'
         }
 
     def benchmark(self):
