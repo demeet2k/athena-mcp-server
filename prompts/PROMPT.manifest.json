@@ -1,0 +1,20 @@
+{
+  "artifact": "ATHENA.PROMPT.RUNTIME.V1",
+  "authority_ceiling": "below external authority",
+  "active_state": "prompts/state/ACTIVE.json",
+  "policy": "policies/PROMPT_RUNTIME.md",
+  "default_profile": "BUILD",
+  "profiles": {
+    "BUILD": ["core"],
+    "MAXDEV": ["core"]
+  },
+  "modules": {
+    "core": {
+      "path": "prompts/ORCHESTRATION_CORE.md",
+      "order": 0,
+      "mandatory": true,
+      "selectors": [],
+      "depends_on": []
+    }
+  }
+}
