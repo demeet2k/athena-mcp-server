@@ -17,7 +17,8 @@
 14. COLLECTIVE BELIEF V8 — persistent finite model beliefs, explicit Bayes observation updates, decision EVI, depth-1 belief-aware control, assumption-scoped effect estimates, bootstrap structure stability, contingent policies and spectral evidence diversity.
 15. COLLECTIVE INFERENCE V9 — finite-dimensional Gaussian parameter beliefs, Monte-Carlo EVPI/EVSI, bounded multistage finite-belief policies, cross-fitted AIPW, specification robustness, uncertainty-preserving partial graphs and explicit evidence-dependence probability models.
 16. COLLECTIVE PROBABILISTIC V10 — fixed-kernel exact GP regression, bounded Gaussian PC-stable discovery, binary TMLE, E-value sensitivity, exact bounded finite-POMDP policies and empirically calibrated evidence-dependence models.
-17. Runtime — hydrate, conditional writes, telemetry, sessions, finalization and exact emission verification.
+17. COLLECTIVE ADAPTIVE V11 — marginal-likelihood GP adaptation, GP decision EVSI, supplied latent-DAG projection, validation-weighted stacked TMLE, two-dimensional RR bias-factor sensitivity, exact finite-model Bayes-adaptive POMDP and Laplace evidence-dependence uncertainty.
+18. Runtime — hydrate, conditional writes, telemetry, sessions, finalization and exact emission verification.
 
 ## Objective hierarchy
 
@@ -33,29 +34,31 @@ V7 dual-control proxy: `Q = control + lambda_I*information - lambda_R*risk`.
 
 V8 finite decision value:
 
-`EU(a)=sum_i p_i U(a,M_i)`
-
 `EVI(e)=E_y[max_a EU(a|y,e)]-max_a EU(a)`.
 
-V9 continuous decision value under `theta~N(mu,Sigma)`:
+V9 continuous linear decision value:
 
-`EVPI ~= E_theta[max_a U(a,theta)] - max_a U(a,E[theta])`
+`EVPI ~= E_theta[max_a U(a,theta)]-max_a U(a,Etheta)`
 
-`EVSI(e) ~= E_y[max_a EU(a|y,e)] - max_a EU(a)`.
+`EVSI(e) ~= E_y[max_a EU(a|y,e)]-max_a EU(a)`.
 
-V10 nonlinear predictive and exact finite-control surfaces add:
+V10 adds nonlinear fixed-kernel prediction and exact finite-POMDP recursion:
 
 `mu_GP(x*)=k_*^T(K+sigma_n^2 I)^-1 y`
 
-`var_GP(f*)=k(x*,x*)-k_*^T(K+sigma_n^2 I)^-1 k_*`
+`V_H(b)=max_a[R(b,a)+gamma sum_o P(o|b,a)V_(H-1)(tau(b,a,o))]`.
 
-and, for a fully declared finite POMDP,
+V11 makes selected model assumptions adaptive and decision-valued:
 
-`V_H(b)=max_a [R(b,a)+gamma sum_o P(o|b,a)V_(H-1)(tau(b,a,o))]`.
+`theta_K^* = argmax_theta log p(y|X,theta)` over a declared finite grid,
 
-The progression is:
+`EVSI_GP(e) ~= E_y[max_a U_a(mu'_a|y,e)]-max_a U_a(mu_a)`,
 
-`uncertainty bonus → entropy information → control+information proxy → finite belief/decision value → continuous parameter belief → nonlinear probabilistic prediction + certified bounded belief control`.
+and augments hidden state to `(M,S)` for a bounded finite-model Bayes-adaptive POMDP.
+
+Progression:
+
+`organization → memory → learning → exploration → experiment science → discovery → dual control → explicit belief → continuous inference → probabilistic world model → adaptive model/control`.
 
 ## Current developmental metabolism
 
@@ -64,17 +67,18 @@ The progression is:
 `→ MEMORY/ANTIBODY/ELDER/SCIENCE-SHADOW`
 `→ REGIME/OOD/PREDICTIVE STATE`
 `→ OPTIONAL FINITE/GAUSSIAN/GP MODEL`
+`→ OPTIONAL CAS-GUARDED MODEL ADAPTATION`
 `→ LIVE HYPOTHESES`
-`→ EIG/EVI/EVPI/EVSI DESIGN`
+`→ EIG/EVI/EVPI/EVSI/GP-EVSI DESIGN`
 `→ CONDITIONAL CAUSAL IDENTIFICATION`
-`→ OPTIONAL LINEAR/AIPW/TMLE ESTIMATION + SENSITIVITY`
-`→ OPTIONAL ASSOCIATION/PC STRUCTURE HYPOTHESIS`
+`→ OPTIONAL LINEAR/AIPW/TMLE/STACKED-TMLE ESTIMATION`
+`→ SENSITIVITY + STRUCTURAL/LATENT GEOMETRY`
 `→ PARETO/SCHEDULE`
-`→ STATE MODEL/SCENARIO/DUAL/BELIEF/POMDP PLAN`
+`→ STATE MODEL/SCENARIO/DUAL/BELIEF/POMDP/BA-POMDP PLAN`
 `→ EXECUTE FIRST AUTHORIZED ACTION`
 `→ OBSERVE/METER`
 `→ EXPLICIT BELIEF/BAYES/GP/TRANSITION UPDATE`
-`→ REPLICATION/FALSIFICATION/EVIDENCE-DEPENDENCE CALIBRATION`
+`→ REPLICATION/FALSIFICATION/EVIDENCE-DEPENDENCE UPDATE`
 `→ CREDIT`
 `→ MEMORY/IMMUNE/ELDER`
 `→ JSPACE/TOPOLOGY/PROJECTION/COMPENSATION`
@@ -88,100 +92,121 @@ The progression is:
 - Git state: expected Git HEAD;
 - topology: expected topology version;
 - learned policy: expected policy version;
+- GP V11 hyperparameter application: expected observed-row count;
 - projection/compensation: explicit saga/semantic-head authority;
-- V4–V10 predictive, belief, GP, experiment, causal-estimation, scenario, graph-hypothesis and evidence-dependence state: advisory/evidential/control surfaces only.
+- V4–V11 predictive, belief, GP, experiment, causal-estimation, sensitivity, scenario, graph-hypothesis and evidence-dependence state: advisory/evidential/control surfaces only.
 
-A higher-resolution posterior, estimator, graph algorithm or certified finite control computation never inherits semantic mutation authority.
+A more adaptive model never inherits semantic mutation authority.
 
-## Belief / probabilistic model ladder
+## Probabilistic model ladder
 
-V8 stores a finite categorical model distribution.
+V8: finite categorical model distribution.
 
-V9 stores a finite-dimensional Gaussian linear parameter posterior.
+V9: finite-dimensional Gaussian linear parameter posterior.
 
-V10 stores a scoped exact small-data GP posterior for a **fixed declared RBF kernel** and bounded observations.
+V10: exact small-data GP posterior for fixed declared RBF hyperparameters.
 
-These are different model families; none silently migrates into another.
+V11: finite-grid marginal-likelihood selection can adapt those GP hyperparameters, but application requires explicit exact observation-count CAS.
 
-Only explicit observations update belief/GP state. Prediction, EVSI and control calls remain read-only.
+No layer silently converts prior model state into a stronger model family. Only explicit observations update data-bearing belief/GP state.
 
-`BELIEF_POSTERIOR != CANONICAL_TRUTH`.
+`MARGINAL_LIKELIHOOD_OPTIMUM != TRUE_KERNEL`.
 
-`GAUSSIAN_LINEAR_POSTERIOR != GENERAL_CONTINUOUS_BAYES`.
+## Decision-information ladder
 
-`FIXED_KERNEL_GP != GENERAL_WORLD_TRUTH`.
+- EIG: entropy reduction.
+- EVI: finite-model downstream decision value.
+- EVPI: approximate perfect-information ceiling under a Gaussian linear utility model.
+- EVSI: approximate value of a declared Gaussian linear measurement.
+- GP-EVSI: value of a candidate nonlinear GP measurement through the joint conditional Gaussian posterior over action and experiment points.
 
-## GP boundary
-
-For RBF kernel
-
-`k(x,z)=sigma_f^2 exp(-||x-z||^2/(2l^2))`,
-
-V10 performs exact matrix GP regression over at most 128 stored rows. Hyperparameters are not automatically learned. Posterior variance is conditional on the kernel/noise model.
-
-`GP_POSTERIOR != OBSERVATION`.
+`GP_DECISION_EVSI != OBSERVATION`.
 
 ## Causal structure ladder
 
-V7 association skeleton: transparent heuristic hypothesis generation.
+V7: association skeleton/v-structure hypotheses.
 
-V8 bootstrap: resampling stability for that heuristic.
+V8: resampling stability.
 
-V9 partial graph: stable `o-o` endpoint uncertainty.
+V9: uncertainty-preserving `o-o` partial graph.
 
-V10 bounded Gaussian PC-stable: explicit Fisher-z conditional-independence search, separation sets, collider orientation and bounded Meek R1/R2 closure.
+V10: bounded Gaussian PC-stable conditional-independence discovery.
 
-The V10 graph is still relative to Gaussian/linear CI assumptions and bounded conditioning depth.
+V11: an explicit **supplied** DAG with named latent variables may be projected into an observed ADMG with directed and bidirected edges. This is a model transform, not observational discovery.
 
-`BOUNDED_PC_STABLE != FCI_OR_HIDDEN_CONFOUNDER_DISCOVERY`.
+`SUPPLIED_DAG_LATENT_PROJECTION != DATA_DISCOVERED_PAG`.
 
-No discovery layer writes canonical JSPACE edges without a separate authority path.
+No graph hypothesis/transform silently writes canonical JSPACE.
 
-## Causal estimation ladder
+## Causal-estimation ladder
 
-V8 provides transparent linear/Wald/mediation estimates.
+V8: linear/Wald/mediation estimates.
 
-V9 adds cross-fitted AIPW with influence-function SE.
+V9: cross-fitted AIPW.
 
-V10 adds binary-treatment/binary-outcome TMLE with logistic nuisance fits, propensity clipping, a one-dimensional targeting fluctuation and an influence-curve interval.
+V10: binary logistic TMLE with single nuisance models.
 
-Every estimator remains conditional on causal identification/positivity/consistency/model regularity.
+V11: binary TMLE with a transparent validation-weighted nuisance library of simple, linear and degree-2 logistic candidates.
 
-`TMLE_ESTIMATE != IDENTIFICATION_PROOF`.
+The V11 ensemble is deliberately bounded rather than marketed as a universal Super Learner. Identification remains separate, positivity remains explicit and declared latent-confounding risk fails closed.
 
-V10 additionally exposes the standard risk-ratio E-value sensitivity metric. It is a scoped unmeasured-confounding strength metric, not a universal sensitivity bound.
+`STACKED_TMLE != SUPER_LEARNER_THEOREM`.
 
-## Finite belief-control certificate
+## Sensitivity ladder
 
-V9 recurses over finite model/outcome policy trees with `H<=3`.
+V9: leave-one-adjustment observed-specification perturbation.
 
-V10's POMDP surface additionally models hidden-state transitions and observation emissions. For at most 8 states/actions and horizon `H<=4`, exhaustive recursion yields:
+V10: standard point E-value.
 
-`FINITE_POMDP_EXACT_HORIZON_CERTIFIED`
+V11: two-dimensional RR bias-factor surface
 
-only if every explored action/observation branch completes before the node limit.
+`BF=RR_EU*RR_UY/(RR_EU+RR_UY-1)`.
 
-The certificate is exactly:
+This maps explicit hidden-confounding strength assumptions to toward-null adjusted associations. It remains a scoped bounding-factor model.
 
-`EXACT_FOR_SUPPLIED_FINITE_MODEL_AND_HORIZON`.
+`RR_BIAS_FACTOR_SURFACE != UNIVERSAL_HIDDEN_CONFOUNDING_BOUND`.
 
-It does not certify omitted real-world dynamics or infinite-horizon optimality.
+## Belief-control ladder
 
-## Evidence dependence calibration
+V8: depth-1 finite model contingent policy.
 
-V8/V9 provide metadata similarity/effective-rank and caller-declared logistic dependence surfaces.
+V9: bounded multistage finite model/outcome policy tree.
 
-V10 can fit a scoped logistic dependence model only from externally labelled pair examples. Predictions never generate labels. Training loss/accuracy are evidence about fit to that calibration population, not a formal independence theorem.
+V10: exact finite-horizon POMDP for one fully declared known transition/observation model.
+
+V11: exact bounded POMDP over augmented hidden state `(M,S)` where `M` is a static uncertain candidate model and observations update both model and physical-state belief.
+
+Certificate:
+
+`EXACT_FOR_SUPPLIED_STATIC_MODEL_SET_STATE_SPACE_ACTIONS_OBSERVATIONS_AND_HORIZON`.
+
+Exactness is revoked when the node limit truncates the tree.
+
+`FINITE_MODEL_BAPOMDP != GENERAL_BAYES_ADAPTIVE_CONTROL`.
+
+`MODEL_EXACTNESS != MODEL_CORRECTNESS`.
+
+## Evidence-dependence ladder
+
+V8: effective-N / spectral redundancy.
+
+V9: caller-declared logistic dependence probabilities.
+
+V10: logistic dependence model learned from external labelled pairs.
+
+V11: approximate coefficient/query uncertainty from the regularized observed-information Hessian, transformed to a probability interval.
+
+`LAPLACE_DEPENDENCE_INTERVAL != CALIBRATED_COVERAGE_GUARANTEE`.
 
 ## Resource, witness and projection boundaries
 
 `UNKNOWN_COST != ZERO_COST`.
 
-V4 immediate allocation, V5 finite-horizon beam scheduling and V6 small-model exact scheduling remain available. V10 does not claim globally certified stochastic resource scheduling.
+Scheduling certificates remain scoped to their declared constraints. V11 does not claim globally certified stochastic resource scheduling.
 
-V5 witness cells are process-constrained; V6 stronger capsules fail closed without bubblewrap. Neither proves kernel/native-runtime security.
+Witness isolation remains explicit and fail-closed at the stronger V6 capsule boundary.
 
-SQLite semantic state and Git remain separate stores. Topology→JSPACE uses recovery sagas; semantic compensation remains distinct from Git rollback.
+SQLite semantic state and Git remain separate stores. Topology→JSPACE uses recovery sagas; semantic compensation is separate from Git rollback.
 
 ## Non-negotiable epistemic firewall
 
@@ -190,19 +215,19 @@ SQLite semantic state and Git remain separate stores. Topology→JSPACE uses rec
 - UNKNOWN_COST != ZERO_COST
 - prediction != observation
 - posterior/belief != canonical truth
-- GP posterior != observation/world truth
-- Gaussian linear posterior != general continuous Bayes
-- EIG/EVI/EVPI/EVSI != evidence
-- experiment design != result
-- association/bootstrap/partial/PC graph != unrestricted causal truth
-- bounded PC-stable != FCI/hidden-confounder discovery
-- causal estimate/AIPW/TMLE != identification proof
-- E-value != universal hidden-confounding bound
-- state model != world truth
-- scenario/policy tree != observed future/history
-- finite POMDP certificate != infinite-horizon/real-world optimum
+- model adaptation != evidence
+- marginal-likelihood optimum != true kernel
+- GP decision EVSI != observed result
+- supplied latent projection != data-discovered PAG
+- association/bootstrap/PC/ADMG transform != canonical causal truth
+- causal estimate/AIPW/TMLE/stacked TMLE != identification proof
+- stacked nuisance library != universal Super Learner theorem
+- RR sensitivity surface != universal hidden-confounding theorem
+- scenario/policy tree != observed history
+- finite-model BA-POMDP certificate != general/real-world optimality
+- dependence interval != calibrated coverage guarantee
+- model exactness != model correctness
 - Pareto frontier != single best action
-- evidence dependence model != formal independence
 - witness pass != universal proof
 - projection saga != atomic distributed transaction
 - semantic compensation != Git rollback
@@ -226,4 +251,6 @@ SQLite semantic state and Git remain separate stores. Topology→JSPACE uses rec
 
 `COLLECTIVE_INFERENCE=<GB,EVPI,EVSI,MP,AIPW,RB,PG,ED,L>`
 
-`COLLECTIVE_PROBABILISTIC=<GP,PC,TM,SV,PM,ED,L>`.
+`COLLECTIVE_PROBABILISTIC=<GP,PC,TM,SV,PM,ED,L>`
+
+`COLLECTIVE_ADAPTIVE=<GH,GV,LP,SL,SS,BP,EU,L>`.
