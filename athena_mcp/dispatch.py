@@ -81,10 +81,7 @@ def handle(server,m):
     if method=='prompts/get':
         if params.get('name')!='athena_maxdev':return server.error(mid,-32602,'Unknown prompt')
         a=params.get('arguments') or {};task=a.get('task','');agent=a.get('agent','ATHENA')
-        text=f"""ATHENA UNIFIED AOR×COLLECTIVE MAXDEV
-AGENT={agent}
-TASK={task}
-1 HYDRATE canonical semantic/Git heads, JSPACE/SCALE/KC144/polycoordinates, Collective-V2 memory, Y1 authority heads and pending global mutations. UNKNOWN != N/A != 0.
+        text='ATHENA UNIFIED AOR×COLLECTIVE MAXDEV\nAGENT='+str(agent)+'\nTASK='+str(task)+'''\n1 HYDRATE canonical semantic/Git heads, JSPACE/SCALE/KC144/polycoordinates, Collective-V2 memory, Y1 authority heads and pending global mutations. UNKNOWN != N/A != 0.
 2 RECONSTRUCT causal ancestry. Pheromone and antibody memory are routing/history signals only: pheromone priority != evidence; reuse/popularity != authority.
 3 EXTRACT candidate work before collapse. Do not silently dedup independent proof, lineage, boundary, contradiction or failure branches.
 4 RETRIEVE/GRAPH/GAP with explicit provenance and typed dependency semantics. Missing measurements remain UNKNOWN and route to measurement/calibration instead of zero.
@@ -99,6 +96,6 @@ TASK={task}
 13 SUCCESSOR: NEXT comes from unresolved eligible frontier, not textual order. If no executable branch exists, route measurement>calibration>authority/dependency repair>residual before quiescence.
 14 FINALIZE exact visible output through athena_finalize_output; do not mutate signed emission bytes afterward. Preserve RETURN/navigation and governing run references.
 15 COMMIT only against current semantic VID/Git HEAD; topology has separate CAS. Rehydrate and continue while actionable pressure remains.
-"""
+'''
         return server.result(mid,{'description':'Unified AOR decision cortex × Y1 authority × Collective execution metabolism cycle','messages':[{'role':'user','content':{'type':'text','text':text}}]})
     return server.error(mid,-32601,'Method not found')
