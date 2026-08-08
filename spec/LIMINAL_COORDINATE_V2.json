@@ -1,0 +1,67 @@
+{
+  "artifact": "ATHENA.LIMINAL.OPERATIONAL.COORDINATE.SPEC.V2",
+  "status": "CANDIDATE_COMPANION_TO_CAMPAIGN_V3",
+  "purpose": "Represent replayable public operational position and movement without claiming access to physical container geometry, hidden model state, or private reasoning.",
+  "navigator_id_example": "SOL-LIM-189-NAV01",
+  "space": {
+    "symbol": "Lambda_op^2",
+    "axes": [
+      "repository",
+      "git_head",
+      "prompt_digest",
+      "frontier_digest",
+      "operational_basis_digest",
+      "issue_pressure_digest",
+      "source_bundle_digest",
+      "pulse_index",
+      "phase",
+      "authority"
+    ],
+    "typed_missingness": {
+      "unknown": "UNKNOWN",
+      "not_applicable": "N/A",
+      "zero_is_missing_sentinel": false
+    },
+    "coordinate_identity": "LC2- + first20(sha256(canonical_json(axes)))",
+    "navigator_identity_is_position_axis": false,
+    "timestamp_is_position_axis": false,
+    "metric": {
+      "name": "CATEGORICAL_HAMMING_WITH_AXIS_DELTA",
+      "definition": "d(x,y)=sum_i 1[x_i != y_i]",
+      "delta": "return every changed axis with before/after plus a 0/1 vector over all axes",
+      "interpretation": "Movement occurs only when a declared public operational axis changes."
+    }
+  },
+  "pulse_index": {
+    "allowed": "integer 1..100 | UNKNOWN | N/A",
+    "zero_forbidden": true
+  },
+  "campaign_binding": {
+    "parent_issue": "demeet2k/Athena#189",
+    "source_issue": "demeet2k/Athena#177",
+    "verification_issue": "demeet2k/Athena#185",
+    "source_contract": "spec/STEERING_LEDGER_V1.json",
+    "current_state_compiler": "athena_mcp/steering_pulse.py"
+  },
+  "epistemic_boundary": {
+    "observable_only": true,
+    "physical_location_claimed": false,
+    "hidden_model_state_claimed": false,
+    "private_chain_of_thought_persisted": false,
+    "digest_identity_grants_authority": false,
+    "unknown_axes_must_remain_explicit": true
+  },
+  "laws": [
+    "COORDINATE != PRIVATE_REASONING",
+    "COORDINATE != PHYSICAL_LOCATION",
+    "MOVEMENT != PHYSICAL_MOVEMENT",
+    "NAVIGATOR_OR_TIMESTAMP_CHANGE_ALONE != POSITION_CHANGE",
+    "NO_AXIS_CHANGE => NO_LIMINAL_MOVEMENT",
+    "UNKNOWN != N/A",
+    "UNKNOWN != ZERO",
+    "N/A != ZERO",
+    "DIGEST_IDENTITY != AUTHORITY",
+    "GIT_STATE != WORLD_TRUTH",
+    "REPOSITORY_NAMESPACE_IS_POSITION_BEARING"
+  ]
+}
