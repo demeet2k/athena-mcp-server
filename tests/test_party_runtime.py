@@ -229,7 +229,7 @@ class PartyNativeSurfaceTests(unittest.TestCase):
         )
         self.assertIn("result", read)
         text = read["result"]["contents"][0]["text"]
-        self.assertIn("CURRENT_CYCLE_REFS_ONLY", text)
+        self.assertIn("messages explicitly referencing the current cycle_id", text)
         self.assertIn("maximum_party_bonus_rate", text)
 
 
