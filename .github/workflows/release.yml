@@ -1,0 +1,187 @@
+name: Release Distribution
+
+on:
+  push:
+    branches:
+      - 'agent/aor-collective-unified'
+    paths:
+      - 'release/v3.0.0.json'
+      - 'release/v3.0.0.md'
+      - '.github/workflows/release.yml'
+      - 'tests/test_release_distribution.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: athena-release-v3.0.0
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.repository == 'demeet2k/athena-mcp-server'
+    runs-on: ubuntu-latest
+    env:
+      MANIFEST_FILE: release/v3.0.0.json
+      NOTES_FILE: release/v3.0.0.md
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Validate release manifest and package identity
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, pathlib, tomllib
+          root=pathlib.Path('.')
+          manifest=json.loads((root/'release/v3.0.0.json').read_text())
+          project=tomllib.loads((root/'pyproject.toml').read_text())['project']
+          assert manifest['schema']=='ATHENA.RELEASE.DISTRIBUTION.1'
+          assert manifest['version']==project['version']=='3.0.0'
+          assert manifest['tag']=='v'+manifest['version']
+          assert manifest['package']['name']==project['name']
+          assert manifest['package']['entrypoint']==project['scripts']['athena-mcp']=='athena_mcp.hub_server:main'
+          assert manifest['source']['target_branch']=='agent/aor-collective-unified'
+          assert manifest['release']['draft'] is False
+          assert manifest['release']['prerelease'] is False
+          print('RELEASE MANIFEST PASS', manifest['tag'])
+          PY
+
+      - name: Run complete repository test corpus
+        run: python -m unittest discover -s tests -v
+
+      - name: Build wheel from declared backend
+        run: python -m pip wheel --no-deps . -w dist
+
+      - name: Clean-install and verify composed package
+        shell: bash
+        run: |
+          rm -rf /tmp/athena-release-wheel
+          python -m pip install --no-deps --target /tmp/athena-release-wheel dist/*.whl
+          cd /tmp
+          PYTHONPATH=/tmp/athena-release-wheel python - <<'PY'
+          import importlib.resources, tempfile
+          import athena_mcp
+          from athena_mcp.hub_server import HubServer
+          from athena_mcp.kc144_registry_pack import verify_pack
+          assert athena_mcp.__version__=='3.0.0'
+          carrier=importlib.resources.files('athena_mcp').joinpath('data/kc144-core-registries.tar.xz')
+          assert carrier.is_file(), carrier
+          registry=verify_pack(deep=True)
+          assert registry['status']=='PASS', registry
+          with tempfile.NamedTemporaryFile(suffix='.db') as handle:
+              server=HubServer(handle.name)
+              try:
+                  init=server.handle({'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-11-25'}})['result']
+                  assert init['serverInfo']['version']=='3.0.0', init
+                  names={item['name'] for item in server.handle({'jsonrpc':'2.0','id':2,'method':'tools/list'})['result']['tools']}
+                  for name in ('athena_gp_hyperfit','athena_system_upgrade_plan','athena_kc144_hub_validate'):
+                      assert name in names, name
+              finally:
+                  server.store.close()
+          print('CLEAN PACKAGE PASS', carrier)
+          PY
+
+      - name: Prepare immutable release assets and attestation
+        shell: bash
+        run: |
+          VERSION=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['version'])")
+          TAG=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['tag'])")
+          TITLE=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['title'])")
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "TAG=$TAG" >> "$GITHUB_ENV"
+          echo "TITLE=$TITLE" >> "$GITHUB_ENV"
+          cp "$MANIFEST_FILE" dist/release-manifest.json
+          cp athena_mcp/data/kc144-core-registries.tar.xz dist/kc144-core-registries.tar.xz
+          python - <<'PY'
+          import glob, hashlib, json, os, pathlib
+          manifest=json.loads(pathlib.Path(os.environ['MANIFEST_FILE']).read_text())
+          wheels=glob.glob('dist/*.whl')
+          assert len(wheels)==1, wheels
+          wheel=pathlib.Path(wheels[0])
+          carrier=pathlib.Path('dist/kc144-core-registries.tar.xz')
+          release_manifest=pathlib.Path('dist/release-manifest.json')
+          def sha(path):
+              return hashlib.sha256(path.read_bytes()).hexdigest()
+          attestation={
+              'schema':'ATHENA.RELEASE.ATTESTATION.1',
+              'repository':os.environ['GITHUB_REPOSITORY'],
+              'release_commit':os.environ['GITHUB_SHA'],
+              'release_ref':os.environ['GITHUB_REF'],
+              'workflow_run_id':os.environ['GITHUB_RUN_ID'],
+              'workflow_run_attempt':os.environ['GITHUB_RUN_ATTEMPT'],
+              'version':manifest['version'],
+              'tag':manifest['tag'],
+              'source_integration_commit':manifest['source']['integration_commit'],
+              'source_post_merge_ci_run':manifest['source']['post_merge_ci_run'],
+              'artifacts':{
+                  wheel.name:sha(wheel),
+                  carrier.name:sha(carrier),
+                  release_manifest.name:sha(release_manifest),
+              },
+              'gates':{
+                  'unit_corpus':'PASS',
+                  'wheel_build':'PASS',
+                  'clean_install':'PASS',
+                  'registry_reconstruction':'PASS',
+                  'hub_server_surface':'PASS',
+              },
+              'boundary':'Distribution attestation is not deployment, empirical truth, or Y1 authority.'
+          }
+          pathlib.Path('dist/release-attestation.json').write_text(json.dumps(attestation,indent=2,sort_keys=True)+'\n')
+          PY
+          (
+            cd dist
+            find . -maxdepth 1 -type f ! -name SHA256SUMS -printf '%f\n' | sort | xargs sha256sum > SHA256SUMS
+          )
+
+      - name: Create exact-head tag and publish GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" > /tmp/tag.json 2>/dev/null; then
+            TAG_TARGET=$(python -c "import json; print(json.load(open('/tmp/tag.json'))['object']['sha'])")
+            test "$TAG_TARGET" = "$GITHUB_SHA"
+          else
+            gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" \
+              -f ref="refs/tags/$TAG" \
+              -f sha="$GITHUB_SHA" > /tmp/tag.json
+          fi
+          TAG_TARGET=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" --jq '.object.sha')
+          test "$TAG_TARGET" = "$GITHUB_SHA"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --title "$TITLE" --notes-file "$NOTES_FILE"
+            gh release upload "$TAG" dist/* --clobber
+          else
+            gh release create "$TAG" dist/* \
+              --verify-tag \
+              --title "$TITLE" \
+              --notes-file "$NOTES_FILE"
+          fi
+
+      - name: Verify published release and assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view "$TAG" --json tagName,isDraft,isPrerelease,url,assets > /tmp/release.json
+          python - <<'PY'
+          import json, os
+          release=json.load(open('/tmp/release.json'))
+          manifest=json.load(open(os.environ['MANIFEST_FILE']))
+          assert release['tagName']==manifest['tag'], release
+          assert release['isDraft'] is False, release
+          assert release['isPrerelease'] is False, release
+          observed={item['name'] for item in release['assets']}
+          required=set(manifest['release']['required_assets'])
+          assert required <= observed, {'required':sorted(required),'observed':sorted(observed)}
+          print('RELEASE PASS', release['url'], sorted(observed))
+          PY
