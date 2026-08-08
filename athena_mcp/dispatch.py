@@ -51,10 +51,11 @@ def handle(server,m):
             {'uri':'athena://orchestration/recent','name':'Recent Persisted AORRUN Receipts','mimeType':'application/json'},
             {'uri':'athena://orchestration/robustness','name':'AOR Successor Robustness Law','mimeType':'application/json'},
             {'uri':'athena://branches','name':'AOR Branch Lifecycle Ledger','mimeType':'application/json'},
+            {'uri':'athena://authority','name':'Typed Claim Authority Registry Y1','mimeType':'application/json'},
         ];return server.result(mid,{'resources':rs})
     if method=='resources/read':
         uri=params.get('uri');c=server.core
-        if uri=='athena://manifest':val={'name':'ATHENA','protocol':PROTOCOL_VERSION,'layers':['GIT_LEDGER','CCR','JSPACE','SCALE','KC144','POLYCOORDINATE_ATLAS','MATH_REGISTRY','COLLECTIVE_RUNTIME','COLLECTIVE_GROWTH','COLLECTIVE_MEMORY_V2','AOR_DECISION_CORTEX','BRANCH_EVOLUTION','RUNTIME'],'identity':'SID!=OID!=MID!=VID!=CID!=EID!=CRYS!=AORRUN','mutation':'EXPECTED_VID==CURRENT_VID else STALE_TARGET; collective topology has independent expected-version CAS','output_law':'VISIBLE_OUTPUT -> FINALIZE_OUTPUT -> ENV(HEADER+BODY)','transform_law':'LOOKUP != DERIVATION','braid_law':'AOR chooses developmental frontier; Collective organizes scarce execution capacity; pheromone/consensus never become evidence or typed authority'}
+        if uri=='athena://manifest':val={'name':'ATHENA','protocol':PROTOCOL_VERSION,'layers':['GIT_LEDGER','CCR','JSPACE','SCALE','KC144','POLYCOORDINATE_ATLAS','MATH_REGISTRY','COLLECTIVE_RUNTIME','COLLECTIVE_GROWTH','COLLECTIVE_MEMORY_V2','AOR_DECISION_CORTEX','BRANCH_EVOLUTION','AUTHORITY_Y1','RUNTIME'],'identity':'SID!=OID!=MID!=VID!=CID!=EID!=CRYS!=AORRUN','mutation':'EXPECTED_VID==CURRENT_VID else STALE_TARGET; collective topology has independent expected-version CAS','output_law':'VISIBLE_OUTPUT -> FINALIZE_OUTPUT -> ENV(HEADER+BODY)','transform_law':'LOOKUP != DERIVATION','braid_law':'AOR chooses developmental frontier; Collective organizes scarce execution capacity; Y1 governs claim promotion; consensus/pheromone/reward are never typed authority or evidence by themselves'}
         elif uri=='athena://kc144/stations':val=json.loads(station_manifest())
         elif uri=='athena://state/head':val=c.s.head('global') or {}
         elif uri=='athena://registry':val=c.s.rows('SELECT * FROM objects ORDER BY canonical_name')
@@ -69,10 +70,11 @@ def handle(server,m):
         elif uri=='athena://collective/runtime':val=server.collective.describe()
         elif uri=='athena://collective/growth':val=server.collective_growth.describe()
         elif uri=='athena://collective/v2':val=server.collective_memory.describe()
-        elif uri=='athena://orchestration/law':val=orchestration_law()
+        elif uri=='athena://orchestration/law':val={**orchestration_law(),'authority_law':'Y in {?,+,!,#} is persistent, non-skippable and distinct from score/confidence/consensus/reward; linked candidates snapshot Y state into AORRUN'}
         elif uri=='athena://orchestration/recent':val=server.orchestration.recent(50)
         elif uri=='athena://orchestration/robustness':val={'version':'AOR.3.2','successor_factor_count':SUCCESSOR_FACTOR_COUNT,'law':'q*((1-eps)/(1+eps))^5; eps*=(q^(1/5)-1)/(q^(1/5)+1)','boundary':'rank sensitivity, not truth probability or causal evidence'}
         elif uri=='athena://branches':val={'benchmark':server.branches.benchmark(),'recent':server.branches.list(limit=100),'law':'branch lifecycle is basis-specific witnessed EWMA state; hibernate != erase; resurrection requires new evidence/gap/bridge pressure plus policy thresholds'}
+        elif uri=='athena://authority':val={'benchmark':server.authority.benchmark(),'claims':server.authority.list(limit=100),'law':'?->+ verified evidence; +->! witnessed execution; !-># explicit authorized canonicalization; challenges block automatic routing; authority != confidence != consensus != reward'}
         else:return server.error(mid,-32002,'Resource not found',{'uri':uri})
         return server.result(mid,{'contents':[{'uri':uri,'mimeType':'application/json','text':json.dumps(val,ensure_ascii=False,sort_keys=True)}]})
     if method=='prompts/list':return server.result(mid,{'prompts':PROMPTS})
@@ -82,20 +84,21 @@ def handle(server,m):
         text=f"""ATHENA UNIFIED AOR×COLLECTIVE MAXDEV
 AGENT={agent}
 TASK={task}
-1 HYDRATE canonical semantic/Git heads, JSPACE/SCALE/KC144/polycoordinates, Collective-V2 memory and pending global mutations. UNKNOWN != N/A != 0.
-2 RECONSTRUCT causal ancestry. Query pheromone and failure-antibody memory as routing/history signals only: pheromone priority != evidence; reuse/popularity != authority.
+1 HYDRATE canonical semantic/Git heads, JSPACE/SCALE/KC144/polycoordinates, Collective-V2 memory, Y1 authority heads and pending global mutations. UNKNOWN != N/A != 0.
+2 RECONSTRUCT causal ancestry. Pheromone and antibody memory are routing/history signals only: pheromone priority != evidence; reuse/popularity != authority.
 3 EXTRACT candidate work before collapse. Do not silently dedup independent proof, lineage, boundary, contradiction or failure branches.
-4 RETRIEVE/GRAPH/GAP with explicit provenance and typed dependency semantics. Missing measurements remain UNKNOWN and must enter measurement/calibration pressure rather than score as zero.
-5 FIELD/CANDIDATES: consequential work becomes explicit candidate objects. AOR evaluates developmental value; Collective does not decide truth or authority.
-6 AOR FRONTIER: call athena_orchestrate with explicit candidate/residual metrics and a declared metric basis when cross-candidate arithmetic is used. Dependencies, claimed test/persistence, coordinate requirements and fake/unsupported/contradiction gates fail closed. Preserve Pareto alternatives and robustness state.
-7 COLLECTIVE ORGANIZATION: use athena_collective_plan/allocate only after the developmental frontier exists. AOR answers WHAT deserves resources; Collective answers HOW scarce workers/topology/reserve should execute it. Consensus != evidence and predicted RGO != observed RGO.
-8 EXECUTE reachable selected work. For branch reward changes, record witnessed calibrated observations with athena_branch_observe. HIBERNATED != erased; resurrection requires explicit new_evidence/new_gap/bridge_demand pressure.
-9 TEST/OBSERVE/REPAIR/RETEST. A claimed test requires procedure+observation+result+witness. A persistence claim requires commit+receipt+verify. Diagnosed failures should be matched/registered as antibodies with regression evidence.
-10 REWARD/REALLOCATE. Positive verified developmental reward may deepen/replicate/braid; low-value duplicate work may hibernate. Do not double-count observed RGO and DeltaJ as independent evidence for the same outcome.
-11 MEMORY: record observed RGO after execution; reinforce reusable routes with pheromone only as attention/routing state. Contradiction/staleness must evaporate inherited priority.
-12 SUCCESSOR: NEXT comes from unresolved eligible developmental frontier, not textual order. If no executable branch exists, route measurement>calibration>dependency repair>residual before declaring quiescence.
-13 FINALIZE exact visible output through athena_finalize_output; do not mutate signed emission bytes afterward. Preserve RETURN/navigation and any materially governing collective/AOR run references.
-14 COMMIT only against current semantic VID/Git HEAD; topology has separate CAS. Rehydrate after mutation and continue while actionable pressure remains.
+4 RETRIEVE/GRAPH/GAP with explicit provenance and typed dependency semantics. Missing measurements remain UNKNOWN and route to measurement/calibration instead of zero.
+5 AUTHORITY: linked claims carry persistent Y∈{?,+,!,#}. Authority is not confidence, score, consensus or reward. ?->+ requires verified support/derive/reproduce evidence; +->! requires procedure+observation+result+witness; !-># requires explicit authorized canonicalization. CHALLENGED/CANONICAL_CHALLENGED blocks automatic routing. AORRUN freezes authority snapshots so later changes cannot rewrite history.
+6 FIELD/CANDIDATES: consequential work becomes explicit candidate objects. AOR evaluates developmental value; Collective does not decide truth or authority.
+7 AOR FRONTIER: call athena_orchestrate with explicit candidate/residual metrics and declared basis for cross-candidate arithmetic. Dependencies, Y minimums, claimed test/persistence, coordinates and fake/unsupported/contradiction gates fail closed. Preserve Pareto and robustness state.
+8 COLLECTIVE ORGANIZATION: call athena_collective_plan/allocate after the developmental frontier exists. AOR answers WHAT deserves resources; Collective answers HOW scarce workers/topology/reserve execute it. Consensus != evidence and predicted RGO != observed RGO.
+9 EXECUTE reachable selected work. Record branch reward only with witnessed calibrated observations. HIBERNATED != erased; resurrection requires explicit pressure.
+10 TEST/OBSERVE/REPAIR/RETEST. Claimed test requires procedure+observation+result+witness. Persistence requires commit+receipt+verify. Diagnosed failures should enter antibody memory with regression evidence.
+11 REWARD/REALLOCATE. Positive verified developmental reward may deepen/replicate/braid; low-value duplicate work may hibernate. Do not double-count RGO and DeltaJ for one outcome.
+12 MEMORY: record observed RGO after execution; reinforce reusable routes only as attention/routing state. Contradiction/staleness evaporates inherited priority.
+13 SUCCESSOR: NEXT comes from unresolved eligible frontier, not textual order. If no executable branch exists, route measurement>calibration>authority/dependency repair>residual before quiescence.
+14 FINALIZE exact visible output through athena_finalize_output; do not mutate signed emission bytes afterward. Preserve RETURN/navigation and governing run references.
+15 COMMIT only against current semantic VID/Git HEAD; topology has separate CAS. Rehydrate and continue while actionable pressure remains.
 """
-        return server.result(mid,{'description':'Unified AOR decision cortex × Collective execution metabolism cycle','messages':[{'role':'user','content':{'type':'text','text':text}}]})
+        return server.result(mid,{'description':'Unified AOR decision cortex × Y1 authority × Collective execution metabolism cycle','messages':[{'role':'user','content':{'type':'text','text':text}}]})
     return server.error(mid,-32601,'Method not found')
