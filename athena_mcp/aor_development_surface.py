@@ -19,14 +19,17 @@ from .runtime_integrity_surface import RuntimeIntegritySurface,INTEGRITY_RESOURC
 from .cycle_omega import OmegaCycleRuntime
 from .cycle import CYCLE_VERSION
 from .cycle_protocol import CYCLE_RESOURCE,CYCLE_TOOLS
+from .prompt_runtime import PROMPT_RUNTIME_VERSION,PromptRuntimeSurface
+from .prompt_runtime_protocol import PROMPT_RUNTIME_RESOURCE,PROMPT_RUNTIME_TOOLS
 
 AOR_DEVELOPMENT_TOOLS=(
     list(EQUIVALENCE_TOOLS)+list(EXTRACTION_TOOLS)+list(RETRIEVAL_TOOLS)+list(HUG_TOOLS)+list(GAP_TOOLS)+
-    list(FIELD_TOOLS)+list(AOR_COLLECTIVE_TRANSPORT_TOOLS)+list(INTEGRITY_TOOLS)+list(CYCLE_TOOLS)
+    list(FIELD_TOOLS)+list(AOR_COLLECTIVE_TRANSPORT_TOOLS)+list(INTEGRITY_TOOLS)+list(CYCLE_TOOLS)+
+    list(PROMPT_RUNTIME_TOOLS)
 )
 AOR_DEVELOPMENT_RESOURCES=(
     [EQUIVALENCE_RESOURCE,EXTRACTION_RESOURCE,RETRIEVAL_RESOURCE,HUG_RESOURCE,GAP_RESOURCE,FIELD_RESOURCE]+
-    list(AOR_COLLECTIVE_TRANSPORT_RESOURCES)+list(INTEGRITY_RESOURCES)+[CYCLE_RESOURCE]
+    list(AOR_COLLECTIVE_TRANSPORT_RESOURCES)+list(INTEGRITY_RESOURCES)+[CYCLE_RESOURCE,PROMPT_RUNTIME_RESOURCE]
 )
 AOR_DEVELOPMENT_TOOL_NAMES={tool['name'] for tool in AOR_DEVELOPMENT_TOOLS}
 AOR_DEVELOPMENT_RESOURCE_URIS={resource['uri'] for resource in AOR_DEVELOPMENT_RESOURCES}
@@ -37,7 +40,7 @@ class AorDevelopmentSurface:
 
     Constructor order is intentional:
       pure developmental ledgers -> FIELD -> typed AOR/Collective transport ->
-      runtime integrity/state foundation -> resumable CYCLE.
+      runtime integrity/state foundation -> resumable CYCLE -> Git prompt runtime.
     RuntimeIntegritySurface receives this development surface explicitly, so it
     never depends on server.aor_development being assigned during construction.
     """
@@ -53,6 +56,7 @@ class AorDevelopmentSurface:
         self.transport=AorCollectiveTransportSurface(server)
         self.integrity=RuntimeIntegritySurface(server,self)
         self.cycle=OmegaCycleRuntime(server,self)
+        self.prompt_runtime=PromptRuntimeSurface(server)
 
     def _retrieval_eq_snapshot(self,args):
         if args.get('eq_snapshot') is not None:return dict(args['eq_snapshot'])
@@ -61,6 +65,8 @@ class AorDevelopmentSurface:
         return self.equivalence.snapshot(context,args['candidates'])
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        handled,value=self.prompt_runtime.call_tool(name,args)
+        if handled:return True,value
         if name=='athena_cycle_start':return True,self.cycle.start(args['task_ref'],args['seed'],args.get('config'),args.get('actor','agent'))
         if name=='athena_cycle_advance':return True,self.cycle.advance(args['cycle_id'],args.get('inputs'),args.get('max_steps',8))
         if name=='athena_cycle_state':return True,self.cycle.get(args['cycle_id'])
@@ -106,6 +112,7 @@ class AorDevelopmentSurface:
         return False,None
 
     def read_resource(self,uri:str):
+        if uri==PROMPT_RUNTIME_RESOURCE['uri']:return self.prompt_runtime.read_resource(uri)
         if uri==CYCLE_RESOURCE['uri']:
             return {'version':CYCLE_VERSION,'benchmark':self.cycle.benchmark(),'phases':['HYDRATE','RECONSTRUCT','MEMORY','EXTRACT','RETRIEVE','HUG','GAP','FIELD','MEASURE','AOR','COLLECTIVE','EXECUTE','VERIFY','LEARN','SUCCESSOR','COMPLETE'],'law':'RECONSTRUCT uses canonical RECONRUN/OMEGA; semantic execution, missing measurement/authority/workers/tests and unresolved HUG semantics halt in typed WAITING_* states instead of being simulated','replay_boundary':'cycle replay verifies stored state plus deterministic child receipts; external execution/test truth is preserved as witness input, not re-simulated'}
         if uri in {resource['uri'] for resource in INTEGRITY_RESOURCES}:return self.integrity.read_resource(uri)
@@ -120,4 +127,4 @@ class AorDevelopmentSurface:
         raise KeyError(uri)
 
     def benchmark(self):
-        result={};result.update(self.equivalence.benchmark());result.update(self.extraction.benchmark());result.update(self.retrieval.benchmark());result.update(self.hug.benchmark());result.update(self.gap.benchmark());result.update(self.field.benchmark());result.update(self.transport.benchmark());result.update(self.integrity.benchmark());result.update(self.cycle.benchmark());return result
+        result={};result.update(self.equivalence.benchmark());result.update(self.extraction.benchmark());result.update(self.retrieval.benchmark());result.update(self.hug.benchmark());result.update(self.gap.benchmark());result.update(self.field.benchmark());result.update(self.transport.benchmark());result.update(self.integrity.benchmark());result.update(self.cycle.benchmark());result.update(self.prompt_runtime.benchmark());return result
