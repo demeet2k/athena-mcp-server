@@ -40,6 +40,15 @@ class _Prompt:
             "ancestry": {"policy": "test"},
         }
 
+    def _safe_rel(self, rel: str) -> Path:
+        root = self.git.root.resolve()
+        path = (root / rel).resolve()
+        try:
+            path.relative_to(root)
+        except ValueError as exc:
+            raise ValueError("test prompt path escapes git root") from exc
+        return path
+
 
 class _Frontier:
     def hydrate(self, **kwargs):
