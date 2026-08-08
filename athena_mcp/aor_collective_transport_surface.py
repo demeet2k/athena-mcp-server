@@ -45,6 +45,17 @@ class AorCollectiveTransportSurface:
                     args.get('remote','origin')
                 )
             if name=='athena_impossible_complete':
+                if args.get('party_id') or args.get('contributors'):
+                    fresh=g._board().read(
+                        remote=args.get('remote','origin'),shared_remote_mode='REQUIRED',limit=1
+                    )
+                    if not fresh.get('shared_frontier_verified'):
+                        return True,{
+                            'status':'GODBOARD_SHARED_FRONTIER_HOLD',
+                            'remote_sync':fresh.get('remote_sync'),
+                            'durable_return':False,
+                            'law':'PARTY_ATTRIBUTION_REQUIRES_SHARED_CURRENT_MESSAGE_BOARD_FRONTIER',
+                        }
                 return True,g.complete(
                     args['completion_id'],args['quest_id'],args['agent_id'],args['agent_coordinate'],
                     args['baseline'],args['transformation_class'],args['decisive_move'],args['invariant'],
