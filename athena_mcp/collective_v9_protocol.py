@@ -18,3 +18,6 @@ COLLECTIVE_V9_TOOLS=[
     _tool("athena_structure_partial","Convert V8 bootstrap association stability into an uncertainty-preserving o-o partial graph. Not FCI/PAG/CPDAG theorem.",( "samples",),{"samples":{"type":"array","minItems":8,"maxItems":5000,"items":{"type":"object"}},"variables":{"type":"array","items":{"type":"string"},"maxItems":16},"association_threshold":NUM,"resamples":{"type":"integer","minimum":5,"maximum":300},"support_threshold":NUM,"seed":INT}),
     _tool("athena_evidence_dependence_probability","Apply a caller-declared logistic metadata-dependence model to science-shadow witness pairs. Diagnostic, not formal independence inference.",( "claim_id",),{"claim_id":STR,"coefficients":OBJ,"dimensions":{"type":"array","items":{"type":"string"},"maxItems":16},"min_confidence":NUM}),
 ]
+
+from .collective_v10_protocol import COLLECTIVE_V10_TOOLS
+COLLECTIVE_V9_TOOLS.extend(t for t in COLLECTIVE_V10_TOOLS if t['name'] not in {x['name'] for x in COLLECTIVE_V9_TOOLS})

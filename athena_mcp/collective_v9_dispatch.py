@@ -1,5 +1,15 @@
 from __future__ import annotations
 
+from .collective_probabilistic import CollectiveProbabilisticRuntime
+from .collective_v10_dispatch import call as call_v10
+from .collective_v10_protocol import COLLECTIVE_V10_TOOLS
+
+V10_NAMES={t['name'] for t in COLLECTIVE_V10_TOOLS}
+
+
+def _probabilistic(inference):
+    return CollectiveProbabilisticRuntime(inference)
+
 
 def _partial(inference,a):
     out=inference.structure_partial(a['samples'],a.get('variables'),a.get('association_threshold',.15),a.get('resamples',50),a.get('support_threshold',.7),a.get('seed',0))
@@ -9,6 +19,7 @@ def _partial(inference,a):
 
 
 def call(inference,name,a):
+    if name in V10_NAMES: return call_v10(_probabilistic(inference),name,a)
     if name=='athena_gaussian_belief_register': return inference.gaussian_belief_register(a['context_key'],a['parameters'],a.get('mean'),a.get('prior_variance',1.0),a.get('noise_variance',1.0),a.get('metadata'),a.get('replace',False))
     if name=='athena_gaussian_belief_state': return inference.gaussian_belief_state(a['context_key'])
     if name=='athena_gaussian_belief_observe': return inference.gaussian_belief_observe(a['context_key'],a['features'],a['target'],a.get('weight',1.0),a.get('noise_variance'),a.get('evidence_ref',''),a.get('actor','agent'))
