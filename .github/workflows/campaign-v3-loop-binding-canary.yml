@@ -31,13 +31,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYTHONPATH: .
           CANDIDATE_HEAD: 1a90f44cbbdbdcacc64544a8ddabf52711f48fbc
-          TARGET_BRANCH: agent/campaign-v3-loop-bind-target-1a90f44
+          TARGET_BRANCH: agent/campaign-v3-loop-bind-target-r2-1a90f44
           TARGET_SEED_HEAD: b7ca865d55bec63474b4aed3f3013c7d73d8db37
           WITNESS_PATH: campaign-v3-loop-binding-witness.json
         shell: bash
         run: |
           set +e
-          python tools/campaign_v3_loop_binding_canary.py
+          python tools/campaign_v3_loop_binding_canary_r2.py
           code=$?
           echo "exit_code=${code}" >> "$GITHUB_OUTPUT"
           exit 0
