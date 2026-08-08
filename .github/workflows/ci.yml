@@ -14,14 +14,16 @@ jobs:
           python -m unittest discover -s tests -v 2>&1 | tee /tmp/athena-tests.log
           code=${PIPESTATUS[0]}
           if [ "$code" -ne 0 ]; then
-            tail -n 60 /tmp/athena-tests.log > /tmp/athena-tail.log
             msg=$(python - <<'PY'
           from pathlib import Path
-          s=Path('/tmp/athena-tail.log').read_text(errors='replace').replace('%','%25').replace('\r','%0D').replace('\n','%0A')
-          print(s[:12000])
+          s=Path('/tmp/athena-tests.log').read_text(errors='replace')
+          marker='======================================================================'
+          failure=s[s.find(marker):] if marker in s else '\n'.join(s.splitlines()[-100:])
+          failure=failure.replace('%','%25').replace('\r','%0D').replace('\n','%0A')
+          print(failure[:20000])
           PY
             )
-            echo "::error title=ATHENA unit-test failure::$msg"
+            echo "::error title=ATHENA unit-test traceback::$msg"
             exit "$code"
           fi
       - name: Smoke
