@@ -1,4 +1,4 @@
-name: KC144 synchronize base with V5 V6 repair
+name: KC144 synchronize current V7 base with polyatlas repair
 
 on:
   push:
@@ -11,11 +11,11 @@ permissions:
   contents: write
 
 concurrency:
-  group: kc144-authoritative-base-sync-v2
+  group: kc144-authoritative-base-sync-v3
   cancel-in-progress: false
 
 env:
-  BASE_SHA: fa898653fe3f9c60bd41630118a9a1b99454c1b3
+  BASE_SHA: 6e9f9cc57564c80e29874c276d21addb0c99d530
   PACK_SHA: 312d984d988797311ac42e1d8b2323b9d8e87877c1c05679a93189c18e861f7d
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
           ref: agent/kc144-topological-command-hub
           fetch-depth: 0
 
-      - name: Merge frozen base and apply semantic overlay
+      - name: Merge frozen V7 base and apply semantic KC144 overlay
         shell: bash
         run: |
           set -euo pipefail
@@ -73,8 +73,8 @@ jobs:
 
           [project]
           name = "athena-canonical-mcp"
-          version = "2.5.0"
-          description = "Canonical KC144/JSPACE/SCALE developmental control, causal experimental science, active discovery/stochastic control, and digest-bound topological command substrate"
+          version = "2.6.0"
+          description = "Canonical KC144/JSPACE/SCALE command crystal with causal science, collective V7, exact polyatlas coordinates, and digest-bound topology"
           requires-python = ">=3.11"
           dependencies = []
 
@@ -92,13 +92,14 @@ jobs:
           python scripts/kc144_sync_overlay.py | tee /tmp/overlay.json
           git add pyproject.toml athena_mcp/server.py tests/test_hub_server.py
           test -z "$(git diff --name-only --diff-filter=U)"
-          test -f tests/test_collective_v6_unified.py
+          test -f tests/test_collective_v7_unified.py
           test -f tests/test_field_unified.py
+          test -f tests/test_kc144_polyatlas_integration.py
           python - <<'PY'
           import tomllib
           from pathlib import Path
           p=tomllib.loads(Path('pyproject.toml').read_text())
-          assert p['project']['version']=='2.5.0'
+          assert p['project']['version']=='2.6.0'
           assert p['project']['scripts']['athena-mcp']=='athena_mcp.hub_server:main'
           assert 'data/*.xz' in p['tool']['setuptools']['package-data']['athena_mcp']
           PY
@@ -116,7 +117,7 @@ jobs:
           set -euo pipefail
           python -m unittest discover -s tests -v 2>&1 | tee /tmp/tests.log
 
-      - name: Run whole-surface MCP smoke
+      - name: Run whole-surface MCP and polyatlas smoke
         shell: bash
         run: |
           set -euo pipefail
@@ -131,20 +132,34 @@ jobs:
                   'athena_cycle_start','athena_field_compile','athena_promotion_evaluate',
                   'athena_ood_score','athena_discovery_claim_register',
                   'athena_kc144_registry_verify','athena_kc144_registry_cross_search',
-                  'athena_kc144_completion_frontier',
+                  'athena_kc144_completion_frontier','athena_kc144_polyatlas_validate',
+                  'athena_kc144_polyatlas_rosetta','athena_kc144_polyatlas_route',
+                  'athena_kc144_resolution_transport','athena_kc144_sphere_atlas',
               }
               assert not sorted(required-names),sorted(required-names)
               pack=s.call_tool('athena_kc144_registry_verify',{'deep':True})
               assert pack['status']=='PASS' and pack['pack_sha256']=='312d984d988797311ac42e1d8b2323b9d8e87877c1c05679a93189c18e861f7d'
-              field=s.call_tool('athena_field_compile',{'seed_ref':'seed://sync-v2','module_outputs':{},'persist':False})
+              field=s.call_tool('athena_field_compile',{'seed_ref':'seed://sync-v3','module_outputs':{},'persist':False})
               assert field['version']=='FIELD.1'
               ood=s.call_tool('athena_ood_score',{'features':{'x':0.5},'regime':'R'})
               assert ood['status']=='NO_REFERENCE_DISTRIBUTION'
-              claim=s.call_tool('athena_discovery_claim_register',{'claim_key':'sync:v2','statement':'V6 routing is composed'})
+              claim=s.call_tool('athena_discovery_claim_register',{'claim_key':'sync:v3','statement':'V7 and KC144 polyatlas routing are composed'})
               assert claim['claim_id'].startswith('DCLAIM:')
               frontier=s.call_tool('athena_kc144_completion_frontier',{})
               assert frontier['frontier'][0]['task_id']=='TASK.000'
-              out={'status':'PASS','tool_count':len(names),'field':'FIELD.1','cycle':'CYCLE.1','promotion':'PROMOTION.1','v6':'COLLECTIVE_RUNTIME_V6','pack_sha256':pack['pack_sha256'],'frontier':'TASK.000'}
+              atlas=s.call_tool('athena_kc144_polyatlas_validate',{'include_details':False})
+              assert atlas['status']=='PASS' and atlas['check_count']>=18 and atlas['fail_count']==0
+              rosetta=s.call_tool('athena_kc144_polyatlas_rosetta',{'chapter':14,'shelf':14,'target_resolution':21})
+              assert rosetta['coordinates']['C06']['six_trit']=='111111'
+              assert rosetta['coordinates']['C07']['gid729']==365
+              route=s.call_tool('athena_kc144_polyatlas_route',{'src':1,'dst':144,'layers':['matrix','mirror']})
+              assert route['found'] and route['path'][0]==1 and route['path'][-1]==144
+              out={
+                  'status':'PASS','tool_count':len(names),'field':'FIELD.1','cycle':'CYCLE.1',
+                  'promotion':'PROMOTION.1','v7':'ATHENA_UNIFIED_V7','pack_sha256':pack['pack_sha256'],
+                  'frontier':'TASK.000','polyatlas':atlas['version'],'polyatlas_checks':atlas['check_count'],
+                  'rosetta_center':365,'route_hops':route['hop_count'],
+              }
               print(json.dumps(out,sort_keys=True))
               s.store.close()
           PY
@@ -164,7 +179,7 @@ jobs:
           count=re.search(r'Ran (\d+) tests',tests)
           if not count: raise SystemExit('test count missing')
           receipt={
-              'version':'ATHENA.KC144.BASE.SYNC.RECEIPT.3',
+              'version':'ATHENA.KC144.BASE.SYNC.RECEIPT.4',
               'status':'PASS',
               'repository':'demeet2k/athena-mcp-server',
               'branch':'agent/kc144-topological-command-hub',
@@ -178,9 +193,10 @@ jobs:
               'observed_conflicts':[x for x in Path('/tmp/conflicts.txt').read_text().splitlines() if x],
               'resolution':{
                   'kc144_field_implementation':'OURS',
-                  'aor_transport_integrity_cycle_composition':'THEIRS',
+                  'aor_collective_v7_composition':'THEIRS',
                   'pyproject':'SEMANTIC_MERGE',
-                  'v5_v6_dispatch':'EXPLICIT_COMPOSITION_REPAIR',
+                  'polyatlas':'OURS_PLUS_FULL_RETEST',
+                  'v5_v6_v7_dispatch':'EXPLICIT_COMPOSITION_REPAIR',
                   'promotion_hub_truth':'LIVE_COMPOSED',
               },
               'test_count':int(count.group(1)),
@@ -188,11 +204,13 @@ jobs:
               'tests_sha256':hashlib.sha256(tests.encode()).hexdigest(),
               'smoke_sha256':hashlib.sha256(smoke_text.encode()).hexdigest(),
               'registry_pack_sha256':os.environ['PACK_SHA'],
-              'surfaces':{k:smoke[k] for k in ('field','cycle','promotion','v6','frontier')},
-              'gates':['FROZEN_BASE','EXACT_CONFLICT_SET','SEMANTIC_RESOLUTION','V5_V6_ROUTING','PACKAGE_INSTALL','COMPILEALL','FULL_UNITTEST','DEEP_REGISTRY_VERIFY','MCP_SMOKE'],
-              'authority_boundary':'This certifies the exact two-parent synchronized branch candidate; review, GitHub mergeability, and post-merge target validation remain separate gates.',
+              'surfaces':{k:smoke[k] for k in ('field','cycle','promotion','v7','frontier','polyatlas','polyatlas_checks','rosetta_center','route_hops')},
+              'gates':['FROZEN_V7_BASE','EXACT_CONFLICT_SET','SEMANTIC_RESOLUTION','V7_ROUTING','PACKAGE_INSTALL','COMPILEALL','FULL_UNITTEST','DEEP_REGISTRY_VERIFY','POLYATLAS_18_CHECKS','MCP_SMOKE'],
+              'authority_boundary':'This certifies the exact two-parent synchronized branch candidate; independent review and post-merge target validation remain separate gates.',
           }
-          p=Path('receipts/kc144_base_sync_receipt.json');p.parent.mkdir(exist_ok=True);p.write_text(json.dumps(receipt,sort_keys=True,indent=2)+'\n')
+          p=Path('receipts/kc144_base_sync_receipt.json')
+          p.parent.mkdir(exist_ok=True)
+          p.write_text(json.dumps(receipt,sort_keys=True,indent=2)+'\n')
           PY
 
       - name: Commit tested merge and retire synchronization scaffolding
@@ -203,7 +221,7 @@ jobs:
           rm .github/workflows/kc144-sync-base-v2.yml
           rm scripts/kc144_sync_overlay.py
           git add -A
-          git commit -m "merge(kc144): synchronize AOR collective V6 command crystal"
+          git commit -m "merge(kc144): synchronize collective V7 and executable polyatlas"
           test "$(git rev-list --parents -n 1 HEAD | wc -w)" -eq 3
           git merge-base --is-ancestor "${BASE_SHA}" HEAD
           git show -s --format=%P HEAD | grep -q "${BASE_SHA}"
