@@ -17,3 +17,6 @@ COLLECTIVE_V8_TOOLS=[
     _tool("athena_contingent_policy","Build a depth-1 outcome-contingent action policy under the current finite belief and one supplied experiment. DESIGN_ONLY.",( "context_key","actions","experiment"),{"context_key":STR,"actions":{"type":"array","minItems":1,"maxItems":128,"items":{"type":"object"}},"experiment":OBJ}),
     _tool("athena_evidence_spectral","Compute metadata-similarity effective-N and spectral participation-ratio diversity for a science-shadow claim's witnesses.",( "claim_id",),{"claim_id":STR,"dimensions":{"type":"array","items":{"type":"string"},"maxItems":16},"min_confidence":NUM}),
 ]
+
+from .collective_v9_protocol import COLLECTIVE_V9_TOOLS
+COLLECTIVE_V8_TOOLS.extend(t for t in COLLECTIVE_V9_TOOLS if t['name'] not in {x['name'] for x in COLLECTIVE_V8_TOOLS})
