@@ -1,13 +1,24 @@
 name: CI
+
 on: [push, pull_request]
+
 jobs:
-  test:
+  syntax:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
-      - name: Unit tests
+      - name: Compile runtime and tests
+        run: python -m compileall -q athena_mcp tests smoke.py
+
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Full unit suite
         shell: bash
         run: |
           set +e
@@ -18,13 +29,48 @@ jobs:
           from pathlib import Path
           s=Path('/tmp/athena-tests.log').read_text(errors='replace')
           marker='======================================================================'
-          failure=s[s.find(marker):] if marker in s else '\n'.join(s.splitlines()[-120:])
+          failure=s[s.find(marker):] if marker in s else '\n'.join(s.splitlines()[-160:])
           failure=failure.replace('%','%25').replace('\r','%0D').replace('\n','%0A')
-          print(failure[:20000])
+          print(failure[:24000])
           PY
             )
-            echo "::error title=ATHENA unit-test traceback::$msg"
+            echo "::error title=ATHENA full-suite traceback::$msg"
             exit "$code"
           fi
-      - name: Smoke
+
+  critical-invariants:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Schema migration and restart durability
+        run: python -m unittest discover -s tests -p 'test_state_foundation_unified.py' -v
+      - name: Unknown legacy-state preservation
+        run: python -m unittest discover -s tests -p 'test_legacy_migration_preservation.py' -v
+      - name: Three independent CAS domains
+        run: python -m unittest discover -s tests -p 'test_three_domain_cas_unified.py' -v
+      - name: Whole-cycle fail-closed metabolism
+        run: python -m unittest discover -s tests -p 'test_cycle_unified.py' -v
+      - name: Surface and composition integrity
+        run: python -m unittest discover -s tests -p 'test_surface_composition_unified.py' -v
+      - name: Local self-test and startup readiness
+        run: |
+          python -m unittest discover -s tests -p 'test_self_test_unified.py' -v
+          python -m unittest discover -s tests -p 'test_startup_health_unified.py' -v
+      - name: Live runtime manifest and MAXDEV law
+        run: python -m unittest discover -s tests -p 'test_unified_manifest.py' -v
+      - name: AOR Collective transport firewalls
+        run: python -m unittest discover -s tests -p 'test_aor_collective_transport.py' -v
+      - name: Exact-head promotion predicate
+        run: python -m unittest discover -s tests -p 'test_promotion_unified.py' -v
+
+  smoke:
+    needs: [syntax, unit, critical-invariants]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: MCP smoke
         run: python smoke.py
