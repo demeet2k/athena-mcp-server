@@ -1,2 +1,2 @@
-from .server import main
+from .party_server import main
 main()
