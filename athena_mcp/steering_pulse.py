@@ -96,6 +96,7 @@ def compile_pulse(
     failures: list[str] = []
     holds: list[dict[str, Any]] = []
     actions = list(pulse.get("actions") or [])
+    assessment_rows = [dict(row) for row in assessments]
     pulse_index = int(pulse.get("pulse_index") or 0)
     step_start = int(pulse.get("step_start") or 0)
     step_end = int(pulse.get("step_end") or 0)
@@ -118,7 +119,7 @@ def compile_pulse(
         failures.append("UNVERIFIED_SHARED_FRESHNESS")
 
     assessments_by_step: dict[int, Mapping[str, Any]] = {}
-    for raw in assessments:
+    for raw in assessment_rows:
         step = int(raw.get("step") or 0)
         if step in assessments_by_step:
             failures.append(f"DUPLICATE_ASSESSMENT:{step}")
@@ -264,7 +265,7 @@ def compile_pulse(
                     "current_vid": row.get("current_vid"),
                     "routing_metrics": _normalize_metrics(row.get("routing_metrics")),
                 }
-                for row in sorted(assessments, key=lambda item: int(item.get("step") or 0))
+                for row in sorted(assessment_rows, key=lambda item: int(item.get("step") or 0))
             ]
         ),
     }
