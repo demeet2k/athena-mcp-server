@@ -4,6 +4,8 @@ import json
 
 from .frontier_runtime import FrontierRuntime
 from .git_backend import GitStateError
+from .rehydration_loop import REHYDRATION_TOOLS, RehydrationLoopRuntime
+from .rehydration_terminal import install_terminal_gate
 
 
 def _selection_from_packet(frontier: dict) -> dict:
@@ -45,13 +47,7 @@ def _selection_from_packet(frontier: dict) -> dict:
 
 
 def _install_shared_fresh_verify_index(runtime_cls) -> None:
-    """Preserve RHL-002/RHL-003 when braiding bootstrap with newer master.
-
-    The feature lineage already carries RHL-001 remote-fresh resume. Newer master
-    generalized the same membrane to verify/index. Keeping those two read surfaces
-    here is an ancestry-resolution antibody: the runtime behavior is preserved
-    without replacing the newer sibling history or trusting stale local loop views.
-    """
+    """Preserve RHL-002/RHL-003 when braiding bootstrap with newer master."""
 
     flag = "_athena_remote_fresh_verify_index_compat_v1_registered"
     if getattr(runtime_cls, flag, False):
@@ -124,27 +120,22 @@ def _install_shared_fresh_verify_index(runtime_cls) -> None:
 
 
 def install_bootstrap_consistency(runtime_cls) -> None:
-    """Install bootstrap consistency plus shared-fresh sibling-read antibodies.
+    """Install bootstrap consistency plus shared-fresh/terminal sibling antibodies.
 
-    BOOT-001: V1 bootstrap composes FrontierRuntime.hydrate() and select(), and the
-    latter performs its own hydration. Until the redundant fetch is removed, bind
-    the externally returned selection back to the exact frontier object in the
-    packet so a sibling advance cannot mix two frontier snapshots in one result.
+    BOOT-001 binds returned next-work selection to the exact frontier digest in the
+    same packet. BOOT-002 advances a live session's comparison checkpoint after a
+    successful refresh. RHL-002/RHL-003 preserve shared-fresh verify/index while
+    the feature lineage retains the independently witnessed RHL-001 resume wrapper.
 
-    BOOT-002: a live session_id is an evolving checkpoint. V1 refresh internally
-    calls bootstrap and therefore creates a transient successor session. Collapse
-    that transient session back into the requested session after a successful
-    refresh so the next refresh compares against the last observed address rather
-    than the original cold-start address. Explicit prior_address mode stays
-    stateless and may return a fresh session id.
-
-    RHL-002/RHL-003: preserve the newer master's shared-fresh verify/index read
-    membrane while this branch retains the separately witnessed RHL-001 resume
-    wrapper. All three surfaces fail closed when the shared remote cannot be
-    verified in REQUIRED mode.
+    RHL-004 is installed here after the successor extension is already active and
+    before that extension's explicit-next compatibility shim. The gate still runs
+    before the successor compiler itself; master terminal regressions are carried
+    into this braid and are the authority on behavioral equivalence.
     """
 
-    _install_shared_fresh_verify_index(runtime_cls)
+    _install_shared_fresh_verify_index(RehydrationLoopRuntime)
+    if not getattr(RehydrationLoopRuntime, "_athena_terminal_gate_v1_installed", False):
+        install_terminal_gate(RehydrationLoopRuntime, REHYDRATION_TOOLS)
 
     if getattr(runtime_cls, "_athena_boot_consistency_v1_registered", False):
         return
