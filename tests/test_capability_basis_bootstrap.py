@@ -110,6 +110,7 @@ class CapabilityBasisBootstrapTests(unittest.TestCase):
             agent_id="agent-a",
             task="capability negotiation",
             source_ref="runtime",
+            shared_remote_mode="DISABLED",
             continuation_shared_remote_mode="DISABLED",
         )
         basis = packet["operational_basis"]
@@ -134,6 +135,7 @@ class CapabilityBasisBootstrapTests(unittest.TestCase):
             agent_id="agent-a",
             task="capability negotiation",
             source_ref="runtime",
+            shared_remote_mode="DISABLED",
             continuation_shared_remote_mode="DISABLED",
         )
         session_id = first["session_id"]
@@ -170,6 +172,7 @@ class CapabilityBasisBootstrapTests(unittest.TestCase):
             agent_id="agent-a",
             task="x",
             source_ref="runtime",
+            shared_remote_mode="DISABLED",
             continuation_shared_remote_mode="DISABLED",
         )
         self.assertEqual(packet["address"]["prompt_stack_digest"], "prompt-digest")
