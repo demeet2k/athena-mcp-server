@@ -1,16 +1,18 @@
 from __future__ import annotations
 
 import json
+import math
 import time
 from collections import defaultdict
 from typing import Any, Dict, Mapping, Sequence
 
 from .identity import digest
+from .party_board_bridge import PartyBoardBridge, VERSION as PARTY_BOARD_BRIDGE_VERSION
 from .party_protocol import PARTY_RESOURCE, PARTY_TOOL_NAMES, PARTY_TOOLS
 from .party_runtime import OBSERVED_STATUSES, PartyRuntime, party_bonus_rate
 
 
-PARTY_SURFACE_VERSION = "PARTY.SURFACE.2"
+PARTY_SURFACE_VERSION = "PARTY.SURFACE.3"
 PARTY_GUARD_SCHEMA = """
 CREATE UNIQUE INDEX IF NOT EXISTS idx_party_xp_source_global
   ON party_xp_awards(agent,source_xp_ref);
@@ -42,26 +44,48 @@ def _nonnegative(value: Any, label: str) -> float:
         out = float(value)
     except (TypeError, ValueError):
         raise ValueError(f"{label} must be numeric") from None
+    if not math.isfinite(out):
+        raise ValueError(f"{label} must be finite")
     if out < 0:
         raise ValueError(f"{label} must be >= 0")
     return out
 
 
 class PartySurface:
-    """Native AOR development-surface adapter for durable agent parties.
+    """Native AOR surface for shared agent parties and bounded synergy credit.
 
-    The underlying PartyRuntime owns party/membership/message/cycle persistence.
-    This surface owns credit-boundary hardening: only communication explicitly
-    referencing the current steering cycle is XP-eligible, upstream XP receipts
-    are globally single-use per agent, and observed outcome refs are single-use.
+    PartyRuntime owns local semantic/credit persistence. PartyBoardBridge binds
+    presence, collaboration and message transport to canonical Message Board V1.
+    XP eligibility therefore requires both current-cycle party semantics and a
+    revalidated shared-Git Message Board event; local-only chat never qualifies.
     """
 
     def __init__(self, server: Any):
         self.server = server
         self.runtime = PartyRuntime(server)
+        self.bridge = PartyBoardBridge(server, self.runtime)
         self.s = server.store
         with self.s.db:
             self.s.db.executescript(PARTY_GUARD_SCHEMA)
+
+    def _decorate_state(self, value: Dict[str, Any]) -> Dict[str, Any]:
+        if not isinstance(value, dict):
+            return value
+        rules = value.get("rules")
+        if isinstance(rules, dict):
+            rules["communication_scope"] = "CURRENT_CYCLE_SHARED_MESSAGE_BOARD_EVENTS_ONLY_FOR_XP"
+            rules["replay_guard"] = "GLOBAL UNIQUE(agent,source_xp_ref) + UNIQUE(outcome_ref)"
+            rules["shared_coordination"] = "MESSAGE_BOARD_V1_REQUIRED_FOR_PUBLIC_PARTY_IO"
+        party_id = value.get("party_id")
+        if party_id:
+            try:
+                party = self.runtime._party(str(party_id))
+                policy = json.loads(party["policy_json"])
+                value["message_board_binding"] = policy.get("message_board")
+            except Exception:
+                value.setdefault("message_board_binding", None)
+        value.setdefault("shared_coordination", "MESSAGE_BOARD_V1")
+        return value
 
     def _cycle_credit(
         self,
@@ -70,6 +94,7 @@ class PartySurface:
         outcomes: Sequence[Mapping[str, Any]],
         xp_receipts: Sequence[Mapping[str, Any]],
         actor: str = "agent",
+        remote: str = "origin",
     ) -> Dict[str, Any]:
         party = self.runtime._party(party_id)
         cycle_id = _text(cycle_id, "cycle_id")
@@ -117,13 +142,15 @@ class PartySurface:
         if not normalized:
             raise ValueError("outcomes must be non-empty")
 
-        all_messages = self.runtime._messages(party_id)
-        cycle_messages = [
-            row for row in all_messages if cycle_id in set(map(str, row.get("refs") or []))
-        ]
+        cycle_messages, board_receipt = self.bridge.verified_cycle_messages(
+            party_id,
+            cycle_id,
+            remote=str(remote or "origin"),
+        )
         credit = party_bonus_rate(member_ids, len(goal_ids), cycle_messages, normalized)
-        credit["communication_scope"] = "CURRENT_CYCLE_REFS_ONLY"
+        credit["communication_scope"] = "CURRENT_CYCLE_SHARED_MESSAGE_BOARD_EVENTS_ONLY"
         credit["cycle_id"] = cycle_id
+        credit["message_board"] = board_receipt
         if not credit["active"]:
             return {
                 "party_id": party_id,
@@ -131,7 +158,7 @@ class PartySurface:
                 "status": "BONUS_LOCKED",
                 "credit": credit,
                 "awards": [],
-                "law": "party presence, historical communication, and planning do not mint XP; current-cycle witnessed synergy must satisfy every gate",
+                "law": "presence, historical/local-only chat, and planning do not mint XP; current-cycle Message Board-witnessed synergy must satisfy every gate",
             }
 
         contributors = {x["agent"] for x in normalized}
@@ -245,7 +272,8 @@ class PartySurface:
                 "party_id": party_id,
                 "cycle_id": cycle_id,
                 "bonus_rate": rate,
-                "communication_scope": "CURRENT_CYCLE_REFS_ONLY",
+                "communication_scope": "CURRENT_CYCLE_SHARED_MESSAGE_BOARD_EVENTS_ONLY",
+                "message_board_git_head": board_receipt.get("message_board_git_head"),
                 "award_ids": [x["award_id"] for x in awards],
                 "source_xp_refs": [x["source_xp_ref"] for x in awards],
                 "outcome_refs": sorted(seen_outcomes),
@@ -266,31 +294,11 @@ class PartySurface:
         if name not in PARTY_TOOL_NAMES:
             return False, None
         if name == "athena_party_form":
-            return True, self.runtime.form(
-                args["leader"],
-                args["goals"],
-                args["channels"],
-                args.get("capabilities"),
-                args.get("name"),
-                args.get("policy"),
-            )
+            return True, self._decorate_state(self.bridge.form(args))
         if name == "athena_party_join":
-            return True, self.runtime.join(
-                args["party_id"],
-                args["agent"],
-                args.get("capabilities"),
-                args.get("role", "MEMBER"),
-            )
+            return True, self._decorate_state(self.bridge.join(args))
         if name == "athena_party_message":
-            return True, self.runtime.message(
-                args["party_id"],
-                args["author"],
-                args["channel"],
-                args["target"],
-                args["kind"],
-                args["body"],
-                args.get("refs"),
-            )
+            return True, self.bridge.message(args)
         if name == "athena_party_steer":
             return True, self.runtime.steer(
                 args["party_id"], args.get("actor", "agent"), args.get("persist", True)
@@ -302,12 +310,10 @@ class PartySurface:
                 args["outcomes"],
                 args["xp_receipts"],
                 args.get("actor", "agent"),
+                args.get("remote", "origin"),
             )
         if name == "athena_party_state":
-            state = self.runtime.state(args["party_id"])
-            state["rules"]["communication_scope"] = "CURRENT_CYCLE_REFS_ONLY_FOR_XP"
-            state["rules"]["replay_guard"] = "GLOBAL UNIQUE(agent,source_xp_ref) + UNIQUE(outcome_ref)"
-            return True, state
+            return True, self._decorate_state(self.runtime.state(args["party_id"]))
         if name == "athena_party_list":
             return True, self.runtime.list(args.get("status"), args.get("limit", 100))
         raise KeyError(name)
@@ -319,23 +325,30 @@ class PartySurface:
             "version": PARTY_SURFACE_VERSION,
             "runtime": self.runtime.benchmark(),
             "parties": self.runtime.list(limit=100),
+            "shared_coordination": {
+                "substrate": "MESSAGE_BOARD_V1",
+                "bridge_version": PARTY_BOARD_BRIDGE_VERSION,
+                "available": self.bridge.available(),
+                "law": "form/join/message use Message Board V1; XP accepts only cycle-scoped local messages whose shared board events revalidate after a fresh shared-Git sync",
+            },
             "big3": {
                 "shape": "3 strategy families x 5 variants x 7 stages x 9 output heads",
                 "families": ["MATCH", "BRAID", "PARETO"],
                 "pareto_kernel": "QHUG.PARETO-KERNEL.23.2",
             },
             "xp_law": {
-                "presence_xp": 0,
+                "formation_xp": 0,
+                "join_presence_xp": 0,
                 "message_xp": 0,
                 "planning_xp": 0,
                 "maximum_party_bonus_rate": 0.05,
                 "minimum_contributors": 2,
                 "minimum_observed_goals": 2,
-                "communication_scope": "messages explicitly referencing the current cycle_id",
+                "communication_scope": "current-cycle shared Message Board events only",
                 "source_receipt_replay_guard": "global per agent",
                 "outcome_replay_guard": "global outcome_ref",
             },
-            "boundary": "party state is coordination and bonus-ledger state; it does not become Y1 truth/evidence authority and does not replace upstream quest XP accounting",
+            "boundary": "party state is coordination and bonus-ledger state; Message Board routing is not message consumption or truth; neither surface becomes Y1 evidence authority and neither replaces upstream quest XP accounting",
         }
 
     def benchmark(self) -> Dict[str, Any]:
@@ -344,6 +357,8 @@ class PartySurface:
             "SELECT COUNT(*) n FROM party_credit_outcomes"
         )["n"]
         out["party_surface"] = PARTY_SURFACE_VERSION
+        out["party_message_board_bridge"] = PARTY_BOARD_BRIDGE_VERSION
+        out["party_shared_board_available"] = self.bridge.available()
         return out
 
 
