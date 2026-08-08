@@ -1,0 +1,57 @@
+{
+  "artifact": "ATHENA.STEERING.SIBLING.DISPOSITION.SPEC.V1",
+  "status": "CANDIDATE",
+  "parent_issue": "demeet2k/Athena#189",
+  "acceptance_rung": 6,
+  "purpose": "Allow an explicitly consumed, current-head sibling delta to classify a historical steering action SATISFIED or SUPERSEDED without deleting the historical action or minting execution authority.",
+  "relations": {
+    "SATISFIES": "SATISFIED",
+    "SUPERSEDES": "SUPERSEDED"
+  },
+  "required_current_address": [
+    "git_head",
+    "shared_fresh=true"
+  ],
+  "required_sibling_delta": [
+    "target_step",
+    "relation",
+    "source_ref",
+    "source_head",
+    "recipient_head=current git_head",
+    "consumed=true",
+    "recipient_readback_ref",
+    "reason",
+    "evidence_refs or source/readback references"
+  ],
+  "optional_freshness": [
+    "expected_vid",
+    "current_vid"
+  ],
+  "output": {
+    "BOUND": "returns one assessment row compatible with ATHENA.STEERING.PULSE.COMPILATION.V1",
+    "HOLD_INVALID_SIBLING_EVIDENCE": "returns no assessment and exact validation failures"
+  },
+  "preservation": [
+    "source_action.step retained",
+    "source_action.tag retained",
+    "source_action.text retained verbatim",
+    "compiler remains responsible for pulse 4I/3M/3L coverage accounting",
+    "recipient evidence is additive lineage rather than replacement history"
+  ],
+  "non_inference": [
+    "the resolver does not infer SATISFIES/SUPERSEDES from prose similarity",
+    "branch namespace placement is not consumption",
+    "delivery is not causal influence",
+    "evidence binding is not execution authority"
+  ],
+  "laws": [
+    "DELIVERY != CONSUMPTION",
+    "CONSUMPTION != CAUSAL_INFLUENCE",
+    "SIBLING_DELTA != SATISFIED_UNTIL_CURRENT_RECIPIENT_READBACK",
+    "SATISFIED != EXECUTION_AUTHORITY",
+    "SUPERSEDED != ERASED",
+    "HISTORICAL_ACTION_TEXT_REMAINS_SOURCE_LINEAGE",
+    "STALE_RECIPIENT_HEAD => HOLD",
+    "SIBLING_EVIDENCE_BINDING != CLAIM"
+  ]
+}
