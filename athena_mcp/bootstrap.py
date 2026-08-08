@@ -10,7 +10,10 @@ GENESIS=[
 ('HARNESS','DEVELOPMENT','MAXIMIZE','WHOLE_SYSTEM_DELTA','MAXDEV_SELFPLAY',{'task':'whole objective'},{'crystal_delta':'integrated output'}),
 ('BENCH','PERFORMANCE','MEASURE','MAXDEV','FRONTIER_VECTOR',{'run':'metrics'},{'pareto_record':'vector'}),
 ('MODEL','REPRESENTATION','LIFT','EVENTS_TO_ORGAN','SCALE_S0_S5',{'events':'ledger'},{'representation':'S0..S5'}),
-('INDEX','GRAPH','PROJECT','CAUSAL_LEDGER','JSPACE',{'events':'ledger'},{'graph':'typed multigraph'})]
+('INDEX','GRAPH','PROJECT','CAUSAL_LEDGER','JSPACE',{'events':'ledger'},{'graph':'typed multigraph'}),
+('HARNESS','OPTIMIZATION','SOLVE','BOOLEAN_PARETO_KERNEL','QHUG_V23_2',{'patches':'boolean patch resources','invalid':'forced false','conflicts':'pair exclusions','dependencies':'OR-of-AND prerequisites','mode':'governed|neutral'},{'components':'exact factors','model_count':'integer','pareto_frontier':'nondominated resource vectors','optimum':'all ties'}),
+('TOOL','OPTIMIZATION','ANALYZE','BOOLEAN_KERNEL','QHUG_COMPONENT_FACTOR_V23_2',{'patches':'boolean patch kernel','constraints':'validity/dependency/conflict'},{'primal_graph':'components','structural_free':'coordinates','component_enumeration_work':'integer'}),
+('TOOL','GRAPH','VERIFY','TREE_DECOMPOSITION','QHUG_TREEWIDTH_CERT_V23_2',{'bags':'tree decomposition','factor_scopes':'QHUG constraints'},{'factor_coverage':'bool','running_intersection':'bool','width_upper_bound':'integer','clique_lower_bound':'integer','exact_treewidth_certified':'bool'})]
 def bootstrap(core):
     if core.s.one('SELECT COUNT(*) n FROM objects')['n']: return
     for kind,domain,verb,obj,method,inp,out in GENESIS:
