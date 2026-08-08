@@ -1,2 +1,3 @@
-from .hub_server import main
+from .deployment_hub import main
+
 main()

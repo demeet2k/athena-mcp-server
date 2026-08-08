@@ -1,0 +1,81 @@
+{
+  "schema": "ATHENA.RELEASE.DISTRIBUTION.2",
+  "version": "3.1.0",
+  "tag": "v3.1.0",
+  "title": "ATHENA 3.1.0 — Deployment Control Plane",
+  "package": {
+    "name": "athena-canonical-mcp",
+    "wheel": "athena_canonical_mcp-3.1.0-py3-none-any.whl",
+    "entrypoint": "athena_mcp.deployment_hub:main",
+    "http_entrypoint": "athena_mcp.http_host:main",
+    "python": ">=3.11",
+    "embedded_registry_carrier": "athena_mcp/data/kc144-core-registries.tar.xz"
+  },
+  "source": {
+    "repository": "demeet2k/athena-mcp-server",
+    "target_branch": "agent/aor-collective-unified",
+    "predecessor_release_commit": "c8efe41901232c6f385dcac54cab84e602df5cfa",
+    "predecessor_release_tree": "dccc1c86b9d294bc4f81535382afb30b058522fc",
+    "predecessor_pull_request": 34,
+    "predecessor_ci_run": 31263901628,
+    "predecessor_unit_tests": 315
+  },
+  "container": {
+    "repository": "ghcr.io/demeet2k/athena-mcp-server",
+    "dockerfile": "Dockerfile",
+    "platforms": ["linux/amd64", "linux/arm64"],
+    "runtime_user": "65532:65532",
+    "http_adapter": "ATHENA.JSONRPC.HTTP.ADAPTER.1",
+    "production_identity": "repository@sha256:digest",
+    "mutable_latest_tag": false,
+    "buildkit_provenance": true,
+    "buildkit_sbom": true
+  },
+  "deployment": {
+    "version": "ATHENA.DEPLOYMENT.1",
+    "state_mode": "SINGLE_WRITER",
+    "replicas": 1,
+    "strategy": "ISOLATED_CANARY_THEN_SINGLE_WRITER_CUTOVER",
+    "compose": "deploy/compose.yaml",
+    "kubernetes_template": "deploy/kubernetes/athena.yaml.tmpl",
+    "renderer": "deploy/render.py",
+    "activation_is_not_implied": true
+  },
+  "release": {
+    "draft": false,
+    "prerelease": false,
+    "notes_file": "release/v3.1.0.md",
+    "required_assets": [
+      "athena_canonical_mcp-3.1.0-py3-none-any.whl",
+      "kc144-core-registries.tar.xz",
+      "release-manifest.json",
+      "release-attestation.json",
+      "container-attestation.json",
+      "application-sbom.spdx.json",
+      "deployment-manifest.yaml",
+      "SHA256SUMS"
+    ]
+  },
+  "gates": [
+    "exact target branch and exact release commit",
+    "manifest, package, stdio entrypoint and HTTP entrypoint identity",
+    "full repository unit corpus",
+    "wheel build and clean wheel installation",
+    "embedded registry reconstruction",
+    "DeploymentHubServer MCP initialization",
+    "DEPLOYMENT.1 tool and resource exposure",
+    "multi-platform OCI build with BuildKit provenance and SBOM",
+    "exact OCI digest pull and secure container smoke",
+    "non-root, read-only, capability-dropped runtime",
+    "digest-rendered Kubernetes manifest",
+    "exact-head Git tag compare-and-swap",
+    "release asset checksum and readback verification"
+  ],
+  "authority_boundaries": [
+    "GitHub and GHCR publication are distribution, not host activation or production deployment.",
+    "An OCI tag is not an immutable image identity; production activation requires the exact digest.",
+    "An OCI digest, SBOM, provenance packet, ready probe or canary decision is not empirical truth or causal proof.",
+    "Deployment metadata and health observations do not become Y1 authority by publication.",
+    "The release does not authorize production secrets, infrastructure mutation, database cutover, DNS changes or traffic movement."
+  ]
+}

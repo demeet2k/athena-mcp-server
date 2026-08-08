@@ -4,13 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "athena-canonical-mcp"
-version = "3.0.0"
-description = "Canonical KC144/JSPACE/SCALE developmental control with adaptive probabilistic inference, causal sensitivity, finite belief-state planning, and witnessed whole-system release control"
+version = "3.1.0"
+description = "Canonical Collective V11 × KC144 developmental control with secure JSON-RPC HTTP hosting, digest-pinned OCI deployment, canary rollback, adaptive probabilistic inference, causal sensitivity, and finite belief-state planning"
 requires-python = ">=3.11"
 dependencies = []
 
 [project.scripts]
-athena-mcp = "athena_mcp.hub_server:main"
+athena-mcp = "athena_mcp.deployment_hub:main"
+athena-mcp-http = "athena_mcp.http_host:main"
 
 [tool.setuptools.packages.find]
 include = ["athena_mcp*"]

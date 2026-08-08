@@ -1,0 +1,42 @@
+services:
+  athena:
+    image: "${ATHENA_IMAGE:?Set ATHENA_IMAGE to an exact ghcr.io/...@sha256 digest}"
+    user: "65532:65532"
+    read_only: true
+    restart: unless-stopped
+    init: true
+    environment:
+      ATHENA_HTTP_HOST: 0.0.0.0
+      ATHENA_HTTP_PORT: "8765"
+      ATHENA_DB: /var/lib/athena/athena.db
+      ATHENA_SCHEMA_MIGRATE: "true"
+      ATHENA_HTTP_TOKEN_FILE: /run/secrets/athena_http_token
+    ports:
+      - "127.0.0.1:${ATHENA_PORT:-8765}:8765"
+    volumes:
+      - athena-state:/var/lib/athena
+    secrets:
+      - athena_http_token
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=64m,uid=65532,gid=65532
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - import urllib.request; urllib.request.urlopen('http://127.0.0.1:8765/readyz', timeout=4).read()
+      interval: 15s
+      timeout: 5s
+      start_period: 30s
+      retries: 4
+
+secrets:
+  athena_http_token:
+    file: "${ATHENA_TOKEN_FILE:?Set ATHENA_TOKEN_FILE to a local secret file}"
+
+volumes:
+  athena-state:
