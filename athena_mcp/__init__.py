@@ -2,10 +2,9 @@
 
 `protocol.py` remains the mature schema registry. Package initialization owns the
 release identity and patches compatibility surfaces before dispatch observes them.
-Frontier V1 and the rehydration-loop V1 harness are explicit extensions of the
-Git prompt runtime so they reuse the existing MCP dispatcher, prompt CAS, remote
-freshness membrane, and authority boundaries instead of creating another control
-plane.
+Frontier V1, rehydration-loop V1, and the successor-baton V1 extension reuse the
+existing Git prompt runtime so long chains gain explicit self-steering without a
+second dispatcher, state store, or authority plane.
 """
 
 __version__ = "3.2.0"
@@ -24,9 +23,9 @@ SERVER_INFO = {
 _protocol.SERVER_INFO = dict(SERVER_INFO)
 
 # Prompt × frontier braid registration. The dispatcher already routes the
-# PROMPT_RUNTIME_TOOL_NAMES family through PromptRuntime.call_tool, so frontier
-# and rehydration tools extend that family rather than duplicating dispatch,
-# state, authority, or remote-delivery code.
+# PROMPT_RUNTIME_TOOL_NAMES family through PromptRuntime.call_tool, so frontier,
+# rehydration, and successor tools extend that family rather than duplicating
+# dispatch, state, authority, or remote-delivery code.
 from .prompt_runtime import PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES
 from .frontier_runtime import FrontierRuntime, FRONTIER_TOOLS, FRONTIER_TOOL_NAMES
 from .rehydration_loop import (
@@ -34,6 +33,11 @@ from .rehydration_loop import (
     REHYDRATION_TOOL_NAMES,
     RehydrationLoopRuntime,
 )
+from .rehydration_successor import install_successor_extension
+
+# Install the successor membrane before tool registration so its preview tool and
+# completion schema extensions are part of the same PromptRuntime surface.
+install_successor_extension(RehydrationLoopRuntime, REHYDRATION_TOOLS, REHYDRATION_TOOL_NAMES)
 
 # The prompt stack is a content-policy coordinate, not a synonym for repository
 # time. Keep git_head in ancestry for provenance while excluding it from the
