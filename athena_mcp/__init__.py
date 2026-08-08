@@ -49,6 +49,13 @@ if not getattr(PromptRuntime, "_athena_content_digest_v1_registered", False):
 # fetch-status or repository-clock coordinate. Source head and remote witness are
 # independent siblings. Include every runtime path actually available so replay
 # provenance is complete while environment metadata cannot perturb the digest.
+#
+# FBR-005 antibody: the append-only event projection intentionally remains a pure
+# replay of scheduler events, but provider claim creation is the real exclusion
+# boundary. A fixed claim file may therefore exist briefly before CLAIM_ACQUIRED
+# is appended. During that window, event-derived PENDING/READY state must not be
+# advertised as claimable work. Provider occupancy suppresses selection while a
+# typed residual preserves the event/claim disagreement for reconciliation.
 if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
     _frontier_source_with_local_fallback = FrontierRuntime._source
     _frontier_hydrate_with_environment_digest = FrontierRuntime.hydrate
@@ -71,15 +78,65 @@ if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
 
     def _frontier_hydrate_content_digest(self, *args, **kwargs):
         packet = _frontier_hydrate_with_environment_digest(self, *args, **kwargs)
-        packet["generated_from"] = self._paths(packet["source_head"], "runtime/queue", "runtime/runs")
+        runtime_paths = self._paths(packet["source_head"], "runtime/queue", "runtime/runs")
+        packet["generated_from"] = runtime_paths
+
+        provider_claim_paths = {
+            path
+            for path in runtime_paths
+            if "/claims/" in path and path.endswith(".json")
+        }
+        kept_ready = []
+        suppressed = []
+        for candidate in packet.get("ready_work") or []:
+            claim_path = str(candidate.get("claim_path") or "")
+            if claim_path and claim_path in provider_claim_paths:
+                witness = {
+                    "run_id": candidate.get("run_id"),
+                    "node_id": candidate.get("node_id"),
+                    "claim_path": claim_path,
+                    "reason": "FIXED_CLAIM_PATH_PRESENT_BEFORE_EVENT_RECONCILIATION",
+                }
+                suppressed.append(witness)
+                pressure = {
+                    "kind": "CLAIM_EVENT_LAG",
+                    "code": "FIXED_CLAIM_PATH_PRESENT_BEFORE_CLAIM_EVENT",
+                    "run_id": candidate.get("run_id"),
+                    "node_id": candidate.get("node_id"),
+                    "claim_path": claim_path,
+                    "priority": candidate.get("priority"),
+                    "observability": "OBSERVED_PROVIDER_STATE",
+                }
+                packet.setdefault("pressures", []).append(pressure)
+                packet.setdefault("residuals", []).append(dict(pressure))
+                continue
+            kept_ready.append(candidate)
+        packet["ready_work"] = kept_ready
+        packet["claim_readiness_suppressed"] = sorted(
+            suppressed,
+            key=lambda x: (str(x.get("run_id")), str(x.get("node_id"))),
+        )
+        packet["pressures"] = sorted(
+            packet.get("pressures") or [],
+            key=lambda x: (str(x.get("kind")), str(x.get("run_id")), str(x.get("node_id"))),
+        )
+        packet["residuals"] = sorted(
+            packet.get("residuals") or [],
+            key=lambda x: (str(x.get("kind")), str(x.get("run_id")), str(x.get("node_id"))),
+        )
+        law = "FIXED_CLAIM_PATH_PRESENT -> NOT_READY_UNTIL_EVENT_RECONCILED"
+        if law not in packet["laws"]:
+            packet["laws"].append(law)
+
         keys = (
             "generated_from", "objectives", "runs", "pressures", "ready_work",
-            "claims", "residuals", "source_coverage", "authority", "sched_contract", "laws"
+            "claims", "claim_readiness_suppressed", "residuals", "source_coverage",
+            "authority", "sched_contract", "laws"
         )
         digest_basis = _strip_frontier_clock({key: packet.get(key) for key in keys})
         payload = json.dumps(digest_basis, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
         packet["frontier_digest"] = hashlib.sha256(payload).hexdigest()
-        packet["frontier_digest_basis"] = "reduced runtime content plus pinned SCHED interpretation contract; recursively excludes source_head clock while source/ref/checkout/witness/prompt digest remain separate address coordinates"
+        packet["frontier_digest_basis"] = "reduced runtime content plus pinned SCHED interpretation contract; recursively excludes source_head clock while source/ref/checkout/witness/prompt digest remain separate address coordinates; fixed provider claim occupancy suppresses event-lag READY candidates"
         return packet
 
     FrontierRuntime._source = _frontier_source_requires_requested_remote_ref
