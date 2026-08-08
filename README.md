@@ -1,228 +1,241 @@
-# ATHENA Canonical MCP v2.6 — Polycoordinate Crystal + Dual-Control Causal Discovery Runtime
+# ATHENA Canonical MCP v2.7 — Polycoordinate Crystal + Finite Belief-State Decision Runtime
 
-ATHENA's executable Git/MCP nervous substrate combines canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, and a layered collective runtime spanning organization, memory, bounded learning, experimental ecology, causal science, active discovery, stochastic control and V7 dual-control/conditional-causal-discovery surfaces.
+ATHENA's executable Git/MCP nervous substrate combines canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, collective organization/memory/learning, causal experimental science, active discovery, stochastic/dual control, and V8 finite belief-state decision machinery.
 
 ## Runtime cycle
 
-`HYDRATE → CHOOSE MINIMUM-SUFFICIENT RUNTIME DEPTH → MEMORY/ANTIBODY/ELDER/SCIENCE-SHADOW → REGIME+OOD → BAYES/CALIBRATION/NONLINEAR BASIS → OPTIONAL UNCERTAINTY DECOMPOSITION/PREQUENTIAL BAND → LIVE HYPOTHESES → OPTIONAL ASSOCIATION-SKELETON HYPOTHESES → GENERATE/RANK EXPERIMENTS → CONDITIONAL BACKDOOR/FRONTDOOR/IV IDENTIFICATION → PARETO FRONTIER → COLLECTIVE PLAN → CERTIFIED/HEURISTIC SCHEDULE → STATE-DEPENDENT TRANSITION MODEL → OPTIONAL SCENARIO/CVAR → OPTIONAL DUAL-CONTROL PLAN → EXECUTE FIRST AUTHORIZED ACTION → OBSERVE/METER → FALSIFY/REPLICATE → CREDIT → BAYES/BANDIT/POLICY/TRANSITION UPDATE → REPLICATION-INDEPENDENCE/DESIGN UPDATE → MEMORY/IMMUNE/ELDER → JSPACE/TOPOLOGY/PROJECTION/COMPENSATION → LIFECYCLE → FINALIZE/VERIFY → CONDITIONAL COMMIT → REPLAN/REATTACK`.
+`HYDRATE → CHOOSE MINIMUM-SUFFICIENT DEPTH → MEMORY/SCIENCE-SHADOW → REGIME/OOD → PREDICT/CALIBRATE → OPTIONAL FINITE BELIEF → LIVE HYPOTHESES → EIG OR DECISION-EVI EXPERIMENT DESIGN → CONDITIONAL CAUSAL IDENTIFICATION → OPTIONAL CAUSAL EFFECT ESTIMATE → PARETO/SCHEDULE → STATE MODEL/SCENARIO/DUAL OR BELIEF-DUAL PLAN → EXECUTE FIRST AUTHORIZED ACTION → OBSERVE/METER → EXPLICIT BELIEF/MODEL UPDATE → REPLICATE/FALSIFY → CREDIT → MEMORY/IMMUNE/ELDER → JSPACE/TOPOLOGY/PROJECTION/COMPENSATION → LIFECYCLE → FINALIZE/VERIFY → CONDITIONAL COMMIT → REPLAN/REATTACK`.
 
 ## Authority
 
 - semantic state: expected-VID / semantic-head CAS;
-- Git state: expected-Git-head CAS;
-- collective topology: expected-topology-version CAS;
-- learned V3 policy: expected-policy-version CAS;
-- topology→JSPACE remains a recovery saga rather than a fictional SQLite+Git distributed transaction;
-- V5 semantic compensation retracts only active edges owned by the exact projection and never rewrites Git history;
-- V4–V7 statistical, causal-identification, scenario, planning and replication-design surfaces are evidential/control state and have no hidden semantic mutation authority.
+- Git state: expected Git-head CAS;
+- collective topology: expected topology version;
+- learned V3 policy: expected policy version;
+- topology→JSPACE remains a recovery saga, not a fictional cross-store transaction;
+- V5 semantic compensation retracts only active projection-owned semantic effects and never implies Git rollback;
+- V4–V8 statistical, belief, causal-estimation, scenario, experiment-design and replication state is evidential/control state and has no independent semantic-mutation authority.
 
 `SID != OID != MID != VID != CID != EID != CRYS != ENV`.
 
 ## Exact visible output
 
-`athena_finalize_output` crystallizes the exact body, derives its header, assembles the visible envelope, creates an emission manifestation and indexes every visible lexeme. `athena_verify_emission` recomputes the exact visible-byte digest.
+`athena_finalize_output` crystallizes the exact visible body, derives its header, assembles `HEADER+BODY`, creates an emission manifestation and indexes visible lexemes. `athena_verify_emission` recomputes the exact visible-byte digest.
 
-Coordinate lists are navigation only. `LOOKUP != DERIVATION`; measured holonomy promotes only all-derivational loops.
+`LOOKUP != DERIVATION`; coordinate lists are navigation, not identity.
 
 ---
 
-## V1 — organization
+## V1–V4 — organization → memory → bounded experimental ecology
 
-HIVE/SWARM/PACK/FLOCK/HERD/POD selection, dynamic width, roles, bounded topology, reserve, quorum/inhibition, stigmergy and homeostasis.
+- **V1:** HIVE/SWARM/PACK/FLOCK/HERD/POD, dynamic width, roles, reserve, sparse topology, quorum/inhibition, homeostasis.
+- **Growth:** demand allocation, bridge economics, FISSION/FUSE/HOLD, dependency alarms, lineage-preserving lifecycle.
+- **V2:** persistent pheromones, typed JSPACE invalidation, RGO calibration, topology CAS/rollback, failure antibodies.
+- **V3:** observed budgets, bounded rollbackable learned policy, counterfactuals, elder authority, antibody evolution, multiscale pheromones.
+- **V4:** contextual UCB, causal-confidence credit/residual, worker-cost scheduling, learned diffusion, executable regressions, explicit-transition rollouts and topology→JSPACE sagas.
 
-Resource: `athena://collective/runtime`  
-Spec: `spec/COLLECTIVE_RUNTIME.md`
+Resources:
 
-`MAX_GROWTH != MAX_ACTIVITY`; `MAX_INTEGRATION != MAX_CONNECTIVITY`.
+`athena://collective/runtime`, `athena://collective/growth`, `athena://collective/v2`, `athena://collective/v3`, `athena://collective/v4`.
 
-## Growth V1 — metabolism
-
-Demand allocation, bridge accounting, FISSION/FUSE/HOLD pressure, dependency alarms and lineage-preserving lifecycle.
-
-Resource: `athena://collective/growth`  
-Spec: `spec/COLLECTIVE_GROWTH.md`
-
-## V2 — persistent organizational memory
-
-Database-backed pheromones, typed JSPACE invalidation, RGO calibration, topology CAS/rollback and reusable failure antibodies.
-
-Resource: `athena://collective/v2`  
-Spec: `spec/COLLECTIVE_RUNTIME_V2.md`
-
-## V3 — bounded empirical adaptation
-
-Observed budget memory, bounded rollbackable learned policy, counterfactuals, evidence-backed elders, antibody evolution and multiscale pheromones.
-
-Resource: `athena://collective/v3`  
-Spec: `spec/COLLECTIVE_RUNTIME_V3.md`
-
-## V4 — uncertainty-aware experimental ecology
-
-Task regimes, contextual UCB, causal-confidence credit/residual, measured worker costs, learned diffusion, restricted regression witnesses, explicit-transition rollouts and topology→JSPACE recovery sagas.
-
-Resource: `athena://collective/v4`  
-Spec: `spec/COLLECTIVE_RUNTIME_V4.md`
-
-`UCB != TRUTH`; `ASSOCIATION != CAUSATION`; `UNKNOWN_COST != ZERO_COST`; `PROJECTION_SAGA != ATOMIC_TRANSACTION`.
+Core laws: `MAX_GROWTH != MAX_ACTIVITY`; `MAX_INTEGRATION != MAX_CONNECTIVITY`; `UCB != TRUTH`; `UNKNOWN_COST != ZERO_COST`; `PROJECTION_SAGA != ATOMIC_TRANSACTION`.
 
 ## V5 — causal experimental operating system
 
-Full-covariance contextual Bayesian prediction, retained pre-update empirical calibration, expected-information-gain experiment ranking, factorial/delayed credit, learned transition summaries, finite-horizon beam scheduling, stronger constrained witness cells, learned regimes, exact finite Pareto frontiers and narrow semantic projection compensation.
+Full-covariance Bayesian context state, retained pre-update interval calibration, expected-information-gain experiment ranking, factorial/delayed credit, learned transition summaries, multi-period beam scheduling, process-constrained witness cells, learned regimes, Pareto frontiers and narrow semantic compensation.
 
 Resource: `athena://collective/v5`  
 Spec: `spec/COLLECTIVE_RUNTIME_V5.md`
 
-`POSTERIOR != TRUTH`; `EIG != EVIDENCE`; `DESIGN != RESULT`; `INTERACTION != CAUSATION WITHOUT IDENTIFICATION`; `TRANSITION_MODEL != WORLD`; `PARETO_FRONTIER != SINGLE_BEST`; `SEMANTIC_COMPENSATION != GIT_ROLLBACK`.
+`POSTERIOR != TRUTH`; `EIG != EVIDENCE`; `DESIGN != RESULT`; `INTERACTION != CAUSATION WITHOUT IDENTIFICATION`; `TRANSITION_MODEL != WORLD`; `PARETO_FRONTIER != SINGLE_BEST`.
 
 ## V6 — active discovery + stochastic control
 
-Degree-2 nonlinear Bayesian lift, empirical OOD geometry, finite factor-space experiment generation, supplied-DAG back-door identification, order-2..4 factorial contrasts, multivariate action-conditioned transition covariance, receding-horizon MPC, exact small-model schedule certification, fail-closed bubblewrap witness capsules, interval-Pareto experiment selection and persistent science-shadow replication/falsification claims.
+Degree-2 nonlinear Bayesian lift, empirical OOD geometry, finite factor-space experiment generation, supplied-DAG back-door identification, order-2..4 factorial contrasts, multivariate transition covariance, receding-horizon MPC, exact small-model schedule certification, fail-closed bubblewrap witness capsules, interval-Pareto experiment selection and science-shadow replication/falsification claims.
 
 Resource: `athena://collective/v6`  
 Spec: `spec/COLLECTIVE_RUNTIME_V6.md`
 
-Key tools include:
+`NONLINEAR_BASIS != UNIVERSAL_INFERENCE`; `OOD != FALSEHOOD`; `GENERATED_EXPERIMENT != RESULT`; `MPC_PLAN != EXECUTION`; `REPLICATION_STATE != CANON`.
 
-- `athena_ood_score` / `athena_nonlinear_predict`;
-- `athena_experiment_generate`;
-- `athena_causal_identify`;
-- `athena_interaction_higher_order`;
-- `athena_transition_distribution` / `athena_mpc_plan`;
-- `athena_schedule_certified`;
-- `athena_witness_capsule`;
-- `athena_pareto_bandit_select`;
-- `athena_claim_register` / `athena_claim_witness` / `athena_claim_state`.
+## V7 — dual control + conditional causal discovery
 
-`NONLINEAR_BASIS != UNIVERSAL_INFERENCE`; `OOD != FALSEHOOD`; `GENERATED_EXPERIMENT != RESULT`; `BACKDOOR_SET != CAUSAL_TRUTH OUTSIDE SUPPLIED DAG`; `MPC_PLAN != EXECUTION`; `REPLICATION_STATE != CANON`.
-
----
-
-# V7 — Dual Control + Conditional Causal Discovery
-
-V7 closes a specific Ω6 residual: actions can now be ranked not only for expected control benefit but also for how much model uncertainty they may reduce. It also adds stronger state dependence, lower-tail scenario risk, more causal-identification criteria and replication-diversity geometry—without claiming exact Bayesian dual control or fully automatic causal discovery.
+V7 adds uncertainty-source diagnostics, empirical prequential bands, a bounded observational association-skeleton/v-structure hypothesis generator, state-dependent ridge transition models, three-branch moment scenario/CVaR evaluation, a bounded control+information proxy, supplied-DAG BACKDOOR/FRONTDOOR/INSTRUMENT checks, and metadata-based replication-independence/design surfaces.
 
 Resource: `athena://collective/v7`  
 Spec: `spec/COLLECTIVE_RUNTIME_V7.md`
 
-## ΩUNCERTAINTY
+Coordinate:
 
-- `athena_uncertainty_decompose`
-- `athena_prequential_interval`
+`COLLECTIVE_DUAL_CONTROL=<UD,PI,CG,SM,SC,DC,CX,RI,RD,L>`.
 
-V7 exposes diagnostic proxies for residual-noise/aleatoric, posterior-parameter/epistemic, OOD shift and empirical calibration error. Posterior leverage is
-
-`h(phi)=phi^T A^-1 phi`.
-
-The returned decomposition is model-conditional; it is not a uniquely identifiable physical decomposition.
-
-V7 also reuses retained pre-update absolute prediction errors as sequential nonconformity scores. With enough history it returns `EMPIRICAL_PREQUENTIAL_BAND`; with insufficient history it explicitly returns `INSUFFICIENT_PREQUENTIAL_SCORES`. Current OOD pressure widens the empirical band.
-
-`PREQUENTIAL_EMPIRICAL_INTERVAL != DISTRIBUTION_FREE_CONFORMAL_GUARANTEE UNDER ARBITRARY SHIFT`.
-
-## ΩCAUSAL-SKELETON
-
-- `athena_causal_skeleton_discover`
-
-A transparent bounded observational hypothesis generator computes marginal correlations, optional one-variable partial correlations, an undirected association skeleton, separation-set metadata and candidate collider motifs. It mutates no canonical graph.
-
-For one conditioning variable:
-
-`r_xy.z=(r_xy-r_xz*r_yz)/sqrt((1-r_xz^2)(1-r_yz^2))`.
-
-`ASSOCIATION_SKELETON != CAUSAL_DAG`; `V_STRUCTURE_CANDIDATE != CAUSAL_ORIENTATION`.
-
-## ΩSTATE-MODEL
-
-- `athena_state_transition_model`
-
-For an action, V7 fits a ridge state-dependent multivariate delta model from real V5 before/after observations:
-
-`Delta = B phi(x) + epsilon`.
-
-It returns query-state mean deltas, residual covariance, predictive covariance, posterior leverage and a parameter-information proxy. Unseen actions return `UNSEEN_ACTION` with no fabricated dynamics.
-
-## ΩSCENARIO
-
-- `athena_scenario_evaluate`
-
-Caller-supplied short action sequences can be evaluated on a bounded three-branch moment tree derived from the dominant predictive-covariance direction. Outputs include expected return, lower-tail CVaR return and risk-adjusted score.
-
-`SCENARIO_TREE != OBSERVED_FUTURE`; output is `SIMULATE_ONLY`.
-
-## ΩDUAL-CONTROL
-
-- `athena_dual_control_plan`
-
-A bounded beam planner uses
-
-`step = control_reward + lambda_I * parameter_information - lambda_R * predictive_risk`.
-
-The result is `DUAL_CONTROL_PROXY_PLAN_ONLY`. The lawful execution cycle is:
-
-`PLAN -> EXECUTE FIRST AUTHORIZED ACTION -> OBSERVE REAL NEXT STATE -> RECORD -> REPLAN`.
-
-Planning writes no transition observations.
-
-`DUAL_CONTROL_PROXY != EXACT_BELIEF_STATE_OPTIMAL_CONTROL`.
-
-## ΩEXTENDED-CAUSAL-ID
-
-- `athena_causal_identify_extended`
-
-Methods:
-
-- `BACKDOOR` — existing V6 criterion;
-- `FRONTDOOR` — checks mediator interception, directed T→M→Y chain, treatment→mediator back-door closure, mediator→outcome closure by conditioning on treatment, and mediator observability;
-- `INSTRUMENT` — checks graph-relative relevance, bounded exclusion/exogeneity d-separation after treatment causal out-edges are removed, and observed/pre-treatment status.
-
-Statuses such as `IDENTIFIED_FRONTDOOR_UNDER_DAG` and `IDENTIFIED_INSTRUMENT_UNDER_DAG` are conditional on the supplied DAG and assumptions. They do not prove the DAG or estimate the effect.
-
-## ΩREPLICATION-INDEPENDENCE
-
-- `athena_replication_independence`
-- `athena_replication_design`
-
-Witness similarity can use dataset, implementation, method, operator, environment and seed-family metadata. Confidence-weighted effective evidence count is
-
-`N_eff=(sum_i w_i)^2 / sum_ij w_i w_j s_ij`.
-
-Identical pipelines collapse toward effective `N=1`; diverse evidence can approach raw witness count. Missing comparable metadata is treated conservatively rather than assumed independent.
-
-`athena_replication_design` ranks proposed REPLICATION/FALSIFIER designs by expected power, metadata diversity, feasibility, cost and risk. It remains `DESIGN_ONLY`.
-
-## V7 coordinate
-
-`COLLECTIVE_DUAL_CONTROL=<UD,PI,CG,SM,SC,DC,CX,RI,RD,L>`
-
-where:
-
-- `UD` uncertainty decomposition;
-- `PI` prequential empirical interval;
-- `CG` causal-skeleton hypothesis state;
-- `SM` state-dependent model;
-- `SC` scenario/CVaR surface;
-- `DC` dual-control plan;
-- `CX` extended causal-ID witness;
-- `RI` replication-independence geometry;
-- `RD` replication/falsifier design;
-- `L` lineage.
-
-## V7 firewall
+Key laws:
 
 - `UNCERTAINTY_DECOMPOSITION != UNIQUE_PHYSICAL_TRUTH`
-- `PREQUENTIAL_BAND != UNIVERSAL_COVERAGE`
+- `PREQUENTIAL_BAND != DISTRIBUTION_FREE_ARBITRARY-SHIFT GUARANTEE`
 - `ASSOCIATION_SKELETON != CAUSAL_DAG`
-- `V_STRUCTURE_CANDIDATE != CAUSAL_ORIENTATION`
 - `STATE_DEPENDENT_TRANSITION_MODEL != WORLD_TRUTH`
 - `SCENARIO_TREE != OBSERVED_FUTURE`
-- `DUAL_CONTROL_PROXY != EXACT_BAYES_CONTROL`
-- `FRONTDOOR/IV_CHECK != CAUSAL_TRUTH OUTSIDE SUPPLIED DAG`
-- `ESTIMATED_REPLICATION_INDEPENDENCE != FORMAL_INDEPENDENCE`
-- `REPLICATION_DESIGN != RESULT`
+- `DUAL_CONTROL_PROXY != EXACT_BAYES_ADAPTIVE_CONTROL`
+- `FRONTDOOR/IV IDENTIFICATION != CAUSAL TRUTH OUTSIDE SUPPLIED DAG/ASSUMPTIONS`
+- `ESTIMATED_REPLICATION_INDEPENDENCE != FORMAL INDEPENDENCE`.
+
+---
+
+# V8 — Finite Belief State + Decision Value
+
+V8 attacks the next tractable residual: instead of valuing uncertainty only through a parameter-information proxy, the runtime can maintain an explicit finite distribution over competing models and value information by how much it improves the downstream decision.
+
+Resource: `athena://collective/v8`  
+Spec: `spec/COLLECTIVE_RUNTIME_V8.md`
+
+## ΩBELIEF
+
+Tools:
+
+- `athena_belief_register`
+- `athena_belief_state`
+- `athena_belief_observe`
+
+For models `M_i` with probabilities `p_i`, an explicit observed outcome with caller-supplied likelihood witness `L_i=P(y|M_i)` produces
+
+`p_i' = p_i L_i / Σ_j p_j L_j`.
+
+Likelihood is required for every model. Design/planning operations never mutate belief automatically.
+
+`BELIEF_POSTERIOR != CANONICAL_TRUTH` and `LIKELIHOOD_MODEL != OBSERVATION`.
+
+## ΩEVI — decision-theoretic value of information
+
+Tool:
+
+- `athena_decision_evi`
+
+For action utilities `U(a,M_i)`:
+
+`EU(a)=Σ_i p_i U(a,M_i)`
+
+and
+
+`V0=max_a EU(a)`.
+
+For experiment `e` with finite outcomes:
+
+`V(e)=Σ_y P(y|e) max_a EU(a|y,e)`
+
+and
+
+`EVI(e)=max(0,V(e)-V0)`.
+
+This differs from entropy-only EIG: information receives value only if it can improve the supplied downstream decision. Ethics remains a hard gate; cost/risk/feasibility remain explicit. Result is `DESIGN_ONLY`.
+
+`EVI_DESIGN != EXPERIMENT_RESULT`.
+
+## ΩBELIEF-DUAL
+
+Tool:
+
+- `athena_belief_dual_control`
+
+A bounded depth-1 finite-belief controller combines immediate expected utility, expected best next-decision utility, information gain, risk and cost:
+
+`Q(a)=EU_now(a)+γ E[V_next|a]+λ_I EIG(a)-λ_R Risk(a)-Cost(a)`.
+
+Result is `BELIEF_DUAL_CONTROL_DEPTH1_PLAN_ONLY`.
+
+It executes nothing and does not update belief.
+
+`BELIEF_DUAL_CONTROL != EXACT_BAYES_ADAPTIVE_POMDP`.
+
+## ΩCAUSAL-EFFECT
+
+Tool:
+
+- `athena_causal_effect_estimate`
+
+Implemented assumption-scoped estimators:
+
+- `BACKDOOR_LINEAR`: treatment coefficient in `Y=β0+τT+γᵀZ+ε`;
+- `IV_WALD`: `τ=Cov(Z,Y)/Cov(Z,T)` with weak-first-stage rejection;
+- `FRONTDOOR_LINEAR`: linear mediation proxy `α_(T→M) β_(M→Y|T)`.
+
+These estimate only under the declared model/assumption surface. They do not replace V6/V7 identification checks or establish the causal graph. Explicit latent-confounding risk fails closed.
+
+`CAUSAL_ESTIMATE != IDENTIFICATION_PROOF`.
+
+## ΩBOOTSTRAP-GRAPH
+
+Tool:
+
+- `athena_causal_structure_bootstrap`
+
+The runtime repeatedly resamples observations and reruns V7's transparent association-skeleton procedure. Edge support is
+
+`support(e)=#bootstrap runs containing e / B`.
+
+Stable undirected edges and collider candidates are returned as graph hypotheses. No canonical JSPACE edge is created.
+
+`BOOTSTRAP_ASSOCIATION_STABILITY != CAUSAL_EDGE_PROBABILITY`.
+
+## ΩCONTINGENT-POLICY
+
+Tool:
+
+- `athena_contingent_policy`
+
+For one experiment, V8 returns a depth-1 policy tree:
+
+`outcome → hypothetical posterior → best action`.
+
+Status: `CONTINGENT_POLICY_DEPTH1_DESIGN_ONLY`.
+
+No branch becomes observation or history until measured.
+
+## ΩEVIDENCE-SPECTRAL
+
+Tool:
+
+- `athena_evidence_spectral`
+
+Science-shadow witness similarity matrix `S` yields weighted effective count
+
+`N_eff=(Σ_i w_i)^2 / Σ_ij w_i w_j S_ij`
+
+and spectral participation-ratio proxy
+
+`D_PR=Tr(S)^2 / ||S||_F^2`.
+
+Identical witness pipelines collapse toward one effective dimension; diverse metadata can increase effective evidence dimension. Missing comparable metadata is treated conservatively.
+
+`SPECTRAL_EVIDENCE_DIVERSITY != FORMAL_STATISTICAL_INDEPENDENCE`.
+
+## V8 coordinate
+
+`COLLECTIVE_BELIEF=<BS,EVI,BD,CE,CB,CP,ER,L>`
+
+- `BS`: finite belief state
+- `EVI`: decision-value-of-information surface
+- `BD`: belief-aware dual-control plan
+- `CE`: conditional effect estimate
+- `CB`: bootstrap causal-structure stability
+- `CP`: contingent policy design
+- `ER`: evidence redundancy/effective-rank geometry
+- `L`: lineage/native context
+
+## V8 firewall
+
+- `BELIEF_POSTERIOR != CANONICAL_TRUTH`
+- `LIKELIHOOD_MODEL != OBSERVATION`
+- `EVI_DESIGN != RESULT`
+- `BELIEF_DUAL_CONTROL != EXACT_BAYES_ADAPTIVE_POMDP`
+- `CAUSAL_ESTIMATE != IDENTIFICATION_PROOF`
+- `BOOTSTRAP_STABILITY != CAUSAL_EDGE_PROBABILITY`
+- `CONTINGENT_POLICY != EXECUTION_HISTORY`
+- `SPECTRAL_EVIDENCE_DIVERSITY != FORMAL_INDEPENDENCE`
 
 ## Run
 
 `python -m athena_mcp --db ./state/athena.db`
 
-MCP server package: `athena-canonical-mcp 2.6.0`  
+MCP server package: `athena-canonical-mcp 2.7.0`  
 MCP protocol revision: `2025-11-25`.
