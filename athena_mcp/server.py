@@ -12,17 +12,21 @@ from .collective_runtime import CollectiveRuntime
 from .collective_growth import CollectiveGrowthRuntime
 from .collective_memory import CollectiveMemoryRuntime
 from .collective_learning import CollectiveLearningRuntime
+from .collective_ecology import CollectiveEcologyRuntime
 from .collective_v3_dispatch import call as call_collective_v3
+from .collective_v4_dispatch import call as call_collective_v4
 
 from .protocol import PROTOCOL_VERSION, SERVER_INFO, TOOLS, PROMPTS
 from .collective_protocol import COLLECTIVE_TOOLS
 from .collective_growth_protocol import COLLECTIVE_GROWTH_TOOLS
 from .collective_v2_protocol import COLLECTIVE_V2_TOOLS
 from .collective_v3_protocol import COLLECTIVE_V3_TOOLS
+from .collective_v4_protocol import COLLECTIVE_V4_TOOLS
 
 _existing_tool_names={t['name'] for t in TOOLS}
-TOOLS.extend(t for t in COLLECTIVE_TOOLS + COLLECTIVE_GROWTH_TOOLS + COLLECTIVE_V2_TOOLS + COLLECTIVE_V3_TOOLS if t['name'] not in _existing_tool_names)
+TOOLS.extend(t for t in COLLECTIVE_TOOLS + COLLECTIVE_GROWTH_TOOLS + COLLECTIVE_V2_TOOLS + COLLECTIVE_V3_TOOLS + COLLECTIVE_V4_TOOLS if t['name'] not in _existing_tool_names)
 COLLECTIVE_V3_NAMES={t['name'] for t in COLLECTIVE_V3_TOOLS}
+COLLECTIVE_V4_NAMES={t['name'] for t in COLLECTIVE_V4_TOOLS}
 
 class RateLimiter:
     def __init__(self,limit=240,window=60): self.limit=limit; self.window=window; self.h=defaultdict(deque)
@@ -34,13 +38,59 @@ class RateLimiter:
 
 class Server:
     def __init__(self,db,git_root=None):
-        self.store=Store(db); self.core=AthenaCore(self.store); bootstrap(self.core); self.crystal=CrystalRuntime(self.core); self.collective=CollectiveRuntime(); self.collective_growth=CollectiveGrowthRuntime(); self.collective_memory=CollectiveMemoryRuntime(self.store,self.collective,self.collective_growth); self.collective_learning=CollectiveLearningRuntime(self.store,self.collective,self.collective_memory); self.rate=RateLimiter()
+        self.store=Store(db); self.core=AthenaCore(self.store); bootstrap(self.core); self.crystal=CrystalRuntime(self.core); self.collective=CollectiveRuntime(); self.collective_growth=CollectiveGrowthRuntime(); self.collective_memory=CollectiveMemoryRuntime(self.store,self.collective,self.collective_growth); self.collective_learning=CollectiveLearningRuntime(self.store,self.collective,self.collective_memory); self.collective_ecology=CollectiveEcologyRuntime(self.store,self.collective,self.collective_growth,self.collective_memory,self.collective_learning); self.rate=RateLimiter()
         self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'), autocommit=False)
     def result(self,id,result): return {"jsonrpc":"2.0","id":id,"result":result}
     def error(self,id,code,msg,data=None):
         e={"code":code,"message":msg};
         if data is not None:e['data']=data
         return {"jsonrpc":"2.0","id":id,"error":e}
+    def _project_topology_to_jspace(self,a):
+        actor=a.get('actor','agent'); topology_id=a['topology_id']; expected_topology_version=int(a['expected_topology_version']); expected_semantic_eid=a.get('expected_semantic_eid')
+        checkpoint_git=bool(a.get('checkpoint_git',False)); expected_git_head=a.get('expected_git_head'); dry_run=bool(a.get('dry_run',False))
+        topo=self.collective_memory.topology_get(topology_id)
+        if not topo['exists']: raise ValueError('topology not found')
+        if int(topo['version'])!=expected_topology_version: raise ValueError(f"STALE_TOPOLOGY expected={expected_topology_version} current={topo['version']}")
+        semantic_head=self.store.head('global'); current_semantic_eid=semantic_head['eid'] if semantic_head else None
+        if current_semantic_eid!=expected_semantic_eid: raise ValueError(f"STALE_SEMANTIC_HEAD expected={expected_semantic_eid} current={current_semantic_eid}")
+        if checkpoint_git:
+            if not self.git.enabled: raise ValueError('checkpoint_git=true requires configured ATHENA_GIT_ROOT')
+            if expected_git_head is None: raise ValueError('expected_git_head required when checkpoint_git=true')
+            current_git=self.git.head()
+            if current_git!=expected_git_head: raise GitStaleHead(json.dumps({'status':'STALE_GIT_HEAD','expected':expected_git_head,'current':current_git}))
+        prepared=self.collective_ecology.projection_prepare(topology_id,expected_topology_version,expected_semantic_eid,expected_git_head,actor)
+        pid=prepared['projection_id']
+        if dry_run:
+            return {**prepared,'dry_run':True,'atomic':False,'authority':'NONE','law':'prepared projection mutates only the projection journal'}
+        inserted=[]; skipped=[]; last_eid=current_semantic_eid; git_result=None
+        try:
+            topo2=self.collective_memory.topology_get(topology_id)
+            if int(topo2['version'])!=expected_topology_version: raise ValueError(f"STALE_TOPOLOGY expected={expected_topology_version} current={topo2['version']}")
+            head2=self.store.head('global'); eid2=head2['eid'] if head2 else None
+            if eid2!=expected_semantic_eid: raise ValueError(f"STALE_SEMANTIC_HEAD expected={expected_semantic_eid} current={eid2}")
+            if checkpoint_git and self.git.head()!=expected_git_head: raise GitStaleHead(json.dumps({'status':'STALE_GIT_HEAD','expected':expected_git_head,'current':self.git.head()}))
+            for edge in prepared['edges']:
+                existing=self.store.one("SELECT edge_id FROM edges WHERE src=? AND relation=? AND dst=? LIMIT 1",(edge['src'],edge['relation'],edge['dst']))
+                if existing:
+                    skipped.append({'edge':edge,'edge_id':existing['edge_id'],'reason':'EXISTING_STRUCTURAL_EDGE'}); continue
+                attrs={'projection_id':pid,'topology_id':topology_id,'topology_version':expected_topology_version,'projection_mode':'SAGA'}
+                result=self.core.add_edge(edge['src'],edge['relation'],edge['dst'],actor,attrs); inserted.append({'edge':edge,**result}); last_eid=result['event']
+            self.collective_ecology.projection_mark(pid,'SEMANTIC_APPLIED',last_eid)
+            if checkpoint_git:
+                ev=self.core.event(last_eid) if last_eid else None
+                if ev is None: raise ValueError('cannot checkpoint projection without a semantic event witness')
+                git_result=self.git.checkpoint(expected_git_head,ev,self.core.hydrate(),actor=actor,message=f"athena topology projection {pid}")
+                self.collective_ecology.projection_mark(pid,'GIT_COMMITTED',last_eid,git_result.get('head'))
+                final=self.collective_ecology.projection_mark(pid,'COMPLETED',last_eid,git_result.get('head'))
+                authority='SEMANTIC_PLUS_GIT_SAGA'
+            else:
+                final=self.collective_ecology.projection_mark(pid,'COMPLETED',last_eid)
+                authority='SEMANTIC_ONLY'
+            return {'projection':final,'inserted':inserted,'skipped':skipped,'git':git_result,'authority':authority,'atomic':False,'law':'projection uses CAS preflight and recovery journal; SQLite+Git are not falsely represented as one atomic transaction'}
+        except GitStaleHead as e:
+            self.collective_ecology.projection_mark(pid,'COMPENSATION_REQUIRED',last_eid,error=str(e)); raise
+        except Exception as e:
+            self.collective_ecology.projection_mark(pid,'COMPENSATION_REQUIRED' if inserted else 'ABORTED',last_eid,error=str(e)); raise
     def call_tool(self,name,a):
         c=self.core
         if name=='athena_register': return c.register(a['kind'],a['domain'],a['verb'],a['object_name'],a['method'],a['input_contract'],a['output_contract'],a.get('constraints'),a.get('payload'),a.get('actor','agent'))
@@ -98,8 +148,10 @@ class Server:
         if name=='athena_failure_antibody_register': return self.collective_memory.register_failure_antibody(a['signature'],a.get('trigger'),a.get('detector'),a.get('repair'),a.get('evidence'),a.get('regression_refs'),a.get('scope','global'),a.get('actor','agent'))
         if name=='athena_failure_antibody_match': return self.collective_memory.match_failure_antibodies(a['event'],a.get('tags'),a.get('scope'),a.get('threshold',0.35),a.get('limit',10),a.get('record_hits',True))
         if name in COLLECTIVE_V3_NAMES: return call_collective_v3(self.collective_learning,name,a)
+        if name=='athena_topology_project_jspace': return self._project_topology_to_jspace(a)
+        if name in COLLECTIVE_V4_NAMES: return call_collective_v4(self.collective_ecology,name,a)
         if name=='athena_benchmark':
-            r=c.benchmark(); r.update(self.crystal.benchmark_extension()); r['git']=self.git.status(); r['collective_runtime']=self.collective.describe()['version']; r['collective_growth']=self.collective_growth.describe()['version']; r['collective_memory']=self.collective_memory.describe(); r['collective_learning']=self.collective_learning.describe(); return r
+            r=c.benchmark(); r.update(self.crystal.benchmark_extension()); r['git']=self.git.status(); r['collective_runtime']=self.collective.describe()['version']; r['collective_growth']=self.collective_growth.describe()['version']; r['collective_memory']=self.collective_memory.describe(); r['collective_learning']=self.collective_learning.describe(); r['collective_ecology']=self.collective_ecology.describe(); return r
         raise KeyError(name)
     def handle(self,m):
         from .dispatch import handle
