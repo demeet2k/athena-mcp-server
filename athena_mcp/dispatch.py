@@ -9,7 +9,7 @@ from .protocol import PROTOCOL_VERSION,SERVER_INFO,TOOLS,PROMPTS
 from .timebundle import TIME_PROVENANCE
 from .orchestration import orchestration_law
 from .orchestration_robustness import SUCCESSOR_FACTOR_COUNT
-from .aor_development_surface import AOR_DEVELOPMENT_RESOURCES,AOR_DEVELOPMENT_RESOURCE_URIS
+from .aor_development_surface import AorDevelopmentSurface,AOR_DEVELOPMENT_RESOURCES,AOR_DEVELOPMENT_RESOURCE_URIS
 from .collective_science import CollectiveScienceRuntime
 from .collective_discovery import CollectiveDiscoveryRuntime
 from .collective_dual_control import CollectiveDualControlRuntime
@@ -21,11 +21,23 @@ from .collective_joint import CollectiveJointRuntime
 from .collective_robust import CollectiveRobustRuntime
 from .collective_v6_protocol import CLAIM_NAMESPACE_LAW
 from .unified_manifest import build_unified_manifest,maxdev_law
+from .prompt_runtime import PromptRuntime,PROMPT_RUNTIME_TOOLS,PROMPT_RUNTIME_TOOL_NAMES
+from .prompt_remote import PromptRemoteSync,PROMPT_REMOTE_TOOLS,PROMPT_REMOTE_TOOL_NAMES
+
+_existing_prompt_tool_names={t['name'] for t in TOOLS}
+for _tool in PROMPT_RUNTIME_TOOLS+PROMPT_REMOTE_TOOLS:
+    if _tool['name'] not in _existing_prompt_tool_names:
+        TOOLS.append(_tool);_existing_prompt_tool_names.add(_tool['name'])
+
+PROMPT_SHARED_WRITE_TOOLS={
+    'athena_prompt_propose','athena_prompt_experiment','athena_prompt_activate','athena_prompt_promote'
+}
 
 NON_SELF_METERING={
     'athena_omega_state','athena_schema_status','athena_schema_plan','athena_schema_verify',
     'athena_self_test','athena_startup_health','athena_surface_audit','athena_runtime_manifest','athena_maxdev_law',
     'athena_benchmark','athena_git_status','athena_reconstruction_get','athena_reconstruction_verify','athena_reconstruction_recent',
+    'athena_prompt_hydrate','athena_prompt_compile','athena_prompt_freshness','athena_prompt_remote_status',
 }
 
 def _meter(server,name,started,status):
@@ -42,6 +54,40 @@ def _probabilistic(server):return CollectiveProbabilisticRuntime(_inference(serv
 def _adaptive(server):return CollectiveAdaptiveRuntime(_probabilistic(server))
 def _joint(server):return CollectiveJointRuntime(_adaptive(server))
 def _robust(server):return CollectiveRobustRuntime(_joint(server))
+def _prompt_runtime(server):
+    runtime=getattr(server,'prompt_runtime',None)
+    if runtime is None:
+        runtime=PromptRuntime(server.git);server.prompt_runtime=runtime
+    return runtime
+
+def _prompt_remote(server):
+    remote=getattr(server,'prompt_remote',None)
+    if remote is None:
+        remote=PromptRemoteSync(server.git);server.prompt_remote=remote
+    return remote
+
+def _call_prompt_runtime_tool(server,name,args):
+    runtime=_prompt_runtime(server);remote=_prompt_remote(server)
+    if name=='athena_prompt_hydrate':
+        sync=remote.sync();value=runtime.call_tool(name,args);value['remote_sync']=sync
+        value['shared_frontier_verified']=bool(sync.get('shared_frontier_verified'))
+        if not value['shared_frontier_verified']:value['status']='HYDRATED_LOCAL_HOLD'
+        return value
+    if name in PROMPT_SHARED_WRITE_TOOLS:
+        pre=remote.sync()
+        if not pre.get('shared_frontier_verified'):
+            return {
+                'status':'SHARED_FRONTIER_HOLD','tool':name,'remote_sync':pre,
+                'durable_return':False,
+                'law':'prompt self-engineering mutation requires a freshly verified shared Git frontier before local CAS'
+            }
+        value=runtime.call_tool(name,args);git=value.get('git') if isinstance(value,dict) else None
+        if isinstance(git,dict) and git.get('head'):
+            published=remote.publish(git['head']);value['remote_publish']=published
+            value['durable_return']=bool(published.get('shared_frontier_verified'))
+            if not value['durable_return']:value['status']='LOCAL_MUTATION_PUBLISH_HOLD'
+        return value
+    return runtime.call_tool(name,args)
 
 
 def handle(server,m):
@@ -59,7 +105,11 @@ def handle(server,m):
         try:
             td=next((t for t in TOOLS if t['name']==name),None)
             if td is None:raise KeyError(name)
-            validate(td['inputSchema'],args);value=server.call_tool(name,args);_meter(server,name,started,'OK')
+            validate(td['inputSchema'],args)
+            if name in PROMPT_RUNTIME_TOOL_NAMES:value=_call_prompt_runtime_tool(server,name,args)
+            elif name in PROMPT_REMOTE_TOOL_NAMES:value=_prompt_remote(server).call_tool(name,args)
+            else:value=server.call_tool(name,args)
+            _meter(server,name,started,'OK')
             return server.result(mid,{'content':[{'type':'text','text':json.dumps(value,ensure_ascii=False,sort_keys=True)}],'structuredContent':value,'isError':False})
         except StaleTarget as e:
             _meter(server,name,started,'STALE_TARGET');return server.result(mid,{'content':[{'type':'text','text':str(e)}],'structuredContent':{'status':'STALE_TARGET','detail':str(e)},'isError':True})
@@ -72,6 +122,7 @@ def handle(server,m):
     if method=='resources/list':
         rs=[
             {'uri':'athena://manifest','name':'ATHENA Live Unified Runtime Manifest','mimeType':'application/json'},
+            {'uri':'athena://prompt/runtime','name':'Git-Native Modular Prompt Runtime','mimeType':'application/json'},
             {'uri':'athena://kc144/stations','name':'KC144 12x12 Station Registry','mimeType':'application/json'},
             {'uri':'athena://state/head','name':'Canonical State Head','mimeType':'application/json'},
             {'uri':'athena://registry','name':'Canonical Capability Registry','mimeType':'application/json'},
@@ -109,6 +160,11 @@ def handle(server,m):
         uri=params.get('uri');c=server.core
         if uri in AOR_DEVELOPMENT_RESOURCE_URIS:val=server.aor_development.read_resource(uri)
         elif uri=='athena://manifest':val=build_unified_manifest(server)
+        elif uri=='athena://prompt/runtime':
+            pr=_prompt_runtime(server)
+            if pr.available:
+                val=pr.hydrate(include_text=False);val['remote_frontier']=_prompt_remote(server).status(fetch=False)
+            else:val={'status':'UNAVAILABLE','reason':'configured ATHENA_GIT_ROOT does not contain prompts/PROMPT.manifest.json'}
         elif uri=='athena://kc144/stations':val=json.loads(station_manifest())
         elif uri=='athena://state/head':val=c.s.head('global') or {}
         elif uri=='athena://registry':val=c.s.rows('SELECT * FROM objects ORDER BY canonical_name')
@@ -146,6 +202,15 @@ def handle(server,m):
     if method=='prompts/get':
         if params.get('name')!='athena_maxdev':return server.error(mid,-32602,'Unknown prompt')
         a=params.get('arguments') or {};task=a.get('task','');agent=a.get('agent','ATHENA')
-        text='ATHENA UNIFIED AOR×COLLECTIVE V13 MAXDEV\nAGENT='+str(agent)+'\nTASK='+str(task)+'\n'+maxdev_law()
-        return server.result(mid,{'description':'Unified AOR/Y1 developmental cortex × Collective V1–V13 organization/science/discovery/belief/inference/probabilistic/adaptive/joint/robust cycle','messages':[{'role':'user','content':{'type':'text','text':text}}]})
+        pr=_prompt_runtime(server)
+        if pr.available:
+            remote=_prompt_remote(server).sync();compiled=pr.compile(task=task,profile='MAXDEV',include_text=True)
+            text=compiled['compiled_text']+'\n[CURRENT TASK]\nAGENT='+str(agent)+'\nTASK='+str(task)+'\nPROMPT_STACK_DIGEST='+compiled['prompt_stack_digest']+'\nGIT_HEAD='+str(compiled['git_head'])+'\nREMOTE_FRONTIER_STATUS='+str(remote.get('status'))+'\nSHARED_FRONTIER_VERIFIED='+str(remote.get('shared_frontier_verified',False))
+            if not remote.get('shared_frontier_verified'):
+                text='[SHARED FRONTIER HOLD: diagnose/synchronize before consequential shared mutation]\n'+text
+            desc='Git-compiled ATHENA MAXDEV runtime addendum after automatic shared-frontier sync attempt'
+        else:
+            text='ATHENA UNIFIED AOR×COLLECTIVE V13 MAXDEV\nAGENT='+str(agent)+'\nTASK='+str(task)+'\n'+maxdev_law()
+            desc='Fallback unified AOR/Y1 developmental cortex × Collective V1–V13 cycle; Git prompt runtime unavailable'
+        return server.result(mid,{'description':desc,'messages':[{'role':'user','content':{'type':'text','text':text}}]})
     return server.error(mid,-32601,'Method not found')
