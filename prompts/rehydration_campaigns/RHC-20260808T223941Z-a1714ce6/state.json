@@ -1,0 +1,41 @@
+{
+  "actor": "campaign-v3-canary",
+  "artifact": "ATHENA.REHYDRATION.CAMPAIGN.V2",
+  "base_head": "b7ca865d55bec63474b4aed3f3013c7d73d8db37",
+  "branches": {
+    "CB-b421bc50c24bae5f": {
+      "branch_id": "CB-b421bc50c24bae5f",
+      "candidate_id": null,
+      "candidate_metrics": null,
+      "claim": null,
+      "completion_summary": null,
+      "created_at": "2026-08-08T22:39:41.290991+00:00",
+      "depth": 0,
+      "evidence_refs": [],
+      "loop": null,
+      "parent_branch_id": null,
+      "routing_score": null,
+      "source": null,
+      "status": "OPEN",
+      "successor_baton": null,
+      "task": "Commit one bounded synthetic material witness and return a successor",
+      "updated_at": "2026-08-08T22:39:41.291005+00:00"
+    }
+  },
+  "budget": {
+    "lease_steps": 4,
+    "max_branches": 2,
+    "max_depth": 2,
+    "max_width": 1
+  },
+  "campaign_id": "RHC-20260808T223941Z-a1714ce6",
+  "chain_digest": "217f86d438573f9e2dc4c91967433eef450e9f117cc99516d36625ee12413317",
+  "created_at": "2026-08-08T22:39:41.291010+00:00",
+  "goal": "Observe one privacy-safe Campaign V3 branch binding to an explicit V1 loop",
+  "logical_clock": 0,
+  "previous_chain_digest": null,
+  "reconciliations": [],
+  "state_digest": "7ae8acf6e0352e1c0387c05a35c60f0bc5568cad24257acf81ee35bd8d4b6ce0",
+  "status": "ACTIVE",
+  "updated_at": "2026-08-08T22:39:41.291012+00:00"
+}
