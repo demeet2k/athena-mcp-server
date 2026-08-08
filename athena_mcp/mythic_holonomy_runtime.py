@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import hashlib
+import json
 from typing import Any,Dict,List,Tuple,Sequence
 
 from .mythic_holonomy_protocol import HOLONOMY_VERSION
@@ -38,6 +40,11 @@ LAWS=[
     "EXPECTED_CLASS != RAW_EDGE_SUPPORT",
     "TRANSPORT_OPERATION != INDEPENDENT_LAWFULNESS_VERDICT",
 ]
+
+
+def _packet_semantic_sha256(packet:Dict[str,Any])->str:
+    payload=json.dumps(packet,sort_keys=True,separators=(",",":"),ensure_ascii=False).encode()
+    return hashlib.sha256(payload).hexdigest()
 
 
 def _uniq(items):
@@ -372,7 +379,7 @@ class MythicHolonomyRuntime:
         if isinstance(comp,dict):out.extend(x for x in comp.get("receipts",[]) if isinstance(x,dict))
         return out
 
-    def _summarize(self,arm:str,results:List[Dict[str,Any]],cases:List[Dict[str,Any]])->Dict[str,Any]:
+    def _summarize(self,arm:str,results:List[Dict[str,Any]],cases:List[Dict[str,Any]],layers:Dict[str,Dict[str,Any]])->Dict[str,Any]:
         expected_pass=sum(1 for r in results if r.get("expected_pass"))
         equivalence_cases=[i for i,c in enumerate(cases) if c.get("operation")=="SEMANTIC_EQUIVALENCE"]
         lawful=[i for i,c in enumerate(cases) if c.get("operation")=="SEMANTIC_TRANSPORT"]
@@ -407,6 +414,7 @@ class MythicHolonomyRuntime:
             "composed_paths_with_loss_or_same_layer_exemption":loss_ok,
             "invariant_violations":invariant_violations,
             "textual_invariant_checks_unknown":sum(len(c.get("bridge_invariants") or []) for c in cases),
+            "source_layer_invariant_checks_unknown":sum(len(layer.get("invariants") or []) for layer in layers.values()),
             "holonomy_vector_unaccounted_loss_known_total":sum(ua_known),
             "holonomy_vector_unaccounted_loss_unknown_cases":ua_unknown,
             "path_order_sensitive_cases":sum(bool(r.get("path_order_sensitive")) for r in results),
@@ -435,6 +443,7 @@ class MythicHolonomyRuntime:
             "source_packet_ref_verified":False,
             "packet_identity":{"artifact":packet.get("artifact"),"version":packet.get("version"),"families":len(families),"cases":len(cases)},
             "distance_semantics":deepcopy(packet.get("distance_semantics")),"scalarization":"DISABLED_V0",
+            "packet_semantic_sha256":_packet_semantic_sha256(packet),
             "classification_answer_key_firewall":"EXPECTED_CLASS_USED_ONLY_AFTER_RAW_ARM_EXECUTION_FOR_ASSAY; RAW_EDGE_SUPPORT_USES_OPERATION_PATH_ONLY",
             "projection_policy":{
                 "standing":"SYNTHETIC_ADAPTER_METADATA_NOT_SOURCE_EVIDENCE",
@@ -447,9 +456,9 @@ class MythicHolonomyRuntime:
                 "unaccounted_loss":"UNKNOWN_WHEN_CHANGED_DIMENSIONS_HAVE_ONLY_UNTYPED_PROSE_LOSS_LEDGER",
             },
             "arms":{
-                "A0_UNSCOPED_REFERENCE":{"summary":self._summarize("A0",a0,cases),"results":a0},
-                "A1_EDGEWISE_STRATA":{"summary":self._summarize("A1",a1,cases),"results":a1},
-                "A2_COMPOSED_HOLONOMY":{"summary":self._summarize("A2",a2,cases),"results":a2},
+                "A0_UNSCOPED_REFERENCE":{"summary":self._summarize("A0",a0,cases,layers),"results":a0},
+                "A1_EDGEWISE_STRATA":{"summary":self._summarize("A1",a1,cases,layers),"results":a1},
+                "A2_COMPOSED_HOLONOMY":{"summary":self._summarize("A2",a2,cases,layers),"results":a2},
             },
             "authority":"READ_ONLY_REPRESENTATION_BENCHMARK_ONLY",
             "practitioner_review":"HOLD_EXTERNAL_REVIEW","mck_v2_promotion":False,
