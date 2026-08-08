@@ -1,12 +1,14 @@
 {
   "artifact": "ATHENA.CAPABILITY.BASIS.CONTRACT.V1",
-  "status": "CANDIDATE_LIBRARY_FIRST",
+  "status": "CANDIDATE_INTEGRATED_READ_ONLY",
   "purpose": "Describe the semantic capability basis of the actually registered ATHENA control-plane operations without making descriptor existence equivalent to exposure or permission.",
+  "public_operation": "athena_capability_basis",
   "negotiated_prefixes": [
     "athena_prompt_",
     "athena_frontier_",
     "athena_rehydration_",
-    "athena_agent_"
+    "athena_agent_",
+    "athena_capability_"
   ],
   "capability_classes": [
     "BOOTSTRAP_REFRESH",
@@ -30,12 +32,24 @@
   "basis_shape": {
     "artifact": "ATHENA.CAPABILITY.BASIS.V1",
     "status": "PASS | HOLD_UNCLASSIFIED_CAPABILITY",
-    "runtime_identity": "observer/provenance coordinate; excluded from basis_digest",
+    "runtime_identity": "observer/provenance coordinate; excluded from basis_digest and not asserted to be a Git commit",
     "basis_digest": "sha256 canonical exposed descriptor content plus unclassified negotiated names",
     "descriptors": "currently registered + classified negotiated operations only",
     "capability_classes": "class -> sorted currently exposed operation names",
     "unclassified": "currently registered negotiated operations with no descriptor",
     "dormant_descriptors": "descriptor definitions whose operations are not registered/currently exposed"
+  },
+  "bootstrap_integration": {
+    "address_coordinate": "operational_basis_digest",
+    "packet_field": "operational_basis",
+    "execution_surface_fields": [
+      "operational_basis_digest",
+      "capability_classes",
+      "unclassified"
+    ],
+    "refresh_dependency_cone": "operational_basis",
+    "unclassified_behavior": "BOOTSTRAP_HOLD",
+    "identity_law": "OPERATIONAL_BASIS_DIGEST changes independently of prompt/frontier/issue coordinates"
   },
   "descriptor_required_fields": [
     "artifact",
@@ -55,9 +69,10 @@
     "join registered names to descriptor definitions",
     "descriptor without registration remains dormant and cannot create exposure",
     "registered negotiated name without descriptor becomes UNCLASSIFIED",
-    "any UNCLASSIFIED negotiated operation yields HOLD_UNCLASSIFIED_CAPABILITY for semantic auto-selection",
+    "any UNCLASSIFIED negotiated operation yields HOLD_UNCLASSIFIED_CAPABILITY for semantic auto-selection and BOOTSTRAP_HOLD in one-call boot",
     "compute basis_digest from exposed semantic descriptors plus unclassified names; exclude runtime head/source witness",
-    "return runtime_identity independently as causal/provenance state"
+    "return runtime_identity independently as observer/provenance state",
+    "bind basis_digest as an independent bootstrap/refresh address coordinate"
   ],
   "firewalls": [
     "OPERATIONAL_BASIS != HIGHER_AUTHORITY",
@@ -66,14 +81,17 @@
     "FEATURE_BRANCH != CURRENT_RUNTIME_EXPOSURE",
     "ISSUE_CLAIM != EXPOSED_CAPABILITY",
     "REGISTERED_UNCLASSIFIED => HOLD_FOR_SEMANTIC_SELECTION",
+    "UNCLASSIFIED_RUNTIME_CAPABILITY => BOOTSTRAP_HOLD",
     "BASIS_DIGEST != GIT_HEAD",
+    "RUNTIME_WITNESS != GIT_COMMIT",
     "REGISTERED_TOOL != PRECONDITIONS_SATISFIED",
     "CAPABILITY_CLASS != EXECUTION_AUTHORIZATION"
   ],
   "promotion_boundary": {
-    "library_derivation": "implemented on feature branch",
-    "public_mcp_tool": "not registered in this slice",
-    "agent_bootstrap_integration": "not modified in this slice",
-    "canonical_runtime_promotion": "requires exact-head CI and anti-stale ancestry check"
+    "library_derivation": "qualified independently on parent feature head CI #1367",
+    "public_mcp_tool": "implemented read-only on integration feature branch",
+    "agent_bootstrap_integration": "implemented on integration feature branch",
+    "execution_authority": "unchanged",
+    "canonical_runtime_promotion": "requires fresh exact-head integration CI and anti-stale ancestry check"
   }
 }
