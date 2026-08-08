@@ -39,6 +39,7 @@ LAWS=[
     "STRING_INVARIANT_RETENTION != SEMANTIC_INVARIANT_VALIDATION",
     "EXPECTED_CLASS != RAW_EDGE_SUPPORT",
     "TRANSPORT_OPERATION != INDEPENDENT_LAWFULNESS_VERDICT",
+    "CALLER_STRUCTURED_LOSS != VERIFIED_TYPED_COVERAGE",
 ]
 
 
@@ -137,13 +138,13 @@ def _bridge_projection_assumptions(case:Dict[str,Any],bridge:Dict[str,Any])->Lis
 
 
 def _typed_loss_coverage(loss_ledger:Sequence[Any])->set[str]:
-    covered:set[str]=set()
-    for item in loss_ledger or []:
-        if isinstance(item,dict):
-            covers=item.get("covers") or item.get("typed_feature_covers") or []
-            if isinstance(covers,str):covers=[covers]
-            covered.update(str(x) for x in covers)
-    return covered
+    """V0 has no authenticated typed-loss coverage schema.
+
+    Even structured caller objects remain unverified assertions, so they cannot
+    numerically cancel typed feature drift. A future protocol version may add a
+    separately verified typed-loss schema and explicit standing.
+    """
+    return set()
 
 
 def _distance(start:Dict[str,Any],end:Dict[str,Any],required_prov:List[str],ledger_prov:List[str],ledger_invariants:List[str],required_invariants:List[str],loss_ledger:List[Any])->Dict[str,Any]:
@@ -171,8 +172,6 @@ def _distance(start:Dict[str,Any],end:Dict[str,Any],required_prov:List[str],ledg
     elif covered:
         unaccounted_loss=len(changed-covered)
     else:
-        # Frozen V0 loss entries are prose, not dimension-typed coverage claims.
-        # Preserve uncertainty instead of allowing arbitrary string count to erase drift.
         unaccounted_loss=None
     return {**base,"unaccounted_loss":unaccounted_loss}
 
@@ -268,14 +267,10 @@ class MythicHolonomyRuntime:
 
     def _a0(self,case:Dict[str,Any],layers:Dict[str,Dict[str,Any]])->Dict[str,Any]:
         op=case["operation"]
-        if op=="SEMANTIC_EQUIVALENCE":
-            return {"status":"UNSCOPED_EQUIVALENCE_ADMITTED","allowed":True,"equivalence_claimed":True}
-        if op=="HOLONOMY_LOOP":
-            return {"status":"UNSCOPED_LOOP_COLLAPSED","allowed":True,"holonomy_vector":_zero_vector(),"holonomy_nonzero":False}
-        if op=="PATH_ORDER_COMPARE":
-            return {"status":"UNSCOPED_ORDER_COLLAPSED","allowed":True,"path_order_sensitive":False}
-        if op=="SAME_LAYER_CONTROL":
-            return {"status":"UNSCOPED_SAME_LAYER","allowed":True,"holonomy_vector":_zero_vector(),"holonomy_nonzero":False}
+        if op=="SEMANTIC_EQUIVALENCE":return {"status":"UNSCOPED_EQUIVALENCE_ADMITTED","allowed":True,"equivalence_claimed":True}
+        if op=="HOLONOMY_LOOP":return {"status":"UNSCOPED_LOOP_COLLAPSED","allowed":True,"holonomy_vector":_zero_vector(),"holonomy_nonzero":False}
+        if op=="PATH_ORDER_COMPARE":return {"status":"UNSCOPED_ORDER_COLLAPSED","allowed":True,"path_order_sensitive":False}
+        if op=="SAME_LAYER_CONTROL":return {"status":"UNSCOPED_SAME_LAYER","allowed":True,"holonomy_vector":_zero_vector(),"holonomy_nonzero":False}
         return {"status":"UNSCOPED_TRANSPORT_ADMITTED","allowed":True}
 
     def _a1(self,case:Dict[str,Any],layers:Dict[str,Dict[str,Any]])->Dict[str,Any]:
@@ -291,8 +286,7 @@ class MythicHolonomyRuntime:
             edge=self._edgewise(path,case,layers)
             return {"status":"EDGEWISE_ONLY_NO_ORDER_LEDGER","allowed":edge["allowed"],"receipts":edge["receipts"],"path_order_sensitive":False}
         edge=self._edgewise(path,case,layers)
-        if op=="SAME_LAYER_CONTROL":
-            return {"status":"EDGEWISE_SAME_LAYER","allowed":edge["allowed"],"receipts":edge["receipts"],"holonomy_vector":_zero_vector(),"holonomy_nonzero":False}
+        if op=="SAME_LAYER_CONTROL":return {"status":"EDGEWISE_SAME_LAYER","allowed":edge["allowed"],"receipts":edge["receipts"],"holonomy_vector":_zero_vector(),"holonomy_nonzero":False}
         return {"status":"EDGEWISE_TRANSPORT","allowed":edge["allowed"],"receipts":edge["receipts"]}
 
     def _compose(self,path:List[str],case:Dict[str,Any],layers:Dict[str,Dict[str,Any]])->Dict[str,Any]:
@@ -303,12 +297,8 @@ class MythicHolonomyRuntime:
             src=layers[a];dst=layers[b]
             receipt,bridge=self._transport(src,dst,case,"SEMANTIC_TRANSPORT")
             if bridge is not None:
-                provenance.append(bridge["source_ref"])
-                losses.extend(bridge.get("transform_loss") or [])
-                invariants.extend(bridge.get("invariants") or [])
-            receipts.append(receipt)
-            provenance.extend(dst.get("provenance") or [])
-            losses.extend(dst.get("declared_loss") or [])
+                provenance.append(bridge["source_ref"]);losses.extend(bridge.get("transform_loss") or []);invariants.extend(bridge.get("invariants") or [])
+            receipts.append(receipt);provenance.extend(dst.get("provenance") or []);losses.extend(dst.get("declared_loss") or [])
             if not receipt.get("allowed"):
                 return {"allowed":False,"status":receipt["status"],"receipts":receipts,"provenance":_uniq(provenance),"loss_ledger":_uniq(losses),"invariant_ledger":_uniq(invariants)}
         return {"allowed":True,"status":"COMPOSED","receipts":receipts,"provenance":_uniq(provenance),"loss_ledger":_uniq(losses),"invariant_ledger":_uniq(invariants),"end_layer":layers[path[-1]]}
@@ -316,56 +306,21 @@ class MythicHolonomyRuntime:
     def _a2(self,case:Dict[str,Any],layers:Dict[str,Dict[str,Any]],transport_edges:Dict[str,set])->Dict[str,Any]:
         op=case["operation"];path=list(case["path"])
         if op=="SEMANTIC_EQUIVALENCE":
-            receipt,_=self._transport(layers[path[0]],layers[path[-1]],case,"SEMANTIC_EQUIVALENCE")
-            return {"status":receipt["status"],"allowed":receipt.get("allowed",False),"receipt":receipt}
+            receipt,_=self._transport(layers[path[0]],layers[path[-1]],case,"SEMANTIC_EQUIVALENCE");return {"status":receipt["status"],"allowed":receipt.get("allowed",False),"receipt":receipt}
         if op=="PATH_ORDER_COMPARE":
-            canonical=self._compose(path,case,layers)
-            canonical_edges=list(zip(path,path[1:]))
-            permuted=[path[0],path[-1]]+path[1:-1] if len(path)>=3 else list(reversed(path))
-            permuted_edges=list(zip(permuted,permuted[1:]))
-            evidence_edges=set(transport_edges.get(str(case.get("family_id") or ""),set()))
-            canonical_supported=bool(canonical_edges) and all(edge in evidence_edges for edge in canonical_edges)
-            permuted_supported=bool(permuted_edges) and all(edge in evidence_edges for edge in permuted_edges)
-            order_sensitive=(permuted!=path) and canonical_supported and not permuted_supported
-            return {
-                "status":"PATH_ORDER_EVALUATED","allowed":canonical.get("allowed",False),
-                "canonical_path":path,"permuted_path":permuted,"canonical_composition":canonical,
-                "frozen_transport_edges":[list(edge) for edge in sorted(evidence_edges)],
-                "canonical_supported_by_frozen_transport_cases":canonical_supported,
-                "permuted_supported_by_frozen_transport_cases":permuted_supported,
-                "path_order_sensitive":order_sensitive,
-                "law":"PATH_ORDER_CLAIM_REQUIRES_INDEPENDENT_FROZEN_TRANSPORT_EDGE_SUPPORT",
-            }
+            canonical=self._compose(path,case,layers);canonical_edges=list(zip(path,path[1:]));permuted=[path[0],path[-1]]+path[1:-1] if len(path)>=3 else list(reversed(path));permuted_edges=list(zip(permuted,permuted[1:]));evidence_edges=set(transport_edges.get(str(case.get("family_id") or ""),set()));canonical_supported=bool(canonical_edges) and all(edge in evidence_edges for edge in canonical_edges);permuted_supported=bool(permuted_edges) and all(edge in evidence_edges for edge in permuted_edges);order_sensitive=(permuted!=path) and canonical_supported and not permuted_supported
+            return {"status":"PATH_ORDER_EVALUATED","allowed":canonical.get("allowed",False),"canonical_path":path,"permuted_path":permuted,"canonical_composition":canonical,"frozen_transport_edges":[list(edge) for edge in sorted(evidence_edges)],"canonical_supported_by_frozen_transport_cases":canonical_supported,"permuted_supported_by_frozen_transport_cases":permuted_supported,"path_order_sensitive":order_sensitive,"law":"PATH_ORDER_CLAIM_REQUIRES_INDEPENDENT_FROZEN_TRANSPORT_EDGE_SUPPORT"}
         if op=="HOLONOMY_LOOP":
-            if len(path)<2 or path[-1]!=path[0]:
-                return {"status":"HOLD_LOOP_NOT_CLOSED","allowed":False}
-            forward=path[:-1]
-            composed=self._compose(forward,case,layers)
-            if not composed.get("allowed"):
-                return {"status":composed.get("status"),"allowed":False,"composition":composed}
-            start=layers[path[0]];end=layers[forward[-1]]
-            required=_uniq(list(case.get("source_refs") or [])+list(start.get("provenance") or [])+list(end.get("provenance") or []))
-            vector=_distance(start,end,required,composed.get("provenance",[]),composed.get("invariant_ledger",[]),case.get("bridge_invariants",[]),composed.get("loss_ledger",[]))
-            nonzero=_nonzero_vector(vector)
-            return {
-                "status":"HOLONOMY_VECTOR_COMPUTED","allowed":True,"composition":composed,
-                "projection_back_to":path[0],"holonomy_vector":vector,"holonomy_nonzero":nonzero,
-                "unaccounted_loss_standing":_unaccounted_loss_standing(vector),
-                "law":"H_gamma_IS_REPRESENTATION_DRIFT_VECTOR_NOT_METAPHYSICAL_QUANTITY",
-            }
+            if len(path)<2 or path[-1]!=path[0]:return {"status":"HOLD_LOOP_NOT_CLOSED","allowed":False}
+            forward=path[:-1];composed=self._compose(forward,case,layers)
+            if not composed.get("allowed"):return {"status":composed.get("status"),"allowed":False,"composition":composed}
+            start=layers[path[0]];end=layers[forward[-1]];required=_uniq(list(case.get("source_refs") or [])+list(start.get("provenance") or [])+list(end.get("provenance") or []));vector=_distance(start,end,required,composed.get("provenance",[]),composed.get("invariant_ledger",[]),case.get("bridge_invariants",[]),composed.get("loss_ledger",[]));nonzero=_nonzero_vector(vector)
+            return {"status":"HOLONOMY_VECTOR_COMPUTED","allowed":True,"composition":composed,"projection_back_to":path[0],"holonomy_vector":vector,"holonomy_nonzero":nonzero,"unaccounted_loss_standing":_unaccounted_loss_standing(vector),"law":"H_gamma_IS_REPRESENTATION_DRIFT_VECTOR_NOT_METAPHYSICAL_QUANTITY"}
         composed=self._compose(path,case,layers)
-        if not composed.get("allowed"):
-            return {"status":composed.get("status"),"allowed":False,"composition":composed}
+        if not composed.get("allowed"):return {"status":composed.get("status"),"allowed":False,"composition":composed}
         if op=="SAME_LAYER_CONTROL":
-            start=layers[path[0]];end=layers[path[-1]]
-            required=_uniq(list(case.get("source_refs") or [])+list(start.get("provenance") or []))
-            vector=_distance(start,end,required,composed.get("provenance",[]),composed.get("invariant_ledger",[]),case.get("bridge_invariants",[]),composed.get("loss_ledger",[]))
-            zero=not _nonzero_vector(vector)
-            return {
-                "status":"SAME_LAYER_CONTROL_EVALUATED","allowed":True,"composition":composed,
-                "holonomy_vector":vector,"holonomy_nonzero":not zero,
-                "unaccounted_loss_standing":_unaccounted_loss_standing(vector),
-            }
+            start=layers[path[0]];end=layers[path[-1]];required=_uniq(list(case.get("source_refs") or [])+list(start.get("provenance") or []));vector=_distance(start,end,required,composed.get("provenance",[]),composed.get("invariant_ledger",[]),case.get("bridge_invariants",[]),composed.get("loss_ledger",[]));zero=not _nonzero_vector(vector)
+            return {"status":"SAME_LAYER_CONTROL_EVALUATED","allowed":True,"composition":composed,"holonomy_vector":vector,"holonomy_nonzero":not zero,"unaccounted_loss_standing":_unaccounted_loss_standing(vector)}
         return {"status":"COMPOSED_TRANSPORT_ALLOWED","allowed":True,"composition":composed}
 
     def _attach_assay(self,case:Dict[str,Any],raw:Dict[str,Any])->Dict[str,Any]:
@@ -374,93 +329,32 @@ class MythicHolonomyRuntime:
     def _result_receipts(self,r:Dict[str,Any])->List[Dict[str,Any]]:
         out=[]
         if isinstance(r.get("receipt"),dict):out.append(r["receipt"])
-        out.extend(x for x in r.get("receipts",[]) if isinstance(x,dict))
-        comp=r.get("composition") or r.get("canonical_composition")
+        out.extend(x for x in r.get("receipts",[]) if isinstance(x,dict));comp=r.get("composition") or r.get("canonical_composition")
         if isinstance(comp,dict):out.extend(x for x in comp.get("receipts",[]) if isinstance(x,dict))
         return out
 
     def _summarize(self,arm:str,results:List[Dict[str,Any]],cases:List[Dict[str,Any]],layers:Dict[str,Dict[str,Any]])->Dict[str,Any]:
-        expected_pass=sum(1 for r in results if r.get("expected_pass"))
-        equivalence_cases=[i for i,c in enumerate(cases) if c.get("operation")=="SEMANTIC_EQUIVALENCE"]
-        lawful=[i for i,c in enumerate(cases) if c.get("operation")=="SEMANTIC_TRANSPORT"]
-        false_eq=sum(1 for i in equivalence_cases if results[i].get("allowed") or results[i].get("equivalence_claimed"))
-        lawful_retained=sum(1 for i in lawful if results[i].get("allowed"))
-        false_holds=len(lawful)-lawful_retained
-        standing_violations=0;authority_violations=0;prov_ok=0;loss_ok=0;composed_n=0
-        vectors=[];projection_receipts=0
+        expected_pass=sum(1 for r in results if r.get("expected_pass"));equivalence_cases=[i for i,c in enumerate(cases) if c.get("operation")=="SEMANTIC_EQUIVALENCE"];lawful=[i for i,c in enumerate(cases) if c.get("operation")=="SEMANTIC_TRANSPORT"];false_eq=sum(1 for i in equivalence_cases if results[i].get("allowed") or results[i].get("equivalence_claimed"));lawful_retained=sum(1 for i in lawful if results[i].get("allowed"));false_holds=len(lawful)-lawful_retained
+        standing_violations=0;authority_violations=0;prov_ok=0;loss_ok=0;composed_n=0;vectors=[];projection_receipts=0
         for r in results:
             comp=r.get("composition") or r.get("canonical_composition")
             if isinstance(comp,dict) and comp.get("allowed"):
-                composed_n+=1;prov_ok+=int(bool(comp.get("provenance")))
-                path_loss=bool(comp.get("loss_ledger"))
-                loss_ok+=int(path_loss or r.get("status")=="SAME_LAYER_CONTROL_EVALUATED")
+                composed_n+=1;prov_ok+=int(bool(comp.get("provenance")));path_loss=bool(comp.get("loss_ledger"));loss_ok+=int(path_loss or r.get("status")=="SAME_LAYER_CONTROL_EVALUATED")
             vec=r.get("holonomy_vector") or {}
             if isinstance(vec,dict) and vec:vectors.append(vec)
             standing_violations+=int(isinstance(vec.get("standing_delta"),(int,float)) and float(vec.get("standing_delta",0))>0)
-            for rec in self._result_receipts(r):
-                authority_violations+=int(rec.get("execution_authority") not in {None,"NONE"})
-                projection_receipts+=int(bool(rec.get("projection_assumptions")))
-        ua_known=[v.get("unaccounted_loss") for v in vectors if isinstance(v.get("unaccounted_loss"),(int,float))]
-        ua_unknown=sum(v.get("unaccounted_loss") is None for v in vectors)
-        invariant_violations=sum(int(v.get("invariant_violations",0)) for v in vectors if isinstance(v.get("invariant_violations"),(int,float)))
-        return {
-            "arm":arm,"cases":len(cases),"expected_class_passed":expected_pass,
-            "false_equivalence_claims":false_eq,"lawful_bridges_retained":lawful_retained,
-            "lawful_bridge_total":len(lawful),"transport_case_total":len(lawful),"transport_membership_basis":"OPERATION_SEMANTIC_TRANSPORT",
-            "false_holds_on_lawful_transport":false_holds,
-            "standing_amplification_violations":standing_violations,
-            "authority_minting_violations":authority_violations,"composed_paths":composed_n,
-            "composed_paths_with_provenance":prov_ok,
-            "composed_paths_with_loss_or_same_layer_exemption":loss_ok,
-            "invariant_violations":invariant_violations,
-            "textual_invariant_checks_unknown":sum(len(c.get("bridge_invariants") or []) for c in cases),
-            "source_layer_invariant_checks_unknown":sum(len(layer.get("invariants") or []) for layer in layers.values()),
-            "holonomy_vector_unaccounted_loss_known_total":sum(ua_known),
-            "holonomy_vector_unaccounted_loss_unknown_cases":ua_unknown,
-            "path_order_sensitive_cases":sum(bool(r.get("path_order_sensitive")) for r in results),
-            "projection_assumption_receipts":projection_receipts,
-        }
+            for rec in self._result_receipts(r):authority_violations+=int(rec.get("execution_authority") not in {None,"NONE"});projection_receipts+=int(bool(rec.get("projection_assumptions")))
+        ua_known=[v.get("unaccounted_loss") for v in vectors if isinstance(v.get("unaccounted_loss"),(int,float))];ua_unknown=sum(v.get("unaccounted_loss") is None for v in vectors);invariant_violations=sum(int(v.get("invariant_violations",0)) for v in vectors if isinstance(v.get("invariant_violations"),(int,float)))
+        return {"arm":arm,"cases":len(cases),"expected_class_passed":expected_pass,"false_equivalence_claims":false_eq,"lawful_bridges_retained":lawful_retained,"lawful_bridge_total":len(lawful),"transport_case_total":len(lawful),"transport_membership_basis":"OPERATION_SEMANTIC_TRANSPORT","false_holds_on_lawful_transport":false_holds,"standing_amplification_violations":standing_violations,"authority_minting_violations":authority_violations,"composed_paths":composed_n,"composed_paths_with_provenance":prov_ok,"composed_paths_with_loss_or_same_layer_exemption":loss_ok,"invariant_violations":invariant_violations,"textual_invariant_checks_unknown":sum(len(c.get("bridge_invariants") or []) for c in cases),"source_layer_invariant_checks_unknown":sum(len(layer.get("invariants") or []) for layer in layers.values()),"holonomy_vector_unaccounted_loss_known_total":sum(ua_known),"holonomy_vector_unaccounted_loss_unknown_cases":ua_unknown,"path_order_sensitive_cases":sum(bool(r.get("path_order_sensitive")) for r in results),"projection_assumption_receipts":projection_receipts}
 
     def evaluate(self,packet:Dict[str,Any],source_packet_ref:str="",source_packet_blob_sha:str="")->Dict[str,Any]:
         ok,errors=self._validate(packet)
-        if not ok:
-            return {"version":HOLONOMY_VERSION,"status":"HOLD_INVALID_PACKET","errors":errors,"authority":"NONE","laws":list(LAWS)}
-        families,layers=self._index(packet);cases=list(packet.get("cases") or [])
-        missing=[]
+        if not ok:return {"version":HOLONOMY_VERSION,"status":"HOLD_INVALID_PACKET","errors":errors,"authority":"NONE","laws":list(LAWS)}
+        families,layers=self._index(packet);cases=list(packet.get("cases") or []);missing=[]
         for case in cases:
             if case.get("family_id") not in families:missing.append(f"family:{case.get('family_id')}")
             for lid in case.get("path") or []:
                 if lid not in layers:missing.append(f"layer:{lid}")
-        if missing:
-            return {"version":HOLONOMY_VERSION,"status":"HOLD_UNRESOLVED_PACKET_REFERENCES","errors":_uniq(missing),"authority":"NONE","laws":list(LAWS)}
-        transport_edges=self._frozen_transport_edges(cases)
-        a0=[self._attach_assay(c,self._a0(c,layers)) for c in cases]
-        a1=[self._attach_assay(c,self._a1(c,layers)) for c in cases]
-        a2=[self._attach_assay(c,self._a2(c,layers,transport_edges)) for c in cases]
-        return {
-            "version":HOLONOMY_VERSION,"status":"HELD_OUT_PACKET_EVALUATED",
-            "source_packet_ref":source_packet_ref,"source_packet_blob_sha":source_packet_blob_sha,
-            "source_packet_ref_verified":False,
-            "packet_identity":{"artifact":packet.get("artifact"),"version":packet.get("version"),"families":len(families),"cases":len(cases)},
-            "distance_semantics":deepcopy(packet.get("distance_semantics")),"scalarization":"DISABLED_V0",
-            "packet_semantic_sha256":_packet_semantic_sha256(packet),
-            "classification_answer_key_firewall":"EXPECTED_CLASS_USED_ONLY_AFTER_RAW_ARM_EXECUTION_FOR_ASSAY; RAW_EDGE_SUPPORT_USES_OPERATION_PATH_ONLY",
-            "projection_policy":{
-                "standing":"SYNTHETIC_ADAPTER_METADATA_NOT_SOURCE_EVIDENCE",
-                "category_scope_default":"COMPOSITE",
-                "corpus_mutability_default":"LAYERED",
-                "authorization_scope":"DERIVED_FROM_AUTHORITY_SCOPE_WHEN_ABSENT",
-                "bridge_evidence_standing":"DERIVED_MIN_ENDPOINT_STANDING_NOT_SOURCE_ATTESTED",
-                "bridge_authority":"ADAPTER_CONSTANT_NOT_SOURCE_AUTHORITY",
-                "invariant_evaluation":"STRUCTURAL_STRING_RETENTION_ONLY_NOT_SEMANTIC_VALIDATION",
-                "unaccounted_loss":"UNKNOWN_WHEN_CHANGED_DIMENSIONS_HAVE_ONLY_UNTYPED_PROSE_LOSS_LEDGER",
-            },
-            "arms":{
-                "A0_UNSCOPED_REFERENCE":{"summary":self._summarize("A0",a0,cases,layers),"results":a0},
-                "A1_EDGEWISE_STRATA":{"summary":self._summarize("A1",a1,cases,layers),"results":a1},
-                "A2_COMPOSED_HOLONOMY":{"summary":self._summarize("A2",a2,cases,layers),"results":a2},
-            },
-            "authority":"READ_ONLY_REPRESENTATION_BENCHMARK_ONLY",
-            "practitioner_review":"HOLD_EXTERNAL_REVIEW","mck_v2_promotion":False,
-            "general_effectiveness":"UNKNOWN","laws":list(LAWS),
-        }
+        if missing:return {"version":HOLONOMY_VERSION,"status":"HOLD_UNRESOLVED_PACKET_REFERENCES","errors":_uniq(missing),"authority":"NONE","laws":list(LAWS)}
+        transport_edges=self._frozen_transport_edges(cases);a0=[self._attach_assay(c,self._a0(c,layers)) for c in cases];a1=[self._attach_assay(c,self._a1(c,layers)) for c in cases];a2=[self._attach_assay(c,self._a2(c,layers,transport_edges)) for c in cases]
+        return {"version":HOLONOMY_VERSION,"status":"HELD_OUT_PACKET_EVALUATED","source_packet_ref":source_packet_ref,"source_packet_blob_sha":source_packet_blob_sha,"source_packet_ref_verified":False,"packet_identity":{"artifact":packet.get("artifact"),"version":packet.get("version"),"families":len(families),"cases":len(cases)},"distance_semantics":deepcopy(packet.get("distance_semantics")),"scalarization":"DISABLED_V0","packet_semantic_sha256":_packet_semantic_sha256(packet),"classification_answer_key_firewall":"EXPECTED_CLASS_USED_ONLY_AFTER_RAW_ARM_EXECUTION_FOR_ASSAY; RAW_EDGE_SUPPORT_USES_OPERATION_PATH_ONLY","projection_policy":{"standing":"SYNTHETIC_ADAPTER_METADATA_NOT_SOURCE_EVIDENCE","category_scope_default":"COMPOSITE","corpus_mutability_default":"LAYERED","authorization_scope":"DERIVED_FROM_AUTHORITY_SCOPE_WHEN_ABSENT","bridge_evidence_standing":"DERIVED_MIN_ENDPOINT_STANDING_NOT_SOURCE_ATTESTED","bridge_authority":"ADAPTER_CONSTANT_NOT_SOURCE_AUTHORITY","invariant_evaluation":"STRUCTURAL_STRING_RETENTION_ONLY_NOT_SEMANTIC_VALIDATION","unaccounted_loss":"UNKNOWN_WHEN_CHANGED_DIMENSIONS_LACK_VERIFIED_TYPED_COVERAGE","typed_loss_coverage":"UNAVAILABLE_V0_NO_VERIFIED_TYPED_LOSS_SCHEMA"},"arms":{"A0_UNSCOPED_REFERENCE":{"summary":self._summarize("A0",a0,cases,layers),"results":a0},"A1_EDGEWISE_STRATA":{"summary":self._summarize("A1",a1,cases,layers),"results":a1},"A2_COMPOSED_HOLONOMY":{"summary":self._summarize("A2",a2,cases,layers),"results":a2}},"authority":"READ_ONLY_REPRESENTATION_BENCHMARK_ONLY","practitioner_review":"HOLD_EXTERNAL_REVIEW","mck_v2_promotion":False,"general_effectiveness":"UNKNOWN","laws":list(LAWS)}
