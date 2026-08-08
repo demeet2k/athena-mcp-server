@@ -1,0 +1,14 @@
+{
+  "at": "2026-08-08T21:40:00Z",
+  "data": {
+    "attempt": 1,
+    "claim_digest": "88430b5958b9db041db4a300e9fdf335d1c831e00b92b905438f659da3c7e0c2",
+    "claim_path": "runtime/runs/run.cold-canary/claims/build.json"
+  },
+  "event_id": "claim-acquired-88430b5958b9db041db4a300",
+  "event_type": "CLAIM_ACQUIRED",
+  "node_id": "build",
+  "run_id": "run.cold-canary",
+  "schema_version": "EVENT_V1",
+  "sequence": 4
+}
