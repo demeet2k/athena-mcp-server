@@ -132,6 +132,9 @@ def _anchor(*, pulse=None, agent=AGENT_ID, quest_id=QUEST_ID, quest_version=QUES
 
 def _packet(**overrides):
     pulse = overrides.pop("pulse", _pulse())
+    reseed_anchor = overrides.pop("reseed_anchor", None)
+    if reseed_anchor is None:
+        reseed_anchor = _anchor(pulse=pulse)
     kwargs = {
         "pulse": pulse,
         "residual_step": 3,
@@ -145,7 +148,7 @@ def _packet(**overrides):
             "packet readback matches committed source",
             "no authority or platform-reset firewall regresses",
         ],
-        "reseed_anchor": _anchor(pulse=pulse),
+        "reseed_anchor": reseed_anchor,
         "extra_life_reward_candidate": None,
     }
     kwargs.update(overrides)
