@@ -1,6 +1,6 @@
 # BIONANOMACHINE MECHANISM KERNEL V1
 
-Version: `BNMK.1`
+Version: `BNMK.V1`
 
 Resource: `athena://bio/nanomachines/v1`
 
