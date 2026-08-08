@@ -11,9 +11,38 @@ DEVELOPMENT_ORGANS=('equivalence','extraction','retrieval','hug','gap','field','
 GOVERNANCE_ORGANS=('promotion','state_foundation','self_test','startup')
 
 
+def _canonical_server_type():
+    # Lazy import avoids a module-cycle while preserving real Python type identity.
+    from .server import Server
+    return Server
+
+
+def _competing_server_roots(server,server_type)->list[dict[str,str]]:
+    roots=[]
+    store=getattr(server,'store',None)
+    for attribute,value in vars(server).items():
+        if value is server or value is store:
+            continue
+        if isinstance(value,server_type):
+            roots.append({'attribute':attribute,'class':type(value).__name__})
+    return sorted(roots,key=lambda item:(item['attribute'],item['class']))
+
+
 def composition_certificate(server,run_probes=True)->Dict[str,Any]:
-    mro=[cls.__name__ for cls in type(server).mro()]
-    class_ok=type(server).__name__=='Server' and mro[:2]==['Server','object']
+    server_type=_canonical_server_type()
+    mro_types=type(server).mro()
+    mro=[cls.__name__ for cls in mro_types]
+    canonical_mro_count=sum(cls is server_type for cls in mro_types)
+    competing_server_roots=_competing_server_roots(server,server_type)
+    tool_dispatch_owner=getattr(getattr(server,'call_tool',None),'__self__',None) is server
+    rpc_dispatch_owner=getattr(getattr(server,'handle',None),'__self__',None) is server
+    class_ok=(
+        isinstance(server,server_type)
+        and canonical_mro_count==1
+        and not competing_server_roots
+        and tool_dispatch_owner
+        and rpc_dispatch_owner
+    )
     missing_direct=[name for name in DIRECT_ORGANS if not hasattr(server,name) or getattr(server,name) is None]
     dev=getattr(server,'aor_development',None)
     missing_development=[name for name in DEVELOPMENT_ORGANS if dev is None or not hasattr(dev,name) or getattr(dev,name) is None]
@@ -45,11 +74,22 @@ def composition_certificate(server,run_probes=True)->Dict[str,Any]:
     ok=class_ok and not missing_direct and not missing_development and not missing_governance and (not run_probes or probe_status=='PASS')
     return {
         'version':COMPOSITION_VERSION,'status':'PASS' if ok else 'FAIL',
-        'runtime_class':{'status':'PASS' if class_ok else 'FAIL','expected':'Server -> object','observed_mro':mro,'single_composed_runtime':class_ok},
+        'runtime_class':{
+            'status':'PASS' if class_ok else 'FAIL',
+            'expected':'Server -> object',
+            'accepted':'Server or a subclass with exactly one canonical athena_mcp.server.Server root',
+            'observed_class':type(server).__name__,
+            'observed_mro':mro,
+            'inherits_canonical_server':isinstance(server,server_type),
+            'canonical_server_mro_count':canonical_mro_count,
+            'competing_server_roots':competing_server_roots,
+            'dispatch_ownership':{'call_tool':tool_dispatch_owner,'handle':rpc_dispatch_owner},
+            'single_composed_runtime':class_ok,
+        },
         'direct_organs':{'status':'PASS' if not missing_direct else 'FAIL','required':list(DIRECT_ORGANS),'missing':missing_direct},
         'development_organs':{'status':'PASS' if not missing_development else 'FAIL','required':list(DEVELOPMENT_ORGANS),'missing':missing_development},
         'governance_organs':{'status':'PASS' if not missing_governance else 'FAIL','required':list(GOVERNANCE_ORGANS),'missing':missing_governance},
         'read_only_probes':probes,'probe_status':probe_status,
-        'law':'composition integrity requires one Server with resident Collective V1-V4 + AOR/FIELD/transport/CYCLE/state-foundation/startup/self-test/promotion organs; V5 science and V6 discovery are lazily constructed but their advertised surfaces are required by SURFACE.2',
-        'boundary':'certifies runtime wiring/dispatch reachability and organ presence; model validity, migration currency, external CI/smoke and semantic truth are separate gates',
+        'law':'composition integrity requires one canonical Server root (the Server class or a subclass) with root-owned RPC/tool dispatch and resident Collective V1-V4 + AOR/FIELD/transport/CYCLE/state-foundation/startup/self-test/promotion organs; V5 science and V6 discovery are lazily constructed but their advertised surfaces are required by SURFACE.2',
+        'boundary':'certifies runtime type identity, single-root wiring, dispatch ownership and organ reachability; model validity, migration currency, external CI/smoke and semantic truth are separate gates',
     }
