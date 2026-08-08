@@ -3,6 +3,7 @@ import tomllib
 import unittest
 from pathlib import Path
 
+import athena_mcp
 from athena_mcp.protocol import SERVER_INFO
 from athena_mcp.server import Server
 
@@ -12,6 +13,7 @@ class MetadataConsistencyTests(unittest.TestCase):
         root=Path(__file__).resolve().parents[1]
         project=tomllib.loads((root/'pyproject.toml').read_text())['project']
         self.assertEqual(project['version'],SERVER_INFO['version'])
+        self.assertEqual(project['version'],athena_mcp.__version__)
         self.assertEqual(project['name'],SERVER_INFO['name'])
         self.assertEqual(project['version'],'2.5.0')
         self.assertIn('discovery',project['description'].lower())
