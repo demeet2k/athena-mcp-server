@@ -1,0 +1,89 @@
+{
+  "artifact": "ATHENA.REHYDRATION.CAMPAIGN.V2",
+  "coordinate": "ATHENA.KC144::GITΩ::REHYDRATION-CAMPAIGN::V2",
+  "purpose": "Preserve and coordinate multiple lawful rehydration branches under explicit width/depth/branch budgets without pretending that campaign branches are background workers or merge authority.",
+  "authority_ceiling": "coordination only; below branch protection, merge, release, source mutation, evidence promotion, and user authority",
+  "composition": {
+    "branch_work_runtime": "ATHENA.REHYDRATION.LOOP.V1",
+    "routing_successor": "ATHENA.REHYDRATION.SUCCESSOR.BATON.V1 answers WHAT NEXT",
+    "rehydration_handoff": "ATHENA.REHYDRATION.HANDOFF.DELTA.V1 answers WHAT TO REHYDRATE",
+    "canonical_delta_core": "ATHENA.SUCCESSOR.BATON.V1",
+    "campaign_state": "Git-persisted append-only event chain plus current branch projection",
+    "law": "WHAT_NEXT != WHAT_TO_REHYDRATE"
+  },
+  "freshness": {
+    "start": "expected_git_head must equal the observed current Git head after the configured shared-frontier sync",
+    "mutation": "expected campaign checkpoint must remain the current campaign-state commit and an ancestor of the current work head",
+    "qualification": "the campaign implementation branch must rehydrate the current master frontier before any exact-head CI result can qualify merge",
+    "law": "OLDER_GREEN_CI + NEW_MASTER != CURRENT_QUALIFICATION"
+  },
+  "campaign_states": ["ACTIVE", "RECONCILED", "COMPLETE", "ABORTED"],
+  "branch_states": ["OPEN", "CLAIMED", "ACTIVE", "WITNESSED", "BLOCKED", "EXPANDED", "ACCEPTED", "SUPERSEDED"],
+  "budgets": {
+    "max_width": {"minimum": 1, "maximum": 16},
+    "max_depth": {"minimum": 1, "maximum": 32},
+    "max_branches": {"minimum": 1, "maximum": 256},
+    "lease_steps": {"minimum": 1, "maximum": 32}
+  },
+  "operations": {
+    "start": "create one bounded campaign graph from an exact Git head",
+    "claim": "assign a logical-clock lease to one branch",
+    "release": "return a claimed branch to OPEN",
+    "bind_loop": "bind a claimed branch to an exact V1 loop state/checkpoint",
+    "sync_branch": "project the bound loop state into campaign branch state; a future surface may also bind a canonical read-only handoff digest without rescoring routing",
+    "expand": "materialize SELECTED or AMBIGUOUS routing-successor candidates as child branches subject to budgets",
+    "reconcile": "record an observed selection among WITNESSED branches; supersession is explicit, never inferred from omission",
+    "resume": "return the full current branch frontier and campaign state",
+    "verify": "verify event-chain, topology, branch-budget, depth and width invariants"
+  },
+  "handoff_boundary": {
+    "routing_baton_role": "select or preserve successor tasks",
+    "handoff_delta_role": "compress exact predecessor-to-successor state for another agent",
+    "campaign_rule": "branch expansion consumes routing successor; cross-agent hydration consumes handoff delta",
+    "nontransfer": "a handoff delta is receipt-bound context and never becomes routing or merge authority"
+  },
+  "expansion": {
+    "SELECTED": "one child branch",
+    "AMBIGUOUS": "one child per retained tie unless caller supplies selected_candidate_ids",
+    "NO_SUCCESSOR": "no child",
+    "TERMINAL": "no child",
+    "width_overflow": "HOLD_WIDTH without state mutation",
+    "branch_budget_overflow": "HOLD_BRANCH_BUDGET without state mutation",
+    "depth_overflow": "HOLD_DEPTH without state mutation"
+  },
+  "lease_model": {
+    "clock": "campaign logical_clock",
+    "purpose": "prevent duplicate branch ownership without depending on wall-clock truth",
+    "law": "CLAIMED_BRANCH != ACTIVE_WORKER; work exists only when an explicit agent executes it"
+  },
+  "reconciliation": {
+    "eligible": "only WITNESSED branches may become ACCEPTED",
+    "supersede_branch_ids": "only explicitly named WITNESSED/BLOCKED branches become SUPERSEDED; unrelated branches remain unchanged",
+    "nonterminal_result": "RECONCILED",
+    "terminal_result": "COMPLETE only with observed integration_witness.git_head equal to the current observed Git head and no unresolved active frontier",
+    "law": "RECONCILED != GIT_MERGED unless an external Git integration witness is supplied"
+  },
+  "persistence": {
+    "root": "prompts/rehydration_campaigns/<campaign_id>",
+    "state": "state.json",
+    "events": "events/<sequence>-<event>.json",
+    "batons": "batons/<sequence>-<baton_digest>.json",
+    "digests": ["state_digest", "event_digest", "chain_digest"]
+  },
+  "promotion_hold": {
+    "code": "CONTROL_PLANE_PROGRESS_ACCOUNTING",
+    "condition": "before MCP promotion, V1 loop substantive-work accounting must exclude sibling rehydration/campaign coordination-only commits so control-plane writes cannot satisfy a work-progress gate by themselves"
+  },
+  "laws": [
+    "CAMPAIGN_BRANCH != BACKGROUND_WORKER",
+    "WHAT_NEXT != WHAT_TO_REHYDRATE",
+    "AMBIGUITY MAY EXPAND INTO BOUNDED BRANCHES",
+    "WIDTH/DEPTH/BRANCH BUDGETS FAIL CLOSED",
+    "BRANCH_ROUTING != AUTHORITY",
+    "HANDOFF_DELTA != BRANCH_ROUTING",
+    "UNMENTIONED BRANCH != SUPERSEDED BRANCH",
+    "RECONCILIATION != GIT_MERGE",
+    "CAMPAIGN COMPLETE REQUIRES OBSERVED INTEGRATION WITNESS",
+    "CAMPAIGN VERIFY != BRANCH WORK TRUTH"
+  ]
+}
