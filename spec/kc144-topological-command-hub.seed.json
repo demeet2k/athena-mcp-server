@@ -1,0 +1,28 @@
+{
+  "id": "KC144.TOPOLOGICAL.COMMAND.HUB.1.0.0",
+  "generator": "athena_mcp.kc144_topology:manifest",
+  "schema": "spec/kc144-topological-command-hub.schema.json",
+  "parent_runtime_sha": "6b643134ee26ce117c2b548b5a89edf5cec55934",
+  "full_aor_source_sha": "1ef1c992318897b581bf9740fa3cf50b9d5ea0e8",
+  "git_brain_source_sha": "98499d9af914aac2664c237391b49805050bceb5",
+  "structural_manifest_digest": "sha256:d7f2afbc1f96aa90d1ac40344ef33069ec4c6c27f553f6224814f076989a7059",
+  "structural_validation_receipt": "sha256:f28227a9a92c358c8fc6a4abceb78497bb1c8329e9bad750345eb616191fb291",
+  "expected": {
+    "seats": 144,
+    "bands": 8,
+    "coordinate_systems": 16,
+    "generated_graph_edge_counts": {
+      "physical_grid": 264,
+      "radial_ring": 144,
+      "mirror": 72,
+      "br21_native": 39,
+      "kc15_native": 28,
+      "kc27_native": 54
+    },
+    "declared_compiler_graph_records": 690,
+    "hub_tools": 10,
+    "readiness_gates": 10
+  },
+  "state": "TOPOLOGY_PASS__ORGANISM_INTEGRATION_PARTIAL__PROMOTION_HOLD",
+  "return": "GID144->H01_PRIME"
+}

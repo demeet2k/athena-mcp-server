@@ -1,0 +1,56 @@
+{
+  "authority_boundary": "This certifies the exact synchronized branch candidate; independent review and post-merge target validation remain separate gates.",
+  "base_commit": "6e9f9cc57564c80e29874c276d21addb0c99d530",
+  "branch": "agent/kc144-topological-command-hub",
+  "common_ancestor_before_merge": "10f1dc39ffc6066ea00f880ef522050394fd5e3a",
+  "gates": [
+    "FROZEN_V7_BASE",
+    "EXACT_CONFLICT_SET",
+    "SEMANTIC_RESOLUTION",
+    "PACKAGE_INSTALL",
+    "COMPILEALL",
+    "FULL_UNITTEST",
+    "DEEP_REGISTRY_VERIFY",
+    "POLYATLAS_18_CHECKS",
+    "MCP_SMOKE",
+    "TWO_PARENT_COMMIT"
+  ],
+  "github_run_id": 31248470973,
+  "head_before_merge": "7e434bf7c452af947f0a0dca3ae80d2a82c616c5",
+  "mcp_tool_count": 224,
+  "merge_head": "6e9f9cc57564c80e29874c276d21addb0c99d530",
+  "observed_conflicts": [
+    "athena_mcp/aor_development_surface.py",
+    "athena_mcp/orchestration_field/__init__.py",
+    "athena_mcp/orchestration_field/compiler.py",
+    "athena_mcp/orchestration_field/ledger.py",
+    "athena_mcp/orchestration_field_protocol.py",
+    "pyproject.toml"
+  ],
+  "pull_request": 28,
+  "registry_pack_sha256": "312d984d988797311ac42e1d8b2323b9d8e87877c1c05679a93189c18e861f7d",
+  "repository": "demeet2k/athena-mcp-server",
+  "resolution": {
+    "aor_collective_v7_composition": "THEIRS",
+    "kc144_field_implementation": "OURS",
+    "polyatlas": "OURS_PLUS_FULL_RETEST",
+    "pyproject": "SEMANTIC_MERGE_2.5_DISCOVERY"
+  },
+  "smoke_sha256": "354cc3db6b6349e920eea17098e8aa3b6a2025e1c55702b152b029cddf6b8645",
+  "status": "PASS",
+  "surfaces": {
+    "cycle": "CYCLE.1",
+    "field": "FIELD.1",
+    "frontier": "TASK.000",
+    "polyatlas": "KC144.POLYATLAS.1.0.0",
+    "polyatlas_checks": 18,
+    "promotion": "PROMOTION.1",
+    "rosetta_center": 365,
+    "route_hops": 1,
+    "v7": "ATHENA_UNIFIED_V7"
+  },
+  "test_count": 221,
+  "tests_sha256": "ae1dd08c1a9bfea158a2efd25c1ce911fa58620dd2279ac6094b975a49a80f06",
+  "version": "ATHENA.KC144.BASE.SYNC.RECEIPT.5",
+  "workflow_trigger_sha": "7e434bf7c452af947f0a0dca3ae80d2a82c616c5"
+}

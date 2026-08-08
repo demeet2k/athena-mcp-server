@@ -12,8 +12,12 @@ from .collective_growth import CollectiveGrowthRuntime
 from .collective_memory import CollectiveMemoryRuntime
 from .collective_learning import CollectiveLearningRuntime
 from .collective_ecology import CollectiveEcologyRuntime
+from .collective_science import CollectiveScienceRuntime
+from .collective_discovery import CollectiveDiscoveryRuntime
 from .collective_v3_dispatch import call as call_collective_v3
 from .collective_v4_dispatch import call as call_collective_v4
+from .collective_v5_dispatch import call as call_collective_v5
+from .collective_v6_dispatch import call as call_collective_v6
 from .orchestration_branch import BranchLedger
 from .orchestration_authority import AuthorityLedger
 from .orchestration_authority_runtime import AuthorityOrchestrationRuntime
@@ -27,17 +31,21 @@ from .collective_growth_protocol import COLLECTIVE_GROWTH_TOOLS
 from .collective_v2_protocol import COLLECTIVE_V2_TOOLS
 from .collective_v3_protocol import COLLECTIVE_V3_TOOLS
 from .collective_v4_protocol import COLLECTIVE_V4_TOOLS
+from .collective_v5_protocol import COLLECTIVE_V5_TOOLS
+from .collective_v6_protocol import COLLECTIVE_V6_TOOLS
 from .aor_protocol import AOR_TOOLS
 from .orchestration_branch_protocol import BRANCH_TOOLS
 from .orchestration_authority_protocol import AUTHORITY_TOOLS
 from .orchestration_robustness_protocol import ROBUSTNESS_TOOLS
 
 _existing_tool_names={t['name'] for t in TOOLS}
-for tool in COLLECTIVE_TOOLS+COLLECTIVE_GROWTH_TOOLS+COLLECTIVE_V2_TOOLS+COLLECTIVE_V3_TOOLS+COLLECTIVE_V4_TOOLS+AOR_TOOLS+BRANCH_TOOLS+AUTHORITY_TOOLS+ROBUSTNESS_TOOLS+AOR_DEVELOPMENT_TOOLS:
+for tool in COLLECTIVE_TOOLS+COLLECTIVE_GROWTH_TOOLS+COLLECTIVE_V2_TOOLS+COLLECTIVE_V3_TOOLS+COLLECTIVE_V4_TOOLS+COLLECTIVE_V5_TOOLS+COLLECTIVE_V6_TOOLS+AOR_TOOLS+BRANCH_TOOLS+AUTHORITY_TOOLS+ROBUSTNESS_TOOLS+AOR_DEVELOPMENT_TOOLS:
     if tool['name'] not in _existing_tool_names:
         TOOLS.append(tool);_existing_tool_names.add(tool['name'])
 COLLECTIVE_V3_NAMES={tool['name'] for tool in COLLECTIVE_V3_TOOLS}
 COLLECTIVE_V4_NAMES={tool['name'] for tool in COLLECTIVE_V4_TOOLS}
+COLLECTIVE_V5_NAMES={tool['name'] for tool in COLLECTIVE_V5_TOOLS}
+COLLECTIVE_V6_NAMES={tool['name'] for tool in COLLECTIVE_V6_TOOLS}
 
 
 class RateLimiter:
@@ -55,6 +63,8 @@ class Server:
         self.collective=CollectiveRuntime();self.collective_growth=CollectiveGrowthRuntime();self.collective_memory=CollectiveMemoryRuntime(self.store,self.collective,self.collective_growth)
         self.collective_learning=CollectiveLearningRuntime(self.store,self.collective,self.collective_memory)
         self.collective_ecology=CollectiveEcologyRuntime(self.store,self.collective,self.collective_growth,self.collective_memory,self.collective_learning)
+        self.collective_science=CollectiveScienceRuntime(self.store,self.collective,self.collective_growth,self.collective_memory,self.collective_learning,self.collective_ecology)
+        self.collective_discovery=CollectiveDiscoveryRuntime(self.collective_science)
         self.branches=BranchLedger(self.core);self.authority=AuthorityLedger(self.core);self.orchestration=AuthorityOrchestrationRuntime(self.core,self.branches,self.authority)
         self.aor_development=AorDevelopmentSurface(self);self.rate=RateLimiter();self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'),autocommit=False)
 
@@ -183,8 +193,10 @@ class Server:
         if name in COLLECTIVE_V3_NAMES:return call_collective_v3(self.collective_learning,name,a)
         if name=='athena_topology_project_jspace':return self._project_topology_to_jspace(a)
         if name in COLLECTIVE_V4_NAMES:return call_collective_v4(self.collective_ecology,name,a)
+        if name in COLLECTIVE_V5_NAMES:return call_collective_v5(self.collective_science,c,name,a)
+        if name in COLLECTIVE_V6_NAMES:return call_collective_v6(self.collective_discovery,name,a)
         if name=='athena_benchmark':
-            r=c.benchmark();r.update(self.crystal.benchmark_extension());r.update(self.branches.benchmark());r.update(self.authority.benchmark());r.update(self.orchestration.benchmark());r.update(self.aor_development.benchmark());r['git']=self.git.status();r['collective_runtime']=self.collective.describe()['version'];r['collective_growth']=self.collective_growth.describe()['version'];r['collective_memory']=self.collective_memory.describe();r['collective_learning']=self.collective_learning.describe();r['collective_ecology']=self.collective_ecology.describe();r['aor_law']=orchestration_law()['version'];return r
+            r=c.benchmark();r.update(self.crystal.benchmark_extension());r.update(self.branches.benchmark());r.update(self.authority.benchmark());r.update(self.orchestration.benchmark());r.update(self.aor_development.benchmark());r['git']=self.git.status();r['collective_runtime']=self.collective.describe()['version'];r['collective_growth']=self.collective_growth.describe()['version'];r['collective_memory']=self.collective_memory.describe();r['collective_learning']=self.collective_learning.describe();r['collective_ecology']=self.collective_ecology.describe();r['collective_science']=self.collective_science.describe();r['collective_discovery']=self.collective_discovery.describe();r['aor_law']=orchestration_law()['version'];return r
         raise KeyError(name)
 
     def handle(self,m):

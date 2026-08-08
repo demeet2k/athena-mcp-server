@@ -1,0 +1,106 @@
+{
+  "authority_boundary": "Local verification is pre-push evidence; GitHub Actions and exact-head readback remain authoritative for remote integration state.",
+  "base_commit": "9afe394bba13549a24abae03cf0cb6424d3a42ca",
+  "files": [
+    {
+      "path": "athena_mcp/aor_development_surface.py",
+      "sha256": "caf16da4bc9b368a736faefa070b6358399aea65e77f7bbdef063d8afc2c3f05",
+      "size_bytes": 12050
+    },
+    {
+      "path": "athena_mcp/hub_dispatch.py",
+      "sha256": "0cbba9b076f2590b0c5a26949866e3eaa04d6bbf3e889a901a4ab7ac16e912d4",
+      "size_bytes": 6796
+    },
+    {
+      "path": "athena_mcp/hub_server.py",
+      "sha256": "00de6aca51fe723cda85eebb7ffee2ffc79503bff74db0f11f3349ad3c1adeb1",
+      "size_bytes": 7830
+    },
+    {
+      "path": "athena_mcp/kc144_registry_pack.py",
+      "sha256": "554b9ab851813e0f55768e915ebff93f19baae06bb77910154fa3d5705819987",
+      "size_bytes": 19389
+    },
+    {
+      "path": "athena_mcp/kc144_registry_protocol.py",
+      "sha256": "d894b54a9363a22aff3612b35205d39b74bc869dfbc6f4b8d24aa5ac1bc093e7",
+      "size_bytes": 5418
+    },
+    {
+      "path": "athena_mcp/orchestration_field/__init__.py",
+      "sha256": "c764d3864c45381bad20418935720ef7123c9db2f90beabd9a2723f053c56bbb",
+      "size_bytes": 295
+    },
+    {
+      "path": "athena_mcp/orchestration_field/compiler.py",
+      "sha256": "3ec1706e627cae9dca498adf9224c1f29375134c27ec918f9098960872c966c3",
+      "size_bytes": 12441
+    },
+    {
+      "path": "athena_mcp/orchestration_field/ledger.py",
+      "sha256": "023a19827d33195ba7ffaf6ed98b99590fdef876856fecf65ac173387327bc10",
+      "size_bytes": 5709
+    },
+    {
+      "path": "athena_mcp/orchestration_field_protocol.py",
+      "sha256": "7d78987ab884e573f3ba2c547f4175d8a41906b456e1956f5353e6cca1ea99dd",
+      "size_bytes": 3970
+    },
+    {
+      "path": "docs/KC144_AUTHORITATIVE_REGISTRY_PACK.md",
+      "sha256": "8b7e36de674c078e09bd375e0bc77b5a1bfbb886fcb24e497ce3af96ac52404a",
+      "size_bytes": 3403
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "b8d559b2517473463e4588578a77e27c31556e47e4f82fd0c28789655ad17e21",
+      "size_bytes": 480
+    },
+    {
+      "path": "scripts/reconstruct_kc144_registry_pack.py",
+      "sha256": "ce9edad8810c3156ebec69e4396997c7257179524e99057cbbe1446cdd691047",
+      "size_bytes": 586
+    },
+    {
+      "path": "tests/test_field_surface_composition.py",
+      "sha256": "96b205497b80e556452d9ee5621b4dfb51636e7958fcc7aa5bf787af053f0e0b",
+      "size_bytes": 2772
+    },
+    {
+      "path": "tests/test_hub_server.py",
+      "sha256": "264e0b24f82d24d3d48f44b9e9c70af7d05a44f6454ce8319c217e18c8bc6bb3",
+      "size_bytes": 6091
+    },
+    {
+      "path": "tests/test_kc144_registry_pack.py",
+      "sha256": "228ebc828aacb885abf44a6fbbe4e7e84ad06750b1963688b06b8427914f002e",
+      "size_bytes": 3019
+    }
+  ],
+  "local_verification": {
+    "archive_byte_reconstruction": "PASS",
+    "compileall": "PASS",
+    "registry_tests_passed": 6
+  },
+  "registry_pack": {
+    "manifest_digest": "cbd069a911971c7eec9d6851034d3cbc3b53eeaef9c36201966351423bfdbb35",
+    "path": "athena_mcp/data/kc144-core-registries.tar.xz",
+    "sha256": "312d984d988797311ac42e1d8b2323b9d8e87877c1c05679a93189c18e861f7d",
+    "size_bytes": 1300124
+  },
+  "runtime_delta": {
+    "field1_composed": true,
+    "lenses": [
+      "cross_search",
+      "source_bundle",
+      "cell_bundle",
+      "completion_frontier"
+    ],
+    "registry_resources": 5,
+    "registry_tools": 8
+  },
+  "target_branch": "agent/kc144-topological-command-hub",
+  "target_repository": "demeet2k/athena-mcp-server",
+  "version": "ATHENA.KC144.RUNTIME.INTEGRATION.2"
+}

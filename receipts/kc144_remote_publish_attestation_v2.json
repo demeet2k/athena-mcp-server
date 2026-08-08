@@ -1,0 +1,39 @@
+{
+  "version": "ATHENA.KC144.REMOTE.PUBLISH.ATTESTATION.2",
+  "status": "PUBLISHED_AND_SYNCHRONIZED",
+  "repository": "demeet2k/athena-mcp-server",
+  "branch": "agent/kc144-topological-command-hub",
+  "pull_request": 28,
+  "synchronized_merge_commit": "c3da710c43e6845a8c5213cc054f7d71c8c9d0ca",
+  "synchronized_tree": "ceff9b3007ab8828f5045949a9ad243bec45dcfa",
+  "base_commit": "6e9f9cc57564c80e29874c276d21addb0c99d530",
+  "merge_workflow_run": 31248470973,
+  "merge_workflow_job": 93080863399,
+  "merge_receipt": "receipts/kc144_base_sync_receipt.json",
+  "merge_receipt_status": "PASS",
+  "test_count": 221,
+  "mcp_tool_count": 224,
+  "registry_pack_sha256": "312d984d988797311ac42e1d8b2323b9d8e87877c1c05679a93189c18e861f7d",
+  "polyatlas": {
+    "version": "KC144.POLYATLAS.1.0.0",
+    "validation_checks": 18,
+    "failures": 0,
+    "rosetta_center_gid729": 365,
+    "typed_route_1_to_144": true
+  },
+  "surfaces": [
+    "CYCLE.1",
+    "FIELD.1",
+    "PROMOTION.1",
+    "ATHENA_UNIFIED_V7",
+    "TASK.000"
+  ],
+  "git_state": {
+    "base_is_ancestor": true,
+    "behind_by": 0,
+    "github_mergeable_observed": true,
+    "draft": true,
+    "merged": false
+  },
+  "authority_boundary": "This attests remote publication, exact-base synchronization, local and workflow validation, and live MCP composition. Draft review, merge authorization, and post-merge target validation remain distinct gates."
+}

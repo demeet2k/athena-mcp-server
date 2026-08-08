@@ -1,0 +1,21 @@
+{
+  "authority_boundary": "This receipt certifies this workflow execution and committed bytes; PR mergeability and later merged-head CI remain separate gates.",
+  "branch": "agent/kc144-topological-command-hub",
+  "gates": [
+    "OVERLAY_DIGEST",
+    "SAFE_EXTRACTION",
+    "PACKAGE_INSTALL",
+    "COMPILEALL",
+    "UNITTEST_DISCOVERY",
+    "MCP_COMPOSITION_SMOKE"
+  ],
+  "github_run_id": "31246088819",
+  "head_before_commit": "fdbf81612c4b5c1c751246caff55280ec95814d8",
+  "registry_pack_sha256": "312d984d988797311ac42e1d8b2323b9d8e87877c1c05679a93189c18e861f7d",
+  "runtime_overlay_sha256": "43f5a506c3ca0737a7d690fd52e05d1a67a9a159e800f3a66bfc221ea3512a1e",
+  "smoke_log_sha256": "6736a19a8830fd312f24e148e32edfe05694526c67224873932abe58b41215b4",
+  "status": "PASS",
+  "tests_log_sha256": "14a1af0d3c4df20ff47fdd72129ee5910c9665c1ed8e96f19171e094f5977275",
+  "trigger_sha": "fdbf81612c4b5c1c751246caff55280ec95814d8",
+  "version": "ATHENA.KC144.RUNTIME.CI.RECEIPT.2"
+}
