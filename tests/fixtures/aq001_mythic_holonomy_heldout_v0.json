@@ -1,0 +1,330 @@
+{
+  "artifact": "ATHENA.MYTHIC.HOLONOMY.HELDOUT.V0",
+  "version": "MCK.HOLONOMY.BENCH.V0",
+  "knowledge_base": "c0065074e5ba2f7d0dcc92b0ba9aa202aa769a54",
+  "parent_issue": 193,
+  "standing": "FROZEN_HELD_OUT_SOURCE_PACKET_CANDIDATE",
+  "families": [
+    {
+      "family_id": "H01.YIJING",
+      "name": "Yijing composite textual/commentarial strata",
+      "source_refs": ["SRC.SEP.YIJING"],
+      "held_out_from": ["REGRESSION12", "STRATA10_PRIMARY_DESIGN_SET"],
+      "layers": [
+        {
+          "layer_id": "H01.S0.GRAPHIC_SYMBOLS",
+          "semantic_role": "graphic divinatory/change symbols",
+          "decoder_role": "symbolic pattern/address layer",
+          "ontology_tags": ["trigrams", "hexagrams", "change", "graphic_symbols"],
+          "authority_scope": "PUBLIC_TEXTUAL_MODEL",
+          "standing": "SECONDARY_SCHOLARSHIP",
+          "provenance": ["SRC.SEP.YIJING"],
+          "source_language_or_text_layer": "received graphic trigrams/hexagrams as described by SEP",
+          "invariants": ["8-trigram/64-hexagram graphic address family remains identifiable across later textual layers"],
+          "declared_loss": []
+        },
+        {
+          "layer_id": "H01.S1.HEXAGRAM_LINE_STATEMENTS",
+          "semantic_role": "written hexagram and line statements attached to graphic symbols",
+          "decoder_role": "textual statement layer used to interpret hexagram/line configurations",
+          "ontology_tags": ["hexagrams", "line_statements", "historical_events", "divination_reports"],
+          "authority_scope": "PUBLIC_TEXTUAL_MODEL",
+          "standing": "SECONDARY_SCHOLARSHIP",
+          "provenance": ["SRC.SEP.YIJING"],
+          "source_language_or_text_layer": "hexagram and line statement layer",
+          "invariants": ["graphic hexagram identity remains addressable"],
+          "declared_loss": ["graphic-only role is expanded by attached textual statements"]
+        },
+        {
+          "layer_id": "H01.S2.TEN_WINGS",
+          "semantic_role": "later commentarial-philosophical writings interpreting symbols and statements",
+          "decoder_role": "philosophical/cosmological commentary layer",
+          "ontology_tags": ["hexagrams", "Ten_Wings", "cosmic_patterns", "human_nature_relations", "philosophy"],
+          "authority_scope": "PUBLIC_TEXTUAL_MODEL",
+          "standing": "SECONDARY_SCHOLARSHIP",
+          "provenance": ["SRC.SEP.YIJING"],
+          "source_language_or_text_layer": "Ten Wings / later writings dated by scholarship to roughly 5th-2nd century BCE",
+          "invariants": ["hexagram/line corpus remains the object of commentary"],
+          "declared_loss": ["later philosophical/cosmological interpretive roles are not identical to earlier graphic or statement roles"]
+        },
+        {
+          "layer_id": "H01.S3.ZHU_XI_COMMENTARY",
+          "semantic_role": "later commentary distinguishing classic hexagram materials from commentarial materials",
+          "decoder_role": "meta-commentarial classification/interpretation layer",
+          "ontology_tags": ["classic_jing", "commentary_zhuan", "hexagrams", "Ten_Wings", "moral_cosmological_interpretation"],
+          "authority_scope": "PUBLIC_TEXTUAL_MODEL",
+          "standing": "SECONDARY_SCHOLARSHIP",
+          "provenance": ["SRC.SEP.YIJING"],
+          "source_language_or_text_layer": "later Zhu Xi commentarial layer as summarized by SEP",
+          "invariants": ["classic/commentary distinction explicitly preserves layer difference"],
+          "declared_loss": ["later classification is a retrospective organization of earlier layers"]
+        }
+      ]
+    },
+    {
+      "family_id": "H02.KABBALAH",
+      "name": "Premodern to modern Kabbalah: breaks and continuities",
+      "source_refs": ["SRC.CAMBRIDGE.GARB.KABBALAH.2020"],
+      "held_out_from": ["REGRESSION12", "STRATA10_PRIMARY_DESIGN_SET"],
+      "layers": [
+        {
+          "layer_id": "H02.S0.PREMODERN",
+          "semantic_role": "premodern kabbalistic textual/theosophical traditions",
+          "decoder_role": "premodern exegesis/theosophy/theurgy within historical source traditions",
+          "ontology_tags": ["exegesis", "sacral_texts", "sefirotic_theosophy", "theurgy", "medieval_Kabbalah"],
+          "authority_scope": "HISTORICAL_TRADITION_SCOPE",
+          "standing": "SECONDARY_SCHOLARSHIP",
+          "provenance": ["SRC.CAMBRIDGE.GARB.KABBALAH.2020"],
+          "source_language_or_text_layer": "premodern/medieval Kabbalah summarized in modern scholarship",
+          "invariants": ["selected sacral-text/exegetical and theosophical themes recur into later periods"],
+          "declared_loss": []
+        },
+        {
+          "layer_id": "H02.S1.EARLY_MODERN_SAFEDIAN",
+          "semantic_role": "early-modern/Safedian transformation and canon-forming developments",
+          "decoder_role": "early-modern reinterpretive and canonical development layer",
+          "ontology_tags": ["Safed", "early_modern", "canonization", "Lurianic_corpus", "exegesis", "theosophy"],
+          "authority_scope": "HISTORICAL_TRADITION_SCOPE",
+          "standing": "SECONDARY_SCHOLARSHIP",
+          "provenance": ["SRC.CAMBRIDGE.GARB.KABBALAH.2020"],
+          "source_language_or_text_layer": "early-modern developments treated in Garb's historical periodization",
+          "invariants": ["some premodern textual/theosophical themes remain historically connected"],
+          "declared_loss": ["period-specific schools, crises and canonization alter context and emphasis"]
+        },
+        {
+          "layer_id": "H02.S2.MODERN",
+          "semantic_role": "modern Kabbalah as historically autonomous yet continuous with premodern traditions",
+          "decoder_role": "modern textual, experiential, organizational and exoteric interpretive contexts",
+          "ontology_tags": ["modern_Kabbalah", "exegesis", "theosophy", "fraternal_groups", "vernacularization", "technology", "globalization"],
+          "authority_scope": "MODERN_HISTORICAL_TRADITION_SCOPE",
+          "standing": "SECONDARY_SCHOLARSHIP",
+          "provenance": ["SRC.CAMBRIDGE.GARB.KABBALAH.2020"],
+          "source_language_or_text_layer": "modern Kabbalah in Garb's historical analysis",
+          "invariants": ["continuity with selected premodern themes is source-supported"],
+          "declared_loss": ["modernity introduces autonomous forms shaped by technology, geopolitical/ideological change, vernacularization and new social organization"]
+        }
+      ]
+    },
+    {
+      "family_id": "H03.IBN_EZRA_TRANSMISSION",
+      "name": "Arabic to Hebrew to Latin astronomy/astrology transmission through Abraham ibn Ezra",
+      "source_refs": ["SRC.CAMBRIDGE.GOLDSTEIN.IBN_EZRA"],
+      "held_out_from": ["REGRESSION12", "STRATA10_PRIMARY_DESIGN_SET"],
+      "layers": [
+        {
+          "layer_id": "H03.S0.ARABIC_SOURCES",
+          "semantic_role": "Arabic scientific/astronomical/astrological source tradition available to Ibn Ezra",
+          "decoder_role": "Arabic-language technical/scientific source layer",
+          "ontology_tags": ["Arabic_science", "astronomy", "astrology", "technical_methods"],
+          "authority_scope": "HISTORICAL_SCHOLARLY_SOURCE_SCOPE",
+          "standing": "SECONDARY_SCHOLARSHIP",
+          "provenance": ["SRC.CAMBRIDGE.GOLDSTEIN.IBN_EZRA"],
+          "source_language_or_text_layer": "Arabic source tradition as reconstructed in scholarship",
+          "invariants": ["source scholarship documents Arabic material in the transmission lineage"],
+          "declared_loss": ["some Arabic originals are no longer extant; reconstruction is source-conditioned"]
+        },
+        {
+          "layer_id": "H03.S1.HEBREW_IBN_EZRA",
+          "semantic_role": "Ibn Ezra's Hebrew astronomical/astrological works and translations/adaptations",
+          "decoder_role": "Hebrew-language technical scholarly transmission layer",
+          "ontology_tags": ["Hebrew_scientific_writing", "astronomy", "astrology", "Ibn_Ezra", "technical_methods"],
+          "authority_scope": "HISTORICAL_SCHOLARLY_SOURCE_SCOPE",
+          "standing": "SECONDARY_SCHOLARSHIP",
+          "provenance": ["SRC.CAMBRIDGE.GOLDSTEIN.IBN_EZRA"],
+          "source_language_or_text_layer": "Hebrew works of Abraham ibn Ezra",
+          "invariants": ["Arabic scientific material remains traceable in the documented transmission"],
+          "declared_loss": ["selection, translation and reformulation occur in the Hebrew transmission layer"]
+        },
+        {
+          "layer_id": "H03.S2.LATIN_RECEPTION",
+          "semantic_role": "Latin translation and medieval Jewish/Christian reception of Ibn Ezra's works",
+          "decoder_role": "Latin-language translation/reception layer in medieval Western scholarly contexts",
+          "ontology_tags": ["Latin_translation", "astronomy", "astrology", "medieval_reception", "Ibn_Ezra"],
+          "authority_scope": "HISTORICAL_SCHOLARLY_SOURCE_SCOPE",
+          "standing": "SECONDARY_SCHOLARSHIP",
+          "provenance": ["SRC.CAMBRIDGE.GOLDSTEIN.IBN_EZRA"],
+          "source_language_or_text_layer": "Latin translations/reception of Hebrew Ibn Ezra works",
+          "invariants": ["documented work/source lineage remains traceable through translation"],
+          "declared_loss": ["language, audience and reception context change across Hebrew-to-Latin transmission"]
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "HOL-H01-01",
+      "family_id": "H01.YIJING",
+      "path": ["H01.S0.GRAPHIC_SYMBOLS", "H01.S1.HEXAGRAM_LINE_STATEMENTS"],
+      "operation": "SEMANTIC_TRANSPORT",
+      "expected_class": "ALLOW_WITH_LOSS",
+      "source_refs": ["SRC.SEP.YIJING"],
+      "bridge_invariants": ["hexagram identity remains addressable"],
+      "declared_loss": ["graphic symbolic role is expanded by textual statements"]
+    },
+    {
+      "case_id": "HOL-H01-02",
+      "family_id": "H01.YIJING",
+      "path": ["H01.S1.HEXAGRAM_LINE_STATEMENTS", "H01.S2.TEN_WINGS"],
+      "operation": "SEMANTIC_TRANSPORT",
+      "expected_class": "ALLOW_WITH_LOSS",
+      "source_refs": ["SRC.SEP.YIJING"],
+      "bridge_invariants": ["hexagram/line materials remain objects of interpretation"],
+      "declared_loss": ["later philosophical/cosmological commentary changes decoder role"]
+    },
+    {
+      "case_id": "HOL-H01-03",
+      "family_id": "H01.YIJING",
+      "path": ["H01.S2.TEN_WINGS", "H01.S3.ZHU_XI_COMMENTARY"],
+      "operation": "SEMANTIC_TRANSPORT",
+      "expected_class": "ALLOW_WITH_LOSS",
+      "source_refs": ["SRC.SEP.YIJING"],
+      "bridge_invariants": ["classic and commentary remain distinguishable textual strata"],
+      "declared_loss": ["later commentary retrospectively reorganizes earlier materials"]
+    },
+    {
+      "case_id": "HOL-H01-04",
+      "family_id": "H01.YIJING",
+      "path": ["H01.S0.GRAPHIC_SYMBOLS", "H01.S1.HEXAGRAM_LINE_STATEMENTS", "H01.S2.TEN_WINGS", "H01.S3.ZHU_XI_COMMENTARY", "H01.S0.GRAPHIC_SYMBOLS"],
+      "operation": "HOLONOMY_LOOP",
+      "expected_class": "NONZERO_HOLONOMY_EXPECTED",
+      "source_refs": ["SRC.SEP.YIJING"],
+      "bridge_invariants": ["original graphic address remains identifiable"],
+      "declared_loss": ["statement, philosophical and meta-commentarial role changes cannot be projected back as original-role identity"]
+    },
+    {
+      "case_id": "HOL-H01-05",
+      "family_id": "H01.YIJING",
+      "path": ["H01.S0.GRAPHIC_SYMBOLS", "H01.S0.GRAPHIC_SYMBOLS"],
+      "operation": "SAME_LAYER_CONTROL",
+      "expected_class": "ZERO_HOLONOMY_CONTROL",
+      "source_refs": ["SRC.SEP.YIJING"]
+    },
+    {
+      "case_id": "HOL-H02-01",
+      "family_id": "H02.KABBALAH",
+      "path": ["H02.S0.PREMODERN", "H02.S1.EARLY_MODERN_SAFEDIAN"],
+      "operation": "SEMANTIC_TRANSPORT",
+      "expected_class": "ALLOW_WITH_LOSS",
+      "source_refs": ["SRC.CAMBRIDGE.GARB.KABBALAH.2020"],
+      "bridge_invariants": ["selected exegetical/theosophical continuities remain source-supported"],
+      "declared_loss": ["early-modern schools/canonization change historical context and emphasis"]
+    },
+    {
+      "case_id": "HOL-H02-02",
+      "family_id": "H02.KABBALAH",
+      "path": ["H02.S1.EARLY_MODERN_SAFEDIAN", "H02.S2.MODERN"],
+      "operation": "SEMANTIC_TRANSPORT",
+      "expected_class": "ALLOW_WITH_LOSS",
+      "source_refs": ["SRC.CAMBRIDGE.GARB.KABBALAH.2020"],
+      "bridge_invariants": ["some recurrent themes remain historically connected"],
+      "declared_loss": ["modern technologies, social forms, vernacularization and historical conditions produce autonomous modern configurations"]
+    },
+    {
+      "case_id": "HOL-H02-03",
+      "family_id": "H02.KABBALAH",
+      "path": ["H02.S2.MODERN", "H02.S0.PREMODERN"],
+      "operation": "SEMANTIC_EQUIVALENCE",
+      "expected_class": "HOLD_EQUIVALENCE",
+      "source_refs": ["SRC.CAMBRIDGE.GARB.KABBALAH.2020"],
+      "notes": ["Source-supported continuity does not establish backward identity/equivalence."]
+    },
+    {
+      "case_id": "HOL-H02-04",
+      "family_id": "H02.KABBALAH",
+      "path": ["H02.S0.PREMODERN", "H02.S1.EARLY_MODERN_SAFEDIAN", "H02.S2.MODERN", "H02.S0.PREMODERN"],
+      "operation": "HOLONOMY_LOOP",
+      "expected_class": "NONZERO_HOLONOMY_EXPECTED",
+      "source_refs": ["SRC.CAMBRIDGE.GARB.KABBALAH.2020"],
+      "bridge_invariants": ["preserve explicitly source-backed continuities"],
+      "declared_loss": ["autonomy and modern transformations prevent lossless return to premodern role/context"]
+    },
+    {
+      "case_id": "HOL-H02-05",
+      "family_id": "H02.KABBALAH",
+      "path": ["H02.S0.PREMODERN", "H02.S0.PREMODERN"],
+      "operation": "SAME_LAYER_CONTROL",
+      "expected_class": "ZERO_HOLONOMY_CONTROL",
+      "source_refs": ["SRC.CAMBRIDGE.GARB.KABBALAH.2020"]
+    },
+    {
+      "case_id": "HOL-H03-01",
+      "family_id": "H03.IBN_EZRA_TRANSMISSION",
+      "path": ["H03.S0.ARABIC_SOURCES", "H03.S1.HEBREW_IBN_EZRA"],
+      "operation": "SEMANTIC_TRANSPORT",
+      "expected_class": "ALLOW_WITH_LOSS",
+      "source_refs": ["SRC.CAMBRIDGE.GOLDSTEIN.IBN_EZRA"],
+      "bridge_invariants": ["documented Arabic-source lineage remains attached"],
+      "declared_loss": ["selection/translation/reformulation in the Hebrew transmission layer"]
+    },
+    {
+      "case_id": "HOL-H03-02",
+      "family_id": "H03.IBN_EZRA_TRANSMISSION",
+      "path": ["H03.S1.HEBREW_IBN_EZRA", "H03.S2.LATIN_RECEPTION"],
+      "operation": "SEMANTIC_TRANSPORT",
+      "expected_class": "ALLOW_WITH_LOSS",
+      "source_refs": ["SRC.CAMBRIDGE.GOLDSTEIN.IBN_EZRA"],
+      "bridge_invariants": ["Ibn Ezra work/source lineage remains traceable"],
+      "declared_loss": ["language, audience and reception context change across Hebrew-to-Latin translation"]
+    },
+    {
+      "case_id": "HOL-H03-03",
+      "family_id": "H03.IBN_EZRA_TRANSMISSION",
+      "path": ["H03.S0.ARABIC_SOURCES", "H03.S2.LATIN_RECEPTION"],
+      "operation": "SEMANTIC_EQUIVALENCE",
+      "expected_class": "HOLD_EQUIVALENCE",
+      "source_refs": ["SRC.CAMBRIDGE.GOLDSTEIN.IBN_EZRA"],
+      "notes": ["Historical transmission does not imply source/translation identity or lossless equivalence."]
+    },
+    {
+      "case_id": "HOL-H03-04",
+      "family_id": "H03.IBN_EZRA_TRANSMISSION",
+      "path": ["H03.S0.ARABIC_SOURCES", "H03.S1.HEBREW_IBN_EZRA", "H03.S2.LATIN_RECEPTION"],
+      "operation": "PATH_ORDER_COMPARE",
+      "expected_class": "NONCOMMUTATIVE_EXPECTED",
+      "source_refs": ["SRC.CAMBRIDGE.GOLDSTEIN.IBN_EZRA"],
+      "bridge_invariants": ["documented transmission order is part of provenance"],
+      "declared_loss": ["permuting Arabic->Hebrew->Latin order destroys the documented transmission path"],
+      "notes": ["Compare canonical source order against a deliberately permuted path; path composition should not be treated as commutative."]
+    },
+    {
+      "case_id": "HOL-H03-05",
+      "family_id": "H03.IBN_EZRA_TRANSMISSION",
+      "path": ["H03.S1.HEBREW_IBN_EZRA", "H03.S1.HEBREW_IBN_EZRA"],
+      "operation": "SAME_LAYER_CONTROL",
+      "expected_class": "ZERO_HOLONOMY_CONTROL",
+      "source_refs": ["SRC.CAMBRIDGE.GOLDSTEIN.IBN_EZRA"]
+    }
+  ],
+  "distance_semantics": {
+    "vector": [
+      "role_delta: 0 if semantic_role unchanged else 1",
+      "decoder_delta: 0 if decoder_role unchanged else 1",
+      "ontology_delta: Jaccard distance over explicit ontology_tags",
+      "authority_delta: 0 if authority_scope unchanged else 1; stronger authority without external evidence is a hard violation",
+      "standing_delta: output standing may not exceed min(input, bridge evidence ceiling); positive amplification is a hard violation",
+      "provenance_delta: fraction of required source/path provenance identifiers missing from output",
+      "invariant_violations: count of declared bridge/path invariants not preserved",
+      "unaccounted_loss: count of typed feature changes not covered by declared_loss ledger"
+    ],
+    "scalarization": "DISABLED_V0",
+    "standing_ranks": {
+      "UNKNOWN": 0,
+      "MODERN_RECONSTRUCTION": 1,
+      "TRADITION_INTERNAL": 1,
+      "SECONDARY_SCHOLARSHIP": 2,
+      "LIVING_TRADITION_SOURCE": 2,
+      "PRIMARY_EVIDENCE": 3
+    }
+  },
+  "firewalls": [
+    "HELD_OUT_SOURCE_CASE != PRACTITIONER_VALIDATION",
+    "SEMANTIC_DRIFT != ERROR_BY_DEFAULT",
+    "CONTINUITY != IDENTITY",
+    "TRANSLATION != LOSSLESS_EQUIVALENCE",
+    "COMMENTARY != ORIGINAL_LAYER",
+    "H_gamma != METAPHYSICAL_QUANTITY",
+    "SOURCE_DERIVED_FEATURE_ENCODING != OBJECTIVE_SEMANTIC_GROUND_TRUTH",
+    "SELF_GENERATED_SCORE != INDEPENDENT_WITNESS",
+    "BENCHMARK_GAIN != MCK_V2_PROMOTION"
+  ]
+}
