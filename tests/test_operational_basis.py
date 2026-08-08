@@ -55,11 +55,33 @@ class OperationalBasisV1Tests(unittest.TestCase):
         self.assertEqual(value["artifact"], "OPERATIONAL_BASIS_V1")
         self.assertIn(value["status"], {"OPERATIONAL_BASIS_READY", "OPERATIONAL_BASIS_HOLD"})
 
-    def test_feature_branch_claim_is_not_current_exposure(self):
-        basis = build_operational_basis()
-        names = {row["operation"] for row in basis["descriptors"]}
-        self.assertNotIn("athena_frontier_claim", names)
-        self.assertFalse(any(row["capability_class"] == "CLAIM_EXECUTION" for row in basis["descriptors"]))
+    def test_registered_claim_surface_is_current_exposure_but_not_auto_authority(self):
+        rows = {row["operation"]: row for row in build_operational_basis()["descriptors"]}
+        for name in (
+            "athena_frontier_provider_status",
+            "athena_frontier_claim_prepare",
+            "athena_frontier_ready",
+            "athena_frontier_claim",
+            "athena_frontier_claim_reconcile",
+        ):
+            self.assertIn(name, rows)
+            self.assertEqual(rows[name]["capability_class"], "CLAIM_EXECUTION")
+            self.assertTrue(rows[name]["current_exposure"])
+            self.assertIn("provider_witness", rows[name]["freshness_dependencies"])
+
+        self.assertEqual(rows["athena_frontier_provider_status"]["effect"], "READ_ONLY")
+        self.assertEqual(rows["athena_frontier_claim_prepare"]["effect"], "READ_ONLY")
+        self.assertTrue(rows["athena_frontier_provider_status"]["auto_select"])
+        self.assertTrue(rows["athena_frontier_claim_prepare"]["auto_select"])
+
+        for name in ("athena_frontier_ready", "athena_frontier_claim", "athena_frontier_claim_reconcile"):
+            self.assertEqual(rows[name]["effect"], "BOUNDED_PROVIDER_WRITE")
+            self.assertEqual(rows[name]["authority_class"], "BOUNDED_PROVIDER_WRITE")
+            self.assertFalse(rows[name]["auto_select"])
+            self.assertIn(
+                "caller authority and operation-specific freshness/preconditions must pass",
+                rows[name]["preconditions"],
+            )
 
     def test_new_registered_operation_changes_basis_without_prompt_rewrite(self):
         synthetic = {
