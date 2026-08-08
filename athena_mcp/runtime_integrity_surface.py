@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import Any,Dict
 
 from .composition_integrity import composition_certificate
+from .github_promotion_verifier import GITHUB_PROMOTION_VERIFIER_VERSION,GithubPromotionVerifier
 from .promotion import PromotionLedger
 from .promotion_protocol import PROMOTION_RESOURCE,PROMOTION_TOOLS,PROMOTION_TOOL_NAMES
 from .self_test import SelfTestRuntime
@@ -37,6 +38,7 @@ class RuntimeIntegritySurface:
     def __init__(self,server,development):
         self.server=server;self.development=development
         self.promotion=PromotionLedger(server.core)
+        self.github_promotion_verifier=GithubPromotionVerifier()
         self.state_foundation=StateFoundationSurface(server,development)
         self.self_test=SelfTestRuntime(server,self)
         self.startup=StartupHealth(server,self)
@@ -68,9 +70,17 @@ class RuntimeIntegritySurface:
         if name=='athena_surface_audit':return True,self.surface_audit(args.get('run_probes',True))
         if name=='athena_promotion_evaluate':
             surface=self.surface_audit(True);local_git=self.server.git.status()
-            # MCP callers can bind exact-head CI/smoke claims but cannot inject the
-            # trusted host-verifier receipt required for PROMOTION.2 QUALIFIED.
             return True,self.promotion.evaluate('Server',args['git_head'],surface,args['ci_witness'],args['smoke_witness'],local_git,args.get('actor','agent'),args.get('persist',True))
+        if name=='athena_promotion_verify_github':
+            head=str(args['git_head']);verification=self.github_promotion_verifier.verify(head,args.get('timeout_s',12.0))
+            if verification.get('verified') is not True:
+                return True,{**verification,'promotion_allowed':False,'persisted':False,'law':'failed or unavailable independent GitHub verification creates no PROMRUN and cannot be converted into caller-attested readiness'}
+            surface=self.surface_audit(True);local_git=self.server.git.status()
+            qualified=self.promotion.evaluate(
+                'Server',head,surface,verification['ci_witness'],verification['smoke_witness'],local_git,
+                args.get('actor','GITHUB.PROMOTION.VERIFIER'),args.get('persist',True),verification['trusted_external_verification'],
+            )
+            return True,{**qualified,'github_verification':verification}
         if name=='athena_promotion_get':return True,self.promotion.get(args['run_id'])
         if name=='athena_promotion_replay':return True,self.promotion.replay(args['run_id'])
         if name=='athena_promotion_recent':return True,self.promotion.recent(args.get('limit',20))
@@ -85,16 +95,18 @@ class RuntimeIntegritySurface:
             return {'version':'ATHENA.SELFTEST.1','description':self.self_test.describe(),'latest':self.self_test.run(10,True),'law':'local readiness requires surface+composition+schema+OMEGA+sampled replay health; trusted external qualification remains a separate promotion trust plane'}
         if uri in STATE_FOUNDATION_RESOURCE_URIS:return self.state_foundation.read_resource(uri)
         if uri==SURFACE_RESOURCE['uri']:
-            return {'contract':contract_manifest(),'audit':self.surface_audit(True),'law':'SURFACE.2 discovery PASS is necessary but not sufficient; PROMOTION.2 ATTESTED_READY also requires exact-head caller CI/smoke packets, while QUALIFIED additionally requires a host-internal trusted verifier receipt'}
+            return {'contract':contract_manifest(),'audit':self.surface_audit(True),'law':'SURFACE.2 discovery PASS is necessary but not sufficient; PROMOTION.2 ATTESTED_READY may use caller packets, while QUALIFIED requires an independent trusted verifier receipt'}
         if uri==PROMOTION_RESOURCE['uri']:
             return {
                 'version':'ATHENA.PROMOTION.2','compat':['ATHENA.PROMOTION.1'],'benchmark':self.promotion.benchmark(),'recent':self.promotion.recent(50),
-                'law':'ATTESTED_READY iff unified Server + SURFACE.2 + COMPOSITION.2 + configured local Git gate + caller-bound CI/smoke packets all PASS on the same exact head; QUALIFIED additionally requires a host-internal trusted verifier receipt binding that head and the exact CI/smoke refs',
-                'boundary':'MCP caller witness packets are not independently fetched or verified and can never mint PROMOTION.2 QUALIFIED. Historical PROMOTION.1 receipts remain versioned/replayable but are reported separately from current trusted qualification.',
+                'github_verifier':self.github_promotion_verifier.describe(),
+                'law':'ATTESTED_READY iff unified Server + SURFACE.2 + COMPOSITION.2 + configured local Git gate + caller-bound CI/smoke packets all PASS on the same exact head; QUALIFIED additionally requires an internal trusted verifier receipt. GITHUB_PROMOTION_VERIFIER.1 can independently derive that receipt from one coherent host-bound GitHub Actions run/check-suite.',
+                'boundary':'MCP caller witness packets never mint PROMOTION.2 QUALIFIED. athena_promotion_verify_github accepts only the target head; trusted repository/API/run identity and required checks come from host configuration, and failed GitHub verification creates no PROMRUN.',
             }
         raise KeyError(uri)
 
     def benchmark(self):
         result={};result.update(self.promotion.benchmark());result.update(self.state_foundation.benchmark())
         result['self_test_version']='ATHENA.SELFTEST.1';result['startup_health_version']='ATHENA.STARTUP.1';result['unified_manifest_version']=UNIFIED_MANIFEST_VERSION;result['promotion_version']='ATHENA.PROMOTION.2'
+        result['github_promotion_verifier_version']=GITHUB_PROMOTION_VERIFIER_VERSION;result['github_promotion_verifier_configured']=self.github_promotion_verifier.describe()['configured']
         return result
