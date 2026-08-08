@@ -24,7 +24,7 @@ class UnifiedManifestTests(unittest.TestCase):
         joined='\n'.join(manifest['invariants'])
         for phrase in ['UNKNOWN != 0','pheromone/reuse/popularity != evidence','reachability/navigation closure != logical or causal proof','semantic VID CAS != Git HEAD CAS != topology version CAS','POSTERIOR != TRUTH','EIG != EVIDENCE','V7 uncertainty decomposition proxies != physical decomposition','causal skeleton != DAG','DUAL_CONTROL_PROXY_PLAN_ONLY != exact Bayesian belief-state dual control','athena_claim_* = Y1 canonical authority']:
             self.assertIn(phrase,joined)
-        self.assertIn('model posterior/replication shadow are never typed authority or evidence',manifest['braid_law'])
+        self.assertIn('model posterior/replication shadow are also never typed authority or evidence',manifest['braid_law'])
         self.assertIn('athena_discovery_claim_*',manifest['claim_namespace_law'])
         unresolved={x['id']:x for x in manifest['unresolved']}
         self.assertEqual(unresolved['QHUG_SEMANTICS']['status'],'UNRESOLVED_UNLESS_REGISTERED_AND_WITNESSED');self.assertIn('directed reachability',unresolved['STRONGER_CLOSURE']['boundary']);self.assertEqual(unresolved['MODEL_TO_AUTHORITY_BRIDGE']['status'],'EXPLICIT_WITNESS_REQUIRED');self.assertEqual(unresolved['EXACT_DUAL_CONTROL']['status'],'UNRESOLVED_OPTIONAL_RESEARCH')
