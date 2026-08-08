@@ -1,7 +1,18 @@
 from __future__ import annotations
 
+from .collective_belief import CollectiveBeliefRuntime
+from .collective_v8_dispatch import call as call_v8
+from .collective_v8_protocol import COLLECTIVE_V8_TOOLS
+
+V8_NAMES={t['name'] for t in COLLECTIVE_V8_TOOLS}
+
+
+def _belief(dual):
+    return CollectiveBeliefRuntime(dual)
+
 
 def call(dual,name,a):
+    if name in V8_NAMES: return call_v8(_belief(dual),name,a)
     if name=='athena_uncertainty_decompose': return dual.uncertainty_decompose(a['features'],a['regime'],a['arm_id'],a.get('scope','global'),a.get('target_coverage',.90),a.get('ridge',1.0),a.get('ood_gain',1.5))
     if name=='athena_prequential_interval': return dual.prequential_interval(a['features'],a['regime'],a['arm_id'],a.get('scope','global'),a.get('coverage',.90),a.get('min_scores',8),a.get('ood_gain',1.5))
     if name=='athena_causal_skeleton_discover': return dual.causal_skeleton_discover(a['samples'],a.get('variables'),a.get('association_threshold',.15),a.get('max_conditioning',1))
