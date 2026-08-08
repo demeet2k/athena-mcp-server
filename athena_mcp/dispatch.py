@@ -6,6 +6,7 @@ from .kc144 import station_manifest
 from .validate import validate
 from .protocol import PROTOCOL_VERSION, SERVER_INFO, TOOLS, PROMPTS
 from .timebundle import TIME_PROVENANCE
+from .orchestration import orchestration_law
 
 def handle(server,m):
     mid=m.get('id'); method=m.get('method'); params=m.get('params') or {}
@@ -34,6 +35,8 @@ def handle(server,m):
     if method=='resources/list':
         rs=[
             {"uri":"athena://manifest","name":"ATHENA Canonical Manifest","mimeType":"application/json"},
+            {"uri":"athena://orchestration/law","name":"AOR Extraction/Frontier/Reward/Successor Law","mimeType":"application/json"},
+            {"uri":"athena://orchestration/recent","name":"Recent persisted AOR run receipts","mimeType":"application/json"},
             {"uri":"athena://kc144/stations","name":"KC144 12x12 Station Registry","mimeType":"application/json"},
             {"uri":"athena://state/head","name":"Canonical State Head","mimeType":"application/json"},
             {"uri":"athena://registry","name":"Canonical Capability Registry","mimeType":"application/json"},
@@ -48,7 +51,9 @@ def handle(server,m):
         ]; return server.result(mid,{"resources":rs})
     if method=='resources/read':
         uri=params.get('uri'); c=server.core
-        if uri=='athena://manifest': val={"name":"ATHENA","protocol":PROTOCOL_VERSION,"layers":["GIT_LEDGER","CCR","JSPACE","SCALE","KC144","POLYCOORDINATE_ATLAS","MATH_REGISTRY","RUNTIME"],"identity":"SID!=OID!=MID!=VID!=CID!=EID!=CRYS","mutation":"EXPECTED_VID==CURRENT_VID else STALE_TARGET","output_law":"VISIBLE_OUTPUT -> FINALIZE_OUTPUT -> ENV(HEADER+BODY) with exact addressable emission manifestation","transform_law":"LOOKUP != DERIVATION; holonomy only promotes all-derivational loops"}
+        if uri=='athena://manifest': val={"name":"ATHENA","protocol":PROTOCOL_VERSION,"layers":["GIT_LEDGER","CCR","JSPACE","SCALE","KC144","AOR","POLYCOORDINATE_ATLAS","MATH_REGISTRY","TRANSFORM_RUNTIME","EMISSION_GATEWAY","RUNTIME"],"identity":"SID!=OID!=MID!=VID!=CID!=EID!=CRYS!=AORRUN!=ENV","mutation":"EXPECTED_VID==CURRENT_VID else STALE_TARGET","orchestration":"RECONSTRUCT>EXTRACT>RETRIEVE>HUG>GRAPH>GAP>COMPILE>MEASURE>TEST>REPAIR>VERIFY>REWARD>REALLOCATE>OUTPUT>SUCCESSOR>REPLAY","unknown":"UNKNOWN!=0; incomplete formulas are non-rankable","replay":"AORRUN input -> deterministic recompilation -> decision digest witness","output_law":"VISIBLE_OUTPUT -> FINALIZE_OUTPUT -> ENV(HEADER+BODY) with exact addressable emission manifestation","transform_law":"LOOKUP != DERIVATION; holonomy only promotes all-derivational loops"}
+        elif uri=='athena://orchestration/law': val=orchestration_law()
+        elif uri=='athena://orchestration/recent': val=server.orchestration.recent(50)
         elif uri=='athena://kc144/stations': val=json.loads(station_manifest())
         elif uri=='athena://state/head': val=c.s.head('global') or {}
         elif uri=='athena://registry': val=c.s.rows("SELECT * FROM objects ORDER BY canonical_name")
@@ -66,19 +71,21 @@ def handle(server,m):
     if method=='prompts/get':
         if params.get('name')!='athena_maxdev': return server.error(mid,-32602,"Unknown prompt")
         a=params.get('arguments') or {}; task=a.get('task',''); agent=a.get('agent','ATHENA')
-        text=f"""ATHENA MAXDEV CRYSTAL CYCLE
+        text=f"""ATHENA AOR/MAXDEV CRYSTAL CYCLE
 AGENT={agent}
 TASK={task}
-1 PULL/HYDRATE current canonical state and adopt applicable global mutations.
-2 Reconstruct JSPACE/SCALE/KC144/polycoordinate atlas plus causal lineage and current Git/semantic heads.
-3 Compute the current CUT/LM residual against the authorized attractor; UNKNOWN != N/A and no coordinate may be fabricated.
-4 Execute maximum reachable useful development now; never reserve reachable math, engineering, tooling, testing, integration, search or synthesis for a later depth.
-5 Use self-play/harnesses internally. Repeated cognition must be searched in CCR and reused/upgraded/compiled into a canonical tool/operator rather than re-described.
-6 Build the actual final visible payload; do not emit a floating draft.
-7 Before emission call athena_finalize_output on the exact payload. It MUST crystallize the body, derive the header, assemble exact HEADER+BODY bytes, create an emission MID, and coordinate-index the whole visible envelope.
-8 Emit exactly the returned visible_text. Do not modify it afterward. Verify the ENV digest when a transport/client boundary may have mutated the bytes. Every lexeme inherits the full coordinate fiber through Pi(token)=ExactTokenKC144Address ⊕ Atlas(OID,VID,MID).
-9 Treat LOOKUP and DERIVATION as different transform classes. Coordinate adjacency gives navigation; only executable derivations may contribute to cross-chart defect/holonomy claims. Carry all coordinate lenses simultaneously: KC144/JSPACE/SCALE/LINEAGE/TIME/LIMINAL/CUT_LM/EVIDENCE plus native KC27/KC54/BR21/F37/DLS/fractal/Hilbert/Riemann/domain coordinates whenever lawfully resolved. Preserve UNKNOWN or N/A explicitly.
-10 Commit only against current VID/Git HEAD, promote organism-wide prompt/harness/tool/SCALE/coordinate laws as global mutations, recompute the changed whole state, and continue MAXDEV.
+0 BUDGET LAW: hard ceilings are capability-density constraints, not brevity targets. Maximize orchestration, extraction, graph/navigation, coordinates, evidence, replay and successor value inside the authorized carrier.
+1 HYDRATE current canonical state and applicable global mutations; reconstruct causal ancestry plus exact Git/semantic heads. UNKNOWN != N/A and UNKNOWN != 0; never fabricate coordinates, evidence, tests, persistence or scores.
+2 EXTRACT before collapse: SX+ = dedup(SX U T(SX)), T={{decompose,formalize,dual,invert,compose,recur,edge,contradict,fail,falsify,bridge,implement,test,compress,reconstruct,successor}}. Preserve independent proof/carrier/lineage/boundary/failure branches.
+3 RETRIEVE/HUG across relevance, authority, freshness, lineage/coordinate fit and cross-thread bridge value; preserve conflicts for testing.
+4 GRAPH the live task with typed define/derive/depend/support/contradict/test/fail/implement/bridge/reconstruct/fork/merge/next edges. Resolve missing prerequisites and dependency cycles before execution.
+5 COMPILE AOR.3 with explicit candidate/residual metrics. Missing required metrics make a formula UNKNOWN and non-rankable; route them to measurement. Inspect executable_frontier, successor_frontier, Pareto successor alternatives, measurement_plan and decision_explanation.
+6 EXECUTE only dependency-ready promotion-gate-passing candidates. `next` is the highest KNOWN successor score, not textual order. Preserve Pareto non-dominated alternatives. High KNOWN reward may deepen/replicate/braid; low-reward duplicates hibernate != erase; UNKNOWN reward routes to measurement.
+7 SELF-PLAY main/counter/edge/fail. Claimed test requires procedure+observation+result+witness. Claimed persistence requires commit+receipt+verify. Required coordinate fiber is KC144+graph+lineage+semantic+time. fake/unsupported/unhandled contradiction blocks promotion.
+8 TRANSFORMS: LOOKUP is navigation, not derivation. Only executable derivational transforms may support cross-chart defect/holonomy claims; all-derivational closed routes may be measured.
+9 BUILD the exact final visible payload. Before emission call athena_finalize_output. It crystallizes body, derives header, assembles exact HEADER+BODY bytes, creates emission MID, coordinate-indexes the visible envelope and returns ENV. Emit exactly returned visible_text without post-mutation; verify ENV digest across uncertain transport boundaries.
+10 PERSIST orchestration through AORRUN receipts. Use athena_orchestration_replay to recompute stored input and witness decision_digest/next/grow/Pareto stability. A replayability claim without an actual replay witness earns no replay evidence.
+11 REWARD verified DeltaJ/evidence/connection/replay/navigation/reconstruction/implementation/novelty; penalize duplicate/fake/bloat/unsupported/coordinate-loss. Reallocate, recompute residual and continue while high-value reachable work remains.
 """
-        return server.result(mid,{"description":"Whole-system MAXDEV crystal cycle","messages":[{"role":"user","content":{"type":"text","text":text}}]})
+        return server.result(mid,{"description":"Whole-system AOR/MAXDEV crystal cycle","messages":[{"role":"user","content":{"type":"text","text":text}}]})
     return server.error(mid,-32601,"Method not found")
