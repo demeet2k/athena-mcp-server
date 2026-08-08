@@ -1,14 +1,14 @@
 {
   "artifact": "ATHENA.AGENT.BOOT.V1",
   "coordinate": "ATHENA.KC144::GITΩ::AGENT-BOOT::V1",
-  "purpose": "Cold-start or refresh one agent from current prompt policy, replayable SCHED frontier, fresh read-only GitHub issue pressure, sibling activity, and independently versioned rehydration continuation state without using prior chat memory as executable state.",
+  "purpose": "Cold-start or refresh one agent from a shared-fresh prompt policy, replayable SCHED frontier, fresh read-only GitHub issue pressure, sibling activity, and independently versioned rehydration continuation state without using prior chat memory as executable state.",
   "authority_ceiling": "routing and reconstruction only; below scheduler claim/execution authority, evidence, prompt promotion, merge, release, billing, and user authority",
   "tools": [
     "athena_agent_bootstrap",
     "athena_agent_refresh"
   ],
   "address": {
-    "git_head": "repository causal/provenance coordinate for the locally compiled prompt brain",
+    "git_head": "repository causal/provenance coordinate observed after the selected boot-level shared Git freshness membrane",
     "prompt_stack_digest": "content identity of selected prompt policy/modules/overlays",
     "frontier_source_head": "exact shared SCHED source commit reduced into the packet",
     "frontier_digest": "portable reduced scheduler-content identity under the pinned interpretation contract",
@@ -17,6 +17,21 @@
     "sibling_state_digest": "content identity of observed claim/event-lag/recent-durable sibling telemetry",
     "rehydration_continuation_digest": "independent identity of active-loop set, selected continuation loop, handoff digest and hydration mode",
     "composite_digest_law": "hash the coordinate identities; do not replace or conflate the individual coordinates"
+  },
+  "shared_freshness": {
+    "antibody": "BOOT-003",
+    "law": "BOOT_SYNC_SHARED_GIT_BEFORE_COMPOSITE_SNAPSHOT",
+    "ordering": [
+      "sync current named Git branch",
+      "compose prompt/frontier/issue/sibling world snapshot",
+      "compose continuation/handoff snapshot"
+    ],
+    "REQUIRED": "failed, dirty, ahead, diverged, or otherwise unverified shared Git state yields BOOTSTRAP_HOLD with BOOTSTRAP_SHARED_FRONTIER_HOLD; never return a false shared-current packet",
+    "BEST_EFFORT": "attempt shared sync first and preserve explicit unverified standing when a shared witness is unavailable",
+    "DISABLED": "allow local/offline reconstruction while making no shared-current claim",
+    "continuation_default": "unless explicitly overridden, continuation_shared_remote_mode inherits the boot shared_remote_mode",
+    "refresh_inheritance": "live-session refresh remembers and reuses the selected boot shared_remote_mode before recomputing the composite packet",
+    "separation": "world-state freshness and continuation freshness remain distinct coordinates even when they consult the same remote"
   },
   "packet_fields": [
     "agent_id",
@@ -89,14 +104,28 @@
       "sibling_state_digest": "sibling_state",
       "rehydration_continuation_digest": "rehydration_handoff"
     },
-    "law": "recompute changed coordinates and affected dependency cones; a handoff-only change must not force prompt/frontier/issue refresh"
+    "law": "shared-sync first, then recompute changed coordinates and affected dependency cones; a handoff-only change must not force prompt/frontier/issue refresh"
   },
   "execution_surface": {
     "standing": "OBSERVED_TOOL_SURFACE",
     "law": "ISSUE_OR_DESIGN_ASSERTION != EXPOSED_EXECUTION_TOOL",
     "claim_authority": "derive from actually registered frontier tools; never infer from issue prose or continuation state"
   },
+  "cold_process_acceptance": {
+    "required_for_issue_160_closure": true,
+    "process_boundary": "actual independent python -m athena_mcp stdio JSON-RPC processes with isolated SQLite DBs and clones",
+    "shared_channels": ["shared bare Git remote", "read-only hermetic issue-provider fixture"],
+    "forbidden_shortcut": "no session object, prompt text, handoff packet, or chat-memory state may be copied between agents",
+    "required_story": [
+      "prep MCP publishes first durable rehydration transition and exits",
+      "two later cold MCPs independently reconstruct identical shared address and handoff identity",
+      "one cold MCP publishes the next verified transition",
+      "the sibling observes continuation change only through its own athena_agent_refresh",
+      "a third cold MCP independently reconstructs the sibling's refreshed shared address"
+    ]
+  },
   "failure_policy": {
+    "shared_git_unverified_required": "BOOTSTRAP_HOLD",
     "issue_provider_unavailable": "BOOTSTRAP_HOLD",
     "frontier_remote_unverified": "BOOTSTRAP_HOLD",
     "scheduler_contract_drift": "BOOTSTRAP_HOLD",
@@ -117,6 +146,8 @@
     "SESSION_DIGEST != CANONICAL_TRUTH",
     "SIBLING_TELEMETRY != PRIVATE_REASONING",
     "ONE_CALL_BOOT != SKIP_FRESHNESS",
+    "BOOT_SYNC_SHARED_GIT_BEFORE_COMPOSITE_SNAPSHOT",
+    "LOCAL_BOOT_VIEW != SHARED_CURRENT_BOOT_VIEW",
     "NEXT_FRONTIER_SELECTION_BOUND_TO_RETURNED_FRONTIER_DIGEST"
   ]
 }

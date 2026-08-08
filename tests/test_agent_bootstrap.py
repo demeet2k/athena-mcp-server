@@ -196,8 +196,18 @@ class AgentBootstrapRuntimeTests(unittest.TestCase):
 
     def test_bootstrap_factorizes_sources_and_session_identity(self):
         runtime, _, _ = self._runtime()
-        a = runtime.bootstrap(agent_id="agent-a", task="cold-start bootstrap pressure", issue_repo="demeet2k/Athena")
-        b = runtime.bootstrap(agent_id="agent-b", task="cold-start bootstrap pressure", issue_repo="demeet2k/Athena")
+        a = runtime.bootstrap(
+            agent_id="agent-a",
+            task="cold-start bootstrap pressure",
+            issue_repo="demeet2k/Athena",
+            shared_remote_mode="DISABLED",
+        )
+        b = runtime.bootstrap(
+            agent_id="agent-b",
+            task="cold-start bootstrap pressure",
+            issue_repo="demeet2k/Athena",
+            shared_remote_mode="DISABLED",
+        )
         self.assertEqual(a["status"], "BOOTSTRAPPED")
         self.assertEqual(b["status"], "BOOTSTRAPPED")
         self.assertNotEqual(a["session_id"], b["session_id"])
