@@ -2,9 +2,10 @@
 
 `protocol.py` remains the mature schema registry. Package initialization owns the
 release identity and patches compatibility surfaces before dispatch observes them.
-Frontier V1, rehydration-loop V1, and the successor-baton V1 extension reuse the
-existing Git prompt runtime so long chains gain explicit self-steering without a
-second dispatcher, state store, or authority plane.
+Frontier V1, rehydration-loop V1, successor-baton V1, and agent-bootstrap V1 reuse
+the existing Git prompt runtime so long chains gain explicit self-steering and
+cold-start reconstruction without a second dispatcher, state store, or authority
+plane.
 """
 
 __version__ = "3.2.0"
@@ -25,8 +26,8 @@ _protocol.SERVER_INFO = dict(SERVER_INFO)
 
 # Prompt × frontier braid registration. The dispatcher already routes the
 # PROMPT_RUNTIME_TOOL_NAMES family through PromptRuntime.call_tool, so frontier,
-# rehydration, and successor tools extend that family rather than duplicating
-# dispatch, state, authority, or remote-delivery code.
+# rehydration, successor, and agent-bootstrap tools extend that family rather than
+# duplicating dispatch, state, authority, or remote-delivery code.
 from .prompt_runtime import PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES
 from .frontier_runtime import FrontierRuntime, FRONTIER_TOOLS, FRONTIER_TOOL_NAMES
 from .rehydration_loop import (
@@ -38,6 +39,11 @@ from .rehydration_successor import (
     SUCCESSOR_TOOLS,
     SUCCESSOR_TOOL_NAMES,
     install_successor_extension,
+)
+from .agent_bootstrap import (
+    AGENT_BOOT_TOOLS,
+    AGENT_BOOT_TOOL_NAMES,
+    AgentBootstrapRuntime,
 )
 
 # Patch runtime behavior only. The canonical V1 five-tool rehydration membrane is
@@ -241,7 +247,7 @@ if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
     FrontierRuntime.hydrate = _frontier_hydrate_content_digest
     FrontierRuntime._athena_content_digest_v1_registered = True
 
-for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS + SUCCESSOR_TOOLS:
+for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS + SUCCESSOR_TOOLS + AGENT_BOOT_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
         PROMPT_RUNTIME_TOOLS.append(_tool)
         PROMPT_RUNTIME_TOOL_NAMES.add(_tool["name"])
@@ -292,3 +298,18 @@ if not getattr(PromptRuntime, "_athena_rehydration_successor_v1_registered", Fal
 
     PromptRuntime.call_tool = _prompt_call_with_successor
     PromptRuntime._athena_rehydration_successor_v1_registered = True
+
+if not getattr(PromptRuntime, "_athena_agent_bootstrap_v1_registered", False):
+    _prompt_call_without_agent_bootstrap = PromptRuntime.call_tool
+
+    def _prompt_call_with_agent_bootstrap(self, name, arguments):
+        if name in AGENT_BOOT_TOOL_NAMES:
+            runtime = getattr(self, "_agent_bootstrap_runtime_v1", None)
+            if runtime is None:
+                runtime = AgentBootstrapRuntime(self.git, self)
+                self._agent_bootstrap_runtime_v1 = runtime
+            return runtime.call_tool(name, arguments)
+        return _prompt_call_without_agent_bootstrap(self, name, arguments)
+
+    PromptRuntime.call_tool = _prompt_call_with_agent_bootstrap
+    PromptRuntime._athena_agent_bootstrap_v1_registered = True
