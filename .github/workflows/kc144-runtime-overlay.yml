@@ -1,0 +1,123 @@
+name: KC144 runtime crystal integration
+
+on:
+  push:
+    branches:
+      - agent/kc144-topological-command-hub
+    paths:
+      - .github/workflows/kc144-runtime-overlay.yml
+      - scripts/kc144_ingest_runtime_overlay.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kc144-runtime-crystal-integration
+  cancel-in-progress: false
+
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/kc144-topological-command-hub
+          fetch-depth: 0
+      - name: Install transfer decoder
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<13'
+      - name: Decode, verify and apply runtime overlay
+        env:
+          KC144_OVERLAY_URL: 'https://oaisdmntprwestus3.blob.core.windows.net/files/00000000-0638-81fd-b511-6d528c271c78/raw?se=2026-08-08T07%3A28%3A09Z&sp=r&sv=2026-02-06&sr=b&scid=019fe010-eda1-7b1a-a3f2-e2d824f0cfc8&skoid=1a0ef048-201c-43e0-8950-52d58956a71a&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-08T03%3A45%3A17Z&ske=2026-08-09T03%3A45%3A17Z&sks=b&skv=2026-02-06&sig=43ybQaVz7V6/gi7yDE5W4e5Es2Pwjv3pB789hV9EFx4%3D'
+        run: python scripts/kc144_ingest_runtime_overlay.py "$KC144_OVERLAY_URL" .
+      - name: Install integrated package
+        run: python -m pip install --disable-pip-version-check -e .
+      - name: Compile all Python surfaces
+        run: python -m compileall -q athena_mcp scripts tests
+      - name: Run complete branch test suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tests -v 2>&1 | tee /tmp/kc144-tests.log
+      - name: Run MCP composition smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY' | tee /tmp/kc144-smoke.json
+          import json
+          import tempfile
+          from athena_mcp.hub_server import HubServer
+
+          with tempfile.NamedTemporaryFile(suffix='.db') as handle:
+              server = HubServer(handle.name)
+              tools = server.handle({'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']
+              names = {item['name'] for item in tools}
+              required = {
+                  'athena_field_compile',
+                  'athena_kc144_registry_verify',
+                  'athena_kc144_registry_cross_search',
+                  'athena_kc144_registry_source_bundle',
+                  'athena_kc144_registry_cell_bundle',
+                  'athena_kc144_completion_frontier',
+              }
+              missing = sorted(required - names)
+              assert not missing, missing
+              verified = server.call_tool('athena_kc144_registry_verify', {'deep': True})
+              assert verified['status'] == 'PASS', verified
+              field = server.call_tool('athena_field_compile', {'seed_ref':'seed://ci-smoke','module_outputs':{},'persist':False})
+              assert field['version'] == 'FIELD.1', field
+              frontier = server.call_tool('athena_kc144_completion_frontier', {})
+              assert frontier['frontier'][0]['task_id'] == 'TASK.000', frontier
+              print(json.dumps({
+                  'status':'PASS',
+                  'tool_count':len(names),
+                  'registry_pack_sha256':verified['pack_sha256'],
+                  'field_version':field['version'],
+                  'frontier':frontier['frontier'][0]['task_id'],
+              }, sort_keys=True))
+              server.store.close()
+          PY
+      - name: Write exact-head integration receipt
+        shell: bash
+        env:
+          GITHUB_RUN_ID_VALUE: ${{ github.run_id }}
+          GITHUB_SHA_VALUE: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import subprocess
+          from pathlib import Path
+
+          tests = Path('/tmp/kc144-tests.log').read_bytes()
+          smoke = Path('/tmp/kc144-smoke.json').read_bytes()
+          receipt = {
+              'version': 'ATHENA.KC144.RUNTIME.CI.RECEIPT.2',
+              'status': 'PASS',
+              'branch': 'agent/kc144-topological-command-hub',
+              'head_before_commit': subprocess.check_output(['git','rev-parse','HEAD'], text=True).strip(),
+              'trigger_sha': os.environ['GITHUB_SHA_VALUE'],
+              'github_run_id': os.environ['GITHUB_RUN_ID_VALUE'],
+              'registry_pack_sha256': '312d984d988797311ac42e1d8b2323b9d8e87877c1c05679a93189c18e861f7d',
+              'runtime_overlay_sha256': '43f5a506c3ca0737a7d690fd52e05d1a67a9a159e800f3a66bfc221ea3512a1e',
+              'tests_log_sha256': hashlib.sha256(tests).hexdigest(),
+              'smoke_log_sha256': hashlib.sha256(smoke).hexdigest(),
+              'gates': ['OVERLAY_DIGEST','SAFE_EXTRACTION','PACKAGE_INSTALL','COMPILEALL','UNITTEST_DISCOVERY','MCP_COMPOSITION_SMOKE'],
+              'authority_boundary': 'This receipt certifies this workflow execution and committed bytes; PR mergeability and later merged-head CI remain separate gates.',
+          }
+          path = Path('receipts/kc144_runtime_integration_ci_receipt.json')
+          path.parent.mkdir(parents=True, exist_ok=True)
+          path.write_text(json.dumps(receipt, sort_keys=True, indent=2) + '\n')
+          PY
+      - name: Commit integrated runtime and retire transfer bootstrap
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(sha256sum athena_mcp/data/kc144-core-registries.tar.xz | awk '{print $1}')" = "312d984d988797311ac42e1d8b2323b9d8e87877c1c05679a93189c18e861f7d"
+          rm .github/workflows/kc144-runtime-overlay.yml scripts/kc144_ingest_runtime_overlay.py
+          git config user.name "athena-kc144-bot"
+          git config user.email "athena-kc144-bot@users.noreply.github.com"
+          git add -A
+          git commit -m "feat(kc144): compose registry crystal and FIELD runtime"
+          git push origin HEAD:agent/kc144-topological-command-hub
