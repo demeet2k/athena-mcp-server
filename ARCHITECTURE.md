@@ -21,7 +21,7 @@ Probabilistic V10 → Adaptive World Model V11 → Joint World-Model Belief V12
                                       ↕
 SCHEMA2 / OMEGA1 / RECON1 / CYCLE1 / SELFTEST1 / STARTUP1
                                       ↕
-SURFACE2 / COMPOSITION2 / PROMOTION1
+SURFACE2 / COMPOSITION2 / PROMOTION2
                                       ↕
 FINALIZE_OUTPUT / VERIFY_EMISSION / RETURN
 ```
@@ -30,7 +30,7 @@ Release coordinate: `athena-canonical-mcp 3.1.0`.
 
 Live architecture artifact: `ATHENA.RUNTIME.UNIFIED.7`.
 
-The governing design principle is type preservation: model output, evidence, authority, execution, observation, persistence, identity, coordinates, and optimization certificates are separate semantic planes.
+The governing design principle is type preservation: model output, evidence, authority, execution, observation, persistence, identity, coordinates, caller attestation, trusted verification, and optimization certificates are separate semantic planes.
 
 ## 2. Identity and coordinate law
 
@@ -180,11 +180,13 @@ Small problems are exhaustively enumerated. Exactness is only for the declared f
 
 ## 7. No self-training / semantic laundering
 
-Forbidden shortcuts include predicted RGO→observed RGO, rollout/scenario→observed trajectory, belief/POMDP policy→executed action, GP prediction/EVSI→GP observation, hyperposterior/BMA simulation→observation, partial/PC/PAG candidate→JSPACE edge, g-formula estimate→identification proof, chance plan→resource execution, dependence prediction→calibration label, and science-shadow/model state→Y1 mutation.
+Forbidden shortcuts include predicted RGO→observed RGO, rollout/scenario→observed trajectory, belief/POMDP policy→executed action, GP prediction/EVSI→GP observation, hyperposterior/BMA simulation→observation, partial/PC/PAG candidate→JSPACE edge, g-formula estimate→identification proof, chance plan→resource execution, dependence prediction→calibration label, science-shadow/model state→Y1 mutation, and caller-supplied CI/smoke packets→trusted qualification.
 
-General law:
+General laws:
 
 `MODEL_OUTPUT --X--> OBSERVATION_OR_AUTHORITY_WITHOUT_EXTERNAL_WITNESS`.
+
+`CALLER_ATTESTATION --X--> QUALIFIED_WITHOUT_TRUSTED_VERIFIER`.
 
 ## 8. Transaction domains
 
@@ -212,23 +214,23 @@ COMPOSITION.2 verifies one `Server`, resident base/V1–V4/AOR/state organs and 
 
 SELFTEST.1 / STARTUP.1 are local health/readiness only.
 
-PROMOTION.1 `QUALIFIED` requires exact-head local conditions and matching external CI/smoke attestations. Predicate tests do not fabricate a live PROMRUN.
+PROMOTION.2 separates exact-head caller attestation from trusted qualification. `athena_promotion_evaluate` can reach `ATTESTED_READY` when local surface/composition/Git gates and caller-bound CI/smoke packets agree on one head. `QUALIFIED` additionally requires a host-internal trusted verifier receipt binding that same head and exact CI/smoke refs. The ordinary MCP schema cannot supply that trusted receipt. Historical PROMOTION.1 receipts remain versioned/replayable but are not current trusted qualification.
 
 ## 12. Live architecture ABI
 
 `ATHENA.RUNTIME.UNIFIED.7` is the live machine-readable artifact. Compatibility retains `.1` through `.6`.
 
-The manifest advertises `COLLECTIVE_JOINT_V12`, V1–V12 navigation/cycle, V12 invariants, unresolved longitudinal/general-Bayes/formal-causal/stochastic-control boundaries, and `ATHENA UNIFIED MAXDEV V12`.
+The manifest advertises `COLLECTIVE_JOINT_V12`, V1–V12 navigation/cycle, V12 invariants, PROMOTION.2 trust separation, unresolved longitudinal/general-Bayes/formal-causal/stochastic-control/trusted-verifier boundaries, and `ATHENA UNIFIED MAXDEV V12`.
 
 ## 13. CI constitution
 
 `syntax ∧ full-unit-suite ∧ critical-invariants ∧ dependent-smoke`.
 
-Critical stages include repository-brain documentation consistency and explicit V12 constructive/adversarial/unified authority tests. Smoke is dependent on the first three jobs and crosses V6→V12 plus state/AOR/fail-closed CYCLE and final emission verification.
+Critical stages include repository-brain documentation consistency, PROMOTION.2 caller/trusted separation, and explicit V12 constructive/adversarial/unified authority tests. Smoke is dependent on the first three jobs and crosses V6→V12 plus state/AOR/fail-closed CYCLE, PROMOTION.2 caller-bound readiness, and final emission verification.
 
 ## 14. External control-plane boundary
 
-Repository branch protection, description/settings, tags, Releases, PR and merge state are outside the runtime architecture ABI. They require actual GitHub control-plane observation/actions and are never inferred from CI, OMEGA, SELFTEST or PROMOTION predicates.
+Repository branch protection, description/settings, tags, Releases, PR/merge state, and the trusted promotion-verifier bridge are outside the runtime architecture ABI. They require actual GitHub/host control-plane observation/actions and are never inferred from CI, OMEGA, SELFTEST, caller attestations, or ATTESTED_READY.
 
 ## 15. Governing objective
 
