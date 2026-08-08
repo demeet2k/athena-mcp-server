@@ -186,8 +186,12 @@ class RehydrationHandoffTests(unittest.TestCase):
             expected_handoff_digest=first["handoff_digest"],
             shared_remote_mode="DISABLED",
         )
-        self.assertEqual(consumed["status"], "HANDOFF_SUCCESSOR_READY", consumed)
+        self.assertEqual(consumed["status"], "HANDOFF_RESUME_READY", consumed)
         self.assertEqual(consumed["hydration_mode"], "DELTA_ONLY")
+        self.assertIn("handoff_prompt", consumed)
+        self.assertNotIn("successor_prompt", consumed)
+        self.assertIn("handoff_delta_prompt_chars", consumed["compression"])
+        self.assertNotIn("successor_delta_prompt_chars", consumed["compression"])
         self.assertLess(consumed["compression"]["ratio"], 1.0, consumed["compression"])
         self.assertGreater(consumed["compression"]["saved_chars"], 0)
 
