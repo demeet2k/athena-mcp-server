@@ -15,6 +15,7 @@ from .orchestration_authority import AuthorityLedger
 from .orchestration_authority_runtime import AuthorityOrchestrationRuntime
 from .orchestration_robustness import successor_robustness,elasticity_packet
 from .orchestration import orchestration_law
+from .aor_development_surface import AorDevelopmentSurface,AOR_DEVELOPMENT_TOOLS,AOR_DEVELOPMENT_TOOL_NAMES
 
 from .protocol import PROTOCOL_VERSION,SERVER_INFO,TOOLS,PROMPTS
 from .collective_protocol import COLLECTIVE_TOOLS
@@ -26,7 +27,7 @@ from .orchestration_authority_protocol import AUTHORITY_TOOLS
 from .orchestration_robustness_protocol import ROBUSTNESS_TOOLS
 
 _existing_tool_names={t['name'] for t in TOOLS}
-for tool in COLLECTIVE_TOOLS+COLLECTIVE_GROWTH_TOOLS+COLLECTIVE_V2_TOOLS+AOR_TOOLS+BRANCH_TOOLS+AUTHORITY_TOOLS+ROBUSTNESS_TOOLS:
+for tool in COLLECTIVE_TOOLS+COLLECTIVE_GROWTH_TOOLS+COLLECTIVE_V2_TOOLS+AOR_TOOLS+BRANCH_TOOLS+AUTHORITY_TOOLS+ROBUSTNESS_TOOLS+AOR_DEVELOPMENT_TOOLS:
     if tool['name'] not in _existing_tool_names:
         TOOLS.append(tool);_existing_tool_names.add(tool['name'])
 
@@ -42,7 +43,7 @@ class Server:
     def __init__(self,db,git_root=None):
         self.store=Store(db);self.core=AthenaCore(self.store);bootstrap(self.core);self.crystal=CrystalRuntime(self.core)
         self.collective=CollectiveRuntime();self.collective_growth=CollectiveGrowthRuntime();self.collective_memory=CollectiveMemoryRuntime(self.store,self.collective,self.collective_growth)
-        self.branches=BranchLedger(self.core);self.authority=AuthorityLedger(self.core);self.orchestration=AuthorityOrchestrationRuntime(self.core,self.branches,self.authority);self.rate=RateLimiter();self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'),autocommit=False)
+        self.branches=BranchLedger(self.core);self.authority=AuthorityLedger(self.core);self.orchestration=AuthorityOrchestrationRuntime(self.core,self.branches,self.authority);self.aor_development=AorDevelopmentSurface(self);self.rate=RateLimiter();self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'),autocommit=False)
     def result(self,id,result):return {'jsonrpc':'2.0','id':id,'result':result}
     def error(self,id,code,msg,data=None):
         e={'code':code,'message':msg}
@@ -50,6 +51,9 @@ class Server:
         return {'jsonrpc':'2.0','id':id,'error':e}
     def call_tool(self,name,a):
         c=self.core
+        if name in AOR_DEVELOPMENT_TOOL_NAMES:
+            handled,value=self.aor_development.call_tool(name,a)
+            if handled:return value
         if name=='athena_register':return c.register(a['kind'],a['domain'],a['verb'],a['object_name'],a['method'],a['input_contract'],a['output_contract'],a.get('constraints'),a.get('payload'),a.get('actor','agent'))
         if name=='athena_resolve':return c.navigate(a['identifier'])
         if name=='athena_search':return c.s.search(a['query'],a.get('limit',20))
@@ -120,7 +124,7 @@ class Server:
         if name=='athena_failure_antibody_register':return self.collective_memory.register_failure_antibody(a['signature'],a.get('trigger'),a.get('detector'),a.get('repair'),a.get('evidence'),a.get('regression_refs'),a.get('scope','global'),a.get('actor','agent'))
         if name=='athena_failure_antibody_match':return self.collective_memory.match_failure_antibodies(a['event'],a.get('tags'),a.get('scope'),a.get('threshold',0.35),a.get('limit',10),a.get('record_hits',True))
         if name=='athena_benchmark':
-            r=c.benchmark();r.update(self.crystal.benchmark_extension());r.update(self.branches.benchmark());r.update(self.authority.benchmark());r.update(self.orchestration.benchmark());r['git']=self.git.status();r['collective_runtime']=self.collective.describe()['version'];r['collective_growth']=self.collective_growth.describe()['version'];r['collective_memory']=self.collective_memory.describe();r['aor_law']=orchestration_law()['version'];return r
+            r=c.benchmark();r.update(self.crystal.benchmark_extension());r.update(self.branches.benchmark());r.update(self.authority.benchmark());r.update(self.orchestration.benchmark());r.update(self.aor_development.benchmark());r['git']=self.git.status();r['collective_runtime']=self.collective.describe()['version'];r['collective_growth']=self.collective_growth.describe()['version'];r['collective_memory']=self.collective_memory.describe();r['aor_law']=orchestration_law()['version'];return r
         raise KeyError(name)
     def handle(self,m):
         from .dispatch import handle
