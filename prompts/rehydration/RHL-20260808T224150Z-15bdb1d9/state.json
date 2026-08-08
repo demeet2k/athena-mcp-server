@@ -1,0 +1,50 @@
+{
+  "actor": "cold-loop-worker",
+  "artifact": "ATHENA.REHYDRATION.LOOP.V1",
+  "base_head": "7f05be8a3f96ab0dd5887f04e74f92a220cd8eb1",
+  "budget": {
+    "max_no_progress": 2,
+    "max_prompt_chars": 32000,
+    "max_steps": 3
+  },
+  "chain_digest": "9c94793ea9a73d374d5861334719c9be8851d5561278633f31e6ce8be323fc80",
+  "checkpoint_parent_head": "7f05be8a3f96ab0dd5887f04e74f92a220cd8eb1",
+  "created_at": "2026-08-08T22:41:50.325941+00:00",
+  "current_prompt_digest": "29340b8b5508f6761429354fdbac2ded7fd8c62174448fdede871c68a71da019",
+  "current_prompt_path": "prompts/rehydration/RHL-20260808T224150Z-15bdb1d9/prompts/0000.md",
+  "depth_policy": {
+    "mode": "standard",
+    "required_passes": [
+      "reconstruct",
+      "execute",
+      "verify"
+    ]
+  },
+  "frontier_digest": null,
+  "frontier_source_head": null,
+  "frontier_status": "DISABLED",
+  "goal": "Produce an observed durable step-4 loop-binding witness",
+  "last_completion": null,
+  "last_progress_fingerprint": null,
+  "last_work_head": "7f05be8a3f96ab0dd5887f04e74f92a220cd8eb1",
+  "loop_id": "RHL-20260808T224150Z-15bdb1d9",
+  "no_progress_count": 0,
+  "previous_chain_digest": null,
+  "profile": "BUILD",
+  "prompt_stack_digest": "3c8128aa77f329f0604255f5507c779d18068a017d9a7259b5b719b64fffbe7c",
+  "receipt_paths": [],
+  "source": {
+    "fetch": true,
+    "remote": "origin",
+    "source_ref": "agent/campaign-v3-loop-bind-target-r2-1a90f44",
+    "use_frontier": false
+  },
+  "state_digest": "1a34435f0daca2458ed9d48df7a3f58a7b38894021e0ce6adc474b422ba69506",
+  "status": "ACTIVE",
+  "step_index": 0,
+  "stop_conditions": [
+    "Do not consume or publish private Athena #177/#185 source text"
+  ],
+  "task": "Write one bounded synthetic material witness, verify it, then return a successor",
+  "updated_at": "2026-08-08T22:41:50.325949+00:00"
+}
