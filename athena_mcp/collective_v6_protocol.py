@@ -24,9 +24,16 @@ COLLECTIVE_V6_TOOLS=[
     _tool("athena_discovery_claim_state","Summarize independent V6 science-shadow witness groups. Evidential metadata only; no Y1 canonical rewrite.",( "claim_id",),{"claim_id":STR,"min_independent_support":{"type":"integer","minimum":1,"maximum":100}}),
 ]
 
+# V7 is a successor science/control layer over V6 discovery. It is chained through
+# this registry so the existing V5->V6 compatibility path can advertise/route it
+# without introducing another Server inheritance layer.
+from .collective_v7_protocol import COLLECTIVE_V7_TOOLS
+_existing={tool['name'] for tool in COLLECTIVE_V6_TOOLS}
+COLLECTIVE_V6_TOOLS.extend(tool for tool in COLLECTIVE_V7_TOOLS if tool['name'] not in _existing)
 COLLECTIVE_V6_TOOL_NAMES={tool['name'] for tool in COLLECTIVE_V6_TOOLS}
+
 CLAIM_NAMESPACE_LAW={
     'canonical_authority_prefix':'athena_claim_',
     'discovery_shadow_prefix':'athena_discovery_claim_',
-    'law':'V6 science-shadow claims and Y1 canonical authority are distinct registries; shared RPC names are forbidden',
+    'law':'V6/V7 science-shadow claims and Y1 canonical authority are distinct registries; shared RPC names are forbidden',
 }
