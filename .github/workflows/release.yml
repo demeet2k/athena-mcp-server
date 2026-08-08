@@ -151,7 +151,7 @@ jobs:
       ATHENA_GITHUB_API_URL: ${{ github.api_url }}
       ATHENA_GITHUB_RUN_ID: ${{ github.run_id }}
       ATHENA_GITHUB_TOKEN: ${{ github.token }}
-      ATHENA_PROMOTION_HEAD: ${{ env.RELEASE_HEAD }}
+      ATHENA_PROMOTION_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@v5
         with:
