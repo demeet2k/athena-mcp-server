@@ -12,7 +12,7 @@ from .orchestration_branch_protocol import BRANCH_TOOLS
 from .orchestration_authority_protocol import AUTHORITY_TOOLS
 from .orchestration_robustness_protocol import ROBUSTNESS_TOOLS
 from .orchestration_equivalence_protocol import EQUIVALENCE_RESOURCE,EQUIVALENCE_TOOLS
-from .orchestration_extract_protocol import EXTRACTION_RESOURCE,EQUIVALENCE_RESOURCE as _EQ_UNUSED,EXTRACTION_TOOLS
+from .orchestration_extract_protocol import EXTRACTION_RESOURCE,EXTRACTION_TOOLS
 from .orchestration_retrieval_protocol import RETRIEVAL_RESOURCE,RETRIEVAL_TOOLS
 from .orchestration_hug_protocol import HUG_RESOURCE,HUG_TOOLS
 from .orchestration_gap_protocol import GAP_RESOURCE,GAP_TOOLS
