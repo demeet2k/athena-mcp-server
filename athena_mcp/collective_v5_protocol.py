@@ -43,3 +43,6 @@ COLLECTIVE_V5_TOOLS=[
     _tool("athena_projection_compensate","Apply the explicit semantic inverse for active JSPACE edges created by one topology projection, under semantic-head CAS. Git compensation remains separately surfaced.",( "projection_id","expected_semantic_eid"),{
         "projection_id":STR,"expected_semantic_eid":{"type":["string","null"]},"actor":STR}),
 ]
+
+from .collective_v6_protocol import COLLECTIVE_V6_TOOLS
+COLLECTIVE_V5_TOOLS.extend(t for t in COLLECTIVE_V6_TOOLS if t['name'] not in {x['name'] for x in COLLECTIVE_V5_TOOLS})
