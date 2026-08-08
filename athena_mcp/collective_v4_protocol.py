@@ -71,3 +71,8 @@ COLLECTIVE_V4_TOOLS = [
         "checkpoint_git": BOOL, "expected_git_head": {"type":["string","null"]}, "actor": STR, "dry_run": BOOL,
     }),
 ]
+
+# V5 is deliberately chained through the V4 registry so older Server wiring remains
+# compatible while the new science layer is lazily instantiated by the V4 dispatcher.
+from .collective_v5_protocol import COLLECTIVE_V5_TOOLS
+COLLECTIVE_V4_TOOLS.extend(t for t in COLLECTIVE_V5_TOOLS if t['name'] not in {x['name'] for x in COLLECTIVE_V4_TOOLS})
