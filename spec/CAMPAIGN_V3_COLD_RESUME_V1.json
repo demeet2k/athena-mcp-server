@@ -1,0 +1,77 @@
+{
+  "artifact": "ATHENA.CAMPAIGN.V3.COLD.RESUME.CONTRACT.V1",
+  "status": "CANDIDATE",
+  "parent_pressure": "demeet2k/Athena#189",
+  "acceptance_rung": 7,
+  "purpose": "Make a Campaign V3 steering residual discoverable and resumable by a cold agent from durable Git/runtime state alone, without requiring prior chat IDs or minting execution authority.",
+  "source_binding": {
+    "source_artifact": "ATHENA.CAMPAIGN.V3.BRANCH.SOURCE.V1",
+    "source_kind": "CAMPAIGN_V3_LEDGER_RESIDUAL",
+    "required_fields": [
+      "ledger_digest",
+      "pulse_digest",
+      "pulse_index",
+      "step",
+      "horizon",
+      "text",
+      "source_issue",
+      "verification_issue",
+      "compiled_at_head",
+      "operational_basis_digest",
+      "current_coordinates",
+      "source_digest"
+    ],
+    "saga": [
+      "validate current tamper-evident shared-fresh pulse",
+      "Campaign.start exactly one residual branch",
+      "read back exact campaign + branch",
+      "append CAMPAIGN_V3_SOURCE_BOUND through campaign event-sourced mutation",
+      "return DURABLE_SOURCE_BOUND_NOT_CLAIMED"
+    ],
+    "partial_failure": "If Campaign.start succeeds but source binding fails, return STARTED_SOURCE_UNBOUND_HOLD with exact campaign/branch/start digest/checkpoint; never start a replacement blindly."
+  },
+  "cold_discovery": {
+    "inputs": "shared runtime only; no campaign_id, branch_id, pulse_id or loop_id supplied",
+    "requirements": [
+      "shared_frontier_verified",
+      "campaign namespace observed",
+      "campaign artifact + state_digest valid",
+      "campaign checkpoint ancestor of current Git head",
+      "campaign verify() PASS",
+      "valid source artifact/kind/source_digest",
+      "branch task equals source historical text",
+      "exactly one valid Campaign V3 candidate",
+      "exactly one resumable source-bound branch"
+    ],
+    "unbound_branch": "DISCOVERED_SOURCE_BOUND_UNBOUND_BRANCH -> bind via integrated step-4 membrane",
+    "bound_branch": "delegate exact discovered campaign/branch/state/checkpoint to integrated fresh_resume_branch",
+    "ambiguity": "HOLD; never guess a campaign or branch identity"
+  },
+  "standing": {
+    "start_source_bound_success": "DURABLE_SOURCE_BOUND_NOT_CLAIMED",
+    "cold_discovery": "READ_ONLY",
+    "execution_authority": false,
+    "work_executed": false
+  },
+  "laws": [
+    "COLD_BOOT != CHAT_MEMORY",
+    "CAMPAIGN_START != SOURCE_BOUND",
+    "SOURCE_BOUND != CLAIM",
+    "DISCOVERY != EXECUTION_AUTHORITY",
+    "AMBIGUOUS_CAMPAIGN => HOLD",
+    "AMBIGUOUS_BRANCH => HOLD",
+    "CAMPAIGN_STATE_DIGEST_REQUIRED",
+    "CAMPAIGN_REPLAY_PASS_REQUIRED",
+    "CHECKPOINT_ANCESTRY_REQUIRED",
+    "SOURCE_DIGEST_REQUIRED",
+    "NO_DURABLE_CAMPAIGN != EMPTY_WORLD",
+    "PRIVATE_CHAIN_OF_THOUGHT != CAMPAIGN_TELEMETRY"
+  ],
+  "promotion_boundary": {
+    "fresh_exact_head_ci": "REQUIRED",
+    "real_source_bound_campaign_instance": "SEPARATE_OBSERVED_ACCEPTANCE",
+    "real_cold_agent_resume": "SEPARATE_OBSERVED_ACCEPTANCE",
+    "material_work_execution": "SEPARATE_STEP_9",
+    "campaign_success": "HOLD"
+  }
+}
