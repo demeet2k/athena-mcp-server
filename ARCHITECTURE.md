@@ -16,7 +16,8 @@
 13. COLLECTIVE DUAL CONTROL V7 — uncertainty decomposition, prequential bands, association-skeleton hypotheses, state-dependent dynamics, scenario/CVaR evaluation, control+information planning, BACKDOOR/FRONTDOOR/IV checks, replication independence/design.
 14. COLLECTIVE BELIEF V8 — persistent finite model beliefs, explicit Bayes observation updates, decision EVI, depth-1 belief-aware control, assumption-scoped effect estimates, bootstrap structure stability, contingent policies and spectral evidence diversity.
 15. COLLECTIVE INFERENCE V9 — finite-dimensional Gaussian parameter beliefs, Monte-Carlo EVPI/EVSI, bounded multistage finite-belief policies, cross-fitted AIPW, specification robustness, uncertainty-preserving partial graphs and explicit evidence-dependence probability models.
-16. Runtime — hydrate, conditional writes, telemetry, sessions, finalization and exact emission verification.
+16. COLLECTIVE PROBABILISTIC V10 — fixed-kernel exact GP regression, bounded Gaussian PC-stable discovery, binary TMLE, E-value sensitivity, exact bounded finite-POMDP policies and empirically calibrated evidence-dependence models.
+17. Runtime — hydrate, conditional writes, telemetry, sessions, finalization and exact emission verification.
 
 ## Objective hierarchy
 
@@ -40,13 +41,21 @@ V9 continuous decision value under `theta~N(mu,Sigma)`:
 
 `EVPI ~= E_theta[max_a U(a,theta)] - max_a U(a,E[theta])`
 
-and for measurement design `e`
-
 `EVSI(e) ~= E_y[max_a EU(a|y,e)] - max_a EU(a)`.
+
+V10 nonlinear predictive and exact finite-control surfaces add:
+
+`mu_GP(x*)=k_*^T(K+sigma_n^2 I)^-1 y`
+
+`var_GP(f*)=k(x*,x*)-k_*^T(K+sigma_n^2 I)^-1 k_*`
+
+and, for a fully declared finite POMDP,
+
+`V_H(b)=max_a [R(b,a)+gamma sum_o P(o|b,a)V_(H-1)(tau(b,a,o))]`.
 
 The progression is:
 
-`uncertainty bonus → entropy information → control+information proxy → finite belief/decision value → continuous parameter belief + sample/perfect-information value`.
+`uncertainty bonus → entropy information → control+information proxy → finite belief/decision value → continuous parameter belief → nonlinear probabilistic prediction + certified bounded belief control`.
 
 ## Current developmental metabolism
 
@@ -54,17 +63,18 @@ The progression is:
 `→ CHOOSE MINIMUM-SUFFICIENT DEPTH`
 `→ MEMORY/ANTIBODY/ELDER/SCIENCE-SHADOW`
 `→ REGIME/OOD/PREDICTIVE STATE`
-`→ OPTIONAL FINITE OR GAUSSIAN BELIEF`
+`→ OPTIONAL FINITE/GAUSSIAN/GP MODEL`
 `→ LIVE HYPOTHESES`
 `→ EIG/EVI/EVPI/EVSI DESIGN`
 `→ CONDITIONAL CAUSAL IDENTIFICATION`
-`→ OPTIONAL EFFECT/AIPW ESTIMATION + ROBUSTNESS`
+`→ OPTIONAL LINEAR/AIPW/TMLE ESTIMATION + SENSITIVITY`
+`→ OPTIONAL ASSOCIATION/PC STRUCTURE HYPOTHESIS`
 `→ PARETO/SCHEDULE`
-`→ STATE MODEL/SCENARIO/DUAL OR MULTISTAGE BELIEF POLICY`
+`→ STATE MODEL/SCENARIO/DUAL/BELIEF/POMDP PLAN`
 `→ EXECUTE FIRST AUTHORIZED ACTION`
 `→ OBSERVE/METER`
-`→ EXPLICIT BELIEF/BAYES/TRANSITION UPDATE`
-`→ REPLICATION/FALSIFICATION/EVIDENCE-DEPENDENCE UPDATE`
+`→ EXPLICIT BELIEF/BAYES/GP/TRANSITION UPDATE`
+`→ REPLICATION/FALSIFICATION/EVIDENCE-DEPENDENCE CALIBRATION`
 `→ CREDIT`
 `→ MEMORY/IMMUNE/ELDER`
 `→ JSPACE/TOPOLOGY/PROJECTION/COMPENSATION`
@@ -79,80 +89,95 @@ The progression is:
 - topology: expected topology version;
 - learned policy: expected policy version;
 - projection/compensation: explicit saga/semantic-head authority;
-- V4–V9 predictive, belief, experiment, causal-estimation, scenario, graph-hypothesis and evidence-dependence state: advisory/evidential/control surfaces only.
+- V4–V10 predictive, belief, GP, experiment, causal-estimation, scenario, graph-hypothesis and evidence-dependence state: advisory/evidential/control surfaces only.
 
-A higher-resolution posterior or estimator never inherits semantic mutation authority.
+A higher-resolution posterior, estimator, graph algorithm or certified finite control computation never inherits semantic mutation authority.
 
-## Finite versus continuous belief
+## Belief / probabilistic model ladder
 
-V8 stores finite model probabilities `p_i` and updates from complete likelihood witnesses.
+V8 stores a finite categorical model distribution.
 
-V9 stores `theta~N(mu,Sigma)` for a finite-dimensional linear observation model. In natural coordinates `A=Sigma^-1`, `b=A mu`, one observed `y=x^T theta+epsilon` updates
+V9 stores a finite-dimensional Gaussian linear parameter posterior.
 
-`A'=A+wxx^T/sigma^2`
+V10 stores a scoped exact small-data GP posterior for a **fixed declared RBF kernel** and bounded observations.
 
-`b'=b+wxy/sigma^2`.
+These are different model families; none silently migrates into another.
 
-Only explicit observations update either belief system. Query, EVPI, EVSI and planning operations are read-only.
+Only explicit observations update belief/GP state. Prediction, EVSI and control calls remain read-only.
 
 `BELIEF_POSTERIOR != CANONICAL_TRUTH`.
 
 `GAUSSIAN_LINEAR_POSTERIOR != GENERAL_CONTINUOUS_BAYES`.
 
-## EIG, EVI, EVPI and EVSI
+`FIXED_KERNEL_GP != GENERAL_WORLD_TRUTH`.
 
-- V5 EIG values entropy reduction.
-- V8 EVI values information only when it improves the downstream finite-model decision.
-- V9 EVPI estimates the model-conditional upper value of perfect parameter information.
-- V9 EVSI estimates the value of a specific noisy linear measurement design.
+## GP boundary
 
-EVPI/EVSI are Monte Carlo estimates with reported sampling error and fixed seed; they are not exact analytic values or universal values of truth.
+For RBF kernel
 
-## Causal identification versus estimation
+`k(x,z)=sigma_f^2 exp(-||x-z||^2/(2l^2))`,
 
-V6/V7 graph checks remain identification witnesses under explicit assumptions.
+V10 performs exact matrix GP regression over at most 128 stored rows. Hyperparameters are not automatically learned. Posterior variance is conditional on the kernel/noise model.
 
-V8 adds narrow BACKDOOR_LINEAR, IV_WALD and FRONTDOOR_LINEAR estimates.
+`GP_POSTERIOR != OBSERVATION`.
 
-V9 adds cross-fitted AIPW for binary treatment:
+## Causal structure ladder
 
-`psi=m1(X)-m0(X)+T(Y-m1(X))/e(X)-(1-T)(Y-m0(X))/(1-e(X))`.
+V7 association skeleton: transparent heuristic hypothesis generation.
 
-Estimate `tau_hat=mean(psi)`; influence-function `SE≈sd(psi)/sqrt(n)`.
+V8 bootstrap: resampling stability for that heuristic.
 
-AIPW's double-robust interpretation remains conditional on identification, positivity, consistency and nuisance regularity. Explicit latent-confounding risk fails closed.
+V9 partial graph: stable `o-o` endpoint uncertainty.
 
-`AIPW_ESTIMATE != IDENTIFICATION_PROOF`.
+V10 bounded Gaussian PC-stable: explicit Fisher-z conditional-independence search, separation sets, collider orientation and bounded Meek R1/R2 closure.
 
-V9 leave-one-adjustment robustness measures observed specification sensitivity only; it is not a hidden-confounding bound.
+The V10 graph is still relative to Gaussian/linear CI assumptions and bounded conditioning depth.
 
-## Structural uncertainty
+`BOUNDED_PC_STABLE != FCI_OR_HIDDEN_CONFOUNDER_DISCOVERY`.
 
-V7 association skeletons and V8 bootstrap support remain hypothesis surfaces.
+No discovery layer writes canonical JSPACE edges without a separate authority path.
 
-V9 expresses stable undirected hypotheses as `X o-o Y`, explicitly preserving unresolved endpoints. `HEURISTIC_PARTIAL_GRAPH` is not an FCI PAG, CPDAG theorem or causal posterior and creates no JSPACE edge.
+## Causal estimation ladder
 
-## Multistage policy boundary
+V8 provides transparent linear/Wald/mediation estimates.
 
-V8 exposes depth-1 contingent policies. V9 exactly recurses over finite caller-declared model/outcome spaces for horizon `H<=3`.
+V9 adds cross-fitted AIPW with influence-function SE.
 
-The returned policy tree is `PLAN_ONLY`; no hypothetical posterior becomes history. This remains bounded finite recursion rather than a general POMDP or belief-MDP solver.
+V10 adds binary-treatment/binary-outcome TMLE with logistic nuisance fits, propensity clipping, a one-dimensional targeting fluctuation and an influence-curve interval.
 
-## Evidence dependence
+Every estimator remains conditional on causal identification/positivity/consistency/model regularity.
 
-V8 metadata similarity matrix `S` yields effective-N and participation-ratio redundancy measures.
+`TMLE_ESTIMATE != IDENTIFICATION_PROOF`.
 
-V9 optionally applies a caller-declared logistic metadata model to produce pairwise dependence probabilities. The result is conditional on that declared model; missing metadata remains ambiguity/dependence pressure rather than independence.
+V10 additionally exposes the standard risk-ratio E-value sensitivity metric. It is a scoped unmeasured-confounding strength metric, not a universal sensitivity bound.
 
-`DEPENDENCE_PROBABILITY_MODEL != FORMAL_EVIDENCE_INDEPENDENCE`.
+## Finite belief-control certificate
 
-## Resource and scheduling boundary
+V9 recurses over finite model/outcome policy trees with `H<=3`.
 
-Automatically observable: MCP call count and wall time. Other dimensions remain caller/host observable only when actually available. `UNKNOWN_COST != ZERO_COST`.
+V10's POMDP surface additionally models hidden-state transitions and observation emissions. For at most 8 states/actions and horizon `H<=4`, exhaustive recursion yields:
 
-V4 immediate allocation, V5 finite-horizon beam scheduling and V6 small-model exact scheduling remain available. V9 does not claim globally certified stochastic scheduling.
+`FINITE_POMDP_EXACT_HORIZON_CERTIFIED`
 
-## Witness and projection boundaries
+only if every explored action/observation branch completes before the node limit.
+
+The certificate is exactly:
+
+`EXACT_FOR_SUPPLIED_FINITE_MODEL_AND_HORIZON`.
+
+It does not certify omitted real-world dynamics or infinite-horizon optimality.
+
+## Evidence dependence calibration
+
+V8/V9 provide metadata similarity/effective-rank and caller-declared logistic dependence surfaces.
+
+V10 can fit a scoped logistic dependence model only from externally labelled pair examples. Predictions never generate labels. Training loss/accuracy are evidence about fit to that calibration population, not a formal independence theorem.
+
+## Resource, witness and projection boundaries
+
+`UNKNOWN_COST != ZERO_COST`.
+
+V4 immediate allocation, V5 finite-horizon beam scheduling and V6 small-model exact scheduling remain available. V10 does not claim globally certified stochastic resource scheduling.
 
 V5 witness cells are process-constrained; V6 stronger capsules fail closed without bubblewrap. Neither proves kernel/native-runtime security.
 
@@ -165,20 +190,19 @@ SQLite semantic state and Git remain separate stores. Topology→JSPACE uses rec
 - UNKNOWN_COST != ZERO_COST
 - prediction != observation
 - posterior/belief != canonical truth
+- GP posterior != observation/world truth
 - Gaussian linear posterior != general continuous Bayes
-- likelihood/model != observation
-- EIG/EVI/EVPI/EVSI design value != evidence
-- Monte-Carlo information value != exact analytic value
+- EIG/EVI/EVPI/EVSI != evidence
 - experiment design != result
-- association/bootstrap/partial graph != causal DAG/PAG truth
-- causal estimate/AIPW != identification proof
-- robustness perturbation != hidden-confounding bound
+- association/bootstrap/partial/PC graph != unrestricted causal truth
+- bounded PC-stable != FCI/hidden-confounder discovery
+- causal estimate/AIPW/TMLE != identification proof
+- E-value != universal hidden-confounding bound
 - state model != world truth
 - scenario/policy tree != observed future/history
-- dual/belief-control plan != execution
-- multistage finite belief policy != general POMDP
+- finite POMDP certificate != infinite-horizon/real-world optimum
 - Pareto frontier != single best action
-- evidence effective-rank/dependence model != formal independence
+- evidence dependence model != formal independence
 - witness pass != universal proof
 - projection saga != atomic distributed transaction
 - semantic compensation != Git rollback
@@ -200,4 +224,6 @@ SQLite semantic state and Git remain separate stores. Topology→JSPACE uses rec
 
 `COLLECTIVE_BELIEF=<BS,EVI,BD,CE,CB,CP,ER,L>`
 
-`COLLECTIVE_INFERENCE=<GB,EVPI,EVSI,MP,AIPW,RB,PG,ED,L>`.
+`COLLECTIVE_INFERENCE=<GB,EVPI,EVSI,MP,AIPW,RB,PG,ED,L>`
+
+`COLLECTIVE_PROBABILISTIC=<GP,PC,TM,SV,PM,ED,L>`.
