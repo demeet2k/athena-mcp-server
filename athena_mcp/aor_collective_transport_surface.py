@@ -4,17 +4,45 @@ from typing import Any,Dict
 
 from .aor_collective_transport import TransportRuntime,TRANSPORT_VERSION
 from .aor_collective_transport_protocol import TRANSPORT_RESOURCE,TRANSPORT_TOOLS,TRANSPORT_TOOL_NAMES
+from .party_coordination import PartyCoordinationRuntime
+from .party_coordination_protocol import (
+    PARTY_COORDINATION_RESOURCE,
+    PARTY_COORDINATION_TOOLS,
+    PARTY_COORDINATION_TOOL_NAMES,
+)
 
-AOR_COLLECTIVE_TRANSPORT_TOOLS=list(TRANSPORT_TOOLS)
-AOR_COLLECTIVE_TRANSPORT_RESOURCES=[TRANSPORT_RESOURCE]
-AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=set(TRANSPORT_TOOL_NAMES)
-AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={TRANSPORT_RESOURCE['uri']}
+AOR_COLLECTIVE_TRANSPORT_TOOLS=list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)
+AOR_COLLECTIVE_TRANSPORT_RESOURCES=[TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE]
+AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)
+AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri']}
 
 class AorCollectiveTransportSurface:
     def __init__(self,server):
-        self.server=server;self.runtime=TransportRuntime(server)
+        self.server=server;self.runtime=TransportRuntime(server);self.party=PartyCoordinationRuntime(server)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        if name in PARTY_COORDINATION_TOOL_NAMES:
+            p=self.party
+            if name=='athena_party_form':
+                return True,p.form(
+                    args['party_id'],args['leader'],args['goals'],args['leader_goal_refs'],
+                    args.get('purpose',''),args.get('role','LEAD'),args.get('capabilities'),
+                    args.get('capacity',4),args.get('remote','origin')
+                )
+            if name=='athena_party_join':
+                return True,p.join(
+                    args['party_id'],args['agent'],args['goal_refs'],args['task_relation'],
+                    args.get('role','MEMBER'),args.get('capabilities'),args.get('remote','origin')
+                )
+            if name=='athena_party_state':
+                return True,p.state(args['party_id'],args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED'))
+            if name=='athena_party_list':
+                return True,p.list(args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED'),args.get('limit',50))
+            if name=='athena_party_observe':
+                return True,p.observe(
+                    args['observation_id'],args['party_id'],args['observer'],args['base_xp'],
+                    args['results'],args['witness_ref'],args.get('remote','origin')
+                )
         r=self.runtime
         if name=='athena_transport_pheromone_attention':return True,r.pheromone_attention(args['route_keys'],args.get('actor','agent'),args.get('persist',True))
         if name=='athena_transport_alarm_to_gap':return True,r.alarm_to_gap(args['alarm_ref'],args['alarm_nodes'],args.get('actor','agent'),args.get('persist',True))
@@ -28,6 +56,7 @@ class AorCollectiveTransportSurface:
         return False,None
 
     def read_resource(self,uri:str):
+        if uri==PARTY_COORDINATION_RESOURCE['uri']:return self.party.resource()
         if uri!=TRANSPORT_RESOURCE['uri']:raise KeyError(uri)
         return {
             'version':TRANSPORT_VERSION,
@@ -43,4 +72,5 @@ class AorCollectiveTransportSurface:
             ],
         }
 
-    def benchmark(self):return self.runtime.benchmark()
+    def benchmark(self):
+        result=dict(self.runtime.benchmark());result.update(self.party.benchmark());return result
