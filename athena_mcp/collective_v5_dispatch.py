@@ -1,10 +1,14 @@
 from __future__ import annotations
 
+import hashlib
+import json
 import os
 import subprocess
 import sys
 import tempfile
 import time
+
+from .identity import event_id, digest
 
 
 def _witness_cell(science,a):
@@ -39,6 +43,36 @@ def _witness_cell(science,a):
     return {'status':status,'regression_ref':ref,'returncode':rc,'duration_s':round(time.time()-started,6),'stdout_tail':out,'stderr_tail':err,'isolation':isolation,'hermetic':False,'executed':True,'law':'constrained process cell is stronger than the V4 runner but is not claimed OS-hermetic'}
 
 
+def _projection_compensate(science,a):
+    pid=str(a['projection_id']);actor=str(a.get('actor','agent'));expected=a.get('expected_semantic_eid')
+    saga=science.s.one('SELECT * FROM collective_projection_sagas WHERE projection_id=?',(pid,))
+    if not saga: raise ValueError('projection saga not found')
+    if saga['status'] not in {'COMPENSATION_REQUIRED','COMPLETED','SEMANTIC_APPLIED','GIT_COMMITTED'}:
+        raise ValueError(f"projection status not compensable: {saga['status']}")
+    head=science.s.head('global');current=head['eid'] if head else None
+    if current!=expected: raise ValueError(f"STALE_SEMANTIC_HEAD expected={expected} current={current}")
+    candidates=[]
+    for row in science.s.rows('SELECT * FROM edges WHERE attrs_json LIKE ?',(f'%{pid}%',)):
+        try: attrs=json.loads(row['attrs_json'])
+        except Exception: attrs={}
+        if attrs.get('projection_id')==pid: candidates.append(row)
+    now=time.time();raw=f'{pid}|{current}|{now}|{actor}';cid='COMP:'+hashlib.sha256(raw.encode()).hexdigest()[:20]
+    removed=[];last=current
+    with science.s._lock,science.s.db:
+        for row in candidates:
+            payload={'operation':'RETRACT_EDGE','edge_id':row['edge_id'],'src':row['src'],'relation':row['relation'],'dst':row['dst'],'projection_id':pid}
+            eid=event_id('COMPENSATE_EDGE',actor,last,payload);ed=digest(payload,32)
+            science.s.put_event(eid,'COMPENSATE_EDGE',actor,last,payload,ed)
+            science.s.db.execute('DELETE FROM edges WHERE edge_id=?',(row['edge_id'],))
+            science.s.set_head('global',None,None,eid,ed);last=eid
+            removed.append({'edge_id':row['edge_id'],'src':row['src'],'relation':row['relation'],'dst':row['dst'],'event':eid})
+        git_needed=1 if saga['git_head_after'] else 0
+        science.s.db.execute('''INSERT INTO collective_v5_compensations(compensation_id,projection_id,status,expected_semantic_eid,semantic_eid_after,removed_edges_json,git_compensation_required,error,actor,created_at,updated_at)
+            VALUES(?,?,?,?,?,?,?,?,?,?,?)''',(cid,pid,'SEMANTIC_COMPENSATED',expected,last,json.dumps(removed,sort_keys=True),git_needed,None,actor,now,now))
+        science.s.db.execute('UPDATE collective_projection_sagas SET status=?,semantic_eid_after=?,error=NULL,updated_at=? WHERE projection_id=?',('COMPENSATED',last,now,pid))
+    return {'compensation_id':cid,'projection_id':pid,'status':'SEMANTIC_COMPENSATED','removed_edges':removed,'semantic_eid_after':last,'git_compensation_required':bool(saga['git_head_after']),'law':'V5 inverse retracts only currently active edges tagged with this projection; Git and unrelated semantic state remain separate compensation surfaces'}
+
+
 def call(science, core, name, a):
     if name=='athena_bayes_predict': return science.bayes_predict(a['features'],a['regime'],a['arm_id'],a.get('scope','global'),a.get('target_coverage',.90),a.get('ridge',1.0))
     if name=='athena_bayes_observe': return science.bayes_observe(a['features'],a['reward'],a['regime'],a['arm_id'],a.get('scope','global'),a.get('actor','agent'),a.get('weight',1.0),a.get('target_coverage',.90),a.get('ridge',1.0))
@@ -55,5 +89,5 @@ def call(science, core, name, a):
     if name=='athena_regime_geometry_observe': return science.regime_geometry_observe(a['signals'],a['reward'],a.get('cluster_id'),a.get('domain'),a.get('weight',1.0))
     if name=='athena_regime_geometry_resolve': return science.regime_geometry_resolve(a['signals'],a.get('top_k',5),a.get('domain'))
     if name=='athena_pareto_frontier': return science.pareto_frontier(a['candidates'],a.get('directions'),a.get('epsilon',0.0),a.get('robust',False))
-    if name=='athena_projection_compensate': return science.projection_compensate(core,a['projection_id'],a.get('expected_semantic_eid'),a.get('actor','agent'))
+    if name=='athena_projection_compensate': return _projection_compensate(science,a)
     raise KeyError(name)
