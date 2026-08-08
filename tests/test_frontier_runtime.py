@@ -118,6 +118,43 @@ class FrontierRuntimeTests(unittest.TestCase):
         self.assertEqual(packet["source_coverage"]["terminal_projection_only_runs"], 1)
         self.assertTrue(any(r["kind"] == "SOURCE_COVERAGE" and r["run_id"] == "run.beta" for r in packet["residuals"]))
 
+    def test_fixed_provider_claim_suppresses_event_lag_ready_candidate(self):
+        runtime, root = self._runtime()
+        before = runtime.hydrate(source_ref="HEAD", fetch=False)
+        self.assertEqual([x["node_id"] for x in before["ready_work"]], ["build"])
+
+        _write(root, "runtime/runs/run.alpha/claims/build.json", {
+            "schema_version": "CLAIM_V1",
+            "run_id": "run.alpha",
+            "node_id": "build",
+            "worker_role": "agent-a",
+            "attempt": 1,
+            "policy_commit": "a" * 40,
+            "claimed_at": "2026-08-08T00:00:02Z",
+            "lease_expires_at": "2026-08-08T00:10:02Z",
+            "input_snapshot_digest": "b" * 64,
+            "production_authority": "HOLD",
+        })
+        _run(root, "add", ".")
+        _run(root, "commit", "-m", "provider claim before claim event")
+
+        packet = runtime.hydrate(source_ref="HEAD", fetch=False)
+        alpha = next(r for r in packet["runs"] if r["run_id"] == "run.alpha")
+        # Event replay remains a pure view of the append-only event stream.
+        self.assertEqual(alpha["projection"]["ready_nodes"], ["build"])
+        # Provider ownership is a separate exclusion coordinate and fails closed.
+        self.assertEqual(packet["ready_work"], [])
+        self.assertEqual(packet["claim_readiness_suppressed"][0]["run_id"], "run.alpha")
+        self.assertEqual(packet["claim_readiness_suppressed"][0]["node_id"], "build")
+        self.assertTrue(any(
+            row["kind"] == "CLAIM_EVENT_LAG"
+            and row["code"] == "FIXED_CLAIM_PATH_PRESENT_BEFORE_CLAIM_EVENT"
+            and row["run_id"] == "run.alpha"
+            and row["node_id"] == "build"
+            for row in packet["residuals"]
+        ))
+        self.assertIn("FIXED_CLAIM_PATH_PRESENT -> NOT_READY_UNTIL_EVENT_RECONCILED", packet["laws"])
+
     def test_frontier_digest_is_deterministic_and_distinct_from_prompt_digest(self):
         runtime, _ = self._runtime()
         a = runtime.hydrate(source_ref="HEAD", fetch=False)
