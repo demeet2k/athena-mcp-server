@@ -85,7 +85,7 @@ def test_surface_dispatches_all_six_tools_and_resource():
         assert name in AOR_DEVELOPMENT_TOOL_NAMES
     assert BIONANO_RESOURCE in AOR_DEVELOPMENT_RESOURCES
     handled,value=s.call_tool('athena_bionano_catalog',{'include_atlas':False})
-    assert handled and value['version']=='BNMK.1'
+    assert handled and value['version']=='BNMK.V1'
     resource=s.read_resource(BIONANO_RESOURCE['uri'])
     assert resource['benchmark']['bionano_kc144_cells']==144
     assert resource['benchmark']['bionano_phage_visual_components']==15
