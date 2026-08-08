@@ -19,3 +19,6 @@ COLLECTIVE_V10_TOOLS=[
     _tool("athena_evidence_dependence_fit","Fit a scoped logistic evidence-dependence model from explicit labelled examples.",( "scope",),{"scope":STR,"l2":NUM,"iterations":{"type":"integer","minimum":100,"maximum":3000}}),
     _tool("athena_evidence_dependence_predict","Predict pairwise evidence dependence under a previously fitted scoped calibration model.",( "scope","features"),{"scope":STR,"features":OBJ}),
 ]
+
+from .collective_v11_protocol import COLLECTIVE_V11_TOOLS
+COLLECTIVE_V10_TOOLS.extend(t for t in COLLECTIVE_V11_TOOLS if t['name'] not in {x['name'] for x in COLLECTIVE_V10_TOOLS})
