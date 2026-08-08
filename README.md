@@ -1,13 +1,13 @@
-# ATHENA Canonical MCP v3.0 — AΩR × Collective V1–V11 Unified Runtime
+# ATHENA Canonical MCP v3.1 — AΩR × Collective V1–V12 Unified Runtime
 
-ATHENA is an executable Git/MCP developmental substrate that composes canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, AOR developmental routing, persistent Y1 claim authority, Collective organization/memory/learning, bounded causal/probabilistic inference, adaptive belief control, restart-safe whole-state projection, and exact-head qualification.
+ATHENA is an executable Git/MCP developmental substrate that composes canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, AOR developmental routing, persistent Y1 claim authority, Collective organization/memory/learning, bounded causal/probabilistic inference, adaptive belief control, joint world-model uncertainty, restart-safe whole-state projection, and exact-head qualification.
 
 Current executable coordinates:
 
-- package: `athena-canonical-mcp 3.0.0`;
-- live architecture: `ATHENA.RUNTIME.UNIFIED.6`;
+- package: `athena-canonical-mcp 3.1.0`;
+- live architecture: `ATHENA.RUNTIME.UNIFIED.7`;
 - runtime class: one composed `Server`;
-- Collective ladder: V1–V11;
+- Collective ladder: V1–V12;
 - authority: Y1 `athena_claim_*`;
 - science-shadow evidence namespace: `athena_discovery_claim_*`;
 - state foundation: `SCHEMA.2 / OMEGA.1 / RECON.1`;
@@ -18,7 +18,7 @@ Current executable coordinates:
 
 `AOR = WHAT is developmentally eligible`
 
-`COLLECTIVE = HOW scarce execution / science / inference / control / adaptation capacity is organized`
+`COLLECTIVE = HOW scarce execution / science / inference / control / adaptation / joint-model capacity is organized`
 
 `Y1 = canonical claim authority`
 
@@ -46,19 +46,21 @@ Core firewalls:
 
 ## Runtime cycle
 
-`HYDRATE → RECONRUN/OMEGA → MEMORY → SX → RAG → HUG → GAP → FIELD → MEASURE/CALIBRATE → Y1/AOR → COLLECTIVE(V1–V11) → EXECUTE → VERIFY → LEARN → SUCCESSOR → COMPLETE`
+`HYDRATE → RECONRUN/OMEGA → MEMORY → SX → RAG → HUG → GAP → FIELD → MEASURE/CALIBRATE → Y1/AOR → COLLECTIVE(V1–V12) → EXECUTE → VERIFY → LEARN → SUCCESSOR → COMPLETE`
 
 CYCLE.1 advances deterministic internal phases and halts at semantic boundaries rather than fabricating progress. Missing measurement, calibration, authority, HUG implementation, worker capacity, executor, witness, repair, or control state becomes an explicit `WAITING_*` state.
 
 ## Authority and transaction domains
 
-Three write domains remain intentionally independent:
+Three canonical write domains remain intentionally independent:
 
 - semantic object/version state: expected-VID CAS;
 - Git state: expected-Git-head CAS;
 - Collective topology: expected-topology-version CAS.
 
 A stale write in one domain must not mutate either of the other two. Topology→JSPACE projection uses recovery/compensation semantics; SQLite+Git are never represented as one atomic transaction.
+
+V11 additionally has a local GP observed-row CAS for hyperparameter application. V12 model-averaging, structural-candidate, causal-policy and resource-planning calls are read-only with respect to these canonical domains.
 
 Canonical authority uses `athena_claim_*` with typed `? → + → ! → #` progression. Discovery/replication science-shadow state uses `athena_discovery_claim_*`. A model or science-shadow result can affect Y1 only through an explicit witnessed evidence/authority route.
 
@@ -79,7 +81,7 @@ Supporting organs:
 
 ## Collective runtime ladder
 
-Collective answers **HOW** after developmental eligibility exists. V1–V4 are resident organizational layers; V5–V11 are lazy science/inference/control/adaptation surfaces instantiated on tool or resource access.
+Collective answers **HOW** after developmental eligibility exists. V1–V4 are resident organizational layers; V5–V12 are lazy science/inference/control/adaptation/joint-model surfaces instantiated on tool or resource access.
 
 ### V1 / Growth V1 — organization and metabolism
 
@@ -149,12 +151,7 @@ Resource: `athena://collective/v9`.
 
 ### V10 — bounded probabilistic world model
 
-- exact small-data fixed-hyperparameter RBF GP regression;
-- bounded Gaussian PC-stable structural hypothesis search;
-- binary-treatment/binary-outcome cross-fitted TMLE;
-- risk-ratio E-value sensitivity;
-- exhaustive finite POMDP search with exact certificate only after completed bounded enumeration;
-- externally labelled logistic evidence-dependence calibration.
+Exact small-data fixed-hyperparameter RBF GP regression, bounded Gaussian PC-stable structural hypothesis search, binary TMLE, risk-ratio E-value sensitivity, exact finite POMDP search, and externally labelled evidence-dependence calibration.
 
 `GP_PREDICTION != OBSERVATION`; `PC_GRAPH != CANONICAL_JSPACE_GRAPH`; `TMLE_ESTIMATE != IDENTIFICATION_PROOF`; `FINITE_POMDP_CERTIFICATE != REAL_WORLD_OPTIMALITY`.
 
@@ -162,17 +159,7 @@ Resource: `athena://collective/v10`. Spec: `spec/COLLECTIVE_RUNTIME_V10.md`.
 
 ### V11 — adaptive world model + latent causal geometry
 
-V11 adds model adaptation while retaining the V10 observation/authority firewalls:
-
-- `athena_gp_hyperfit` — finite-grid RBF hyperparameter search by exact marginal likelihood; `apply=true` requires `expected_observation_count` CAS;
-- `athena_gp_decision_evsi` — conditional-Gaussian Monte-Carlo downstream decision value; DESIGN_ONLY and never self-trains;
-- `athena_latent_project_admg` — restricted observed ADMG from a caller-supplied acyclic DAG and declared latent nodes; no JSPACE write;
-- `athena_causal_tmle_ensemble` — binary-treatment/binary-outcome TMLE with bounded validation-weighted nuisance ensemble; latent-confounding risk fails closed;
-- `athena_sensitivity_rr_surface` — two-dimensional risk-ratio bias-factor sensitivity geometry;
-- `athena_bapomdp_solve` — bounded finite-model Bayes-adaptive POMDP; exact certificate only after complete supplied-tree search;
-- `athena_evidence_dependence_interval` — Laplace/Hessian interval around an externally labelled dependence model; reads create no labels.
-
-Constitutional laws:
+V11 adds finite-grid marginal-likelihood GP hyperparameter adaptation with observed-row CAS, GP decision EVSI, supplied-DAG latent ADMG projection, bounded stacked-nuisance binary TMLE, two-dimensional RR sensitivity, finite-model Bayes-adaptive POMDP control, and Laplace/Hessian evidence-dependence intervals.
 
 `MARGINAL_LIKELIHOOD_OPTIMUM != TRUE_KERNEL`
 
@@ -186,25 +173,57 @@ Constitutional laws:
 
 `FINITE_MODEL_BAPOMDP != GENERAL_BAYES_ADAPTIVE_CONTROL`
 
-`LAPLACE_DEPENDENCE_INTERVAL != CALIBRATED_COVERAGE_GUARANTEE`
+`LAPLACE_DEPENDENCE_INTERVAL != CALIBRATED_COVERAGE_GUARANTEE`.
 
 Resource: `athena://collective/v11`. Specs: `spec/COLLECTIVE_RUNTIME_V11.md`, `spec/ATHENA_UNIFIED_V11.md`.
+
+### V12 — joint structural world-model belief
+
+V12 stops forcing each adaptive component to a single local winner and preserves bounded uncertainty across several model planes:
+
+- `athena_gp_hyperposterior` — finite-grid posterior over GP kernel/noise hypotheses with explicit priors;
+- `athena_gp_bma_predict` — Bayesian-model-averaged nonlinear prediction with within-model + between-model variance decomposition;
+- `athena_gp_sparse_predict` — deterministic farthest-point subset-of-data GP approximation with exact bounded-reference error;
+- `athena_gp_bma_decision_evsi` — decision-valued candidate measurements while hypothetically updating both finite kernel weights and within-kernel action means;
+- `athena_pag_candidate_discover` — bounded circle/arrow/tail structural candidate from observed Gaussian CI tests, unshielded colliders and limited propagation;
+- `athena_longitudinal_gformula` — two-timepoint binary static-regime parametric g-formula under explicit sequential causal assumptions;
+- `athena_chance_resource_select` — exact small finite chance-constrained subset selection under an explicit independent-Gaussian resource model, with uncertified greedy fallback above the enumeration threshold.
+
+Constitutional laws:
+
+`FINITE_GRID_HYPERPOSTERIOR != CONTINUOUS_HYPERPARAMETER_BAYES`
+
+`BMA_GP_POSTERIOR != WORLD_TRUTH`
+
+`SUBSET_GP_APPROXIMATION != FULL_GP_POSTERIOR`
+
+`BOUNDED_PAG_CANDIDATE != FCI_RFCI_PAG_THEOREM`
+
+`TWO_TIMEPOINT_GFORMULA != LONGITUDINAL_TMLE_OR_IDENTIFICATION_PROOF`
+
+`BMA_GP_EVSI != OBSERVATION`
+
+`GAUSSIAN_INDEPENDENT_CHANCE_CERTIFICATE != DISTRIBUTION_FREE_RESOURCE_GUARANTEE`.
+
+Resource: `athena://collective/v12`. Specs: `spec/COLLECTIVE_RUNTIME_V12.md`, `spec/ATHENA_UNIFIED_V12.md`.
+
+Coordinate: `COLLECTIVE_JOINT=<HP,BM,SG,PG,LC,JV,CC,L>`.
 
 ## State foundation and live runtime brain
 
 - **SCHEMA.2** — additive migration ledger, critical table/column verification, future-schema downgrade block;
-- **OMEGA.1** — digest-addressed accessible state, resident V1–V4 plus explicit lazy V5–V11 surfaces;
+- **OMEGA.1** — digest-addressed accessible state, resident V1–V4 plus explicit lazy V5–V12 surfaces;
 - **RECON.1** — persistent consulted/expected-source reconstruction receipts;
 - **SELFTEST.1 / STARTUP.1** — local health/readiness without pretending to external qualification;
-- **SURFACE.2** — required base + Collective V1–V11 + AOR + state/governance tool/resource union;
-- **COMPOSITION.2** — one composed Server, resident organs, and correctly-classified lazy V5–V11 surfaces;
+- **SURFACE.2** — required base + Collective V1–V12 + AOR + state/governance tool/resource union;
+- **COMPOSITION.2** — one composed Server, resident organs, and correctly-classified lazy V5–V12 surfaces;
 - **PROMOTION.1** — exact-head qualification predicate requiring matching external CI/smoke attestations.
 
 Live machine-readable architecture:
 
-- `athena://manifest` and `athena://runtime/unified-manifest` → `ATHENA.RUNTIME.UNIFIED.6`;
-- `athena://runtime/maxdev` and `athena_maxdev_law` → V11 MAXDEV law;
-- `athena://collective/v5` … `athena://collective/v11` → lazy bounded science/control/adaptation layers.
+- `athena://manifest` and `athena://runtime/unified-manifest` → `ATHENA.RUNTIME.UNIFIED.7`;
+- `athena://runtime/maxdev` and `athena_maxdev_law` → V12 MAXDEV law;
+- `athena://collective/v5` … `athena://collective/v12` → lazy bounded science/control/adaptation/joint-model layers.
 
 ## CI constitution
 
@@ -212,19 +231,19 @@ The repository gate is deliberately independent:
 
 `syntax ∧ full-unit-suite ∧ critical-invariants ∧ dependent-smoke`.
 
-Critical invariants separately exercise state migration/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, documentation/repository-brain consistency, V6↔Y1 firewall, V7, V8/V9, V10, V11, AOR×Collective transport, and promotion predicate.
+Critical invariants separately exercise state migration/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, documentation/repository-brain consistency, V6↔Y1 firewall, V7, V8/V9, V10, V11, V12, AOR×Collective transport, and promotion predicate.
 
-Smoke is withheld until syntax, unit, and critical gates pass. The one-process smoke spans V6→V11 plus schema/SELFTEST, AOR, fail-closed CYCLE/HUG, JSPACE nonmutation probes, and final emission verification.
+Smoke is withheld until syntax, unit, and critical gates pass. The one-process smoke spans V6→V12 plus schema/SELFTEST, AOR, fail-closed CYCLE/HUG, model/JSPACE/Y1 nonmutation probes, and final emission verification.
 
 A green head is still not a live `PROMRUN`; the runtime promotion ledger is a separate state surface.
 
 ## External control-plane boundary
 
-GitHub branch protection, repository metadata, tags, and Releases are **external control-plane state**. Their presence or absence is never inferred from runtime CI, OMEGA, or PROMOTION predicates. They must be queried and changed through GitHub control-plane capabilities when available.
+GitHub branch protection, repository metadata, tags, Releases, PR state and merge state are **external control-plane state**. Their presence or absence is never inferred from runtime CI, OMEGA, or PROMOTION predicates. They must be queried and changed through GitHub control-plane capabilities when available.
 
 ## Run
 
 `python -m athena_mcp --db ./state/athena.db`
 
-Package: `athena-canonical-mcp 3.0.0`  
+Package: `athena-canonical-mcp 3.1.0`  
 MCP protocol revision: `2025-11-25`.
