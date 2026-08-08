@@ -7,6 +7,7 @@ from .rehydration_loop import REHYDRATION_TOOLS, RehydrationLoopRuntime, _state_
 
 ARTIFACT = "ATHENA.REHYDRATION.TERMINAL.GATE.V1"
 PREVIEW_ARTIFACT = "ATHENA.REHYDRATION.SUCCESSOR.PREVIEW.MEMBRANE.V1"
+PROMPT_CONTRACT_ARTIFACT = "ATHENA.REHYDRATION.PROMPT.CLOSURE.CONTRACT.V1"
 
 
 def _nonempty_text(value: Any) -> str:
@@ -176,14 +177,75 @@ def _preview_hold(status: str, *, loop_id: str, remote_sync: dict, detail: dict 
     }
 
 
+def _augment_self_prompt(prompt: str, state: dict) -> str:
+    """Teach the executable closure/continuation law inside every new self-prompt."""
+
+    if PROMPT_CONTRACT_ARTIFACT in prompt:
+        return prompt
+
+    stop_conditions = [str(x).strip() for x in (state.get("stop_conditions") or []) if str(x).strip()]
+    closure_section = f"""## Mission closure and continuation
+
+`{PROMPT_CONTRACT_ARTIFACT}`
+
+- `BOUNDED_CYCLE_COMPLETE != MISSION_COMPLETE`. Complete the current bounded cycle and return one observed receipt; do not confuse that local boundary with the whole mission ending.
+- Ordinary continuation does **not** require a human `NEXT`. When lawful work remains, preserve it in `residuals`, `next_task`, or successor candidates and let `athena_rehydration_advance` verify the cycle, rehydrate shared Git, and AUTO-route the successor baton.
+- Keep `terminal=false` whenever any material residual, next task, successor candidate, non-PASS test, unresolved stop condition, or missing closure witness remains.
+- `terminal=true` is only a witnessed closure request. It is accepted only when the runtime terminal gate verifies goal satisfaction, no remaining material work, required deep-pass receipts, PASS terminal tests, and every declared stop condition.
+- If a terminal request is rejected, the runtime demotes it to continuation and self-steers the successor. Do not erase residuals merely to make closure pass.
+- A true authority/safety/dependency HOLD may stop the current loop, but `HOLD != SUCCESSFUL_MISSION_CLOSURE`.
+
+For a terminal request, populate:
+
+```json
+{{
+  "terminal_evidence": {{
+    "goal_satisfied": true,
+    "remaining_material_work": false,
+    "reason": "why the whole mission, not merely this cycle, is complete",
+    "evidence_refs": ["test://...", "git://..."]
+  }},
+  "stop_results": [
+    {{"condition": "exact declared stop condition", "status": "PASS", "evidence_ref": "test://..."}}
+  ]
+}}
+```
+
+Declared stop conditions for this loop: {json.dumps(stop_conditions, ensure_ascii=False)}
+"""
+
+    marker = "## Completion contract\n"
+    if marker not in prompt:
+        raise ValueError("rehydration self-prompt missing completion contract marker")
+    prompt = prompt.replace(marker, closure_section + "\n" + marker, 1)
+    prompt = prompt.replace(
+        '  "terminal": false,\n  "hard_hold": false,',
+        '  "terminal": false,\n  "hard_hold": false,\n  "terminal_evidence": null,\n  "stop_results": [],',
+        1,
+    )
+    prompt = prompt.replace(
+        "- The agent must finish this bounded cycle before requesting the next one.",
+        "- `BOUNDED_CYCLE_COMPLETE != MISSION_COMPLETE`; finish this bounded cycle, return one observed completion, and let verified runtime successor routing continue the mission unless witnessed closure or a true HOLD applies.\n- `HUMAN_NEXT != ORDINARY_CONTINUATION_CONTROL`; do not request human re-entry solely to continue known lawful work.",
+        1,
+    )
+    max_chars = int(state["budget"]["max_prompt_chars"])
+    if len(prompt) > max_chars:
+        raise ValueError(f"compiled self-prompt exceeds max_prompt_chars={max_chars} after closure-contract augmentation")
+    return prompt
+
+
 def install_terminal_gate(runtime_cls=RehydrationLoopRuntime, tool_list=None) -> None:
-    """Install fail-closed terminal gating and the standalone preview membrane."""
+    """Install fail-closed terminal gating, preview membrane, and prompt closure law."""
 
     if getattr(runtime_cls, "_athena_terminal_gate_v1_registered", False):
         return
 
     original_advance = runtime_cls.advance
     original_call = runtime_cls.call_tool
+    original_render_prompt = runtime_cls._render_prompt
+
+    def render_prompt_with_closure_contract(self, state, context, previous_completion):
+        return _augment_self_prompt(original_render_prompt(self, state, context, previous_completion), state)
 
     def advance_with_terminal_gate(self, *args, **kwargs):
         completion = dict(kwargs.get("completion") or {})
@@ -195,9 +257,6 @@ def install_terminal_gate(runtime_cls=RehydrationLoopRuntime, tool_list=None) ->
             gate = evaluate_terminal_request(self, loop_id, completion)
             completion["terminal_gate"] = gate
             if gate["status"] != "ACCEPTED":
-                # Demote the kill request into a continuation request before the
-                # successor compiler sees it. This preserves residual candidates
-                # and eliminates human re-entry caused solely by premature stop.
                 completion["terminal"] = False
                 completion["self_steer"] = True
             kwargs["completion"] = completion
@@ -216,11 +275,7 @@ def install_terminal_gate(runtime_cls=RehydrationLoopRuntime, tool_list=None) ->
         remote = a.get("remote", "origin")
         mode = self._remote_mode(a.get("shared_remote_mode", "REQUIRED"))
         if mode == "DISABLED":
-            remote_sync = {
-                "status": "DISABLED",
-                "remote": remote,
-                "shared_frontier_verified": False,
-            }
+            remote_sync = {"status": "DISABLED", "remote": remote, "shared_frontier_verified": False}
         else:
             remote_sync = self.remote_sync.sync(remote)
             if mode == "REQUIRED" and not remote_sync.get("shared_frontier_verified"):
@@ -302,10 +357,12 @@ def install_terminal_gate(runtime_cls=RehydrationLoopRuntime, tool_list=None) ->
         result["laws"] = laws
         return result
 
+    runtime_cls._render_prompt = render_prompt_with_closure_contract
     runtime_cls.advance = advance_with_terminal_gate
     runtime_cls.call_tool = call_tool_with_terminal_preview_membrane
     runtime_cls._athena_terminal_gate_v1_registered = True
     runtime_cls._athena_successor_preview_membrane_v1_registered = True
+    runtime_cls._athena_prompt_closure_contract_v1_registered = True
 
     tools = REHYDRATION_TOOLS if tool_list is None else tool_list
     for tool in tools:
@@ -328,8 +385,6 @@ def install_terminal_gate(runtime_cls=RehydrationLoopRuntime, tool_list=None) ->
                 "successor candidates, non-PASS tests, missing terminal evidence, or unwitnessed stop conditions force continuation."
             )
 
-    # Successor tools are registered after this extension is installed. Mutate the
-    # additive preview schema in-place without introducing a second tool namespace.
     try:
         from .rehydration_successor import SUCCESSOR_TOOLS
     except ImportError:
