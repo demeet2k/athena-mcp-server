@@ -1,0 +1,52 @@
+{
+  "schema": "ATHENA.RELEASE.DISTRIBUTION.1",
+  "version": "3.0.0",
+  "tag": "v3.0.0",
+  "title": "ATHENA 3.0.0 — Collective V11 × KC144",
+  "package": {
+    "name": "athena-canonical-mcp",
+    "wheel": "athena_canonical_mcp-3.0.0-py3-none-any.whl",
+    "entrypoint": "athena_mcp.hub_server:main",
+    "python": ">=3.11",
+    "embedded_registry_carrier": "athena_mcp/data/kc144-core-registries.tar.xz"
+  },
+  "source": {
+    "repository": "demeet2k/athena-mcp-server",
+    "target_branch": "agent/aor-collective-unified",
+    "integration_commit": "2900f274fc1f5cff439358eb9ea0496a624aaf72",
+    "integration_tree": "96ae0555e1b6feb0cf46fc73fe7f277cffe9785b",
+    "pull_request": 28,
+    "post_merge_ci_run": 31262821295,
+    "post_merge_unit_tests": 311
+  },
+  "release": {
+    "draft": false,
+    "prerelease": false,
+    "notes_file": "release/v3.0.0.md",
+    "required_assets": [
+      "athena_canonical_mcp-3.0.0-py3-none-any.whl",
+      "kc144-core-registries.tar.xz",
+      "release-manifest.json",
+      "release-attestation.json",
+      "SHA256SUMS"
+    ]
+  },
+  "gates": [
+    "exact target branch",
+    "manifest and package version identity",
+    "full repository unit corpus",
+    "wheel build",
+    "clean wheel installation",
+    "embedded registry reconstruction",
+    "HubServer MCP initialization",
+    "V11 + SYSTEM.UPGRADE.1 + KC144 tool exposure",
+    "exact-head tag compare-and-swap",
+    "release asset checksum verification"
+  ],
+  "authority_boundaries": [
+    "GitHub release publication is distribution, not deployment.",
+    "RELCERT and release metadata are integration certificates, not empirical truth.",
+    "Model, posterior, graph, navigation, reward, consensus and replication-shadow state do not become Y1 authority by publication.",
+    "A tag or release does not authorize production secrets, infrastructure mutation or external package-index publication."
+  ]
+}
