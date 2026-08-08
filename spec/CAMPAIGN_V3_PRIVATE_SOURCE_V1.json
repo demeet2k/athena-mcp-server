@@ -1,0 +1,79 @@
+{
+  "artifact": "ATHENA.CAMPAIGN.V3.PRIVATE.SOURCE.MEMBRANE.V1",
+  "status": "CANDIDATE",
+  "parent_pressure": "demeet2k/Athena#189",
+  "purpose": "Bind a verified private Campaign V3 residual to durable Git identity without persisting plaintext source payload.",
+  "durable_source_artifact": "ATHENA.CAMPAIGN.V3.PRIVATE.SOURCE.IDENTITY.V1",
+  "source_kind": "CAMPAIGN_V3_PRIVATE_LEDGER_RESIDUAL",
+  "durable_fields": [
+    "ledger_digest",
+    "pulse_digest",
+    "pulse_index",
+    "step",
+    "horizon",
+    "private_ref",
+    "private_payload_digest",
+    "compiled_at_head",
+    "operational_basis_digest",
+    "current_coordinate_digest",
+    "payload_disclosure",
+    "execution_authority",
+    "source_digest"
+  ],
+  "forbidden_durable_fields": [
+    "text",
+    "action_text",
+    "private_payload",
+    "payload",
+    "body"
+  ],
+  "payload_law": {
+    "storage": "PRIVATE_TRANSIENT_ONLY",
+    "validation": "SHA256_MATCH_REQUIRED",
+    "match_effect": "ATTESTATION_ONLY",
+    "mismatch_effect": "HOLD",
+    "missing_effect": "HOLD",
+    "authority_granted": false
+  },
+  "campaign_start": {
+    "branch_task": "OPAQUE_DIGEST_DERIVED_TOKEN",
+    "source_binding": "SEPARATE_DURABLE_EFFECT",
+    "plaintext_persistence": "FORBIDDEN",
+    "standing_after_bind": "DURABLE_OPAQUE_SOURCE_BOUND_NOT_CLAIMED"
+  },
+  "loop_binding": {
+    "private_payload_use": "TRANSIENT_DIGEST_VALIDATION_ONLY",
+    "loop_task": "OPAQUE_DIGEST_DERIVED_INSTRUCTION",
+    "campaign_claim": "EXPLICIT_SEPARATE_EFFECT",
+    "loop_start": "EXPLICIT_SEPARATE_EFFECT",
+    "campaign_bind": "EXPLICIT_SEPARATE_EFFECT",
+    "work_executed": false,
+    "next": "EXECUTE_VALIDATED_PRIVATE_PAYLOAD_IN_CURRENT_SESSION_AND_RECEIPT_OBSERVED_WORK"
+  },
+  "cold_resume": {
+    "chat_memory_required": false,
+    "shared_freshness": "REQUIRED_WHEN_ENABLED",
+    "campaign_state_digest": "VERIFIED",
+    "checkpoint_ancestry": "VERIFIED",
+    "campaign_replay": "PASS_REQUIRED",
+    "source_digest": "VERIFIED",
+    "private_payload_required_to_continue_work": true
+  },
+  "compatibility": {
+    "existing_plaintext_campaign_v3_source_path": "UNCHANGED",
+    "new_tool_registration": false,
+    "canonical_compiler_mutated": false
+  },
+  "laws": [
+    "PRIVATE_PAYLOAD != DURABLE_SOURCE_IDENTITY",
+    "PAYLOAD_DIGEST_MATCH != EXECUTION_AUTHORITY",
+    "OPAQUE_SOURCE_BOUND != CLAIM",
+    "OPAQUE_LOOP_BOUND != WORK_EXECUTED",
+    "PRIVATE_SOURCE != PUBLIC_FIXTURE",
+    "PRIVATE_PAYLOAD_REQUIRED_TRANSIENTLY",
+    "MISSING_OR_MISMATCHED_PRIVATE_PAYLOAD => HOLD",
+    "COLD_RESUME != CHAT_MEMORY",
+    "OPAQUE_SOURCE_MEMBRANE != VERIFIED_LEDGER_PULSE_EXECUTED",
+    "CAMPAIGN_SUCCESS = HOLD"
+  ]
+}
