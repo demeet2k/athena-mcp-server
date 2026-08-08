@@ -30,6 +30,12 @@ V13 robust coordinate:
 
 `ATTESTED_READY != QUALIFIED`.
 
+Canonical Y1 authority RPCs remain `athena_claim_*`.
+
+Science-shadow discovery/replication/falsification RPCs remain `athena_discovery_claim_*`.
+
+`athena_claim_* != athena_discovery_claim_*`.
+
 Collective V13 adds inference/control expressiveness; it does not gain Y1, semantic, Git, topology or trusted-promotion authority by numerical sophistication.
 
 ## 2. One server, resident and lazy organs
