@@ -1,2 +1,3 @@
-from .server import main
+from .operational_basis import main
+
 main()
