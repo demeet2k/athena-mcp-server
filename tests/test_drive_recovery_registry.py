@@ -1,7 +1,7 @@
 import unittest
 
 from athena_mcp.drive_recovery_protocol import RECOVERY_RESOURCE, RECOVERY_TOOL_NAMES
-from athena_mcp.drive_recovery_registry_v2 import (
+from athena_mcp.drive_recovery_registry_v3 import (
     VERSION,
     get_organ,
     holoaddress_for,
@@ -24,7 +24,7 @@ class DriveRecoveryRegistryTests(unittest.TestCase):
         self.assertTrue(any("pomdp_solve" in ref for ref in row["current_runtime_refs"]))
         self.assertIn("Blackwell dominance certificate", row["residuals"])
 
-    def test_wave2_holoaddress_preserves_revision_without_fabricating_digest(self):
+    def test_holoaddress_preserves_revision_without_fabricating_digest(self):
         out = holoaddress_for("recovery.holoaddress_dereference")
         h = out["holoaddress"]
         self.assertEqual(h["VersionPin"], {"status": "PINNED", "revision_id": "41"})
@@ -34,6 +34,17 @@ class DriveRecoveryRegistryTests(unittest.TestCase):
         self.assertIn("HoloAddress", h["CompressionSeed"]["semantic_signature"])
         self.assertTrue(any("fresh Athena and MCP Git heads" in step for step in h["ReentryInstructions"]))
         self.assertIn("not source bytes", out["law"])
+
+    def test_wave3_sources_are_dereferenceable(self):
+        auto = holoaddress_for("autoweave.lateral_consequence_transport")["holoaddress"]
+        self.assertEqual(auto["VersionPin"], {"status": "PINNED", "revision_id": "24"})
+        self.assertEqual(auto["LookupKey"]["drive_file_id"], "1fJMUhqLeJ3XOZBfBWY_dkWtgmGfwEOfdK3kOOmNWaiA")
+        self.assertIn("automatic_consequence_transport", auto["CompressionSeed"]["semantic_signature"])
+        self.assertEqual(auto["DigestLocator"]["status"], "UNCOMPUTED")
+
+        j = holoaddress_for("federated_jspace.typed_bridge_geometry")["holoaddress"]
+        self.assertEqual(j["VersionPin"], {"status": "PINNED", "revision_id": "13"})
+        self.assertIn("partial_transport", j["CompressionSeed"]["semantic_signature"])
 
     def test_unpinned_source_stays_explicitly_unpinned(self):
         out = holoaddress_for("kc144.command_hub")["holoaddress"]
@@ -50,20 +61,26 @@ class DriveRecoveryRegistryTests(unittest.TestCase):
         self.assertIn("bitemporal recorded_time versus valid_time", row["residuals"])
         self.assertIn("#62", " ".join(row["current_runtime_refs"]))
 
-    def test_filter_and_semantic_search_crosses_both_waves(self):
+    def test_filter_and_semantic_search_crosses_three_waves(self):
         q = list_organs(query="Blackwell")
         self.assertEqual([row["organ_id"] for row in q["organs"]], ["cross_zoom.belief_control"])
         q2 = list_organs(query="request_collapse")
         self.assertEqual([row["organ_id"] for row in q2["organs"]], ["continuity.request_collapse"])
         q3 = list_organs(query="ManifestationOrigin")
         self.assertEqual([row["organ_id"] for row in q3["organs"]], ["formal.temporal_manifestation_return"])
+        q4 = list_organs(query="holonomy")
+        ids = [row["organ_id"] for row in q4["organs"]]
+        self.assertIn("autoweave.lateral_consequence_transport", ids)
+        self.assertIn("federated_jspace.typed_bridge_geometry", ids)
 
-    def test_frontier_prioritizes_unresolved_residuals_not_implemented_holoaddress(self):
-        out = residual_frontier(limit=4)
+    def test_frontier_puts_autoweave_first_without_predecessor_crowding(self):
+        out = residual_frontier(limit=6)
         ids = [row["organ_id"] for row in out["frontier"]]
-        self.assertEqual(ids[0], "formal.temporal_manifestation_return")
+        self.assertEqual(ids[0], "autoweave.lateral_consequence_transport")
+        self.assertIn("formal.temporal_manifestation_return", ids)
         self.assertIn("navlearn.future_state_cartography", ids)
-        self.assertIn("output.atomization_fitness", ids)
+        self.assertNotIn("engineering.ggct_master_compiler", ids)
+        self.assertNotIn("goalforge.verified_intelligence_yield", ids)
         self.assertNotIn("recovery.holoaddress_dereference", ids)
         self.assertNotIn("rh16.process_memory_recovery", ids)
 
@@ -73,19 +90,20 @@ class DriveRecoveryRegistryTests(unittest.TestCase):
             {"athena_recovery_organs", "athena_recovery_organ", "athena_recovery_holoaddress", "athena_recovery_frontier"},
         )
         surface = DriveRecoverySurface()
-        handled, out = surface.call_tool("athena_recovery_holoaddress", {"organ_id": "recovery.holoaddress_dereference"})
+        handled, out = surface.call_tool("athena_recovery_holoaddress", {"organ_id": "autoweave.lateral_consequence_transport"})
         self.assertTrue(handled)
         self.assertEqual(out["version"], VERSION)
         resource = surface.read_resource(RECOVERY_RESOURCE["uri"])
-        self.assertEqual(resource["version"], "DRIVE.ORGAN-RECOVERY.2")
+        self.assertEqual(resource["version"], "DRIVE.ORGAN-RECOVERY.3")
         self.assertIn("read-only", resource["boundary"])
         self.assertEqual(resource["formal_residual_issue"], "demeet2k/athena-mcp-server#62")
+        self.assertEqual(resource["autoweave_residual_issue"], "demeet2k/athena-mcp-server#67")
 
     def test_source_heads_are_provenance_coordinates_not_freshness_claims(self):
         surface = DriveRecoverySurface()
         state = surface.read_resource(RECOVERY_RESOURCE["uri"])
-        self.assertEqual(state["source_heads"]["wave2_athena"], "b67492c589e7cb9f5d31611b23343ad02896baa2")
-        self.assertEqual(state["source_heads"]["wave2_mcp"], "649ad6c6976da101ba8602c70a239ef5b5dbf388")
+        self.assertEqual(state["source_heads"]["wave3_athena"], "b67492c589e7cb9f5d31611b23343ad02896baa2")
+        self.assertEqual(state["source_heads"]["wave3_mcp"], "ce316e28e6de50b278b30ca77c0cd07da0896912")
 
 
 if __name__ == "__main__":
