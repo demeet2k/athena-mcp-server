@@ -1,7 +1,19 @@
 from __future__ import annotations
 
+from .collective_science import CollectiveScienceRuntime
+from .collective_v5_dispatch import call as call_v5
+from .collective_v5_protocol import COLLECTIVE_V5_TOOLS
+
+V5_NAMES={t['name'] for t in COLLECTIVE_V5_TOOLS}
+
+
+def _science(runtime):
+    return CollectiveScienceRuntime(runtime.s,runtime.collective,runtime.growth,runtime.memory,runtime.learning,runtime)
+
 
 def call(runtime, name, a):
+    if name in V5_NAMES:
+        return call_v5(_science(runtime),None,name,a)
     if name == 'athena_regime_resolve':
         return runtime.resolve_regime(a['signals'], a.get('domain'))
     if name == 'athena_bandit_select':
