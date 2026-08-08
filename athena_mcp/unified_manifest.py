@@ -31,7 +31,7 @@ INVARIANTS=[
 ]
 
 CYCLE='HYDRATE -> RECONRUN/OMEGA -> MEMORY -> EXTRACT -> RETRIEVE -> HUG -> GAP -> FIELD -> MEASURE -> AUTHORITY/AOR -> COLLECTIVE(V1-V7) -> EXECUTE -> VERIFY -> LEARN -> SUCCESSOR -> COMPLETE'
-BRAID_LAW='AOR chooses developmental frontier/WHAT; Collective V1-V7 organizes HOW scarce execution/science/control capacity is used; Y1 governs canonical claim authority; EQ1 governs witnessed collapse; consensus/pheromone/reward/model posterior/replication shadow are never typed authority or evidence by themselves.'
+BRAID_LAW='AOR chooses developmental frontier/WHAT; Collective V1-V7 organizes HOW scarce execution/science/control capacity is used; Y1 governs canonical claim authority; EQ1 governs witnessed collapse; consensus/pheromone/reward are never typed authority or evidence by themselves; model posterior/replication shadow are also never typed authority or evidence by themselves.'
 
 
 def build_unified_manifest(server)->Dict[str,Any]:
