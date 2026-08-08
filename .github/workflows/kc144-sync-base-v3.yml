@@ -137,7 +137,7 @@ jobs:
               assert field['version']=='FIELD.1'
               assert server.call_tool('athena_ood_score',{'features':{'x':0.5},'regime':'R'})['status']=='NO_REFERENCE_DISTRIBUTION'
               claim=server.call_tool('athena_discovery_claim_register',{'claim_key':'sync:final','statement':'V7 and KC144 polyatlas are composed'})
-              assert claim['claim_id'].startswith('DCLAIM:')
+              assert claim['claim_id'].startswith('CLAIM:')
               frontier=server.call_tool('athena_kc144_completion_frontier',{})
               assert frontier['frontier'][0]['task_id']=='TASK.000'
               atlas=server.call_tool('athena_kc144_polyatlas_validate',{'include_details':False})
