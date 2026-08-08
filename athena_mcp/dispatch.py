@@ -13,6 +13,8 @@ from .aor_development_surface import AOR_DEVELOPMENT_RESOURCES,AOR_DEVELOPMENT_R
 from .collective_science import CollectiveScienceRuntime
 from .collective_discovery import CollectiveDiscoveryRuntime
 from .collective_dual_control import CollectiveDualControlRuntime
+from .collective_belief import CollectiveBeliefRuntime
+from .collective_inference import CollectiveInferenceRuntime
 from .collective_v6_protocol import CLAIM_NAMESPACE_LAW
 from .unified_manifest import build_unified_manifest,maxdev_law
 
@@ -30,6 +32,8 @@ def _meter(server,name,started,status):
 def _science(server):return CollectiveScienceRuntime(server.store,server.collective,server.collective_growth,server.collective_memory,server.collective_learning,server.collective_ecology)
 def _discovery(server):return CollectiveDiscoveryRuntime(_science(server))
 def _dual(server):return CollectiveDualControlRuntime(_discovery(server))
+def _belief(server):return CollectiveBeliefRuntime(_dual(server))
+def _inference(server):return CollectiveInferenceRuntime(_belief(server))
 
 
 def handle(server,m):
@@ -79,6 +83,8 @@ def handle(server,m):
             {'uri':'athena://collective/v5','name':'Collective Science Runtime V5','mimeType':'application/json'},
             {'uri':'athena://collective/v6','name':'Collective Discovery Runtime V6','mimeType':'application/json'},
             {'uri':'athena://collective/v7','name':'Collective Dual-Control Runtime V7','mimeType':'application/json'},
+            {'uri':'athena://collective/v8','name':'Collective Finite-Belief Runtime V8','mimeType':'application/json'},
+            {'uri':'athena://collective/v9','name':'Collective Continuous-Inference Runtime V9','mimeType':'application/json'},
             {'uri':'athena://orchestration/law','name':'AOR Developmental Decision Cortex Law','mimeType':'application/json'},
             {'uri':'athena://orchestration/recent','name':'Recent Persisted AORRUN Receipts','mimeType':'application/json'},
             {'uri':'athena://orchestration/robustness','name':'AOR Successor Robustness Law','mimeType':'application/json'},
@@ -111,17 +117,19 @@ def handle(server,m):
             science=_science(server);val={'runtime':science.describe(),'delayed_credit':science.delayed_credit_summary(limit=100),'learned_regime_geometry':science.regime_geometry_resolve({},top_k=10),'boundary':'POSTERIOR != TRUTH; EIG != EVIDENCE; ROLLOUT != EXECUTION; interaction/delay require identification before causal claims'}
         elif uri=='athena://collective/v6':val={'runtime':_discovery(server).describe(),'claim_namespace':CLAIM_NAMESPACE_LAW,'boundary':'V6 discovery models/claims are science-shadow state; athena_discovery_claim_* never mutates Y1 athena_claim_* canonical authority'}
         elif uri=='athena://collective/v7':val={'runtime':_dual(server).describe(),'claim_namespace':CLAIM_NAMESPACE_LAW,'boundary':'V7 uncertainty/causal/dual-control/replication outputs are model-conditional science-shadow surfaces; plans/simulations are not execution and replication geometry never mutates Y1 authority'}
+        elif uri=='athena://collective/v8':val={'runtime':_belief(server).describe(),'claim_namespace':CLAIM_NAMESPACE_LAW,'boundary':'V8 belief/EVI/effect/bootstrap/policy/evidence-diversity state is model/science-shadow state; BELIEF_POSTERIOR != CANONICAL_TRUTH and design/policy calls do not mutate Y1'}
+        elif uri=='athena://collective/v9':val={'runtime':_inference(server).describe(),'claim_namespace':CLAIM_NAMESPACE_LAW,'boundary':'V9 Gaussian belief/EVPI/EVSI/AIPW/robustness/partial-graph/dependence outputs are model-conditional; estimates/plans/graph hypotheses do not gain Y1 authority by adjacency'}
         elif uri=='athena://orchestration/law':val={**orchestration_law(),'authority_law':'Y in {?,+,!,#} is persistent, non-skippable and distinct from score/confidence/consensus/reward; linked candidates snapshot Y state into AORRUN','dedup_law':'UNKNOWN sameness preserves identity; only witnessed contradiction-free EQ1 components may collapse'}
         elif uri=='athena://orchestration/recent':val=server.orchestration.recent(50)
         elif uri=='athena://orchestration/robustness':val={'version':'AOR.3.2','successor_factor_count':SUCCESSOR_FACTOR_COUNT,'law':'q*((1-eps)/(1+eps))^5; eps*=(q^(1/5)-1)/(q^(1/5)+1)','boundary':'rank sensitivity, not truth probability or causal evidence'}
         elif uri=='athena://branches':val={'benchmark':server.branches.benchmark(),'recent':server.branches.list(limit=100),'law':'branch lifecycle is basis-specific witnessed EWMA state; hibernate != erase; resurrection requires new evidence/gap/bridge pressure plus policy thresholds'}
-        elif uri=='athena://authority':val={'benchmark':server.authority.benchmark(),'claims':server.authority.list(limit=100),'law':'?->+ verified evidence; +->! witnessed execution; !-># explicit authorized canonicalization; challenges block automatic routing; authority != confidence != consensus != reward; V6/V7 discovery shadow state uses athena_discovery_claim_* and cannot alias this registry'}
+        elif uri=='athena://authority':val={'benchmark':server.authority.benchmark(),'claims':server.authority.list(limit=100),'law':'?->+ verified evidence; +->! witnessed execution; !-># explicit authorized canonicalization; challenges block automatic routing; authority != confidence != consensus != reward; V6-V9 model/science-shadow state uses athena_discovery_claim_* where applicable and cannot alias this registry'}
         else:return server.error(mid,-32002,'Resource not found',{'uri':uri})
         return server.result(mid,{'contents':[{'uri':uri,'mimeType':'application/json','text':json.dumps(val,ensure_ascii=False,sort_keys=True)}]})
     if method=='prompts/list':return server.result(mid,{'prompts':PROMPTS})
     if method=='prompts/get':
         if params.get('name')!='athena_maxdev':return server.error(mid,-32602,'Unknown prompt')
         a=params.get('arguments') or {};task=a.get('task','');agent=a.get('agent','ATHENA')
-        text='ATHENA UNIFIED AOR×COLLECTIVE V7 MAXDEV\nAGENT='+str(agent)+'\nTASK='+str(task)+'\n'+maxdev_law()
-        return server.result(mid,{'description':'Unified AOR/Y1 developmental cortex × Collective V1–V7 organization/science/discovery/dual-control cycle','messages':[{'role':'user','content':{'type':'text','text':text}}]})
+        text='ATHENA UNIFIED AOR×COLLECTIVE V9 MAXDEV\nAGENT='+str(agent)+'\nTASK='+str(task)+'\n'+maxdev_law()
+        return server.result(mid,{'description':'Unified AOR/Y1 developmental cortex × Collective V1–V9 organization/science/discovery/belief/inference cycle','messages':[{'role':'user','content':{'type':'text','text':text}}]})
     return server.error(mid,-32601,'Method not found')
