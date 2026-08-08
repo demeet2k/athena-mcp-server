@@ -83,6 +83,25 @@ class ReleaseDistributionTests(unittest.TestCase):
         self.assertNotIn('athena_mcp.hub_server',w)
         self.assertNotIn('kc144-core-registries.tar.xz',w)
 
+    def test_job_level_env_blocks_use_contexts_legal_at_job_env_scope(self):
+        # GitHub Actions does not expose the `env` context while evaluating
+        # jobs.<job_id>.env. Workflow-level values remain available to runner
+        # steps, but job-env expressions must use contexts valid at that scope.
+        lines=self.workflow.splitlines()
+        in_job_env=False
+        for line in lines:
+            if line == '    env:':
+                in_job_env=True
+                continue
+            if in_job_env and not line.startswith('      '):
+                in_job_env=False
+            if in_job_env:
+                self.assertNotIn('${{ env.',line,line)
+        self.assertIn(
+            'ATHENA_PROMOTION_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}',
+            self.workflow,
+        )
+
     def test_release_workflow_uses_least_privilege_until_manual_publish(self):
         w=self.workflow
         self.assertIn('permissions:\n  contents: read\n  actions: read\n  checks: read',w)
