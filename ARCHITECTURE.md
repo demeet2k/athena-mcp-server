@@ -21,16 +21,16 @@ Collective V1 → Growth V1 → Memory V2 → Learning V3 → Ecology V4
                                       ↕
 SCHEMA2 / OMEGA1 / RECON1 / CYCLE1 / SELFTEST1 / STARTUP1
                                       ↕
-SURFACE2 / COMPOSITION2 / PROMOTION1
+SURFACE2 / COMPOSITION2 / PROMOTION2
                                       ↕
 FINALIZE_OUTPUT / VERIFY_EMISSION / RETURN
 ```
 
 Release coordinate: `athena-canonical-mcp 3.0.0`.
 
-Live architecture artifact: `ATHENA.RUNTIME.UNIFIED.6`.
+Live architecture artifact: `ATHENA.RUNTIME.UNIFIED.7`.
 
-The governing design principle is type preservation: model output, evidence, authority, execution, observation, persistence, identity, and coordinates are separate semantic planes.
+The governing design principle is type preservation: model output, evidence, authority, execution, observation, persistence, identity, coordinates, caller attestations, and trusted external verification are separate semantic planes.
 
 ## 2. Identity and coordinate law
 
@@ -210,11 +210,14 @@ Forbidden shortcuts include:
 - GP prediction/EVSI → GP observation;
 - latent/partial/PC graph → JSPACE edge;
 - dependence prediction/interval → calibration label;
-- science-shadow state → Y1 mutation.
+- science-shadow state → Y1 mutation;
+- caller CI/smoke packet → trusted external qualification.
 
-General law:
+General laws:
 
 `MODEL_OUTPUT --X--> OBSERVATION_WITHOUT_EXTERNAL_WITNESS`.
+
+`CALLER_ATTESTATION --X--> QUALIFIED_WITHOUT_TRUSTED_VERIFIER`.
 
 ## 9. Three independent CAS domains
 
@@ -262,15 +265,25 @@ Verifies one `Server`, resident base/V1–V4/AOR/state organs, governance presen
 
 Local health/readiness only. `READY_LOCAL` is not external CI qualification, model validity, or canonical truth.
 
-### PROMOTION.1
+### PROMOTION.2
 
-`QUALIFIED` requires exact-head local conditions and matching external CI/smoke attestations. Tests of the predicate do not themselves create a live PROMRUN.
+PROMOTION.2 splits readiness from trusted qualification:
+
+`LOCAL_GATES + CALLER_BOUND_CI + CALLER_BOUND_SMOKE → ATTESTED_READY`
+
+`ATTESTED_READY + HOST_INTERNAL_TRUSTED_VERIFIER(head,ci_ref,smoke_ref) → QUALIFIED`
+
+The `athena_promotion_evaluate` MCP schema intentionally exposes no trusted-verifier field, so a remote caller cannot self-supply the authority needed for `QUALIFIED`.
+
+Historical PROMOTION.1 receipts remain versioned/replayable with their original predicate semantics, but V1 `QUALIFIED` rows are counted separately as historical and do not become current PROMOTION.2 trusted qualification.
+
+`ATTESTED_READY != QUALIFIED`.
 
 ## 13. Live architecture ABI
 
-`ATHENA.RUNTIME.UNIFIED.6` is the live machine-readable architecture artifact. Compatibility retains `.1` through `.5`.
+`ATHENA.RUNTIME.UNIFIED.7` is the live machine-readable architecture artifact. Compatibility retains `.1` through `.6`.
 
-The live manifest advertises `COLLECTIVE_ADAPTIVE_V11`, V1–V11 cycle/navigation, V11 invariants, V11 unresolved boundaries, and `ATHENA UNIFIED MAXDEV V11`.
+The live manifest advertises `COLLECTIVE_ADAPTIVE_V11`, `PROMOTION.2`, V1–V11 cycle/navigation, V11 invariants, the unresolved external promotion-verifier bridge, and `ATHENA UNIFIED MAXDEV V11`.
 
 ## 14. CI constitution
 
@@ -292,7 +305,7 @@ Critical stages include:
 - V10 constructive/adversarial/unified boundaries;
 - V11 constructive/adversarial/unified boundaries;
 - AOR×Collective transport;
-- promotion predicate.
+- promotion trust + exact-head predicate.
 
 Smoke is dependent on the first three jobs and spans V6→V11, state/AOR/fail-closed CYCLE, model nonmutation, and final emission verification in one process.
 
@@ -304,7 +317,7 @@ Visible output bytes become a manifestation/coordinate surface and are not mutat
 
 ## 16. External control-plane boundary
 
-Repository branch protection, repository description, tags, and GitHub Releases are outside the runtime architecture ABI. They must be observed/changed through GitHub control-plane APIs and are never inferred from CI, OMEGA, SELFTEST, or PROMOTION predicates.
+Repository branch protection, repository description, tags, GitHub Releases, and the trusted external-promotion verifier are outside the ordinary MCP runtime trust surface. They must be observed/changed through trusted host/control-plane APIs and are never inferred from CI, OMEGA, SELFTEST, caller witness packets, or PROMOTION.2 `ATTESTED_READY`.
 
 ## 17. Governing objective
 

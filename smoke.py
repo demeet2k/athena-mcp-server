@@ -13,12 +13,12 @@ def call(name,args,request_id):
 
 def resource(uri,request_id):return json.loads(rpc('resources/read',{'uri':uri},request_id)['contents'][0]['text'])
 
-init=rpc('initialize',{'protocolVersion':'2025-11-25','capabilities':{},'clientInfo':{'name':'smoke','version':'6'}},1);assert init['serverInfo']['version']=='3.0.0',init
+init=rpc('initialize',{'protocolVersion':'2025-11-25','capabilities':{},'clientInfo':{'name':'smoke','version':'7'}},1);assert init['serverInfo']['version']=='3.0.0',init
 p.stdin.write(json.dumps({'jsonrpc':'2.0','method':'notifications/initialized'})+'\n');p.stdin.flush()
 tools=rpc('tools/list',{},2)['tools'];names={x['name'] for x in tools}
-for n in ('athena_orchestrate','athena_cycle_start','athena_self_test','athena_schema_migrate','athena_experiment_design','athena_causal_identify','athena_dual_control_plan','athena_belief_register','athena_decision_evi','athena_gaussian_belief_register','athena_decision_evpi','athena_structure_partial','athena_gp_register','athena_gp_predict','athena_pc_stable_discover','athena_causal_tmle_binary','athena_pomdp_solve','athena_gp_hyperfit','athena_gp_decision_evsi','athena_latent_project_admg','athena_bapomdp_solve','athena_discovery_claim_register','athena_claim_register','athena_finalize_output'):
+for n in ('athena_orchestrate','athena_cycle_start','athena_self_test','athena_schema_migrate','athena_experiment_design','athena_causal_identify','athena_dual_control_plan','athena_belief_register','athena_decision_evi','athena_gaussian_belief_register','athena_decision_evpi','athena_structure_partial','athena_gp_register','athena_gp_predict','athena_pc_stable_discover','athena_causal_tmle_binary','athena_pomdp_solve','athena_gp_hyperfit','athena_gp_decision_evsi','athena_latent_project_admg','athena_bapomdp_solve','athena_discovery_claim_register','athena_claim_register','athena_promotion_evaluate','athena_finalize_output'):
     assert n in names,n
-manifest=resource('athena://manifest',3);assert manifest['artifact']=='ATHENA.RUNTIME.UNIFIED.6',manifest
+manifest=resource('athena://manifest',3);assert manifest['artifact']=='ATHENA.RUNTIME.UNIFIED.7',manifest;assert 'PROMOTION.2' in manifest['layers']
 for layer in ('COLLECTIVE_DISCOVERY_V6','COLLECTIVE_DUAL_CONTROL_V7','COLLECTIVE_BELIEF_V8','COLLECTIVE_INFERENCE_V9','COLLECTIVE_PROBABILISTIC_V10','COLLECTIVE_ADAPTIVE_V11','AOR_DECISION_CORTEX'):assert layer in manifest['layers'],layer
 v6=resource('athena://collective/v6',4);assert v6['runtime']['version']=='COLLECTIVE_RUNTIME_V6',v6;assert v6['claim_namespace']['discovery_shadow_prefix']=='athena_discovery_claim_'
 v8=resource('athena://collective/v8',5);assert v8['runtime']['version']=='COLLECTIVE_RUNTIME_V8',v8
@@ -61,4 +61,9 @@ semantic={'kind':'ARTIFACT','domain':'SMOKE','verb':'TEST','object_name':'OUTPUT
 em=call('athena_finalize_output',{'semantic':semantic,'text':'Smoke crystal T: x maps to y.','native_locator':'memory://smoke','agent':'SMOKE','task':'ci','seq':1,'math_objects':[{'kind':'OPERATOR','symbol':'T','latex':'T:x\\mapsto y'}],'coordinates':{'BR21':{'status':'RESOLVED','value':{'operator':'T'}}}},41)
 assert em['envelope_id'].startswith('ENV.');assert em['emission_mid'].startswith('MID.');assert em['visible_text'].startswith('⟦ATHENA::CRYSTAL::CRYS.');assert em['manifest']['coordinates']['BR21']['status']=='RESOLVED'
 verified=call('athena_verify_emission',{'envelope_id':em['envelope_id'],'visible_text':em['visible_text']},42);assert verified['verified'] is True
-p.terminate(); print('SMOKE PASS: V6 DISCOVERY + V7 DUAL-CONTROL + V8 BELIEF + V9 INFERENCE + V10 PROBABILISTIC + V11 ADAPTIVE + SCHEMA/SELFTEST + AOR + FAIL-CLOSED CYCLE + FINAL EMISSION')
+git_state=call('athena_git_status',{},43);promotion_head=git_state.get('head') or 'smokehead1234567'
+ci_packet={'observed':True,'ref':'ci://smoke-caller-attestation','head_sha':promotion_head,'conclusion':'success'}
+smoke_packet={'observed':True,'ref':'smoke://smoke-caller-attestation','head_sha':promotion_head,'conclusion':'success'}
+promotion=call('athena_promotion_evaluate',{'git_head':promotion_head,'ci_witness':ci_packet,'smoke_witness':smoke_packet,'persist':False},44)
+assert promotion['status']=='ATTESTED_READY',promotion;assert promotion['promotion_allowed'] is False;assert promotion['gates']['external_verification']['status']=='MISSING'
+p.terminate(); print('SMOKE PASS: V6 DISCOVERY + V7 DUAL-CONTROL + V8 BELIEF + V9 INFERENCE + V10 PROBABILISTIC + V11 ADAPTIVE + PROMOTION.2 CALLER-BOUND READINESS + SCHEMA/SELFTEST + AOR + FAIL-CLOSED CYCLE + FINAL EMISSION')

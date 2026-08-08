@@ -1,17 +1,17 @@
 # ATHENA Canonical MCP v3.0 — AΩR × Collective V1–V11 Unified Runtime
 
-ATHENA is an executable Git/MCP developmental substrate that composes canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, AOR developmental routing, persistent Y1 claim authority, Collective organization/memory/learning, bounded causal/probabilistic inference, adaptive belief control, restart-safe whole-state projection, and exact-head qualification.
+ATHENA is an executable Git/MCP developmental substrate that composes canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, AOR developmental routing, persistent Y1 claim authority, Collective organization/memory/learning, bounded causal/probabilistic inference, adaptive belief control, restart-safe whole-state projection, and versioned exact-head promotion trust.
 
 Current executable coordinates:
 
 - package: `athena-canonical-mcp 3.0.0`;
-- live architecture: `ATHENA.RUNTIME.UNIFIED.6`;
+- live architecture: `ATHENA.RUNTIME.UNIFIED.7`;
 - runtime class: one composed `Server`;
 - Collective ladder: V1–V11;
 - authority: Y1 `athena_claim_*`;
 - science-shadow evidence namespace: `athena_discovery_claim_*`;
 - state foundation: `SCHEMA.2 / OMEGA.1 / RECON.1`;
-- governance: `SELFTEST.1 / STARTUP.1 / SURFACE.2 / COMPOSITION.2 / PROMOTION.1`;
+- governance: `SELFTEST.1 / STARTUP.1 / SURFACE.2 / COMPOSITION.2 / PROMOTION.2`;
 - external gate: `syntax ∧ unit ∧ critical-invariants ∧ dependent-smoke`.
 
 ## Constitutional braid
@@ -28,7 +28,7 @@ Current executable coordinates:
 
 `CYCLE = resumable fail-closed developmental metabolism`
 
-`PROMOTION = exact-head local predicates + external attestations`
+`PROMOTION.2 = exact-head readiness + explicit external-verification trust state`
 
 Core firewalls:
 
@@ -42,7 +42,9 @@ Core firewalls:
 - `POSTERIOR / BELIEF / GP PREDICTION != CANONICAL TRUTH OR OBSERVATION`;
 - `MODEL_GRAPH != CANONICAL_JSPACE_GRAPH`;
 - `semantic VID CAS != Git HEAD CAS != topology-version CAS`;
-- `athena_claim_* != athena_discovery_claim_*`.
+- `athena_claim_* != athena_discovery_claim_*`;
+- `CALLER_ATTESTATION != TRUSTED_EXTERNAL_VERIFICATION`;
+- `ATTESTED_READY != QUALIFIED`.
 
 ## Runtime cycle
 
@@ -198,13 +200,18 @@ Resource: `athena://collective/v11`. Specs: `spec/COLLECTIVE_RUNTIME_V11.md`, `s
 - **SELFTEST.1 / STARTUP.1** — local health/readiness without pretending to external qualification;
 - **SURFACE.2** — required base + Collective V1–V11 + AOR + state/governance tool/resource union;
 - **COMPOSITION.2** — one composed Server, resident organs, and correctly-classified lazy V5–V11 surfaces;
-- **PROMOTION.1** — exact-head qualification predicate requiring matching external CI/smoke attestations.
+- **PROMOTION.2** — versioned promotion trust state: exact-head caller CI/smoke packets can reach `ATTESTED_READY`; `QUALIFIED` additionally requires a host-internal trusted external-verification receipt bound to the same head and exact CI/smoke refs. Historical PROMOTION.1 receipts remain replayable but separate.
+
+`ATTESTED_READY != QUALIFIED`.
+
+The current MCP surface intentionally cannot accept the trusted-verifier receipt. This keeps a remote caller from minting trusted qualification from self-supplied witness packets. The host verifier remains an explicit unresolved control-plane bridge.
 
 Live machine-readable architecture:
 
-- `athena://manifest` and `athena://runtime/unified-manifest` → `ATHENA.RUNTIME.UNIFIED.6`;
-- `athena://runtime/maxdev` and `athena_maxdev_law` → V11 MAXDEV law;
-- `athena://collective/v5` … `athena://collective/v11` → lazy bounded science/control/adaptation layers.
+- `athena://manifest` and `athena://runtime/unified-manifest` → `ATHENA.RUNTIME.UNIFIED.7`;
+- `athena://runtime/maxdev` and `athena_maxdev_law` → V11 + PROMOTION.2 MAXDEV law;
+- `athena://collective/v5` … `athena://collective/v11` → lazy bounded science/control/adaptation layers;
+- `athena://promotion` → current PROMOTION.2 trust ledger plus historical PROMOTION.1 compatibility.
 
 ## CI constitution
 
@@ -212,15 +219,15 @@ The repository gate is deliberately independent:
 
 `syntax ∧ full-unit-suite ∧ critical-invariants ∧ dependent-smoke`.
 
-Critical invariants separately exercise state migration/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, documentation/repository-brain consistency, V6↔Y1 firewall, V7, V8/V9, V10, V11, AOR×Collective transport, and promotion predicate.
+Critical invariants separately exercise state migration/restart, unknown legacy preservation, three-domain CAS, CYCLE, SURFACE/COMPOSITION, SELFTEST/STARTUP, manifest/MAXDEV, release metadata/RPC uniqueness, documentation/repository-brain consistency, V6↔Y1 firewall, V7, V8/V9, V10, V11, AOR×Collective transport, and promotion trust/exact-head behavior.
 
 Smoke is withheld until syntax, unit, and critical gates pass. The one-process smoke spans V6→V11 plus schema/SELFTEST, AOR, fail-closed CYCLE/HUG, JSPACE nonmutation probes, and final emission verification.
 
-A green head is still not a live `PROMRUN`; the runtime promotion ledger is a separate state surface.
+A green head is not a live `PROMRUN`. A caller-bound PROMRUN is not externally verified qualification. `QUALIFIED` is reserved for PROMOTION.2 receipts that include a trusted host-verifier packet.
 
 ## External control-plane boundary
 
-GitHub branch protection, repository metadata, tags, and Releases are **external control-plane state**. Their presence or absence is never inferred from runtime CI, OMEGA, or PROMOTION predicates. They must be queried and changed through GitHub control-plane capabilities when available.
+GitHub branch protection, repository metadata, tags, Releases, and the future trusted promotion-verifier bridge are **external control-plane state**. Their presence or absence is never inferred from runtime CI, OMEGA, SELFTEST, or caller-bound promotion packets. They must be queried and changed through trusted host/control-plane capabilities when available.
 
 ## Run
 

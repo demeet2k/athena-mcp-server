@@ -96,7 +96,7 @@ jobs:
           python -m unittest discover -s tests -p 'test_collective_v11_unified.py' -v
       - name: AOR Collective transport firewalls
         run: python -m unittest discover -s tests -p 'test_aor_collective_transport.py' -v
-      - name: Exact-head promotion predicate
+      - name: Promotion trust and exact-head predicate
         run: python -m unittest discover -s tests -p 'test_promotion_unified.py' -v
 
   smoke:
