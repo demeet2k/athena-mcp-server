@@ -1,3 +1,4 @@
+import json
 import tempfile
 import unittest
 
@@ -15,10 +16,13 @@ class CollectiveV7UnifiedTests(unittest.TestCase):
     def tool(self,name,args):
         r=self.rpc('tools/call',{'name':name,'arguments':args});result=r['result'];self.assertFalse(result.get('isError'),r);return result['structuredContent']
 
-    def test_v7_tools_are_advertised_through_v6_chain(self):
+    def test_v7_tools_resource_and_surface_are_advertised(self):
         names={t['name'] for t in self.rpc('tools/list')['result']['tools']}
         for name in ['athena_uncertainty_decompose','athena_prequential_interval','athena_causal_skeleton_discover','athena_state_transition_model','athena_scenario_evaluate','athena_dual_control_plan','athena_causal_identify_extended','athena_replication_independence','athena_replication_design']:
             self.assertIn(name,names)
+        uris={r['uri'] for r in self.rpc('resources/list')['result']['resources']};self.assertIn('athena://collective/v7',uris)
+        payload=json.loads(self.rpc('resources/read',{'uri':'athena://collective/v7'})['result']['contents'][0]['text']);self.assertEqual(payload['runtime']['version'],'COLLECTIVE_RUNTIME_V7');self.assertIn('plans/simulations are not execution',payload['boundary'])
+        audit=self.tool('athena_surface_audit',{'run_probes':True});self.assertEqual(audit['groups']['collective_v7']['status'],'PASS',audit)
 
     def test_uncertainty_and_prequential_outputs_are_diagnostic_not_certainty(self):
         dec=self.tool('athena_uncertainty_decompose',{'features':{'x':.25},'regime':'R','arm_id':'A'})
