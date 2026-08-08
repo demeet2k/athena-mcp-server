@@ -1,0 +1,382 @@
+name: Release Distribution
+
+on:
+  pull_request:
+    paths:
+      - 'release/v3.2.0.json'
+      - 'release/v3.2.0.md'
+      - '.github/workflows/release.yml'
+      - 'tests/test_release_distribution.py'
+      - 'scripts/qualify_github_head.py'
+      - 'athena_mcp/github_promotion_verifier.py'
+      - 'athena_mcp/promotion.py'
+      - 'athena_mcp/promotion_protocol.py'
+      - 'athena_mcp/runtime_integrity_surface.py'
+      - 'athena_mcp/unified_manifest.py'
+      - 'pyproject.toml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  checks: read
+
+concurrency:
+  group: athena-release-v3.2.0-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  MANIFEST_FILE: release/v3.2.0.json
+  NOTES_FILE: release/v3.2.0.md
+  RELEASE_VERSION: '3.2.0'
+  RELEASE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_HEAD }}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Compile release runtime and tests
+        run: python -m compileall -q athena_mcp tests smoke.py scripts/qualify_github_head.py
+
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_HEAD }}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Full unit suite
+        run: python -m unittest discover -s tests -v
+
+  critical-invariants:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_HEAD }}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Release distribution contract
+        run: python -m unittest discover -s tests -p 'test_release_distribution.py' -v
+      - name: Schema migration and restart durability
+        run: python -m unittest discover -s tests -p 'test_state_foundation_unified.py' -v
+      - name: Unknown legacy-state preservation
+        run: python -m unittest discover -s tests -p 'test_legacy_migration_preservation.py' -v
+      - name: Three independent CAS domains
+        run: python -m unittest discover -s tests -p 'test_three_domain_cas_unified.py' -v
+      - name: Whole-cycle fail-closed metabolism
+        run: python -m unittest discover -s tests -p 'test_cycle_unified.py' -v
+      - name: Surface and composition integrity
+        run: python -m unittest discover -s tests -p 'test_surface_composition_unified.py' -v
+      - name: Local self-test and startup readiness
+        run: |
+          python -m unittest discover -s tests -p 'test_self_test_unified.py' -v
+          python -m unittest discover -s tests -p 'test_startup_health_unified.py' -v
+      - name: Live runtime manifest and MAXDEV law
+        run: python -m unittest discover -s tests -p 'test_unified_manifest.py' -v
+      - name: Release metadata and RPC namespace uniqueness
+        run: python -m unittest discover -s tests -p 'test_metadata_consistency.py' -v
+      - name: Documentation and repository-brain consistency
+        run: python -m unittest discover -s tests -p 'test_documentation_consistency.py' -v
+      - name: GitHub trusted promotion verifier
+        run: python -m unittest discover -s tests -p 'test_github_promotion_verifier.py' -v
+      - name: V6 upstream scientific diagnostics and unified Y1 firewall
+        run: |
+          python -m unittest discover -s tests -p 'test_00_collective_v6_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_00a_collective_v6_assertion_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_unified.py' -v
+      - name: V7 upstream dual-control suites and unified authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v7.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v7_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v7_unified.py' -v
+      - name: V8-V9 upstream belief inference suites and unified authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v8.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v8_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v9.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v9_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v8_v9_unified.py' -v
+      - name: V10 probabilistic constructive adversarial and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v10.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v10_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v10_unified.py' -v
+      - name: V11 adaptive constructive adversarial and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v11.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v11_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v11_unified.py' -v
+      - name: V12 joint-model constructive adversarial and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v12.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v12_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v12_unified.py' -v
+      - name: V13 robust continuous-bayes causal-control and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v13.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v13_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v13_unified.py' -v
+      - name: AOR Collective transport firewalls
+        run: python -m unittest discover -s tests -p 'test_aor_collective_transport.py' -v
+      - name: Promotion trust and exact-head predicate
+        run: python -m unittest discover -s tests -p 'test_promotion_unified.py' -v
+
+  smoke:
+    needs: [syntax, unit, critical-invariants]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_HEAD }}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: MCP smoke
+        run: python smoke.py
+
+  promotion-qualification:
+    needs: [syntax, unit, critical-invariants, smoke]
+    runs-on: ubuntu-latest
+    env:
+      ATHENA_GITHUB_REPOSITORY: ${{ github.repository }}
+      ATHENA_GITHUB_API_URL: ${{ github.api_url }}
+      ATHENA_GITHUB_RUN_ID: ${{ github.run_id }}
+      ATHENA_GITHUB_TOKEN: ${{ github.token }}
+      ATHENA_PROMOTION_HEAD: ${{ env.RELEASE_HEAD }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_HEAD }}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Create and replay host-verified PROMOTION.2 receipt
+        run: python scripts/qualify_github_head.py --git-root . --output promotion-receipt.json
+      - name: Upload trusted promotion receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: promotion-receipt-${{ env.RELEASE_HEAD }}
+          path: promotion-receipt.json
+          if-no-files-found: error
+
+  package-readiness:
+    needs: [syntax, unit, critical-invariants, smoke, promotion-qualification]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_HEAD }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Download trusted promotion receipt
+        uses: actions/download-artifact@v5
+        with:
+          name: promotion-receipt-${{ env.RELEASE_HEAD }}
+          path: promotion-input
+      - name: Validate release contract and exact checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"
+          test -z "$(git status --porcelain)"
+          python - <<'PY'
+          import json, pathlib, tomllib
+          root=pathlib.Path('.')
+          manifest=json.loads((root/'release/v3.2.0.json').read_text())
+          project=tomllib.loads((root/'pyproject.toml').read_text())['project']
+          assert manifest['schema']=='ATHENA.RELEASE.DISTRIBUTION.2'
+          assert manifest['version']==project['version']=='3.2.0'
+          assert manifest['tag']=='v3.2.0'
+          assert manifest['package']['name']==project['name']=='athena-canonical-mcp'
+          assert manifest['package']['entrypoint']==project['scripts']['athena-mcp']=='athena_mcp.server:main'
+          assert manifest['runtime']['manifest']=='ATHENA.RUNTIME.UNIFIED.9'
+          assert manifest['runtime']['collective_frontier']=='COLLECTIVE_ROBUST_V13'
+          assert manifest['runtime']['promotion']=='ATHENA.PROMOTION.2'
+          assert manifest['runtime']['trusted_verifier']=='ATHENA.GITHUB.PROMOTION.VERIFIER.1'
+          assert manifest['source_policy']['branch']=='master'
+          assert manifest['source_policy']['publication_requires_five_stage_qualification'] is True
+          print('RELEASE CONTRACT PASS', manifest['tag'])
+          PY
+      - name: Build wheel from declared backend
+        run: python -m pip wheel --no-deps . -w dist
+      - name: Clean-install and verify V13 UNIFIED.9 package
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/athena-release-wheel
+          python -m pip install --no-deps --target /tmp/athena-release-wheel dist/*.whl
+          cd /tmp
+          PYTHONPATH=/tmp/athena-release-wheel python - <<'PY'
+          import json, tempfile
+          import athena_mcp
+          from athena_mcp.server import Server
+          assert athena_mcp.__version__=='3.2.0'
+          with tempfile.NamedTemporaryFile(suffix='.db') as handle:
+              server=Server(handle.name)
+              try:
+                  init=server.handle({'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-11-25','capabilities':{},'clientInfo':{'name':'release','version':'3.2.0'}}})['result']
+                  assert init['serverInfo']['version']=='3.2.0', init
+                  tools={item['name'] for item in server.handle({'jsonrpc':'2.0','id':2,'method':'tools/list'})['result']['tools']}
+                  required={'athena_gp_hyperqmc','athena_gp_fitc_predict','athena_gp_joint_design','athena_fci_lite_discover','athena_longitudinal_tmle','athena_dynamic_policy_value','athena_dro_resource_select','athena_promotion_evaluate','athena_promotion_verify_github'}
+                  assert required <= tools, sorted(required-tools)
+                  manifest=server.handle({'jsonrpc':'2.0','id':3,'method':'tools/call','params':{'name':'athena_runtime_manifest','arguments':{}}})['result']['structuredContent']
+                  assert manifest['artifact']=='ATHENA.RUNTIME.UNIFIED.9', manifest
+                  assert 'COLLECTIVE_ROBUST_V13' in manifest['layers']
+                  promotion=json.loads(server.handle({'jsonrpc':'2.0','id':4,'method':'resources/read','params':{'uri':'athena://promotion'}})['result']['contents'][0]['text'])
+                  assert promotion['version']=='ATHENA.PROMOTION.2'
+                  assert promotion['github_verifier']['version']=='ATHENA.GITHUB.PROMOTION.VERIFIER.1'
+              finally:
+                  server.store.close()
+          print('CLEAN WHEEL PASS: V13 / UNIFIED.9 / PROMOTION.2 / GITHUB VERIFIER')
+          PY
+      - name: Prepare immutable release candidate and attestation
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp "$MANIFEST_FILE" dist/release-manifest.json
+          cp promotion-input/promotion-receipt.json dist/promotion-receipt.json
+          python - <<'PY'
+          import glob, hashlib, json, os, pathlib
+          manifest=json.loads(pathlib.Path(os.environ['MANIFEST_FILE']).read_text())
+          promotion=json.loads(pathlib.Path('dist/promotion-receipt.json').read_text())
+          wheels=glob.glob('dist/*.whl'); assert len(wheels)==1,wheels
+          wheel=pathlib.Path(wheels[0]); release_manifest=pathlib.Path('dist/release-manifest.json'); promo=pathlib.Path('dist/promotion-receipt.json')
+          assert wheel.name==manifest['package']['wheel'],(wheel.name,manifest['package']['wheel'])
+          assert promotion['artifact']=='ATHENA.GITHUB.PROMOTION.RECEIPT.1'
+          assert promotion['git_head']==os.environ['RELEASE_HEAD']
+          assert promotion['promotion']['status']=='QUALIFIED' and promotion['promotion']['promotion_allowed'] is True
+          assert promotion['replay']['match'] is True
+          assert promotion['replay']['stored_status']=='QUALIFIED' and promotion['replay']['recomputed_status']=='QUALIFIED'
+          def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+          attestation={
+              'schema':'ATHENA.RELEASE.ATTESTATION.2',
+              'repository':os.environ['GITHUB_REPOSITORY'],
+              'release_commit':os.environ['RELEASE_HEAD'],
+              'release_ref':os.environ['GITHUB_REF'],
+              'workflow_run_id':os.environ['GITHUB_RUN_ID'],
+              'workflow_run_attempt':os.environ['GITHUB_RUN_ATTEMPT'],
+              'version':manifest['version'],
+              'tag':manifest['tag'],
+              'runtime':manifest['runtime'],
+              'trusted_promotion':{
+                  'promrun':promotion['promotion']['run_id'],
+                  'verification_ref':promotion['verification_ref'],
+                  'qualification_workflow_run':promotion['github_run_id'],
+                  'check_suite_id':promotion['check_suite_id'],
+                  'receipt_sha256':sha(promo),
+                  'replay_match':promotion['replay']['match']
+              },
+              'artifacts':{
+                  wheel.name:sha(wheel),
+                  promo.name:sha(promo),
+                  release_manifest.name:sha(release_manifest)
+              },
+              'gates':{
+                  'syntax':'PASS','unit':'PASS','critical_invariants':'PASS','smoke':'PASS','promotion_qualification':'PASS',
+                  'wheel_build':'PASS','clean_install':'PASS','v13_unified9_surface':'PASS'
+              },
+              'boundary':'Distribution attestation certifies exact repository/package/distribution state; it is not deployment, empirical truth, causal proof, Y1 authority, or GitHub administrative hardening.'
+          }
+          pathlib.Path('dist/release-attestation.json').write_text(json.dumps(attestation,indent=2,sort_keys=True)+'\n')
+          PY
+          (
+            cd dist
+            find . -maxdepth 1 -type f ! -name SHA256SUMS -printf '%f\n' | sort | xargs sha256sum > SHA256SUMS
+            sha256sum -c SHA256SUMS
+          )
+      - name: Upload immutable release candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-candidate-v3.2.0-${{ env.RELEASE_HEAD }}
+          path: dist/*
+          if-no-files-found: error
+
+  publish:
+    needs: [package-readiness]
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master'
+    permissions:
+      contents: write
+      actions: read
+      checks: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: master
+          fetch-depth: 0
+      - name: Prove release head is still exact remote master
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin master
+          test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"
+          test "$(git rev-parse origin/master)" = "$RELEASE_HEAD"
+          test -z "$(git status --porcelain)"
+      - name: Download immutable release candidate
+        uses: actions/download-artifact@v5
+        with:
+          name: release-candidate-v3.2.0-${{ env.RELEASE_HEAD }}
+          path: dist
+      - name: Verify candidate checksums and attestation head
+        shell: bash
+        run: |
+          set -euo pipefail
+          (cd dist && sha256sum -c SHA256SUMS)
+          python - <<'PY'
+          import json, os, pathlib
+          att=json.loads(pathlib.Path('dist/release-attestation.json').read_text())
+          manifest=json.loads(pathlib.Path('dist/release-manifest.json').read_text())
+          assert att['release_commit']==os.environ['RELEASE_HEAD']
+          assert att['version']==manifest['version']=='3.2.0'
+          assert att['tag']==manifest['tag']=='v3.2.0'
+          assert att['trusted_promotion']['replay_match'] is True
+          assert all(v=='PASS' for v in att['gates'].values())
+          PY
+      - name: Create exact-head tag and publish GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['tag'])")
+          TITLE=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['title'])")
+          if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" > /tmp/tag.json 2>/dev/null; then
+            TAG_TARGET=$(python -c "import json; print(json.load(open('/tmp/tag.json'))['object']['sha'])")
+            test "$TAG_TARGET" = "$RELEASE_HEAD"
+          else
+            gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" -f ref="refs/tags/$TAG" -f sha="$RELEASE_HEAD" > /tmp/tag.json
+          fi
+          TAG_TARGET=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" --jq '.object.sha')
+          test "$TAG_TARGET" = "$RELEASE_HEAD"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --title "$TITLE" --notes-file "$NOTES_FILE"
+            gh release upload "$TAG" dist/* --clobber
+          else
+            gh release create "$TAG" dist/* --verify-tag --title "$TITLE" --notes-file "$NOTES_FILE"
+          fi
+      - name: Verify published release and required assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['tag'])")
+          gh release view "$TAG" --json tagName,isDraft,isPrerelease,url,assets > /tmp/release.json
+          python - <<'PY'
+          import json, os
+          release=json.load(open('/tmp/release.json'));manifest=json.load(open(os.environ['MANIFEST_FILE']))
+          assert release['tagName']==manifest['tag']
+          assert release['isDraft'] is False and release['isPrerelease'] is False
+          observed={item['name'] for item in release['assets']};required=set(manifest['release']['required_assets'])
+          assert required <= observed, {'required':sorted(required),'observed':sorted(observed)}
+          print('RELEASE PASS', release['url'], sorted(observed))
+          PY

@@ -1,0 +1,89 @@
+{
+  "schema": "ATHENA.RELEASE.DISTRIBUTION.2",
+  "version": "3.2.0",
+  "tag": "v3.2.0",
+  "title": "ATHENA 3.2.0 — Collective V13 × UNIFIED.9",
+  "package": {
+    "name": "athena-canonical-mcp",
+    "wheel": "athena_canonical_mcp-3.2.0-py3-none-any.whl",
+    "entrypoint": "athena_mcp.server:main",
+    "python": ">=3.11"
+  },
+  "runtime": {
+    "manifest": "ATHENA.RUNTIME.UNIFIED.9",
+    "collective_frontier": "COLLECTIVE_ROBUST_V13",
+    "promotion": "ATHENA.PROMOTION.2",
+    "trusted_verifier": "ATHENA.GITHUB.PROMOTION.VERIFIER.1",
+    "required_tools": [
+      "athena_gp_hyperqmc",
+      "athena_gp_fitc_predict",
+      "athena_gp_joint_design",
+      "athena_fci_lite_discover",
+      "athena_longitudinal_tmle",
+      "athena_dynamic_policy_value",
+      "athena_dro_resource_select",
+      "athena_promotion_evaluate",
+      "athena_promotion_verify_github"
+    ],
+    "required_resources": [
+      "athena://manifest",
+      "athena://runtime/unified-manifest",
+      "athena://promotion",
+      "athena://collective/v13"
+    ]
+  },
+  "source_policy": {
+    "repository": "demeet2k/athena-mcp-server",
+    "branch": "master",
+    "publication_requires_exact_current_master": true,
+    "publication_requires_clean_checkout": true,
+    "publication_requires_five_stage_qualification": true,
+    "qualification_checks": [
+      "syntax",
+      "unit",
+      "critical-invariants",
+      "smoke",
+      "promotion-qualification"
+    ],
+    "exact_commit_is_bound_in_release_attestation": true
+  },
+  "release": {
+    "draft": false,
+    "prerelease": false,
+    "notes_file": "release/v3.2.0.md",
+    "required_assets": [
+      "athena_canonical_mcp-3.2.0-py3-none-any.whl",
+      "promotion-receipt.json",
+      "release-manifest.json",
+      "release-attestation.json",
+      "SHA256SUMS"
+    ]
+  },
+  "gates": [
+    "exact master checkout at publication",
+    "manifest and package version identity",
+    "syntax",
+    "full repository unit corpus",
+    "critical invariants through V13 and PROMOTION.2",
+    "subprocess smoke",
+    "host-bound coherent-suite promotion qualification",
+    "wheel build",
+    "clean wheel installation outside repository",
+    "Server MCP initialization",
+    "UNIFIED.9 manifest identity",
+    "V13 robust tool/resource exposure",
+    "caller attestation remains ATTESTED_READY",
+    "trusted verifier surface remains present",
+    "release attestation binds exact commit plus trusted PROMRUN receipt",
+    "exact-head tag compare-and-swap",
+    "release asset checksum verification"
+  ],
+  "authority_boundaries": [
+    "GitHub release publication is distribution, not deployment.",
+    "Release attestation certifies exact repository/package/distribution state, not empirical truth or causal validity.",
+    "Model, posterior, graph, navigation, reward, consensus and science-shadow state do not become Y1 authority by publication.",
+    "Trusted PROMOTION.2 qualification is not GitHub administrative hardening.",
+    "A tag or release does not authorize production secrets, infrastructure mutation or external package-index publication.",
+    "A v3.0.0 release attestation is not evidence for v3.2.0 bytes."
+  ]
+}

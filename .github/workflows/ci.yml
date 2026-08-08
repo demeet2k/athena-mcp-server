@@ -69,6 +69,8 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_metadata_consistency.py' -v
       - name: Documentation and repository-brain consistency
         run: python -m unittest discover -s tests -p 'test_documentation_consistency.py' -v
+      - name: Release distribution contract
+        run: python -m unittest discover -s tests -p 'test_release_distribution.py' -v
       - name: GitHub trusted promotion verifier
         run: python -m unittest discover -s tests -p 'test_github_promotion_verifier.py' -v
       - name: V6 upstream scientific diagnostics and unified Y1 firewall
