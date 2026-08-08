@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import json
+
 from .frontier_runtime import FrontierRuntime
+from .git_backend import GitStateError
 
 
 def _selection_from_packet(frontier: dict) -> dict:
@@ -41,8 +44,87 @@ def _selection_from_packet(frontier: dict) -> dict:
     }
 
 
+def _install_shared_fresh_verify_index(runtime_cls) -> None:
+    """Preserve RHL-002/RHL-003 when braiding bootstrap with newer master.
+
+    The feature lineage already carries RHL-001 remote-fresh resume. Newer master
+    generalized the same membrane to verify/index. Keeping those two read surfaces
+    here is an ancestry-resolution antibody: the runtime behavior is preserved
+    without replacing the newer sibling history or trusting stale local loop views.
+    """
+
+    flag = "_athena_remote_fresh_verify_index_compat_v1_registered"
+    if getattr(runtime_cls, flag, False):
+        return
+    local_verify = runtime_cls.verify
+    local_index = runtime_cls.index
+
+    def _sync(self, operation: str, shared_remote_mode: str = "REQUIRED", remote: str = "origin"):
+        mode = self._remote_mode(shared_remote_mode)
+        if mode == "DISABLED":
+            return mode, {
+                "status": "DISABLED",
+                "remote": remote,
+                "shared_frontier_verified": False,
+            }
+        remote_sync = self.remote_sync.sync(remote)
+        if mode == "REQUIRED" and not remote_sync.get("shared_frontier_verified"):
+            raise GitStateError(
+                json.dumps(
+                    {
+                        "status": f"REHYDRATION_{operation}_SHARED_FRONTIER_HOLD",
+                        "remote_sync": remote_sync,
+                        "law": "LOCAL_LOOP_VIEW != SHARED_CURRENT_LOOP_VIEW",
+                    },
+                    sort_keys=True,
+                )
+            )
+        return mode, remote_sync
+
+    def verify_remote_fresh(
+        self,
+        loop_id,
+        shared_remote_mode: str = "REQUIRED",
+        remote: str = "origin",
+    ):
+        mode, remote_sync = _sync(self, "VERIFY", shared_remote_mode, remote)
+        result = local_verify(self, loop_id)
+        result["remote_sync"] = remote_sync
+        result["shared_frontier_verified"] = bool(remote_sync.get("shared_frontier_verified"))
+        result["freshness_law"] = "VERIFY_SYNC_SHARED_GIT_BEFORE_REPLAYING_LOOP_CHAIN"
+        if (
+            mode == "BEST_EFFORT"
+            and not result["shared_frontier_verified"]
+            and result.get("status") == "PASS"
+        ):
+            result["status"] = "PASS_UNVERIFIED"
+        return result
+
+    def index_remote_fresh(
+        self,
+        shared_remote_mode: str = "REQUIRED",
+        remote: str = "origin",
+    ):
+        mode, remote_sync = _sync(self, "INDEX", shared_remote_mode, remote)
+        result = local_index(self)
+        result["remote_sync"] = remote_sync
+        result["shared_frontier_verified"] = bool(remote_sync.get("shared_frontier_verified"))
+        result["freshness_law"] = "INDEX_SYNC_SHARED_GIT_BEFORE_LISTING_LOOP_TIPS"
+        if (
+            mode == "BEST_EFFORT"
+            and not result["shared_frontier_verified"]
+            and result.get("status") == "OK"
+        ):
+            result["status"] = "OK_UNVERIFIED"
+        return result
+
+    runtime_cls.verify = verify_remote_fresh
+    runtime_cls.index = index_remote_fresh
+    setattr(runtime_cls, flag, True)
+
+
 def install_bootstrap_consistency(runtime_cls) -> None:
-    """Install returned-snapshot and rolling-session consistency antibodies.
+    """Install bootstrap consistency plus shared-fresh sibling-read antibodies.
 
     BOOT-001: V1 bootstrap composes FrontierRuntime.hydrate() and select(), and the
     latter performs its own hydration. Until the redundant fetch is removed, bind
@@ -55,7 +137,14 @@ def install_bootstrap_consistency(runtime_cls) -> None:
     refresh so the next refresh compares against the last observed address rather
     than the original cold-start address. Explicit prior_address mode stays
     stateless and may return a fresh session id.
+
+    RHL-002/RHL-003: preserve the newer master's shared-fresh verify/index read
+    membrane while this branch retains the separately witnessed RHL-001 resume
+    wrapper. All three surfaces fail closed when the shared remote cannot be
+    verified in REQUIRED mode.
     """
+
+    _install_shared_fresh_verify_index(runtime_cls)
 
     if getattr(runtime_cls, "_athena_boot_consistency_v1_registered", False):
         return
