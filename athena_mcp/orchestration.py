@@ -181,10 +181,10 @@ def compile_orchestration(
 
     allocation_plan = allocate_budget(executable_frontier, budget)
     budget_active = bool((budget or {}).get("total_cost") is not None or (budget or {}).get("max_branches") is not None)
+    allocated_ids = set(allocation_plan.get("selected", []))
     if allocation_plan.get("status") == "INVALID_BUDGET":
         budgeted_successor_frontier = []
     elif budget_active:
-        allocated_ids = set(allocation_plan.get("selected", []))
         budgeted_successor_frontier = [row for row in successor_frontier if row["id"] in allocated_ids]
     else:
         budgeted_successor_frontier = successor_frontier
@@ -197,13 +197,12 @@ def compile_orchestration(
         calibration = formula_calibration(calibration_report, "residual")
         residual_rows.append({"id": ident, "score": residual_score(scoring_item), "metric_calibration": calibration, "metric_report": calibration_report, "source": raw_item, "scoring_source": scoring_item})
         for request in calibration_requests(ident, calibration_report):
-            if request["formula"] == "residual":
-                calibration_plan.append(request)
+            if request["formula"] == "residual": calibration_plan.append(request)
     residual_frontier = sorted(residual_rows, key=lambda row: rank_key(row["score"], row["id"]))
     known_residuals = [row for row in residual_frontier if row["score"]["status"] == "KNOWN" and row["metric_calibration"]["ranking_allowed"]]
 
     next_id = budgeted_successor_frontier[0]["id"] if budgeted_successor_frontier else None
-    explanation = decision_explanation(frontier, next_id)
+    explanation = decision_explanation(frontier, next_id, allocated_ids, budget_active)
     metric_summary = contract_summary(metric_contract)
     decision = {
         "metric_basis": metric_summary,
