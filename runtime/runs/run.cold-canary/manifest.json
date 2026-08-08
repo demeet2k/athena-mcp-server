@@ -1,0 +1,18 @@
+{
+  "schema_version": "RUN_MANIFEST_V1",
+  "run_id": "run.cold-canary",
+  "objective_ref": "objective.cold-canary",
+  "artifact_target": "artifact.md",
+  "policy_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "work_class": "PROJECT_WORK",
+  "nodes": [
+    {
+      "node_id": "build",
+      "role_capability": "builder",
+      "depends_on": [],
+      "max_attempts": 1,
+      "not_before_pulse": 0,
+      "claim_path": "runtime/runs/run.cold-canary/claims/build.json"
+    }
+  ]
+}
