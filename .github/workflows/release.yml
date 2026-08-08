@@ -29,6 +29,7 @@ env:
   MANIFEST_FILE: release/v3.2.0.json
   NOTES_FILE: release/v3.2.0.md
   RELEASE_VERSION: '3.2.0'
+  RELEASE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
 
 jobs:
   syntax:
@@ -36,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ env.RELEASE_HEAD }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Compile release runtime and tests
@@ -47,7 +48,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ env.RELEASE_HEAD }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Full unit suite
@@ -58,7 +59,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ env.RELEASE_HEAD }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Release distribution contract
@@ -136,7 +137,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ env.RELEASE_HEAD }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: MCP smoke
@@ -150,11 +151,11 @@ jobs:
       ATHENA_GITHUB_API_URL: ${{ github.api_url }}
       ATHENA_GITHUB_RUN_ID: ${{ github.run_id }}
       ATHENA_GITHUB_TOKEN: ${{ github.token }}
-      ATHENA_PROMOTION_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+      ATHENA_PROMOTION_HEAD: ${{ env.RELEASE_HEAD }}
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ env.RELEASE_HEAD }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Create and replay host-verified PROMOTION.2 receipt
@@ -162,7 +163,7 @@ jobs:
       - name: Upload trusted promotion receipt
         uses: actions/upload-artifact@v4
         with:
-          name: promotion-receipt-${{ github.event.pull_request.head.sha || github.sha }}
+          name: promotion-receipt-${{ env.RELEASE_HEAD }}
           path: promotion-receipt.json
           if-no-files-found: error
 
@@ -172,20 +173,20 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ env.RELEASE_HEAD }}
           fetch-depth: 0
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Download trusted promotion receipt
         uses: actions/download-artifact@v5
         with:
-          name: promotion-receipt-${{ github.event.pull_request.head.sha || github.sha }}
+          name: promotion-receipt-${{ env.RELEASE_HEAD }}
           path: promotion-input
       - name: Validate release contract and exact checkout
         shell: bash
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha || github.sha }}"
+          test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"
           test -z "$(git status --porcelain)"
           python - <<'PY'
           import json, pathlib, tomllib
@@ -251,7 +252,7 @@ jobs:
           wheel=pathlib.Path(wheels[0]); release_manifest=pathlib.Path('dist/release-manifest.json'); promo=pathlib.Path('dist/promotion-receipt.json')
           assert wheel.name==manifest['package']['wheel'],(wheel.name,manifest['package']['wheel'])
           assert promotion['artifact']=='ATHENA.GITHUB.PROMOTION.RECEIPT.1'
-          assert promotion['git_head']==os.environ['GITHUB_SHA']
+          assert promotion['git_head']==os.environ['RELEASE_HEAD']
           assert promotion['promotion']['status']=='QUALIFIED' and promotion['promotion']['promotion_allowed'] is True
           assert promotion['replay']['match'] is True
           assert promotion['replay']['stored_status']=='QUALIFIED' and promotion['replay']['recomputed_status']=='QUALIFIED'
@@ -259,7 +260,7 @@ jobs:
           attestation={
               'schema':'ATHENA.RELEASE.ATTESTATION.2',
               'repository':os.environ['GITHUB_REPOSITORY'],
-              'release_commit':os.environ['GITHUB_SHA'],
+              'release_commit':os.environ['RELEASE_HEAD'],
               'release_ref':os.environ['GITHUB_REF'],
               'workflow_run_id':os.environ['GITHUB_RUN_ID'],
               'workflow_run_attempt':os.environ['GITHUB_RUN_ATTEMPT'],
@@ -290,12 +291,12 @@ jobs:
           (
             cd dist
             find . -maxdepth 1 -type f ! -name SHA256SUMS -printf '%f\n' | sort | xargs sha256sum > SHA256SUMS
+            sha256sum -c SHA256SUMS
           )
-          sha256sum -c dist/SHA256SUMS --ignore-missing
       - name: Upload immutable release candidate
         uses: actions/upload-artifact@v4
         with:
-          name: release-candidate-v3.2.0-${{ github.event.pull_request.head.sha || github.sha }}
+          name: release-candidate-v3.2.0-${{ env.RELEASE_HEAD }}
           path: dist/*
           if-no-files-found: error
 
@@ -308,18 +309,18 @@ jobs:
         with:
           ref: master
           fetch-depth: 0
-      - name: Prove dispatched SHA is still exact remote master
+      - name: Prove release head is still exact remote master
         shell: bash
         run: |
           set -euo pipefail
           git fetch origin master
-          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
-          test "$(git rev-parse origin/master)" = "$GITHUB_SHA"
+          test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"
+          test "$(git rev-parse origin/master)" = "$RELEASE_HEAD"
           test -z "$(git status --porcelain)"
       - name: Download immutable release candidate
         uses: actions/download-artifact@v5
         with:
-          name: release-candidate-v3.2.0-${{ github.sha }}
+          name: release-candidate-v3.2.0-${{ env.RELEASE_HEAD }}
           path: dist
       - name: Verify candidate checksums and attestation head
         shell: bash
@@ -330,7 +331,7 @@ jobs:
           import json, os, pathlib
           att=json.loads(pathlib.Path('dist/release-attestation.json').read_text())
           manifest=json.loads(pathlib.Path('dist/release-manifest.json').read_text())
-          assert att['release_commit']==os.environ['GITHUB_SHA']
+          assert att['release_commit']==os.environ['RELEASE_HEAD']
           assert att['version']==manifest['version']=='3.2.0'
           assert att['tag']==manifest['tag']=='v3.2.0'
           assert att['trusted_promotion']['replay_match'] is True
@@ -342,17 +343,16 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          VERSION=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['version'])")
           TAG=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['tag'])")
           TITLE=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['title'])")
           if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" > /tmp/tag.json 2>/dev/null; then
             TAG_TARGET=$(python -c "import json; print(json.load(open('/tmp/tag.json'))['object']['sha'])")
-            test "$TAG_TARGET" = "$GITHUB_SHA"
+            test "$TAG_TARGET" = "$RELEASE_HEAD"
           else
-            gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" -f ref="refs/tags/$TAG" -f sha="$GITHUB_SHA" > /tmp/tag.json
+            gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" -f ref="refs/tags/$TAG" -f sha="$RELEASE_HEAD" > /tmp/tag.json
           fi
           TAG_TARGET=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" --jq '.object.sha')
-          test "$TAG_TARGET" = "$GITHUB_SHA"
+          test "$TAG_TARGET" = "$RELEASE_HEAD"
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release edit "$TAG" --title "$TITLE" --notes-file "$NOTES_FILE"
             gh release upload "$TAG" dist/* --clobber
@@ -366,7 +366,7 @@ jobs:
         run: |
           set -euo pipefail
           TAG=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['tag'])")
-          gh release view "$TAG" --json tagName,targetCommitish,isDraft,isPrerelease,url,assets > /tmp/release.json
+          gh release view "$TAG" --json tagName,isDraft,isPrerelease,url,assets > /tmp/release.json
           python - <<'PY'
           import json, os
           release=json.load(open('/tmp/release.json'));manifest=json.load(open(os.environ['MANIFEST_FILE']))
