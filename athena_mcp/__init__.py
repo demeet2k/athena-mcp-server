@@ -33,31 +33,33 @@ from .rehydration_loop import (
     REHYDRATION_TOOL_NAMES,
     RehydrationLoopRuntime,
 )
-from .rehydration_successor import install_successor_extension
+from .rehydration_successor import (
+    SUCCESSOR_TOOLS,
+    SUCCESSOR_TOOL_NAMES,
+    install_successor_extension,
+)
 
-# Install the successor membrane before tool registration so its preview tool and
-# completion schema extensions are part of the same PromptRuntime surface.
-install_successor_extension(RehydrationLoopRuntime, REHYDRATION_TOOLS, REHYDRATION_TOOL_NAMES)
+# Patch runtime behavior only. The canonical V1 five-tool rehydration membrane is
+# immutable; V1.1 preview tools are registered in their own additive namespace.
+install_successor_extension(RehydrationLoopRuntime)
 
-# The compatibility membrane makes omission tri-state: AUTO when no explicit
-# next_task exists, preserve existing V1 next_task otherwise. Keep the exposed
-# schema text synchronized with that runtime law.
+# Extend only the advance completion schema. Do not mutate REHYDRATION_TOOL_NAMES.
 for _tool in REHYDRATION_TOOLS:
     if _tool.get("name") != "athena_rehydration_advance":
         continue
     _completion_schema = (((_tool.get("inputSchema") or {}).get("properties") or {}).get("completion") or {})
     _completion_props = _completion_schema.setdefault("properties", {})
-    if "self_steer" in _completion_props:
-        _completion_props["self_steer"]["description"] = (
-            "Optional. Omitted=AUTO: steer only when next_task is absent; an explicit V1 next_task is preserved. "
-            "true forces successor compilation; false disables it."
-        )
+    _completion_props.setdefault("self_steer", {"type": "boolean"})
+    _completion_props.setdefault("successor_candidates", {"type": "array", "items": {"type": ["object", "string"]}})
+    _completion_props.setdefault("successor_policy", {"type": "object"})
+    _completion_props["self_steer"]["description"] = (
+        "Optional. Omitted=AUTO: steer only when next_task is absent; an explicit V1 next_task is preserved. "
+        "true forces successor compilation; false disables it."
+    )
 
 # Backward-compatibility law: an existing V1 caller that explicitly supplied a
 # next_task keeps that routing decision unless it explicitly opts into
 # self_steer=true. Omission means AUTO only when successor choice was left open.
-# This prevents the new routing heuristic from silently rewriting already
-# witnessed V1 completion semantics.
 if not getattr(RehydrationLoopRuntime, "_athena_successor_v1_explicit_next_compat", False):
     _rehydration_advance_with_successor = RehydrationLoopRuntime.advance
 
@@ -188,7 +190,7 @@ if not getattr(FrontierRuntime, "_athena_content_digest_v1_registered", False):
     FrontierRuntime.hydrate = _frontier_hydrate_content_digest
     FrontierRuntime._athena_content_digest_v1_registered = True
 
-for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS:
+for _tool in FRONTIER_TOOLS + REHYDRATION_TOOLS + SUCCESSOR_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
         PROMPT_RUNTIME_TOOLS.append(_tool)
         PROMPT_RUNTIME_TOOL_NAMES.add(_tool["name"])
@@ -224,3 +226,18 @@ if not getattr(PromptRuntime, "_athena_rehydration_loop_v1_registered", False):
 
     PromptRuntime.call_tool = _prompt_call_with_rehydration
     PromptRuntime._athena_rehydration_loop_v1_registered = True
+
+if not getattr(PromptRuntime, "_athena_rehydration_successor_v1_registered", False):
+    _prompt_call_without_successor = PromptRuntime.call_tool
+
+    def _prompt_call_with_successor(self, name, arguments):
+        if name in SUCCESSOR_TOOL_NAMES:
+            runtime = getattr(self, "_rehydration_loop_runtime_v1", None)
+            if runtime is None:
+                runtime = RehydrationLoopRuntime(self.git, self)
+                self._rehydration_loop_runtime_v1 = runtime
+            return runtime.call_tool(name, arguments)
+        return _prompt_call_without_successor(self, name, arguments)
+
+    PromptRuntime.call_tool = _prompt_call_with_successor
+    PromptRuntime._athena_rehydration_successor_v1_registered = True
