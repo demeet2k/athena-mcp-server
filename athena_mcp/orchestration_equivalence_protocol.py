@@ -1,0 +1,15 @@
+from __future__ import annotations
+
+from .orchestration_equivalence import REQUIRED_SAMENESS
+
+VERIFIED_REF_SCHEMA={"type":"object","required":["verified","ref"],"properties":{"verified":{"const":True},"ref":{"type":"string","minLength":1}},"additionalProperties":True}
+AUTHORIZED_REF_SCHEMA={"type":"object","required":["authorized","ref"],"properties":{"authorized":{"const":True},"ref":{"type":"string","minLength":1}},"additionalProperties":True}
+SAME_SCHEMA={"type":"object","required":list(REQUIRED_SAMENESS),"properties":{name:{"const":True} for name in REQUIRED_SAMENESS},"additionalProperties":False}
+
+EQUIVALENCE_TOOLS=[
+{"name":"athena_equivalence_observe","description":"Record one verified EQUIVALENT or DISTINCT relation for an unordered pair in a declared dedup context. EQUIVALENT requires witnessed sameness across every preservation dimension; contradictory heads become CONFLICT instead of silently overwriting.","inputSchema":{"type":"object","required":["context_id","left_id","right_id","relation","witness"],"properties":{"context_id":{"type":"string","minLength":1},"left_id":{"type":"string","minLength":1},"right_id":{"type":"string","minLength":1},"relation":{"enum":["EQUIVALENT","DISTINCT"]},"witness":VERIFIED_REF_SCHEMA,"same":SAME_SCHEMA,"different":{"type":"array","minItems":1,"items":{"type":"string","minLength":1},"uniqueItems":True},"actor":{"type":"string"}},"additionalProperties":False}},
+{"name":"athena_equivalence_state","description":"Return the active witnessed relation/conflict head for one unordered pair in a dedup context.","inputSchema":{"type":"object","required":["context_id","left_id","right_id"],"properties":{"context_id":{"type":"string"},"left_id":{"type":"string"},"right_id":{"type":"string"}},"additionalProperties":False}},
+{"name":"athena_equivalence_resolve_conflict","description":"Resolve a pair CONFLICT by explicitly authorizing one already-witnessed side; conflicting history remains in the event ledger.","inputSchema":{"type":"object","required":["context_id","left_id","right_id","relation","authority"],"properties":{"context_id":{"type":"string"},"left_id":{"type":"string"},"right_id":{"type":"string"},"relation":{"enum":["EQUIVALENT","DISTINCT"]},"authority":AUTHORIZED_REF_SCHEMA,"actor":{"type":"string"}},"additionalProperties":False}},
+{"name":"athena_equivalence_snapshot","description":"Construct contradiction-aware equivalence components over supplied candidate ids. Only witnessed contradiction-free equivalence components are collapse-safe; UNKNOWN or conflict preserves identities.","inputSchema":{"type":"object","required":["context_id","candidates"],"properties":{"context_id":{"type":"string","minLength":1},"candidates":{"type":"array","items":{"type":"object"},"minItems":1}},"additionalProperties":False}},
+]
+EQUIVALENCE_RESOURCE={"uri":"athena://equivalence","name":"Witnessed Dedup / Equivalence Geometry","mimeType":"application/json"}
