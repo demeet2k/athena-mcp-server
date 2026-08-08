@@ -1,0 +1,63 @@
+{
+  "artifact": "ATHENA.REHYDRATION.SUCCESSOR.BATON.V1",
+  "coordinate": "ATHENA.KC144::GITΩ::REHYDRATION-SUCCESSOR::V1",
+  "purpose": "Compile the next bounded rehydration task from observed cycle outputs without hiding the candidate set, policy, tie state, deferred alternatives, or compatibility mode.",
+  "authority_ceiling": "routing only; below evidence, admission, promotion, merge, release, and user authority",
+  "input_sources": [
+    "observed completion.next_task",
+    "observed completion.residuals",
+    "explicit successor_candidates",
+    "current task continuation only for PARTIAL/HELD/NO_PROGRESS"
+  ],
+  "metrics": {
+    "maximize": ["utility", "dependency_unblocking", "uncertainty_reduction", "novelty"],
+    "minimize": ["risk", "cost", "repetition"],
+    "range": "0..1",
+    "default_origin": "SOURCE_HEURISTIC",
+    "law": "routing metrics are planning heuristics, not truth/evidence/authority"
+  },
+  "selection": {
+    "stage_1": "Pareto prune dominated candidates",
+    "stage_2": "score nondominated candidates with explicit policy weights",
+    "unique_best": "SELECTED",
+    "equal_best": "AMBIGUOUS",
+    "empty": "NO_SUCCESSOR",
+    "terminal_completion": "TERMINAL",
+    "tie_policy": "PRESERVE"
+  },
+  "baton_fields": [
+    "loop_id",
+    "from_step",
+    "goal",
+    "current_task",
+    "policy",
+    "candidates",
+    "pareto_candidate_ids",
+    "selected",
+    "ties",
+    "deferred_candidate_ids",
+    "selection_reason",
+    "baton_digest"
+  ],
+  "integration": {
+    "omitted_self_steer_without_next_task": "AUTO_COMPILE_AND_APPLY",
+    "omitted_self_steer_with_explicit_next_task": "PRESERVE_V1_EXPLICIT_NEXT_TASK",
+    "self_steer_true": "COMPILE_AND_APPLY_SUCCESSOR",
+    "self_steer_false": "DISABLE_SUCCESSOR_COMPILATION",
+    "selected": "completion.next_task := selected.task",
+    "ambiguous": "compile a bounded ambiguity-resolution next task",
+    "no_successor": "compile a bounded remaining-objective reconstruction task",
+    "terminal": "do not generate a successor",
+    "persistence": "when active, baton is embedded in completion and covered by existing rehydration receipt/state/chain digest"
+  },
+  "tool": "athena_rehydration_successor_preview",
+  "laws": [
+    "SELF_STEER != SELF_AUTHORIZE",
+    "EXPLICIT_V1_NEXT_TASK + OMITTED_SELF_STEER => PRESERVE",
+    "SUCCESSOR_BATON != TASK_TRUTH",
+    "ROUTING_SCORE != EVIDENCE",
+    "ROUTING_SCORE != AUTHORITY",
+    "AMBIGUITY != FAILURE",
+    "TIE => PRESERVE_UNTIL_NEW_EVIDENCE_OR_POLICY"
+  ]
+}
