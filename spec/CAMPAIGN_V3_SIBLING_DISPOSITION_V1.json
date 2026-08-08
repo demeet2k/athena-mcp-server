@@ -1,0 +1,72 @@
+{
+  "artifact": "ATHENA.CAMPAIGN.V3.SIBLING.DISPOSITION.CONTRACT.V1",
+  "status": "CANDIDATE",
+  "parent_pressure": "demeet2k/Athena#189",
+  "acceptance_rung": 6,
+  "purpose": "Bind a current consumed sibling delta to one canonical Campaign V3 historical action and reseal the same pulse artifact as SATISFIED or SUPERSEDED without minting execution authority.",
+  "input_contract": {
+    "pulse_artifact": "ATHENA.CAMPAIGN.V3.PULSE.COMPILATION.V1",
+    "pulse_digest": "must re-verify before evidence binding",
+    "current_coordinates.shared_fresh": true,
+    "relation": ["SATISFIES", "SUPERSEDES"],
+    "sibling_requirements": [
+      "target_step matches a historical action in the pulse",
+      "source_ref and source_head are explicit",
+      "recipient_head equals pulse.current_coordinates.git_head",
+      "consumed=true",
+      "recipient_readback_ref exists",
+      "reason and evidence_refs exist",
+      "expected_vid == current_vid when both are supplied"
+    ]
+  },
+  "binding_output": {
+    "artifact": "ATHENA.CAMPAIGN.V3.SIBLING.DISPOSITION.V1",
+    "execution_authority": false,
+    "standing": "EVIDENCE_BOUND_ASSESSMENT_NOT_EXECUTION_AUTHORITY",
+    "source_action_fields": ["step", "horizon", "text"]
+  },
+  "application": {
+    "preserve_artifact": "ATHENA.CAMPAIGN.V3.PULSE.COMPILATION.V1",
+    "preserve_historical_text": true,
+    "preserve_historical_horizon": true,
+    "allowed_new_states": ["SATISFIED", "SUPERSEDED"],
+    "recompute": [
+      "current_status_counts",
+      "residual_steps",
+      "hold_steps",
+      "authority_resolution_required",
+      "holds",
+      "pulse_digest"
+    ],
+    "execution_authorized": false,
+    "receipt_bound_to_exact_input_pulse_digest": true
+  },
+  "fail_closed": [
+    "tampered pulse => HOLD",
+    "unverified shared freshness => HOLD",
+    "delivery without consumption => HOLD",
+    "stale recipient head => HOLD",
+    "target VID drift => HOLD",
+    "unknown relation => HOLD",
+    "receipt/pulse digest mismatch => reject application",
+    "historical source drift => reject application"
+  ],
+  "laws": [
+    "DELIVERY != CONSUMPTION",
+    "CONSUMPTION != CAUSAL_INFLUENCE",
+    "SIBLING_DELTA != SATISFIED_UNTIL_CURRENT_RECIPIENT_READBACK",
+    "SATISFIED != EXECUTION_AUTHORITY",
+    "SUPERSEDED != ERASED",
+    "HISTORICAL_ACTION_TEXT_REMAINS_SOURCE_LINEAGE",
+    "STALE_RECIPIENT_HEAD => HOLD",
+    "SIBLING_EVIDENCE_BINDING != CLAIM"
+  ],
+  "promotion_boundary": {
+    "public_tool_registration": "NONE",
+    "campaign_advance": "NONE",
+    "claim_or_provider_write": "NONE",
+    "fresh_exact_head_ci": "REQUIRED",
+    "observed_sibling_consumption": "SEPARATE_ACCEPTANCE_WITNESS",
+    "campaign_success": "HOLD"
+  }
+}
