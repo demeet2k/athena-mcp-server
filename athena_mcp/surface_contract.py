@@ -21,7 +21,7 @@ REQUIRED_TOOLS={
         "athena_equivalence_observe","athena_equivalence_snapshot","athena_extraction_plan",
     },
     "retrieval":{"athena_retrieval_compile","athena_retrieval_get","athena_retrieval_replay","athena_retrieval_recent"},
-    "hug":{"athena_hug_register","athena_hug_state","athena_hug_list","athena_hug_promote","athena_hug_plan","athena_hug_complete","athena_hug_invocation","athena_hug_replay"},
+    "hug":{"athena_hug_register","athena_hug_state","athena_hug_list","athena_hug_promote","athena_hug_plan","athena_hug_complete","athena_hug_fail","athena_hug_invocation","athena_hug_verify_packet"},
     "gap":{"athena_gap_compile","athena_gap_get","athena_gap_replay","athena_gap_recent"},
     "field":{"athena_field_compile","athena_field_get","athena_field_replay","athena_field_recent"},
 }
