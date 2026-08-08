@@ -9,7 +9,7 @@ from .protocol import PROTOCOL_VERSION,SERVER_INFO,TOOLS,PROMPTS
 from .timebundle import TIME_PROVENANCE
 from .orchestration import orchestration_law
 from .orchestration_robustness import SUCCESSOR_FACTOR_COUNT
-from .aor_development_surface import AOR_DEVELOPMENT_RESOURCES,AOR_DEVELOPMENT_RESOURCE_URIS
+from .aor_development_surface import AorDevelopmentSurface,AOR_DEVELOPMENT_RESOURCES,AOR_DEVELOPMENT_RESOURCE_URIS
 from .collective_science import CollectiveScienceRuntime
 from .collective_discovery import CollectiveDiscoveryRuntime
 from .collective_dual_control import CollectiveDualControlRuntime
@@ -28,6 +28,10 @@ _existing_prompt_tool_names={t['name'] for t in TOOLS}
 for _tool in PROMPT_RUNTIME_TOOLS+PROMPT_REMOTE_TOOLS:
     if _tool['name'] not in _existing_prompt_tool_names:
         TOOLS.append(_tool);_existing_prompt_tool_names.add(_tool['name'])
+
+PROMPT_SHARED_WRITE_TOOLS={
+    'athena_prompt_propose','athena_prompt_experiment','athena_prompt_activate','athena_prompt_promote'
+}
 
 NON_SELF_METERING={
     'athena_omega_state','athena_schema_status','athena_schema_plan','athena_schema_verify',
@@ -62,6 +66,29 @@ def _prompt_remote(server):
         remote=PromptRemoteSync(server.git);server.prompt_remote=remote
     return remote
 
+def _call_prompt_runtime_tool(server,name,args):
+    runtime=_prompt_runtime(server);remote=_prompt_remote(server)
+    if name=='athena_prompt_hydrate':
+        sync=remote.sync();value=runtime.call_tool(name,args);value['remote_sync']=sync
+        value['shared_frontier_verified']=bool(sync.get('shared_frontier_verified'))
+        if not value['shared_frontier_verified']:value['status']='HYDRATED_LOCAL_HOLD'
+        return value
+    if name in PROMPT_SHARED_WRITE_TOOLS:
+        pre=remote.sync()
+        if not pre.get('shared_frontier_verified'):
+            return {
+                'status':'SHARED_FRONTIER_HOLD','tool':name,'remote_sync':pre,
+                'durable_return':False,
+                'law':'prompt self-engineering mutation requires a freshly verified shared Git frontier before local CAS'
+            }
+        value=runtime.call_tool(name,args);git=value.get('git') if isinstance(value,dict) else None
+        if isinstance(git,dict) and git.get('head'):
+            published=remote.publish(git['head']);value['remote_publish']=published
+            value['durable_return']=bool(published.get('shared_frontier_verified'))
+            if not value['durable_return']:value['status']='LOCAL_MUTATION_PUBLISH_HOLD'
+        return value
+    return runtime.call_tool(name,args)
+
 
 def handle(server,m):
     mid=m.get('id');method=m.get('method');params=m.get('params') or {}
@@ -79,7 +106,7 @@ def handle(server,m):
             td=next((t for t in TOOLS if t['name']==name),None)
             if td is None:raise KeyError(name)
             validate(td['inputSchema'],args)
-            if name in PROMPT_RUNTIME_TOOL_NAMES:value=_prompt_runtime(server).call_tool(name,args)
+            if name in PROMPT_RUNTIME_TOOL_NAMES:value=_call_prompt_runtime_tool(server,name,args)
             elif name in PROMPT_REMOTE_TOOL_NAMES:value=_prompt_remote(server).call_tool(name,args)
             else:value=server.call_tool(name,args)
             _meter(server,name,started,'OK')
@@ -177,10 +204,11 @@ def handle(server,m):
         a=params.get('arguments') or {};task=a.get('task','');agent=a.get('agent','ATHENA')
         pr=_prompt_runtime(server)
         if pr.available:
-            compiled=pr.compile(task=task,profile='MAXDEV',include_text=True)
-            remote=_prompt_remote(server).status(fetch=False)
+            remote=_prompt_remote(server).sync();compiled=pr.compile(task=task,profile='MAXDEV',include_text=True)
             text=compiled['compiled_text']+'\n[CURRENT TASK]\nAGENT='+str(agent)+'\nTASK='+str(task)+'\nPROMPT_STACK_DIGEST='+compiled['prompt_stack_digest']+'\nGIT_HEAD='+str(compiled['git_head'])+'\nREMOTE_FRONTIER_STATUS='+str(remote.get('status'))+'\nSHARED_FRONTIER_VERIFIED='+str(remote.get('shared_frontier_verified',False))
-            desc='Git-compiled ATHENA MAXDEV runtime addendum with exact prompt-stack ancestry and explicit local/remote frontier state'
+            if not remote.get('shared_frontier_verified'):
+                text='[SHARED FRONTIER HOLD: diagnose/synchronize before consequential shared mutation]\n'+text
+            desc='Git-compiled ATHENA MAXDEV runtime addendum after automatic shared-frontier sync attempt'
         else:
             text='ATHENA UNIFIED AOR×COLLECTIVE V13 MAXDEV\nAGENT='+str(agent)+'\nTASK='+str(task)+'\n'+maxdev_law()
             desc='Fallback unified AOR/Y1 developmental cortex × Collective V1–V13 cycle; Git prompt runtime unavailable'
