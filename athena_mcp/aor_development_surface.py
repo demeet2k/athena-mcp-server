@@ -19,17 +19,19 @@ from .runtime_integrity_surface import RuntimeIntegritySurface,INTEGRITY_RESOURC
 from .cycle_omega import OmegaCycleRuntime
 from .cycle import CYCLE_VERSION
 from .cycle_protocol import CYCLE_RESOURCE,CYCLE_TOOLS
+from .qhug_pareto_kernel_surface import QhugParetoKernelSurface,QHUG_PARETO_KERNEL_RESOURCE,QHUG_PARETO_KERNEL_TOOLS
 from .prompt_runtime import PROMPT_RUNTIME_VERSION,PromptRuntimeSurface
 from .prompt_runtime_protocol import PROMPT_RUNTIME_RESOURCE,PROMPT_RUNTIME_TOOLS
 
 AOR_DEVELOPMENT_TOOLS=(
     list(EQUIVALENCE_TOOLS)+list(EXTRACTION_TOOLS)+list(RETRIEVAL_TOOLS)+list(HUG_TOOLS)+list(GAP_TOOLS)+
     list(FIELD_TOOLS)+list(AOR_COLLECTIVE_TRANSPORT_TOOLS)+list(INTEGRITY_TOOLS)+list(CYCLE_TOOLS)+
-    list(PROMPT_RUNTIME_TOOLS)
+    list(QHUG_PARETO_KERNEL_TOOLS)+list(PROMPT_RUNTIME_TOOLS)
 )
 AOR_DEVELOPMENT_RESOURCES=(
     [EQUIVALENCE_RESOURCE,EXTRACTION_RESOURCE,RETRIEVAL_RESOURCE,HUG_RESOURCE,GAP_RESOURCE,FIELD_RESOURCE]+
-    list(AOR_COLLECTIVE_TRANSPORT_RESOURCES)+list(INTEGRITY_RESOURCES)+[CYCLE_RESOURCE,PROMPT_RUNTIME_RESOURCE]
+    list(AOR_COLLECTIVE_TRANSPORT_RESOURCES)+list(INTEGRITY_RESOURCES)+
+    [CYCLE_RESOURCE,QHUG_PARETO_KERNEL_RESOURCE,PROMPT_RUNTIME_RESOURCE]
 )
 AOR_DEVELOPMENT_TOOL_NAMES={tool['name'] for tool in AOR_DEVELOPMENT_TOOLS}
 AOR_DEVELOPMENT_RESOURCE_URIS={resource['uri'] for resource in AOR_DEVELOPMENT_RESOURCES}
@@ -40,7 +42,8 @@ class AorDevelopmentSurface:
 
     Constructor order is intentional:
       pure developmental ledgers -> FIELD -> typed AOR/Collective transport ->
-      runtime integrity/state foundation -> resumable CYCLE -> Git prompt runtime.
+      runtime integrity/state foundation -> resumable CYCLE -> QHUG Pareto kernel ->
+      Git-governed prompt runtime.
     RuntimeIntegritySurface receives this development surface explicitly, so it
     never depends on server.aor_development being assigned during construction.
     """
@@ -56,6 +59,7 @@ class AorDevelopmentSurface:
         self.transport=AorCollectiveTransportSurface(server)
         self.integrity=RuntimeIntegritySurface(server,self)
         self.cycle=OmegaCycleRuntime(server,self)
+        self.qhug_pareto_kernel=QhugParetoKernelSurface()
         self.prompt_runtime=PromptRuntimeSurface(server)
 
     def _retrieval_eq_snapshot(self,args):
@@ -72,6 +76,8 @@ class AorDevelopmentSurface:
         if name=='athena_cycle_state':return True,self.cycle.get(args['cycle_id'])
         if name=='athena_cycle_replay':return True,self.cycle.replay(args['cycle_id'])
         if name=='athena_cycle_recent':return True,self.cycle.recent(args.get('limit',50))
+        handled,value=self.qhug_pareto_kernel.call_tool(name,args)
+        if handled:return True,value
         handled,value=self.integrity.call_tool(name,args)
         if handled:return True,value
         handled,value=self.transport.call_tool(name,args)
@@ -115,6 +121,7 @@ class AorDevelopmentSurface:
         if uri==PROMPT_RUNTIME_RESOURCE['uri']:return self.prompt_runtime.read_resource(uri)
         if uri==CYCLE_RESOURCE['uri']:
             return {'version':CYCLE_VERSION,'benchmark':self.cycle.benchmark(),'phases':['HYDRATE','RECONSTRUCT','MEMORY','EXTRACT','RETRIEVE','HUG','GAP','FIELD','MEASURE','AOR','COLLECTIVE','EXECUTE','VERIFY','LEARN','SUCCESSOR','COMPLETE'],'law':'RECONSTRUCT uses canonical RECONRUN/OMEGA; semantic execution, missing measurement/authority/workers/tests and unresolved HUG semantics halt in typed WAITING_* states instead of being simulated','replay_boundary':'cycle replay verifies stored state plus deterministic child receipts; external execution/test truth is preserved as witness input, not re-simulated'}
+        if uri==QHUG_PARETO_KERNEL_RESOURCE['uri']:return self.qhug_pareto_kernel.read_resource(uri)
         if uri in {resource['uri'] for resource in INTEGRITY_RESOURCES}:return self.integrity.read_resource(uri)
         if uri in {resource['uri'] for resource in AOR_COLLECTIVE_TRANSPORT_RESOURCES}:return self.transport.read_resource(uri)
         if uri==FIELD_RESOURCE['uri']:
@@ -127,4 +134,4 @@ class AorDevelopmentSurface:
         raise KeyError(uri)
 
     def benchmark(self):
-        result={};result.update(self.equivalence.benchmark());result.update(self.extraction.benchmark());result.update(self.retrieval.benchmark());result.update(self.hug.benchmark());result.update(self.gap.benchmark());result.update(self.field.benchmark());result.update(self.transport.benchmark());result.update(self.integrity.benchmark());result.update(self.cycle.benchmark());result.update(self.prompt_runtime.benchmark());return result
+        result={};result.update(self.equivalence.benchmark());result.update(self.extraction.benchmark());result.update(self.retrieval.benchmark());result.update(self.hug.benchmark());result.update(self.gap.benchmark());result.update(self.field.benchmark());result.update(self.transport.benchmark());result.update(self.integrity.benchmark());result.update(self.cycle.benchmark());result.update(self.qhug_pareto_kernel.benchmark());result.update(self.prompt_runtime.benchmark());return result
