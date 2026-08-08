@@ -12,6 +12,145 @@ Do not bulk-copy legacy folders into the runtime.
 
 ---
 
+# 2.5.0 -> 2.6.0
+
+`athena-canonical-mcp 2.6.0` adds Collective Dual Control V7 on top of the V1–V6 organization/memory/learning/ecology/science/discovery stack.
+
+The migration is additive. V7 creates only its extended-identification journal table with `CREATE TABLE IF NOT EXISTS`; uncertainty decomposition, prequential bands, observational skeletons, state-dependent dynamics, scenarios, dual-control plans and replication-independence/design surfaces are derived from or read existing V5/V6 observations unless explicitly recorded as V7 identification witnesses.
+
+Existing canonical semantic objects, JSPACE state, V2 memory, V3 policy, V4 ecology, V5 Bayesian/transition state and V6 OOD/science-shadow state are not bulk rewritten.
+
+## New V7 MCP tools
+
+- `athena_uncertainty_decompose`
+- `athena_prequential_interval`
+- `athena_causal_skeleton_discover`
+- `athena_state_transition_model`
+- `athena_scenario_evaluate`
+- `athena_dual_control_plan`
+- `athena_causal_identify_extended`
+- `athena_replication_independence`
+- `athena_replication_design`.
+
+New resource:
+
+`athena://collective/v7`.
+
+## Uncertainty migration
+
+No historical prediction is relabeled with a unique aleatoric/epistemic decomposition. V7 derives model-conditional diagnostics from V5/V6 state only at query time:
+
+- residual-noise proxy;
+- posterior-leverage parameter proxy;
+- current V6 OOD shift proxy;
+- retained empirical calibration-error proxy.
+
+`UNCERTAINTY_DECOMPOSITION != UNIQUE_PHYSICAL_DECOMPOSITION`.
+
+## Prequential interval migration
+
+V7 reuses only V5 observations that already contain errors from predictions retained **before** their outcomes were observed. It does not reconstruct pseudo-prequential residuals from post-update fitted values.
+
+If fewer than the caller-required scores exist, V7 returns `INSUFFICIENT_PREQUENTIAL_SCORES` and preserves the existing Bayesian/OOD interval without a stronger coverage label.
+
+`EMPIRICAL_PREQUENTIAL_BAND != DISTRIBUTION_FREE_CONFORMAL_GUARANTEE UNDER ARBITRARY SHIFT`.
+
+## Observational graph migration
+
+No existing JSPACE edge or semantic relation is reinterpreted as a causal edge. `athena_causal_skeleton_discover` consumes explicit caller-supplied numeric samples and returns a transient association-skeleton/v-structure hypothesis surface only.
+
+It does not mutate the canonical registry or write a discovered DAG.
+
+`ASSOCIATION_SKELETON != CAUSAL_DAG`.
+
+## State-dependent transition migration
+
+V6 action-conditioned transition means/covariances remain valid. V7 fits query-time ridge state-dependent delta regressions from the original retained V5 before/after transition observations. V6 summaries are not silently turned into new training rows.
+
+Planning/simulation operations do not create transition observations.
+
+`STATE_DEPENDENT_MODEL != OBSERVED_TRANSITION` and `PLAN != TRAINING_DATA`.
+
+## Scenario / dual-control migration
+
+V7 scenario evaluation and dual-control planning are read-only model operations.
+
+Scenario trees are bounded moment approximations over caller-declared fixed trajectories. Dual-control score combines immediate control value, a parameter-information proxy and predictive risk. Neither surface executes an action.
+
+The lawful loop remains:
+
+`PLAN -> EXECUTE FIRST AUTHORIZED ACTION -> OBSERVE REAL NEXT STATE -> RECORD -> REPLAN`.
+
+`DUAL_CONTROL_PROXY != EXACT_BAYES_ADAPTIVE_CONTROL`.
+
+## Extended causal-identification migration
+
+V6 back-door results remain unchanged. V7 adds supplied-DAG FRONTDOOR and INSTRUMENT criterion checks and records their witness/assumption surface in the V7 identification journal.
+
+No older causal-confidence credit or observational association is retroactively promoted to front-door or IV identification.
+
+A passing status means only that the supplied graph, observed-node declaration and assumptions satisfy the bounded implemented criterion. It does not prove the graph is correct or estimate the causal effect.
+
+Explicit latent-confounding risk fails closed.
+
+## Replication-independence migration
+
+V6 explicit independence keys remain preserved. V7 adds metadata-similarity effective-N diagnostics across dimensions such as dataset, implementation, method, operator, environment and seed family.
+
+Multiple old witnesses are not automatically treated as independent merely because their keys differ. Identical evidence metadata can collapse effective N toward 1. Missing comparable metadata receives a conservative similarity prior rather than assumed independence.
+
+`ESTIMATED_REPLICATION_INDEPENDENCE != FORMAL_STATISTICAL_INDEPENDENCE`.
+
+## Replication/falsifier design migration
+
+V7 can rank proposed next witness designs by expected power, metadata novelty/diversity, feasibility, cost and risk. The output is always `DESIGN_ONLY` and is not inserted as a witness.
+
+`REPLICATION_DESIGN != REPLICATION_RESULT`.
+
+## Authority compatibility
+
+2.6.0 does not weaken any earlier authority plane:
+
+- semantic writes retain semantic/VID authority;
+- Git writes retain Git-head CAS;
+- topology retains topology-version CAS;
+- V3 policy retains policy-version CAS;
+- V4–V7 predictive/design/control surfaces remain advisory/evidential;
+- V5 projection compensation retains semantic-head CAS;
+- V6/V7 causal identification remains conditional on supplied graph/assumption authority;
+- V7 observational skeleton, scenario, dual-control and replication-design outputs have no hidden semantic mutation path.
+
+## V7 firewall during migration
+
+Do not map older state into stronger labels merely because V7 can now compute adjacent diagnostics:
+
+- uncertainty decomposition != unique physical truth;
+- prequential empirical band != universal conformal coverage;
+- observational association skeleton != causal DAG;
+- candidate v-structure != oriented causal truth;
+- state-dependent transition model != world truth;
+- scenario tree != observed future;
+- dual-control proxy != exact Bayes-adaptive control;
+- front-door/IV criterion pass != real-world causal truth outside supplied DAG/assumptions;
+- estimated replication effective-N != formal independence proof;
+- replication/falsifier design != result.
+
+## Deployment check
+
+After upgrade verify:
+
+1. package version and MCP `SERVER_INFO.version` both equal `2.6.0`;
+2. `athena://collective/v7` appears in resources and reads successfully;
+3. all V7 tool names appear in `tools/list`;
+4. legacy V1–V6 regression tests pass;
+5. V7 constructive tests pass;
+6. V7 adversarial tests pass;
+7. `athena://transforms` still reads successfully;
+8. stdio `python -m athena_mcp` crosses V5 science, V6 discovery, V7 state-dependent dynamics + dual-control + extended causal-ID, and exact emission verification;
+9. canonical brain is pinned only after the final runtime/version/documentation head passes CI.
+
+---
+
 # 2.4.0 -> 2.5.0
 
 `athena-canonical-mcp 2.5.0` adds Collective Discovery V6 on top of the V1–V5 organization/memory/learning/ecology/science stack.
@@ -45,135 +184,12 @@ V6 additionally reuses existing V5 Bayesian and transition observation stores ra
 - `athena_claim_witness`
 - `athena_claim_state`.
 
-New resource:
+New resource: `athena://collective/v6`.
 
-`athena://collective/v6`.
+## V6 compatibility summary
 
-## Nonlinear/OOD migration
+V6 nonlinear prediction uses a degree-2 lift over V5 Bayesian state but does not relabel V5 linear history as V6 nonlinear observations. OOD references grow only from explicit observations. Generated experiment likelihoods are adapted into V5's tested `positive_probability` contract. Back-door identification is conditional on the supplied DAG and latent-confounding assumptions. Every required `2^k` higher-order factorial cell must exist. V6 transition/MPC uses real V5 before/after rows and planning never self-trains. Exact schedule certificates require exhaustive completion and complete constrained-cost declarations. The stronger witness capsule fails closed if bubblewrap is unavailable. Science-shadow replication states never mutate canonical objects.
 
-V6 nonlinear prediction uses a degree-2 polynomial lift over the V5 full-covariance Bayesian engine. Existing V5 Bayesian observations are not rewritten as nonlinear observations.
+## V6 deployment invariant
 
-The nonlinear/OOD reference therefore begins empty and grows only from explicit `athena_nonlinear_observe` / `athena_ood_observe` calls.
-
-`V5_LINEAR_HISTORY != V6_NONLINEAR_HISTORY` unless an explicit future compatibility migration proves equivalence.
-
-OOD state is also separate from semantic truth. Historical task records are not retrospectively relabeled in-distribution or OOD.
-
-## Experiment-generation migration
-
-V5 accepts caller-supplied experiment likelihoods under the `positive_probability` contract.
-
-V6 generates candidate experiments only from declared finite factor levels and hypothesis `base_p` / `factor_effects`. The V6 adapter translates the generated likelihood surface into V5's tested `positive_probability` contract before EIG ranking.
-
-This adapter is intentional and regression-tested because the first V6 promotion attempt exposed a contract mismatch where generated candidates used the wrong likelihood field and therefore appeared structurally incomplete to the V5 EIG engine.
-
-No prior policy/counterfactual score is silently converted into a hypothesis likelihood.
-
-## Causal-identification migration
-
-V6 adds a supplied-DAG back-door identification query. Existing V4/V5 causal-confidence credit remains unchanged and is not retroactively promoted to identified causal effect.
-
-A V6 `IDENTIFIED_BACKDOOR` result means only that an adjustment set satisfies the implemented criterion **under the supplied graph and assumptions**. It does not prove:
-
-- the supplied graph is correct;
-- hidden confounding is absent unless declared/justified;
-- every relevant variable is observed;
-- the measured causal effect itself is nonzero.
-
-If the caller declares latent-confounding risk, V6 fails closed with an unidentified state.
-
-## Higher-order interaction migration
-
-V5 pairwise interactions remain valid under their original 2×2 semantics.
-
-V6 extends the factorial contrast surface through order four. It does not derive missing cells from V5 pairwise summaries. Every required `2^k` cell must be present in the explicit observation set; missing cells remain `UNIDENTIFIED`.
-
-## Transition/MPC migration
-
-V6 reads actual V5 transition-observation rows to reconstruct multivariate empirical delta covariance. Existing V5 mean/shrinkage summaries are not treated as new observations.
-
-MPC planning is a read-only model operation. Repeated planning does not create transition rows. The lawful control cycle is:
-
-`PLAN -> EXECUTE FIRST AUTHORIZED ACTION -> OBSERVE -> RECORD TRANSITION -> REPLAN`.
-
-`MPC_PLAN != OBSERVED_TRANSITION`.
-
-## Scheduling migration
-
-Use the scheduling layers by required authority:
-
-- V4 immediate budget-aware assignment — simple near-term allocation;
-- V5 multi-period beam scheduler — larger finite-horizon planning without optimality proof;
-- V6 certified scheduler — small finite models where exhaustive enumeration and an exact certificate are valuable.
-
-V6 exact certification requires every resource dimension constrained by the supplied budget to be declared for every task. Missing constrained cost removes the certificate and returns an explicit non-certified fallback state.
-
-`UNKNOWN_COST != ZERO_COST` remains unchanged.
-
-## Witness migration
-
-V5 `athena_witness_cell` remains the stronger portable process-constrained unittest runner and always reports non-hermetic status.
-
-V6 `athena_witness_capsule` is opt-in for stronger Linux namespace isolation. It requires `bubblewrap` (`bwrap`). If unavailable, it returns `HERMETIC_UNAVAILABLE` and executes nothing.
-
-It never silently falls back to V5. This preserves the meaning of requesting a stronger containment boundary.
-
-## Pareto migration
-
-V5 exact/robust finite Pareto frontiers remain useful for static tradeoff inspection.
-
-V6 `athena_pareto_bandit_select` overlays experiment-selection pressure on an interval-possible frontier. Uncertainty can make a frontier candidate valuable to measure; it does not create a universal scalar ranking.
-
-## Replication/falsification migration
-
-V6 science-shadow claims are deliberately separate from canonical semantic objects. No existing semantic object is automatically converted into a science-shadow claim.
-
-When a claim shadow is explicitly registered, witness independence is caller-declared through `independence_key`. Multiple witnesses sharing hidden dependencies must not be given distinct keys merely to inflate replication counts.
-
-Science-shadow states route future verification:
-
-`UNRESOLVED | PRELIMINARY_SUPPORT | REPLICATED_SUPPORT | FALSIFICATION_SIGNAL | CONTESTED`.
-
-They never silently mutate canonical object status.
-
-## Authority compatibility
-
-2.5.0 does not weaken previous authority planes:
-
-- semantic writes retain semantic/VID authority;
-- Git writes retain Git-head CAS;
-- topology retains topology-version CAS;
-- V3 policy retains policy-version CAS;
-- V4/V5/V6 predictive/control surfaces remain advisory/evidential;
-- V5 projection compensation retains semantic-head CAS;
-- V6 causal identification is conditional on supplied graph/assumption authority, not a semantic mutation path.
-
-## Discovery firewall during migration
-
-Do not map old state into stronger V6 labels merely to populate new surfaces:
-
-- nonlinear basis != universal inference;
-- OOD score != factual falsehood;
-- generated experiment != executed result;
-- supplied-DAG back-door set != real-world causal truth;
-- higher-order contrast != causal interaction without identifying design;
-- simulated/MPC transition != observed transition;
-- certified schedule != universal optimum outside its exact declared model;
-- hermetic capsule request != permission to run a weaker fallback;
-- Pareto experiment selection != single best action;
-- replication/falsification state != canonical truth.
-
-## Deployment check
-
-After upgrade verify:
-
-1. package version and MCP `SERVER_INFO.version` both equal `2.5.0`;
-2. `athena://collective/v6` appears in resources and reads successfully;
-3. all V6 tool names appear in `tools/list`;
-4. legacy V1–V5 constructive/adversarial regression tests pass;
-5. V6 constructive tests pass;
-6. V6 adversarial tests pass;
-7. named V6 diagnostics pass;
-8. `athena://transforms` still reads successfully;
-9. stdio `python -m athena_mcp` smoke crosses V5 science, V6 generated experiment + causal-ID tools, and exact emission verification;
-10. canonical brain is pinned only after the final runtime/version/documentation head passes CI.
+The 2.5.0 release required package/server version alignment, V6 resource/tool exposure, constructive/adversarial tests, diagnostics, stdio V6 smoke, and a final CI-passing immutable runtime head before canonical promotion.
