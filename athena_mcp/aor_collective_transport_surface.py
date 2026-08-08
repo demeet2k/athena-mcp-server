@@ -10,17 +10,68 @@ from .party_coordination_protocol import (
     PARTY_COORDINATION_TOOLS,
     PARTY_COORDINATION_TOOL_NAMES,
 )
+from .impossible_godboard import ImpossibleGodboardRuntime
+from .impossible_godboard_protocol import (
+    IMPOSSIBLE_GODBOARD_RESOURCE,
+    IMPOSSIBLE_GODBOARD_TOOLS,
+    IMPOSSIBLE_GODBOARD_TOOL_NAMES,
+)
 
-AOR_COLLECTIVE_TRANSPORT_TOOLS=list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)
-AOR_COLLECTIVE_TRANSPORT_RESOURCES=[TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE]
-AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)
-AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri']}
+AOR_COLLECTIVE_TRANSPORT_TOOLS=(
+    list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)
+)
+AOR_COLLECTIVE_TRANSPORT_RESOURCES=[TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE]
+AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=(
+    set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)
+)
+AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={
+    TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri']
+}
 
 class AorCollectiveTransportSurface:
     def __init__(self,server):
-        self.server=server;self.runtime=TransportRuntime(server);self.party=PartyCoordinationRuntime(server)
+        self.server=server
+        self.runtime=TransportRuntime(server)
+        self.party=PartyCoordinationRuntime(server)
+        self.godboard=ImpossibleGodboardRuntime(server)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        if name in IMPOSSIBLE_GODBOARD_TOOL_NAMES:
+            g=self.godboard
+            if name=='athena_impossible_open':
+                return True,g.open(
+                    args['quest_id'],args['opener_id'],args['title'],args['barrier'],
+                    args['success_conditions'],args['search_scope'],args.get('safety_scope'),
+                    args.get('remote','origin')
+                )
+            if name=='athena_impossible_complete':
+                return True,g.complete(
+                    args['completion_id'],args['quest_id'],args['agent_id'],args['agent_coordinate'],
+                    args['baseline'],args['transformation_class'],args['decisive_move'],args['invariant'],
+                    args['result'],args['witness_refs'],args['cleanup_status'],args['unknown_residue'],
+                    args['proof_tier'],args['score_dimensions'],args.get('multipliers'),
+                    args.get('failed_approaches'),args.get('known_limits'),args.get('party_id'),
+                    args.get('contributors'),args.get('remote','origin')
+                )
+            if name=='athena_impossible_verify':
+                return True,g.verify(
+                    args['verification_id'],args['completion_id'],args['verifier_id'],
+                    args['verifier_coordinate'],args['target_proof_tier'],args['witness_refs'],
+                    args.get('attack_refs'),args.get('generalization_ref'),args.get('downstream_reuse_refs'),
+                    args.get('immortal_title'),args.get('party_immortal_title'),args.get('remote','origin')
+                )
+            if name=='athena_impossible_state':
+                return True,g.state(
+                    args['quest_id'],args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED')
+                )
+            if name=='athena_godboard':
+                return True,g.godboard(
+                    args.get('limit',50),args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED')
+                )
+            if name=='athena_hall_of_immortals':
+                return True,g.hall(
+                    args.get('limit',100),args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED')
+                )
         if name in PARTY_COORDINATION_TOOL_NAMES:
             p=self.party
             if name=='athena_party_form':
@@ -56,6 +107,7 @@ class AorCollectiveTransportSurface:
         return False,None
 
     def read_resource(self,uri:str):
+        if uri==IMPOSSIBLE_GODBOARD_RESOURCE['uri']:return self.godboard.resource()
         if uri==PARTY_COORDINATION_RESOURCE['uri']:return self.party.resource()
         if uri!=TRANSPORT_RESOURCE['uri']:raise KeyError(uri)
         return {
@@ -73,4 +125,7 @@ class AorCollectiveTransportSurface:
         }
 
     def benchmark(self):
-        result=dict(self.runtime.benchmark());result.update(self.party.benchmark());return result
+        result=dict(self.runtime.benchmark())
+        result.update(self.party.benchmark())
+        result.update(self.godboard.benchmark())
+        return result
