@@ -6,12 +6,14 @@ from typing import Any, Iterable, Mapping
 
 ARTIFACT = "ATHENA.CAPABILITY.BASIS.V1"
 DESCRIPTOR_ARTIFACT = "ATHENA.CAPABILITY.DESCRIPTOR.V1"
+RUNTIME_WITNESS = "IN_PROCESS_REGISTERED_SURFACE"
 
 NEGOTIATED_PREFIXES = (
     "athena_prompt_",
     "athena_frontier_",
     "athena_rehydration_",
     "athena_agent_",
+    "athena_capability_",
 )
 
 
@@ -54,11 +56,21 @@ def _descriptor(
 
 
 # This map describes the canonical control-plane generation on the branch where
-# it lives.  It does not make an operation exposed.  Exposure is derived only
+# it lives. It does not make an operation exposed. Exposure is derived only
 # from the registered runtime name set supplied to derive_operational_basis().
 # A newly registered negotiated operation must be classified in the same lineage
 # or it appears as UNCLASSIFIED and semantic auto-selection fails closed.
 CONTROL_CAPABILITY_DESCRIPTORS: dict[str, dict[str, Any]] = {
+    # Machine-readable observation of the operational basis itself. It is a
+    # BOOTSTRAP/REFRESH capability because it informs operator selection but
+    # grants no execution permission.
+    "athena_capability_basis": _descriptor(
+        "athena_capability_basis", "BOOTSTRAP_REFRESH", "capability_basis", "READ_ONLY",
+        "OBSERVE_RUNTIME_BASIS", ["REGISTERED_RUNTIME_SURFACE"],
+        ["current in-process tool registration"],
+        "DETERMINISTIC_SURFACE_DIGEST", "none; read-only descriptor projection",
+    ),
+
     # Prompt/runtime policy reads.
     "athena_prompt_hydrate": _descriptor(
         "athena_prompt_hydrate", "PROMPT", "prompt_runtime", "READ_ONLY",
@@ -193,7 +205,7 @@ def _is_negotiated(name: str) -> bool:
 
 def _digest_descriptor(descriptor: Mapping[str, Any]) -> dict[str, Any]:
     # current_exposure and source_witness are observer/provenance coordinates, not
-    # semantic capability identity.  Their movement must not contaminate content.
+    # semantic capability identity. Their movement must not contaminate content.
     return {
         key: value
         for key, value in descriptor.items()
@@ -209,7 +221,7 @@ def derive_operational_basis(
 ) -> dict[str, Any]:
     """Derive semantic capability state from the actually registered runtime.
 
-    Descriptor existence never implies exposure.  Conversely, any currently
+    Descriptor existence never implies exposure. Conversely, any currently
     registered negotiated operation without a descriptor is surfaced explicitly
     and semantic auto-selection fails closed.
     """
@@ -264,5 +276,23 @@ def derive_operational_basis(
             "FEATURE_BRANCH != CURRENT_RUNTIME_EXPOSURE",
             "REGISTERED_UNCLASSIFIED => HOLD_FOR_SEMANTIC_SELECTION",
             "BASIS_DIGEST != GIT_HEAD",
+            "RUNTIME_WITNESS != GIT_COMMIT",
         ],
     }
+
+
+CAPABILITY_BASIS_TOOLS = [
+    {
+        "name": "athena_capability_basis",
+        "description": (
+            "Return the machine-readable semantic capability basis derived from the actually registered "
+            "current ATHENA control-plane operations. This is read-only observation; descriptors do not grant authority."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": False,
+        },
+    }
+]
+CAPABILITY_BASIS_TOOL_NAMES = {tool["name"] for tool in CAPABILITY_BASIS_TOOLS}
