@@ -1,0 +1,80 @@
+{
+  "artifact": "ATHENA.STEERING.LEDGER.SOURCE.CONTRACT.V1",
+  "status": "CANDIDATE_SOURCE_CONTRACT",
+  "source": {
+    "repository": "demeet2k/Athena",
+    "issue_number": 177,
+    "role": "STEERING_CURRICULUM_NOT_EXECUTABLE_QUEUE",
+    "blocks": [
+      {"ledger": 1, "comment_id": 5228254659, "step_start": 1, "step_end": 100, "pulse_start": 1, "pulse_end": 10},
+      {"ledger": 2, "comment_id": 5228258325, "step_start": 101, "step_end": 200, "pulse_start": 11, "pulse_end": 20},
+      {"ledger": 3, "comment_id": 5228262406, "step_start": 201, "step_end": 300, "pulse_start": 21, "pulse_end": 30},
+      {"ledger": 4, "comment_id": 5228266841, "step_start": 301, "step_end": 400, "pulse_start": 31, "pulse_end": 40},
+      {"ledger": 5, "comment_id": 5228270465, "step_start": 401, "step_end": 500, "pulse_start": 41, "pulse_end": 50},
+      {"ledger": 6, "comment_id": 5228274705, "step_start": 501, "step_end": 600, "pulse_start": 51, "pulse_end": 60},
+      {"ledger": 7, "comment_id": 5228278429, "step_start": 601, "step_end": 700, "pulse_start": 61, "pulse_end": 70},
+      {"ledger": 8, "comment_id": 5228282289, "step_start": 701, "step_end": 800, "pulse_start": 71, "pulse_end": 80},
+      {"ledger": 9, "comment_id": 5228286846, "step_start": 801, "step_end": 900, "pulse_start": 81, "pulse_end": 90},
+      {"ledger": 10, "comment_id": 5228293760, "step_start": 901, "step_end": 1000, "pulse_start": 91, "pulse_end": 100}
+    ]
+  },
+  "verification": {
+    "repository": "demeet2k/Athena",
+    "issue_number": 185,
+    "comment_id": 5228358747,
+    "required_markers": [
+      "LEDGER_VERIFIED=PASS",
+      "LEDGER_EXECUTED",
+      "CAMPAIGN_SUCCESS"
+    ],
+    "standing_law": "LEDGER_VERIFIED != LEDGER_EXECUTED != CAMPAIGN_SUCCESS"
+  },
+  "structural_invariants": {
+    "numbered_actions": 1000,
+    "pulse_count": 100,
+    "actions_per_pulse": 10,
+    "immediate_total": 400,
+    "middle_total": 300,
+    "long_total": 300,
+    "per_pulse_tags": ["I", "I", "I", "I", "M", "M", "M", "L", "L", "L"],
+    "step_width": 4,
+    "pulse_terminus": "tenth action; non-empty bounded long-horizon game/challenge/action text"
+  },
+  "freshness_and_mutability": {
+    "comments_are_mutable_provider_objects": true,
+    "fetch_must_record_comment_id_updated_at_and_body_digest": true,
+    "fresh_structural_revalidation_required_before_compilation": true,
+    "historical_verification_receipt_does_not_freeze_future_comment_content": true,
+    "source_change_after_prior_validation": "REVALIDATE_OR_HOLD"
+  },
+  "consumption": {
+    "allowed": [
+      "derive pulse metadata",
+      "retrieve one pulse action bundle for current-state compilation",
+      "mark historical actions SATISFIED, SUPERSEDED, DEFERRED, RESIDUAL or HOLD with evidence",
+      "preserve source lineage while compiling current work"
+    ],
+    "forbidden": [
+      "treat issue text as SCHED READY",
+      "treat numbered action as execution authorization",
+      "blindly replay obsolete historical action text",
+      "claim campaign success from ledger verification",
+      "persist private chain-of-thought"
+    ]
+  },
+  "final_reseed": {
+    "step_991": "recheck current HEAD/prompt/basis/frontier/issue-pressure/siblings before final integration",
+    "step_992": "verify sequence/coverage and repair defects without rewriting history",
+    "step_1000": "do not terminate at 1000/1000; rehydrate newest Git, compute current CUT, reseed highest-value lawful successor"
+  },
+  "laws": [
+    "LEDGER_SOURCE != EXECUTABLE_STATE",
+    "ISSUE_PRESSURE != SCHED_READY",
+    "LEDGER_VERIFIED != LEDGER_EXECUTED",
+    "LEDGER_EXECUTED != CAMPAIGN_SUCCESS",
+    "COMMENT_IDENTITY != IMMUTABLE_CONTENT",
+    "FRESH_REVALIDATION_BEFORE_PULSE_COMPILATION",
+    "NUMBERED_ACTION != EXECUTION_AUTHORITY",
+    "BOUNDED_CYCLE_COMPLETE != MISSION_COMPLETE"
+  ]
+}
