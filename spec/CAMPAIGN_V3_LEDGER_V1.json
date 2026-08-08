@@ -1,0 +1,48 @@
+{
+  "artifact": "ATHENA.CAMPAIGN.V3.LEDGER.CONTRACT.V1",
+  "status": "CANDIDATE",
+  "source": {
+    "repository": "demeet2k/Athena",
+    "steering_issue": 177,
+    "verification_issue": 185,
+    "ledger_comments": 10,
+    "pulse_count": 100,
+    "actions_per_pulse": 10,
+    "action_count": 1000,
+    "pulse_horizon_coverage": {"I": 4, "M": 3, "L": 3},
+    "horizon_totals": {"I": 400, "M": 300, "L": 300}
+  },
+  "compiler": {
+    "module": "athena_mcp.campaign_v3_ledger",
+    "source_operation": "compile_verified_ledger_source",
+    "pulse_operation": "compile_current_pulse",
+    "network_access": "NONE; caller supplies freshly observed issue/comment bodies and identities",
+    "execution_authority": "NEVER_DERIVED_FROM_LEDGER"
+  },
+  "action_states": ["SATISFIED", "SUPERSEDED", "RESIDUAL", "HOLD"],
+  "required_current_coordinates": ["git_head"],
+  "pulse_output": {
+    "preserves_historical_action_text": true,
+    "preserves_4I_3M_3L_coverage": true,
+    "allows_selective_satisfaction": true,
+    "requires_external_authority_resolution_for_residuals": true,
+    "pulse_100_requires_then_current_reseed": true,
+    "pulse_100_may_self_certify_mission_complete": false
+  },
+  "firewalls": [
+    "LEDGER_VERIFIED != LEDGER_EXECUTED",
+    "LEDGER_EXECUTED != CAMPAIGN_SUCCESS",
+    "ISSUE_PRESSURE != SCHED_READY",
+    "LEDGER_ACTION != EXECUTION_AUTHORIZATION",
+    "OPERATIONAL_BASIS != EXECUTION_AUTHORITY",
+    "SATISFIED/SUPERSEDED != ERASED_HISTORY",
+    "BOUNDED_CYCLE_COMPLETE != MISSION_COMPLETE",
+    "PRIVATE_CHAIN_OF_THOUGHT != CAMPAIGN_TELEMETRY"
+  ],
+  "promotion_boundary": {
+    "current_master_core_dependency": "Campaign V3 core transplant must first qualify/integrate on then-current runtime master",
+    "fresh_exact_head_ci": "REQUIRED",
+    "observed_campaign_pulse": "SEPARATE_ACCEPTANCE_STEP",
+    "production_adoption": "HOLD"
+  }
+}
