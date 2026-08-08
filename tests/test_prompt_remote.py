@@ -138,6 +138,24 @@ class PromptRemoteTests(unittest.TestCase):
         self.assertEqual(publish["status"], "DIRTY_WORKTREE_HOLD")
         self.assertFalse(publish["shared_frontier_verified"])
 
+    def test_failed_fetch_cannot_use_stale_remote_tracking_as_witness(self):
+        remote, local, _ = self._fixture()
+        missing = local.parent / "missing-origin.git"
+        _run(local, "remote", "set-url", "origin", str(missing))
+
+        sync = remote.sync()
+        self.assertEqual(sync["status"], "REMOTE_SYNC_UNAVAILABLE_HOLD")
+        self.assertFalse(sync["remote_checked"])
+        self.assertFalse(sync["shared_frontier_verified"])
+
+        _write(local, "prompts/local-after-loss.md", "local\n")
+        _run(local, "add", ".")
+        _run(local, "commit", "-m", "local after remote loss")
+        publish = remote.publish(_run(local, "rev-parse", "HEAD"))
+        self.assertEqual(publish["status"], "REMOTE_SYNC_UNAVAILABLE_HOLD")
+        self.assertFalse(publish["remote_checked"])
+        self.assertFalse(publish["shared_frontier_verified"])
+
     def test_remote_tool_surface_is_explicit(self):
         self.assertEqual(PROMPT_REMOTE_TOOL_NAMES, {
             "athena_prompt_remote_status", "athena_prompt_sync", "athena_prompt_publish"
