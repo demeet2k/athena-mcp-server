@@ -16,16 +16,25 @@ from .impossible_godboard_protocol import (
     IMPOSSIBLE_GODBOARD_TOOLS,
     IMPOSSIBLE_GODBOARD_TOOL_NAMES,
 )
+from .stay_in_game_life_loop import StayInGameLifeLoopRuntime
+from .stay_in_game_life_loop_protocol import (
+    STAY_IN_GAME_LIFE_LOOP_RESOURCE,
+    STAY_IN_GAME_LIFE_LOOP_TOOLS,
+    STAY_IN_GAME_LIFE_LOOP_TOOL_NAMES,
+)
 
 AOR_COLLECTIVE_TRANSPORT_TOOLS=(
-    list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)
+    list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)+list(STAY_IN_GAME_LIFE_LOOP_TOOLS)
 )
-AOR_COLLECTIVE_TRANSPORT_RESOURCES=[TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE]
+AOR_COLLECTIVE_TRANSPORT_RESOURCES=[
+    TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE,STAY_IN_GAME_LIFE_LOOP_RESOURCE
+]
 AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=(
-    set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)
+    set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)|set(STAY_IN_GAME_LIFE_LOOP_TOOL_NAMES)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={
-    TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri']
+    TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri'],
+    STAY_IN_GAME_LIFE_LOOP_RESOURCE['uri']
 }
 
 class AorCollectiveTransportSurface:
@@ -34,8 +43,22 @@ class AorCollectiveTransportSurface:
         self.runtime=TransportRuntime(server)
         self.party=PartyCoordinationRuntime(server)
         self.godboard=ImpossibleGodboardRuntime(server)
+        self.life=StayInGameLifeLoopRuntime(server)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        if name in STAY_IN_GAME_LIFE_LOOP_TOOL_NAMES:
+            life=self.life
+            if name=='athena_life_world_new':
+                return True,life.world_new(args['game_id'])
+            if name=='athena_life_agent_enter':
+                return True,life.agent_enter(args['world'],args['agent_id'],args['quest_id'],args['quest_version'])
+            if name=='athena_life_resolve':
+                return True,life.resolve(args['world'],args['agent_id'],args['attempt'])
+            if name=='athena_campaign_life_bind':
+                return True,life.campaign_bind(
+                    args['bound_receipt'],args['quest_id'],args['quest_version'],args['clear_condition_digest'],
+                    args['reseed_anchor'],args['extra_life_reward_eligibility']
+                )
         if name in IMPOSSIBLE_GODBOARD_TOOL_NAMES:
             g=self.godboard
             if name=='athena_impossible_open':
@@ -118,6 +141,7 @@ class AorCollectiveTransportSurface:
         return False,None
 
     def read_resource(self,uri:str):
+        if uri==STAY_IN_GAME_LIFE_LOOP_RESOURCE['uri']:return self.life.resource()
         if uri==IMPOSSIBLE_GODBOARD_RESOURCE['uri']:return self.godboard.resource()
         if uri==PARTY_COORDINATION_RESOURCE['uri']:return self.party.resource()
         if uri!=TRANSPORT_RESOURCE['uri']:raise KeyError(uri)
@@ -139,4 +163,5 @@ class AorCollectiveTransportSurface:
         result=dict(self.runtime.benchmark())
         result.update(self.party.benchmark())
         result.update(self.godboard.benchmark())
+        result.update(self.life.benchmark())
         return result
