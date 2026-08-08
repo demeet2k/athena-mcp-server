@@ -1,0 +1,76 @@
+{
+  "acceptance_step": 3,
+  "artifact": "ATHENA.STEERING.CAMPAIGN.V3",
+  "coverage": {
+    "account_every_position": true,
+    "law": "4I/3M/3L is coverage accounting, not a requirement to execute ten obsolete actions",
+    "required_horizon_pattern": [
+      "I",
+      "I",
+      "I",
+      "I",
+      "M",
+      "M",
+      "M",
+      "L",
+      "L",
+      "L"
+    ],
+    "source_actions_per_pulse": 10
+  },
+  "input_contract": {
+    "assessments": {
+      "dispositions": [
+        "SATISFIED",
+        "SUPERSEDED",
+        "RESIDUAL",
+        "DEFERRED",
+        "HOLD"
+      ],
+      "hold_requires_reason_or_evidence": true,
+      "one_per_step": true,
+      "residual_requires_current_task": true,
+      "satisfied_or_superseded_requires_evidence": true
+    },
+    "current_state_required": [
+      "git_head",
+      "prompt_stack_digest",
+      "frontier_digest",
+      "operational_basis_digest",
+      "issue_pressure_digest"
+    ],
+    "historical_pulse": "ATHENA.STEERING.LEDGER.PULSE.V1 from extract_pulse",
+    "source_validation": "fresh PASS receipt from validate_source_bundle with source body digests"
+  },
+  "laws": [
+    "LEDGER_SOURCE != EXECUTABLE_STATE",
+    "HISTORICAL_PULSE != CURRENT_EXECUTABLE_QUEUE",
+    "ISSUE_PRESSURE != SCHED_READY",
+    "ASSESSMENT != EXECUTION_AUTHORITY",
+    "ROUTING_CANDIDATE != SCHED_READY",
+    "SOURCE_DIGEST_MUST_MATCH_FRESH_VALIDATION",
+    "SATISFIED_OR_SUPERSEDED_REQUIRES_EVIDENCE",
+    "ALL_4I_3M_3L_POSITIONS_REQUIRE_ACCOUNTING",
+    "PULSE_100 != MISSION_COMPLETE",
+    "BOUNDED_CYCLE_COMPLETE != MISSION_COMPLETE",
+    "PRIVATE_CHAIN_OF_THOUGHT != CAMPAIGN_TELEMETRY",
+    "DEFERRED != SATISFIED"
+  ],
+  "output_contract": {
+    "artifact": "ATHENA.STEERING.CAMPAIGN.CURRENT_STATE.PULSE.V1",
+    "candidate_standing": "ROUTING_CANDIDATE_NOT_SCHED_READY",
+    "claim_authority": false,
+    "execution_authority": false,
+    "routing_work_order": "ATHENA.STEERING.CAMPAIGN.ROUTING.WORK_ORDER.V1",
+    "sched_ready": false
+  },
+  "parent_source_contract": "spec/STEERING_LEDGER_V1.json",
+  "purpose": "Compile one freshly validated historical steering pulse against supplied current observations and explicit disposition evidence without turning issue text into executable authority.",
+  "status": "CANDIDATE_LIBRARY_ONLY",
+  "terminal_behavior": {
+    "mission_complete": false,
+    "pulse_100": "REHYDRATE_NEWEST_GIT_AND_RESEED regardless of local satisfaction",
+    "pulse_1_99_all_satisfied": "ADVANCE_PULSE after rehydration boundary",
+    "pulse_1_99_deferred_only": "ADVANCE_PULSE_WITH_RESERVE; deferred != satisfied"
+  }
+}
