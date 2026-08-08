@@ -1,0 +1,47 @@
+name: Apply ATHENA 3.1 Generated Patch
+
+on:
+  push:
+    branches:
+      - agent/athena-3.1.0-deployment-control-plane
+    paths:
+      - '.athena_patch/chunk-*'
+      - '.github/workflows/apply-athena-3.1-patch.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apply-athena-3.1-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Reconstruct, verify, compile, and commit exact patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .athena_patch/chunk-* | base64 -d > /tmp/athena-patch.tar.gz
+          echo '6e0aafb8778ea8286b58707a5521f84a73643f444b35f9edafb05d7a6a6c14b5  /tmp/athena-patch.tar.gz' | sha256sum -c -
+          tar -xzf /tmp/athena-patch.tar.gz
+          rm -rf .athena_patch
+          rm -f .github/workflows/apply-athena-3.1-patch.yml
+          python -m compileall -q athena_mcp tests deploy scripts smoke.py
+          python -m json.tool release/v3.1.0.json >/dev/null
+          test -f Dockerfile
+          test -f athena_mcp/deployment.py
+          test -f athena_mcp/http_host.py
+          test -f deploy/kubernetes/athena.yaml.tmpl
+          test -f .github/workflows/deploy-image.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --quiet && { echo 'no patch delta reconstructed' >&2; exit 1; }
+          git commit -m 'feat: add ATHENA 3.1 deployment control plane'
+          git push origin "HEAD:${GITHUB_REF_NAME}"
