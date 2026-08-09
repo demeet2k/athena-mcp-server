@@ -90,13 +90,16 @@ class HomeostasisTests(unittest.TestCase):
 
 class ReceiptTests(unittest.TestCase):
     def test_external_mac_binds_every_authority_claim(self):
-        claims = {"quest_id": "q", "attempt": 1, "session_id": "s", "fence": 1, "input_head": "h", "prompt_digest": "p", "artifact_digests": ["a"], "result": "PASS"}
+        claims = {"quest_id": "q", "attempt": 1, "session_id": "s", "fence": 1, "input_head": "h", "prompt_digest": "p", "acceptance_digest": "accept", "artifact_digests": ["a"], "result": "PASS", "evaluator_version": "host-eval-v1", "observed_at": "2026-08-09T22:00:00+00:00"}
         receipt = make_authority_receipt(claims, "host", b"k" * 32)
         verify_authority_receipt(receipt, claims, {"host": b"k" * 32})
         with self.assertRaisesRegex(ValueError, "BINDING_HOLD:quest_id"):
             verify_authority_receipt(receipt, {**claims, "quest_id": "other"}, {"host": b"k" * 32})
         with self.assertRaisesRegex(ValueError, "MAC_HOLD"):
             verify_authority_receipt(receipt, claims, {"host": b"x" * 32})
+        incomplete = {key: value for key, value in claims.items() if key != "evaluator_version"}
+        with self.assertRaisesRegex(ValueError, "EVALUATOR_VERSION_HOLD"):
+            verify_authority_receipt(make_authority_receipt(incomplete, "host", b"k" * 32), incomplete, {"host": b"k" * 32})
 
 
 class RoomE2ETests(unittest.TestCase):
@@ -140,7 +143,7 @@ class RoomE2ETests(unittest.TestCase):
         entered = self._enter(room, roots[0], "a", "x")
         session = entered["session"]
         artifacts = ["sha256:artifact"]
-        claims = {"quest_id": "x", "attempt": 1, "session_id": session["session_id"], "fence": session["fence"], "input_head": session["head"], "prompt_digest": session["prompt_digest"], "artifact_digests": artifacts, "result": "PASS"}
+        claims = {"quest_id": "x", "attempt": 1, "session_id": session["session_id"], "fence": session["fence"], "input_head": session["head"], "prompt_digest": session["prompt_digest"], "acceptance_digest": room.read()["room"]["quests"]["x"]["acceptance_digest"], "artifact_digests": artifacts, "result": "PASS", "evaluator_version": "host-eval-v1", "observed_at": "2026-08-09T22:00:00+00:00"}
         receipt = make_authority_receipt(claims, "host", b"h" * 32)
         completed = room.complete(agent_id="a", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], artifact_digests=artifacts, result="PASS", receipt=receipt, residual="Integrate x into the caller", idempotency_key="complete-a-0123456")
         self.assertEqual(completed["status"], "VERIFIED_COMPLETION")
