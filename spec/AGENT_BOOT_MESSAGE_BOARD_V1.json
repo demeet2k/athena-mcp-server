@@ -1,0 +1,164 @@
+{
+  "artifact": "ATHENA.AGENT.BOOT.MESSAGE_BOARD.V1",
+  "authority": {
+    "bootstrap_extension": "orchestration only; may request/read/reuse/renew Message Board presence and hard-hold duplicate dispatch",
+    "message_board": "sole presence/claim/message/ack authority",
+    "not_granted": [
+      "scheduler readiness",
+      "execution authority",
+      "auto-join authority",
+      "truth authority",
+      "party membership authority",
+      "MATA semantic work-key authority"
+    ]
+  },
+  "activation_boundary": {
+    "direct_python_default": "DISABLED unless coordination_mode is explicit",
+    "law": "BOOT_OBSERVATION != WORK_START",
+    "reason": "library bootstrap historically composes a read snapshot; an implicit Python method call must not become a shared Git mutation",
+    "tool_call_default": "AUTO handshake request",
+    "tool_call_no_explicit_work_identity": "resolve to READ_ONLY_NO_EXPLICIT_WORK_ID",
+    "tool_call_with_work_key_targets_or_claim_mode": "resolve to AUTO claim intent",
+    "refresh_internal_reconstruction": "inherit the persisted session coordination mode through the private Message Board refresh override"
+  },
+  "base_runtime_issue": "demeet2k/athena-mcp-server#161",
+  "compatibility": {
+    "base_agent_boot": "extended additively",
+    "cohesion_mesh": "not implemented here; may consume Message Board standing as a higher projection",
+    "message_board_v1": "unchanged authority and storage",
+    "party_coordination": "unchanged projection over Message Board",
+    "programmatic_boot": "non-mutating by default",
+    "rehydration_observers": "task-only MCP boots observe the board but do not create competing PRIMARY claims",
+    "claimed_refresh": "preserves the established session claim intent instead of demoting nested reconstruction to DISABLED"
+  },
+  "coordinate": "ATHENA.KC144::GITΩ::AGENT-BOOT::MESSAGE-BOARD::V1",
+  "extends": "ATHENA.AGENT.BOOT.V1",
+  "failure_policy": {
+    "exact_duplicate_after_claim_intent": "DUPLICATE_WORK_HOLD -> BOOTSTRAP_HOLD",
+    "fuzzy_similarity_only": "warning; not a veto",
+    "read_only_unverified": "advisory standing only; never upgraded to execution claim",
+    "replica_without_reason": "reject",
+    "same_agent_incompatible_active_claim": "AGENT_ALREADY_PRESENT_HOLD -> BOOTSTRAP_HOLD",
+    "shared_frontier_unverified_during_explicit_AUTO": "BOOTSTRAP_HOLD"
+  },
+  "inputs": {
+    "coordination_claim_mode": {
+      "default_when_new_claim": "PRIMARY",
+      "existing_active_claim": "preserved when caller leaves this unset",
+      "values": ["PRIMARY", "REPLICA"]
+    },
+    "coordination_details": "optional public coordination note",
+    "coordination_mode": {
+      "explicit_values": ["AUTO", "READ_ONLY", "DISABLED"],
+      "tool_default_request": "AUTO",
+      "tool_default_resolution_without_work_identity": "READ_ONLY",
+      "direct_python_default": "DISABLED"
+    },
+    "lease_seconds": {"default": 1800, "max": 86400, "min": 60},
+    "replication_reason": "required exactly when coordination_claim_mode=REPLICA",
+    "targets": "optional exact shared-sink/artifact paths used by Message Board overlap semantics",
+    "work_key": "optional explicit identity; absence remains NONE and is not fabricated"
+  },
+  "laws": [
+    "BOOT != CLAIM unless coordination succeeds",
+    "BOOT_OBSERVATION != WORK_START",
+    "TOOL_BOOT_DEFAULT => MESSAGE_BOARD_HANDSHAKE",
+    "IMPLICIT_TASK_ONLY_BOOT != PRIMARY_CLAIM",
+    "EXPLICIT_WORK_ID_OR_EXPLICIT_AUTO => CLAIM_INTENT",
+    "DIRECT_PYTHON_BOOT != IMPLICIT_SHARED_MUTATION",
+    "REFRESH_INHERITS_SESSION_COORDINATION",
+    "MESSAGE_BOARD = SOLE_PRESENCE_CLAIM_MESSAGE_AUTHORITY",
+    "READ_BOARD_BEFORE_EXPENSIVE_SHARED_WORK",
+    "PRESENT_BEFORE_WORK",
+    "DUPLICATE_WORK_HOLD -> DO_NOT_DISPATCH_DUPLICATE_LANE",
+    "AUTO != AUTO_JOIN",
+    "FUZZY_SIMILARITY != DUPLICATE_PROOF",
+    "READ_ONLY != EXECUTION_CLAIM",
+    "MISSING_WORK_KEY != FABRICATED_MATA_WORK_KEY",
+    "BOARD_SHARED_FRONTIER_HOLD -> BOOTSTRAP_HOLD"
+  ],
+  "lease_policy": {
+    "expired_presence": "Message Board present may establish a new claim while historical events remain preserved",
+    "reason": "avoid self-induced Git HEAD churn and false refresh invalidation",
+    "renew_when_remaining_lte": "max(30s, min(300s, 20% of current lease))",
+    "reuse_without_commit": "matching ACTIVE presence with sufficient lease remains valid"
+  },
+  "modes": {
+    "AUTO": [
+      "shared-fresh Message Board read before world-state composition",
+      "reuse compatible active self-claim without mutation while lease remains healthy",
+      "renew compatible claim only near expiry",
+      "otherwise request Message Board present",
+      "exact duplicate or incompatible active self-claim => HOLD",
+      "never auto-join"
+    ],
+    "DISABLED": [
+      "no Message Board read/write",
+      "preserve legacy/programmatic boot behavior",
+      "pre_dispatch=DISABLED"
+    ],
+    "READ_ONLY": [
+      "shared-current board projection only",
+      "no claim or heartbeat mutation",
+      "pre_dispatch=ADVISORY_ONLY"
+    ]
+  },
+  "ordering": [
+    "resolve whether this is observation or explicit start-work intent",
+    "for MCP tool boot, perform Message Board handshake",
+    "only explicit start-work intent may establish/reuse/renew presence",
+    "compose canonical AGENT_BOOT_V1 world/continuation packet on the resulting Git head",
+    "during refresh, preserve the session coordination mode across nested bootstrap reconstruction",
+    "attach coordination projection and hard hold when explicit claimed work collides"
+  ],
+  "packet_extension": {
+    "auto_resolution": ["READ_ONLY_NO_EXPLICIT_WORK_ID", "CLAIM_EXPLICIT_WORK_ID"],
+    "execution_surface_field": "message_board_pre_dispatch",
+    "field": "coordination",
+    "hold": "MESSAGE_BOARD_PRE_DISPATCH_HOLD",
+    "refresh_dependency_cone": "message_board_coordination",
+    "refresh_field": "coordination_changed",
+    "requested_mode": "AUTO on implicit tool handshake",
+    "return_contract_field": "message_board_pre_dispatch_required",
+    "witness_field": "message_board"
+  },
+  "pre_dispatch": {
+    "ADVISORY_ONLY": "observer/task-only tool boot; no execution claim",
+    "ALLOW": "explicit AUTO/start-work intent has a shared-current durable compatible presence claim",
+    "DISABLED": "coordination membrane intentionally bypassed",
+    "HOLD": "explicit AUTO/start-work intent cannot establish a shared-current compatible claim"
+  },
+  "purpose": "Make shared-current Message Board coordination automatic at the MCP boot boundary without confusing observation/reconstruction with work-start, and without creating a second presence, claim, message, party, scheduler, or truth authority.",
+  "routing_digest": {
+    "excludes": [
+      "heartbeat clock",
+      "lease expiry clock",
+      "Git HEAD clock",
+      "transition label such as PRESENT vs PRESENCE_REUSED"
+    ],
+    "includes": [
+      "coordination mode",
+      "pre-dispatch standing",
+      "stable claim identity/task/work_key/targets/join relation",
+      "exact overlap edges involving self",
+      "deterministic hard-conflict identity",
+      "unread message IDs"
+    ],
+    "law": "routine lease reuse must not manufacture a coordination change"
+  },
+  "observed_regression_history": [
+    {
+      "ci_run": 1964,
+      "failing_head": "bbdab074deddb3f36ceceac25403e6c2e8904a34",
+      "observation": "four legacy/continuation tests failed because implicit boot was treated as work-start and wrote Message Board claims",
+      "repair": "split activation policy from mechanism; implicit task-only tool boot becomes READ_ONLY, direct Python boot becomes DISABLED by default, explicit work identity or explicit AUTO still claims"
+    },
+    {
+      "ci_run": 1978,
+      "failing_head": "815794201fdfe296ad7a8bbc3e16360a69e497fa",
+      "observation": "652/653 unit tests passed; the only failure was the new claimed-refresh test because nested refresh reconstruction was demoted to DISABLED",
+      "repair": "when the Message Board refresh mechanism supplies its private persisted-session override, bootstrap activation inherits that coordination mode; ordinary direct Python boot without this internal override remains DISABLED"
+    }
+  ],
+  "standing": "observed CI failures remain historical evidence; every repaired head requires fresh exact-head CI before promotion"
+}

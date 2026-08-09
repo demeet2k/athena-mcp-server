@@ -1,0 +1,48 @@
+{
+  "artifact": "ATHENA.CAMPAIGN.V3.LIFE.CONDITION.IDENTITY.SPEC.V1",
+  "version": "1.0.0",
+  "purpose": "Freeze explicit canonical criterion IDs against an immutable unplayed Campaign V3 Life packet without changing the legacy packet compiler or owning semantic Life transitions.",
+  "input": {
+    "campaign_packet": "validated ATHENA.CAMPAIGN.V3.LIFE.QUEST.PACKET.V1 with CLEAR_RESULT_VECTOR=null and work_executed=false",
+    "criterion_ids": "ordered unique non-empty IDs aligned one-to-one with compiler-frozen CLEAR_CONDITIONS definitions",
+    "identity_ref": "non-empty caller-declared source coordinate for the criterion identity contract"
+  },
+  "output": {
+    "artifact": "ATHENA.CAMPAIGN.V3.LIFE.CONDITION.IDENTITY.V1",
+    "binding": [
+      "packet_digest",
+      "quest_id",
+      "quest_version",
+      "identity_ref",
+      "conditions[{id,definition}]",
+      "condition_identity_digest",
+      "envelope_digest"
+    ],
+    "outcomes_observed": false,
+    "temporal_creation_proof": false
+  },
+  "dispatch_front_door": "translate_campaign_v3_life_dispatch_with_frozen_identity_v1 verifies the identity envelope against the exact compiler packet and exact observed {id,definition} pairs before delegating data-only translation to the merged structural Dispatch V1 bridge.",
+  "compatibility": {
+    "legacy_campaign_packets": "unchanged",
+    "legacy_dispatch_bridge": "unchanged and remains lower-standing POSTCOMPILE_SUPPLIED identity path",
+    "identity_aware_path": "additive strict path",
+    "semantic_life_reducer": "not implemented or copied here"
+  },
+  "firewalls": [
+    "CONDITION_IDENTITY != CONDITION_OUTCOME",
+    "PACKET_BOUND_IDENTITY != TEMPORAL_CREATION_PROOF",
+    "IDENTITY_REF != EXTERNAL_AUTHORITY_PROOF",
+    "IDENTITY_FREEZE != EXECUTION_AUTHORITY",
+    "PACKET_COMPILER != IDENTITY_MEMBRANE != DISPATCH_TRANSLATOR != SEMANTIC_LIFE_REDUCER",
+    "LOGICAL_RESEED != PLATFORM_COUNTER_RESET"
+  ],
+  "authority": {
+    "execution": false,
+    "life_consumption": false,
+    "reward_issuance": false,
+    "reseed_anchor_consumption": false,
+    "scheduler_provider": false,
+    "platform_counter_reset": false
+  },
+  "evidence_ceiling": "Mechanism can prove deterministic packet-bound identity and fail-closed translation. It does not independently prove creation time, external identity authority, semantic execution identity, or Life treatment effect."
+}
