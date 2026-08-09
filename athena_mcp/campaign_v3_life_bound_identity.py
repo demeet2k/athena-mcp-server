@@ -15,6 +15,8 @@ ARTIFACT = "ATHENA.CAMPAIGN.V3.LIFE.BOUND.IDENTITY.V1"
 _REQUIRED_BOUND_LAWS = {
     "PULSE_DIGEST_VERIFIED_BEFORE_LEASE",
     "BOUND_RECEIPT_RETAINS_VERIFIED_PULSE_DIGEST",
+    "CAMPAIGN_BINDING != WORK_EXECUTION",
+    "BOUND_LOOP != OBSERVED_SUCCESS",
 }
 _OUTPUT_KEYS = {
     "artifact",
@@ -68,6 +70,14 @@ def _validate_bound_receipt(bound_receipt: Mapping[str, Any]) -> list[str]:
         errors.append("bound_execution_authority_must_be_false")
     if bound_receipt.get("work_executed") is not False:
         errors.append("bound_work_executed_must_be_false")
+    if bound_receipt.get("failures") != []:
+        errors.append("bound_failures_must_be_empty")
+    if bound_receipt.get("holds") != []:
+        errors.append("bound_holds_must_be_empty")
+    if not _text(bound_receipt.get("task")):
+        errors.append("bound_task_required")
+    if bound_receipt.get("next") != "RESUME_EXPLICIT_LOOP_AND_EXECUTE_ONE_LAWFUL_CYCLE":
+        errors.append("bound_next")
 
     for key in ("campaign_id", "branch_id", "pulse_digest", "loop_id"):
         if not _text(bound_receipt.get(key)):
@@ -86,12 +96,22 @@ def _validate_bound_receipt(bound_receipt: Mapping[str, Any]) -> list[str]:
     for key in (
         "loop_state_digest",
         "campaign_state_digest",
+        "pre_lease_head",
         "post_lease_head",
         "post_loop_start_head",
         "post_bind_head",
     ):
         if not _text(bound_receipt.get(key)):
             errors.append(f"bound_{key}_required")
+
+    pre_lease = _text(bound_receipt.get("pre_lease_head"))
+    post_lease = _text(bound_receipt.get("post_lease_head"))
+    post_loop = _text(bound_receipt.get("post_loop_start_head"))
+    post_bind = _text(bound_receipt.get("post_bind_head"))
+    if pre_lease and post_lease and pre_lease == post_lease:
+        errors.append("bound_lease_head_not_advanced")
+    if post_loop and post_bind and post_loop == post_bind:
+        errors.append("bound_bind_head_not_advanced")
 
     return errors
 
