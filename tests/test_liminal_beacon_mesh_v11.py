@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import unittest
 
 from athena_mcp.liminal_beacon_mesh import LiminalBeaconMeshRuntime
@@ -144,6 +145,7 @@ class LiminalBeaconMeshV11Tests(unittest.TestCase):
         )
         self.assertEqual([blocker], [row["packet_id"] for row in view["packets"]])
         self.assertTrue(view["packets"][0]["critical_reserve"])
+        self.assertEqual([blocker], view["critical_reserve_packet_ids"])
         self.assertEqual(1, view["critical_reserve_used"])
         self.assertEqual(1, view["critical_quota"])
 
@@ -198,6 +200,36 @@ class LiminalBeaconMeshV11Tests(unittest.TestCase):
         )
         self.assertEqual([], view["packets"])
         self.assertEqual({ordinary, direct}, set(view["backpressure_filtered"]))
+
+    def test_critical_reserve_cannot_break_hard_context_budget(self):
+        mesh = self.runtime()
+        mesh.touch("alpha", object_refs=["oid:shared"])
+        mesh.touch("beta", object_refs=["oid:shared"])
+        blocker = mesh.emit(
+            "alpha",
+            "BLOCKER",
+            "X" * 1200,
+            object_refs=["oid:shared"],
+            urgency=0.0,
+            novelty=0.0,
+        )["packet"]["packet_id"]
+        view = mesh.rendezvous(
+            "beta",
+            threshold=0.95,
+            scout_quota=0,
+            critical_quota=1,
+            context_budget=256,
+        )
+        self.assertLessEqual(view["context_used"], view["context_budget"])
+        self.assertLessEqual(view["packet_context_used"], view["context_budget"])
+        rendered_packet_bytes = sum(
+            len(json.dumps(row, ensure_ascii=False, sort_keys=True))
+            for row in view["packets"]
+        )
+        self.assertEqual(rendered_packet_bytes, view["packet_context_used"])
+        if blocker not in [row["packet_id"] for row in view["packets"]]:
+            self.assertIn(blocker, view["context_budget_filtered"])
+        self.assertIn("CONTEXT_BUDGET != SOFT_TARGET", view["attention_law"])
 
 
 if __name__ == "__main__":
