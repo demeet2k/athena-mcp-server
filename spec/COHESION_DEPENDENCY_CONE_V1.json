@@ -1,0 +1,85 @@
+{
+  "artifact": "ATHENA.COHESION.DEPENDENCY.CONE.V1",
+  "version": "COHESION.DEPENDENCY.CONE.1",
+  "coordinate": "ATHENA.KC144::COHESION::C3-12::DEPENDENCY-CONE",
+  "issue": "demeet2k/athena-mcp-server#225",
+  "parent": "demeet2k/athena-mcp-server#147",
+  "predecessors": ["ATHENA.COHESION.DUPLICATE.GUARD.V1", "ATHENA.AGENT.BOOT.COHESION.TREATMENT.V1"],
+  "adjacent_not_subsumed": {
+    "freshness_train": "demeet2k/athena-mcp-server#203",
+    "distinction": "Freshness Train classifies PR/master requalification; C3-12 computes affected live coordination lanes from explicit dependencies."
+  },
+  "purpose": "Compute bounded targeted invalidation over explicit shared-current Message Board, Party, Cohesion, Git-path, and labeled caller-supplied dependency edges; return affected live lanes and required recheck obligations without performing refresh or mutation.",
+  "authority": {
+    "read_only": true,
+    "mutation": false,
+    "refresh_execution": false,
+    "claim_mutation": false,
+    "ack_execution": false,
+    "assignment": false,
+    "global_reset": false,
+    "freshness_train_requalification": false,
+    "mata_dependency_authority": false
+  },
+  "change_kinds": ["GIT_RANGE", "GIT_PATHS", "CLAIM", "MESSAGE", "WORK_KEY", "TARGET", "DEPENDENCY", "COHESION_ENTRY", "DECISION"],
+  "graph_semantics": {
+    "seed_edges": "CHANGE_* edges bind the supplied change to an explicit coordinate and do not count as semantic propagation depth",
+    "direct": "one observed semantic edge from the changed coordinate to a live agent lane",
+    "transitive": "more than one observed semantic edge; every path preserves relation/evidence/standing provenance",
+    "party_membership": "recorded for impact context but non-propagating by itself",
+    "party_goal": "goal_ref -> specifically assigned member may propagate",
+    "provider_consumer": "provider agent -> provides(ref) -> NEED dependency(ref) -> need owner",
+    "collaboration": "root claim_id -> explicit join_of collaborator",
+    "message": "message event -> explicit recipient; Party message pending ACK may require ACK_MESSAGE",
+    "bounds": "max_depth 1..8 plus internal path-count fail-safe; cutoff yields unresolved residue"
+  },
+  "required_actions": ["REHYDRATE", "RECHECK_GIT_HEAD", "RECHECK_CLAIM", "RECHECK_TARGET", "RECHECK_DEPENDENCY", "READ_MESSAGE", "ACK_MESSAGE", "RECHECK_PARTY", "RECHECK_COHESION_ENTRY", "HOLD_UNTIL_RECHECK"],
+  "git_semantics": {
+    "git_range": "resolve base/head to exact commits and compute changed_paths read-only",
+    "caller_changed_paths_mismatch": "observed git diff wins and mismatch is returned in unresolved",
+    "path_hit": "changed path affects a lane only through exact target/dependency/caller-supplied edge",
+    "disjoint_path": "NO_OBSERVED_LANE_HIT_WITH_UNKNOWN_SEMANTIC_RESIDUE; never semantic independence proof",
+    "invalid_ref": "GIT_REF_HOLD with unresolved GIT_REF_UNAVAILABLE; never empty-diff fabrication"
+  },
+  "message_ack_semantics": {
+    "generic_message": "explicit recipient => READ_MESSAGE",
+    "party_v2_v3_message": "explicit recipient with no observed ACK => READ_MESSAGE + ACK_MESSAGE",
+    "observed_ack": "removes ACK_MESSAGE requirement but does not erase the message impact path"
+  },
+  "party_semantics": {
+    "membership": "context only; does not fan out impact",
+    "other_members_auto_invalidated": false,
+    "law": "PARTY_MEMBERSHIP != UNIVERSAL_DEPENDENCY"
+  },
+  "unknowns": {
+    "max_depth": "truncation yields MAX_DEPTH_OR_PATH_LIMIT_REACHED and unresolved cutoff nodes",
+    "git_disjoint": "UNOBSERVED_SEMANTIC_DEPENDENCY_POSSIBLE",
+    "missing_message": "MESSAGE_EVENT_NOT_OBSERVED",
+    "missing_cohesion_entry": "COHESION_ENTRY_NOT_OBSERVED",
+    "decision_runtime": "DECISION_RUNTIME_UNAVAILABLE; DECISION edges are caller-supplied only",
+    "caller_edge_without_evidence": "CALLER_EDGE_MISSING_EVIDENCE",
+    "law": "UNKNOWN_IMPACT != NO_IMPACT"
+  },
+  "mata_boundary": {
+    "runtime_available": false,
+    "dependency_relation": "UNAVAILABLE_NOT_IN_RUNTIME",
+    "semantic_spec": "demeet2k/Athena#233",
+    "law": "OBSERVED_RUNTIME_EDGE != MATA_CANONICAL_DEPENDENCY; never fabricate OID/VID/SAME-WORK/SAME-BASE or canonical assignment dependency from prose"
+  },
+  "laws": [
+    "DEPENDENCY_CONE != GLOBAL_RESET",
+    "DEPENDENCY_CONE != REFRESH_EXECUTION",
+    "DEPENDENCY_CONE != CLAIM_MUTATION",
+    "DEPENDENCY_CONE != ACK_EXECUTION",
+    "DEPENDENCY_CONE != ASSIGNMENT",
+    "DEPENDENCY_CONE != FRESHNESS_TRAIN",
+    "OBSERVED_EDGE != INFERRED_SEMANTIC_EDGE",
+    "PARTY_MEMBERSHIP != UNIVERSAL_DEPENDENCY",
+    "TASK_SIMILARITY != DEPENDENCY",
+    "CHANGED_PATH_DISJOINT != SEMANTIC_INDEPENDENCE_PROOF",
+    "TARGETED_INVALIDATION_REQUIRES_PROVEN_PATH",
+    "UNKNOWN_IMPACT != NO_IMPACT",
+    "MATA_UNAVAILABLE != INFERRED_FROM_PROSE"
+  ],
+  "successor": "After merge, rehydrate Cohesion P0 and current claims before selecting C3-13 conflict resolution; dependency cone becomes an evidence input, never an automatic conflict treatment engine."
+}
