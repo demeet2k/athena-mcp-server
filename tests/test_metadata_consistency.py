@@ -40,7 +40,7 @@ class MetadataConsistencyTests(unittest.TestCase):
                 'athena_gp_hyperqmc','athena_gp_fitc_predict','athena_gp_joint_design','athena_fci_lite_discover','athena_longitudinal_tmle','athena_dynamic_policy_value','athena_dro_resource_select',
                 'athena_joint_factor_belief','athena_structural_bootstrap_ensemble','athena_joint_science_evi','athena_sequential_dr_policy_value','athena_joint_policy_robust','athena_gp_resolution_route','athena_two_stage_resource_plan',
                 'athena_structural_reliability_calibrate','athena_longitudinal_tmle_crossfit','athena_sequential_dr_policy_crossfit','athena_joint_gaussian_update','athena_joint_gaussian_control','athena_approx_error_transport','athena_multistage_tv_dro_plan',
-                'athena_deployment_probe','athena_deployment_snapshot','athena_deployment_action_policy','athena_deployment_verify',
+                'athena_deployment_manifest','athena_deployment_validate','athena_deployment_activation_plan','athena_deployment_assess_canary','athena_deployment_verify_receipt',
                 'athena_discovery_claim_register','athena_discovery_claim_witness','athena_discovery_claim_state',
                 'athena_claim_register','athena_claim_state','athena_claim_promote','athena_promotion_verify_github',
             ):
@@ -51,7 +51,7 @@ class MetadataConsistencyTests(unittest.TestCase):
             self.assertNotEqual(by_name['athena_claim_register']['inputSchema'],by_name['athena_discovery_claim_register']['inputSchema'])
 
             uris={x['uri'] for x in srv.handle({'jsonrpc':'2.0','id':3,'method':'resources/list'})['result']['resources']}
-            for uri in ('athena://collective/v4','athena://collective/v5','athena://collective/v6','athena://collective/v7','athena://collective/v8','athena://collective/v9','athena://collective/v10','athena://collective/v11','athena://collective/v12','athena://collective/v13','athena://collective/v14','athena://collective/v15','athena://deployment/runtime','athena://deployment/config','athena://authority'):
+            for uri in ('athena://collective/v4','athena://collective/v5','athena://collective/v6','athena://collective/v7','athena://collective/v8','athena://collective/v9','athena://collective/v10','athena://collective/v11','athena://collective/v12','athena://collective/v13','athena://collective/v14','athena://collective/v15','athena://deployment','athena://deployment/security','athena://deployment/rollout','athena://deployment/evidence','athena://authority'):
                 self.assertIn(uri,uris)
             v6=srv.handle({'jsonrpc':'2.0','id':4,'method':'resources/read','params':{'uri':'athena://collective/v6'}})
             self.assertIn('result',v6);text=v6['result']['contents'][0]['text'];self.assertIn('athena_discovery_claim_',text);self.assertIn('athena_claim_',text)
