@@ -129,15 +129,29 @@ class NextQuestPipelineTests(unittest.TestCase):
                 completed_quest_id=staged["quest_id"], completion={"observed": True, "status": "SUCCEEDED", "summary": "wrong"}, successor_baton=_baton(),
             )
 
-    def test_duplicate_successor_does_not_silently_revisit(self):
+    def test_selected_duplicate_holds_and_never_falls_through_to_lower_candidate(self):
         started = self._start()
         focus = started["window"]["focus"]
+        baton = _baton(task="Quest two", candidate_id="SC-DUP")
+        baton["candidates"].append({"candidate_id": "SC-LOWER", "task": "Quest four lower", "routing_score": 0.5})
+        baton["baton_digest"] = _sha({k: v for k, v in baton.items() if k != "baton_digest"})
         held = self.runtime.rotate(
             pipeline_id=started["pipeline_id"], expected_state_digest=started["state_digest"], expected_checkpoint_head=started["checkpoint_head"],
-            completed_quest_id=focus["quest_id"], completion={"observed": True, "status": "SUCCEEDED", "summary": "done"}, successor_baton=_baton(task="Quest two", candidate_id="SC-DUP"),
+            completed_quest_id=focus["quest_id"], completion={"observed": True, "status": "SUCCEEDED", "summary": "done"}, successor_baton=baton,
         )
         self.assertEqual(held["status"], "RESEED_HOLD")
-        self.assertEqual(held["window"]["reseed_hold"]["status"], "NO_NOVEL_RESEED")
+        self.assertEqual(held["window"]["reseed_hold"]["status"], "SELECTED_SUCCESSOR_INADMISSIBLE")
+        self.assertNotIn("Quest four lower", [x["task"] for x in held["window"]["execution_order"]])
+
+    def test_selected_baton_cannot_be_overridden_by_candidate_id(self):
+        started = self._start()
+        focus = started["window"]["focus"]
+        with self.assertRaisesRegex(ValueError, "cannot be overridden"):
+            self.runtime.rotate(
+                pipeline_id=started["pipeline_id"], expected_state_digest=started["state_digest"], expected_checkpoint_head=started["checkpoint_head"],
+                completed_quest_id=focus["quest_id"], completion={"observed": True, "status": "SUCCEEDED", "summary": "done"},
+                successor_baton=_baton(), reseed_candidate_id="SC-OTHER",
+            )
 
     def test_state_tamper_fails_verify(self):
         started = self._start()
