@@ -357,6 +357,7 @@ def bind_current_pulse_branch_to_loop(
             residual_step=residual_step,
             standing="BOUND_LOOP_NOT_WORK_EXECUTED",
         ),
+        "pulse_digest": str(pulse["pulse_digest"]),
         "task": task,
         "loop_id": loop_id,
         "loop_state_digest": loop_state_digest,
@@ -368,6 +369,7 @@ def bind_current_pulse_branch_to_loop(
         "next": "RESUME_EXPLICIT_LOOP_AND_EXECUTE_ONE_LAWFUL_CYCLE",
         "laws": [
             "PULSE_DIGEST_VERIFIED_BEFORE_LEASE",
+            "BOUND_RECEIPT_RETAINS_VERIFIED_PULSE_DIGEST",
             "CAMPAIGN_BRANCH_LEASE != SCHEDULER_CLAIM",
             "CAMPAIGN_BINDING != WORK_EXECUTION",
             "POST_LEASE_HEAD != PRE_LEASE_HEAD",
