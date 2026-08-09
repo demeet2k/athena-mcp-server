@@ -1,0 +1,113 @@
+{
+  "artifact": "ATHENA.KC144.KC15.KC27.LIBRARY.SOURCE.POPULATION.V1",
+  "role": "final source-population plan for KC15 GID091-105 and KC27 GID106-132",
+  "parent_f37_population": "2e1290f177ce3d139fa111abfc1f18b19e10feec",
+  "canonical_installation": false,
+  "source_observation_boundary": "LIBRARY_SOURCE_BYTES_WERE_OBSERVED_AND_CONTENT_HASHED_DURING_THE_AUDIT_SESSION; GITHUB_PROVIDER_CI_VALIDATES_THE_FROZEN_MANIFEST_AND_CELL_CLOSURE_CALCULUS_BUT_DOES_NOT_INDEPENDENTLY_REFETCH_CHATGPT_LIBRARY_BYTES",
+  "kc15": {
+    "active_seating_authority": "ATHENA_RUNTIME_INNER_CONSTITUTION_EPOCH_B",
+    "active_source_root": {
+      "library_file_id": "file_000000005d4081f5862fdd8c8e5bff09",
+      "version_id": "1",
+      "name": "KC144_Crystalline_Mycelium_SVG_Source_Code.txt",
+      "mime_type": "text/plain",
+      "size_bytes": 497176,
+      "sha256": "374e3001766b41295a1a88c6dcd537c89a3ee0d9efc5b49ba4317cfdd907cbcc",
+      "authority": "ACTIVE_EPOCH_SOURCE",
+      "coverage": "EPOCH-B KC15 GID091-105 exact support masks and coordinate-not-identity invariants"
+    },
+    "hold_semantics_source_root": {
+      "library_file_id": "file_0000000017f081f7aba4c36feec691af",
+      "version_id": "1",
+      "name": "15_MYCELIUM_CROWN_EVALUATION_KC144.md",
+      "mime_type": "text/markdown",
+      "size_bytes": 272418,
+      "sha256": "e2e8822fb6e8a1c546bfa3afb8d8eb799d0333b4d21ee0dfebc422d90faf55b1",
+      "authority": "MASK_SEMANTICS_ONLY_NOT_GID_SEATING",
+      "coverage": "source-bound nonempty-support semantics; coordinate!=identity; independent=false; admission/authority/interpretation holds"
+    },
+    "active_masks": {
+      "91": {"mask":"1000","support":["11"]},
+      "92": {"mask":"0100","support":["10"]},
+      "93": {"mask":"1100","support":["11","10"]},
+      "94": {"mask":"0010","support":["00"]},
+      "95": {"mask":"1010","support":["11","00"]},
+      "96": {"mask":"0110","support":["10","00"]},
+      "97": {"mask":"1110","support":["11","10","00"]},
+      "98": {"mask":"0001","support":["01"]},
+      "99": {"mask":"1001","support":["11","01"]},
+      "100": {"mask":"0101","support":["10","01"]},
+      "101": {"mask":"1101","support":["11","10","01"]},
+      "102": {"mask":"0011","support":["00","01"]},
+      "103": {"mask":"1011","support":["11","00","01"]},
+      "104": {"mask":"0111","support":["10","00","01"]},
+      "105": {"mask":"1111","support":["11","10","00","01"]}
+    },
+    "standing": {
+      "population": "CLOSED",
+      "execution": "PARTIAL",
+      "evidence": "HOLD",
+      "return": "PARTIAL",
+      "authority": "SOURCE_POPULATION_ONLY"
+    }
+  },
+  "kc27": {
+    "generic_domain_legend_source_root": {
+      "library_file_id": "file_00000000257081fdbad7f9698c7b0398",
+      "version_id": "1",
+      "name": "Pasted text (2)(90).txt",
+      "mime_type": "text/plain",
+      "size_bytes": 1016855,
+      "sha256": "232a17aff9d6ce9889f77a5351713a0c7d2012f9109639699916a56c90a1334a",
+      "authority": "GENERIC_TERNARY_DOMAIN_LEGEND",
+      "coverage": "all 27 coordinates under provenance x epistemic-operation x route-manifestation axes"
+    },
+    "axes": {
+      "A_origin_provenance": {"0":"SOURCE","1":"SYNTHESIS","2":"INVARIANT"},
+      "B_epistemic_operation": {"0":"ADMIT_OPEN_DIFFERENTIATE","1":"TRANSFORM_RELATE_SUPPORT","2":"TEST_RECONCILE_CLOSE"},
+      "C_route_manifestation": {"0":"SEED","1":"BRIDGE","2":"RETURN"}
+    },
+    "return_coordinate_gids": [108,111,114,117,120,123,126,129,132],
+    "named_anchor_gids": {
+      "114":"DIFFERENTIAL_COHOMOLOGICAL_BOUNDARY_CALCULUS",
+      "115":"ADDRESSING_RANDOM_ACCESS_SEED_RETRIEVAL",
+      "116":"BR21_PEER_RUNTIME",
+      "117":"IC10_COMPILER_INDEX",
+      "118":"BRANCH_COMPLETE_CUT_NAVIGATION",
+      "119":"CODEC_COMPRESSION_QSHRINK",
+      "120":"MEMORY_MERKLE_CONTENT_ADDRESSING"
+    },
+    "specialization_policy": "GENERIC_TERNARY_LEGEND_MAY_POPULATE_A_SEAT_WITHOUT_RENAMING_UNRESOLVED_DOMAIN_ROLE; P08-P14_RETAIN_EXISTING_NAMED_ANCHORS_ONLY",
+    "standing": {
+      "population": "CLOSED",
+      "execution": "PARTIAL",
+      "evidence": "PARTIAL",
+      "return_on_c_eq_2": "PARTIAL",
+      "return_else": "UNKNOWN",
+      "authority": "SOURCE_POPULATION_ONLY"
+    }
+  },
+  "expected_final_counts": {
+    "population_status": {"CLOSED":144},
+    "execution_status": {"PARTIAL":144},
+    "evidence_status": {"CLOSED":6,"PARTIAL":119,"HOLD":19},
+    "return_status": {"CLOSED":6,"PARTIAL":80,"UNKNOWN":58},
+    "overall_state": {"HOLD":19,"OPEN_TYPED":125,"CLOSED":0}
+  },
+  "firewalls": [
+    "ACTIVE_EPOCH_CONSTITUTION != HISTORICAL_SEATING",
+    "HISTORICAL_GID_OCCURRENCE != CURRENT_GID_AUTHORITY",
+    "KC15_SUPPORT != TRUTH",
+    "KC15_SUPPORT != EVIDENCE",
+    "KC15_SUPPORT != PROBABILITY",
+    "KC15_SOURCE_BOUND_HOLD != FAILURE",
+    "KC15_POPULATION_CLOSED != ADMISSION_OR_AUTHORITY",
+    "KC27_GENERIC_DOMAIN_LEGEND != CANONICAL_SPECIALIZATION",
+    "UNRESOLVED_DOMAIN_ROLE_REMAINS_UNRESOLVED",
+    "KC27_COORDINATE != MEANING != STATE != ROUTE != EVIDENCE != AUTHORITY",
+    "KC27_C_EQ_2_RETURN_SEMANTICS != RETURN_CERTIFIED",
+    "LIBRARY_SOURCE_OBSERVED != GITHUB_PROVIDER_REVERIFIED_SOURCE",
+    "144_SOURCE_POPULATED_SEATS != INNER_CRYSTAL_EXECUTION_CLOSED",
+    "144_SOURCE_POPULATED_SEATS != INNER_CRYSTAL_CERTIFIED"
+  ]
+}
