@@ -3,6 +3,8 @@ name: Release Distribution V3.4
 on:
   pull_request:
     branches: [master]
+  push:
+    branches: [master]
   workflow_dispatch:
 
 permissions:
@@ -136,10 +138,11 @@ jobs:
       - name: Verify exact clean source candidate
         shell: bash
         run: |
+          set -euo pipefail
           test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"
           test -z "$(git status --porcelain)"
           git fetch origin master --no-tags
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
             test "$(git rev-parse origin/master)" = "$RELEASE_HEAD"
           fi
       - name: Verify trusted receipt binding
@@ -183,6 +186,7 @@ jobs:
           assert manifest['collective_calibrated']['version']=='COLLECTIVE_RUNTIME_V15'
           assert manifest['collective_calibrated']['decision_time_history']=={'A1':'baseline','A2':'baseline+A1+L1'}
           assert manifest['collective_calibrated']['numeric_policy']=='reject unknown or non-finite model coordinates'
+          assert manifest['collective_calibrated']['radius_empty_behavior']=='null local certificate; global envelope remains separate and nonlocal'
           p.terminate();p.wait(timeout=5)
           PY
       - name: Create immutable release attestation and checksums
@@ -206,6 +210,8 @@ jobs:
             'promrun':promotion['promotion']['run_id'],
             'verification_ref':promotion['verification_ref'],
             'receipt_sha256':sha(promo),
+            'validation_event':os.environ['GITHUB_EVENT_NAME'],
+            'publication_performed':False,
           }
           (dist/'release-attestation.json').write_text(json.dumps(att,indent=2,sort_keys=True)+'\n')
           files=sorted(p for p in dist.iterdir() if p.is_file() and p.name!='SHA256SUMS')
