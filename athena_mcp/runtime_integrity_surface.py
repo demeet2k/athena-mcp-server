@@ -3,9 +3,10 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any,Dict
 
-from .architecture_drift import MATURE_ORGANS,audit_architecture,inventory_manifest
+from .architecture_drift import audit_architecture
 from .architecture_drift_protocol import ARCHITECTURE_DRIFT_RESOURCES,ARCHITECTURE_DRIFT_TOOLS,ARCHITECTURE_DRIFT_TOOL_NAMES
 from .composition_integrity import composition_certificate
+from .coordination_inventory import inventory_manifest,mature_organs
 from .coordination_manifest import EFFECTIVE_UNIFIED_MANIFEST_VERSION,build_effective_manifest,effective_layers,effective_maxdev_law
 from .github_promotion_verifier import GITHUB_PROMOTION_VERIFIER_VERSION,GithubPromotionVerifier
 from .promotion import PromotionLedger
@@ -60,21 +61,21 @@ class RuntimeIntegritySurface:
         return [tool['name'] for tool in tools],[resource['uri'] for resource in resources]
 
     def architecture_drift_audit(self,include_repository_witnesses=False):
-        tool_names,resource_uris=self._observed_surface();surface=contract_manifest()
+        tool_names,resource_uris=self._observed_surface();surface=contract_manifest();organs=mature_organs()
         req_tools=_flatten_dict_values(surface['required_tools']);req_resources=_flatten_dict_values(surface['required_resources'])
         ci_text='';available_paths=None
         if include_repository_witnesses:
             root=Path(__file__).resolve().parents[1];ci_path=root/'.github/workflows/ci.yml'
             if ci_path.exists():ci_text=ci_path.read_text(encoding='utf-8',errors='replace')
             expected=set()
-            for organ in MATURE_ORGANS:
+            for organ in organs:
                 expected.update(str(path) for path in organ.get('source_refs') or [])
                 expected.update(str(path) for path in organ.get('spec_refs') or [])
             available_paths={path for path in expected if (root/path).exists()}
         return audit_architecture(
             observed_tools=tool_names,observed_resources=resource_uris,manifest_layers=effective_layers(),
             surface_required_tools=req_tools,surface_required_resources=req_resources,omega_components=OMEGA_COMPONENTS,
-            ci_text=ci_text,available_paths=available_paths,
+            ci_text=ci_text,available_paths=available_paths,organs=organs,
             classified_tool_baseline=req_tools,classified_resource_baseline=req_resources,
         )
 
