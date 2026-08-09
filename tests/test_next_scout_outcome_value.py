@@ -49,7 +49,6 @@ def _brain(base: Path):
     start = pipeline.start(goal="g", quests=["Q1","Q2","Q3"], expected_git_head=git.head())
     planned = breadth.plan(pipeline_id=start["pipeline_id"], expected_pipeline_state_digest=start["state_digest"], expected_git_head=git.head(), kinds=["DEPENDENCY_MAP", "TEST_DESIGN"])
     q1 = start["window"]["focus"]
-    # prep is normally staged only; for V7 fixture, associate Q2 prep, rotate Q1, then complete Q2.
     q2 = start["window"]["execution_order"][1]
     for plan in [p for p in planned["plans"] if p["quest"]["quest_id"] == q2["quest_id"]]:
         current = git.head()
@@ -86,6 +85,14 @@ class OutcomeValueTests(unittest.TestCase):
         self.assertGreater(calibrated["calibrated_associations"]["DEPENDENCY_MAP"]["downstream_success"]["observations"], 0)
         overlay = self.runtime.overlay(pipeline_id=state["pipeline_id"])
         self.assertEqual(overlay["allocation_effect"], "NONE")
+
+    def test_exact_completion_ledger_is_used_not_bounded_public_tail(self):
+        self._complete_q2(); state = self.pipeline.state(self.state_after_q1["pipeline_id"])
+        self.assertNotIn("completed", state)
+        self.assertGreaterEqual(state["completed_count"], 2)
+        result = self.runtime.record(pipeline_id=state["pipeline_id"], quest_id=self.q2["quest_id"], expected_pipeline_state_digest=state["state_digest"], expected_git_head=self.git.head(), measurements={"focus_success":{"observed":True,"source":"focus-receipt","value":True}})
+        self.assertEqual(result["status"], "RECORDED")
+        self.assertIn("EXACT_COMPLETION_LEDGER != BOUNDED_PUBLIC_PROJECTION", result["receipt"]["laws"])
 
     def test_unsourced_or_unobserved_metric_rejected(self):
         self._complete_q2(); state = self.pipeline.state(self.state_after_q1["pipeline_id"])
