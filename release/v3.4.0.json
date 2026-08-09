@@ -62,7 +62,11 @@
     "publication_requires_five_stage_qualification": true,
     "qualification_checks": ["syntax", "unit", "critical-invariants", "smoke", "promotion-qualification"],
     "exact_commit_is_bound_in_release_attestation": true,
-    "critical_test_selectors_must_resolve_to_real_files": true
+    "critical_test_selectors_must_resolve_to_real_files": true,
+    "validation_runs_on_master_push": true,
+    "master_push_validation_is_nonpublishing": true,
+    "publication_requires_manual_workflow_dispatch": true,
+    "non_pr_validation_requires_exact_current_master_at_package_readiness": true
   },
   "release": {
     "draft": false,
@@ -78,6 +82,9 @@
   },
   "gates": [
     "exact master checkout at publication",
+    "automatic validation on relevant master pushes without publication",
+    "non-PR package-readiness requires release head equals current origin/master",
+    "manual workflow_dispatch remains the only publication trigger",
     "manifest and package version identity",
     "syntax",
     "full repository unit corpus",
@@ -107,8 +114,9 @@
   ],
   "authority_boundaries": [
     "GitHub release publication is distribution, not deployment.",
-    "Release attestation certifies exact repository/package/distribution state, not empirical truth or causal validity.",
-    "Calibration reliability, cross-fitted estimates, Gaussian belief state, approximation envelopes, robust plans and deployment plans do not become Y1 authority by publication.",
+    "Automatic master-push validation and package-readiness do not publish a tag or GitHub release; publication remains manual workflow_dispatch authority.",
+    "Release attestation certifies exact repository/package/distribution-candidate state, not empirical truth or causal validity.",
+    "Calibration reliability, cross-fitted estimates, Gaussian belief state, approximation envelopes, robust plans and deployment plans do not become Y1 authority by publication or validation.",
     "Decision-time history validation prevents future/outcome look-ahead but does not prove causal identification assumptions.",
     "Unknown or non-finite model coordinates are rejected; validation does not prove that supplied finite coordinates are empirically correct.",
     "A missing radius-eligible approximation witness remains a missing local certificate; an unrestricted global envelope cannot silently satisfy a declared locality constraint.",
