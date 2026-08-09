@@ -13,8 +13,10 @@ PROJECT_ATLAS_LAWS=[
     "KC144_STATION != OBJECT_IDENTITY",
     "POID != OID != MID != VID",
     "CONFIGURED_GIT_HEAD != RUNTIME_GIT_HEAD",
+    "PACKAGE_VERSION != RUNTIME_SOURCE_HEAD",
     "MCP_VIRTUAL_OBJECT != GIT_BLOB",
     "MCP_DEFINITION_COORDINATE_REQUIRES_RUNTIME_SOURCE_HEAD",
+    "UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE",
     "PROJECT_QUERY != PROMOTION_AUTHORITY",
     "PROJECT_ROUTE != SEMANTIC_EQUIVALENCE",
     "AMBIGUOUS_RESOLVE -> HOLD",
@@ -48,14 +50,12 @@ class ProjectAtlasSurface:
 
     @staticmethod
     def _surface_signature():
-        # Protocol TOOLS/PROMPTS are process-live surfaces: dispatch can lawfully
-        # compose additional tool modules without moving either Git repository.
         from .protocol import PROMPTS, TOOLS
         return digest({"tools":TOOLS,"prompts":PROMPTS},32)
 
     @staticmethod
     def _runtime_key(frontier: dict):
-        return tuple(frontier.get(k) for k in ("status","mode","repo_key","head","root"))
+        return tuple(frontier.get(k) for k in ("status","mode","repo_key","head","root","attestation_level"))
 
     def _invalidate_cache(self):
         self._cache_key=None
@@ -67,7 +67,6 @@ class ProjectAtlasSurface:
     def _compile_snapshot(self, configured_head: str, runtime_before: dict, surface_signature: str) -> dict:
         configured_atlas=compile_git_atlas(self.server.git.root,ref=configured_head,include_trees=True)
         runtime_atlas=None
-        mcp_surface=None
         runtime_is_configured=False
 
         if runtime_before.get("status")=="RESOLVED":
@@ -106,17 +105,20 @@ class ProjectAtlasSurface:
             }
 
         git_atlases=[configured_atlas]
-        if runtime_atlas is not None and not runtime_is_configured:
-            git_atlases.append(runtime_atlas)
+        if runtime_atlas is not None and not runtime_is_configured:git_atlases.append(runtime_atlas)
         surfaces=[mcp_surface] if mcp_surface.get("status")!="HOLD_RUNTIME_PROVENANCE" else []
         federation=federate_atlases(git_atlases,surfaces)
+        if runtime_before.get("status")!="RESOLVED":standing="PARTIAL_RUNTIME_PROVENANCE_HOLD"
+        elif runtime_atlas is None:standing="PARTIAL_RUNTIME_TREE_UNAVAILABLE"
+        else:standing="GENERATED"
         return {
             "schema":"ATHENA.KC144.FEDERATED_RUNTIME_PROJECT_ATLAS.V2",
-            "status":"GENERATED" if runtime_before.get("status")=="RESOLVED" else "PARTIAL_RUNTIME_PROVENANCE_HOLD",
+            "status":standing,
             "configured_git":configured_atlas,
             "runtime_git":runtime_atlas,
             "runtime_git_is_configured":runtime_is_configured,
             "runtime_provenance":dict(runtime_before),
+            "runtime_tree_available":runtime_atlas is not None,
             "mcp_surface":mcp_surface,
             "federation":federation,
             "surface_signature":surface_signature,
@@ -140,7 +142,7 @@ class ProjectAtlasSurface:
             runtime_before=runtime_frontier()
             surface_signature=self._surface_signature()
 
-            if expected is not None and configured_head != expected:
+            if expected is not None and configured_head!=expected:
                 return None,self._hold(
                     "HOLD_STALE_CONFIGURED_HEAD",
                     expected_head=expected,
@@ -161,7 +163,7 @@ class ProjectAtlasSurface:
                         runtime_provenance=runtime_before,
                         reason="Cannot validate expected runtime head without exact runtime-source provenance.",
                     ),configured_before
-                if runtime_before.get("head") != expected_runtime:
+                if runtime_before.get("head")!=expected_runtime:
                     return None,self._hold(
                         "HOLD_STALE_RUNTIME_HEAD",
                         expected_runtime_head=expected_runtime,
@@ -176,19 +178,20 @@ class ProjectAtlasSurface:
                 snapshot=self._cache
             else:
                 snapshot=self._compile_snapshot(configured_head,runtime_before,surface_signature)
-                atlas_head=snapshot["configured_git"]["repository"]["head"]
-                if atlas_head!=configured_head:
+                if snapshot["configured_git"]["repository"]["head"]!=configured_head:
                     self._invalidate_cache();continue
                 runtime_atlas=snapshot.get("runtime_git")
-                if runtime_atlas is not None and runtime_atlas["repository"]["head"]!=runtime_before.get("head"):
-                    self._invalidate_cache();continue
+                if runtime_atlas is not None:
+                    if runtime_atlas["repository"]["head"]!=runtime_before.get("head"):
+                        self._invalidate_cache();continue
+                    if runtime_atlas["repository"]["repo_key"]!=runtime_before.get("repo_key"):
+                        self._invalidate_cache();continue
 
             configured_after=git.status()
             runtime_after=runtime_frontier()
             after_signature=self._surface_signature()
-            atlas_head=snapshot["configured_git"]["repository"]["head"]
             stable=(
-                configured_after["head"]==configured_head==atlas_head
+                configured_after["head"]==configured_head==snapshot["configured_git"]["repository"]["head"]
                 and same_runtime_frontier(runtime_before,runtime_after)
                 and after_signature==surface_signature
             )
@@ -258,6 +261,21 @@ class ProjectAtlasSurface:
         rows.extend(("mcp",r) for r in snapshot.get("mcp_surface",{}).get("records",[]))
         return rows
 
+    @staticmethod
+    def _strong_identifier(identifier: str, source: str, rec: dict) -> bool:
+        ident=str(identifier)
+        if ident in {rec.get("poid"),rec.get("address"),rec.get("return",{}).get("uri")}:
+            return True
+        mcp=rec.get("mcp")
+        if source=="mcp" and mcp:
+            typed={
+                f"{mcp.get('kind')}:{mcp.get('name')}",
+                f"mcp:{mcp.get('kind')}:{mcp.get('name')}",
+                rec.get("native",{}).get("path"),
+            }
+            return ident in typed
+        return False
+
     def _resolve_in_snapshot(self, snapshot: dict, identifier: str) -> dict:
         ident=str(identifier);convenience=ident[2:] if ident.startswith("./") else ident;matches=[]
         for source,rec in self._all_records(snapshot):
@@ -268,25 +286,41 @@ class ProjectAtlasSurface:
                 aliases.update({mcp.get("name"),f"{mcp.get('kind')}:{mcp.get('name')}",f"mcp:{mcp.get('kind')}:{mcp.get('name')}"})
             if ident in aliases or (source.endswith("_git") and convenience==native.get("path")):
                 matches.append((source,rec))
-        uniq={(source,rec["poid"]):(source,rec) for source,rec in matches};matches=list(uniq.values())
+        matches=list({(source,rec["poid"]):(source,rec) for source,rec in matches}.values())
         configured_head=snapshot["configured_git"]["repository"]["head"]
         runtime_head=snapshot.get("runtime_provenance",{}).get("head")
+        runtime_status=snapshot.get("runtime_provenance",{}).get("status")
+        tree_available=bool(snapshot.get("runtime_tree_available"))
+
         if not matches:
-            if snapshot.get("runtime_provenance",{}).get("status")!="RESOLVED":
+            if runtime_status!="RESOLVED":
                 return self._hold(
-                    "HOLD_RUNTIME_PROVENANCE",
-                    identifier=ident,
-                    configured_head=configured_head,runtime_head=runtime_head,
+                    "HOLD_RUNTIME_PROVENANCE",identifier=ident,configured_head=configured_head,runtime_head=runtime_head,
                     runtime_provenance=snapshot.get("runtime_provenance"),
-                    reason="Identifier was not found in configured Git, but the runtime/MCP coordinate universe is incomplete.",
+                    reason="Identifier was not found in configured Git, but runtime/MCP provenance is incomplete.",
+                )
+            if not tree_available:
+                return self._hold(
+                    "HOLD_RUNTIME_TREE_UNAVAILABLE",identifier=ident,configured_head=configured_head,runtime_head=runtime_head,
+                    runtime_provenance=snapshot.get("runtime_provenance"),
+                    reason="Runtime head is known but its Git tree is not enumerated; UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE.",
                 )
             return self._hold("HOLD_NOT_FOUND",identifier=ident,configured_head=configured_head,runtime_head=runtime_head,candidates=[])
+
         if len(matches)>1:
             return self._hold(
                 "HOLD_AMBIGUOUS",identifier=ident,configured_head=configured_head,runtime_head=runtime_head,
                 candidate_count=len(matches),candidates=[self._summary_record(source,rec) for source,rec in matches[:20]],
             )
+
         source,rec=matches[0]
+        if runtime_status=="RESOLVED" and not tree_available and not self._strong_identifier(ident,source,rec):
+            return self._hold(
+                "HOLD_RUNTIME_TREE_UNAVAILABLE",identifier=ident,configured_head=configured_head,runtime_head=runtime_head,
+                candidate=self._summary_record(source,rec),runtime_provenance=snapshot.get("runtime_provenance"),
+                reason="One visible candidate exists, but an unenumerated runtime Git tree could contain an equal unscoped identifier; use a POID/address/native RETURN or typed MCP locator.",
+            )
+
         return {
             "status":"RESOLVED","surface_version":PROJECT_ATLAS_SURFACE_VERSION,
             "configured_head":configured_head,"runtime_head":runtime_head,"identifier":ident,
@@ -308,14 +342,18 @@ class ProjectAtlasSurface:
         if hold:return hold
         configured=snapshot["configured_git"];runtime=snapshot.get("runtime_git");mcp=snapshot.get("mcp_surface",{});federation=snapshot.get("federation",{})
         runtime_provenance=snapshot.get("runtime_provenance",{})
+        if runtime_provenance.get("status")!="RESOLVED":standing="PARTIAL_RUNTIME_PROVENANCE_HOLD"
+        elif runtime is None:standing="PARTIAL_RUNTIME_TREE_UNAVAILABLE"
+        else:standing="PASS"
         return {
-            "status":"PASS" if runtime_provenance.get("status")=="RESOLVED" else "PARTIAL_RUNTIME_PROVENANCE_HOLD",
+            "status":standing,
             "surface_version":PROJECT_ATLAS_SURFACE_VERSION,
             "configured_head":configured["repository"]["head"],
             "runtime_head":runtime_provenance.get("head"),
             "repository":self._bounded_git_summary(configured),
             "configured_git":self._bounded_git_summary(configured),
             "runtime_git":self._bounded_git_summary(runtime),
+            "runtime_tree_available":runtime is not None,
             "runtime_git_is_configured":bool(snapshot.get("runtime_git_is_configured")),
             "runtime_provenance":runtime_provenance,
             "mcp_surface":{
@@ -347,10 +385,17 @@ class ProjectAtlasSurface:
         snapshot,hold,_=self._snapshot(args.get("expected_head"),args.get("expected_runtime_head"))
         if hold:return hold
         source_filter=args.get("source","all")
-        if source_filter in {"runtime_git","mcp"} and snapshot.get("runtime_provenance",{}).get("status")!="RESOLVED":
+        runtime_status=snapshot.get("runtime_provenance",{}).get("status")
+        if source_filter in {"runtime_git","mcp"} and runtime_status!="RESOLVED":
             return self._hold(
                 "HOLD_RUNTIME_PROVENANCE",configured_head=snapshot["configured_git"]["repository"]["head"],runtime_head=None,
                 runtime_provenance=snapshot.get("runtime_provenance"),reason=f"source={source_filter} requires exact runtime-source provenance",
+            )
+        if source_filter=="runtime_git" and snapshot.get("runtime_git") is None:
+            return self._hold(
+                "HOLD_RUNTIME_TREE_UNAVAILABLE",configured_head=snapshot["configured_git"]["repository"]["head"],
+                runtime_head=snapshot.get("runtime_provenance",{}).get("head"),runtime_provenance=snapshot.get("runtime_provenance"),
+                reason="Runtime repository/head is known but the runtime Git tree is not available for enumeration.",
             )
         prefix=args.get("path_prefix");prefix=prefix[2:] if prefix and prefix.startswith("./") else prefix
         directory=args.get("directory")
@@ -375,8 +420,13 @@ class ProjectAtlasSurface:
         rows.sort(key=lambda x:(x[0],x[1]["native"]["repo"],x[1]["native"]["path"],x[1]["native"]["git_type"],x[1]["poid"]))
         total=len(rows);offset=int(args.get("offset",0));limit=min(PROJECT_ATLAS_MAX_PAGE,int(args.get("limit",50)));page=rows[offset:offset+limit]
         next_offset=offset+len(page);next_offset=None if next_offset>=total else next_offset
+        standing="PASS"
+        if source_filter in {"all","git"} and snapshot.get("runtime_provenance",{}).get("status")=="RESOLVED" and snapshot.get("runtime_git") is None:
+            standing="PARTIAL_RUNTIME_TREE_UNAVAILABLE"
+        elif source_filter in {"all","git"} and snapshot.get("runtime_provenance",{}).get("status")!="RESOLVED":
+            standing="PARTIAL_RUNTIME_PROVENANCE_HOLD"
         return {
-            "status":"PASS","surface_version":PROJECT_ATLAS_SURFACE_VERSION,
+            "status":standing,"surface_version":PROJECT_ATLAS_SURFACE_VERSION,
             "configured_head":snapshot["configured_git"]["repository"]["head"],"runtime_head":snapshot.get("runtime_provenance",{}).get("head"),
             "total":total,"offset":offset,"limit":limit,"next_offset":next_offset,
             "items":[self._summary_record(source,rec) for source,rec in page],
@@ -397,8 +447,11 @@ class ProjectAtlasSurface:
         )
         route=route_records(src["full_record"],dst["full_record"],wrap=bool(args.get("wrap",False)))
         s_native=src["full_record"]["native"];d_native=dst["full_record"]["native"]
-        route["cross_repository"]=bool((s_native.get("repo"),s_native.get("head"))!=(d_native.get("repo"),d_native.get("head")))
-        if route["cross_repository"]:
+        same_repo=s_native.get("repo")==d_native.get("repo");same_head=s_native.get("head")==d_native.get("head")
+        route["cross_repository"]=not same_repo
+        route["cross_version"]=same_repo and not same_head
+        route["cross_frontier"]=not (same_repo and same_head)
+        if route["cross_frontier"]:
             route["federation_transition"]={
                 "federation_digest":snapshot.get("federation",{}).get("federation_digest"),
                 "src":{"repo":s_native.get("repo"),"head":s_native.get("head")},
@@ -438,5 +491,5 @@ class ProjectAtlasSurface:
             "project_atlas_cached_head":self._cache_head,"project_atlas_cached_runtime_head":self._cache_runtime_head,
             "project_atlas_cached_surface_signature":self._cache_surface_signature,"project_atlas_query_tools":4,
             "project_atlas_resource":PROJECT_ATLAS_RESOURCE["uri"],
-            "project_atlas_boundary":"READ_ONLY; configured Git != runtime-source Git; cache frontier=configured HEAD x runtime HEAD x live MCP surface; PROJECT_QUERY != PERSISTENT_STATE_MUTATION; PROJECT_ROUTE != SEMANTIC_EQUIVALENCE",
+            "project_atlas_boundary":"READ_ONLY; configured Git != runtime-source Git; unknown runtime tree != empty; cache frontier=configured HEAD x runtime HEAD x live MCP surface; PROJECT_QUERY != PERSISTENT_STATE_MUTATION; PROJECT_ROUTE != SEMANTIC_EQUIVALENCE",
         }
