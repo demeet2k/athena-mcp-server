@@ -1,0 +1,133 @@
+{
+  "schema": "ATHENA.SIGMA04.BUILD_TOPOLOGY.CONTRACT.v1",
+  "status": "CANDIDATE_CHILD_OF_QUALIFIED_UNMERGED_V3",
+  "version": "ATHENA.SIGMA04.BUILD_TOPOLOGY.ENTRYPOINT_SYMBOL.V1",
+  "coordinate": "SIGMA04.BUILD-TOPOLOGY",
+  "private_work_order": {
+    "repository": "demeet2k/Athena",
+    "issue": 528
+  },
+  "parent_v3": {
+    "repository": "demeet2k/athena-mcp-server",
+    "pull_request": 335,
+    "head": "48a9af3deef7bb5db31fa7188b61b5e0cd0b932d",
+    "qualification_ci_run": 31336608806,
+    "qualification_release_v34_run": 31336608789
+  },
+  "identity": {
+    "project_identity": "POID",
+    "exact_manifestation_identity": "PVTX(<plane,repo,head,POID>)",
+    "symbol_prefix": "PSYM.",
+    "symbol_identity": "PSYM = digest(PVTX, qualified_symbol, source_span_digest)",
+    "symbol_index_prefix": "PSYMI1.",
+    "build_edge_prefix": "PBUILD.",
+    "build_graph_prefix": "PBUILDG1.",
+    "authority": "NONE"
+  },
+  "symbol_index": {
+    "carrier": "Python AST",
+    "plane_scope": [
+      "configured_git",
+      "runtime_git"
+    ],
+    "definitions": [
+      "top-level function",
+      "top-level async function",
+      "top-level class",
+      "top-level simple assignment",
+      "top-level simple annotated assignment"
+    ],
+    "source_span_digest_basis": [
+      "exact Git object SHA",
+      "symbol kind",
+      "AST source span",
+      "exact AST source segment"
+    ],
+    "duplicate_binding": "HOLD_AMBIGUOUS_SYMBOL",
+    "source_failure": "HOLD_SYMBOL_SOURCE"
+  },
+  "entrypoint_extractor": {
+    "kind": "PYPROJECT_ENTRYPOINT_RESOLVES_TO_SYMBOL",
+    "extractor": "pep621_toml_entrypoint_to_python_ast_symbol_v1",
+    "toml_sources": [
+      "project.scripts",
+      "project.gui-scripts",
+      "project.entry-points.*"
+    ],
+    "syntax": "module:top_level_attribute",
+    "module_resolution_scope": "same exact <plane,repo,head> frontier as pyproject.toml",
+    "edge_evidence": "EXACT_TOML_DECLARATION+EXACT_PVTX_MODULE+PYTHON_AST_SYMBOL",
+    "nested_attribute": "HOLD_NESTED_ENTRYPOINT_SYMBOL",
+    "external_or_missing_module": "HOLD_ENTRYPOINT_MODULE",
+    "ambiguous_module": "HOLD_AMBIGUOUS_MODULE",
+    "missing_symbol": "HOLD_ENTRYPOINT_SYMBOL",
+    "ambiguous_symbol": "HOLD_AMBIGUOUS_SYMBOL",
+    "malformed_target": "HOLD_ENTRYPOINT_SYNTAX"
+  },
+  "live_repository_witness": {
+    "pyproject_path": "pyproject.toml",
+    "expected_scripts": {
+      "athena-mcp": {
+        "target": "athena_mcp.server:main",
+        "qualified_symbol": "athena_mcp.server.main",
+        "path": "athena_mcp/server.py"
+      },
+      "athena-project-atlas": {
+        "target": "athena_mcp.project_atlas:_main",
+        "qualified_symbol": "athena_mcp.project_atlas._main",
+        "path": "athena_mcp/project_atlas.py"
+      }
+    }
+  },
+  "deferred": {
+    "workflow_yaml": "DEFERRED_PENDING_PARSER_AND_SHELL_AMBIGUITY_CONTRACT",
+    "workflow_edge_kinds": [
+      "WORKFLOW_STEP_USES_ACTION",
+      "WORKFLOW_RUNS_COMMAND",
+      "WORKFLOW_REFERENCES_EXACT_PATH",
+      "WORKFLOW_CALLS_WORKFLOW",
+      "WORKFLOW_SELECTS_TEST"
+    ],
+    "reason": "do not introduce hidden YAML dependency or infer shell effects from command text"
+  },
+  "holds": [
+    "HOLD_SYMBOL_SOURCE",
+    "HOLD_AMBIGUOUS_SYMBOL",
+    "HOLD_PYPROJECT_SOURCE",
+    "HOLD_ENTRYPOINT_SYNTAX",
+    "HOLD_ENTRYPOINT_MODULE",
+    "HOLD_AMBIGUOUS_MODULE",
+    "HOLD_ENTRYPOINT_SYMBOL",
+    "HOLD_NESTED_ENTRYPOINT_SYMBOL"
+  ],
+  "laws": [
+    "PSYM != POID != PVTX != OID",
+    "SYMBOL_NAME_MATCH != SYMBOL_IDENTITY",
+    "MODULE_NAME_MATCH != MODULE_IDENTITY",
+    "ENTRYPOINT_TEXT != RESOLVED_LOCAL_SYMBOL",
+    "PYPROJECT_ENTRYPOINT_RESOLVES_TO_SYMBOL -> EXACT_MODULE_AND_SYMBOL_WITNESS",
+    "DUPLICATE_TOP_LEVEL_BINDING -> HOLD_AMBIGUOUS_SYMBOL",
+    "AMBIGUOUS_LOCAL_MODULE -> HOLD_AMBIGUOUS_MODULE",
+    "EXTERNAL_OR_MISSING_MODULE -> HOLD_ENTRYPOINT_MODULE",
+    "BUILD_EDGE != EXECUTION",
+    "BUILD_GRAPH != PROMOTION_AUTHORITY",
+    "BUILD_EDGE_CLASS_CHANGE_REQUIRES_SCHEMA_BUMP",
+    "COMMAND_TEXT != EXECUTED_EFFECT",
+    "UNRESOLVED_INTERPOLATION -> CONSERVE_UNKNOWN"
+  ],
+  "promotion": {
+    "standing": "HOLD_PENDING_SIGMA04_EXACT_HEAD_QUALIFICATION_AND_PRIVATE_REVIEW",
+    "canonical_rpc_promotion": false,
+    "package_version_change": false,
+    "publication": false,
+    "deployment": false,
+    "requirements": [
+      "integration PR remains child of exact qualified V3 head",
+      "qualification-only PR executes current CI against exact Sigma04 candidate head",
+      "current V3.4 release distribution succeeds on same exact candidate head",
+      "clean installed-wheel qualification succeeds",
+      "private work-order qualification receipt",
+      "separate authority before any MCP RPC exposure"
+    ]
+  }
+}
