@@ -73,6 +73,8 @@ class MythicConnectionPacketTests(unittest.TestCase):
         self.assertEqual("VALID", first["status"])
         self.assertEqual(first["packet_semantic_digest"], second["packet_semantic_digest"])
         self.assertEqual(64, len(first["packet_semantic_digest"]))
+        self.assertEqual(64, len(first["operator_registry_digest"]))
+        self.assertEqual(first["operator_registry_digest"], second["operator_registry_digest"])
         self.assertEqual(SOURCE_EVIDENCE, first["source_evidence"])
         self.assertEqual("EXTERNAL_BINDING_REQUIRED", first["implementation_witness"])
 
@@ -165,14 +167,19 @@ class MythicConnectionPacketTests(unittest.TestCase):
         packet["packet_semantic_digest"] = "0" * 64
         self.assert_hold_code(packet, "PACKET_SEMANTIC_DIGEST_MISMATCH")
 
+    def test_caller_registry_digest_mismatch_is_rejected(self):
+        packet = valid_packet()
+        packet["operator_registry_digest"] = "0" * 64
+        self.assert_hold_code(packet, "OPERATOR_REGISTRY_DIGEST_MISMATCH")
+
     def test_operator_order_does_not_change_semantic_digest(self):
         a = valid_packet()
         b = valid_packet()
         b["operators"].reverse()
-        self.assertEqual(
-            validate_connection_packet(a)["packet_semantic_digest"],
-            validate_connection_packet(b)["packet_semantic_digest"],
-        )
+        ra = validate_connection_packet(a)
+        rb = validate_connection_packet(b)
+        self.assertEqual(ra["packet_semantic_digest"], rb["packet_semantic_digest"])
+        self.assertEqual(ra["operator_registry_digest"], rb["operator_registry_digest"])
 
     def test_feature_and_firewall_order_do_not_change_semantic_digest(self):
         a = valid_packet()
@@ -187,14 +194,23 @@ class MythicConnectionPacketTests(unittest.TestCase):
             validate_connection_packet(b)["packet_semantic_digest"],
         )
 
+    def test_wrapper_firewall_change_changes_packet_digest_not_registry_digest(self):
+        a = valid_packet()
+        b = valid_packet()
+        b["firewalls"].append("CUSTOM_AUDIT_FIREWALL")
+        ra = validate_connection_packet(a)
+        rb = validate_connection_packet(b)
+        self.assertNotEqual(ra["packet_semantic_digest"], rb["packet_semantic_digest"])
+        self.assertEqual(ra["operator_registry_digest"], rb["operator_registry_digest"])
+
     def test_semantic_operator_change_changes_digest(self):
         a = valid_packet()
         b = valid_packet()
         b["operators"][0]["transforms"]["x"]["operand"] = 2
-        self.assertNotEqual(
-            validate_connection_packet(a)["packet_semantic_digest"],
-            validate_connection_packet(b)["packet_semantic_digest"],
-        )
+        ra = validate_connection_packet(a)
+        rb = validate_connection_packet(b)
+        self.assertNotEqual(ra["packet_semantic_digest"], rb["packet_semantic_digest"])
+        self.assertNotEqual(ra["operator_registry_digest"], rb["operator_registry_digest"])
 
     def test_provenance_order_is_semantic_and_changes_digest(self):
         a = valid_packet()
