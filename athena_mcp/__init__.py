@@ -63,3 +63,10 @@ from .collective_v14_install import install_release_v14 as _install_release_v14
 
 _install_release_v14(globals())
 del _install_release_v14
+
+# DEPLOYMENT-002 composes after V14 so initialize/manifest projections preserve
+# the current release identity and scientific frontier. It extends existing
+# PromptRuntime and AorDevelopmentSurface seams without replacing Server.
+from .deployment_extension import install_deployment_extension
+
+install_deployment_extension()
