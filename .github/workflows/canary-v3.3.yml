@@ -1,0 +1,213 @@
+name: ATHENA v3.3 Isolated Canary
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - 'deploy/canary_observer.py'
+      - 'tests/test_deployment_canary_observer_v3.py'
+      - '.github/workflows/canary-v3.3.yml'
+      - 'athena_mcp/deployment.py'
+  push:
+    branches: [master]
+    paths:
+      - 'deploy/canary_observer.py'
+      - 'tests/test_deployment_canary_observer_v3.py'
+      - '.github/workflows/canary-v3.3.yml'
+      - 'athena_mcp/deployment.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: read
+  actions: read
+
+concurrency:
+  group: athena-v3.3-isolated-canary
+  cancel-in-progress: false
+
+env:
+  CANARY_SUBJECT: Observe ATHENA v3.3.0 isolated canary
+  RELEASE_TAG: v3.3.0
+  RELEASE_HEAD: 11211341adf599ae78784cce4ded39f21ee71ef7
+  RELEASE_RUN_ID: '31297502454'
+  OCI_RUN_ID: '31298729440'
+  IMAGE_REF: ghcr.io/demeet2k/athena-mcp-server@sha256:d7eada158c5f202dd7a061218188d0c00b7317c867bedc742857a7b90298d8be
+
+jobs:
+  contract:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Validate observer and workflow contract
+        run: |
+          python -m compileall -q deploy/canary_observer.py tests/test_deployment_canary_observer_v3.py
+          python -m unittest discover -s tests -p 'test_deployment_canary_observer_v3.py' -v
+
+  observe:
+    if: >-
+      (github.event_name == 'push' &&
+       startsWith(github.event.head_commit.message, 'Observe ATHENA v3.3.0 isolated canary')) ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master')
+    permissions:
+      contents: read
+      packages: read
+      actions: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Prove immutable release, OCI publication, and observer identity
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git fetch origin master
+          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/master)"
+          if [ "$GITHUB_EVENT_NAME" = push ]; then
+            test "$(git show -s --format=%s HEAD)" = "$CANARY_SUBJECT"
+          fi
+
+          TAG_TARGET=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$RELEASE_TAG" --jq '.object.sha')
+          test "$TAG_TARGET" = "$RELEASE_HEAD"
+          gh release view "$RELEASE_TAG" --json tagName,isDraft,isPrerelease,assets > /tmp/release.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RELEASE_RUN_ID" > /tmp/release-run.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$OCI_RUN_ID" > /tmp/oci-run.json
+          rm -rf /tmp/athena-release-readback
+          mkdir -p /tmp/athena-release-readback
+          gh release download "$RELEASE_TAG" --pattern oci-image-ref.txt --dir /tmp/athena-release-readback
+          test "$(tr -d '\r\n' < /tmp/athena-release-readback/oci-image-ref.txt)" = "$IMAGE_REF"
+
+          python - <<'PY'
+          import json, os
+          release=json.load(open('/tmp/release.json'))
+          release_run=json.load(open('/tmp/release-run.json'))
+          oci_run=json.load(open('/tmp/oci-run.json'))
+          assert release['tagName']==os.environ['RELEASE_TAG']=='v3.3.0'
+          assert release['isDraft'] is False and release['isPrerelease'] is False
+          observed={asset['name'] for asset in release['assets']}
+          required={
+              'release-manifest.json','release-attestation.json','promotion-receipt.json','SHA256SUMS',
+              'oci-image-ref.txt','oci-release-attestation.json','SHA256SUMS.oci',
+          }
+          assert required <= observed, {'required':sorted(required),'observed':sorted(observed)}
+          assert release_run['name']=='Release Distribution V3.3'
+          assert release_run['event']=='workflow_dispatch'
+          assert release_run['head_sha']==os.environ['RELEASE_HEAD']
+          assert release_run['status']=='completed' and release_run['conclusion']=='success'
+          assert oci_run['name']=='ATHENA OCI Distribution V3.3'
+          assert oci_run['event']=='workflow_dispatch'
+          assert oci_run['status']=='completed' and oci_run['conclusion']=='success'
+          print('IMMUTABLE RELEASE + OCI IDENTITY PASS')
+          PY
+
+      - name: Authenticate to GHCR and pull the exact digest
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$GH_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          docker pull "$IMAGE_REF"
+          docker image inspect "$IMAGE_REF" > /tmp/image-inspect.json
+          grep -F 'd7eada158c5f202dd7a061218188d0c00b7317c867bedc742857a7b90298d8be' /tmp/image-inspect.json
+
+      - name: Start independent control and canary instances
+        shell: bash
+        run: |
+          set -euo pipefail
+          CONTROL_TOKEN=$(python -c 'import secrets; print(secrets.token_urlsafe(36))')
+          CANARY_TOKEN=$(python -c 'import secrets; print(secrets.token_urlsafe(36))')
+          test "$CONTROL_TOKEN" != "$CANARY_TOKEN"
+          echo "::add-mask::$CONTROL_TOKEN"
+          echo "::add-mask::$CANARY_TOKEN"
+          echo "ATHENA_CONTROL_TOKEN=$CONTROL_TOKEN" >> "$GITHUB_ENV"
+          echo "ATHENA_CANARY_TOKEN=$CANARY_TOKEN" >> "$GITHUB_ENV"
+
+          docker volume create athena-v3-control-state
+          docker volume create athena-v3-canary-state
+          docker run -d --name athena-v3-control --read-only \
+            --tmpfs /tmp:rw,noexec,nosuid,size=64m \
+            --cap-drop ALL --security-opt no-new-privileges \
+            -e ATHENA_HTTP_TOKEN="$CONTROL_TOKEN" \
+            -p 127.0.0.1:18765:8765 \
+            -v athena-v3-control-state:/var/lib/athena \
+            "$IMAGE_REF"
+          docker run -d --name athena-v3-canary --read-only \
+            --tmpfs /tmp:rw,noexec,nosuid,size=64m \
+            --cap-drop ALL --security-opt no-new-privileges \
+            -e ATHENA_HTTP_TOKEN="$CANARY_TOKEN" \
+            -p 127.0.0.1:18766:8765 \
+            -v athena-v3-canary-state:/var/lib/athena \
+            "$IMAGE_REF"
+          test "$(docker inspect athena-v3-control --format '{{.HostConfig.ReadonlyRootfs}}')" = true
+          test "$(docker inspect athena-v3-canary --format '{{.HostConfig.ReadonlyRootfs}}')" = true
+          test "$(docker inspect athena-v3-control --format '{{.Config.User}}')" = '65532:65532'
+          test "$(docker inspect athena-v3-canary --format '{{.Config.User}}')" = '65532:65532'
+
+      - name: Execute bounded replicated same-digest canary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python deploy/canary_observer.py \
+            --image-ref "$IMAGE_REF" \
+            --source-head "$RELEASE_HEAD" \
+            --release-tag "$RELEASE_TAG" \
+            --release-run-id "$RELEASE_RUN_ID" \
+            --oci-run-id "$OCI_RUN_ID" \
+            --workflow-run-id "$GITHUB_RUN_ID" \
+            --workflow-head "$GITHUB_SHA" \
+            --sample-count 31 \
+            --interval-seconds 2.1 \
+            --minimum-window-seconds 60 \
+            --output-dir dist/canary
+
+          python - <<'PY'
+          import json, pathlib
+          root=pathlib.Path('dist/canary')
+          witness=json.loads((root/'canary-witness.v3.3.0.json').read_text())
+          assessment=json.loads((root/'canary-assessment.v3.3.0.json').read_text())
+          assert witness['schema']=='ATHENA.ISOLATED.CANARY.WITNESS.1'
+          assert witness['comparison_kind']=='REPLICATED_SAME_DIGEST_STATE_RESTART'
+          assert assessment['decision']=='PROMOTE' and assessment['status']=='PASS'
+          assert witness['authority']=={
+              'cluster_apply_authorized':False,
+              'cutover_authorized':False,
+              'production_secret_provisioned':False,
+              'production_state_contacted':False,
+              'traffic_activation_authorized':False,
+          }
+          assert all(witness['structural_match'].values()), witness['structural_match']
+          assert witness['canary_metrics']['sample_count'] >= 30
+          assert witness['observation_window_seconds'] >= 60
+          print('ISOLATED CANARY PASS', witness['witness_digest'])
+          PY
+          (cd dist/canary && find . -maxdepth 1 -type f ! -name SHA256SUMS.canary -printf '%f\n' | sort | xargs sha256sum > SHA256SUMS.canary && sha256sum -c SHA256SUMS.canary)
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: athena-v3.3.0-isolated-canary-${{ github.run_id }}
+          path: dist/canary/*
+          if-no-files-found: error
+
+      - name: Diagnostics and cleanup
+        if: always()
+        shell: bash
+        run: |
+          docker ps -a || true
+          docker logs athena-v3-control || true
+          docker logs athena-v3-canary || true
+          docker rm -f athena-v3-control athena-v3-canary 2>/dev/null || true
+          docker volume rm athena-v3-control-state athena-v3-canary-state 2>/dev/null || true
+          docker logout ghcr.io 2>/dev/null || true
