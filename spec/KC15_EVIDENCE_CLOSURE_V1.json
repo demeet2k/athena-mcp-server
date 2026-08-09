@@ -1,0 +1,59 @@
+{
+  "artifact": "ATHENA.KC144.KC15.EVIDENCE.CLOSURE.V1",
+  "role": "derived CellClosure evidence update after trusted IC10 admission of the bounded KC15 structural support-lattice claim",
+  "parent_population_head": "8bc5c870646ba5ba78b7df7e1260ebd173af0138",
+  "population_receipt": {
+    "run_id": 31336281325,
+    "artifact_id": 9044425755,
+    "digest": "sha256:dcaa35097cce6130f470843a99c815320b7651a503b371f96aaf3c1b014d16af"
+  },
+  "kc15_admission": {
+    "run_id": 31337517391,
+    "head_sha": "54a38e8b40930a012ad8d6c252f9b91bac955f46",
+    "observed_artifact_id": 9044781008,
+    "observed_artifact_digest": "sha256:eba4dbb0bbf7708c4a2c52c1e27d3078701094f57fbd508144df5dde09888a0f",
+    "promotion_artifact_id": 9044813967,
+    "promotion_artifact_digest": "sha256:ced774bbc21edfba9fb3c5e037409c74bfb29790fcf9d8e6e047cb993ac6eede",
+    "binding_artifact_id": 9044816137,
+    "binding_artifact_digest": "sha256:8bbd4a4e58b9aef1b6021bdb1c85ef75a725443a0dce3eb8a499012110c14186",
+    "decision": "IC10_CHAIN_SATISFIED",
+    "decision_digest": "IC10.9F55C9196E2EAD45470029096F8855D9",
+    "promotion_run_id": "PROMRUN.972EA98D004E48A61C05B964"
+  },
+  "update_scope": {
+    "gids": [91,92,93,94,95,96,97,98,99,100,101,102,103,104,105],
+    "dimension": "evidence_status",
+    "from": "HOLD",
+    "to": "CLOSED",
+    "claim_scope": "EPOCH-B KC15 bounded structural support lattice only"
+  },
+  "dimensions_unchanged": [
+    "constitution_status",
+    "registry_status",
+    "population_status",
+    "execution_status",
+    "return_status"
+  ],
+  "expected_counts": {
+    "population_status": {"CLOSED":144},
+    "execution_status": {"PARTIAL":144},
+    "evidence_status": {"CLOSED":21,"PARTIAL":119,"HOLD":4},
+    "return_status": {"CLOSED":6,"PARTIAL":80,"UNKNOWN":58},
+    "overall_state": {"HOLD":4,"OPEN_TYPED":140,"CLOSED":0}
+  },
+  "remaining_evidence_holds": {
+    "73": "F30_GRADED_MEMORY_PARTIAL_EXACTIFICATION",
+    "77": "F34_MOTIVIC_COMPARISON_DEBT",
+    "78": "F35_HIGHER_COHERENCE_COMPOSITION_WITNESS",
+    "79": "F36_DERIVED_SINGULARITY_AND_EMPIRICAL_CLOSURE"
+  },
+  "firewalls": [
+    "KC15_STRUCTURAL_EVIDENCE_CLOSED != KC15_EXECUTION_CLOSED",
+    "KC15_STRUCTURAL_EVIDENCE_CLOSED != KC15_RETURN_CLOSED",
+    "KC15_STRUCTURAL_EVIDENCE_CLOSED != KC15_EMPIRICAL_TRUTH",
+    "IC10_CHAIN_SATISFIED != CANONICAL_INSTALLATION",
+    "DERIVED_MATRIX != MUTATION_OF_HISTORICAL_POPULATION_RECEIPT",
+    "F37_HONESTY_LEDGER_HOLDS_REMAIN_HOLD",
+    "WHOLE_CRYSTAL_OVERALL_CLOSED_REMAINS_ZERO"
+  ]
+}
