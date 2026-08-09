@@ -1,127 +1,176 @@
 # KC144 Project Atlas MCP Surface V2
 
-`ATHENA.PROJECT_ATLAS.MCP_SURFACE.V2` projects the read-only V1 Project Atlas into a bounded federated MCP query interface.
+`ATHENA.PROJECT_ATLAS.MCP_SURFACE.V2` projects the read-only V1 Project Atlas into a bounded, indexed, replay-identifiable federated MCP query interface.
 
 It is a **query membrane**, not a new identity system.
 
 ```text
 CONFIGURED GIT / ATHENA_GIT_ROOT ─┐
-                                  ├─> FEDERATED KC144 PROJECT SNAPSHOT
-RUNTIME SOURCE GIT ───────────────┤          │
-                                  │          ├─ summary
-LIVE MCP TOOLS + PROMPTS ─────────┘          ├─ resolve
-                                             ├─ list
-                                             └─ route -> native RETURN
+                                  ├─> FEDERATED KC144 SNAPSHOT ─> QUERY INDEX
+RUNTIME SOURCE GIT ───────────────┤              │                    │
+                                  │              │ PATLASV2.*         ├─ summary
+LIVE MCP TOOLS + PROMPTS ─────────┘              │                    ├─ resolve
+                                                 │                    ├─ list
+                                                 └─ federation ───────└─ route -> RETURN
 ```
 
 ## Ancestry
 
-V2 is developed from the exact V1 candidate:
+V2 is developed from exact V1 candidate `fc376ffa76864f173049164db9206295b96ec85b` / PR #295.
 
-`fc376ffa76864f173049164db9206295b96ec85b`.
+Architectural integration is child PR #310. Qualification-only PR #311 targets `master` only because the repository CI trigger runs on PRs whose base is `master`.
 
-Until V1 is accepted, V2 remains a child candidate. If V1 is rebased, changed or merged under a different commit, V2 must rebase and requalify; a green old child head is not current evidence.
+`QUALIFICATION_PR != INTEGRATION_PR`.
+
+Until V1 is accepted, V2 remains a child candidate. If V1 changes, V2 must rebase to the accepted ancestry and requalify; a green old child head is not current evidence.
 
 ## Three distinct project planes
 
-V2 explicitly refuses the earlier accidental collapse:
+V2 explicitly refuses:
 
 `CONFIGURED_GIT_HEAD != RUNTIME_GIT_HEAD`.
 
-### 1. Configured Git
+### Configured Git
 
-`ATHENA_GIT_ROOT` is the Git plane already owned by `GitBackend`. In ATHENA deployments this is commonly the canonical/private Git brain.
+`ATHENA_GIT_ROOT` is the Git plane owned by `GitBackend`, commonly the canonical/private brain.
 
-Its exact coordinate is independently observed as:
+Its native coordinate is:
 
 `<repo, ref/head, tree, path, object_sha>`.
 
-### 2. Runtime-source Git
+### Runtime-source Git
 
 MCP definitions belong to the runtime package/repository frontier, not automatically to `ATHENA_GIT_ROOT`.
 
-Exact runtime provenance is resolved in this priority order:
+Runtime provenance resolves in this order:
 
-1. `ATHENA_RUNTIME_GIT_ROOT` — explicit exact runtime checkout;
-2. package source checkout — accepted only when `athena_mcp/` sits directly beneath that checkout's `.git` root;
-3. `ATHENA_RUNTIME_REPOSITORY` + exact 40-hex `ATHENA_RUNTIME_GIT_HEAD` attestation;
-4. otherwise `HOLD_RUNTIME_PROVENANCE`.
-
-A wheel version alone is **not** an exact Git source coordinate.
+1. `ATHENA_RUNTIME_GIT_ROOT` exact checkout;
+2. package source checkout only when `athena_mcp/` is directly below its `.git` root;
+3. `ATHENA_RUNTIME_REPOSITORY` + exact 40-hex `ATHENA_RUNTIME_GIT_HEAD` host attestation;
+4. `HOLD_RUNTIME_PROVENANCE`.
 
 `PACKAGE_VERSION != RUNTIME_SOURCE_HEAD`.
 
-When runtime provenance includes a checkout, V2 also compiles its full Git tree atlas. When only repository+head attestation exists, MCP objects are exactly head-qualified but runtime tree enumeration remains unavailable.
+A source checkout yields `OBSERVED_LOCAL_GIT`. Host-configured repository/head identity yields `HOST_CONFIGURED_UNVERIFIED`: exact identity coordinates, not independent promotion verification.
 
-### 3. MCP virtual surface
+When only repository+head is known, MCP definitions can be exactly head-qualified but the runtime Git tree remains unknown:
 
-Every live installed `TOOLS + PROMPTS` definition is projected as an MCP virtual object using the **runtime-source repository/head**.
+`UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE`.
 
-It is never qualified by the configured/private brain HEAD.
+### MCP virtual surface
+
+Every live installed `TOOLS + PROMPTS` definition is projected using the runtime-source repository/head.
 
 `MCP_DEFINITION_COORDINATE_REQUIRES_RUNTIME_SOURCE_HEAD`.
 
-If exact runtime provenance is missing, MCP coordinates HOLD rather than borrowing another Git clock.
+MCP definitions never borrow the configured brain HEAD.
+
+## Federated query index
+
+Each stable snapshot compiles `ATHENA.PROJECT_ATLAS.QUERY_INDEX.V2` across visible records.
+
+Indexed maps:
+
+- `by_source`;
+- `by_poid`;
+- `by_address`;
+- `by_return`;
+- `by_path`;
+- `by_raw_mcp_name`;
+- `by_typed_mcp`;
+- `by_project_gid`;
+- `by_reference_gid`;
+- `by_directory`;
+- `by_blob`.
+
+The index is deterministically sorted, de-duplicated, order-invariant and duplicate-invariant. Its digest is included in the snapshot identity.
+
+`QUERY_INDEX != SEMANTIC_IDENTITY`.
+
+Exact resolver modes are explicitly visible:
+
+- `TYPED_MCP`;
+- `POID`;
+- `PROJECT_ADDRESS`;
+- `RETURN_URI`;
+- `OPEN_WORLD`.
+
+List calls seed from source/station/reference/directory indexes where applicable, then apply remaining filters. Indexing changes lookup cost and replayability; it does not change object meaning.
+
+## Replay identity
+
+Every stable federated observation has:
+
+`PATLASV2.<digest>`.
+
+The digest covers:
+
+- configured repo/head/tree/atlas digest;
+- runtime provenance;
+- runtime repo/head/tree/atlas digest when available;
+- MCP repo/head/surface digest;
+- live MCP `TOOLS + PROMPTS` signature;
+- query-index digest;
+- federation digest.
+
+Equivalent summary/resolve/list/route reads on one stable frontier expose the same snapshot ID. A configured-head change, runtime-head change, or live MCP-surface change changes it.
+
+`PROJECT_ATLAS_SNAPSHOT_ID != PROMOTION_RECEIPT`.
+
+Every query result has `authority=NONE`.
 
 ## Surface
 
 ### `athena_project_atlas_summary`
 
-Returns only bounded top-level state:
+Returns bounded top-level state only:
 
-- separate configured and runtime heads;
+- snapshot ID;
+- separate configured/runtime heads;
 - configured Git atlas digest/counts;
-- runtime-source provenance and, when available, runtime Git tree/digest/counts;
-- installed MCP surface repo/head/count/digest plus live surface signature;
-- federation digest;
+- runtime provenance and runtime Git digest/counts when tree is available;
+- MCP repo/head/count/surface digest/live signature;
+- query-index version/digest/counts;
+- federation roots/digest;
+- completeness coordinates;
 - dirty/branch observations;
 - pagination limits and laws.
 
-It does **not** return every atlas record.
-
 Optional CAS inputs:
 
-- `expected_head` = configured Git HEAD;
-- `expected_runtime_head` = runtime-source Git HEAD.
-
-Both are exact 40-hex commit identities.
+- `expected_head` = exact configured Git commit;
+- `expected_runtime_head` = exact runtime-source Git commit.
 
 ### `athena_project_resolve`
 
-Accepted exact identifiers:
+Exact identifiers:
 
-- `POID.*`;
-- exact Git path, including legal dot-prefixed paths such as `.github/...`;
-- full `PROJECT_KC144...` address;
-- exact native `athena+git://...` or `athena+mcp://...` RETURN URI;
-- exact MCP name;
-- typed MCP aliases `tool:<name>`, `prompt:<name>`, `mcp:tool:<name>`, `mcp:prompt:<name>`;
-- MCP virtual locator path.
+- POID;
+- full Project Atlas address;
+- exact `athena+git://...` RETURN;
+- exact `athena+mcp://...` RETURN;
+- typed MCP namespaces `tool:<name>`, `prompt:<name>`, `mcp:tool:<name>`, `mcp:prompt:<name>`.
 
-Resolution spans:
+Open-world identifiers include raw Git path and raw MCP name. They may be ambiguous across planes.
 
-- `configured_git`;
-- `runtime_git` when exact runtime tree is available;
-- `mcp`.
+Typed MCP prefixes are reserved namespaces: a Git filename literally equal to `tool:athena_project_route` does not hijack the MCP locator.
 
-A plain path appearing in both Git repositories is ambiguous by design.
+If zero matches in a complete universe: `HOLD_NOT_FOUND`.
 
-If zero records match and runtime provenance is complete: `HOLD_NOT_FOUND`.
+If runtime provenance is missing: `HOLD_RUNTIME_PROVENANCE`.
 
-If zero records match but runtime provenance is incomplete: `HOLD_RUNTIME_PROVENANCE` because the searched universe is incomplete.
+If runtime HEAD is known but its Git tree is unavailable and an open-world uniqueness claim cannot be proven: `HOLD_RUNTIME_TREE_UNAVAILABLE`.
 
-If more than one record matches: `HOLD_AMBIGUOUS` with at most 20 bounded candidate summaries.
+If multiple records match: `HOLD_AMBIGUOUS`, with bounded candidates.
 
-No textual-order, configured-Git-first, or MCP-first tie break is permitted.
+No configured-first, runtime-first, MCP-first or textual-order tie break is permitted.
 
 ### `athena_project_list`
-
-Deterministic bounded page over the federated record set.
 
 Sources:
 
 - `all`;
-- `git` = union of configured/runtime Git planes;
+- `git` = configured/runtime Git union;
 - `configured_git`;
 - `runtime_git`;
 - `mcp`.
@@ -133,121 +182,98 @@ Filters:
 - PROJECT_KC144 GID/row/column;
 - KC144 reference GID;
 - parent directory;
-- MCP kind `{tool,prompt}`;
+- MCP kind;
 - POID prefix.
 
-Pagination:
+Pagination is deterministic: default 50, max 100, explicit non-negative offset, `next_offset=null` at exhaustion.
 
-- default `50`;
-- maximum `100`;
-- explicit non-negative offset;
-- `next_offset=null` at exhaustion.
-
-No unbounded atlas response is available through this RPC.
+If the requested union includes an unknown runtime tree, standing is explicitly partial rather than pretending the missing tree is empty.
 
 ### `athena_project_route`
 
-1. Compile/resolve one federated exact snapshot.
-2. Resolve source exactly.
+1. Acquire one stable federated snapshot.
+2. Resolve source exactly through the witnessed index.
 3. Resolve destination exactly.
-4. HOLD if either endpoint is missing or ambiguous.
-5. Compute deterministic V1 PROJECT_KC144 station navigation.
-6. Return bounded endpoint records and both native RETURN witnesses.
-7. If endpoints lie on different `<repo,head>` frontiers, return an explicit federation transition carrying the federation digest and both repository heads.
+4. HOLD on missing/ambiguous endpoints.
+5. Compute deterministic V1 PROJECT_KC144 station route.
+6. Return both native RETURN witnesses.
+7. Record `cross_repository`, `cross_version`, and `cross_frontier` separately.
+8. Cross-frontier routes emit federation digest and both `<repo,head>` coordinates.
 
-`wrap=false` uses ordinary grid navigation.
-
-`wrap=true` uses the 12×12 toroidal route.
+`wrap=false` uses ordinary grid navigation; `wrap=true` uses the 12×12 torus.
 
 `PROJECT_ROUTE != SEMANTIC_EQUIVALENCE`.
 
-`CROSS_REPO_ROUTE_REQUIRES_EXACT_REPO_HEAD`.
-
 ### `athena://project-atlas`
 
-Read-only bounded federated summary resource. Full navigation remains tool-mediated.
+Read-only bounded federated summary. Full navigation remains tool-mediated.
 
-## Freshness algorithm
+## Freshness calculus
 
-The live project frontier is factorized because the three planes may change independently:
+The live frontier is:
 
 ```text
 F = <ConfiguredGitHEAD, RuntimeSourceFrontier, MCPSurfaceSignature>
+RuntimeSourceFrontier = <status, mode, repo, head, root, attestation_level>
 MCPSurfaceSignature = digest(TOOLS, PROMPTS)
-RuntimeSourceFrontier = <status, mode, repo, head, root>
 ```
 
-For query `q(expected_head, expected_runtime_head)`:
+For each query:
 
 ```text
-G0 = configured Git status/head
-R0 = resolve exact runtime source frontier
-S0 = digest(current TOOLS, current PROMPTS)
+G0 = configured Git head
+R0 = runtime source frontier
+S0 = live MCP signature
+validate optional configured/runtime expected-head CAS
+K0 = <G0,R0,S0>
 
-if expected_head != null and expected_head != G0.head:
-    HOLD_STALE_CONFIGURED_HEAD
+if cache.key != K0:
+    compile configured tree pinned to G0
+    compile runtime tree pinned to R0.head when checkout exists
+    compile MCP definitions at <R0.repo,R0.head>
+    federate roots
+    build deterministic query index
+    compute PATLASV2 snapshot ID
 
-if expected_runtime_head != null:
-    if R0 unresolved: HOLD_RUNTIME_PROVENANCE
-    if expected_runtime_head != R0.head: HOLD_STALE_RUNTIME_HEAD
-
-K0 = <G0.head, R0, S0>
-if cache.key == K0:
-    candidate = cache.value
+G1,R1,S1 = reobserve all three clocks
+if <G1,R1,S1> == <G0,R0,S0>:
+    accept/cache snapshot
 else:
-    compile configured atlas pinned to G0.head
-    compile runtime atlas pinned to R0.head when checkout exists
-    compile MCP surface at <R0.repo,R0.head>
-    federate exact roots
+    invalidate and retry once
 
-G1 = configured Git status/head
-R1 = resolve runtime source frontier again
-S1 = digest(current TOOLS, current PROMPTS)
-
-if G1.head == G0.head == candidate.configured_head
-   and R1 == R0
-   and S1 == S0:
-    cache(K0, candidate)
-    use candidate
-else:
-    invalidate cache and retry once
-
-if any coordinate remains moving:
+if still moving:
     HOLD_VOLATILE_FRONTIER
 ```
 
-Dirty worktree state is observed separately and does not rewrite committed atlas identity.
-
-`CONFIGURED_HEAD_CHANGE -> RECOMPILE`.
-
-`RUNTIME_HEAD_CHANGE -> RECOMPILE`.
-
-`MCP_SURFACE_CHANGE -> RECOMPILE`.
+Dirty worktree state is observed separately from committed identity.
 
 ## Read-only metering firewall
 
-The normal MCP dispatcher records runtime-tool usage as learned operational telemetry. That would make a Project Atlas read mutate persistent runtime-learning state merely because the project observed itself.
-
-Therefore the V2 calls register themselves into the dispatcher's non-self-metering set before post-call accounting:
+The ordinary MCP dispatcher records tool usage as learned operational telemetry. Project Atlas reads register their four RPCs as non-self-metering before post-call accounting.
 
 `PROJECT_QUERY != PERSISTENT_STATE_MUTATION`.
 
-This changes process-local dispatch accounting only; it grants no Git, semantic, Y1, release or execution authority.
+This grants no Git, semantic, Y1, release, deployment or execution authority.
 
 ## Composition
 
-V2 is composed through `AorDevelopmentSurface`:
+V2 composes through `AorDevelopmentSurface`:
 
-- `project_atlas_protocol.py` — schemas/resource;
-- `project_atlas_runtime_provenance.py` — exact runtime-source resolver;
-- `project_atlas_surface.py` — bounded federated read-only behavior;
+- `project_atlas_protocol.py` — bounded RPC schemas/resource;
+- `project_atlas_runtime_provenance.py` — runtime-source resolver;
+- `project_atlas_query_index.py` — deterministic federated index;
+- `project_atlas_surface.py` — snapshot/query/router membrane;
 - `AOR_DEVELOPMENT_TOOLS/RESOURCES` — modular exposure;
 - `SURFACE.2` — required mature surface group;
 - `COMPOSITION.2` — resident organ + read-only probe.
 
 No Project Atlas branch is added to the central `Server.call_tool` switch.
 
-## Laws
+Machine contract: `spec/KC144_PROJECT_ATLAS_MCP_SURFACE_V2.json`.
+
+Schema: `schemas/project_atlas_mcp_surface_v2.schema.json`.
+
+## Core laws
 
 ```text
 V2_DEPENDS_ON_V1
@@ -257,6 +283,9 @@ CONFIGURED_GIT_HEAD != RUNTIME_GIT_HEAD
 PACKAGE_VERSION != RUNTIME_SOURCE_HEAD
 MCP_VIRTUAL_OBJECT != GIT_BLOB
 MCP_DEFINITION_COORDINATE_REQUIRES_RUNTIME_SOURCE_HEAD
+UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE
+QUERY_INDEX != SEMANTIC_IDENTITY
+PROJECT_ATLAS_SNAPSHOT_ID != PROMOTION_RECEIPT
 PROJECT_QUERY != PROMOTION_AUTHORITY
 PROJECT_QUERY != PERSISTENT_STATE_MUTATION
 PROJECT_ROUTE != SEMANTIC_EQUIVALENCE
@@ -270,19 +299,21 @@ MOVING_PROJECT_FRONTIER -> BOUNDED_RETRY -> HOLD
 CROSS_REPO_ROUTE_REQUIRES_EXACT_REPO_HEAD
 RPC_SURFACE_EXISTENCE != CANONICAL_RPC_PROMOTION
 GREEN_CHILD_HEAD != ACCEPTED_ANCESTRY
+QUALIFICATION_PR != INTEGRATION_PR
 ```
 
 ## Promotion boundary
 
-V2 intentionally does **not** change the canonical package/release version while it is a child of an unmerged V1 PR.
+V2 intentionally does **not** change the canonical package/release version while it is a child of unmerged V1.
 
 Before canonical promotion:
 
-1. V1 must be accepted or V2 must rebase to its accepted successor ancestry.
-2. Exact rebased V2 head must pass the full syntax/unit/critical-invariants/smoke lattice.
-3. The public package/protocol/release coordinate must advance lawfully for the newly canonical RPC surface.
-4. Clean-wheel installation must expose the same query surface.
-5. Production runtime configuration must supply an exact runtime-source frontier when the package is not running from a source checkout.
-6. Publication and deployment remain separately authorized transitions.
+1. V1 must be accepted or V2 rebased to its accepted successor ancestry.
+2. Exact rebased V2 head must pass the complete qualification lattice.
+3. Public package/protocol/release identity must advance lawfully for the new canonical RPC surface.
+4. A clean-wheel installed-surface witness must verify the V2 ABI.
+5. Production configuration must supply exact runtime-source provenance when not running from a source checkout.
+6. Publication requires separate authority.
+7. Deployment requires separate authority.
 
 `CANDIDATE_SURFACE != RELEASE_VERSION`.
