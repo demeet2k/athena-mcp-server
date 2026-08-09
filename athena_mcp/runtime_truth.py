@@ -58,9 +58,30 @@ def _augment_collective(requirement: dict[str, Any]) -> dict[str, Any]:
     return item
 
 
+DEPLOYMENT_ORGAN_REQUIREMENT = {
+    "id": "ORGAN.DEPLOYMENT1",
+    "required_tools": (
+        "athena_deployment_manifest",
+        "athena_deployment_validate",
+        "athena_deployment_activation_plan",
+        "athena_deployment_assess_canary",
+    ),
+    "required_resources": (
+        "athena://deployment",
+        "athena://deployment/security",
+        "athena://deployment/rollout",
+    ),
+    "live_state": "LIVE_ACTIVATION_CAPABLE_DEPLOYMENT_NOT_IMPLIED",
+    "missing_state": "DEPLOYMENT_CONTRACT_NOT_SURFACED",
+    # Extension organs are dormant when none of their declared surface is
+    # present. The first observed tool or resource activates the complete
+    # requirement and therefore fails closed on a partially composed organ.
+    "optional_when_absent": True,
+}
+
 ORGAN_CAPABILITY_REQUIREMENTS = tuple(
     _augment_collective(item) for item in _core.ORGAN_CAPABILITY_REQUIREMENTS
-)
+) + (DEPLOYMENT_ORGAN_REQUIREMENT,)
 TRANSPORT_CAPABILITY_REQUIREMENTS = _core.TRANSPORT_CAPABILITY_REQUIREMENTS
 
 
@@ -75,6 +96,12 @@ def _overlay(
     for requirement in requirements:
         required_tools = set(requirement["required_tools"])
         required_resources = set(requirement.get("required_resources", ()))
+        observed_any = bool(
+            (required_tools & discovered_tools)
+            or (required_resources & discovered_resources)
+        )
+        if requirement.get("optional_when_absent") and not observed_any:
+            continue
         missing_tools = sorted(required_tools - discovered_tools)
         missing_resources = sorted(required_resources - discovered_resources)
         surface_pass = not missing_tools and not missing_resources
@@ -150,6 +177,7 @@ __all__ = [
     "INTEGRATION_BASE_SHA",
     "ACTIVE_PARENT_RUNTIME_SHA",
     "STRUCTURAL_SOURCE_SNAPSHOT_SHA",
+    "DEPLOYMENT_ORGAN_REQUIREMENT",
     "ORGAN_CAPABILITY_REQUIREMENTS",
     "TRANSPORT_CAPABILITY_REQUIREMENTS",
     "runtime_organ_overlay",
