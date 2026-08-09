@@ -154,18 +154,21 @@ try:
     for request_id, (x_value, target) in enumerate(
         ((-1.0, 1.0), (0.0, 0.0), (1.0, 1.0)), start=12
     ):
+        evidence_ref = f"smoke://gp/{request_id}"
         observed = call(
             "athena_gp_observe",
             {
                 "context_key": "SMOKE.GP",
                 "features": {"x": x_value},
                 "target": target,
-                "evidence_ref": f"smoke://gp/{request_id}",
+                "evidence_ref": evidence_ref,
                 "actor": "SMOKE",
             },
             request_id,
         )
-        assert observed["status"] == "OBSERVED", observed
+        assert observed["status"] == "FIXED_KERNEL_GP_STATE", observed
+        assert observed["observation_count"] == request_id - 11, observed
+        assert observed["evidence_ref"] == evidence_ref, observed
 
     before = call("athena_gp_state", {"context_key": "SMOKE.GP"}, 15)
     assert before["observation_count"] == 3, before
