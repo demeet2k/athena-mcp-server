@@ -40,13 +40,20 @@ class ProjectAtlasMcpSurfaceV2ContractTests(unittest.TestCase):
         self.assertEqual(self.contract["surface"]["max_page"],PROJECT_ATLAS_MAX_PAGE)
         self.assertTrue(self.contract["surface"]["read_only"])
         self.assertFalse(self.contract["surface"]["self_metering"])
+        self.assertTrue(self.contract["surface"]["full_snapshot_cas"])
+        for tool in PROJECT_ATLAS_TOOLS:
+            props=tool["inputSchema"]["properties"]
+            self.assertIn("expected_snapshot_id",props)
+            self.assertEqual(props["expected_snapshot_id"]["pattern"],r"^PATLASV2\.[0-9A-F]{32}$")
 
-    def test_frontier_factorization_preserves_three_clocks(self):
+    def test_frontier_factorization_preserves_three_clocks_and_full_snapshot_cas(self):
         frontier=self.contract["frontier"]
         self.assertEqual(frontier["factorization"],["CONFIGURED_GIT_HEAD","RUNTIME_SOURCE_FRONTIER","LIVE_MCP_SURFACE_SIGNATURE"])
         self.assertEqual(frontier["configured_git_source"],"ATHENA_GIT_ROOT")
         self.assertEqual(frontier["bounded_retry"],1)
         self.assertEqual(frontier["unknown_runtime_tree_law"],"UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE")
+        self.assertEqual(frontier["snapshot_cas_input"],"expected_snapshot_id")
+        self.assertEqual(frontier["snapshot_cas_pattern"],r"^PATLASV2\.[0-9A-F]{32}$")
         self.assertIn("ATHENA_RUNTIME_GIT_ROOT",frontier["runtime_source_priority"])
         self.assertIn("PACKAGE_SOURCE_CHECKOUT",frontier["runtime_source_priority"])
         self.assertIn("ATHENA_RUNTIME_REPOSITORY+ATHENA_RUNTIME_GIT_HEAD",frontier["runtime_source_priority"])
@@ -68,18 +75,21 @@ class ProjectAtlasMcpSurfaceV2ContractTests(unittest.TestCase):
         snapshot=self.contract["snapshot"]
         self.assertEqual(snapshot["prefix"],"PATLASV2.")
         self.assertEqual(snapshot["authority"],"NONE")
+        self.assertEqual(snapshot["cas"],"exact equality against expected_snapshot_id after stable snapshot construction")
         self.assertEqual(snapshot["law"],"PROJECT_ATLAS_SNAPSHOT_ID != PROMOTION_RECEIPT")
         self.assertEqual(self.contract["planes"],["configured_git","runtime_git","mcp"])
         self.assertEqual(self.contract["list_sources"],["all","git","configured_git","runtime_git","mcp"])
         self.assertIn("query_index_digest",snapshot["basis"])
         self.assertIn("federation_digest",snapshot["basis"])
         self.assertIn("live_mcp_surface_signature",snapshot["basis"])
+        self.assertTrue(self.contract["route"]["snapshot_cas_before_endpoint_resolution"])
 
     def test_hold_lattice_is_explicit(self):
         holds=set(self.contract["hold_statuses"])
         required={
-            "HOLD_GIT_UNAVAILABLE","HOLD_STALE_CONFIGURED_HEAD","HOLD_STALE_RUNTIME_HEAD","HOLD_RUNTIME_PROVENANCE",
-            "HOLD_RUNTIME_TREE_UNAVAILABLE","HOLD_VOLATILE_FRONTIER","HOLD_NOT_FOUND","HOLD_AMBIGUOUS","HOLD_ROUTE_SOURCE","HOLD_ROUTE_DESTINATION",
+            "HOLD_GIT_UNAVAILABLE","HOLD_STALE_CONFIGURED_HEAD","HOLD_STALE_RUNTIME_HEAD","HOLD_STALE_SNAPSHOT",
+            "HOLD_RUNTIME_PROVENANCE","HOLD_RUNTIME_TREE_UNAVAILABLE","HOLD_VOLATILE_FRONTIER","HOLD_NOT_FOUND",
+            "HOLD_AMBIGUOUS","HOLD_ROUTE_SOURCE","HOLD_ROUTE_DESTINATION",
         }
         self.assertEqual(holds,required)
         self.assertEqual(self.contract["resolve"]["ambiguous"],"HOLD_AMBIGUOUS")
@@ -90,7 +100,7 @@ class ProjectAtlasMcpSurfaceV2ContractTests(unittest.TestCase):
         self.assertTrue(set(PROJECT_ATLAS_LAWS).issubset(laws))
         for law in (
             "V2_DEPENDS_ON_V1","GREEN_CHILD_HEAD != ACCEPTED_ANCESTRY","QUALIFICATION_PR != INTEGRATION_PR",
-            "RPC_SURFACE_EXISTENCE != CANONICAL_RPC_PROMOTION","MOVING_PROJECT_FRONTIER -> BOUNDED_RETRY -> HOLD",
+            "RPC_SURFACE_EXISTENCE != CANONICAL_RPC_PROMOTION","MOVING_PROJECT_FRONTIER -> BOUNDED_RETRY -> HOLD","STALE_SNAPSHOT -> HOLD",
         ):
             self.assertIn(law,laws)
 
@@ -114,17 +124,23 @@ class ProjectAtlasMcpSurfaceV2ContractTests(unittest.TestCase):
         self.assertIn("query_index",required)
         self.assertIn("query_index",properties)
 
-    def test_schema_locks_core_contract_identity_and_query_index(self):
+    def test_schema_locks_core_contract_identity_index_and_snapshot_cas(self):
         s=self.schema
         self.assertEqual(s["properties"]["schema"]["const"],self.contract["schema"])
         self.assertEqual(s["properties"]["surface_version"]["const"],self.contract["surface_version"])
         self.assertEqual(s["properties"]["surface"]["properties"]["tools"]["const"],self.contract["surface"]["tools"])
         self.assertEqual(s["properties"]["surface"]["properties"]["resource"]["const"],PROJECT_ATLAS_RESOURCE["uri"])
         self.assertEqual(s["properties"]["surface"]["properties"]["max_page"]["const"],PROJECT_ATLAS_MAX_PAGE)
+        self.assertEqual(s["properties"]["surface"]["properties"]["full_snapshot_cas"]["const"],True)
+        self.assertEqual(s["properties"]["frontier"]["properties"]["snapshot_cas_input"]["const"],"expected_snapshot_id")
+        self.assertEqual(s["properties"]["frontier"]["properties"]["snapshot_cas_pattern"]["const"],self.contract["frontier"]["snapshot_cas_pattern"])
         self.assertEqual(s["properties"]["query_index"]["properties"]["version"]["const"],INDEX_VERSION)
         self.assertEqual(s["properties"]["query_index"]["properties"]["maps"]["const"],self.contract["query_index"]["maps"])
         self.assertEqual(s["properties"]["query_index"]["properties"]["law"]["const"],"QUERY_INDEX != SEMANTIC_IDENTITY")
         self.assertEqual(s["properties"]["snapshot"]["properties"]["basis"]["const"],self.contract["snapshot"]["basis"])
+        self.assertEqual(s["properties"]["snapshot"]["properties"]["cas"]["const"],self.contract["snapshot"]["cas"])
+        self.assertEqual(s["properties"]["route"]["properties"]["snapshot_cas_before_endpoint_resolution"]["const"],True)
+        self.assertIn("HOLD_STALE_SNAPSHOT",s["properties"]["hold_statuses"]["const"])
         self.assertEqual(s["properties"]["promotion"]["properties"]["canonical_rpc_promotion"]["const"],False)
 
 
