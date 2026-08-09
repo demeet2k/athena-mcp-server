@@ -77,9 +77,9 @@ jobs:
           python -m unittest discover -s tests -p 'test_collective_v15_unified.py' -v
       - name: Deployment V2 composition and authority boundaries
         run: |
-          python -m unittest discover -s tests -p 'test_deployment_protocol_v2.py' -v
-          python -m unittest discover -s tests -p 'test_deployment_extension_v2.py' -v
-          python -m unittest discover -s tests -p 'test_deployment_http_host_v2.py' -v
+          python -m unittest discover -s tests -p 'test_deployment_contract_v2.py' -v
+          python -m unittest discover -s tests -p 'test_deployment_integration_v2.py' -v
+          python -m unittest discover -s tests -p 'test_http_host_v2.py' -v
 
   smoke:
     needs: [syntax, unit, critical-invariants]
