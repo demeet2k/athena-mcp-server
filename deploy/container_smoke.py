@@ -93,7 +93,7 @@ def main(argv: list[str] | None = None) -> None:
             },
             3,
         )
-        oid = registered["oid"]
+        oid = registered["object"]["oid"]
         args.state_file.write_text(json.dumps({"oid": oid}) + "\n")
         result = {"status": "WRITE_PASS", "oid": oid}
     else:
