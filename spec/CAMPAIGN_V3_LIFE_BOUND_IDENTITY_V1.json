@@ -1,8 +1,8 @@
 {
   "artifact": "ATHENA.CAMPAIGN.V3.LIFE.BOUND.IDENTITY.SPEC.V1",
-  "status": "CANDIDATE",
+  "status": "CANDIDATE_HARDENED",
   "runtime_issue": 149,
-  "runtime_base_head": "6d9d545b5fe608b9b173aa139c94caa32b25cffd",
+  "runtime_base_head": "92ff0dc3a892d81051557338fbdde9be288155a6",
   "purpose": "Pure structural identity join between a final Campaign V3 BOUND loop receipt and a validated Campaign V3 Life quest packet.",
   "source_contracts": {
     "bound_receipt": {
@@ -11,10 +11,19 @@
       "required_standing": "BOUND_LOOP_NOT_WORK_EXECUTED",
       "required_laws": [
         "PULSE_DIGEST_VERIFIED_BEFORE_LEASE",
-        "BOUND_RECEIPT_RETAINS_VERIFIED_PULSE_DIGEST"
+        "BOUND_RECEIPT_RETAINS_VERIFIED_PULSE_DIGEST",
+        "CAMPAIGN_BINDING != WORK_EXECUTION",
+        "BOUND_LOOP != OBSERVED_SUCCESS"
       ],
+      "failures": [],
+      "holds": [],
       "execution_authority_granted": false,
-      "work_executed": false
+      "work_executed": false,
+      "required_head_relations": [
+        "pre_lease_head != post_lease_head",
+        "post_loop_start_head != post_bind_head"
+      ],
+      "required_next": "RESUME_EXPLICIT_LOOP_AND_EXECUTE_ONE_LAWFUL_CYCLE"
     },
     "life_packet": {
       "artifact": "ATHENA.CAMPAIGN.V3.LIFE.QUEST.PACKET.V1",
@@ -60,7 +69,7 @@
     "structural_alignment_proves": [
       "the two supplied public objects agree on Campaign/branch/residual/pulse identity",
       "the Life packet passes its existing runtime validator",
-      "the BOUND receipt has the required non-authoritative structural markers"
+      "the BOUND receipt satisfies the current non-authoritative structural invariants checked by this adapter"
     ],
     "structural_alignment_does_not_prove": [
       "the caller-supplied BOUND receipt was produced by an authentic runtime mutation",
@@ -73,7 +82,8 @@
     ]
   },
   "ownership": {
-    "dispatch_translator_files": "unchanged and separately claimed",
+    "canonical_dispatch_bridge_present_on_base": true,
+    "dispatch_translator_files": "unchanged and separately owned",
     "semantic_life_state_machine": "not copied/called/owned",
     "scheduler_or_execution_surface_added": false
   },
@@ -84,6 +94,7 @@
     "branch mismatch => HOLD",
     "residual-step mismatch => HOLD",
     "non-BOUND or incomplete binding receipt => HOLD",
+    "BOUND receipt with failures/holds or nonadvancing required heads => HOLD",
     "forged execution/work authority => HOLD",
     "Life packet tamper invalidating packet digest => HOLD",
     "unknown identity-wrapper fields rejected even after digest recomputation",
