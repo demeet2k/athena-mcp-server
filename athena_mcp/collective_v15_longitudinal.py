@@ -5,6 +5,7 @@ from typing import Any, Mapping, Sequence
 from .collective_calibrated import _binary, _fold_assignment, _std_error
 from .collective_probabilistic import _fit_logistic, _logit, _mean, _predict_logistic, _sigmoid
 from .collective_robust import _fluctuation_epsilon
+from .collective_v15_history import validate_longitudinal_baseline, validate_longitudinal_sample_values, validate_propensity_clip
 
 
 def longitudinal_tmle_crossfit(
@@ -37,7 +38,10 @@ def longitudinal_tmle_crossfit(
             "assumptions": assumptions,
             "law": "declared latent confounding fails closed before estimation",
         }
-    base, rows = runtime._longitudinal_rows(samples, treatment1, intermediate, treatment2, outcome, baseline)
+
+    base=validate_longitudinal_baseline(baseline,treatment1,intermediate,treatment2,outcome)
+    validate_longitudinal_sample_values(samples,base)
+    base, rows = runtime._longitudinal_rows(samples, treatment1, intermediate, treatment2, outcome, base)
     regs = list(regimes or [
         {"id": "00", "a1": 0, "a2": 0},
         {"id": "01", "a1": 0, "a2": 1},
@@ -46,7 +50,7 @@ def longitudinal_tmle_crossfit(
     ])
     if not regs or len(regs) > 16:
         raise ValueError("regimes must contain 1..16 static treatment plans")
-    clip = max(0.01, min(0.25, float(propensity_clip)))
+    clip = validate_propensity_clip(propensity_clip)
     assignment = _fold_assignment(len(rows), folds, seed)
     k = max(assignment) + 1
     results = []
@@ -115,6 +119,8 @@ def longitudinal_tmle_crossfit(
                 fold_values.append(value)
             fold_estimates.append(_mean(fold_values))
 
+        if any(value is None for value in heldout_values):
+            raise RuntimeError("cross-fitted TMLE assignment is incomplete")
         vals = [float(x) for x in heldout_values]
         results.append({
             "id": str(reg.get("id", f"R{ri}")),
@@ -140,5 +146,5 @@ def longitudinal_tmle_crossfit(
         "propensity_clip": clip,
         "assumptions": assumptions,
         "history_invariant": "STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION",
-        "law": "nuisance and targeting models are trained without each held-out evaluation fold; stage 2 preserves observed A1/L1 and intervenes only on A2 before stage-1 target evaluation; this remains a bounded two-timepoint sequential logistic TMLE construction",
+        "law": "nuisance and targeting models are trained without each held-out evaluation fold; stage 2 preserves observed A1/L1 and intervenes only on A2 before stage-1 target evaluation; named post-baseline fields and non-finite baseline state are rejected; this remains a bounded two-timepoint sequential logistic TMLE construction",
     }
