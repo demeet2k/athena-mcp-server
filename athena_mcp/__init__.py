@@ -56,3 +56,38 @@ from .agent_bootstrap_cohesion_treatment import (
 )
 
 install_agent_bootstrap_cohesion_treatment(AgentBootstrapRuntime)
+
+# Rehydration Control V1.1 composes the existing rehydration causal loop with
+# Message Board ownership. It deliberately reuses both cached runtimes so no
+# second claim/lease plane or second loop state machine is introduced.
+from .rehydration_control import CONTROL_TOOLS, CONTROL_TOOL_NAMES, RehydrationControlRuntime
+
+for _tool in CONTROL_TOOLS:
+    if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
+        PROMPT_RUNTIME_TOOLS.append(_tool)
+        PROMPT_RUNTIME_TOOL_NAMES.add(_tool["name"])
+    if not any(existing["name"] == _tool["name"] for existing in _protocol.TOOLS):
+        _protocol.TOOLS.append(_tool)
+
+if not getattr(PromptRuntime, "_athena_rehydration_control_v1_1_registered", False):
+    _prompt_call_without_rehydration_control = PromptRuntime.call_tool
+
+    def _prompt_call_with_rehydration_control(self, name, arguments):
+        if name in CONTROL_TOOL_NAMES:
+            base = getattr(self, "_rehydration_loop_runtime_v1", None)
+            if base is None:
+                base = RehydrationLoopRuntime(self.git, self)
+                self._rehydration_loop_runtime_v1 = base
+            board = getattr(self, "_message_board_runtime_v1", None)
+            if board is None:
+                board = MessageBoardRuntime(self.git)
+                self._message_board_runtime_v1 = board
+            runtime = getattr(self, "_rehydration_control_runtime_v1_1", None)
+            if runtime is None:
+                runtime = RehydrationControlRuntime(base, board)
+                self._rehydration_control_runtime_v1_1 = runtime
+            return runtime.call_tool(name, arguments)
+        return _prompt_call_without_rehydration_control(self, name, arguments)
+
+    PromptRuntime.call_tool = _prompt_call_with_rehydration_control
+    PromptRuntime._athena_rehydration_control_v1_1_registered = True
