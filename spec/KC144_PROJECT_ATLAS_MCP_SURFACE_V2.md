@@ -18,15 +18,13 @@ LIVE MCP TOOLS + PROMPTS ─────────┘              │        
 
 V2 is developed from exact V1 candidate `fc376ffa76864f173049164db9206295b96ec85b` / PR #295.
 
-Architectural integration is child PR #310. Qualification-only PR #311 targets `master` only because the repository CI trigger runs on PRs whose base is `master`.
+Architectural integration is child PR #310. Qualification-only PR #311 targets `master` only because repository CI is triggered for PRs whose base is `master`.
 
 `QUALIFICATION_PR != INTEGRATION_PR`.
 
-Until V1 is accepted, V2 remains a child candidate. If V1 changes, V2 must rebase to the accepted ancestry and requalify; a green old child head is not current evidence.
+Until V1 is accepted, V2 remains a child candidate. If V1 changes, V2 must rebase to accepted ancestry and requalify; a green old child head is not current evidence.
 
 ## Three distinct project planes
-
-V2 explicitly refuses:
 
 `CONFIGURED_GIT_HEAD != RUNTIME_GIT_HEAD`.
 
@@ -34,7 +32,7 @@ V2 explicitly refuses:
 
 `ATHENA_GIT_ROOT` is the Git plane owned by `GitBackend`, commonly the canonical/private brain.
 
-Its native coordinate is:
+Native coordinate:
 
 `<repo, ref/head, tree, path, object_sha>`.
 
@@ -51,9 +49,9 @@ Runtime provenance resolves in this order:
 
 `PACKAGE_VERSION != RUNTIME_SOURCE_HEAD`.
 
-A source checkout yields `OBSERVED_LOCAL_GIT`. Host-configured repository/head identity yields `HOST_CONFIGURED_UNVERIFIED`: exact identity coordinates, not independent promotion verification.
+Source checkout standing is `OBSERVED_LOCAL_GIT`. Host-configured repository/head identity is `HOST_CONFIGURED_UNVERIFIED`: exact identity coordinates, not independent promotion verification.
 
-When only repository+head is known, MCP definitions can be exactly head-qualified but the runtime Git tree remains unknown:
+When only repository+head is known, MCP definitions can be exactly head-qualified while the runtime tree remains unknown:
 
 `UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE`.
 
@@ -83,11 +81,11 @@ Indexed maps:
 - `by_directory`;
 - `by_blob`.
 
-The index is deterministically sorted, de-duplicated, order-invariant and duplicate-invariant. Its digest is included in the snapshot identity.
+The index is deterministically sorted, de-duplicated, order-invariant and duplicate-invariant. Its digest is included in snapshot identity.
 
 `QUERY_INDEX != SEMANTIC_IDENTITY`.
 
-Exact resolver modes are explicitly visible:
+Resolver modes are visible:
 
 - `TYPED_MCP`;
 - `POID`;
@@ -95,13 +93,13 @@ Exact resolver modes are explicitly visible:
 - `RETURN_URI`;
 - `OPEN_WORLD`.
 
-List calls seed from source/station/reference/directory indexes where applicable, then apply remaining filters. Indexing changes lookup cost and replayability; it does not change object meaning.
+List calls seed from source/station/reference/directory indexes where applicable and then apply remaining filters. Indexing changes lookup cost and replayability; it does not change object meaning.
 
-## Replay identity
+## Replay identity and full-snapshot CAS
 
 Every stable federated observation has:
 
-`PATLASV2.<digest>`.
+`PATLASV2.<32-hex-digest>`.
 
 The digest covers:
 
@@ -118,6 +116,24 @@ Equivalent summary/resolve/list/route reads on one stable frontier expose the sa
 `PROJECT_ATLAS_SNAPSHOT_ID != PROMOTION_RECEIPT`.
 
 Every query result has `authority=NONE`.
+
+### Why head CAS is not sufficient
+
+`expected_head` and `expected_runtime_head` freeze the two Git clocks, but the process-live MCP surface can lawfully change without either Git head moving. Therefore V2 also accepts:
+
+`expected_snapshot_id = PATLASV2.<digest>`.
+
+Snapshot CAS is evaluated **after** a stable three-clock snapshot has been constructed. If the current full snapshot differs:
+
+`HOLD_STALE_SNAPSHOT`.
+
+Thus a caller can:
+
+1. obtain a summary and snapshot ID;
+2. issue resolve/list/route with that exact snapshot ID;
+3. fail closed if configured Git, runtime Git/provenance, MCP definitions, query-index digest or federation geometry changed.
+
+`STALE_SNAPSHOT -> HOLD`.
 
 ## Surface
 
@@ -139,7 +155,8 @@ Returns bounded top-level state only:
 Optional CAS inputs:
 
 - `expected_head` = exact configured Git commit;
-- `expected_runtime_head` = exact runtime-source Git commit.
+- `expected_runtime_head` = exact runtime-source Git commit;
+- `expected_snapshot_id` = exact full federated snapshot.
 
 ### `athena_project_resolve`
 
@@ -151,7 +168,7 @@ Exact identifiers:
 - exact `athena+mcp://...` RETURN;
 - typed MCP namespaces `tool:<name>`, `prompt:<name>`, `mcp:tool:<name>`, `mcp:prompt:<name>`.
 
-Open-world identifiers include raw Git path and raw MCP name. They may be ambiguous across planes.
+Open-world identifiers include raw Git path and raw MCP name and may be ambiguous across planes.
 
 Typed MCP prefixes are reserved namespaces: a Git filename literally equal to `tool:athena_project_route` does not hijack the MCP locator.
 
@@ -159,9 +176,11 @@ If zero matches in a complete universe: `HOLD_NOT_FOUND`.
 
 If runtime provenance is missing: `HOLD_RUNTIME_PROVENANCE`.
 
-If runtime HEAD is known but its Git tree is unavailable and an open-world uniqueness claim cannot be proven: `HOLD_RUNTIME_TREE_UNAVAILABLE`.
+If runtime HEAD is known but its tree is unavailable and an open-world uniqueness claim cannot be proven: `HOLD_RUNTIME_TREE_UNAVAILABLE`.
 
 If multiple records match: `HOLD_AMBIGUOUS`, with bounded candidates.
+
+If `expected_snapshot_id` is stale, resolution halts before identifier lookup.
 
 No configured-first, runtime-first, MCP-first or textual-order tie break is permitted.
 
@@ -189,16 +208,21 @@ Pagination is deterministic: default 50, max 100, explicit non-negative offset, 
 
 If the requested union includes an unknown runtime tree, standing is explicitly partial rather than pretending the missing tree is empty.
 
+`expected_snapshot_id` binds pagination to one exact visible project state.
+
 ### `athena_project_route`
 
 1. Acquire one stable federated snapshot.
-2. Resolve source exactly through the witnessed index.
-3. Resolve destination exactly.
-4. HOLD on missing/ambiguous endpoints.
-5. Compute deterministic V1 PROJECT_KC144 station route.
-6. Return both native RETURN witnesses.
-7. Record `cross_repository`, `cross_version`, and `cross_frontier` separately.
-8. Cross-frontier routes emit federation digest and both `<repo,head>` coordinates.
+2. Apply configured-head/runtime-head/full-snapshot CAS.
+3. Resolve source exactly through the witnessed index.
+4. Resolve destination exactly.
+5. HOLD on stale snapshot, missing endpoint or ambiguity.
+6. Compute deterministic V1 PROJECT_KC144 station route.
+7. Return both native RETURN witnesses.
+8. Record `cross_repository`, `cross_version`, and `cross_frontier` separately.
+9. Cross-frontier routes emit federation digest and both `<repo,head>` coordinates.
+
+Snapshot CAS occurs before endpoint resolution so one route never mixes two observations.
 
 `wrap=false` uses ordinary grid navigation; `wrap=true` uses the 12×12 torus.
 
@@ -243,6 +267,9 @@ else:
 
 if still moving:
     HOLD_VOLATILE_FRONTIER
+
+if expected_snapshot_id != null and expected_snapshot_id != snapshot.id:
+    HOLD_STALE_SNAPSHOT
 ```
 
 Dirty worktree state is observed separately from committed identity.
@@ -292,6 +319,7 @@ PROJECT_ROUTE != SEMANTIC_EQUIVALENCE
 AMBIGUOUS_RESOLVE -> HOLD
 STALE_CONFIGURED_HEAD -> HOLD
 STALE_RUNTIME_HEAD -> HOLD
+STALE_SNAPSHOT -> HOLD
 CONFIGURED_HEAD_CHANGE -> RECOMPILE
 RUNTIME_HEAD_CHANGE -> RECOMPILE
 MCP_SURFACE_CHANGE -> RECOMPILE
