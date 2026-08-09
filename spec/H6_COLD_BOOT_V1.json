@@ -1,0 +1,27 @@
+{
+  "artifact": "ATHENA.H6.COLD.BOOT.V1",
+  "role": "stacked qualification cartridge for H6RootRuntime V1",
+  "runtime_parent": "429a480a80eeefb9e2bff1ea3015adf571d76b0e",
+  "green_parent": "80f47b21a8bc26ece6032f9d4b89e96d9c987e9e",
+  "semantic_head": "f32eb817d48de73a0c591b0f7fb3561e4f08e7da",
+  "process_model": "parent seeds durable SQLite once; two independent Python child processes reopen the same durable state and compile the same H6 QueryBundle",
+  "required_checks": [
+    "same_h6_root_digest",
+    "same_query_id",
+    "durable_counts_unchanged",
+    "admitted_without_holds",
+    "identity_reconstructed",
+    "projection_reconstructed",
+    "current_vid_reconstructed"
+  ],
+  "authority": {
+    "execution": false,
+    "promotion": false,
+    "merge": false
+  },
+  "evidence_ceiling": [
+    "COLD_BOOT_MECHANISM_WITNESS_ONLY",
+    "COLD_BOOT_MATCH != WHOLE_CRYSTAL_COMPLETION",
+    "STACKED_BRANCH_PASS != GREEN_PARENT_CANONICAL_PROMOTION"
+  ]
+}
