@@ -1,0 +1,51 @@
+{
+  "artifact": "ATHENA.NEXT.SCOUT.EXECUTION.3",
+  "coordinate": "ATHENA.KC144::GITΩ::NEXT::SCOUT-EXECUTION::V3",
+  "purpose": "Allow independent agents to claim and return bounded staged PREP work for Q2/Q3 while Q1 remains the sole mutable focus.",
+  "parent": "ATHENA.NEXT.QUEST.PIPELINE.BREADTH.2",
+  "claim_authority": "ATHENA.MESSAGE.BOARD.PRESENCE.V1",
+  "claim_key": "next-prep:<pipeline_id>:<plan_id>",
+  "tools": [
+    "athena_next_scout_claim",
+    "athena_next_scout_status",
+    "athena_next_scout_return",
+    "athena_next_scout_release"
+  ],
+  "saga": [
+    "validate exact current pipeline state and staged prep plan",
+    "claim exact prep plan through Message Board",
+    "perform explicit external scout work",
+    "verify shared-current exact scout claim",
+    "persist observed PREP.RESULT.2 locally",
+    "publish the result commit to shared Git",
+    "release the Message Board claim only after publication succeeds"
+  ],
+  "failure_semantics": {
+    "duplicate_claim": "SCOUT_CLAIM_HOLD",
+    "missing_claim": "SCOUT_CLAIM_REQUIRED_HOLD",
+    "scope_mismatch": "SCOUT_SCOPE_HOLD",
+    "stale_pipeline": "STALE_PIPELINE_STATE_FOR_SCOUT",
+    "stale_git": "STALE_GIT_HEAD_FOR_SCOUT_RETURN",
+    "publish_failure": "SCOUT_RESULT_LOCAL_PUBLISH_HOLD with claim preserved"
+  },
+  "invariants": [
+    "scout claims one prep plan, never the parent quest",
+    "scout target is exactly one prep-result packet path",
+    "Q1 remains the sole mutable focus",
+    "scout return cannot complete Q2/Q3",
+    "scout return cannot grant evidence or promotion authority",
+    "result persistence precedes claim release",
+    "publication failure preserves the active claim for recovery",
+    "duplicate work suppression is delegated to Message Board exact work-key semantics",
+    "late results after pipeline-state change fail closed"
+  ],
+  "laws": [
+    "SCOUT_CLAIM != QUEST_CLAIM",
+    "SCOUT_WORK != BACKGROUND_EXECUTION",
+    "SCOUT_MAY_NOT_MUTATE_Q1",
+    "SCOUT_MAY_NOT_COMPLETE_STAGED_QUEST",
+    "SCOUT_RESULT != EVIDENCE_PROMOTION",
+    "RESULT_PERSISTED_BEFORE_SCOUT_RELEASE",
+    "LOCAL_RESULT != SHARED_RETURN_UNTIL_PUBLISHED"
+  ]
+}
