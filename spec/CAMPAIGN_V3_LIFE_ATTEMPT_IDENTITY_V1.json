@@ -1,9 +1,10 @@
 {
   "artifact": "ATHENA.CAMPAIGN.V3.LIFE.ATTEMPT.IDENTITY.SPEC.V1",
-  "status": "CANDIDATE_RUNTIME_CONTRACT",
+  "status": "CANDIDATE_RUNTIME_CONTRACT_SEMANTIC_V2_ALIGNED",
   "runtime_issue": 149,
-  "runtime_branch": "agent/campaign-v3-life-binding-minimal-v2",
-  "purpose": "Bind a validated Campaign V3 Life quest packet to a host-observed execution event without owning Life Loop state or treating transport retries as new plays.",
+  "runtime_base_head": "9eaf8d16dfc779afb5984722c51cb2229b3776db",
+  "runtime_branch": "agent/campaign-life-semantic-v2-provenance",
+  "purpose": "Bind a validated Campaign V3 Life quest packet to a host-observed execution event without owning Life Loop state, treating transport retries as new plays, or promoting an unmerged semantic replay candidate.",
   "inputs": {
     "validated_life_quest_packet": true,
     "execution_event_id": "required nonempty host-observed identity",
@@ -18,7 +19,10 @@
     "stable_across_transport_retry": true,
     "new_actual_play_requires_new_execution_event_id": true,
     "delivery_id_participates_in_attempt_identity": false,
-    "runtime_may_not_infer_new_play_from_delivery_retry": true
+    "runtime_may_not_infer_new_play_from_delivery_retry": true,
+    "execution_event_id_forwarded_unchanged_to_semantic_reducer": true,
+    "attempt_id_is_settlement_identity": true,
+    "semantic_replay_decision_owned_by_runtime": false
   },
   "semantic_base": {
     "repo": "demeet2k/Athena",
@@ -27,24 +31,44 @@
     "schema_blob": "93212c61e341ec474332c4daa36e776f735d2491",
     "registry_blob": "375c51fa362a110100568a1e0e8d47a279c1b928",
     "standing": "CANDIDATE_HARDENED_EXACT_SOURCE_TESTED",
-    "exact_source_local_tests": "16/16 PASS"
+    "exact_source_local_tests": "16/16 PASS",
+    "canonical_for_runtime_packet_policy_until_newer_semantic_merge": true
   },
-  "attempt_replay_extension": {
+  "semantic_replay_extension": {
+    "kind": "SEMANTIC_EXECUTION_REPLAY_V2",
     "repo": "demeet2k/Athena",
-    "pull_request": 291,
-    "branch": "agent/life-loop-replay-hardening-v1",
-    "branch_head_at_binding": "6e96348ad5a8adfe7f111695d9ed6ec168f43bfb",
-    "script_blob": "cd699b842d95e9a1c0794c2c23afab370a3ab39f",
-    "schema_blob": "09f66fc421ff2a9cb4a9e8d74927503a2d5c1c8d",
-    "test_blob": "ce7a72a4f74fabc8cb18c3d36cf69d85168fd75a",
-    "standing": "CANDIDATE_LOCAL_COMPOSED_TESTED_REMOTE_BLOB_VERIFIED",
-    "canonical_promotion": false,
+    "pull_request": 315,
+    "supersedes_pull_request": 291,
+    "branch": "agent/life-loop-semantic-replay-v2",
+    "branch_head_at_binding": "97ebac3d47b607a43eb31fda372afbe10a0ddfdc",
+    "base_head": "9aeddf08bf3d73e35ba0a67107e4c420e83aa416",
+    "canonical_reseed_blob": "8eb274cc8d7f966e8778da5677fa0207233ae39b",
+    "life_script_blob": "0e07e4e5a3cdf4be05fa189909c95c54f32aece4",
+    "life_schema_blob": "585a08c57ca1f20cd301d32d8fa9dd6c5eee77b7",
+    "life_test_blob": "88c408ba294158bf548337a677e6f471b6c56814",
+    "dispatch_script_blob": "8ec6b38f2c441efce21ea636db15ce3b78fcbdab",
+    "dispatch_schema_blob": "b1736e7e157e23daf2ae9919efe4bebf8e35f10d",
+    "dispatch_test_blob": "69e8e92788d366b9071aa2360bc77bbbc021986c",
+    "standing": "CANDIDATE_SEMANTIC_REPLAY_EXACT_SOURCE_TESTED",
+    "life_exact_source_local_tests": "23/23 PASS",
+    "dispatch_exact_source_local_tests": "23/23 PASS",
+    "combined_exact_source_local_tests": "46/46 PASS",
     "github_actions_ci": false,
-    "independent_witness": false
+    "independent_witness": false,
+    "performance_effect": "UNKNOWN",
+    "canonical_promotion": false,
+    "semantic_base_commit_remains_canonical": true
+  },
+  "runtime_qualification_inheritance": {
+    "merged_packet_identity_pr": 158,
+    "packet_identity_exact_head_ci": 1937,
+    "reseed_anchor_abi_repair_exact_head_ci": 1942,
+    "current_provenance_delta_requires_fresh_ci": true
   },
   "ownership_firewall": {
     "runtime_owns_life_world": false,
     "runtime_owns_life_reducer": false,
+    "runtime_owns_semantic_replay_decision": false,
     "runtime_owns_life_reward_issuance": false,
     "runtime_owns_reseed_anchor_consumption": false,
     "runtime_exposes_life_mutation_tools": false,
@@ -60,9 +84,11 @@
   "firewalls": [
     "DELIVERY_ID != ATTEMPT_ID",
     "RETRY_DELIVERY != NEW_PLAY",
+    "ATTEMPT_ID != EXECUTION_EVENT_ID",
     "ATTEMPT_ID != EXECUTION_AUTHORITY",
     "ATTEMPT_ID != REWARD_AUTHORITY",
     "ATTEMPT_ID != RESEED_AUTHORITY",
+    "RUNTIME_IDENTITY != SEMANTIC_REPLAY_DECISION",
     "RUNTIME_ADAPTER != SEMANTIC_LIFE_STATE_MACHINE",
     "CANDIDATE_EXTENSION != CANONICAL_PROMOTION"
   ]
