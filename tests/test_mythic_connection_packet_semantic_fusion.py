@@ -136,9 +136,13 @@ class MythicConnectionPacketSemanticFusionTests(unittest.TestCase):
     def test_delete_with_matching_typed_loss_is_valid(self):
         result = validate_connection_packet(deletion_backed_packet())
         self.assertEqual("VALID", result["status"])
-        first = result["canonical_semantics"]["operators"][0]
-        self.assertEqual(["memo"], first["typed_loss"])
-        self.assertEqual("DELETE", first["transforms"]["memo"]["op"])
+        by_id = {
+            row["edge_id"]: row
+            for row in result["canonical_semantics"]["operators"]
+        }
+        self.assertEqual(["memo"], by_id["FWD"]["typed_loss"])
+        self.assertEqual("DELETE", by_id["FWD"]["transforms"]["memo"]["op"])
+        self.assertEqual([], by_id["BACK"]["typed_loss"])
 
     def test_delete_operand_is_forbidden(self):
         packet = deletion_backed_packet()
