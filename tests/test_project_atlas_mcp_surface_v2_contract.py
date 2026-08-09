@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 
 from athena_mcp.project_atlas_protocol import PROJECT_ATLAS_RESOURCE, PROJECT_ATLAS_TOOLS
+from athena_mcp.project_atlas_query_index import INDEX_VERSION
 from athena_mcp.project_atlas_surface import PROJECT_ATLAS_LAWS, PROJECT_ATLAS_MAX_PAGE, PROJECT_ATLAS_SURFACE_VERSION
 
 
@@ -51,6 +52,18 @@ class ProjectAtlasMcpSurfaceV2ContractTests(unittest.TestCase):
         self.assertIn("ATHENA_RUNTIME_REPOSITORY+ATHENA_RUNTIME_GIT_HEAD",frontier["runtime_source_priority"])
         self.assertEqual(frontier["runtime_source_priority"][-1],"HOLD_RUNTIME_PROVENANCE")
 
+    def test_query_index_contract_matches_implementation(self):
+        q=self.contract["query_index"]
+        self.assertEqual(q["version"],INDEX_VERSION)
+        self.assertEqual(q["maps"],[
+            "by_source","by_poid","by_address","by_return","by_path","by_raw_mcp_name","by_typed_mcp",
+            "by_project_gid","by_reference_gid","by_directory","by_blob",
+        ])
+        self.assertTrue(q["digest_in_snapshot"])
+        self.assertTrue(q["order_invariant"])
+        self.assertTrue(q["duplicate_invariant"])
+        self.assertEqual(q["law"],"QUERY_INDEX != SEMANTIC_IDENTITY")
+
     def test_snapshot_and_plane_contract(self):
         snapshot=self.contract["snapshot"]
         self.assertEqual(snapshot["prefix"],"PATLASV2.")
@@ -58,6 +71,7 @@ class ProjectAtlasMcpSurfaceV2ContractTests(unittest.TestCase):
         self.assertEqual(snapshot["law"],"PROJECT_ATLAS_SNAPSHOT_ID != PROMOTION_RECEIPT")
         self.assertEqual(self.contract["planes"],["configured_git","runtime_git","mcp"])
         self.assertEqual(self.contract["list_sources"],["all","git","configured_git","runtime_git","mcp"])
+        self.assertIn("query_index_digest",snapshot["basis"])
         self.assertIn("federation_digest",snapshot["basis"])
         self.assertIn("live_mcp_surface_signature",snapshot["basis"])
 
@@ -90,12 +104,27 @@ class ProjectAtlasMcpSurfaceV2ContractTests(unittest.TestCase):
         self.assertIn("new canonical package/protocol/release coordinate",p["requirements"])
         self.assertIn("exact runtime-source provenance configuration",p["requirements"])
 
-    def test_schema_locks_core_contract_identity(self):
+    def test_schema_top_level_matches_contract_under_additional_properties_false(self):
+        required=set(self.schema["required"])
+        properties=set(self.schema["properties"])
+        contract_keys=set(self.contract)
+        self.assertTrue(self.schema["additionalProperties"] is False)
+        self.assertEqual(required,contract_keys)
+        self.assertEqual(properties,contract_keys)
+        self.assertIn("query_index",required)
+        self.assertIn("query_index",properties)
+
+    def test_schema_locks_core_contract_identity_and_query_index(self):
         s=self.schema
         self.assertEqual(s["properties"]["schema"]["const"],self.contract["schema"])
         self.assertEqual(s["properties"]["surface_version"]["const"],self.contract["surface_version"])
+        self.assertEqual(s["properties"]["surface"]["properties"]["tools"]["const"],self.contract["surface"]["tools"])
         self.assertEqual(s["properties"]["surface"]["properties"]["resource"]["const"],PROJECT_ATLAS_RESOURCE["uri"])
         self.assertEqual(s["properties"]["surface"]["properties"]["max_page"]["const"],PROJECT_ATLAS_MAX_PAGE)
+        self.assertEqual(s["properties"]["query_index"]["properties"]["version"]["const"],INDEX_VERSION)
+        self.assertEqual(s["properties"]["query_index"]["properties"]["maps"]["const"],self.contract["query_index"]["maps"])
+        self.assertEqual(s["properties"]["query_index"]["properties"]["law"]["const"],"QUERY_INDEX != SEMANTIC_IDENTITY")
+        self.assertEqual(s["properties"]["snapshot"]["properties"]["basis"]["const"],self.contract["snapshot"]["basis"])
         self.assertEqual(s["properties"]["promotion"]["properties"]["canonical_rpc_promotion"]["const"],False)
 
 
