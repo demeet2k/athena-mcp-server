@@ -4,8 +4,9 @@ from pathlib import Path
 from typing import Any,Dict
 
 from .architecture_drift import MATURE_ORGANS,audit_architecture,inventory_manifest
-from .architecture_drift_protocol import ARCHITECTURE_DRIFT_RESOURCES,ARCHITECTURE_DRIFT_RESOURCE_URIS,ARCHITECTURE_DRIFT_TOOLS,ARCHITECTURE_DRIFT_TOOL_NAMES
+from .architecture_drift_protocol import ARCHITECTURE_DRIFT_RESOURCES,ARCHITECTURE_DRIFT_TOOLS,ARCHITECTURE_DRIFT_TOOL_NAMES
 from .composition_integrity import composition_certificate
+from .coordination_manifest import EFFECTIVE_UNIFIED_MANIFEST_VERSION,build_effective_manifest,effective_layers,effective_maxdev_law
 from .github_promotion_verifier import GITHUB_PROMOTION_VERIFIER_VERSION,GithubPromotionVerifier
 from .promotion import PromotionLedger
 from .promotion_protocol import PROMOTION_RESOURCE,PROMOTION_TOOLS,PROMOTION_TOOL_NAMES
@@ -18,8 +19,7 @@ from .state_foundation_surface import StateFoundationSurface
 from .state_projection import OMEGA_COMPONENTS
 from .surface_contract import audit_surface,contract_manifest
 from .surface_protocol import SURFACE_RESOURCE,SURFACE_TOOLS,SURFACE_TOOL_NAMES
-from .unified_manifest import LAYERS,UNIFIED_MANIFEST_VERSION,build_unified_manifest,maxdev_law
-from .unified_manifest_protocol import UNIFIED_MANIFEST_RESOURCES,UNIFIED_MANIFEST_RESOURCE_URIS,UNIFIED_MANIFEST_TOOLS,UNIFIED_MANIFEST_TOOL_NAMES
+from .unified_manifest_protocol import UNIFIED_MANIFEST_RESOURCES,UNIFIED_MANIFEST_TOOLS,UNIFIED_MANIFEST_TOOL_NAMES
 
 INTEGRITY_TOOLS=(
     list(SURFACE_TOOLS)+list(PROMOTION_TOOLS)+list(STATE_FOUNDATION_TOOLS)+
@@ -72,7 +72,7 @@ class RuntimeIntegritySurface:
                 expected.update(str(path) for path in organ.get('spec_refs') or [])
             available_paths={path for path in expected if (root/path).exists()}
         return audit_architecture(
-            observed_tools=tool_names,observed_resources=resource_uris,manifest_layers=LAYERS,
+            observed_tools=tool_names,observed_resources=resource_uris,manifest_layers=effective_layers(),
             surface_required_tools=req_tools,surface_required_resources=req_resources,omega_components=OMEGA_COMPONENTS,
             ci_text=ci_text,available_paths=available_paths,
             classified_tool_baseline=req_tools,classified_resource_baseline=req_resources,
@@ -87,8 +87,8 @@ class RuntimeIntegritySurface:
         return raw
 
     def call_tool(self,name:str,args:Dict[str,Any]):
-        if name=='athena_runtime_manifest':return True,build_unified_manifest(self.server)
-        if name=='athena_maxdev_law':return True,{'text':maxdev_law()}
+        if name=='athena_runtime_manifest':return True,build_effective_manifest(self.server)
+        if name=='athena_maxdev_law':return True,{'text':effective_maxdev_law()}
         if name=='athena_startup_health':return True,self.startup.evaluate(args.get('run_replay_samples',False))
         if name=='athena_self_test':return True,self.self_test.run(args.get('replay_limit',10),args.get('run_composition_probes',True))
         if name=='athena_organ_inventory':return True,inventory_manifest()
@@ -117,10 +117,10 @@ class RuntimeIntegritySurface:
         return False,None
 
     def read_resource(self,uri:str):
-        if uri=='athena://runtime/unified-manifest':return build_unified_manifest(self.server)
-        if uri=='athena://runtime/maxdev':return {'mimeType':'text/plain','text':maxdev_law()}
+        if uri=='athena://runtime/unified-manifest':return build_effective_manifest(self.server)
+        if uri=='athena://runtime/maxdev':return {'mimeType':'text/plain','text':effective_maxdev_law()}
         if uri=='athena://architecture/inventory':return inventory_manifest()
-        if uri=='athena://architecture/drift':return {'inventory':inventory_manifest(),'latest':self.architecture_drift_audit(False),'law':'declared mature organs must agree across runtime discovery, SURFACE, manifest and OMEGA; repository CI/source witnesses are available through the explicit audit option'}
+        if uri=='athena://architecture/drift':return {'inventory':inventory_manifest(),'latest':self.architecture_drift_audit(False),'law':'declared mature organs must agree across runtime discovery, SURFACE, effective manifest and OMEGA; repository CI/source witnesses are available through the explicit audit option'}
         if uri==STARTUP_HEALTH_RESOURCE['uri']:
             return {'version':'ATHENA.STARTUP.1','latest':self.startup.evaluate(False),'law':'local startup readiness is typed separately from external promotion; reads remain available while degraded and write blocking requires explicit per-tool policy'}
         if uri==SELF_TEST_RESOURCE['uri']:
@@ -141,7 +141,7 @@ class RuntimeIntegritySurface:
     def benchmark(self):
         result={};result.update(self.promotion.benchmark());result.update(self.state_foundation.benchmark())
         drift=self.architecture_drift_audit(False)
-        result['self_test_version']='ATHENA.SELFTEST.1';result['startup_health_version']='ATHENA.STARTUP.1';result['unified_manifest_version']=UNIFIED_MANIFEST_VERSION;result['promotion_version']='ATHENA.PROMOTION.2'
+        result['self_test_version']='ATHENA.SELFTEST.1';result['startup_health_version']='ATHENA.STARTUP.1';result['unified_manifest_version']=EFFECTIVE_UNIFIED_MANIFEST_VERSION;result['promotion_version']='ATHENA.PROMOTION.2'
         result['github_promotion_verifier_version']=GITHUB_PROMOTION_VERIFIER_VERSION;result['github_promotion_verifier_configured']=self.github_promotion_verifier.describe()['configured']
         result['organ_inventory_version']=drift['organ_inventory_version'];result['architecture_drift_version']=drift['version'];result['architecture_drift_status']=drift['status'];result['architecture_drift_count']=drift['drift_count'];result['unclassified_surface_count']=drift['unclassified_surface']['count']
         return result
