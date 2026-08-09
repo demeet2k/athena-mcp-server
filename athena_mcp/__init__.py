@@ -71,9 +71,10 @@ from .deployment_extension import install_deployment_extension
 
 install_deployment_extension()
 
-# NEXT V1→V4: rolling focus, staged preparation, exact prep-plan scouts, then a
-# read-only bounded allocation membrane. Allocation may recommend claims but
-# cannot create them, execute work, or acquire evidence/promotion authority.
+# NEXT V1→V5: rolling focus, staged preparation, exact prep-plan scouts,
+# bounded slot allocation, then a read-only resource-vector scout economy.
+# Allocation/economics may recommend claims but cannot create them, execute work,
+# or acquire evidence/promotion authority.
 from .next_quest_pipeline import install_next_pipeline_extension
 from .next_quest_pipeline_hardening import install_next_pipeline_successor_authority_hardening
 from .next_quest_pipeline_bridge import install_next_pipeline_bridge
@@ -81,6 +82,7 @@ from .next_quest_pipeline_breadth import install_next_pipeline_breadth
 from .next_quest_pipeline_breadth_hardening import install_next_pipeline_breadth_idempotency_hardening
 from .next_quest_scout import install_next_scout_extension
 from .next_scout_allocation import install_next_scout_allocation_extension
+from .next_scout_economy import install_next_scout_economy_extension
 
 install_next_pipeline_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 install_next_pipeline_successor_authority_hardening()
@@ -89,6 +91,7 @@ install_next_pipeline_breadth(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIM
 install_next_pipeline_breadth_idempotency_hardening()
 install_next_scout_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 install_next_scout_allocation_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_scout_economy_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 for _tool in PROMPT_RUNTIME_TOOLS:
     if not any(existing["name"] == _tool["name"] for existing in _protocol.TOOLS):
         _protocol.TOOLS.append(_tool)
