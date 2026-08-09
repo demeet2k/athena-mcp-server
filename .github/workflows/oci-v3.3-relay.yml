@@ -1,0 +1,159 @@
+name: ATHENA v3.3 OCI Publication Relay
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - '.github/workflows/oci-v3.3-relay.yml'
+      - '.github/workflows/release-v3.3-activation.yml'
+      - 'tests/test_release_oci_activation.py'
+      - 'tests/test_release_oci_relay.py'
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/oci-v3.3-relay.yml'
+      - '.github/workflows/release-v3.3-activation.yml'
+      - 'tests/test_release_oci_activation.py'
+      - 'tests/test_release_oci_relay.py'
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: athena-v3.3-oci-relay-${{ github.sha }}
+  cancel-in-progress: false
+
+env:
+  RELEASE_TAG: v3.3.0
+  RELEASE_HEAD: 11211341adf599ae78784cce4ded39f21ee71ef7
+  RELEASE_RUN_ID: '31297502454'
+  OCI_WORKFLOW: oci-v3.3.yml
+  RELAY_SUBJECT: Relay ATHENA v3.3.0 OCI publication
+
+jobs:
+  contract:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Validate one-shot OCI relay contract
+        run: |
+          python -m unittest discover -s tests -p 'test_release_oci_activation.py' -v
+          python -m unittest discover -s tests -p 'test_release_oci_relay.py' -v
+
+  relay:
+    if: >-
+      github.event_name == 'push' &&
+      startsWith(github.event.head_commit.message, 'Relay ATHENA v3.3.0 OCI publication')
+    permissions:
+      contents: read
+      actions: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Verify immutable release, successful release run, and relay identity
+        id: verify
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git fetch origin master
+          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/master)"
+          test "$(git show -s --format=%s HEAD)" = "$RELAY_SUBJECT"
+
+          TAG_TARGET=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$RELEASE_TAG" --jq '.object.sha')
+          test "$TAG_TARGET" = "$RELEASE_HEAD"
+          gh release view "$RELEASE_TAG" --json tagName,isDraft,isPrerelease,assets > /tmp/release.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RELEASE_RUN_ID" > /tmp/release-run.json
+          python - <<'PY'
+          import json, os
+          release=json.load(open('/tmp/release.json'))
+          run=json.load(open('/tmp/release-run.json'))
+          assert release['tagName']==os.environ['RELEASE_TAG']=='v3.3.0'
+          assert release['isDraft'] is False and release['isPrerelease'] is False
+          required={
+              'athena_canonical_mcp-3.3.0-py3-none-any.whl',
+              'promotion-receipt.json',
+              'release-manifest.json',
+              'release-attestation.json',
+              'SHA256SUMS',
+          }
+          observed={asset['name'] for asset in release['assets']}
+          assert required <= observed, {'required':sorted(required),'observed':sorted(observed)}
+          assert run['name']=='Release Distribution V3.3'
+          assert run['path']=='.github/workflows/release-v3.3.yml'
+          assert run['event']=='workflow_dispatch'
+          assert run['status']=='completed' and run['conclusion']=='success'
+          assert run['head_sha']==os.environ['RELEASE_HEAD']
+          print('ALREADY_PUBLISHED' if {'oci-image-ref.txt','oci-release-attestation.json'} <= observed else 'DISPATCH_REQUIRED')
+          PY
+          STATUS=$(python - <<'PY'
+          import json
+          release=json.load(open('/tmp/release.json'))
+          observed={asset['name'] for asset in release['assets']}
+          print('ALREADY_PUBLISHED' if {'oci-image-ref.txt','oci-release-attestation.json'} <= observed else 'DISPATCH_REQUIRED')
+          PY
+          )
+          echo "status=$STATUS" >> "$GITHUB_OUTPUT"
+
+      - name: Dispatch exact OCI publication workflow
+        id: dispatch
+        if: steps.verify.outputs.status == 'DISPATCH_REQUIRED'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python - <<'PY' > /tmp/oci-dispatch.json
+          import json, os
+          print(json.dumps({
+              'ref':'master',
+              'inputs':{
+                  'tag':os.environ['RELEASE_TAG'],
+                  'expected_head':os.environ['RELEASE_HEAD'],
+                  'release_run_id':os.environ['RELEASE_RUN_ID'],
+              },
+          }))
+          PY
+          gh api --method POST \
+            "repos/$GITHUB_REPOSITORY/actions/workflows/$OCI_WORKFLOW/dispatches" \
+            --input /tmp/oci-dispatch.json
+          echo 'status=DISPATCHED' >> "$GITHUB_OUTPUT"
+
+      - name: Seal one-shot relay receipt
+        shell: bash
+        env:
+          PRECHECK_STATUS: ${{ steps.verify.outputs.status }}
+          DISPATCH_STATUS: ${{ steps.dispatch.outputs.status || 'SKIPPED_ALREADY_PUBLISHED' }}
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          receipt={
+              'schema':'ATHENA.OCI.RELAY.RECEIPT.1',
+              'repository':os.environ['GITHUB_REPOSITORY'],
+              'relay_head':os.environ['GITHUB_SHA'],
+              'relay_run_id':os.environ['GITHUB_RUN_ID'],
+              'release_tag':os.environ['RELEASE_TAG'],
+              'release_head':os.environ['RELEASE_HEAD'],
+              'release_run_id':os.environ['RELEASE_RUN_ID'],
+              'oci_workflow':os.environ['OCI_WORKFLOW'],
+              'precheck_status':os.environ['PRECHECK_STATUS'],
+              'dispatch_status':os.environ['DISPATCH_STATUS'],
+              'boundary':'The relay dispatches exact release bytes to OCI distribution only; it does not apply Kubernetes objects, issue cutover authority, activate traffic, or establish production health.'
+          }
+          pathlib.Path('oci-relay-receipt.json').write_text(json.dumps(receipt,indent=2,sort_keys=True)+'\n')
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oci-relay-v3.3.0-${{ env.RELEASE_HEAD }}
+          path: oci-relay-receipt.json
+          if-no-files-found: error
