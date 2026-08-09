@@ -1,0 +1,35 @@
+{
+  "artifact": "ATHENA.H6.INTEGRATED.COMPILE.V1",
+  "role": "coupled read-only H01-H06 constitutional transaction",
+  "parent": "ATHENA.H6.ROOT.RUNTIME.V1@80f47b21a8bc26ece6032f9d4b89e96d9c987e9e",
+  "new_stores": 0,
+  "execution_authority": false,
+  "promotion_authority": false,
+  "coupling": [
+    "H01 identity targets",
+    "H02 active projections",
+    "H03 route proposals",
+    "H04 required transform admissions",
+    "H05 required evidence decisions",
+    "H06 integrated admission/hold/return packet"
+  ],
+  "route_dependency_law": {
+    "required_transforms": "every referenced transform must have an ADMITTED BridgeDecision",
+    "required_claims": "every referenced claim must have EVIDENCE_SUFFICIENT standing",
+    "reachable_route": "reachability alone is never enough for integrated admission"
+  },
+  "navrun": {
+    "artifact": "ATHENA.H03.NAVRUN.V1",
+    "persistence": false,
+    "authority": "OBSERVATION_ONLY",
+    "deterministic_identity": true
+  },
+  "firewalls": [
+    "ROUTE_PASS != BRIDGE_PASS",
+    "BRIDGE_PASS != EVIDENCE_PASS",
+    "H6_INTEGRATED_ADMISSION != EXECUTION_AUTHORITY",
+    "NAVRUN_OBSERVATION != CLAIM_TRUTH",
+    "READ_ONLY_INTEGRATION != PROMOTION_AUTHORITY"
+  ],
+  "evidence_ceiling": "INTEGRATED_MECHANISM_ONLY_UNTIL_PROVIDER_AND_COLD_BOOT_WITNESSES"
+}

@@ -1,0 +1,34 @@
+name: H6 Integrated Qualification
+
+on:
+  pull_request:
+    branches:
+      - 'agent/h6-execution-cut03-green-v1'
+    paths:
+      - 'athena_mcp/h6_root.py'
+      - 'tests/test_h6_integrated.py'
+      - 'spec/H6_INTEGRATED_COMPILE_V1.json'
+      - '.github/workflows/h6-integrated.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  integrated:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile H6 integrated candidate
+        run: python -m compileall -q athena_mcp/h6_root.py tests/test_h6_integrated.py
+      - name: Run inherited H6 root tests
+        env:
+          PYTHONPATH: .
+        run: python -m unittest -v tests.test_h6_root tests.test_h6_root_adversarial
+      - name: Run coupled H01-H06 integration tests
+        env:
+          PYTHONPATH: .
+        run: python -m unittest -v tests.test_h6_integrated
