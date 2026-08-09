@@ -1,0 +1,51 @@
+{
+  "artifact": "ATHENA.H6.EXECUTION.CUT02.RED.V1",
+  "role": "exact parent-bound executable RED contract",
+  "runtime_parent": "429a480a80eeefb9e2bff1ea3015adf571d76b0e",
+  "semantic_head": "f32eb817d48de73a0c591b0f7fb3561e4f08e7da",
+  "facade_target": "athena_mcp.h6_root.H6RootRuntime",
+  "treatment": false,
+  "gaps": [
+    {
+      "id": "H6G01_IDENTITY_DECISION",
+      "parent_fact": "exact OID/CID/name navigation and deterministic IDs exist; declared alias relation is not a semantic IdentityDecision ABI",
+      "future_operation": "identity_decide"
+    },
+    {
+      "id": "H6G02_PROJECTION_AUTHORITY",
+      "parent_fact": "KC144 hash/index projection resolves without a constitutional seating-authority classification",
+      "future_operation": "projection_decide"
+    },
+    {
+      "id": "H6G04_BRIDGE_ADMISSION",
+      "parent_fact": "a transform can be registered as ISOMORPHISM without H04 invariant/corridor/evidence/reverse obligations; transform storage is not bridge admission",
+      "future_operation": "bridge_decide"
+    },
+    {
+      "id": "H6G05_EVIDENCE_GRAPH",
+      "parent_fact": "crystal evidence payload preserves caller-declared evidence but does not normalize independence/freshness/evidence-floor standing",
+      "future_operation": "evidence_decide"
+    },
+    {
+      "id": "H6G03_ROUTE_NAVRUN_ABI",
+      "parent_fact": "graph routing exists but native path output is not the constitutional RouteProposal/NAVRUN ABI",
+      "future_operation": "route_propose"
+    },
+    {
+      "id": "H6G06_QUERYBUNDLE_ROOT_FACADE",
+      "parent_fact": "hydration/reconstruction/frontier machinery exists but there is no canonical QueryBundle/H6 root compile receipt binding the six constitutional dimensions",
+      "future_operation": "compile_query"
+    }
+  ],
+  "laws": [
+    "RED_WITNESS != TREATMENT",
+    "PARTIAL != MISSING",
+    "COORDINATE != IDENTITY",
+    "HASH_PROJECTION != CONSTITUTIONAL_SEATING",
+    "GRAPH_PATH != ROUTE_PROPOSAL",
+    "TRANSFORM_REGISTRATION != BRIDGE_ADMISSION",
+    "RAW_EVIDENCE_PAYLOAD != H05_EVIDENCE_DECISION",
+    "HYDRATE_SNAPSHOT != QUERYBUNDLE",
+    "NO_GREEN_UNTIL_ALL_SIX_INTENDED_REDS_OBSERVED"
+  ]
+}
