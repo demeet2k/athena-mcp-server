@@ -21,6 +21,7 @@ RESULT_SCHEMA={
         'goal_id':{'type':'string','minLength':1},
         'agent_id':{'type':'string','minLength':1},
         'witness_ref':{'type':'string','minLength':1},
+        'result_event_ref':{'type':['string','null']},
     },
     'additionalProperties':False,
 }
@@ -118,8 +119,9 @@ PARTY_COORDINATION_TOOLS=[
         'name':'athena_party_observe',
         'description':(
             'Record a witnessed multi-goal party outcome and calculate a small receipt-gated coordination '
-            'XP bonus candidate. Results must cover at least two assigned goals and acknowledged Message Board '
-            'communication must connect at least two party members. The tool never mutates global XP authority.'
+            'XP bonus candidate. Party Reward Provenance V3 requires current frozen claims, ACKed typed result '
+            'events, and a globally unused source_xp_ref before an award; legacy calls missing those coordinates '
+            'remain parseable but HOLD. The tool never mutates global XP authority.'
         ),
         'inputSchema':{
             'type':'object',
@@ -129,6 +131,8 @@ PARTY_COORDINATION_TOOLS=[
                 'party_id':{'type':'string','minLength':1},
                 'observer':{'type':'string','minLength':1},
                 'base_xp':{'type':'number','minimum':0},
+                'source_xp_ref':{'type':['string','null']},
+                'source_xp_witness_ref':{'type':['string','null']},
                 'results':{'type':'array','minItems':2,'items':RESULT_SCHEMA},
                 'witness_ref':{'type':'string','minLength':1},
                 'remote':{'type':'string'},
