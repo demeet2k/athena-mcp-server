@@ -108,11 +108,15 @@ Three coordinates are kept distinct:
 
 If a radius is present, `transported_error_upper_bound` uses the tightest **eligible** witness inside that radius; the unrestricted global envelope is reported separately. This prevents a farther low-error witness from incorrectly making the local radius gate fail even though a valid nearby certificate exists.
 
+If a radius is declared and **no witness is radius-eligible**, the local transport certificate does not exist. V15 returns `local_certificate_available=false` and sets the local `transported_error_upper_bound`, `transport_witness_index`, and `transport_witness_distance` fields to `null`. The unrestricted `global_envelope_upper_bound` and its witness remain visible in separate fields but cannot satisfy the declared local radius constraint.
+
 `GEOMETRIC_NEAREST_WITNESS != TIGHTEST_ERROR_ENVELOPE_WITNESS`.
 
 `GLOBAL_ENVELOPE != RADIUS_ELIGIBLE_LOCAL_CERTIFICATE`.
 
-Optional decision-margin checks can mark a query as decision-preserving only when a radius-eligible certificate exists and its bound clears the declared safety fraction of the margin.
+`NO_RADIUS_ELIGIBLE_WITNESS != GLOBAL_FALLBACK_CERTIFICATE`.
+
+Optional decision-margin checks can mark a query as decision-preserving only when a radius-eligible certificate exists and its bound clears the declared safety fraction of the margin. A missing local certificate therefore yields no decision-preservation certificate even if the unrestricted global envelope is numerically small.
 
 `DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH`.
 
