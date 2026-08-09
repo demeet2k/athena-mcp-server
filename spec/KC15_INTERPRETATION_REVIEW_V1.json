@@ -1,0 +1,38 @@
+{
+  "artifact": "ATHENA.KC15.INTERPRETATION.REVIEW.V1",
+  "role": "bounded provider audit of current repository KC15 semantic consumers after independent structural witness",
+  "parent_structural_head": "b03cc386274cf2c5c7460bba865890ef65caae6c",
+  "scope": "current checked-out repository only",
+  "accepted_interpretation": "KC15 mask/support expresses only the active nonempty subset of poles {11,10,00,01} for a bounded constitutional/support transaction view",
+  "forbidden_semantic_casts": [
+    "SUPPORT_TO_TRUTH",
+    "SUPPORT_TO_EVIDENCE",
+    "SUPPORT_TO_PROBABILITY",
+    "MASK_TO_SEMANTIC_IDENTITY",
+    "SUPPORT_TO_EXECUTION_AUTHORITY",
+    "SUPPORT_TO_PROMOTION_AUTHORITY"
+  ],
+  "expected_runtime_state": {
+    "active_runtime_consumer": "NONE_OR_EXPLICITLY_REVIEWED",
+    "execution": "PARTIAL",
+    "interpretation_review": "PASS_IF_NO_FORBIDDEN_CAST_OBSERVED",
+    "evidence": "HOLD_UNTIL_IC10_ADMISSION",
+    "promotion_authority": false
+  },
+  "required_checks": [
+    "git grep current checkout for KC15 references",
+    "all athena_mcp runtime references are enumerated",
+    "constitution-only references are not treated as executable consumers",
+    "no executable consumer converts support/mask to truth/evidence/probability/identity/authority",
+    "absence of executable consumer does not imply execution qualification",
+    "future unreviewed consumers are outside this receipt"
+  ],
+  "firewalls": [
+    "NO_CURRENT_RUNTIME_CONSUMER != KC15_EXECUTION_QUALIFIED",
+    "NO_FORBIDDEN_CAST_OBSERVED != UNIVERSAL_FUTURE_SAFETY",
+    "INTERPRETATION_REVIEW != CLAIM_TRUTH",
+    "INTERPRETATION_REVIEW != IC10_ADMISSION",
+    "INTERPRETATION_REVIEW != PROMOTION_AUTHORITY",
+    "KC15_EVIDENCE_REMAINS_HOLD_UNTIL_IC10_ADMISSION"
+  ]
+}

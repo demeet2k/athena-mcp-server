@@ -1,0 +1,37 @@
+name: KC15 Interpretation Review
+
+on:
+  pull_request:
+    branches:
+      - 'agent/kc15-evidence-cut01-independent-v1'
+    paths:
+      - 'spec/KC15_INTERPRETATION_REVIEW_V1.json'
+      - 'scripts/kc15_interpretation_review.py'
+      - '.github/workflows/kc15-interpretation-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile bounded review
+        run: python -m compileall -q scripts/kc15_interpretation_review.py
+      - name: Audit current repository KC15 consumers
+        run: python scripts/kc15_interpretation_review.py
+      - name: Upload interpretation receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kc15-interpretation-review-v1
+          path: kc15_interpretation_review_v1.json
+          if-no-files-found: error
