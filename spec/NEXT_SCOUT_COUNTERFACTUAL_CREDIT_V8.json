@@ -1,0 +1,69 @@
+{
+  "artifact": "ATHENA.NEXT.SCOUT.COUNTERFACTUAL.CREDIT.8",
+  "coordinate": "ATHENA.KC144::GITΩ::NEXT::SCOUT-COUNTERFACTUAL-CREDIT::V8",
+  "purpose": "Estimate conservative matched observational prep-effect candidates from delayed V7 outcomes without converting association into causal proof or silently mutating the scout economy.",
+  "inputs": {
+    "treated": "V7 completed-focus outcome receipt containing target prep kind",
+    "control": "distinct V7 completed-focus outcome receipt not containing target prep kind",
+    "matching_basis": "independently sourced observed pre-treatment covariates with exact treated/control equality"
+  },
+  "forbidden_matching": [
+    "completion_status",
+    "completion_summary",
+    "completed_at",
+    "evidence_refs",
+    "focus_success",
+    "test_pass_ratio",
+    "rework_count",
+    "blocker_resolution_ratio",
+    "downstream_success",
+    "test_quality",
+    "low_rework",
+    "blocker_resolution",
+    "any post-treatment result or outcome field"
+  ],
+  "pair_delta": "delta_j = Y_treated,j - Y_control,j for common V7 outcome score coordinates",
+  "estimator": {
+    "location": "median pair delta",
+    "prior": "zero-effect prior",
+    "shrinkage": "shrunk_effect = n * median_delta / (prior_strength + n)",
+    "default_prior_strength": 3,
+    "default_min_pairs": 3,
+    "default_min_sign_consistency": 0.6666666666666666,
+    "default_min_effect": 0.05
+  },
+  "candidate_gate": [
+    "no treated-side pseudoreplication",
+    "no control-side pseudoreplication",
+    "metric support >= min_pairs",
+    "sign consistency >= threshold",
+    "median delta >= min_effect"
+  ],
+  "standing": {
+    "pair": "MATCHED_OBSERVATIONAL_CONTRAST",
+    "passing_estimate": "BENEFIT_PRIOR_CANDIDATE",
+    "failing_estimate": "ABSTAIN_INSUFFICIENT_COUNTERFACTUAL_SUPPORT",
+    "overlay": "COUNTERFACTUAL_CANDIDATE_OVERLAY_ONLY"
+  },
+  "tools": [
+    "athena_next_scout_counterfactual_pair_record",
+    "athena_next_scout_counterfactual_estimate",
+    "athena_next_scout_counterfactual_overlay"
+  ],
+  "authority": {
+    "causal_proof": false,
+    "benefit_prior_mutation": "NONE",
+    "allocation_effect": "NONE",
+    "claim_effect": "NONE",
+    "promotion_effect": "NONE"
+  },
+  "laws": [
+    "POST_TREATMENT_VARIABLES_CANNOT_DEFINE_MATCHES",
+    "SCOUT_SELF_REPORT != MATCHING_AUTHORITY",
+    "MATCHED_OBSERVATIONAL_CONTRAST != RANDOMIZED_CAUSAL_PROOF",
+    "PSEUDOREPLICATION => ABSTAIN",
+    "WEAK_OR_INCONSISTENT_EFFECT => ABSTAIN",
+    "V8_CANDIDATE != LIVE_ECONOMY_MUTATION",
+    "GREEN_CI != MERGE_AUTHORITY"
+  ]
+}
