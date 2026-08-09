@@ -1,0 +1,72 @@
+{
+  "artifact": "ATHENA.F34.REALIZATION.COLLAPSE.WITNESS.V1",
+  "role": "bounded formal witness for the realization/comparison/collapse mechanism declared by F34/GID077",
+  "parent_evidence_matrix_head": "d1d27b3f87d5d05e0a3bfe7c6ae1237f4430c746",
+  "gid": 77,
+  "carrier": "F34",
+  "constitutional_obligation": "MOTIVIC_COMPARISON_DEBT",
+  "source_roots": {
+    "math": {
+      "name": "f01_f37_math.txt",
+      "sha256": "71ef8e97a38adeda9c521e68238e4c8349f9b3e62dc412284f5f4d009921d4d5"
+    },
+    "symmetry": {
+      "name": "f01_f37_symmetries.txt",
+      "sha256": "80ce12eaffe541138ba3206077f9c854e5c9c9cdef010c97705eb59d16809d8c"
+    }
+  },
+  "source_w34_obligation": {
+    "realizations": true,
+    "comparison_maps": true,
+    "collapse_function": true,
+    "commuting_realization_diagram": true,
+    "typed_failures": [
+      "REALIZATION_MISMATCH",
+      "COMPARISON_NONCOMMUTATIVITY",
+      "LOSSY_COLLAPSE"
+    ]
+  },
+  "formal_fixture": {
+    "seed_packet": {
+      "packet_id": "F34.SEED.K1",
+      "values": [2,3,5],
+      "invariants": {"rank":3,"parity":0,"weight":10,"product":30}
+    },
+    "realizations": {
+      "R_vector": {"kind":"VECTOR","value":[2,3,5]},
+      "R_polynomial": {"kind":"POLYNOMIAL","value":{"x2":2,"x1":3,"x0":5}},
+      "R_prime_map": {"kind":"PRIME_MAP","value":{"2":1,"3":1,"5":1}}
+    },
+    "canonical_envelope": {
+      "carrier":"F34_GENERIC_ENVELOPE_FIXTURE",
+      "standing":"FORMAL_REALIZATION_FIXTURE_NOT_MOTIVIC_THEOREM",
+      "invariants":{"rank":3,"parity":0,"weight":10,"product":30}
+    }
+  },
+  "success_condition": {
+    "all_realizations_decode_to_same_seed": true,
+    "all_comparison_maps_are_exact_and_bidirectional": true,
+    "comparison_triangle_commutes": true,
+    "collapse_returns_same_canonical_envelope_from_each_realization": true,
+    "roundtrip_realization_collapse_reconstructs_seed": true,
+    "tampered_realization_is_detected": true,
+    "tampered_comparison_map_is_detected": true,
+    "lossy_collapse_is_detected": true
+  },
+  "standing_after_pass": {
+    "generic_realization_collapse_mechanism": "PASS",
+    "evidence": "HOLD",
+    "constitutional_obligation": "PARTIALLY_DISCHARGED",
+    "remaining_obligation": "SOURCE_BOUND_MOTIVIC_REALIZATION_AND_COMPARISON_MAP_WITNESS",
+    "truth_claim": "NOT_ESTABLISHED",
+    "promotion_authority": false
+  },
+  "firewalls": [
+    "FINITE_REALIZATION_FIXTURE != MOTIVIC_THEOREM",
+    "GENERIC_COMPARISON_KERNEL != SOURCE_BOUND_REALIZATION_FUNCTOR",
+    "COMMUTING_FINITE_DIAGRAM != UNIVERSAL_COHOMOLOGY_COMPARISON",
+    "COLLAPSE_PACKET != MOTIVE",
+    "FORMAL_MECHANISM_PASS != EMPIRICAL_OR_MATHEMATICAL_TRUTH",
+    "F34_EVIDENCE_REMAINS_HOLD_UNTIL_SOURCE_BOUND_MOTIVIC_REALIZATIONS_ARE_WITNESSED"
+  ]
+}

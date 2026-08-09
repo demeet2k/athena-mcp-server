@@ -1,0 +1,39 @@
+name: F34 Realization Collapse Witness
+
+on:
+  pull_request:
+    branches:
+      - 'agent/cell-closure-evidence-kc15-v1'
+    paths:
+      - 'spec/F34_MOTIVIC_ENVELOPE_WITNESS_V1.json'
+      - 'scripts/f34_realization_collapse_witness.py'
+      - '.github/workflows/f34-realization-collapse-witness.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  f34-realization-collapse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile bounded F34 witness
+        run: python -m compileall -q scripts/f34_realization_collapse_witness.py
+      - name: Execute finite realization/comparison/collapse witness
+        env:
+          PYTHONPATH: .
+        run: python scripts/f34_realization_collapse_witness.py
+      - name: Upload F34 realization receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f34-realization-collapse-witness-v1
+          path: f34_realization_collapse_witness_v1.json
+          if-no-files-found: error
