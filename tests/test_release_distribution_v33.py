@@ -27,9 +27,17 @@ class ReleaseDistributionV33Tests(unittest.TestCase):
         for phrase in ('ATHENA 3.3.0','Collective Synthesis V14','UNIFIED.10','FINITE_FACTOR_PRODUCT_BELIEF != FULL_JOINT_POSTERIOR','BOOTSTRAP_GRAPH_FREQUENCY != CAUSAL_POSTERIOR','QUERY_SET_DECISION_PRESERVATION != GLOBAL_APPROXIMATION_CERTIFICATE'):
             self.assertIn(phrase,self.notes)
 
-    def test_v33_recipe_is_historical_not_current_executable_workflow(self):
-        self.assertFalse((self.root/'.github'/'workflows'/'release-v3.3.yml').exists())
-        self.assertTrue((self.root/'.github'/'workflows'/'release-v3.4.yml').exists())
+    def test_v33_publication_lane_is_immutable_while_v34_is_current(self):
+        legacy=(self.root/'.github'/'workflows'/'release-v3.3.yml').read_text(encoding='utf-8')
+        current=(self.root/'.github'/'workflows'/'release-v3.4.yml').read_text(encoding='utf-8')
+        self.assertIn('Release Distribution V3.3',legacy)
+        self.assertIn("RELEASE_VERSION: '3.3.0'",legacy)
+        self.assertIn('release/v3.3.0.json',legacy)
+        self.assertNotIn('release/v3.4.0.json',legacy)
+        self.assertIn('Release Distribution V3.4',current)
+        self.assertIn("RELEASE_VERSION: '3.4.0'",current)
+        self.assertIn('release/v3.4.0.json',current)
+        self.assertNotIn('release/v3.3.0.json',current)
 
 
 if __name__=='__main__':unittest.main()
