@@ -1,0 +1,55 @@
+{
+  "artifact": "ATHENA.KC144.H6.SOURCE.POPULATION.V1",
+  "role": "explicit Git-source binding plan for H01-H06 CellClosure population",
+  "parent_cell_compiler": "cbfe3350543999efb4f5623b7f583254c82b9fa3",
+  "h6_candidate_head": "7e09c83a6e93ba0a604c19b8c5a195293a7112c8",
+  "canonical_installation": false,
+  "seat_bindings": {
+    "1": {
+      "code": "H01",
+      "sources": ["athena_mcp/identity.py", "athena_mcp/core.py", "athena_mcp/h6_root.py", "tests/test_h6_root.py", "tests/test_h6_root_adversarial.py"]
+    },
+    "2": {
+      "code": "H02",
+      "sources": ["athena_mcp/kc144.py", "athena_mcp/polycoord.py", "athena_mcp/crystal_schema.py", "athena_mcp/h6_root.py", "tests/test_h6_root.py", "tests/test_h6_root_adversarial.py"]
+    },
+    "3": {
+      "code": "H03",
+      "sources": ["athena_mcp/crystal_graph.py", "athena_mcp/orchestration_graph.py", "athena_mcp/orchestration_retrieval/select.py", "athena_mcp/h6_root.py", "tests/test_h6_integrated.py"]
+    },
+    "4": {
+      "code": "H04",
+      "sources": ["athena_mcp/crystal_schema.py", "athena_mcp/transform_dsl.py", "athena_mcp/crystal_graph.py", "athena_mcp/h6_root.py", "tests/test_h6_integrated.py"]
+    },
+    "5": {
+      "code": "H05",
+      "sources": ["athena_mcp/state_foundation_protocol.py", "athena_mcp/promotion_protocol.py", "athena_mcp/cohesion_evidence_guard.py", "athena_mcp/h6_root.py", "tests/test_h6_root_adversarial.py", "tests/test_h6_integrated.py"]
+    },
+    "6": {
+      "code": "H06",
+      "sources": ["athena_mcp/state_foundation_protocol.py", "athena_mcp/rehydration_loop.py", "athena_mcp/rehydration_successor.py", "athena_mcp/rehydration_terminal.py", "athena_mcp/h6_root.py", "tests/test_h6_integrated.py"]
+    }
+  },
+  "qualification_evidence": {
+    "master_target_run": 31309078331,
+    "master_target_promotion_artifact": 9036871189,
+    "master_target_promotion_digest": "sha256:7f908071ada8774050e8a3275bab86a6c51d9267ac51029c916eb4f99333f372",
+    "full_circuit_cold_run": 31309026358,
+    "full_circuit_cold_artifact": 9036815919,
+    "full_circuit_cold_digest": "sha256:cddf36c80bf0e7a87f43141e5caf69e7cc15691e639793232fb8fa3640215a6c"
+  },
+  "closure_projection": {
+    "population": "CLOSED",
+    "execution": "PARTIAL",
+    "evidence": "CLOSED",
+    "return": "CLOSED",
+    "execution_standing": "QUALIFIED_CANDIDATE_NOT_CANONICAL",
+    "execution_next_witness": "MERGE_AND_REQUALIFY_H6_CANDIDATE"
+  },
+  "firewalls": [
+    "GIT_SOURCE_BINDING != SEMANTIC_TRUTH",
+    "SOURCE_POPULATED != CANONICALLY_INSTALLED",
+    "QUALIFIED_CANDIDATE != MERGED_MASTER",
+    "H6_SIX_SEATS_POPULATED != KC144_POPULATED"
+  ]
+}
