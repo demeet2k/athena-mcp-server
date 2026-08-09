@@ -1,0 +1,48 @@
+{
+  "artifact": "ATHENA.NEXT.QUEST.PIPELINE.1",
+  "coordinate": "ATHENA.KC144::GITΩ::NEXT::ROLLING-QUEST-PIPELINE::V1",
+  "purpose": "Maintain one focus quest plus two staged successor quests so explicit NEXT cycles can continue for long engagements without collapsing into one-task-at-a-time orchestration.",
+  "window": {
+    "execution_order": ["Q1_FOCUS", "Q2_STAGED", "Q3_STAGED"],
+    "display_order": ["Q3_STAGED", "Q2_STAGED", "Q1_FOCUS"],
+    "rotation": "Q1 complete => Q2 focus; Q3 shifts forward; Q4 reseeds from canonical Rehydration Successor baton"
+  },
+  "canonical_owners": {
+    "what_next": "ATHENA.REHYDRATION.SUCCESSOR.BATON.V1",
+    "branch_graph_and_bounded_parallelism": "ATHENA.REHYDRATION.CAMPAIGN.V2",
+    "moving_master_classification": "ATHENA.FRESHNESS.TRAIN.1",
+    "quest_execution": "explicit agent/RehydrationLoop invocation",
+    "rolling_focus_window": "ATHENA.NEXT.QUEST.PIPELINE.1"
+  },
+  "states": ["ACTIVE", "RESEED_HOLD", "COMPLETE", "ABORTED"],
+  "tools": [
+    "athena_next_pipeline_start",
+    "athena_next_pipeline_rotate",
+    "athena_next_pipeline_resolve_reseed",
+    "athena_next_pipeline_state",
+    "athena_next_pipeline_verify"
+  ],
+  "invariants": [
+    "exactly one Q1 focus when ACTIVE",
+    "Q2 and Q3 are staged context, not hidden background execution",
+    "ACTIVE window contains exactly three concrete quests",
+    "only Q1 may complete and rotate the window",
+    "rotation preserves Q2/Q3 order",
+    "Q4 is derived from a valid canonical successor baton",
+    "ambiguous Q4 remains RESEED_HOLD until explicitly resolved",
+    "active duplicate tasks are forbidden",
+    "completed tasks are not silently revisited by default",
+    "pipeline state is Git persisted and state-digest guarded",
+    "pipeline routing grants no execution, evidence, promotion, release, deployment, or merge authority"
+  ],
+  "laws": [
+    "MASS_ORCHESTRATION != BACKGROUND_EXECUTION",
+    "STAGED_QUEST != ACTIVE_WORK",
+    "Q1_COMPLETE => ROTATE_THEN_RESEED",
+    "SUCCESSOR_SCORE != EVIDENCE",
+    "AMBIGUITY != HIDDEN_TIE_BREAK",
+    "PIPELINE_ROUTING != MESSAGE_BOARD_CLAIM_AUTHORITY",
+    "PIPELINE_ROUTING != PROMOTION_OR_MERGE_AUTHORITY",
+    "HEAD_CHANGE => FRESHNESS_RECHECK"
+  ]
+}
