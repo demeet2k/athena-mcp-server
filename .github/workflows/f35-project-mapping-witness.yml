@@ -1,0 +1,39 @@
+name: F35 Project Mapping Witness
+
+on:
+  pull_request:
+    branches:
+      - 'agent/f35-evidence-cut01-coherence-kernel-v1'
+    paths:
+      - 'spec/F35_PROJECT_MAPPING_WITNESS_V1.json'
+      - 'scripts/f35_project_mapping_witness.py'
+      - '.github/workflows/f35-project-mapping-witness.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  f35-project-mapping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile conditional project mapping witness
+        run: python -m compileall -q scripts/f35_project_mapping_witness.py
+      - name: Execute F33/F34 to F35 to F36 conditional mapping witness
+        env:
+          PYTHONPATH: .
+        run: python scripts/f35_project_mapping_witness.py
+      - name: Upload F35 project mapping receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f35-project-mapping-witness-v1
+          path: f35_project_mapping_witness_v1.json
+          if-no-files-found: error
