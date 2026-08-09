@@ -1,0 +1,38 @@
+name: KC144 H6 Source Population
+
+on:
+  pull_request:
+    branches:
+      - 'agent/cell-closure-compiler-v1'
+    paths:
+      - 'spec/H6_SOURCE_POPULATION_V1.json'
+      - 'scripts/populate_h6_cell_closure.py'
+      - '.github/workflows/h6-source-population.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  populate-h6:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile H6 population witness
+        run: python -m compileall -q scripts/populate_h6_cell_closure.py
+      - name: Bind Git sources to H01-H06 and regenerate matrix
+        env:
+          PYTHONPATH: .
+        run: python scripts/populate_h6_cell_closure.py
+      - name: Upload H6-populated matrix
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kc144-h6-source-population-v1
+          path: kc144_h6_source_population_matrix_v1.json
+          if-no-files-found: error
