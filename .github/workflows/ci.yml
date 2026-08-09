@@ -117,6 +117,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_collective_v13.py' -v
           python -m unittest discover -s tests -p 'test_collective_v13_adversarial.py' -v
           python -m unittest discover -s tests -p 'test_collective_v13_unified.py' -v
+      - name: V14 joint posterior synthesis and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v14.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v14_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v14_unified.py' -v
       - name: AOR Collective transport firewalls
         run: python -m unittest discover -s tests -p 'test_aor_collective_transport.py' -v
       - name: Promotion trust and exact-head predicate
