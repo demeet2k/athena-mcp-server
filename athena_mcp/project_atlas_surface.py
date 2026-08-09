@@ -26,6 +26,7 @@ PROJECT_ATLAS_LAWS=[
     "HEAD_CHANGE -> RECOMPILE_BEFORE_CONSEQUENTIAL_ROUTE",
     "RUNTIME_HEAD_CHANGE -> RECOMPILE_BEFORE_QUERY",
     "MCP_SURFACE_CHANGE -> RECOMPILE_BEFORE_QUERY",
+    "STALE_SNAPSHOT -> HOLD",
     "CROSS_REPO_ROUTE_REQUIRES_EXACT_REPO_HEAD",
     "PROJECT_QUERY != PERSISTENT_STATE_MUTATION",
 ]
@@ -144,6 +145,21 @@ class ProjectAtlasSurface:
         current=git.status();runtime_current=runtime_frontier();current_signature=self._surface_signature()
         return None,self._hold("HOLD_VOLATILE_FRONTIER",current_head=current.get("head"),current_runtime_head=runtime_current.get("head"),current_surface_signature=current_signature,configured_head=current.get("head"),runtime_head=runtime_current.get("head"),runtime_provenance=runtime_current,reason="Configured Git, runtime-source Git, or the live MCP surface moved while compiling the federated Project Atlas."),current
 
+    def _snapshot_for_args(self,args: dict):
+        snapshot,hold,observation=self._snapshot(args.get("expected_head"),args.get("expected_runtime_head"))
+        if hold:return None,hold,observation
+        expected_snapshot=args.get("expected_snapshot_id")
+        if expected_snapshot is not None and snapshot["snapshot_id"]!=expected_snapshot:
+            return None,self._hold(
+                "HOLD_STALE_SNAPSHOT",
+                expected_snapshot_id=expected_snapshot,
+                current_snapshot_id=snapshot["snapshot_id"],
+                configured_head=snapshot["configured_git"]["repository"]["head"],
+                runtime_head=snapshot.get("runtime_provenance",{}).get("head"),
+                reason="Full federated Project Atlas snapshot changed even though one or both Git heads may be unchanged.",
+            ),observation
+        return snapshot,None,observation
+
     @staticmethod
     def _summary_record(source: str, rec: dict) -> dict:
         native=dict(rec["native"]);project=rec["project_kc144"];reference=rec["kc144_reference"]
@@ -183,7 +199,7 @@ class ProjectAtlasSurface:
         return {"repo_key":repo["repo_key"],"ref":repo["ref"],"head":repo["head"],"tree":repo["tree"],"atlas_digest":atlas["atlas_digest"],"counts":atlas["counts"]}
 
     def summary(self, args=None):
-        args=args or {};snapshot,hold,observation=self._snapshot(args.get("expected_head"),args.get("expected_runtime_head"))
+        args=args or {};snapshot,hold,observation=self._snapshot_for_args(args)
         if hold:return hold
         configured=snapshot["configured_git"];runtime=snapshot.get("runtime_git");mcp=snapshot.get("mcp_surface",{});federation=snapshot.get("federation",{});rp=snapshot.get("runtime_provenance",{});qidx=snapshot["query_index"]
         if rp.get("status")!="RESOLVED":standing="PARTIAL_RUNTIME_PROVENANCE_HOLD"
@@ -192,7 +208,7 @@ class ProjectAtlasSurface:
         return {"status":standing,"surface_version":PROJECT_ATLAS_SURFACE_VERSION,"authority":"NONE","snapshot_id":snapshot["snapshot_id"],"configured_head":configured["repository"]["head"],"runtime_head":rp.get("head"),"repository":self._bounded_git_summary(configured),"configured_git":self._bounded_git_summary(configured),"runtime_git":self._bounded_git_summary(runtime),"runtime_tree_available":runtime is not None,"runtime_git_is_configured":bool(snapshot.get("runtime_git_is_configured")),"runtime_provenance":rp,"mcp_surface":{"status":mcp.get("status","RESOLVED"),"repo_key":mcp.get("repo_key"),"head":mcp.get("head"),"server":mcp.get("server"),"count":mcp.get("count",0),"surface_digest":mcp.get("surface_digest"),"live_signature":snapshot.get("surface_signature")},"query_index":{"version":qidx["version"],"digest":qidx["digest"],"counts":qidx["counts"]},"federation":{"count":federation.get("count",0),"federation_digest":federation.get("federation_digest"),"roots":federation.get("roots",[])},"completeness":{"configured_git":"COMPLETE","runtime_git":"COMPLETE" if runtime is not None else "UNKNOWN","mcp_surface":"COMPLETE" if mcp.get("status")!="HOLD_RUNTIME_PROVENANCE" else "UNKNOWN","query_index":"COMPLETE_FOR_VISIBLE_PLANES"},"checkout_observation":observation,"pagination":{"default_limit":50,"max_limit":PROJECT_ATLAS_MAX_PAGE},"laws":list(PROJECT_ATLAS_LAWS)}
 
     def resolve(self, args: dict):
-        snapshot,hold,_=self._snapshot(args.get("expected_head"),args.get("expected_runtime_head"))
+        snapshot,hold,_=self._snapshot_for_args(args)
         if hold:return hold
         result=self._resolve_in_snapshot(snapshot,args["identifier"])
         if result.get("status")=="RESOLVED":result.pop("full_record",None)
@@ -207,7 +223,7 @@ class ProjectAtlasSurface:
         return False
 
     def list_records(self, args: dict):
-        snapshot,hold,_=self._snapshot(args.get("expected_head"),args.get("expected_runtime_head"))
+        snapshot,hold,_=self._snapshot_for_args(args)
         if hold:return hold
         source_filter=args.get("source","all");rp=snapshot.get("runtime_provenance",{});snapshot_id=snapshot["snapshot_id"]
         if source_filter in {"runtime_git","mcp"} and rp.get("status")!="RESOLVED":return self._hold("HOLD_RUNTIME_PROVENANCE",snapshot_id=snapshot_id,configured_head=snapshot["configured_git"]["repository"]["head"],runtime_head=None,runtime_provenance=rp,reason=f"source={source_filter} requires exact runtime-source provenance")
@@ -237,10 +253,10 @@ class ProjectAtlasSurface:
         standing="PASS"
         if source_filter in {"all","git"} and rp.get("status")=="RESOLVED" and snapshot.get("runtime_git") is None:standing="PARTIAL_RUNTIME_TREE_UNAVAILABLE"
         elif source_filter in {"all","git"} and rp.get("status")!="RESOLVED":standing="PARTIAL_RUNTIME_PROVENANCE_HOLD"
-        return {"status":standing,"surface_version":PROJECT_ATLAS_SURFACE_VERSION,"authority":"NONE","snapshot_id":snapshot_id,"configured_head":snapshot["configured_git"]["repository"]["head"],"runtime_head":rp.get("head"),"runtime_provenance":rp,"query_seed":seed_mode,"query_index_digest":snapshot["query_index"]["digest"],"total":total,"offset":offset,"limit":limit,"next_offset":next_offset,"items":[self._summary_record(source,rec) for source,rec in page],"filters":{k:v for k,v in args.items() if k not in {"expected_head","expected_runtime_head","offset","limit"} and v is not None},"laws":list(PROJECT_ATLAS_LAWS)}
+        return {"status":standing,"surface_version":PROJECT_ATLAS_SURFACE_VERSION,"authority":"NONE","snapshot_id":snapshot_id,"configured_head":snapshot["configured_git"]["repository"]["head"],"runtime_head":rp.get("head"),"runtime_provenance":rp,"query_seed":seed_mode,"query_index_digest":snapshot["query_index"]["digest"],"total":total,"offset":offset,"limit":limit,"next_offset":next_offset,"items":[self._summary_record(source,rec) for source,rec in page],"filters":{k:v for k,v in args.items() if k not in {"expected_head","expected_runtime_head","expected_snapshot_id","offset","limit"} and v is not None},"laws":list(PROJECT_ATLAS_LAWS)}
 
     def route(self, args: dict):
-        snapshot,hold,_=self._snapshot(args.get("expected_head"),args.get("expected_runtime_head"))
+        snapshot,hold,_=self._snapshot_for_args(args)
         if hold:return hold
         snapshot_id=snapshot["snapshot_id"];rp=snapshot.get("runtime_provenance",{});src=self._resolve_in_snapshot(snapshot,args["src"])
         if src.get("status")!="RESOLVED":return self._hold("HOLD_ROUTE_SOURCE",snapshot_id=snapshot_id,configured_head=snapshot["configured_git"]["repository"]["head"],runtime_head=rp.get("head"),source_resolution=src)
@@ -271,4 +287,4 @@ class ProjectAtlasSurface:
         result=self.summary({});result["resource"]=PROJECT_ATLAS_RESOURCE["uri"];result["resource_role"]="bounded federated Project Atlas summary; use tools for resolve/list/route";return result
 
     def benchmark(self):
-        return {"project_atlas_surface":PROJECT_ATLAS_SURFACE_VERSION,"project_atlas_max_page":PROJECT_ATLAS_MAX_PAGE,"project_atlas_cached_head":self._cache_head,"project_atlas_cached_runtime_head":self._cache_runtime_head,"project_atlas_cached_surface_signature":self._cache_surface_signature,"project_atlas_cached_snapshot_id":self._cache_snapshot_id,"project_atlas_query_tools":4,"project_atlas_resource":PROJECT_ATLAS_RESOURCE["uri"],"project_atlas_boundary":"READ_ONLY; configured Git != runtime-source Git; unknown runtime tree != empty; witnessed federated query index; snapshot identity=configured Git x runtime provenance/tree x MCP surface x index x federation; PROJECT_QUERY != PERSISTENT_STATE_MUTATION; PROJECT_ROUTE != SEMANTIC_EQUIVALENCE"}
+        return {"project_atlas_surface":PROJECT_ATLAS_SURFACE_VERSION,"project_atlas_max_page":PROJECT_ATLAS_MAX_PAGE,"project_atlas_cached_head":self._cache_head,"project_atlas_cached_runtime_head":self._cache_runtime_head,"project_atlas_cached_surface_signature":self._cache_surface_signature,"project_atlas_cached_snapshot_id":self._cache_snapshot_id,"project_atlas_query_tools":4,"project_atlas_resource":PROJECT_ATLAS_RESOURCE["uri"],"project_atlas_boundary":"READ_ONLY; configured Git != runtime-source Git; unknown runtime tree != empty; witnessed federated query index; snapshot identity=configured Git x runtime provenance/tree x MCP surface x index x federation; full snapshot CAS; PROJECT_QUERY != PERSISTENT_STATE_MUTATION; PROJECT_ROUTE != SEMANTIC_EQUIVALENCE"}
