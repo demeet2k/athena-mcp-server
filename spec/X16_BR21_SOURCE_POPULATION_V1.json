@@ -1,0 +1,73 @@
+{
+  "artifact": "ATHENA.KC144.X16.BR21.SOURCE.POPULATION.V1",
+  "role": "explicit Git-source population plan for X16 GID007-022 and BR21 GID023-043",
+  "parent_governance_population": "f4e7fc760f290afe6c55f08c5e60686726066f3f",
+  "canonical_installation": false,
+  "bindings": {
+    "7": {"code":"X-11-SQ","sources":["athena_mcp/inner_constitution.py","athena_mcp/identity.py","athena_mcp/kc144.py"]},
+    "8": {"code":"X-11-FL","sources":["athena_mcp/inner_constitution.py","athena_mcp/crystal_graph.py","athena_mcp/state_projection.py"]},
+    "9": {"code":"X-11-CL","sources":["athena_mcp/h6_root.py","athena_mcp/orchestration_equivalence.py","athena_mcp/orchestration_gap/compiler.py"]},
+    "10": {"code":"X-11-FR","sources":["athena_mcp/crystal.py","athena_mcp/polycoord.py","athena_mcp/reconstruction.py"]},
+
+    "11": {"code":"X-10-SQ","sources":["athena_mcp/transform_dsl.py","athena_mcp/crystal_schema.py","spec/EXECUTABLE_TRANSFORMS.md"]},
+    "12": {"code":"X-10-FL","sources":["athena_mcp/crystal_graph.py","athena_mcp/orchestration_graph.py","athena_mcp/frontier_runtime.py"]},
+    "13": {"code":"X-10-CL","sources":["athena_mcp/orchestration_equivalence.py","athena_mcp/qhug_pareto_kernel.py","athena_mcp/h6_root.py"]},
+    "14": {"code":"X-10-FR","sources":["athena_mcp/transform_dsl.py","athena_mcp/crystal_compile.py","athena_mcp/cycle.py"]},
+
+    "15": {"code":"X-00-SQ","sources":["athena_mcp/validate.py","athena_mcp/composition_integrity.py","athena_mcp/h6_root.py"]},
+    "16": {"code":"X-00-FL","sources":["athena_mcp/freshness_train.py","athena_mcp/orchestration_gap/compiler.py","athena_mcp/h6_root.py"]},
+    "17": {"code":"X-00-CL","sources":["athena_mcp/orchestration_equivalence.py","athena_mcp/orchestration_robustness.py","athena_mcp/h6_root.py"]},
+    "18": {"code":"X-00-FR","sources":["athena_mcp/reconstruction.py","athena_mcp/cycle.py","athena_mcp/rehydration_loop.py"]},
+
+    "19": {"code":"X-01-SQ","sources":["athena_mcp/reconstruction.py","athena_mcp/successor_baton.py","athena_mcp/h6_root.py"]},
+    "20": {"code":"X-01-FL","sources":["athena_mcp/rehydration_handoff.py","athena_mcp/rehydration_successor.py","athena_mcp/campaign_fresh_resume.py"]},
+    "21": {"code":"X-01-CL","sources":["athena_mcp/orchestration_successor.py","athena_mcp/rehydration_successor.py","athena_mcp/campaign_v3_sibling_disposition.py"]},
+    "22": {"code":"X-01-FR","sources":["athena_mcp/rehydration_loop.py","athena_mcp/rehydration_terminal.py","athena_mcp/successor_baton.py"]},
+
+    "23": {"code":"ADMIT.+","sources":["athena_mcp/orchestration_gate.py","athena_mcp/h6_root.py","athena_mcp/operational_basis.py"]},
+    "24": {"code":"ADMIT.HINGE","sources":["athena_mcp/orchestration_authority_gate.py","athena_mcp/h6_root.py","athena_mcp/composition_integrity.py"]},
+    "25": {"code":"ADMIT.*","sources":["athena_mcp/validate.py","athena_mcp/orchestration_robustness.py","athena_mcp/h6_root.py"]},
+
+    "26": {"code":"EXPAND.+","sources":["athena_mcp/orchestration_extract/specs.py","athena_mcp/orchestration_extract/ledger.py","athena_mcp/frontier_runtime.py"]},
+    "27": {"code":"EXPAND.HINGE","sources":["athena_mcp/orchestration_gap/compiler.py","athena_mcp/orchestration_field/compiler.py","athena_mcp/qhug_pareto_kernel.py"]},
+    "28": {"code":"EXPAND.*","sources":["athena_mcp/orchestration_robustness.py","athena_mcp/orchestration_gap/compiler.py","athena_mcp/self_test.py"]},
+
+    "29": {"code":"NAVIGATE.+","sources":["athena_mcp/orchestration_graph.py","athena_mcp/orchestration_retrieval/select.py","athena_mcp/h6_root.py"]},
+    "30": {"code":"NAVIGATE.HINGE","sources":["athena_mcp/orchestration_retrieval/score.py","athena_mcp/qhug_pareto_kernel.py","athena_mcp/orchestration_metric.py"]},
+    "31": {"code":"NAVIGATE.*","sources":["athena_mcp/orchestration_robustness.py","athena_mcp/orchestration_gap/compiler.py","athena_mcp/h6_root.py"]},
+
+    "32": {"code":"TRANSFORM.+","sources":["athena_mcp/transform_dsl.py","athena_mcp/crystal_compile.py","athena_mcp/h6_root.py"]},
+    "33": {"code":"TRANSFORM.HINGE","sources":["athena_mcp/crystal_schema.py","athena_mcp/h6_root.py","athena_mcp/composition_integrity.py"]},
+    "34": {"code":"TRANSFORM.*","sources":["athena_mcp/transform_dsl.py","athena_mcp/h6_root.py","tests/test_h6_root_adversarial.py"]},
+
+    "35": {"code":"TEST.+","sources":["athena_mcp/self_test.py","athena_mcp/promotion.py","tests/test_h6_root.py"]},
+    "36": {"code":"TEST.HINGE","sources":["athena_mcp/composition_integrity.py","athena_mcp/runtime_integrity_surface.py","tests/test_h6_integrated.py"]},
+    "37": {"code":"TEST.*","sources":["athena_mcp/validate.py","tests/test_h6_root_adversarial.py","tests/test_h6_integrated.py"]},
+
+    "38": {"code":"COMPRESS.+","sources":["athena_mcp/crystal_compile.py","athena_mcp/emission.py","spec/CRYSTAL_OUTPUT_ABI.md"]},
+    "39": {"code":"COMPRESS.HINGE","sources":["athena_mcp/reconstruction.py","athena_mcp/crystal_compile.py","athena_mcp/surface_contract.py"]},
+    "40": {"code":"COMPRESS.*","sources":["athena_mcp/reconstruction.py","athena_mcp/rehydration_terminal.py","athena_mcp/validate.py"]},
+
+    "41": {"code":"RETURN.+","sources":["athena_mcp/reconstruction.py","athena_mcp/rehydration_successor.py","athena_mcp/successor_baton.py"]},
+    "42": {"code":"RETURN.HINGE","sources":["athena_mcp/rehydration_handoff.py","athena_mcp/campaign_fresh_resume.py","athena_mcp/h6_root.py"]},
+    "43": {"code":"RETURN.*","sources":["athena_mcp/rehydration_terminal.py","athena_mcp/campaign_v3_cold_resume.py","athena_mcp/successor_baton.py"]}
+  },
+  "return_partial_gids": [19,20,21,22,41,42,43],
+  "projected_standing": {
+    "population": "CLOSED",
+    "execution": "PARTIAL",
+    "evidence": "PARTIAL",
+    "return_oriented_cells": "PARTIAL",
+    "other_return": "UNKNOWN",
+    "authority": "SOURCE_POPULATION_ONLY"
+  },
+  "firewalls": [
+    "SOURCE_BUNDLE != PROCESS_STAGE_QUALIFICATION",
+    "X16_SOURCE_POPULATION != ORIENTATION_EXECUTION_CLOSURE",
+    "BR21_SOURCE_POPULATION != MICROKERNEL_EXECUTION_CLOSURE",
+    "RETURN_SOURCE_PRESENT != RETURN_CERTIFIED",
+    "SHARED_SOURCE_FILE != INDEPENDENT_EVIDENCE",
+    "KC144_COORDINATE != SEMANTIC_TRUTH",
+    "65_SOURCE_POPULATED_SEATS != WHOLE_KC144_POPULATED"
+  ]
+}
