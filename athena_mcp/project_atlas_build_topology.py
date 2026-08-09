@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+import hashlib
 import json
 import re
 import tomllib
@@ -9,7 +10,7 @@ from pathlib import PurePosixPath
 from typing import Callable, Iterable
 
 from .identity import digest
-from .project_atlas_graph import ProjectRelationGraph, vertex_id
+from .project_atlas_graph import ProjectRelationGraph
 
 BUILD_SCHEMA = "ATHENA.SIGMA04.BUILD_TOPOLOGY.v1"
 SYMBOL_SCHEMA = "ATHENA.SIGMA04.PYTHON_SYMBOL.v1"
@@ -30,6 +31,8 @@ BUILD_LAWS = [
     "DUPLICATE_TOP_LEVEL_BINDING -> HOLD_AMBIGUOUS_SYMBOL",
     "AMBIGUOUS_LOCAL_MODULE -> HOLD_AMBIGUOUS_MODULE",
     "EXTERNAL_OR_MISSING_MODULE -> HOLD_ENTRYPOINT_MODULE",
+    "UTF8_BYTE_SPAN != CHARACTER_OFFSET_SPAN",
+    "SOURCE_CACHE != SYMBOL_IDENTITY",
     "BUILD_EDGE != EXECUTION",
     "BUILD_GRAPH != PROMOTION_AUTHORITY",
     "BUILD_EDGE_CLASS_CHANGE_REQUIRES_SCHEMA_BUMP",
@@ -59,12 +62,65 @@ def _frontier(record: dict, default_plane: str) -> tuple[str, str, str]:
     return str(record.get("source") or default_plane), native["repo"], native["head"]
 
 
+def _source_cache_key(record: dict, default_plane: str = "configured_git") -> tuple[str, str, str, str]:
+    native = record["native"]
+    return (
+        str(record.get("source") or default_plane),
+        native["repo"],
+        native["head"],
+        native["object_sha"],
+    )
+
+
+def memoized_blob_reader(reader: Callable[[dict], str], *, default_plane: str = "configured_git") -> Callable[[dict], str]:
+    """Cache exact blob text per manifestation/object without changing any identity receipt."""
+    cache: dict[tuple[str, str, str, str], str] = {}
+
+    def read(record: dict) -> str:
+        key = _source_cache_key(record, default_plane)
+        if key not in cache:
+            cache[key] = reader(record)
+        return cache[key]
+
+    return read
+
+
 def _span(node: ast.AST) -> dict:
     return {
         "lineno": int(getattr(node, "lineno", 0) or 0),
         "col_offset": int(getattr(node, "col_offset", 0) or 0),
         "end_lineno": int(getattr(node, "end_lineno", getattr(node, "lineno", 0)) or 0),
         "end_col_offset": int(getattr(node, "end_col_offset", 0) or 0),
+    }
+
+
+def _utf8_line_offsets(source: str) -> tuple[bytes, tuple[int, ...]]:
+    """Return exact UTF-8 bytes and zero-based byte offset for every one-based AST line.
+
+    CPython AST column offsets are UTF-8 byte offsets. Scanning the encoded blob once avoids
+    repeated full-source splitting/scanning for every definition in a large module.
+    """
+    encoded = source.encode("utf-8")
+    offsets = [0]
+    offsets.extend(index + 1 for index, byte in enumerate(encoded) if byte == 0x0A)
+    return encoded, tuple(offsets)
+
+
+def _segment_witness(encoded: bytes, line_offsets: tuple[int, ...], span: dict) -> dict:
+    lineno = span["lineno"]
+    end_lineno = span["end_lineno"]
+    if lineno < 1 or end_lineno < lineno or lineno > len(line_offsets) or end_lineno > len(line_offsets):
+        raise ValueError("AST source span lies outside exact UTF-8 source line index")
+    start = line_offsets[lineno - 1] + span["col_offset"]
+    end = line_offsets[end_lineno - 1] + span["end_col_offset"]
+    if start < 0 or end < start or end > len(encoded):
+        raise ValueError("AST UTF-8 byte span lies outside exact source blob")
+    segment = encoded[start:end]
+    return {
+        "start_byte": start,
+        "end_byte": end,
+        "length_bytes": len(segment),
+        "sha256": hashlib.sha256(segment).hexdigest(),
     }
 
 
@@ -92,16 +148,17 @@ def _symbol_receipt(
     name: str,
     kind: str,
     node: ast.AST,
-    source: str,
+    encoded_source: bytes,
+    line_offsets: tuple[int, ...],
 ) -> dict:
     span = _span(node)
-    segment = ast.get_source_segment(source, node) or ""
+    segment = _segment_witness(encoded_source, line_offsets, span)
     span_digest = digest(
         {
             "object_sha": record["native"]["object_sha"],
             "kind": kind,
             "span": span,
-            "source_segment": segment,
+            "source_segment_sha256": segment["sha256"],
         },
         32,
     )
@@ -130,15 +187,20 @@ def _symbol_receipt(
         "qualified_symbol": qualified,
         "kind": kind,
         "span": span,
+        "source_segment": segment,
         "source_span_digest": span_digest,
         "object_sha": record["native"]["object_sha"],
         "return": {
             "uri": f"{base_return}#L{span['lineno']}-L{span['end_lineno']}",
             "object": base_return,
-            "law": "PSYM RETURN preserves exact PVTX/Git object plus AST source span witness",
+            "law": "PSYM RETURN preserves exact PVTX/Git object plus AST UTF-8 source-span witness",
         },
         "authority": "STRUCTURAL_DEFINITION_ONLY",
-        "laws": ["PSYM != RUNTIME_BINDING", "SOURCE_DEFINITION != EXECUTED_EFFECT"],
+        "laws": [
+            "PSYM != RUNTIME_BINDING",
+            "SOURCE_DEFINITION != EXECUTED_EFFECT",
+            "UTF8_BYTE_SPAN != CHARACTER_OFFSET_SPAN",
+        ],
     }
 
 
@@ -237,6 +299,8 @@ def compile_python_symbol_index(
     symbols: list[dict] = []
     holds: list[dict] = []
     failures: list[dict] = []
+    parsed_cache: dict[tuple[str, str, str, str], tuple[str, ast.Module, bytes, tuple[int, ...]] | Exception] = {}
+
     for vid, record in sorted(graph.vertices.items()):
         plane = str(record.get("source") or graph.default_plane)
         native = record["native"]
@@ -245,10 +309,45 @@ def compile_python_symbol_index(
         module = python_module_name(native["path"])
         if module is None:
             continue
+        key = _source_cache_key(record, graph.default_plane)
+        if key not in parsed_cache:
+            try:
+                source = blob_reader(record)
+                tree = ast.parse(source, filename=native["path"])
+                encoded_source, line_offsets = _utf8_line_offsets(source)
+                parsed_cache[key] = (source, tree, encoded_source, line_offsets)
+            except (UnicodeDecodeError, SyntaxError, ValueError, RuntimeError) as exc:
+                parsed_cache[key] = exc
+        parsed = parsed_cache[key]
+        if isinstance(parsed, Exception):
+            failures.append(
+                {
+                    "status": "HOLD_SYMBOL_SOURCE",
+                    "vertex_id": vid,
+                    "poid": record["poid"],
+                    "path": native["path"],
+                    "reason": type(parsed).__name__,
+                }
+            )
+            continue
+        _, tree, encoded_source, line_offsets = parsed
+        local: dict[str, list[dict]] = defaultdict(list)
         try:
-            source = blob_reader(record)
-            tree = ast.parse(source, filename=native["path"])
-        except (UnicodeDecodeError, SyntaxError, ValueError, RuntimeError) as exc:
+            for node in tree.body:
+                for name, kind in _bound_names(node):
+                    receipt = _symbol_receipt(
+                        record=record,
+                        vertex=vid,
+                        module=module,
+                        name=name,
+                        kind=kind,
+                        node=node,
+                        encoded_source=encoded_source,
+                        line_offsets=line_offsets,
+                    )
+                    symbols.append(receipt)
+                    local[name].append(receipt)
+        except ValueError as exc:
             failures.append(
                 {
                     "status": "HOLD_SYMBOL_SOURCE",
@@ -256,23 +355,10 @@ def compile_python_symbol_index(
                     "poid": record["poid"],
                     "path": native["path"],
                     "reason": type(exc).__name__,
+                    "detail": str(exc),
                 }
             )
             continue
-        local: dict[str, list[dict]] = defaultdict(list)
-        for node in tree.body:
-            for name, kind in _bound_names(node):
-                receipt = _symbol_receipt(
-                    record=record,
-                    vertex=vid,
-                    module=module,
-                    name=name,
-                    kind=kind,
-                    node=node,
-                    source=source,
-                )
-                symbols.append(receipt)
-                local[name].append(receipt)
         for name, rows in sorted(local.items()):
             if len(rows) > 1:
                 holds.append(
@@ -382,7 +468,7 @@ class BuildTopology:
                 "pyprojects": self.pyprojects,
                 "edges": self.edges,
                 "holds": self.holds,
-                "extractors": ["python_ast_top_level_symbol_v1", "pep621_toml_entrypoint_to_python_ast_symbol_v1"],
+                "extractors": ["python_ast_top_level_symbol_utf8_v1", "pep621_toml_entrypoint_to_python_ast_symbol_v1"],
             },
             32,
         )
