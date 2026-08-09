@@ -1,22 +1,10 @@
 name: Release Distribution V3.3
 
+# Historical V3.3 reproduction/publication lane. The repository's current
+# package/runtime line is V3.4, so this lane must not shadow current PRs merely
+# because shared runtime files change. Invoke V3.3 explicitly when reproducing
+# or republishing that historical distribution.
 on:
-  pull_request:
-    paths:
-      - 'release/v3.3.0.json'
-      - 'release/v3.3.0.md'
-      - '.github/workflows/release-v3.3.yml'
-      - 'tests/test_release_distribution.py'
-      - 'scripts/qualify_github_head.py'
-      - 'athena_mcp/github_promotion_verifier.py'
-      - 'athena_mcp/promotion.py'
-      - 'athena_mcp/promotion_protocol.py'
-      - 'athena_mcp/collective_synthesis.py'
-      - 'athena_mcp/collective_v14_install.py'
-      - 'athena_mcp/collective_v14_protocol.py'
-      - 'athena_mcp/collective_v14_dispatch.py'
-      - 'athena_mcp/__init__.py'
-      - 'pyproject.toml'
   workflow_dispatch:
 
 permissions:
