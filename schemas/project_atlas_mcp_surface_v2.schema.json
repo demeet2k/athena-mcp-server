@@ -50,7 +50,7 @@
     },
     "surface": {
       "type": "object",
-      "required": ["tools", "resource", "max_page", "default_page", "read_only", "self_metering"],
+      "required": ["tools", "resource", "max_page", "default_page", "read_only", "self_metering", "full_snapshot_cas"],
       "properties": {
         "tools": {
           "type": "array",
@@ -65,13 +65,14 @@
         "max_page": {"const": 100},
         "default_page": {"const": 50},
         "read_only": {"const": true},
-        "self_metering": {"const": false}
+        "self_metering": {"const": false},
+        "full_snapshot_cas": {"const": true}
       },
       "additionalProperties": false
     },
     "frontier": {
       "type": "object",
-      "required": ["factorization", "configured_git_source", "runtime_source_priority", "runtime_head_attestation_without_tree", "unknown_runtime_tree_law", "cache_key", "bounded_retry"],
+      "required": ["factorization", "configured_git_source", "runtime_source_priority", "runtime_head_attestation_without_tree", "unknown_runtime_tree_law", "cache_key", "snapshot_cas_input", "snapshot_cas_pattern", "bounded_retry"],
       "properties": {
         "factorization": {"const": ["CONFIGURED_GIT_HEAD", "RUNTIME_SOURCE_FRONTIER", "LIVE_MCP_SURFACE_SIGNATURE"]},
         "configured_git_source": {"const": "ATHENA_GIT_ROOT"},
@@ -79,6 +80,8 @@
         "runtime_head_attestation_without_tree": {"const": "PARTIAL_RUNTIME_TREE_UNAVAILABLE"},
         "unknown_runtime_tree_law": {"const": "UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE"},
         "cache_key": {"const": "<configured_git_head,runtime_source_frontier,live_mcp_surface_signature>"},
+        "snapshot_cas_input": {"const": "expected_snapshot_id"},
+        "snapshot_cas_pattern": {"const": "^PATLASV2\\.[0-9A-F]{32}$"},
         "bounded_retry": {"const": 1}
       },
       "additionalProperties": false
@@ -112,7 +115,7 @@
     },
     "snapshot": {
       "type": "object",
-      "required": ["prefix", "basis", "authority", "law"],
+      "required": ["prefix", "basis", "authority", "cas", "law"],
       "properties": {
         "prefix": {"const": "PATLASV2."},
         "basis": {
@@ -127,6 +130,7 @@
           ]
         },
         "authority": {"const": "NONE"},
+        "cas": {"const": "exact equality against expected_snapshot_id after stable snapshot construction"},
         "law": {"const": "PROJECT_ATLAS_SNAPSHOT_ID != PROMOTION_RECEIPT"}
       },
       "additionalProperties": false
@@ -146,12 +150,13 @@
     },
     "route": {
       "type": "object",
-      "required": ["normal", "toroidal", "cross_frontier_receipt", "native_return_both_endpoints", "law"],
+      "required": ["normal", "toroidal", "cross_frontier_receipt", "native_return_both_endpoints", "snapshot_cas_before_endpoint_resolution", "law"],
       "properties": {
         "normal": {"const": "PROJECT_KC144_ROW_THEN_COLUMN"},
         "toroidal": {"const": "PROJECT_KC144_12x12_WRAP"},
         "cross_frontier_receipt": {"const": true},
         "native_return_both_endpoints": {"const": true},
+        "snapshot_cas_before_endpoint_resolution": {"const": true},
         "law": {"const": "PROJECT_ROUTE != SEMANTIC_EQUIVALENCE"}
       },
       "additionalProperties": false
@@ -162,6 +167,7 @@
         "HOLD_GIT_UNAVAILABLE",
         "HOLD_STALE_CONFIGURED_HEAD",
         "HOLD_STALE_RUNTIME_HEAD",
+        "HOLD_STALE_SNAPSHOT",
         "HOLD_RUNTIME_PROVENANCE",
         "HOLD_RUNTIME_TREE_UNAVAILABLE",
         "HOLD_VOLATILE_FRONTIER",
@@ -173,7 +179,7 @@
     },
     "laws": {
       "type": "array",
-      "minItems": 25,
+      "minItems": 28,
       "uniqueItems": true,
       "items": {"type": "string"}
     },
