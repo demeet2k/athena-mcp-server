@@ -108,6 +108,9 @@ def main(argv=None) -> int:
     binding = json.loads(Path(args.binding).read_text(encoding="utf-8"))
     parent_matrix = population_receipt.get("matrix") or {}
     matrix = copy.deepcopy(parent_matrix)
+    claim = observed.get("claim") or {}
+    claim_id = str(claim.get("claim_id") or "")
+    claim_scope = str(claim.get("scope") or "")
 
     prechecks = {
         "parent_population_receipt_pass": population_receipt.get("status") == "KC144_SOURCE_POPULATION_144_MATCH",
@@ -116,7 +119,13 @@ def main(argv=None) -> int:
         "observed_artifact_match": observed.get("artifact") == "ATHENA.KC15.IC10.OBSERVED.ADMISSION.V1",
         "observed_status_match": observed.get("status") == "I01_I09_OBSERVED_I10_UNBOUND_MATCH",
         "observed_head_match": observed.get("checkout_head") == contract["kc15_admission"]["head_sha"],
-        "observed_claim_scope_match": (observed.get("claim") or {}).get("scope") == contract["update_scope"]["claim_scope"].replace(" only", " only"),
+        "observed_claim_is_exact_bounded_kc15_structure": (
+            claim_id == "CLAIM.KC15.EPOCH_B.STRUCTURAL_SUPPORT_LATTICE.V1"
+            and "EPOCH-B" in claim_scope
+            and "KC15" in claim_scope
+            and "GID091-105" in claim_scope
+            and "structural support lattice" in claim_scope.lower()
+        ),
         "binding_status_match": binding.get("status") == "IC10_I10_BOUND_CHAIN_SATISFIED",
         "binding_head_match": binding.get("checkout_head") == contract["kc15_admission"]["head_sha"],
         "binding_decision_match": binding.get("decision") == contract["kc15_admission"]["decision"],
@@ -125,15 +134,7 @@ def main(argv=None) -> int:
         "binding_all_gates_pass": all(value == "PASS" for value in (binding.get("gate_status") or {}).values()) and len(binding.get("gate_status") or {}) == 10,
         "binding_promotion_authority_false": binding.get("promotion_authority") is False,
     }
-    # The observed claim's canonical wording is frozen in the observed artifact;
-    # enforce bounded KC15 structural scope without depending on cosmetic phrasing.
-    prechecks["observed_claim_is_kc15_structural_only"] = (
-        "KC15" in str((observed.get("claim") or {}).get("claim_id") or "")
-        and "STRUCTURAL" in str((observed.get("claim") or {}).get("claim_id") or "")
-        and "structural" in str((observed.get("claim") or {}).get("scope") or "").lower()
-    )
-
-    if not all(value for key, value in prechecks.items() if key != "observed_claim_scope_match"):
+    if not all(prechecks.values()):
         raise RuntimeError(json.dumps({"status": "KC15_EVIDENCE_INPUT_HOLD", "prechecks": prechecks}, sort_keys=True))
 
     parent_matrix_id = matrix.get("matrix_id")
@@ -147,7 +148,8 @@ def main(argv=None) -> int:
     matrix["evidence_update"] = {
         "artifact": contract["artifact"],
         "gids": target_gids,
-        "claim_scope": contract["update_scope"]["claim_scope"],
+        "claim_id": claim_id,
+        "claim_scope": claim_scope,
         "admission_run_id": contract["kc15_admission"]["run_id"],
         "admission_artifact_id": contract["kc15_admission"]["binding_artifact_id"],
         "admission_artifact_digest": contract["kc15_admission"]["binding_artifact_digest"],
@@ -173,7 +175,7 @@ def main(argv=None) -> int:
         ) and matrix["overall_counts"].get("HOLD") == 4,
         "whole_crystal_still_not_closed": matrix["overall_counts"].get("CLOSED", 0) == 0,
     }
-    ok = all(value for key, value in checks.items() if key != "observed_claim_scope_match")
+    ok = all(checks.values())
     receipt = {
         "artifact": contract["artifact"],
         "status": "KC15_EVIDENCE_CLOSURE_MATRIX_MATCH" if ok else "KC15_EVIDENCE_CLOSURE_MATRIX_HOLD",
