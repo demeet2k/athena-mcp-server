@@ -38,7 +38,9 @@
       "x": 5
     }
   },
+  "initial_state_digest": "717c0a1fc3af12e2e37484e225c6369ceff52ab2a6c4af9839224a34779699a8",
   "operator_registry_digest": "87074dea1c8431f7ae9e5fd12e8b62e7227ade3dc8522ee9a047904561a0b144",
+  "ordered_path_digest": "f5ef22305b9a8567c68bdec0a763208092682fa8cf1c54fa7f8ed53f3a4acd2f",
   "packet_compiler_revision": "SEMANTIC_CONTROL_FUSION_R1",
   "packet_semantic_digest": "3d17c0ad309864bcb2ded027bd0419141f3baf567491985ff833442a404819eb",
   "raw_result": {
@@ -122,8 +124,8 @@
     "standing": "DEFINED"
   },
   "raw_result_digest": "236442de7aeecc61b377d16b797a3a57033879214d5c729f4acd7bd23b227017",
-  "receipt_digest": "e6dcb8bd616815e0de00318e2a871dbab2349f5118b1e0a699dd2062e2530531",
-  "receipt_id": "MCK-EVAL-e6dcb8bd616815e0de00318e",
+  "receipt_digest": "69d1072142dfc94a49cc52d1c5d271cc8566899aa9fbae0d13e9cdbeb956b49b",
+  "receipt_id": "MCK-EVAL-69d1072142dfc94a49cc52d1",
   "receipt_standing": "SYNTHETIC_REPLAY_RECEIPT_NOT_EXTERNAL_IMPLEMENTATION_WITNESS",
   "semantic_control_artifact": "ATHENA.AQ001C.SEMANTIC_CONNECTION_CONTROL.V1",
   "semantic_result": {
@@ -169,7 +171,7 @@
     "residue_zero": false,
     "standing": "DEFINED"
   },
-  "semantic_result_digest": "831a9a4afcd0f940beed1a1eeb4db4a6089a61aade3714e860c4c389c840e8e6",
+  "semantic_result_digest": "831a9a4afcd0f940beedb1a1eeb4db4a6089a61aade3714e860c4c389c840e8e6",
   "semantic_result_projection_basis": "runtime_result minus executed_edges/audit/provenance; includes artifact, standing, classification, reason, initial/final public semantics, residue, residue_zero",
   "source_evidence": "NONE_SYNTHETIC_CONTROL",
   "status": "RECORDED",
