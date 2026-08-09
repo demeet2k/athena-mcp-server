@@ -251,7 +251,7 @@ class DeploymentCanaryObserverV3Tests(unittest.TestCase):
             "athena-v3-canary-state:/var/lib/athena",
             "canary-witness.v3.3.0.json",
             "SHA256SUMS.canary",
-            "gh release upload",
+            "actions/upload-artifact@v4",
         ):
             self.assertIn(fragment, workflow)
         for forbidden in (
@@ -260,12 +260,14 @@ class DeploymentCanaryObserverV3Tests(unittest.TestCase):
             "docker service update",
             "terraform apply",
             "cutover_authorized':True",
+            "gh release upload",
+            "contents: write",
         ):
             self.assertNotIn(forbidden, workflow)
         observe = workflow[workflow.index("\n  observe:") :]
-        self.assertIn("contents: write", observe)
-        prefix = workflow[: workflow.index("\n  observe:")]
-        self.assertNotIn("contents: write", prefix)
+        self.assertIn("contents: read", observe)
+        self.assertIn("packages: read", observe)
+        self.assertIn("actions: read", observe)
 
 
 if __name__ == "__main__":
