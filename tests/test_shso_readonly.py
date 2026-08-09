@@ -4,6 +4,7 @@ import unittest
 
 from athena_mcp.shso_readonly import (
     BEHAVIORAL_TREATMENT_EFFECT,
+    PUBLIC_RUNTIME_RECONCILIATION_COMMIT,
     benchmark,
     manifest,
     project_organism_pressure,
@@ -181,7 +182,9 @@ class ShsoReadonlyProjectionTests(unittest.TestCase):
     def test_manifest_preserves_semantic_runtime_and_behavioral_separation(self):
         value = manifest()
         self.assertEqual(value["private_semantic_contract"], "ATHENA.SHSO.READONLY.BRIDGE.V1")
-        self.assertEqual(value["public_runtime_base_head"], "d8bb4cc6e2e6861eeb7141dc52a2efcea252ff36")
+        self.assertEqual(value["public_runtime_base_head"], "2ca4b01c2a8591bc7159ae1c941e7d80fa007343")
+        self.assertEqual(value["public_runtime_reconciliation_commit"], PUBLIC_RUNTIME_RECONCILIATION_COMMIT)
+        self.assertEqual(PUBLIC_RUNTIME_RECONCILIATION_COMMIT, "80bda63556da7158f93874eee724fda38313e7e1")
         self.assertFalse(value["ports_full_private_shso_reducers"])
         self.assertEqual(value["behavioral_treatment_effect"], "UNKNOWN")
         self.assertFalse(value["behavioral_gain_proven"])
