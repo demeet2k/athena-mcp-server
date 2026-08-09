@@ -1,0 +1,296 @@
+name: Release Distribution V3.5
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  checks: read
+
+env:
+  RELEASE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+  RELEASE_VERSION: '3.5.0'
+  RELEASE_TAG: v3.5.0
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_HEAD }}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Compile current distribution candidate
+        run: python -m compileall -q athena_mcp tests smoke.py scripts/qualify_github_head.py
+
+  unit:
+    runs-on: ubuntu-latest
+    env:
+      GIT_CONFIG_COUNT: '3'
+      GIT_CONFIG_KEY_0: gc.auto
+      GIT_CONFIG_VALUE_0: '0'
+      GIT_CONFIG_KEY_1: maintenance.auto
+      GIT_CONFIG_VALUE_1: 'false'
+      GIT_CONFIG_KEY_2: gc.autoDetach
+      GIT_CONFIG_VALUE_2: 'false'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_HEAD }}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Full repository unit corpus
+        run: python -m unittest discover -s tests -v
+
+  critical-invariants:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_HEAD }}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Current release metadata and distribution contract
+        run: |
+          python -m unittest discover -s tests -p 'test_metadata_consistency.py' -v
+          python -m unittest discover -s tests -p 'test_documentation_consistency.py' -v
+          python -m unittest discover -s tests -p 'test_release_distribution.py' -v
+      - name: Unified manifest, composition and trusted verifier
+        run: |
+          python -m unittest discover -s tests -p 'test_unified_manifest.py' -v
+          python -m unittest discover -s tests -p 'test_surface_composition_unified.py' -v
+          python -m unittest discover -s tests -p 'test_github_promotion_verifier.py' -v
+          python -m unittest discover -s tests -p 'test_promotion_unified.py' -v
+      - name: V14 joint posterior synthesis and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v14.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v14_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v14_unified.py' -v
+      - name: V15 calibrated continuous control and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v15.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v15_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v15_calibration_geometry.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v15_unified.py' -v
+      - name: V16 generalized bounded models and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v16.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v16_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v16_unified.py' -v
+      - name: Deployment V2 composition and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_deployment_contract_v2.py' -v
+          python -m unittest discover -s tests -p 'test_deployment_integration_v2.py' -v
+          python -m unittest discover -s tests -p 'test_http_host_v2.py' -v
+
+  smoke:
+    needs: [syntax, unit, critical-invariants]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_HEAD }}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: V16 stdio smoke
+        run: python smoke.py
+
+  promotion-qualification:
+    needs: [syntax, unit, critical-invariants, smoke]
+    runs-on: ubuntu-latest
+    env:
+      ATHENA_GITHUB_REPOSITORY: ${{ github.repository }}
+      ATHENA_GITHUB_API_URL: ${{ github.api_url }}
+      ATHENA_GITHUB_RUN_ID: ${{ github.run_id }}
+      ATHENA_GITHUB_TOKEN: ${{ github.token }}
+      ATHENA_PROMOTION_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_HEAD }}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Create and replay host-verified PROMOTION.2 receipt
+        run: python scripts/qualify_github_head.py --git-root . --output promotion-receipt.json
+      - name: Upload trusted promotion receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: promotion-receipt-${{ env.RELEASE_HEAD }}
+          path: promotion-receipt.json
+          if-no-files-found: error
+
+  package-readiness:
+    needs: [syntax, unit, critical-invariants, smoke, promotion-qualification]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_HEAD }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Download exact trusted promotion receipt
+        uses: actions/download-artifact@v5
+        with:
+          name: promotion-receipt-${{ env.RELEASE_HEAD }}
+          path: promotion-input
+      - name: Verify exact clean source candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"
+          test -z "$(git status --porcelain)"
+          git fetch origin master --no-tags
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            test "$(git rev-parse origin/master)" = "$RELEASE_HEAD"
+          fi
+      - name: Verify trusted receipt binding
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          promotion=json.loads(pathlib.Path('promotion-input/promotion-receipt.json').read_text())
+          assert promotion['git_head']==os.environ['RELEASE_HEAD']
+          assert promotion['promotion']['status']=='QUALIFIED'
+          assert promotion['promotion']['attestation_level']=='EXTERNALLY_VERIFIED'
+          assert promotion['replay']['match'] is True
+          PY
+      - name: Build wheel
+        run: python -m pip wheel --no-deps . -w dist
+      - name: Clean-install wheel outside repository and verify V16 MCP surface
+        shell: bash
+        run: |
+          WHEEL="$(find dist -maxdepth 1 -name 'athena_canonical_mcp-3.5.0-*.whl' -print -quit)"
+          test -n "$WHEEL"
+          python -m venv /tmp/athena-v35
+          /tmp/athena-v35/bin/python -m pip install "$WHEEL"
+          cd /tmp
+          /tmp/athena-v35/bin/python - <<'PY'
+          import json, subprocess, sys
+          p=subprocess.Popen([sys.executable,'-m','athena_mcp.server'],stdin=subprocess.PIPE,stdout=subprocess.PIPE,text=True)
+          def rpc(i,method,params=None):
+              q={'jsonrpc':'2.0','id':i,'method':method}
+              if params is not None:q['params']=params
+              p.stdin.write(json.dumps(q)+'\n');p.stdin.flush()
+              return json.loads(p.stdout.readline())
+          init=rpc(1,'initialize',{'protocolVersion':'2025-11-25'})['result']
+          assert init['serverInfo']['version']=='3.5.0'
+          tools={x['name'] for x in rpc(2,'tools/list')['result']['tools']}
+          resources={x['uri'] for x in rpc(3,'resources/list')['result']['resources']}
+          for name in [
+              'athena_structural_reliability_calibrate','athena_longitudinal_tmle_crossfit','athena_multistage_tv_dro_plan',
+              'athena_ordered_dag_posterior','athena_longitudinal_dr_multistage_crossfit','athena_gaussian_mixture_update','athena_approx_error_field','athena_coupled_model_robust_policy',
+              'athena_deployment_manifest','athena_promotion_verify_github']:
+              assert name in tools, name
+          for uri in ['athena://collective/v15','athena://collective/v16','athena://deployment','athena://promotion']:
+              assert uri in resources, uri
+          manifest=json.loads(rpc(4,'resources/read',{'uri':'athena://runtime/unified-manifest'})['result']['contents'][0]['text'])
+          assert manifest['artifact']=='ATHENA.RUNTIME.UNIFIED.12'
+          assert manifest['organs']['collective_v16']['coordinate']=='COLLECTIVE_GENERALIZED=<OG,MH,GM,EF,NR,L>'
+          assert manifest['collective_generalized']['version']=='COLLECTIVE_RUNTIME_V16'
+          assert manifest['collective_generalized']['authority']=='MODEL_SCIENCE_TWIN_AND_PLAN_ONLY'
+          v16=json.loads(rpc(5,'resources/read',{'uri':'athena://collective/v16'})['result']['contents'][0]['text'])
+          assert v16['runtime']['version']=='COLLECTIVE_RUNTIME_V16'
+          assert 'Y1 authority' in v16['boundary']
+          assert 'trusted promotion' in v16['boundary']
+          p.terminate();p.wait(timeout=5)
+          PY
+      - name: Create immutable V3.5 release attestation and checksums
+        run: |
+          cp release/v3.5.0.json dist/release-manifest.json
+          cp promotion-input/promotion-receipt.json dist/promotion-receipt.json
+          python - <<'PY'
+          import hashlib,json,os,pathlib
+          dist=pathlib.Path('dist')
+          promo=dist/'promotion-receipt.json'
+          promotion=json.loads(promo.read_text())
+          def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+          att={
+            'schema':'ATHENA.RELEASE.ATTESTATION.2',
+            'version':'3.5.0',
+            'release_commit':os.environ['RELEASE_HEAD'],
+            'manifest':'ATHENA.RUNTIME.UNIFIED.12',
+            'collective_frontier':'COLLECTIVE_GENERALIZED_V16',
+            'deployment_frontier':'ATHENA.DEPLOYMENT.2',
+            'trusted_promotion':True,
+            'promrun':promotion['promotion']['run_id'],
+            'verification_ref':promotion['verification_ref'],
+            'receipt_sha256':sha(promo),
+            'validation_event':os.environ['GITHUB_EVENT_NAME'],
+            'publication_performed':False,
+          }
+          (dist/'release-attestation.json').write_text(json.dumps(att,indent=2,sort_keys=True)+'\n')
+          files=sorted(p for p in dist.iterdir() if p.is_file() and p.name!='SHA256SUMS')
+          (dist/'SHA256SUMS').write_text(''.join(f'{sha(p)}  {p.name}\n' for p in files))
+          PY
+          (cd dist && sha256sum -c SHA256SUMS)
+      - name: Upload V3.5 release candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-candidate-v3.5.0-${{ env.RELEASE_HEAD }}
+          path: |
+            dist/athena_canonical_mcp-3.5.0-*.whl
+            dist/promotion-receipt.json
+            dist/release-manifest.json
+            dist/release-attestation.json
+            dist/SHA256SUMS
+          if-no-files-found: error
+
+  publish:
+    needs: [package-readiness]
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+      checks: read
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.RELEASE_HEAD }}
+          fetch-depth: 0
+      - name: Verify exact current master before publication
+        shell: bash
+        run: |
+          git fetch origin master --tags
+          test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"
+          test "$(git rev-parse origin/master)" = "$RELEASE_HEAD"
+          test -z "$(git status --porcelain)"
+      - uses: actions/download-artifact@v5
+        with:
+          name: release-candidate-v3.5.0-${{ env.RELEASE_HEAD }}
+          path: dist
+      - name: Verify candidate bytes and exact tag target
+        shell: bash
+        run: |
+          (cd dist && sha256sum -c SHA256SUMS)
+          TAG="$RELEASE_TAG"
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            TAG_TARGET="$(git rev-list -n 1 "$TAG")"
+            test "$TAG_TARGET" = "$RELEASE_HEAD"
+          else
+            git tag -a "$TAG" "$RELEASE_HEAD" -m "ATHENA $RELEASE_VERSION"
+            git push origin "refs/tags/$TAG"
+          fi
+          TAG_TARGET="$(git rev-list -n 1 "$TAG")"
+          test "$TAG_TARGET" = "$RELEASE_HEAD"
+      - name: Publish exact GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          TAG="$RELEASE_TAG"
+          gh release create "$TAG" \
+            dist/athena_canonical_mcp-3.5.0-*.whl \
+            dist/promotion-receipt.json \
+            dist/release-manifest.json \
+            dist/release-attestation.json \
+            dist/SHA256SUMS \
+            --title "ATHENA 3.5.0 — Collective Generalized V16 × UNIFIED.12" \
+            --notes-file release/v3.5.0.md \
+            --verify-tag

@@ -135,6 +135,11 @@ jobs:
           python -m unittest discover -s tests -p 'test_collective_v15.py' -v
           python -m unittest discover -s tests -p 'test_collective_v15_adversarial.py' -v
           python -m unittest discover -s tests -p 'test_collective_v15_unified.py' -v
+      - name: V16 generalized bounded models and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v16.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v16_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v16_unified.py' -v
       - name: AOR Collective transport firewalls
         run: python -m unittest discover -s tests -p 'test_aor_collective_transport.py' -v
       - name: Promotion trust and exact-head predicate

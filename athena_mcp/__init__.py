@@ -57,23 +57,29 @@ from .agent_bootstrap_cohesion_treatment import (
 install_agent_bootstrap_cohesion_treatment(AgentBootstrapRuntime)
 
 # Collective V14 preserves the historical registration body and installs the
-# joint scientific-control frontier inherited by V15.
+# joint scientific-control frontier inherited by V15/V16.
 from .collective_v14_install import install_release_v14 as _install_release_v14
 
 _install_release_v14(globals())
 del _install_release_v14
 
 # DEPLOYMENT-002 is a separately typed operational/hosting organ inherited from
-# live master. It composes after V14 and before V15 so its prompt/AOR/dispatch
-# seams are retained while V15 remains the final current release identity.
+# live master. It composes after V14 and before later Collective release overlays.
 from .deployment_extension import install_deployment_extension
 
 install_deployment_extension()
 
-# Collective V15 advances only the current release identity and calibrated
-# successor frontier. Deployment, Message Board, cohesion, party and prompt
-# organs remain separately typed and intact.
+# Collective V15 advances calibrated scientific control while preserving all
+# earlier coordination/deployment/prompt organs as separately typed surfaces.
 from .collective_v15_install import install_release_v15 as _install_release_v15
 
 _install_release_v15(globals())
 del _install_release_v15
+
+# Collective V16 is an additive generalized-model successor. It intercepts only
+# its own five tool names at the Server boundary and advances current release /
+# manifest/resource projections using the same holonomy membrane learned in V15.
+from .collective_v16_install import install_release_v16 as _install_release_v16
+
+_install_release_v16(globals())
+del _install_release_v16
