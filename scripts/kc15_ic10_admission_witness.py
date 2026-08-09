@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import argparse
-import ast
+import hashlib
 import json
 import subprocess
 import tempfile
@@ -31,6 +31,10 @@ def blob_sha(path: str) -> str:
 
 def canonical(value: object) -> str:
     return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+
+
+def replay_digest(value: object) -> str:
+    return hashlib.sha256(canonical(value).encode("utf-8")).hexdigest()
 
 
 def independent_rows() -> list[dict]:
@@ -87,7 +91,6 @@ def main(argv=None) -> int:
     safe_runtime_paths={"athena_mcp/inner_constitution.py","athena_mcp/kc144.py"}
     unexpected_runtime_refs=[r for r in current_refs if r["path"] not in safe_runtime_paths]
 
-    # Verify provider artifacts and their source-coordinate compatibility.
     population_checks = population.get("checks") or {}
     structural_checks = structural.get("checks") or {}
     interpretation_checks = interpretation.get("checks") or {}
@@ -181,6 +184,7 @@ def main(argv=None) -> int:
                 "completion_predicate":{"I01_I09":"PASS"},"stop_predicate":{"I10":"UNBOUND_EXTERNAL_PROMOTION"},"return_target":"IC10:I10_EXISTING_PROMOTION_QUALIFICATION",
             }
             qa=h6.compile_query(**query_args); qb=h6.compile_query(**query_args); replay_match=canonical(qa)==canonical(qb)
+            replay_hash=replay_digest(qa)
 
             syntax={"observed":True,"status":"PASS" if all(compatibility.values()) else "HOLD","ref":f"GIT_BLOB:athena_mcp/inner_constitution.py:{constitution_blob}","normalized":True,"dependencies_explicit":all(compatibility.values()),"trust_class":"PROVIDER_REPOSITORY_AND_ARTIFACT_OBSERVED"}
             type_carrier={"observed":True,"status":"PASS","ref":f"GIT_BLOB:athena_mcp/inner_constitution.py:{constitution_blob}","type":"FINITE_NONEMPTY_SUBSET_LATTICE","carrier":"PYTHON_CONSTITUTION_PLUS_PROVIDER_JSON_RECEIPTS","units_status":"NOT_APPLICABLE","trust_class":"PROVIDER_OBSERVED"}
@@ -190,8 +194,8 @@ def main(argv=None) -> int:
             if dict(rank_counts)!={1:4,2:6,3:4,4:1}: violations.append("RANK_DISTRIBUTION_MISMATCH")
             if unexpected_runtime_refs: violations.append("UNREVIEWED_RUNTIME_CONSUMER")
             invariant={"observed":True,"status":"PASS" if not violations else "HOLD","ref":contract['claim']['claim_id'],"declared_invariants":["15_NONEMPTY_UNIQUE_MASKS","RANK_4_6_4_1","EPOCH_B_GID_MAPPING","SUPPORT_ONLY_SEMANTICS"],"violations":violations,"trust_class":"PROVIDER_OBSERVED"}
-            dependency={"observed":True,"status":"PASS" if all(compatibility.values()) and replay_match else "HOLD","ref":f"H6QUERY:{qa.get('query_id')}","dependencies_closed":all(compatibility.values()),"replay_prerequisites":replay_match,"exact_versions":True,"trust_class":"PROVIDER_OBSERVED"}
-            audit={"observed":True,"status":"PASS" if replay_match else "HOLD","ref":f"H6QUERY:{qa.get('query_id')}","audit_complete":True,"replay_complete":replay_match,"replay_digest":qa.get('query_id'),"trust_class":"PROVIDER_OBSERVED"}
+            dependency={"observed":True,"status":"PASS" if all(compatibility.values()) and replay_match else "HOLD","ref":f"H6REPLAY:{replay_hash}","dependencies_closed":all(compatibility.values()),"replay_prerequisites":replay_match,"exact_versions":True,"trust_class":"PROVIDER_OBSERVED"}
+            audit={"observed":True,"status":"PASS" if replay_match else "HOLD","ref":f"H6REPLAY:{replay_hash}","audit_complete":True,"replay_complete":replay_match,"replay_digest":replay_hash,"trust_class":"PROVIDER_OBSERVED"}
             promotion_unbound={"status":"UNBOUND_EXTERNAL_PROMOTION","promotion_allowed":False,"git_head":head,"run_id":None,"gates":{"external_verification":{"status":"HOLD","trusted":False,"reason":"CLAIM_WITNESS_CANNOT_SELF_MINT_I10"}}}
             candidate={"candidate_ref":"KC15.EPOCH_B.STRUCTURAL_SUPPORT_LATTICE","git_head":head,"identity_decision":identity,"provenance_refs":[f"GIT_BLOB:athena_mcp/inner_constitution.py:{constitution_blob}",f"ACTIONS_ARTIFACT:{contract['evidence_sources']['population']['artifact_id']}:{contract['evidence_sources']['population']['digest']}",f"ACTIONS_ARTIFACT:{contract['evidence_sources']['independent_structural']['artifact_id']}:{contract['evidence_sources']['independent_structural']['digest']}",f"ACTIONS_ARTIFACT:{contract['evidence_sources']['interpretation_review']['artifact_id']}:{contract['evidence_sources']['interpretation_review']['digest']}"],"syntax_witness":syntax,"type_carrier_witness":type_carrier,"scope_witness":scope,"invariant_witness":invariant,"evidence_decision":evidence,"dependency_replay_witness":dependency,"bridge_decision":bridge,"audit_replay_witness":audit,"promotion_certificate":promotion_unbound}
             before=store.one("SELECT COUNT(*) n FROM events")["n"]; ra=ic10.evaluate(candidate); rb=ic10.evaluate(candidate); after=store.one("SELECT COUNT(*) n FROM events")["n"]
@@ -205,6 +209,7 @@ def main(argv=None) -> int:
         "bridge_admitted":bridge.get('decision')=='ADMITTED' and not bridge.get('defects') and not bridge.get('missing_obligations'),
         "evidence_sufficient_two_independent_groups":evidence.get('status')=='EVIDENCE_SUFFICIENT' and evidence.get('promotion_authority') is False,
         "query_replay_match":replay_match,
+        "replay_digest_nonempty":bool(replay_hash),
         "i01_i09_pass":all(gate_status.get(name)=='PASS' for name in GATE_ORDER[:9]),
         "i10_hold":gate_status.get(GATE_ORDER[9])=='HOLD',
         "first_hold_i10":ra.get('first_hold')==GATE_ORDER[9],
