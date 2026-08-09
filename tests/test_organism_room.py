@@ -37,12 +37,9 @@ def _fixture(base: Path, clone_names=("b",)):
     _run(local, "init", "-b", "master")
     _run(local, "config", "user.name", "local")
     _run(local, "config", "user.email", "local@example.invalid")
-    for rel in (
-        "prompts/PROMPT.manifest.json",
-        "prompts/state/ACTIVE.json",
-        "prompts/ORCHESTRATION_CORE.md",
-        "prompts/modules/GIT_ORGANISM.md",
-    ):
+    _write(local, "prompts/PROMPT.manifest.json", '{"bootstrap":"prompts/BOOTSTRAP.md","core":"prompts/ORCHESTRATION_CORE.md","policy":"policies/PROMPT_RUNTIME.md","modules":{"core":{"path":"prompts/ORCHESTRATION_CORE.md"},"git":{"path":"prompts/modules/GIT_ORGANISM.md"}},"room":{"registry":"registry/organism_room_v1.json","harness_genotype":"registry/harness_genotype_v1.json","allocator":"scripts/organism_homeostasis_v1.py"}}\n')
+    _write(local, "prompts/state/ACTIVE.json", '{"enabled_modules":["core","git"],"active_scoped_overlays":["prompts/overlays/ACTIVE.md"],"active_scoped_state":[],"harness_genotype":"registry/harness_genotype_v1.json"}\n')
+    for rel in ("prompts/BOOTSTRAP.md", "prompts/ORCHESTRATION_CORE.md", "prompts/modules/GIT_ORGANISM.md", "prompts/overlays/ACTIVE.md", "policies/PROMPT_RUNTIME.md", "registry/organism_room_v1.json", "registry/harness_genotype_v1.json", "scripts/organism_homeostasis_v1.py"):
         _write(local, rel, f"fixture:{rel}\n")
     _run(local, "add", ".")
     _run(local, "commit", "-m", "seed")
@@ -63,11 +60,15 @@ def _fixture(base: Path, clone_names=("b",)):
 
 
 class HomeostasisTests(unittest.TestCase):
-    def test_builder_majority_and_exact_population(self):
+    def test_domain_priors_and_exact_population(self):
         allocation = allocate_population([f"a{i:02}" for i in range(20)])
         self.assertEqual(sum(allocation["counts"].values()), 20)
-        self.assertGreaterEqual(allocation["counts"]["BUILD_GIT"], 12)
-        self.assertLessEqual(allocation["counts"]["INTEGRATE_META"], 2)
+        self.assertEqual(allocation["counts"]["BUILD_GIT"], 4)
+        self.assertEqual(allocation["counts"]["MATH_MINE"], 3)
+        self.assertEqual(allocation["counts"]["NAVIGATION"], 3)
+        self.assertEqual(allocation["counts"]["DRIVE_DISTILL"], 3)
+        self.assertEqual(allocation["counts"]["INTEGRATE_META"], 2)
+        self.assertEqual(allocation["wave_counts"], {"IMMEDIATE": 10, "MIDDLE": 6, "RECURSIVE_META": 4})
 
     def test_small_population_is_builder_generalist_with_all_three_waves(self):
         for count in (1, 2, 3):
@@ -77,9 +78,14 @@ class HomeostasisTests(unittest.TestCase):
 
     def test_empty_lane_lends_capacity(self):
         allocation = allocate_population([f"a{i}" for i in range(8)], {name: (1 if name == "MATH_MINE" else 0) for name in (
-            "BUILD_GIT", "INTEGRATE_META", "NAVIGATION", "TOOLS_ALCHEMY", "DRIVE_DISTILL", "MATH_MINE", "MYTH_MINE", "PHYSICAL_LIMITS"
+            "BUILD_GIT", "INTEGRATE_META", "NAVIGATION", "TOOL_LIMITS", "ALCHEMY", "DRIVE_DISTILL", "MATH_MINE", "MYTH_MINE"
         )})
         self.assertEqual(allocation["counts"]["MATH_MINE"], 8)
+
+    def test_git_state_never_persists_bearer_token(self):
+        # Checked end-to-end below; this protects the structural invariant at
+        # the allocator/unit layer too by keeping the public shape token-free.
+        self.assertNotIn("session_token", allocate_population(["a"]))
 
 
 class ReceiptTests(unittest.TestCase):
@@ -166,6 +172,8 @@ class RoomE2ETests(unittest.TestCase):
         first = room.enter(**args)
         replay = room.enter(**args)
         self.assertEqual(replay["session"]["session_id"], first["session"]["session_id"])
+        self.assertEqual(replay["session_token"], first["session_token"])
+        self.assertNotIn("session_token", room.read()["room"]["idempotency"]["a:enter-a"]["result"])
         with self.assertRaisesRegex(ValueError, "IDEMPOTENCY_KEY_REUSE_CONFLICT"):
             room.enter(**{**args, "task": "Build y"})
 
