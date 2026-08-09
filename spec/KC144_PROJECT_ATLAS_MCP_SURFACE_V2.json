@@ -46,6 +46,26 @@
     "cache_key": "<configured_git_head,runtime_source_frontier,live_mcp_surface_signature>",
     "bounded_retry": 1
   },
+  "query_index": {
+    "version": "ATHENA.PROJECT_ATLAS.QUERY_INDEX.V2",
+    "maps": [
+      "by_source",
+      "by_poid",
+      "by_address",
+      "by_return",
+      "by_path",
+      "by_raw_mcp_name",
+      "by_typed_mcp",
+      "by_project_gid",
+      "by_reference_gid",
+      "by_directory",
+      "by_blob"
+    ],
+    "digest_in_snapshot": true,
+    "order_invariant": true,
+    "duplicate_invariant": true,
+    "law": "QUERY_INDEX != SEMANTIC_IDENTITY"
+  },
   "snapshot": {
     "prefix": "PATLASV2.",
     "basis": [
@@ -54,6 +74,7 @@
       "runtime_git_head_tree_atlas_digest_if_available",
       "mcp_repo_head_surface_digest",
       "live_mcp_surface_signature",
+      "query_index_digest",
       "federation_digest"
     ],
     "authority": "NONE",
@@ -124,6 +145,7 @@
     "MCP_VIRTUAL_OBJECT != GIT_BLOB",
     "MCP_DEFINITION_COORDINATE_REQUIRES_RUNTIME_SOURCE_HEAD",
     "UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE",
+    "QUERY_INDEX != SEMANTIC_IDENTITY",
     "PROJECT_ATLAS_SNAPSHOT_ID != PROMOTION_RECEIPT",
     "PROJECT_QUERY != PROMOTION_AUTHORITY",
     "PROJECT_QUERY != PERSISTENT_STATE_MUTATION",
