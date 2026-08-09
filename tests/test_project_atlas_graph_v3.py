@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import tempfile
 import unittest
 from pathlib import Path
@@ -11,7 +12,9 @@ from athena_mcp.project_atlas_graph import (
     GRAPH_LAWS,
     GraphBuildOptions,
     STRUCTURAL_EDGE_KINDS,
+    VERTEX_ID_PREFIX,
     compile_project_relation_graph,
+    vertex_id,
 )
 
 
@@ -81,13 +84,54 @@ class ProjectAtlasGraphV3Tests(unittest.TestCase):
         self.assertNotEqual(one["poid"], two["poid"])
 
         for edge in graph.edges:
-            self.assertIn(edge["src_poid"], graph.vertices)
-            self.assertIn(edge["dst_poid"], graph.vertices)
+            self.assertIn(edge["src_vertex_id"], graph.vertices)
+            self.assertIn(edge["dst_vertex_id"], graph.vertices)
+            self.assertEqual(graph.vertices[edge["src_vertex_id"]]["poid"], edge["src_poid"])
+            self.assertEqual(graph.vertices[edge["dst_vertex_id"]]["poid"], edge["dst_poid"])
             self.assertEqual(edge["snapshot_id"], self.SNAPSHOT)
             self.assertTrue(edge["extractor"])
             self.assertTrue(edge["evidence"])
             self.assertTrue(edge["return"]["src"])
             self.assertTrue(edge["return"]["dst"])
+
+    def test_federated_vertex_id_prevents_poid_collapse_across_planes(self):
+        root, atlas = self.repo()
+        configured = copy.deepcopy(atlas["records"])
+        runtime = copy.deepcopy(atlas["records"])
+        for rec in configured:
+            rec["source"] = "configured_git"
+        for rec in runtime:
+            rec["source"] = "runtime_git"
+        federated = {"records": configured + runtime}
+        graph = compile_project_relation_graph(federated, snapshot_id=self.SNAPSHOT, root=root)
+        a_poid = self.record(atlas, "pkg/a.py")["poid"]
+        vids = graph.vertex_ids_for_poid(a_poid)
+        self.assertEqual(len(vids), 2)
+        self.assertTrue(all(v.startswith(VERTEX_ID_PREFIX) for v in vids))
+        self.assertNotEqual(vids[0], vids[1])
+        self.assertEqual(graph.summary()["multi_frontier_poids"], len(atlas["records"]))
+
+        ambiguous = graph.neighbors(a_poid)
+        self.assertEqual(ambiguous["status"], "HOLD_AMBIGUOUS_VERTEX")
+        self.assertEqual(ambiguous["candidate_vertex_ids"], vids)
+        self.assertEqual(ambiguous["law"], "POID != FEDERATED_VERTEX_ID")
+
+        exact = graph.neighbors(vids[0])
+        self.assertEqual(exact["status"], "PASS")
+        self.assertEqual(exact["vertex_id"], vids[0])
+        self.assertEqual(exact["poid"], a_poid)
+        self.assertIn("POID != FEDERATED_VERTEX_ID", GRAPH_LAWS)
+
+    def test_vertex_id_changes_with_plane_or_head_while_poid_can_remain_same(self):
+        root, atlas = self.repo()
+        rec = copy.deepcopy(self.record(atlas, "pkg/a.py"))
+        configured = copy.deepcopy(rec); configured["source"] = "configured_git"
+        runtime = copy.deepcopy(rec); runtime["source"] = "runtime_git"
+        newer = copy.deepcopy(rec); newer["source"] = "configured_git"; newer["native"]["head"] = "F" * 40
+        self.assertEqual(configured["poid"], runtime["poid"])
+        self.assertEqual(configured["poid"], newer["poid"])
+        self.assertNotEqual(vertex_id(configured), vertex_id(runtime))
+        self.assertNotEqual(vertex_id(configured), vertex_id(newer))
 
     def test_external_or_unknown_import_is_conserved_not_fabricated(self):
         root, atlas = self.repo()
@@ -150,24 +194,24 @@ class ProjectAtlasGraphV3Tests(unittest.TestCase):
         b = self.record(atlas, "pkg/b.py")
         routed = graph.shortest_path(pkg["poid"], b["poid"], kinds={"DIR_CONTAINS", "PY_RELATIVE_IMPORTS"})
         self.assertEqual(routed["status"], "ROUTED")
-        self.assertEqual(routed["hops"], 1)  # the exact tree directly contains b.py
+        self.assertEqual(routed["hops"], 1)
         self.assertEqual(routed["cost_vector"]["coordinate_hops"], 0)
         self.assertEqual(routed["cost_vector"]["structural_hops"], 1)
         self.assertEqual(routed["law"], "STRUCTURAL_GRAPH_ROUTE != KC144_GEOMETRIC_ROUTE != EXECUTION")
 
-    def test_bfs_can_follow_tree_then_import(self):
+    def test_bfs_can_follow_tree_and_import_relations(self):
         root, atlas = self.repo()
         graph = compile_project_relation_graph(atlas, snapshot_id=self.SNAPSHOT, root=root)
         pkg = self.record(atlas, "pkg", "tree")
         a = self.record(atlas, "pkg/a.py")
         c = self.record(atlas, "pkg/c.py")
-        # Restrict first relationship to a unique source by routing from a itself after
-        # proving the tree relation separately; import edge must be the second semantics.
         tree = graph.shortest_path(pkg["poid"], a["poid"], kinds={"DIR_CONTAINS"})
         imp = graph.shortest_path(a["poid"], c["poid"], kinds={"PY_IMPORTS"})
         self.assertEqual(tree["status"], "ROUTED")
         self.assertEqual(imp["status"], "ROUTED")
         self.assertEqual([e["kind"] for e in imp["edges"]], ["PY_IMPORTS"])
+        self.assertTrue(imp["src_vertex_id"].startswith(VERTEX_ID_PREFIX))
+        self.assertTrue(imp["dst_vertex_id"].startswith(VERTEX_ID_PREFIX))
 
     def test_dijkstra_forbids_hidden_scalarization_and_returns_weights(self):
         root, atlas = self.repo()
