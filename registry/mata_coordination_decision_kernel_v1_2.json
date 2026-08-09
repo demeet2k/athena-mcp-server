@@ -1,0 +1,49 @@
+{
+  "artifact": "ATHENA.MATA.COORDINATION.DECISION.KERNEL.V1.2",
+  "version": "MATA.COORDINATION.DECISION.KERNEL.V1.2",
+  "parent": "ATHENA.MATA.COORDINATION.DECISION.KERNEL.V1.1",
+  "standing": "CANDIDATE_INTERACTION_HARDENING",
+  "runtime": "athena_mcp/coordination_decision_kernel_v1_2.py",
+  "tests": "tests/test_coordination_decision_kernel_v1_2.py",
+  "primary_fixture": "tests/fixtures/mata_coordination_hold_ab_v0.json",
+  "defects": [
+    {
+      "id": "REOPEN_BEFORE_FRESHNESS",
+      "description": "V1.1 could reactivate a held lane from a reopening predicate observed on older shared coordinates before processing material master movement.",
+      "repair": "when reopening_predicate_satisfied and master_moved, restore freshness first and append RECHECK_REOPENING_PREDICATE_AFTER_FRESHNESS"
+    },
+    {
+      "id": "REBRAID_BEFORE_DECONTAMINATION",
+      "description": "V1.1 could choose REBRAID_REQUALIFY on a polluted comparison branch, faithfully carrying unrelated lineage into the new braid.",
+      "repair": "POLLUTED + DISJOINT master movement -> FORK_CLEAN then secondary REBRAID_REQUALIFY; conflicts HOLD"
+    }
+  ],
+  "interaction_order": [
+    "GLOBAL unresolved boundary",
+    "freshness before reopening",
+    "lineage decontamination before safe disjoint braid",
+    "semantic conflict HOLD",
+    "inherited V1.1 collision/hold/continuation rules"
+  ],
+  "tests_required": [
+    "all 23 pre-registered primary cases unchanged",
+    "stale reopening + disjoint master -> REBRAID_REQUALIFY before reopen",
+    "stale reopening + conflicting master -> CONFLICT_HOLD before reopen",
+    "polluted branch + disjoint master -> FORK_CLEAN then REBRAID_REQUALIFY",
+    "polluted branch + conflicting master -> CONFLICT_HOLD",
+    "polluted branch + unknown master delta -> FORK_CLEAN then REHYDRATE_COMPARE_PARENT",
+    "GLOBAL hold dominates lineage/freshness convenience"
+  ],
+  "boundary": {
+    "authority_delta": "NONE",
+    "execution_effect": "NONE_DECISION_ONLY",
+    "mcp_registration": "NONE",
+    "treatment_effect": "UNKNOWN",
+    "canonical_promotion": "HOLD"
+  },
+  "open_interaction_residuals": [
+    "triple interaction reopening + polluted branch + moving master not yet frozen as a primary gate",
+    "lane-local hold intersecting collision action classes lacks per-action hold-scope semantics",
+    "current policy baseline arm not yet executed"
+  ]
+}

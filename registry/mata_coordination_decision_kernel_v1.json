@@ -1,0 +1,90 @@
+{
+  "artifact": "ATHENA.MATA.COORDINATION.DECISION.KERNEL.V1.1",
+  "version": "MATA.COORDINATION.DECISION.KERNEL.V1.1",
+  "standing": "CANDIDATE_DECISION_MEMBRANE",
+  "source_experiment": "MATA-COORD-HOLD-AB-V0",
+  "source_issue": "demeet2k/Athena#233",
+  "trajectory_source": "AQ-001 public Git/PR/CI continuation trajectory",
+  "runtime": {
+    "v1_raw": "athena_mcp/coordination_decision_kernel_v1.py",
+    "v1_1": "athena_mcp/coordination_decision_kernel_v1_1.py",
+    "fixture": "tests/fixtures/mata_coordination_hold_ab_v0.json",
+    "tests": "tests/test_coordination_decision_kernel_v1.py"
+  },
+  "purpose": "Provide one pure deterministic collision/freshness/hold-scope routing membrane shared by MATA/GTC/Cohesion experiments without creating a scheduler, MCP tool, execution authority, claim authority, or background worker.",
+  "inputs": [
+    "collision_relation",
+    "branch_context",
+    "master_moved",
+    "master_delta_relation",
+    "hold_active",
+    "hold_scope",
+    "dependency_changed",
+    "reopening_predicate_satisfied",
+    "held_lane_value",
+    "orthogonal_positive_lanes",
+    "information_action_available",
+    "shared_target_mutation_pending"
+  ],
+  "decision_classes": [
+    "CONSUME_SIBLING",
+    "COMPARE_FUSE",
+    "COMPARE_REJECT_OR_FUSE",
+    "PRESERVE_COMPETING_HYPOTHESES",
+    "FORK_CLEAN",
+    "KEEP_BRANCH",
+    "REBRAID_REQUALIFY",
+    "REHYDRATE_COMPARE_PARENT",
+    "CONFLICT_HOLD",
+    "GLOBAL_HOLD",
+    "REOPEN_HELD_LANE",
+    "PRESERVE_HOLD",
+    "HOLD_LOCAL_CONTINUE_ORTHOGONAL",
+    "PRESERVE_VALUE_IN_RESERVE",
+    "GLOBAL_TYPED_STOP",
+    "INFORMATION_ACTION",
+    "QUIET_SUCCESSOR",
+    "STOP_SUCCESS",
+    "COMPARE_RELATION",
+    "INPUT_HOLD"
+  ],
+  "pre_registered_fixture": {
+    "case_count": 23,
+    "collision_base_cases": 4,
+    "collision_mutations": 4,
+    "hold_base_cases": 6,
+    "hold_mutations": 6,
+    "gtc_continuation_cases": 2,
+    "fail_closed_cases": 1,
+    "gold_hidden_from_kernel": true
+  },
+  "v1_1_delta": {
+    "defect": "RAW V1 could detect polluted branch context but lacked explicit KEEP_BRANCH for clean-owned branch under review",
+    "repair": "V1.1 adds branch_context={NONE,CLEAN_OWNED,POLLUTED}; CLEAN_OWNED returns KEEP_BRANCH unless a higher-priority hold/freshness/collision obstruction exists",
+    "falsifier": "C3m must return KEEP_BRANCH while global hold/master conflict still dominate branch convenience"
+  },
+  "hard_laws": [
+    "STALE_SHARED_TARGET -> NO_MUTATING_CONTINUE",
+    "GLOBAL_HOLD -> NO_ORTHOGONAL_BYPASS_WITHIN_SCOPE",
+    "LOCAL_HOLD != ZERO_VALUE",
+    "NO_POSITIVE_LAWFUL_FRONTIER -> NO_SYNTHETIC_WORK",
+    "KNOWN_POSITIVE_LAWFUL_SUCCESSOR -> NO_PREMATURE_STOP",
+    "UNKNOWN_COLLISION_RELATION -> DISCRIMINATE_BEFORE_CANONICALIZATION",
+    "DECISION_KERNEL != EXECUTION_ENGINE",
+    "DECISION_KERNEL != AUTHORITY"
+  ],
+  "output_boundary": {
+    "authority_delta": "NONE",
+    "execution_effect": "NONE_DECISION_ONLY",
+    "mcp_registration": "NONE",
+    "provider_credentials": "NOT_ACCEPTED",
+    "private_reasoning": "NOT_INPUT",
+    "game_reward": "NOT_INPUT"
+  },
+  "promotion_boundary": {
+    "fixture_pass": "MECHANISM_CORRECTNESS_ONLY",
+    "mata_treatment_effect": "UNKNOWN_UNTIL_MATCHED_PORTFOLIO_EXPERIMENT",
+    "gtc_treatment_effect": "UNKNOWN_UNTIL_MATCHED_MISSION_EXPERIMENT",
+    "canonical_promotion": "HOLD"
+  }
+}

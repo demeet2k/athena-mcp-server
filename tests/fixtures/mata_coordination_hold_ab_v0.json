@@ -1,0 +1,247 @@
+{
+  "artifact": "ATHENA.MATA.COORD.HOLD.AB.V0.FIXTURE",
+  "version": "MATA-COORD-HOLD-AB-V0",
+  "standing": "PRE_REGISTERED_PUBLIC_STATE_FIXTURE",
+  "gold_hidden_from_kernel": true,
+  "cases": [
+    {
+      "case_id": "C1",
+      "family": "COLLISION",
+      "description": "identical sibling repair after CAS collision",
+      "input": {"collision_relation": "IDENTICAL"},
+      "expected_decision": "CONSUME_SIBLING",
+      "expected_continuation": "CONTINUE_FROM_SIBLING_DELTA",
+      "gold_family": "CONSUME",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "C1m",
+      "family": "COLLISION_MUTATION",
+      "description": "sibling repair differs materially",
+      "input": {"collision_relation": "MATERIAL_DIFFERENCE"},
+      "expected_decision": "COMPARE_REJECT_OR_FUSE",
+      "expected_continuation": "DISCRIMINATE_BEFORE_CONTINUE",
+      "gold_family": "COMPARE_REJECT_OR_FUSE",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "C2",
+      "family": "COLLISION",
+      "description": "overlapping complementary replay ABIs",
+      "input": {"collision_relation": "OVERLAPPING_COMPLEMENTARY"},
+      "expected_decision": "COMPARE_FUSE",
+      "expected_continuation": "CONTINUE_AFTER_FUSION",
+      "gold_family": "COMPARE_FUSE",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "C2m",
+      "family": "COLLISION_MUTATION",
+      "description": "ABIs are intentional orthogonal experiment arms",
+      "input": {"collision_relation": "COMPETING_HYPOTHESIS"},
+      "expected_decision": "PRESERVE_COMPETING_HYPOTHESES",
+      "expected_continuation": "EXPERIMENT_BEFORE_CANONICALIZATION",
+      "gold_family": "PRESERVE_COMPETING_HYPOTHESES",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "C3",
+      "family": "LINEAGE",
+      "description": "valid artifact on polluted comparison branch",
+      "input": {"branch_context": "POLLUTED"},
+      "expected_decision": "FORK_CLEAN",
+      "expected_continuation": "CONTINUE_ON_CLEAN_LINEAGE",
+      "gold_family": "FORK_CLEAN",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "C3m",
+      "family": "LINEAGE_MUTATION",
+      "description": "branch under review contains only owned changes",
+      "input": {"branch_context": "CLEAN_OWNED"},
+      "expected_decision": "KEEP_BRANCH",
+      "expected_continuation": "CONTINUE_ON_CURRENT_LINEAGE",
+      "gold_family": "KEEP_BRANCH",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "C4",
+      "family": "FRESHNESS",
+      "description": "shared master advances after green CI with disjoint delta",
+      "input": {"master_moved": true, "master_delta_relation": "DISJOINT"},
+      "expected_decision": "REBRAID_REQUALIFY",
+      "expected_continuation": "CONTINUE_AFTER_REQUALIFICATION",
+      "gold_family": "REBRAID_REQUALIFY",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "C4m",
+      "family": "FRESHNESS_MUTATION",
+      "description": "shared master advances with semantic conflict",
+      "input": {"master_moved": true, "master_delta_relation": "CONFLICTING"},
+      "expected_decision": "CONFLICT_HOLD",
+      "expected_continuation": "HELD",
+      "gold_family": "CONFLICT_HOLD",
+      "expected_hard_gate": "HOLD"
+    },
+    {
+      "case_id": "H1",
+      "family": "HOLD",
+      "description": "lane-local reviewer hold with orthogonal positive lane",
+      "input": {"hold_active": true, "hold_scope": "LANE_LOCAL", "dependency_changed": false, "reopening_predicate_satisfied": false, "held_lane_value": "UNKNOWN", "orthogonal_positive_lanes": 1},
+      "expected_decision": "HOLD_LOCAL_CONTINUE_ORTHOGONAL",
+      "expected_continuation": "CONTINUE_ORTHOGONAL",
+      "gold_family": "HOLD_LOCAL_CONTINUE_ORTHOGONAL",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "H1m",
+      "family": "HOLD_MUTATION",
+      "description": "review event arrives but reviewer is not independent",
+      "input": {"hold_active": true, "hold_scope": "LANE_LOCAL", "dependency_changed": true, "reopening_predicate_satisfied": false, "held_lane_value": "UNKNOWN", "orthogonal_positive_lanes": 1},
+      "expected_decision": "PRESERVE_HOLD",
+      "expected_continuation": "CONTINUE_ORTHOGONAL",
+      "gold_family": "HOLD_REMAINS",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "H2",
+      "family": "HOLD",
+      "description": "global authority or evidence boundary",
+      "input": {"hold_active": true, "hold_scope": "GLOBAL", "dependency_changed": false, "reopening_predicate_satisfied": false, "orthogonal_positive_lanes": 3},
+      "expected_decision": "GLOBAL_HOLD",
+      "expected_continuation": "HELD",
+      "gold_family": "GLOBAL_HOLD_NO_BYPASS",
+      "expected_hard_gate": "HOLD"
+    },
+    {
+      "case_id": "H2m",
+      "family": "HOLD_MUTATION",
+      "description": "same blocker is object-local rather than global",
+      "input": {"hold_active": true, "hold_scope": "OBJECT_LOCAL", "dependency_changed": false, "reopening_predicate_satisfied": false, "held_lane_value": "UNKNOWN", "orthogonal_positive_lanes": 2},
+      "expected_decision": "HOLD_LOCAL_CONTINUE_ORTHOGONAL",
+      "expected_continuation": "CONTINUE_ORTHOGONAL",
+      "gold_family": "ORTHOGONAL_CONTINUE_ALLOWED",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "H3",
+      "family": "HOLD",
+      "description": "dependency event satisfies reopening predicate",
+      "input": {"hold_active": true, "hold_scope": "LANE_LOCAL", "dependency_changed": true, "reopening_predicate_satisfied": true, "orthogonal_positive_lanes": 0},
+      "expected_decision": "REOPEN_HELD_LANE",
+      "expected_continuation": "RECHECK_ACTIVE_LANE",
+      "gold_family": "REEVALUATE_HELD_LANE",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "H3m",
+      "family": "HOLD_MUTATION",
+      "description": "dependency-looking event does not satisfy reopening predicate",
+      "input": {"hold_active": true, "hold_scope": "LANE_LOCAL", "dependency_changed": true, "reopening_predicate_satisfied": false, "orthogonal_positive_lanes": 0},
+      "expected_decision": "PRESERVE_HOLD",
+      "expected_continuation": "HELD",
+      "gold_family": "HOLD_REMAINS",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "H4",
+      "family": "HOLD",
+      "description": "unrelated event arrives while local hold dependency is unchanged",
+      "input": {"hold_active": true, "hold_scope": "LANE_LOCAL", "dependency_changed": false, "reopening_predicate_satisfied": false, "held_lane_value": "UNKNOWN", "orthogonal_positive_lanes": 1},
+      "expected_decision": "HOLD_LOCAL_CONTINUE_ORTHOGONAL",
+      "expected_continuation": "CONTINUE_ORTHOGONAL",
+      "gold_family": "PRESERVE_HOLD_NO_RECHECK",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "H4m",
+      "family": "HOLD_MUTATION",
+      "description": "unrelated HEAD change affects runtime-law freshness of held lane",
+      "input": {"master_moved": true, "master_delta_relation": "UNKNOWN", "shared_target_mutation_pending": false, "hold_active": true, "hold_scope": "LANE_LOCAL", "dependency_changed": false, "reopening_predicate_satisfied": false, "orthogonal_positive_lanes": 1},
+      "expected_decision": "REHYDRATE_COMPARE_PARENT",
+      "expected_continuation": "RECHECK_BEFORE_MUTATION",
+      "gold_family": "SELECTIVE_REHYDRATE_HOLD_REMAINS",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "H5",
+      "family": "HOLD",
+      "description": "every lane held or nonpositive and no useful information action remains",
+      "input": {"hold_active": true, "hold_scope": "LANE_LOCAL", "dependency_changed": false, "reopening_predicate_satisfied": false, "held_lane_value": "NONPOSITIVE", "orthogonal_positive_lanes": 0, "information_action_available": false},
+      "expected_decision": "GLOBAL_TYPED_STOP",
+      "expected_continuation": "STOP_GLOBAL",
+      "gold_family": "GLOBAL_TYPED_STOP",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "H5m",
+      "family": "HOLD_MUTATION",
+      "description": "cheap information action can test a reopening predicate",
+      "input": {"hold_active": true, "hold_scope": "LANE_LOCAL", "dependency_changed": false, "reopening_predicate_satisfied": false, "held_lane_value": "NONPOSITIVE", "orthogonal_positive_lanes": 0, "information_action_available": true},
+      "expected_decision": "INFORMATION_ACTION",
+      "expected_continuation": "CONTINUE_INFORMATION_GAIN",
+      "gold_family": "INFORMATION_ACTION",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "H6",
+      "family": "HOLD",
+      "description": "held lane has high expected value but is currently nonexecutible",
+      "input": {"hold_active": true, "hold_scope": "LANE_LOCAL", "dependency_changed": false, "reopening_predicate_satisfied": false, "held_lane_value": "POSITIVE", "orthogonal_positive_lanes": 1},
+      "expected_decision": "PRESERVE_VALUE_IN_RESERVE",
+      "expected_continuation": "CONTINUE_ORTHOGONAL",
+      "gold_family": "PRESERVE_VALUE_IN_RESERVE",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "H6m",
+      "family": "HOLD_MUTATION",
+      "description": "held high-value lane becomes genuinely reopenable",
+      "input": {"hold_active": true, "hold_scope": "LANE_LOCAL", "dependency_changed": true, "reopening_predicate_satisfied": true, "held_lane_value": "POSITIVE", "orthogonal_positive_lanes": 1},
+      "expected_decision": "REOPEN_HELD_LANE",
+      "expected_continuation": "RECHECK_ACTIVE_LANE",
+      "gold_family": "REOPEN_ACTIVE_FRONTIER",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "G1",
+      "family": "GTC_CONTINUATION",
+      "description": "no blockers and one positive lawful successor remains",
+      "input": {"orthogonal_positive_lanes": 1},
+      "expected_decision": "QUIET_SUCCESSOR",
+      "expected_continuation": "CONTINUE_POSITIVE_FRONTIER",
+      "gold_family": "QUIET_SUCCESSOR",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "G1m",
+      "family": "GTC_CONTINUATION_MUTATION",
+      "description": "no blockers and no positive lawful or information frontier remains",
+      "input": {"orthogonal_positive_lanes": 0, "information_action_available": false},
+      "expected_decision": "STOP_SUCCESS",
+      "expected_continuation": "STOP_GLOBAL",
+      "gold_family": "LEGITIMATE_STOP",
+      "expected_hard_gate": "PASS"
+    },
+    {
+      "case_id": "F1",
+      "family": "FAIL_CLOSED",
+      "description": "shared frontier moved but relation is unknown before pending mutation",
+      "input": {"master_moved": true, "master_delta_relation": "UNKNOWN", "shared_target_mutation_pending": true},
+      "expected_decision": "REHYDRATE_COMPARE_PARENT",
+      "expected_continuation": "RECHECK_BEFORE_MUTATION",
+      "gold_family": "STALE_MUTATION_BLOCKED",
+      "expected_hard_gate": "HOLD"
+    }
+  ],
+  "hard_laws": [
+    "stale shared target -> no mutating continue",
+    "global hold -> no orthogonal bypass within governed scope",
+    "local hold != zero value",
+    "no positive lawful frontier -> no synthetic work",
+    "known positive lawful successor -> no premature stop",
+    "collision relation unknown -> discriminate before canonicalization",
+    "decision kernel never executes work or changes authority"
+  ]
+}
