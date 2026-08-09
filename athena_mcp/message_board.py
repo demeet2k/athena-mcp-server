@@ -11,6 +11,16 @@ from typing import Any
 
 from .git_backend import GitBackend, GitStateError, GitStaleHead
 from .prompt_remote import PromptRemoteSync
+from .swarm_room import (
+    SWARM_ROOM_VERSION,
+    compile_pulse,
+    compile_shadow,
+    contract as swarm_room_contract,
+    decode_details,
+    encode_details,
+    room_profile,
+    select_quest,
+)
 
 BOARD_ROOT = "runtime/message_board/v1"
 AGENT_ROOT = f"{BOARD_ROOT}/agents"
@@ -22,7 +32,10 @@ TOOL_NAME = "athena_message_board"
 
 _ID_RE = re.compile(r"^[A-Za-z0-9_.-]{1,128}$")
 _TOKEN_RE = re.compile(r"[A-Za-z0-9]+")
-_ACTIONS = {"read", "present", "join", "heartbeat", "post", "ack", "release"}
+_ACTIONS = {
+    "read", "present", "join", "heartbeat", "post", "ack", "release",
+    "room_contract", "room_pulse", "room_shadow", "room_enter", "room_return",
+}
 _MESSAGE_KINDS = {"UPDATE", "QUESTION", "ANSWER", "BLOCKER", "DISCOVERY", "HELP", "HANDOFF", "INFO"}
 _REMOTE_MODES = {"REQUIRED", "BEST_EFFORT", "DISABLED"}
 _RELEASE_STATES = {"DONE", "PAUSED", "HANDOFF", "ABANDONED"}
@@ -577,6 +590,314 @@ class MessageBoardRuntime:
 
         return self._mutate(agent_id=agent_id, remote=remote, build_files=build)
 
+    def room_contract(self) -> dict:
+        return swarm_room_contract()
+
+    def _compile_room_prompt(self, task: str) -> dict:
+        from .prompt_runtime import PromptRuntime
+
+        runtime = PromptRuntime(self.git)
+        if not runtime.available:
+            raise GitStateError("current Git root does not expose prompts/PROMPT.manifest.json")
+        return runtime.compile(task=task, profile="MAXDEV", include_text=False)
+
+    def room_pulse(self, *, quests=None, horizon_weights=None, agent_id: str | None = None, limit: int = 100, remote: str = "origin", shared_remote_mode: str = "REQUIRED") -> dict:
+        snapshot = self.read(
+            agent_id=agent_id,
+            limit=limit,
+            include_stale=True,
+            remote=remote,
+            shared_remote_mode=shared_remote_mode,
+        )
+        pulse = compile_pulse(snapshot, quests=quests, horizon_weights=horizon_weights)
+        try:
+            prompt = self._compile_room_prompt("swarm room pulse and portfolio allocation")
+            pulse["prompt_runtime"] = {
+                "status": "COMPILED",
+                "profile": prompt.get("profile"),
+                "prompt_stack_digest": prompt.get("prompt_stack_digest"),
+                "git_head": prompt.get("git_head"),
+                "selected_modules": prompt.get("selected_modules"),
+                "selected_overlays": prompt.get("selected_overlays"),
+            }
+        except Exception as exc:
+            pulse["prompt_runtime"] = {"status": "PROMPT_RUNTIME_HOLD", "detail": str(exc)}
+        pulse["room_contract_digest"] = swarm_room_contract()["room_contract_digest"]
+        return pulse
+
+    def room_shadow(self, *, quests, variants, remote: str = "origin", shared_remote_mode: str = "REQUIRED") -> dict:
+        snapshot = self.read(
+            limit=100,
+            include_stale=False,
+            remote=remote,
+            shared_remote_mode=shared_remote_mode,
+        )
+        if snapshot.get("status") == "MESSAGE_BOARD_SHARED_FRONTIER_HOLD":
+            return {
+                "artifact": "ATHENA.SWARM.ROOM.SHADOW.1",
+                "status": "SHARED_FRONTIER_HOLD",
+                "mutation_performed": False,
+                "promotion_authority": False,
+                "remote_sync": snapshot.get("remote_sync"),
+            }
+        return compile_shadow(snapshot, quests, variants)
+
+    def room_enter(
+        self,
+        *,
+        agent_id: str,
+        expected_git_head: str,
+        prompt_stack_digest: str,
+        room_contract_digest: str,
+        capabilities,
+        quests,
+        room_budget,
+        protected_reserve,
+        horizon_weights=None,
+        lease_seconds: int = 1800,
+        remote: str = "origin",
+    ) -> dict:
+        agent_id = _require_id(agent_id, "agent_id")
+        expected_git_head = str(expected_git_head or "").strip()
+        prompt_stack_digest = str(prompt_stack_digest or "").strip()
+        room_contract_digest = str(room_contract_digest or "").strip()
+        if not expected_git_head or not prompt_stack_digest or not room_contract_digest:
+            raise ValueError("expected_git_head, prompt_stack_digest and room_contract_digest are required")
+        lease = self._lease_seconds(lease_seconds)
+
+        def build(base):
+            if base != expected_git_head:
+                return {"return": {"status": "STALE_ROOM_HEAD_HOLD", "expected_git_head": expected_git_head, "current_git_head": base, "durable_return": False}}
+            expected_contract = swarm_room_contract()["room_contract_digest"]
+            if room_contract_digest != expected_contract:
+                return {"return": {"status": "ROOM_CONTRACT_MISMATCH_HOLD", "expected_room_contract_digest": expected_contract, "supplied_room_contract_digest": room_contract_digest, "durable_return": False}}
+            active = self._active()
+            existing = next((row for row in active if row.get("agent_id") == agent_id), None)
+            if existing:
+                details = decode_details(existing.get("details"))
+                return {"return": {
+                    "status": "ALREADY_IN_ROOM" if details else "AGENT_ALREADY_PRESENT_HOLD",
+                    "presence": existing,
+                    "room_profile": details,
+                    "next": "heartbeat or room_return" if details else "release the legacy claim before room entry",
+                }}
+            selection = select_quest(
+                active_rows=active,
+                quests=quests,
+                capabilities=capabilities,
+                room_budget=room_budget,
+                protected_reserve=protected_reserve,
+                horizon_weights=horizon_weights,
+            )
+            if selection.get("selected") is None:
+                return {"return": {**selection, "durable_return": True, "git_head": base, "law": "NO_READY_QUESTS => NO_FAKE_CLAIM"}}
+            quest = selection["selected"]
+            try:
+                prompt = self._compile_room_prompt(quest["title"])
+            except Exception as exc:
+                return {"return": {"status": "PROMPT_RUNTIME_HOLD", "detail": str(exc), "selected_quest_id": quest["quest_id"], "durable_return": False}}
+            if prompt.get("git_head") != base:
+                return {"return": {"status": "PROMPT_HEAD_MISMATCH_HOLD", "prompt_git_head": prompt.get("git_head"), "room_git_head": base, "durable_return": False}}
+            if prompt.get("prompt_stack_digest") != prompt_stack_digest:
+                return {"return": {
+                    "status": "PROMPT_STACK_MISMATCH_HOLD",
+                    "expected_prompt_stack_digest": prompt.get("prompt_stack_digest"),
+                    "supplied_prompt_stack_digest": prompt_stack_digest,
+                    "durable_return": False,
+                }}
+            candidate = {
+                "agent_id": agent_id,
+                "task": quest["title"],
+                "work_key": quest["work_key"],
+                "targets": quest["targets"],
+                "mode": "PRIMARY",
+            }
+            conflicts, potential = [], []
+            for other in active:
+                hard = self._hard_overlap(candidate, other)
+                if hard:
+                    conflicts.append({"agent": other, "reasons": hard})
+                    continue
+                score, shared = _jaccard(quest["title"], other.get("task"))
+                if score >= 0.65 and shared >= 3:
+                    potential.append({"agent_id": other.get("agent_id"), "task": other.get("task"), "task_similarity": round(score, 4), "shared_tokens": shared})
+            if conflicts:
+                return {"return": {
+                    "status": "DUPLICATE_WORK_HOLD",
+                    "selected_quest_id": quest["quest_id"],
+                    "conflicts": conflicts,
+                    "potential_overlaps": potential,
+                    "durable_return": True,
+                    "next": "join an existing claim or supply another admitted quest",
+                }}
+            profile = room_profile(
+                quest=quest,
+                capabilities=capabilities,
+                prompt=prompt,
+                room_contract_digest=room_contract_digest,
+                room_budget=room_budget,
+                protected_reserve=protected_reserve,
+                horizon_weights=horizon_weights,
+            )
+            now = _utcnow()
+            claim_id = f"MBC-{uuid.uuid4().hex}"
+            presence = {
+                "artifact": PRESENCE_ARTIFACT,
+                "agent_id": agent_id,
+                "claim_id": claim_id,
+                "status": "ACTIVE",
+                "mode": "PRIMARY",
+                "task": quest["title"],
+                "work_key": quest["work_key"],
+                "targets": quest["targets"],
+                "details": encode_details(profile),
+                "replication_reason": None,
+                "join_of": None,
+                "started_at": _iso(now),
+                "heartbeat_at": _iso(now),
+                "lease_seconds": lease,
+                "expires_at": _iso(now + timedelta(seconds=lease)),
+                "claim_base_head": base,
+                "law": "ROOM_ENTER_CLAIM != EXECUTION != COMPLETION",
+            }
+            event_rel, event = self._event("ROOM_ENTER", agent_id, {
+                "claim_id": claim_id,
+                "quest_id": quest["quest_id"],
+                "quest_digest": quest["quest_digest"],
+                "horizon": quest["horizon"],
+                "queue_slot": quest["queue_slot"],
+                "job_family": quest["job_family"],
+                "room_contract_digest": room_contract_digest,
+                "prompt_stack_digest": prompt_stack_digest,
+                "prompt_git_head": base,
+            })
+            return {
+                "files": {self._presence_path(agent_id): _json_text(presence), event_rel: _json_text(event)},
+                "message": f"swarm room enter {agent_id} {quest['quest_id']}",
+                "result": {
+                    "status": "ROOM_ENTERED",
+                    "presence": presence,
+                    "room_profile": profile,
+                    "assignment": quest,
+                    "allocation": selection,
+                    "room_event": event,
+                    "potential_overlaps": potential,
+                    "mutation_scope": "ONE_SELF_PRESENCE_PLUS_ONE_ROOM_ENTER_EVENT",
+                },
+            }
+
+        return self._mutate(agent_id=agent_id, remote=remote, build_files=build)
+
+    def room_return(
+        self,
+        *,
+        agent_id: str,
+        expected_claim_id: str,
+        expected_git_head: str,
+        prompt_stack_digest: str,
+        room_contract_digest: str,
+        result_status: str,
+        summary: str,
+        acceptance_results=None,
+        evidence_refs=None,
+        failure_detail: str | None = None,
+        successor_proposals=None,
+        remote: str = "origin",
+    ) -> dict:
+        agent_id = _require_id(agent_id, "agent_id")
+        expected_claim_id = _require_id(expected_claim_id, "expected_claim_id")
+        expected_git_head = str(expected_git_head or "").strip()
+        prompt_stack_digest = str(prompt_stack_digest or "").strip()
+        room_contract_digest = str(room_contract_digest or "").strip()
+        result_status = str(result_status or "").upper()
+        summary = str(summary or "").strip()
+        if result_status not in {"DONE", "PARTIAL", "FAILED", "ABANDONED"}:
+            raise ValueError("result_status must be DONE, PARTIAL, FAILED, or ABANDONED")
+        if not summary:
+            raise ValueError("summary is required")
+        acceptance_results = dict(acceptance_results or {})
+        evidence_refs = sorted({str(item).strip() for item in (evidence_refs or []) if str(item).strip()})
+        successor_proposals = list(successor_proposals or [])
+
+        def build(base):
+            if base != expected_git_head:
+                return {"return": {"status": "STALE_ROOM_HEAD_HOLD", "expected_git_head": expected_git_head, "current_git_head": base, "durable_return": False}}
+            expected_contract = swarm_room_contract()["room_contract_digest"]
+            if room_contract_digest != expected_contract:
+                return {"return": {"status": "ROOM_CONTRACT_MISMATCH_HOLD", "expected_room_contract_digest": expected_contract, "durable_return": False}}
+            row = next((item for item in self._presence_rows() if item.get("agent_id") == agent_id), None)
+            if not row or self._lease_state(row) != "ACTIVE":
+                return {"return": {"status": "ROOM_CLAIM_NOT_ACTIVE_HOLD", "presence": row, "durable_return": False}}
+            if row.get("claim_id") != expected_claim_id:
+                return {"return": {"status": "ROOM_CLAIM_OWNERSHIP_HOLD", "expected_claim_id": expected_claim_id, "actual_claim_id": row.get("claim_id"), "durable_return": False}}
+            profile = decode_details(row.get("details"))
+            if not profile:
+                return {"return": {"status": "NOT_A_SWARM_ROOM_CLAIM_HOLD", "durable_return": False}}
+            if profile.get("room_contract_digest") != room_contract_digest:
+                return {"return": {"status": "CLAIM_ROOM_CONTRACT_DRIFT_HOLD", "durable_return": False}}
+            try:
+                prompt = self._compile_room_prompt(str(row.get("task") or "swarm room return"))
+            except Exception as exc:
+                return {"return": {"status": "PROMPT_RUNTIME_HOLD", "detail": str(exc), "durable_return": False}}
+            if prompt.get("git_head") != base or prompt.get("prompt_stack_digest") != prompt_stack_digest:
+                return {"return": {
+                    "status": "PROMPT_OR_HEAD_DRIFT_HOLD",
+                    "expected_prompt_stack_digest": prompt.get("prompt_stack_digest"),
+                    "prompt_git_head": prompt.get("git_head"),
+                    "room_git_head": base,
+                    "durable_return": False,
+                }}
+            acceptance = list(profile.get("acceptance") or [])
+            if result_status == "DONE":
+                if set(acceptance_results) != set(acceptance) or any(acceptance_results.get(item) != "PASS" for item in acceptance):
+                    return {"return": {"status": "ACCEPTANCE_EVIDENCE_HOLD", "required_acceptance": acceptance, "acceptance_results": acceptance_results, "durable_return": False}}
+                if not evidence_refs:
+                    return {"return": {"status": "RESULT_EVIDENCE_HOLD", "durable_return": False}}
+            elif not str(failure_detail or "").strip():
+                return {"return": {"status": "FAILURE_DETAIL_REQUIRED_HOLD", "durable_return": False}}
+            verified_return = result_status == "DONE"
+            outcome = {
+                "room_protocol": SWARM_ROOM_VERSION,
+                "quest_id": profile.get("quest_id"),
+                "quest_digest": profile.get("quest_digest"),
+                "claim_id": row.get("claim_id"),
+                "result_status": result_status,
+                "summary": summary,
+                "acceptance_results": acceptance_results,
+                "evidence_refs": evidence_refs,
+                "failure_detail": str(failure_detail or "").strip() or None,
+                "successor_proposals": successor_proposals,
+                "successors_quarantined": bool(successor_proposals),
+                "verified_return": verified_return,
+                "promotion_authority": False,
+            }
+            updated = dict(row)
+            release_status = "DONE" if result_status == "DONE" else ("ABANDONED" if result_status == "ABANDONED" else "PAUSED")
+            updated.update({
+                "status": "RELEASED",
+                "release_status": release_status,
+                "released_at": _iso(),
+                "outcome": json.dumps(outcome, sort_keys=True, ensure_ascii=False, separators=(",", ":")),
+                "handoff_to": None,
+            })
+            event_rel, event = self._event("ROOM_RETURN", agent_id, outcome)
+            return {
+                "files": {self._presence_path(agent_id): _json_text(updated), event_rel: _json_text(event)},
+                "message": f"swarm room return {agent_id} {profile.get('quest_id')} {result_status}",
+                "result": {
+                    "status": "ROOM_RETURNED",
+                    "presence": updated,
+                    "outcome": outcome,
+                    "room_event": event,
+                    "signed_out": True,
+                    "verified_return": verified_return,
+                    "mutation_scope": "ONE_SELF_RELEASE_PLUS_ONE_ROOM_RETURN_EVENT",
+                    "law": "RETURN_PRESERVES_RESULT_AND_FAILURE_HISTORY",
+                },
+            }
+
+        return self._mutate(agent_id=agent_id, remote=remote, build_files=build)
+
     def call_tool(self, name: str, a: dict):
         if name != TOOL_NAME:
             raise KeyError(name)
@@ -598,12 +919,35 @@ class MessageBoardRuntime:
             return self.ack(agent_id=a["agent_id"], message_id=a["message_id"], remote=remote)
         if action == "release":
             return self.release(agent_id=a["agent_id"], release_status=a.get("release_status", "DONE"), outcome=a.get("outcome"), handoff_to=a.get("handoff_to"), remote=remote)
+        if action == "room_contract":
+            return self.room_contract()
+        if action == "room_pulse":
+            return self.room_pulse(quests=a.get("quests"), horizon_weights=a.get("horizon_weights"), agent_id=a.get("agent_id"), limit=a.get("limit", 100), remote=remote, shared_remote_mode=a.get("shared_remote_mode", "REQUIRED"))
+        if action == "room_shadow":
+            return self.room_shadow(quests=a["quests"], variants=a["variants"], remote=remote, shared_remote_mode=a.get("shared_remote_mode", "REQUIRED"))
+        if action == "room_enter":
+            return self.room_enter(
+                agent_id=a["agent_id"], expected_git_head=a["expected_git_head"],
+                prompt_stack_digest=a["prompt_stack_digest"], room_contract_digest=a["room_contract_digest"],
+                capabilities=a["capabilities"], quests=a["quests"], room_budget=a["room_budget"],
+                protected_reserve=a["protected_reserve"], horizon_weights=a.get("horizon_weights"),
+                lease_seconds=a.get("lease_seconds", 1800), remote=remote,
+            )
+        if action == "room_return":
+            return self.room_return(
+                agent_id=a["agent_id"], expected_claim_id=a["expected_claim_id"],
+                expected_git_head=a["expected_git_head"], prompt_stack_digest=a["prompt_stack_digest"],
+                room_contract_digest=a["room_contract_digest"], result_status=a["result_status"],
+                summary=a["summary"], acceptance_results=a.get("acceptance_results"),
+                evidence_refs=a.get("evidence_refs"), failure_detail=a.get("failure_detail"),
+                successor_proposals=a.get("successor_proposals"), remote=remote,
+            )
         raise KeyError(action)
 
 
 MESSAGE_BOARD_TOOLS = [{
     "name": TOOL_NAME,
-    "description": "Shared Git message board for inter-agent presence, work claims, duplicate-work prevention, collaboration, heartbeats, messages/acknowledgements, and release/handoff. Read before expensive shared work; use present to claim a lane, join to collaborate on an existing lane, or REPLICA only for deliberate independent replication. Writes always require a freshly verified shared remote frontier.",
+    "description": "Shared Git message board for inter-agent presence, work claims, duplicate-work prevention, collaboration, heartbeats, messages/acknowledgements, release/handoff, and the atomic Swarm Room lifecycle. room_enter compiles the current MAXDEV prompt, validates only real admitted quests and resources, then lets the caller claim exactly one self-owned lane in one CAS commit. room_return records a checked result or honest failure and signs that same caller out in one CAS commit. Pulses and shadows are advisory only. Writes always require a freshly verified shared remote frontier.",
     "inputSchema": {
         "type": "object",
         "required": ["action"],
@@ -630,7 +974,23 @@ MESSAGE_BOARD_TOOLS = [{
             "limit": {"type": "integer", "minimum": 1, "maximum": 500},
             "include_stale": {"type": "boolean"},
             "remote": {"type": "string"},
-            "shared_remote_mode": {"type": "string", "enum": ["REQUIRED", "BEST_EFFORT", "DISABLED"]}
+            "shared_remote_mode": {"type": "string", "enum": ["REQUIRED", "BEST_EFFORT", "DISABLED"]},
+            "expected_git_head": {"type": ["string", "null"]},
+            "expected_claim_id": {"type": ["string", "null"]},
+            "prompt_stack_digest": {"type": ["string", "null"]},
+            "room_contract_digest": {"type": ["string", "null"]},
+            "capabilities": {"type": "array", "items": {"type": "string"}},
+            "quests": {"type": "array", "items": {"type": "object"}},
+            "room_budget": {"type": ["object", "null"]},
+            "protected_reserve": {"type": ["object", "null"]},
+            "horizon_weights": {"type": ["object", "null"]},
+            "variants": {"type": "array", "items": {"type": "object"}},
+            "result_status": {"type": ["string", "null"], "enum": ["DONE", "PARTIAL", "FAILED", "ABANDONED", None]},
+            "summary": {"type": ["string", "null"]},
+            "acceptance_results": {"type": ["object", "null"]},
+            "evidence_refs": {"type": "array", "items": {"type": "string"}},
+            "failure_detail": {"type": ["string", "null"]},
+            "successor_proposals": {"type": "array", "items": {"type": "object"}}
         },
         "additionalProperties": False
     }

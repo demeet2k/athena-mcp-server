@@ -1,0 +1,63 @@
+{
+  "artifact": "ATHENA.SWARM.ROOM.SPEC.1",
+  "version": "ATHENA.SWARM.ROOM.1",
+  "authority_store": "runtime/message_board/v1",
+  "entry": {
+    "action": "room_enter",
+    "atomic_commit": ["self_presence_claim", "ROOM_ENTER_event"],
+    "requires": [
+      "fresh shared remote frontier",
+      "exact current Git head",
+      "compiled MAXDEV prompt-stack digest",
+      "room contract digest",
+      "admitted quest packet",
+      "satisfied dependencies",
+      "bound resource upper bounds",
+      "feasible protected reserve",
+      "no primary target/work-key collision"
+    ],
+    "forbids": ["claiming for another worker", "synthetic filler quest", "implicit zero cost"]
+  },
+  "pulse": {
+    "action": "room_pulse",
+    "source": "nonexpired Message Board presence only",
+    "outputs": ["observed census", "actual job percentages", "actual horizon percentages", "advisory target seats", "held quests"],
+    "scheduler_authority": false,
+    "execution_authority": false,
+    "claim_authority": false
+  },
+  "shadow": {
+    "action": "room_shadow",
+    "mutates": false,
+    "winner": null,
+    "production_credit": false,
+    "evidence_ceiling": "STRUCTURAL_COUNTERFACTUAL_NOT_OBSERVED_OUTCOME"
+  },
+  "return": {
+    "action": "room_return",
+    "atomic_commit": ["typed outcome", "self release", "ROOM_RETURN event"],
+    "done_requires": ["active own claim", "exact acceptance PASS map", "nonempty evidence refs", "fresh head and prompt digest"],
+    "failure_exit": ["PARTIAL", "FAILED", "ABANDONED"],
+    "failure_exit_requires": ["summary", "failure detail"],
+    "successor_policy": "quarantine; never dispatch from worker return"
+  },
+  "horizons": {
+    "W0": {"wave": "IMMEDIATE", "queue_slot": "Q1"},
+    "W1": {"wave": "MIDDLE", "queue_slot": "Q2"},
+    "W2": {"wave": "RECURSIVE_META", "queue_slot": "Q3"}
+  },
+  "default_population_weights": {"W0": 600, "W1": 250, "W2": 150},
+  "job_families": [
+    "GIT_ENGINEERING",
+    "MATH_MINING",
+    "MYTH_MINING",
+    "NAVIGATION_ALGORITHMS",
+    "LIMITS_RESEARCH",
+    "DRIVE_DISTILLATION",
+    "TOOL_CAPACITY",
+    "ALCHEMIC_TOOL_BUILDING",
+    "META_OBSERVATION"
+  ],
+  "identity_ceiling": "agent_id is caller-asserted until a host-authenticated context binding is supplied",
+  "claim_ceiling": "mechanism and deterministic tests do not prove field throughput, behavioral gain, or production fitness"
+}
