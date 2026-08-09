@@ -36,6 +36,36 @@ if not getattr(PromptRuntime, "_athena_message_board_v1_registered", False):
     PromptRuntime.call_tool = _prompt_call_with_message_board
     PromptRuntime._athena_message_board_v1_registered = True
 
+# OBS-CONT-001: join existing Git-backed rehydration and coordination metabolism
+# into one read-only raw trace. Classification remains a downstream semantic act.
+from .continuation_raw_observer import (
+    CONTINUATION_OBSERVER_TOOLS,
+    CONTINUATION_OBSERVER_TOOL_NAMES,
+    ContinuationRawObserver,
+)
+
+for _tool in CONTINUATION_OBSERVER_TOOLS:
+    if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
+        PROMPT_RUNTIME_TOOLS.append(_tool)
+        PROMPT_RUNTIME_TOOL_NAMES.add(_tool["name"])
+    if not any(existing["name"] == _tool["name"] for existing in _protocol.TOOLS):
+        _protocol.TOOLS.append(_tool)
+
+if not getattr(PromptRuntime, "_athena_continuation_raw_observer_v1_registered", False):
+    _prompt_call_without_continuation_observer = PromptRuntime.call_tool
+
+    def _prompt_call_with_continuation_observer(self, name, arguments):
+        if name in CONTINUATION_OBSERVER_TOOL_NAMES:
+            runtime = getattr(self, "_continuation_raw_observer_v1", None)
+            if runtime is None:
+                runtime = ContinuationRawObserver(self.git)
+                self._continuation_raw_observer_v1 = runtime
+            return runtime.call_tool(name, arguments)
+        return _prompt_call_without_continuation_observer(self, name, arguments)
+
+    PromptRuntime.call_tool = _prompt_call_with_continuation_observer
+    PromptRuntime._athena_continuation_raw_observer_v1_registered = True
+
 # BOOT-MB-001: Message Board is the sole coordination authority. Install the
 # mechanism first, then the activation policy that distinguishes observing a
 # boot context from actually starting a mutable work lane.
