@@ -47,7 +47,7 @@ class ReleaseDistributionTests(unittest.TestCase):
         for uri in ('athena://manifest','athena://runtime/unified-manifest','athena://promotion','athena://collective/v14','athena://collective/v15','athena://deployment','athena://deployment/security','athena://deployment/rollout','athena://deployment/evidence'):
             self.assertIn(uri,resources)
         contracts=' '.join(self.manifest['runtime']['v15_contracts']).lower()
-        for phrase in ('duplicate-pooled','stage-2 tmle','a1 dynamic policy uses baseline only','unknown gaussian coefficient','radius-eligible local certificate','rectangular tv-dro'):
+        for phrase in ('duplicate-pooled','stage-2 tmle','a1 dynamic policy uses baseline only','unknown gaussian coefficient','radius-eligible local certificate','null local certificate','rectangular tv-dro'):
             self.assertIn(phrase,contracts)
 
     def test_release_workflow_is_pr_testable_but_publish_is_manual_master_only(self):
@@ -100,6 +100,7 @@ class ReleaseDistributionTests(unittest.TestCase):
             'DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH',
             'GEOMETRIC_NEAREST_WITNESS != TIGHTEST_ERROR_ENVELOPE_WITNESS',
             'GLOBAL_ENVELOPE != RADIUS_ELIGIBLE_LOCAL_CERTIFICATE',
+            'NO_RADIUS_ELIGIBLE_WITNESS != GLOBAL_FALLBACK_CERTIFICATE',
             'RECTANGULAR_TV_ROBUST_MDP != GENERAL_MULTISTAGE_DRO',
             'UNKNOWN_STATE_COORDINATE != UNUSED_METADATA',
             'NONFINITE_TRANSITION != PROBABILITY_MODEL',
@@ -110,7 +111,7 @@ class ReleaseDistributionTests(unittest.TestCase):
 
     def test_authority_boundaries_do_not_collapse_distribution_into_truth_admin_or_deployment(self):
         boundaries=' '.join(self.manifest['authority_boundaries']).lower()
-        for phrase in ('not deployment','not empirical truth','do not become y1 authority','does not prove causal identification','are rejected','not github administrative hardening','does not authorize treatment execution','external-control planning','v3.3.0 release attestation is not evidence for v3.4.0 bytes'):
+        for phrase in ('not deployment','not empirical truth','do not become y1 authority','does not prove causal identification','are rejected','missing local certificate','not github administrative hardening','does not authorize treatment execution','external-control planning','v3.3.0 release attestation is not evidence for v3.4.0 bytes'):
             self.assertIn(phrase,boundaries)
 
 
