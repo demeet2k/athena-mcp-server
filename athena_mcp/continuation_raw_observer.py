@@ -20,24 +20,9 @@ MESSAGE_BOARD_EVENT_ARTIFACT = "ATHENA.MESSAGE.BOARD.EVENT.V1"
 _SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 
 _SOURCE_SPECS = (
-    (
-        "REHYDRATION_RECEIPT",
-        "prompts/rehydration/*/receipts/*.json",
-        REHYDRATION_RECEIPT_ARTIFACT,
-        "created_at",
-    ),
-    (
-        "REHYDRATION_EVENT",
-        "prompts/rehydration/*/events/*.json",
-        REHYDRATION_EVENT_ARTIFACT,
-        "created_at",
-    ),
-    (
-        "MESSAGE_BOARD_EVENT",
-        "runtime/message_board/v1/events/**/*.json",
-        MESSAGE_BOARD_EVENT_ARTIFACT,
-        "created_at",
-    ),
+    ("REHYDRATION_RECEIPT", "prompts/rehydration/*/receipts/*.json", REHYDRATION_RECEIPT_ARTIFACT, "created_at"),
+    ("REHYDRATION_EVENT", "prompts/rehydration/*/events/*.json", REHYDRATION_EVENT_ARTIFACT, "created_at"),
+    ("MESSAGE_BOARD_EVENT", "runtime/message_board/v1/events/**/*.json", MESSAGE_BOARD_EVENT_ARTIFACT, "created_at"),
 )
 
 LAWS = [
@@ -46,6 +31,7 @@ LAWS = [
     "REHYDRATION_RECEIPT != USER_UI_EVENT",
     "MESSAGE_BOARD_EVENT != COORDINATION_SUCCESS",
     "TERMINAL_GATE_REJECTION != HUMAN_REENTRY_WITHOUT_EXPLICIT_CLASSIFIER",
+    "EXACT_BYTE_DIGEST != CANONICAL_RECORD_DIGEST",
     "TRACE_DIGEST != SIGNATURE",
     "TRACKED_FILE != WORLD_TRUTH",
     "DIRTY_OR_MALFORMED_SOURCE => COVERAGE_HOLD",
@@ -55,13 +41,7 @@ LAWS = [
 
 
 def _canonical(value: Any) -> bytes:
-    return json.dumps(
-        value,
-        sort_keys=True,
-        separators=(",", ":"),
-        ensure_ascii=False,
-        allow_nan=False,
-    ).encode("utf-8")
+    return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False).encode("utf-8")
 
 
 def _sha256_bytes(raw: bytes) -> str:
@@ -93,8 +73,9 @@ class ContinuationRawObserver:
     """Read-only extractor over already-persisted continuation/coordination ledgers.
 
     The observer owns no classifier and performs no Git writes. It exposes exact
-    tracked source records plus content/blob identities so a separate semantic
-    layer can classify them under an explicit policy without inventing evidence.
+    tracked source records plus byte/blob/semantic identities so a separate
+    semantic layer can classify them under an explicit policy without inventing
+    evidence or trusting a mutable decoded transport object.
     """
 
     def __init__(self, git: GitBackend):
@@ -118,14 +99,7 @@ class ContinuationRawObserver:
         out = self.git._git("status", "--porcelain", "--untracked-files=all")
         return [line.rstrip() for line in out.splitlines() if line.strip()]
 
-    def _read_source(
-        self,
-        *,
-        category: str,
-        path: Path,
-        expected_artifact: str,
-        time_field: str,
-    ) -> tuple[dict[str, Any] | None, dict[str, Any] | None]:
+    def _read_source(self, *, category: str, path: Path, expected_artifact: str, time_field: str) -> tuple[dict[str, Any] | None, dict[str, Any] | None]:
         root = self._root()
         rel = path.relative_to(root).as_posix()
         try:
@@ -135,68 +109,30 @@ class ContinuationRawObserver:
         digest = _sha256_bytes(raw)
         blob = self._tracked_blob(rel)
         if blob is None:
-            return None, {
-                "source_path": rel,
-                "category": category,
-                "record_sha256": digest,
-                "error": "SOURCE_NOT_TRACKED_AT_CURRENT_INDEX",
-            }
+            return None, {"source_path": rel, "category": category, "record_sha256": digest, "error": "SOURCE_NOT_TRACKED_AT_CURRENT_INDEX"}
         try:
             value = json.loads(raw.decode("utf-8"))
         except (UnicodeDecodeError, json.JSONDecodeError) as exc:
-            return None, {
-                "source_path": rel,
-                "category": category,
-                "git_blob_sha": blob,
-                "record_sha256": digest,
-                "error": f"JSON:{type(exc).__name__}",
-            }
+            return None, {"source_path": rel, "category": category, "git_blob_sha": blob, "record_sha256": digest, "error": f"JSON:{type(exc).__name__}"}
         if not isinstance(value, dict):
-            return None, {
-                "source_path": rel,
-                "category": category,
-                "git_blob_sha": blob,
-                "record_sha256": digest,
-                "error": "RECORD_NOT_OBJECT",
-            }
+            return None, {"source_path": rel, "category": category, "git_blob_sha": blob, "record_sha256": digest, "error": "RECORD_NOT_OBJECT"}
         if value.get("artifact") != expected_artifact:
-            return None, {
-                "source_path": rel,
-                "category": category,
-                "git_blob_sha": blob,
-                "record_sha256": digest,
-                "error": "ARTIFACT_IDENTITY_MISMATCH",
-                "expected_artifact": expected_artifact,
-                "observed_artifact": value.get("artifact"),
-            }
+            return None, {"source_path": rel, "category": category, "git_blob_sha": blob, "record_sha256": digest, "error": "ARTIFACT_IDENTITY_MISMATCH", "expected_artifact": expected_artifact, "observed_artifact": value.get("artifact")}
         try:
             observed_at = _parse_time(value.get(time_field), f"{rel}.{time_field}")
         except ValueError as exc:
-            return None, {
-                "source_path": rel,
-                "category": category,
-                "git_blob_sha": blob,
-                "record_sha256": digest,
-                "error": "TIMESTAMP_INVALID",
-                "detail": str(exc),
-            }
+            return None, {"source_path": rel, "category": category, "git_blob_sha": blob, "record_sha256": digest, "error": "TIMESTAMP_INVALID", "detail": str(exc)}
         return {
             "category": category,
             "source_path": rel,
             "git_blob_sha": blob,
             "record_sha256": digest,
+            "record_canonical_sha256": _sha256(value),
             "observed_at": _iso(observed_at),
             "record": value,
         }, None
 
-    def read(
-        self,
-        *,
-        window_start: str,
-        window_end: str,
-        expected_git_head: str | None = None,
-        max_records: int = 50000,
-    ) -> dict[str, Any]:
+    def read(self, *, window_start: str, window_end: str, expected_git_head: str | None = None, max_records: int = 50000) -> dict[str, Any]:
         start = _parse_time(window_start, "window_start")
         end = _parse_time(window_end, "window_end")
         if end <= start:
@@ -210,53 +146,11 @@ class ContinuationRawObserver:
             if not isinstance(expected_git_head, str) or not _SHA_RE.fullmatch(expected_git_head):
                 raise ValueError("expected_git_head must be an immutable 40-hex commit SHA")
             if expected_git_head != current_head:
-                return {
-                    "artifact": ARTIFACT,
-                    "status": "HOLD_STALE_GIT_HEAD",
-                    "standing": TRACE_STANDING,
-                    "window_start": _iso(start),
-                    "window_end": _iso(end),
-                    "expected_git_head": expected_git_head,
-                    "source_git_head": current_head,
-                    "coverage_complete": False,
-                    "records": [],
-                    "malformed_sources": [],
-                    "trace_digest": None,
-                    "authority": {
-                        "classification": False,
-                        "behavioral_effect": False,
-                        "causal_effect": False,
-                        "promotion": False,
-                        "mutation": False,
-                    },
-                    "laws": list(LAWS),
-                }
+                return {"artifact": ARTIFACT, "status": "HOLD_STALE_GIT_HEAD", "standing": TRACE_STANDING, "window_start": _iso(start), "window_end": _iso(end), "expected_git_head": expected_git_head, "source_git_head": current_head, "coverage_complete": False, "records": [], "malformed_sources": [], "trace_digest": None, "authority": {"classification": False, "behavioral_effect": False, "causal_effect": False, "promotion": False, "mutation": False}, "laws": list(LAWS)}
 
         dirty = self._dirty_paths()
         if dirty:
-            return {
-                "artifact": ARTIFACT,
-                "status": "HOLD_DIRTY_GIT_ROOT",
-                "standing": TRACE_STANDING,
-                "window_start": _iso(start),
-                "window_end": _iso(end),
-                "expected_git_head": expected_git_head,
-                "source_git_head": current_head,
-                "coverage_complete": False,
-                "dirty_paths": dirty[:200],
-                "dirty_path_count": len(dirty),
-                "records": [],
-                "malformed_sources": [],
-                "trace_digest": None,
-                "authority": {
-                    "classification": False,
-                    "behavioral_effect": False,
-                    "causal_effect": False,
-                    "promotion": False,
-                    "mutation": False,
-                },
-                "laws": list(LAWS),
-            }
+            return {"artifact": ARTIFACT, "status": "HOLD_DIRTY_GIT_ROOT", "standing": TRACE_STANDING, "window_start": _iso(start), "window_end": _iso(end), "expected_git_head": expected_git_head, "source_git_head": current_head, "coverage_complete": False, "dirty_paths": dirty[:200], "dirty_path_count": len(dirty), "records": [], "malformed_sources": [], "trace_digest": None, "authority": {"classification": False, "behavioral_effect": False, "causal_effect": False, "promotion": False, "mutation": False}, "laws": list(LAWS)}
 
         root = self._root()
         records: list[dict[str, Any]] = []
@@ -269,12 +163,7 @@ class ContinuationRawObserver:
                 if not path.is_file():
                     continue
                 scanned += 1
-                item, error = self._read_source(
-                    category=category,
-                    path=path,
-                    expected_artifact=artifact,
-                    time_field=time_field,
-                )
+                item, error = self._read_source(category=category, path=path, expected_artifact=artifact, time_field=time_field)
                 if error is not None:
                     malformed.append(error)
                     continue
@@ -297,13 +186,7 @@ class ContinuationRawObserver:
             "window_start": _iso(start),
             "window_end": _iso(end),
             "records": [
-                {
-                    "category": row["category"],
-                    "source_path": row["source_path"],
-                    "git_blob_sha": row["git_blob_sha"],
-                    "record_sha256": row["record_sha256"],
-                    "observed_at": row["observed_at"],
-                }
+                {"category": row["category"], "source_path": row["source_path"], "git_blob_sha": row["git_blob_sha"], "record_sha256": row["record_sha256"], "record_canonical_sha256": row["record_canonical_sha256"], "observed_at": row["observed_at"]}
                 for row in returned
             ],
             "malformed_sources": malformed,
@@ -328,59 +211,31 @@ class ContinuationRawObserver:
             "records": returned,
             "malformed_sources": malformed,
             "trace_digest": _sha256(digest_basis),
-            "authority": {
-                "classification": False,
-                "behavioral_effect": False,
-                "causal_effect": False,
-                "promotion": False,
-                "mutation": False,
-            },
+            "authority": {"classification": False, "behavioral_effect": False, "causal_effect": False, "promotion": False, "mutation": False},
             "external_mutation_performed": False,
-            "source_semantics": {
-                "REHYDRATION_RECEIPT": "persisted bounded-cycle receipt",
-                "REHYDRATION_EVENT": "persisted rehydration lifecycle event",
-                "MESSAGE_BOARD_EVENT": "persisted coordination/message-board event",
-            },
+            "source_semantics": {"REHYDRATION_RECEIPT": "persisted bounded-cycle receipt", "REHYDRATION_EVENT": "persisted rehydration lifecycle event", "MESSAGE_BOARD_EVENT": "persisted coordination/message-board event"},
             "laws": list(LAWS),
         }
 
     def call_tool(self, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
         if name != TOOL_NAME:
             raise KeyError(name)
-        return self.read(
-            window_start=arguments["window_start"],
-            window_end=arguments["window_end"],
-            expected_git_head=arguments.get("expected_git_head"),
-            max_records=arguments.get("max_records", 50000),
-        )
+        return self.read(window_start=arguments["window_start"], window_end=arguments["window_end"], expected_git_head=arguments.get("expected_git_head"), max_records=arguments.get("max_records", 50000))
 
 
-CONTINUATION_OBSERVER_TOOLS = [
-    {
-        "name": TOOL_NAME,
-        "description": (
-            "Read an exact half-open UTC window of already-persisted rehydration receipts/events and Message Board events. "
-            "Returns raw tracked source records with Git blob and SHA-256 identities plus a deterministic trace digest. "
-            "This tool is read-only and performs no assay classification, behavioral inference, causal attribution, or promotion."
-        ),
-        "inputSchema": {
-            "type": "object",
-            "required": ["window_start", "window_end"],
-            "properties": {
-                "window_start": {"type": "string"},
-                "window_end": {"type": "string"},
-                "expected_git_head": {
-                    "type": ["string", "null"],
-                    "pattern": "^[0-9a-f]{40}$",
-                },
-                "max_records": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "maximum": 100000,
-                },
-            },
-            "additionalProperties": False,
+CONTINUATION_OBSERVER_TOOLS = [{
+    "name": TOOL_NAME,
+    "description": "Read an exact half-open UTC window of already-persisted rehydration receipts/events and Message Board events. Returns raw tracked source records with Git blob, exact-byte SHA-256, canonical-record SHA-256, and deterministic trace identities. This tool is read-only and performs no assay classification, behavioral inference, causal attribution, or promotion.",
+    "inputSchema": {
+        "type": "object",
+        "required": ["window_start", "window_end"],
+        "properties": {
+            "window_start": {"type": "string"},
+            "window_end": {"type": "string"},
+            "expected_git_head": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"},
+            "max_records": {"type": "integer", "minimum": 1, "maximum": 100000},
         },
-    }
-]
+        "additionalProperties": False,
+    },
+}]
 CONTINUATION_OBSERVER_TOOL_NAMES = {TOOL_NAME}
