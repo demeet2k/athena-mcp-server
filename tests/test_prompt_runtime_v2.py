@@ -95,6 +95,33 @@ class PromptRuntimeV2Tests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "ambiguous overlay state binding"):
             self.runtime.compile()
 
+    def test_v2_candidate_activate_compile_and_promote_lifecycle(self):
+        proposed = self.runtime.propose(
+            "core", "improved core\n", "fixture defect", "fixture effect", ["global"],
+            ["unit"], "counterexample", "restore prior core", self.runtime.git.head(), actor="tester",
+        )
+        tested = self.runtime.record_experiment(
+            proposed["candidate_ref"], self.runtime.git.head(), True, "PASS",
+            {"unit": "PASS"}, ["test://prompt-v2"], actor="tester",
+        )
+        activated = self.runtime.activate(
+            proposed["candidate_ref"], self.runtime.git.head(), ["global"],
+            [tested["experiment_ref"]], {"status": "PASS"}, actor="tester",
+        )
+        active = json.loads((self.root / "prompts/state/ACTIVE.json").read_text(encoding="utf-8"))
+        self.assertTrue(all(isinstance(value, str) for value in active["active_scoped_overlays"]))
+        self.assertTrue(all(isinstance(value, str) for value in active["active_scoped_state"]))
+        self.assertIn(activated["overlay"]["path"], active["active_scoped_overlays"])
+        self.assertEqual(len(self.runtime.compile()["selected_overlays"]), 2)
+        promoted = self.runtime.promote(
+            proposed["candidate_ref"], self.runtime.git.head(), [tested["experiment_ref"]],
+            ["test://prompt-v2"], {"regression_status": "PASS", "adversarial_status": "PASS", "replay_status": "PASS"}, actor="tester",
+        )
+        self.assertEqual(promoted["status"], "CANONICAL")
+        after = json.loads((self.root / "prompts/state/ACTIVE.json").read_text(encoding="utf-8"))
+        self.assertNotIn(activated["overlay"]["path"], after["active_scoped_overlays"])
+        self.assertEqual(len(self.runtime.compile()["selected_overlays"]), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

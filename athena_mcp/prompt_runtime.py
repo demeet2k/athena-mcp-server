@@ -133,12 +133,13 @@ class PromptRuntime:
             if not state or state.get("status") != "ACTIVE_SCOPED":
                 raise ValueError(f"active overlay lacks ACTIVE_SCOPED state: {item}")
             activation = state.get("activation") if isinstance(state.get("activation"), dict) else {}
+            state_scope = state.get("scope") if isinstance(state.get("scope"), list) else None
             entries.append({
                 "overlay_id": state.get("artifact") or item,
                 "path": item,
                 "status": "ACTIVE_SCOPED",
                 "module_id": None,
-                "scope": ["global"] if activation.get("automatic") is True else [],
+                "scope": state_scope if state_scope is not None else (["global"] if activation.get("automatic") is True else []),
                 "expires_at": state.get("expires_at"),
                 "state_path": state["state_path"],
             })
