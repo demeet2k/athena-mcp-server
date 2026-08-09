@@ -106,6 +106,12 @@ def install_release_v15(namespace: dict[str, Any]) -> None:
         um.maxdev_law=maxdev_law_v15
         um._athena_collective_v15_installed=True
 
+    # dispatch imported these callables by value before the V15 overlay existed.
+    # Synchronize both manifest entry points so athena://manifest, the runtime
+    # manifest tool/resource, and the fallback MAXDEV prompt share one chart.
+    dispatch_module.build_unified_manifest=um.build_unified_manifest
+    dispatch_module.maxdev_law=um.maxdev_law
+
     from . import surface_contract as sc
     from .collective_v15_protocol import COLLECTIVE_V15_TOOLS
     v15_names={tool['name'] for tool in COLLECTIVE_V15_TOOLS}
