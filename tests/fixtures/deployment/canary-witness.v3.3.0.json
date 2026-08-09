@@ -1,0 +1,121 @@
+{
+  "assessment": {
+    "assessment_digest": "sha256:0e50fc893644a45ca87d94acab3868e1ecdf4783107a65d079fff162b34f6ed4",
+    "boundary": "PROMOTE means only that supplied observations satisfy this bounded policy. It is not cutover authority and cannot establish absence of unmeasured defects.",
+    "decision": "PROMOTE",
+    "failed_gates": [],
+    "gates": {
+      "error_rate": "PASS",
+      "latency": "PASS",
+      "observation_window": "PASS",
+      "readiness": "PASS",
+      "replay": "PASS",
+      "restarts": "PASS",
+      "sample_count": "PASS",
+      "schema": "PASS"
+    },
+    "observations": {
+      "error_rate_delta": 0.0,
+      "observation_window_seconds": 63,
+      "p95_ratio": 0.9902835732546451,
+      "ready": true,
+      "replay_match": true,
+      "restart_delta": 0.0,
+      "sample_count": 31,
+      "schema_up_to_date": true
+    },
+    "status": "PASS",
+    "thresholds": {
+      "max_error_rate_delta": 0.01,
+      "max_p95_ratio": 1.25,
+      "max_restart_delta": 0,
+      "min_observation_window_seconds": 60,
+      "min_sample_count": 30
+    },
+    "version": "ATHENA.CANARY.ASSESSMENT.2"
+  },
+  "authority": {
+    "cluster_apply_authorized": false,
+    "cutover_authorized": false,
+    "production_secret_provisioned": false,
+    "production_state_contacted": false,
+    "traffic_activation_authorized": false
+  },
+  "baseline_metrics": {
+    "all_ready": true,
+    "error_rate": 0.0,
+    "failed_samples": 0,
+    "p95_ms": 45.87509499999953,
+    "planned_restart_count": 1,
+    "raw_restart_count": 0,
+    "restart_count": 0,
+    "sample_count": 31,
+    "successful_samples": 31
+  },
+  "boundary": "This same-digest replicated canary witnesses isolated container, HTTP, catalog, and SQLite restart behavior. It does not compare a different release, apply cluster objects, provision production secrets, authorize cutover, activate traffic, establish production health, or promote empirical/Y1 authority.",
+  "canary_metrics": {
+    "all_ready": true,
+    "error_rate": 0.0,
+    "failed_samples": 0,
+    "observation_window_seconds": 63,
+    "p95_ms": 45.42935299999584,
+    "planned_restart_count": 1,
+    "raw_restart_count": 0,
+    "ready": true,
+    "replay_match": true,
+    "restart_count": 0,
+    "sample_count": 31,
+    "schema_up_to_date": true,
+    "successful_samples": 31
+  },
+  "comparison_kind": "REPLICATED_SAME_DIGEST_STATE_RESTART",
+  "image_digest": "sha256:d7eada158c5f202dd7a061218188d0c00b7317c867bedc742857a7b90298d8be",
+  "image_ref": "ghcr.io/demeet2k/athena-mcp-server@sha256:d7eada158c5f202dd7a061218188d0c00b7317c867bedc742857a7b90298d8be",
+  "instances": {
+    "canary": {
+      "catalog": {
+        "deployment_manifest_digest": "sha256:0f6062fcea18886ce6598c58903f175903405a3b54db8521fdaa7eb3e87a3606",
+        "deployment_version": "ATHENA.DEPLOYMENT.2",
+        "resource_count": 61,
+        "resource_inventory_digest": "sha256:17d1f511fd0593b56bc3c46b44d1043e7b07734a9eb6b11924887b3ac6efa428",
+        "tool_count": 325,
+        "tool_inventory_digest": "sha256:639298d7dbff3a805fb09b0dae9ef4ded81f61aa20f97606dd0f682471341e60"
+      },
+      "image_ref": "ghcr.io/demeet2k/athena-mcp-server@sha256:d7eada158c5f202dd7a061218188d0c00b7317c867bedc742857a7b90298d8be"
+    },
+    "control": {
+      "catalog": {
+        "deployment_manifest_digest": "sha256:0f6062fcea18886ce6598c58903f175903405a3b54db8521fdaa7eb3e87a3606",
+        "deployment_version": "ATHENA.DEPLOYMENT.2",
+        "resource_count": 61,
+        "resource_inventory_digest": "sha256:17d1f511fd0593b56bc3c46b44d1043e7b07734a9eb6b11924887b3ac6efa428",
+        "tool_count": 325,
+        "tool_inventory_digest": "sha256:639298d7dbff3a805fb09b0dae9ef4ded81f61aa20f97606dd0f682471341e60"
+      },
+      "image_ref": "ghcr.io/demeet2k/athena-mcp-server@sha256:d7eada158c5f202dd7a061218188d0c00b7317c867bedc742857a7b90298d8be"
+    }
+  },
+  "observation_window_seconds": 63,
+  "observed_at": "2026-08-09T09:19:13Z",
+  "observer": "ATHENA.ISOLATED.CANARY.OBSERVER.1",
+  "oci_run_id": "31298729440",
+  "release_run_id": "31297502454",
+  "release_tag": "v3.3.0",
+  "repository": "demeet2k/athena-mcp-server",
+  "schema": "ATHENA.ISOLATED.CANARY.WITNESS.1",
+  "source_head": "11211341adf599ae78784cce4ded39f21ee71ef7",
+  "state_witness": {
+    "matched": true,
+    "oid": "OID.B592FCD4CE05663B901D",
+    "registered": true
+  },
+  "structural_match": {
+    "deployment_manifest": true,
+    "resource_inventory": true,
+    "state_restart_replay": true,
+    "tool_inventory": true
+  },
+  "witness_digest": "sha256:53b4236273a6db8d1c80335ba07f3e8927a47d5596ae5bd1efcee9dc145bac87",
+  "workflow_head": "114790cf5173ca5ab78d1b505849708b209f81a0",
+  "workflow_run_id": "31305555129"
+}
