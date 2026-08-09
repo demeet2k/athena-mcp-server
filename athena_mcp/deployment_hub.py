@@ -2,9 +2,9 @@ from __future__ import annotations
 
 """Canonical ATHENA runtime with the DEPLOYMENT.1 organ composed at the root.
 
-The existing HubServer remains import-compatible.  This module is the package
+The existing HubServer remains import-compatible. This module is the package
 entrypoint for release 3.1+ and extends, rather than nests, that canonical
-runtime.  Tool/resource discovery proves only surface availability; deployment
+runtime. Tool/resource discovery proves only surface availability; deployment
 execution still requires an external witnessed controller.
 """
 
@@ -14,6 +14,7 @@ import os
 import sys
 from typing import Any
 
+from .command_hub import KC144CommandHub
 from .deployment import (
     HTTP_ADAPTER_VERSION,
     activation_plan,
@@ -28,34 +29,7 @@ from .deployment_protocol import (
     DEPLOYMENT_TOOLS,
 )
 from .hub_server import HubServer
-from .protocol import PROMPTS, TOOLS
-from . import runtime_truth as _runtime_truth
-
-_DEPLOYMENT_REQUIREMENT = {
-    "id": "ORGAN.DEPLOYMENT1",
-    "required_tools": tuple(item["name"] for item in DEPLOYMENT_TOOLS),
-    "required_resources": tuple(item["uri"] for item in DEPLOYMENT_RESOURCES),
-    "live_state": "LIVE_ACTIVATION_CAPABLE_DEPLOYMENT_NOT_IMPLIED",
-    "missing_state": "DEPLOYMENT_CONTRACT_NOT_SURFACED",
-}
-if not any(
-    item.get("id") == _DEPLOYMENT_REQUIREMENT["id"]
-    for item in _runtime_truth.ORGAN_CAPABILITY_REQUIREMENTS
-):
-    _runtime_truth.ORGAN_CAPABILITY_REQUIREMENTS = (
-        *_runtime_truth.ORGAN_CAPABILITY_REQUIREMENTS,
-        _DEPLOYMENT_REQUIREMENT,
-    )
-
-_existing_tools = {item["name"] for item in TOOLS}
-for tool in DEPLOYMENT_TOOLS:
-    if tool["name"] not in _existing_tools:
-        TOOLS.append(tool)
-        _existing_tools.add(tool["name"])
-
-_existing_prompts = {item["name"] for item in PROMPTS}
-if DEPLOYMENT_PROMPT["name"] not in _existing_prompts:
-    PROMPTS.append(DEPLOYMENT_PROMPT)
+from .protocol import TOOLS
 
 _DEPLOYMENT_URIS = {item["uri"] for item in DEPLOYMENT_RESOURCES}
 
@@ -104,6 +78,25 @@ OBJECTIVE={objective}
 
 class DeploymentHubServer(HubServer):
     """Single canonical runtime root with the typed deployment organ."""
+
+    def __init__(self, db: str, git_root: str | None = None) -> None:
+        super().__init__(db, git_root)
+        # The deployment surface is instance-scoped. Importing this module must
+        # not mutate the base HubServer's global tool, prompt, or organ registry.
+        self.command_hub = KC144CommandHub(
+            tool_names=self._all_tool_names,
+            runtime_probe=self._runtime_probe,
+            resource_uris=self._all_resource_uris,
+        )
+
+    @staticmethod
+    def _all_tool_names() -> list[str]:
+        return sorted(
+            {
+                item["name"]
+                for item in (*tuple(TOOLS), *tuple(DEPLOYMENT_TOOLS))
+            }
+        )
 
     def _all_resource_uris(self) -> list[str]:
         return sorted(
@@ -169,6 +162,20 @@ class DeploymentHubServer(HubServer):
                 result["result"]["serverInfo"] = info
             return result
 
+        if method == "tools/list":
+            result = super().handle(message)
+            if not result or "result" not in result:
+                return result
+            tools = list(result["result"].get("tools") or [])
+            seen = {item["name"] for item in tools}
+            tools.extend(
+                item for item in DEPLOYMENT_TOOLS if item["name"] not in seen
+            )
+            result["result"]["tools"] = sorted(
+                tools, key=lambda item: item["name"]
+            )
+            return result
+
         if method == "resources/list":
             result = super().handle(message)
             if not result or "result" not in result:
@@ -180,6 +187,20 @@ class DeploymentHubServer(HubServer):
             )
             result["result"]["resources"] = sorted(
                 resources, key=lambda item: item["uri"]
+            )
+            return result
+
+        if method == "prompts/list":
+            result = super().handle(message)
+            if not result or "result" not in result:
+                return result
+            prompts = list(result["result"].get("prompts") or [])
+            if DEPLOYMENT_PROMPT["name"] not in {
+                item["name"] for item in prompts
+            }:
+                prompts.append(DEPLOYMENT_PROMPT)
+            result["result"]["prompts"] = sorted(
+                prompts, key=lambda item: item["name"]
             )
             return result
 
