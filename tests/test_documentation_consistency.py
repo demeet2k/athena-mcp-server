@@ -13,56 +13,44 @@ def text(path):return (ROOT/path).read_text(encoding='utf-8')
 
 
 class DocumentationConsistencyTests(unittest.TestCase):
-    def test_current_v14_release_brain_coordinates_agree(self):
+    def test_current_v15_release_brain_coordinates_agree(self):
         project=tomllib.loads(text('pyproject.toml'))['project']
-        self.assertEqual(project['version'],'3.3.0')
-        self.assertEqual(athena_mcp.__version__,'3.3.0')
-        self.assertEqual(UNIFIED_MANIFEST_VERSION,'ATHENA.RUNTIME.UNIFIED.10')
-        self.assertEqual(PROMOTION_VERSION,'ATHENA.PROMOTION.2')
-        self.assertEqual(GITHUB_PROMOTION_VERIFIER_VERSION,'ATHENA.GITHUB.PROMOTION.VERIFIER.1')
+        self.assertEqual(project['version'],'3.4.0');self.assertEqual(athena_mcp.__version__,'3.4.0');self.assertEqual(UNIFIED_MANIFEST_VERSION,'ATHENA.RUNTIME.UNIFIED.11')
+        self.assertEqual(PROMOTION_VERSION,'ATHENA.PROMOTION.2');self.assertEqual(GITHUB_PROMOTION_VERIFIER_VERSION,'ATHENA.GITHUB.PROMOTION.VERIFIER.1')
         readme=text('README.md')
-        for phrase in (
-            '# ATHENA Canonical MCP v3.3','Collective V1–V14','ATHENA.RUNTIME.UNIFIED.10','COLLECTIVE_SYNTHESIS=<JB,SE,JE,DR,RP,AZ,MR,L>',
-            'athena://collective/v14','athena-canonical-mcp 3.3.0','athena_joint_factor_belief','athena_structural_bootstrap_ensemble','athena_joint_science_evi',
-            'athena_sequential_dr_policy_value','athena_joint_policy_robust','athena_gp_resolution_route','athena_two_stage_resource_plan',
-            'FINITE_FACTOR_PRODUCT_BELIEF != FULL_JOINT_POSTERIOR','BOOTSTRAP_GRAPH_FREQUENCY != CAUSAL_POSTERIOR',
-            'STAGE2_POLICY_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_POLICY_EVALUATION',
-            'QUERY_SET_DECISION_PRESERVATION != GLOBAL_APPROXIMATION_CERTIFICATE','FINITE_TWO_STAGE_SCENARIO_RECOURSE != GENERAL_MULTISTAGE_STOCHASTIC_PROGRAM',
-            'GITHUB_PROMOTION_VERIFIER.1','ATTESTED_READY != QUALIFIED','CHECKS_FROM_DIFFERENT_SUITES_OR_RUNS != ONE_TRUSTED_QUALIFICATION','promotion-qualification',
-            'prompt/frontier','Message Board/cohesion','Historical architecture',
-        ):self.assertIn(phrase,readme)
+        for phrase in ('# ATHENA Canonical MCP v3.4','Collective V1–V15','ATHENA.RUNTIME.UNIFIED.11','COLLECTIVE_CALIBRATED=<SR,XT,XD,CJ,AT,MD,L>','athena://collective/v15','athena-canonical-mcp 3.4.0','athena_structural_reliability_calibrate','athena_longitudinal_tmle_crossfit','athena_sequential_dr_policy_crossfit','athena_joint_gaussian_update','athena_joint_gaussian_control','athena_approx_error_transport','athena_multistage_tv_dro_plan','OUT_OF_FOLD_ISOTONIC_RELIABILITY != CAUSAL_GRAPH_POSTERIOR','CROSS_FITTED_TWO_TIMEPOINT_TMLE != GENERAL_LONGITUDINAL_TMLE_THEOREM','LINEAR_GAUSSIAN_UPDATE != GENERAL_CONTINUOUS_JOINT_BAYES','DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH','RECTANGULAR_TV_ROBUST_MDP != GENERAL_MULTISTAGE_DRO','ATHENA.DEPLOYMENT.2','GITHUB_PROMOTION_VERIFIER.1','ATTESTED_READY','promotion-qualification','Historical architecture'):
+            self.assertIn(phrase,readme)
 
-    def test_v14_versioned_architecture_and_migration_preserve_history(self):
-        architecture=text('spec/ARCHITECTURE_V14.md')
-        for phrase in ('ATHENA Architecture V14','athena-canonical-mcp 3.3.0','ATHENA.RUNTIME.UNIFIED.10','COLLECTIVE_SYNTHESIS=<JB,SE,JE,DR,RP,AZ,MR,L>','FIBER_MOTION != BASE_CANON_MUTATION','QUERY_SET_DECISION_PRESERVATION != GLOBAL_APPROXIMATION_CERTIFICATE','GITHUB_PROMOTION_VERIFIER.1','prompt/frontier'):
+    def test_v15_versioned_architecture_and_migration_preserve_v14_history(self):
+        architecture=text('spec/ARCHITECTURE_V15.md')
+        for phrase in ('ATHENA ARCHITECTURE V15','COLLECTIVE_CALIBRATED=<SR,XT,XD,CJ,AT,MD,L>','FIBER_MOTION != BASE_CANON_MUTATION','CROSS_FITTING != IDENTIFICATION','COLLECTIVE_CALIBRATED != DEPLOYMENT_AUTHORITY != COORDINATION_AUTHORITY'):
             self.assertIn(phrase,architecture)
-        migration=text('spec/MIGRATION_V14.md')
-        for phrase in ('ATHENA Migration V14','UNIFIED.9 → UNIFIED.10','975d68c04b113e2b02899406216c4f327621f5f8','hundreds of commits beyond Ω13','_init_v32_legacy.py','OLD_MODEL_STATE != IMPLICIT_JOINT_POSTERIOR','BOOTSTRAP_GRAPH_FREQUENCY != CAUSAL_POSTERIOR','VERIFIER_IMPLEMENTATION_EXISTS != THIS_HEAD_IS_QUALIFIED','OLD_RELEASE_RECEIPT != NEW_RELEASE_EVIDENCE'):
+        migration=text('spec/MIGRATION_V15.md')
+        for phrase in ('MIGRATION TO V15','3.3.0 -> 3.4.0','ATHENA.RUNTIME.UNIFIED.10 -> ATHENA.RUNTIME.UNIFIED.11','NEW_SUCCESSOR != REPLAY_OLD_BASE','true two-parent Git braid','Deployment.2','OLD_RELEASE_RECEIPT != NEW_RELEASE_EVIDENCE'):
             self.assertIn(phrase,migration)
-        historical_arch=text('ARCHITECTURE.md');historical_migration=text('MIGRATION.md')
-        self.assertIn('Collective V1–V13',historical_arch)
-        self.assertIn('ATHENA.RUNTIME.UNIFIED.9',historical_arch)
-        self.assertIn('Collective V1–V13',historical_migration)
-        self.assertIn('ATHENA.RUNTIME.UNIFIED.9',historical_migration)
+        for historical in ('spec/ARCHITECTURE_V14.md','spec/MIGRATION_V14.md','spec/ATHENA_UNIFIED_V14.md','spec/COLLECTIVE_RUNTIME_V14.md'):
+            self.assertTrue((ROOT/historical).exists(),historical)
+        self.assertIn('ATHENA.RUNTIME.UNIFIED.10',text('spec/ARCHITECTURE_V14.md'))
 
-    def test_v14_runtime_specs_preserve_claim_ceilings(self):
-        unified=text('spec/ATHENA_UNIFIED_V14.md')
-        for phrase in ('athena-canonical-mcp 3.3.0','ATHENA.RUNTIME.UNIFIED.10','athena_claim_*','athena_discovery_claim_*','athena_joint_factor_belief','athena_structural_bootstrap_ensemble','athena_joint_science_evi','athena_sequential_dr_policy_value','athena_joint_policy_robust','athena_gp_resolution_route','athena_two_stage_resource_plan','cross_fitted=false','ATTESTED_READY != QUALIFIED','CHECKS_FROM_DIFFERENT_SUITES_OR_RUNS != ONE_TRUSTED_QUALIFICATION'):
+    def test_v15_runtime_specs_preserve_claim_ceilings(self):
+        unified=text('spec/ATHENA_UNIFIED_V15.md')
+        for phrase in ('athena-canonical-mcp@3.4.0','ATHENA.RUNTIME.UNIFIED.11','COLLECTIVE_CALIBRATED=<SR,XT,XD,CJ,AT,MD,L>','athena://collective/v15','Deployment.2','COLLECTIVE_CALIBRATED != DEPLOYMENT_AUTHORITY','VERIFIER_IMPLEMENTED != HEAD_QUALIFIED'):
             self.assertIn(phrase,unified)
-        runtime=text('spec/COLLECTIVE_RUNTIME_V14.md')
-        for phrase in ('ATHENA COLLECTIVE RUNTIME V14','COLLECTIVE_SYNTHESIS=<JB,SE,JE,DR,RP,AZ,MR,L>','FINITE_FACTOR_PRODUCT_BELIEF != FULL_JOINT_POSTERIOR','BOOTSTRAP_GRAPH_FREQUENCY != CAUSAL_POSTERIOR','JOINT_SCIENCE_EVI != OBSERVATION_OR_EVIDENCE','SEQUENTIAL_DR_POLICY_VALUE != GENERAL_LONGITUDINAL_CAUSAL_VALUE_THEOREM','FINITE_SCENARIO_ROBUST_POLICY != GENERAL_ROBUST_CONTROL','QUERY_SET_DECISION_PRESERVATION != GLOBAL_APPROXIMATION_CERTIFICATE','FINITE_TWO_STAGE_SCENARIO_RECOURSE != GENERAL_MULTISTAGE_STOCHASTIC_PROGRAM'):
+        runtime=text('spec/COLLECTIVE_RUNTIME_V15.md')
+        for phrase in ('COLLECTIVE RUNTIME V15','OUT_OF_FOLD_ISOTONIC_RELIABILITY != CAUSAL_GRAPH_POSTERIOR','CROSS_FITTED_TWO_TIMEPOINT_TMLE != GENERAL_LONGITUDINAL_TMLE_THEOREM','CROSS_FITTED_SEQUENTIAL_DR != GENERAL_OFF_POLICY_CAUSAL_VALUE','LINEAR_GAUSSIAN_UPDATE != GENERAL_CONTINUOUS_JOINT_BAYES','GAUSSIAN_LINEAR_CONTROL != GENERAL_BELIEF_MDP','DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH','RECTANGULAR_TV_ROBUST_MDP != GENERAL_MULTISTAGE_DRO','V15_STATE != Y1_AUTHORITY'):
             self.assertIn(phrase,runtime)
 
-    def test_executable_witnesses_name_v14_and_host_bound_qualification(self):
+    def test_executable_witnesses_name_v15_deployment_and_host_bound_qualification(self):
         smoke=text('smoke.py')
-        for phrase in ("init['serverInfo']['version']=='3.3.0'","manifest['artifact']=='ATHENA.RUNTIME.UNIFIED.10'",'athena_joint_factor_belief','athena_structural_bootstrap_ensemble','athena_joint_science_evi','athena_sequential_dr_policy_value','athena_joint_policy_robust','athena_gp_resolution_route','athena_two_stage_resource_plan',"promotion['status']=='ATTESTED_READY'",'ATHENA.GITHUB.PROMOTION.VERIFIER.1'):
+        for phrase in ("init['serverInfo']['version']=='3.4.0'","manifest['artifact']=='ATHENA.RUNTIME.UNIFIED.11'",'athena_structural_reliability_calibrate','athena_longitudinal_tmle_crossfit','athena_sequential_dr_policy_crossfit','athena_joint_gaussian_update','athena_approx_error_transport','athena_multistage_tv_dro_plan','athena_deployment_manifest',"promotion['status']=='ATTESTED_READY'",'ATHENA.GITHUB.PROMOTION.VERIFIER.1'):
             self.assertIn(phrase,smoke)
         ci=text('.github/workflows/ci.yml')
-        for phrase in ('Documentation and repository-brain consistency','GitHub trusted promotion verifier','Promotion trust and exact-head predicate','promotion-qualification','scripts/qualify_github_head.py'):
+        for phrase in ('V15 calibrated continuous control and authority boundaries','GitHub trusted promotion verifier','promotion-qualification','scripts/qualify_github_head.py'):
             self.assertIn(phrase,ci)
-        release=text('.github/workflows/release-v3.3.yml')
-        for phrase in ('Release Distribution V3.3','V14 joint posterior synthesis and authority boundaries',"test_collective_v14_unified.py",'promotion-qualification','release-candidate-v3.3.0-${{ env.RELEASE_HEAD }}','ATHENA.RUNTIME.UNIFIED.10','COLLECTIVE_SYNTHESIS_V14'):
+        release=text('.github/workflows/release-v3.4.yml')
+        for phrase in ('Release Distribution V3.4','V15 calibrated continuous control and authority boundaries','Deployment V2 composition and authority boundaries',"test_collective_v15_unified.py",'promotion-qualification','release-candidate-v3.4.0-${{ env.RELEASE_HEAD }}','ATHENA.RUNTIME.UNIFIED.11','COLLECTIVE_CALIBRATED_V15'):
             self.assertIn(phrase,release)
+        self.assertFalse((ROOT/'.github/workflows/release-v3.3.yml').exists())
         verifier=text('athena_mcp/github_promotion_verifier.py')
         for phrase in ('ATHENA.GITHUB.PROMOTION.VERIFIER.1',"REQUIRED_CHECKS=('syntax','unit','critical-invariants','smoke')",'github-actions','checks from different suites/runs are never spliced','ATHENA_GITHUB_REPOSITORY','ATHENA_GITHUB_RUN_ID'):
             self.assertIn(phrase,verifier)
