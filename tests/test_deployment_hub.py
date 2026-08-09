@@ -58,6 +58,22 @@ class DeploymentHubTests(unittest.TestCase):
             )["result"]["resources"]
         }
         self.assertIn("athena://deployment", uris)
+        tool_result = self.server.handle(
+            {
+                "jsonrpc": "2.0",
+                "id": 31,
+                "method": "tools/call",
+                "params": {
+                    "name": "athena_deployment_manifest",
+                    "arguments": {},
+                },
+            }
+        )["result"]
+        self.assertFalse(tool_result["isError"], tool_result)
+        self.assertEqual(
+            tool_result["structuredContent"]["version"],
+            "ATHENA.DEPLOYMENT.1",
+        )
         readiness = self.server.call_tool("athena_kc144_hub_readiness", {})
         self.assertIn(
             "ORGAN.DEPLOYMENT1", readiness["progress_delta"]["live_organs"]
