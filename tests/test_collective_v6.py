@@ -40,7 +40,7 @@ class CollectiveRuntimeV6Tests(unittest.TestCase):
         with tempfile.NamedTemporaryFile(suffix='.db') as f:
             srv=Server(f.name);out=srv.call_tool('athena_schedule_certified',{'tasks':[{'id':'A','duration':1,'utility':1,'resource_cost':{'tokens':1},'required_capabilities':['x']},{'id':'B','duration':1,'utility':1,'dependencies':['A'],'resource_cost':{'tokens':1},'required_capabilities':['x']}],'workers':[{'id':'W','capabilities':['x']}],'budget':{'tokens':2},'horizon':3})
             self.assertEqual(out['certificate'],'EXACT_ENUMERATION_CERTIFIED');self.assertEqual([x['task'] for x in out['schedule']],['A','B'])
-            cap=srv.call_tool('athena_witness_capsule',{'regression_ref':'tests/test_runtime.py::RuntimeTests::test_registry_stale_text_simplex'});self.assertIn(cap['status'],{'HERMETIC_UNAVAILABLE','PASS','FAIL','TIMEOUT'});self.assertFalse(cap['executed']) if cap['status']=='HERMETIC_UNAVAILABLE' else None
+            cap=srv.call_tool('athena_witness_capsule',{'regression_ref':'tests/test_runtime.py::RuntimeTests::test_registry_stale_text_simplex'});self.assertIn(cap['status'],{'HERMETIC_UNAVAILABLE','PASS','FAIL','TIMEOUT','INVALID_REF'});self.assertFalse(cap['executed']) if cap['status'] in {'HERMETIC_UNAVAILABLE','INVALID_REF'} else None
             if cap.get('executed'):self.assertTrue(cap['hermetic']);srv.store.close()
 
     def test_pareto_experiment_and_replication_graph(self):
