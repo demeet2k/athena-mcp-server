@@ -33,8 +33,10 @@ class ReleaseDistributionTests(unittest.TestCase):
         self.assertTrue(p['publication_requires_exact_current_master']);self.assertTrue(p['publication_requires_clean_checkout']);self.assertTrue(p['publication_requires_five_stage_qualification']);self.assertTrue(p['exact_commit_is_bound_in_release_attestation'])
         self.assertTrue(p['critical_test_selectors_must_resolve_to_real_files'])
         self.assertTrue(p['validation_runs_on_master_push'])
+        self.assertTrue(p['validation_runs_on_every_master_push'])
         self.assertTrue(p['master_push_validation_is_nonpublishing'])
         self.assertTrue(p['publication_requires_manual_workflow_dispatch'])
+        self.assertTrue(p['non_pr_validation_requires_exact_current_master_at_package_readiness'])
         self.assertEqual(p['qualification_checks'],['syntax','unit','critical-invariants','smoke','promotion-qualification'])
 
     def test_required_assets_match_current_distribution(self):
@@ -73,12 +75,12 @@ class ReleaseDistributionTests(unittest.TestCase):
         self.assertIn("if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master'",publish)
         self.assertNotIn('github.event_name == \'push\'',publish)
 
-    def test_master_push_trigger_is_validation_scoped_and_self_triggering(self):
+    def test_every_master_push_is_validation_scoped_and_self_triggering(self):
         w=self.workflow
         trigger=w[:w.index('\npermissions:')]
         self.assertIn('push:\n    branches: [master]',trigger)
-        for path in ("'.github/workflows/release-v3.4.yml'","'release/v3.4.0.json'","'release/v3.4.0.md'","'tests/test_release_distribution.py'","'athena_mcp/**'","'smoke.py'","'pyproject.toml'"):
-            self.assertIn(path,trigger)
+        self.assertNotIn('paths:',trigger)
+        self.assertNotIn('paths-ignore:',trigger)
         package=w[w.index('\n  package-readiness:'):w.index('\n  publish:')]
         self.assertIn('git fetch origin master --no-tags',package)
         self.assertIn('test "$(git rev-parse origin/master)" = "$RELEASE_HEAD"',package)
@@ -121,7 +123,7 @@ class ReleaseDistributionTests(unittest.TestCase):
             'LINEAR_GAUSSIAN_UPDATE != GENERAL_CONTINUOUS_JOINT_BAYES','UNKNOWN_COEFFICIENT != ZERO_COEFFICIENT','NONFINITE_NUMERIC_STATE != MODEL_COORDINATE',
             'DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH','GEOMETRIC_NEAREST_WITNESS != TIGHTEST_ERROR_ENVELOPE_WITNESS','GLOBAL_ENVELOPE != RADIUS_ELIGIBLE_LOCAL_CERTIFICATE','NO_RADIUS_ELIGIBLE_WITNESS != GLOBAL_FALLBACK_CERTIFICATE',
             'RECTANGULAR_TV_ROBUST_MDP != GENERAL_MULTISTAGE_DRO','UNKNOWN_STATE_COORDINATE != UNUSED_METADATA','NONFINITE_TRANSITION != PROBABILITY_MODEL',
-            'ZERO_TEST_SELECTION != PROOF','AUTOMATIC_VALIDATION != AUTOMATIC_PUBLICATION','one coherent trusted Actions suite',
+            'ZERO_TEST_SELECTION != PROOF','AUTOMATIC_VALIDATION != AUTOMATIC_PUBLICATION','every push to `master`','one coherent trusted Actions suite',
             'This release certifies repository/package/distribution state. It is not a production deployment',
         ):self.assertIn(phrase,n)
 
