@@ -50,8 +50,6 @@ jobs:
               assert raw and b'\x00' not in raw, relative
               target.parent.mkdir(parents=True, exist_ok=True)
               target.write_bytes(raw)
-          payload_path.unlink()
-          (root/'.github/workflows/canary-bootstrap-v1.yml').unlink()
           PY
           python -m compileall -q deploy/canary_observer.py tests/test_deployment_canary_observer_v3.py
           python -m unittest discover -s tests -p 'test_deployment_canary_observer_v3.py' -v
@@ -62,19 +60,15 @@ jobs:
               assert fragment in text, fragment
           print('CANARY WORKFLOW STRUCTURE PASS')
           PY
+          rm .github/workflows/canary-v3.3.yml
 
-      - name: Commit only the decoded canary lane
+      - name: Commit decoded ordinary source only
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add \
-            deploy/canary_observer.py \
-            tests/test_deployment_canary_observer_v3.py \
-            .github/workflows/canary-v3.3.yml \
-            .athena/bootstrap/canary-v3.3.payload.json \
-            .github/workflows/canary-bootstrap-v1.yml
+          git add deploy/canary_observer.py tests/test_deployment_canary_observer_v3.py
           test -n "$(git status --porcelain)"
-          git commit -m 'Add exact v3.3 isolated canary witness'
+          git commit -m 'Add exact v3.3 isolated canary observer and tests'
           git push origin HEAD:agent/athena-v3.3-isolated-canary-v1
