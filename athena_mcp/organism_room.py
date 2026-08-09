@@ -116,6 +116,10 @@ def verify_authority_receipt(receipt: dict, expected: dict, authority_keys: dict
     claims = receipt.get("claims")
     if not isinstance(claims, dict):
         raise ValueError("COMPLETION_RECEIPT_CLAIMS_HOLD")
+    if not str(claims.get("evaluator_version") or "").strip():
+        raise ValueError("COMPLETION_EVALUATOR_VERSION_HOLD")
+    if _parse_time(str(claims.get("observed_at") or "")) is None:
+        raise ValueError("COMPLETION_OBSERVED_AT_HOLD")
     for field, value in expected.items():
         if claims.get(field) != value:
             raise ValueError(f"COMPLETION_RECEIPT_BINDING_HOLD:{field}")
@@ -344,7 +348,8 @@ class OrganismRoomRuntime:
             active_ids = [row["agent_id"] for row in self.board._active()] + [agent_id]
             allocation = allocate_population(active_ids)
             session = {"artifact": SESSION_ARTIFACT, "agent_id": agent_id, "session_id": session_id, "fence": fence, "status": "ACTIVE", "head": base, "prompt_digest": current_prompt, "claim_id": claim_id, "quest_id": work_key, "attempt": attempt, "role": allocation["roles"][agent_id], "wave": allocation["agent_waves"][agent_id], "entered_at": _iso(now), "lease_until": _iso(now + timedelta(seconds=lease))}
-            quest = {**(prior_quest or {}), "quest_id": work_key, "work_key": work_key, "attempt": attempt, "status": "ACTIVE", "claim_id": claim_id, "session_id": session_id, "fence": fence, "task": task, "targets": candidate["targets"], "input_head": base, "prompt_digest": current_prompt, "claimed_at": _iso(now)}
+            acceptance_digest = _digest({"task": task, "targets": candidate["targets"]})
+            quest = {**(prior_quest or {}), "quest_id": work_key, "work_key": work_key, "attempt": attempt, "status": "ACTIVE", "claim_id": claim_id, "session_id": session_id, "fence": fence, "task": task, "targets": candidate["targets"], "acceptance_digest": acceptance_digest, "input_head": base, "prompt_digest": current_prompt, "claimed_at": _iso(now)}
             parent_id = quest.get("parent_quest_id")
             if parent_id and parent_id in state["quests"]:
                 state["quests"][parent_id]["successor_consumed_by"] = session_id
@@ -431,7 +436,7 @@ class OrganismRoomRuntime:
             quest = state["quests"].get(session["quest_id"])
             if not quest or quest.get("session_id") != session_id or quest.get("fence") != fence or quest.get("status") != "ACTIVE":
                 raise ValueError("CLAIM_ATTEMPT_HOLD")
-            expected = {"quest_id": quest["quest_id"], "attempt": quest["attempt"], "session_id": session_id, "fence": fence, "input_head": quest["input_head"], "prompt_digest": quest["prompt_digest"], "artifact_digests": artifacts, "result": result}
+            expected = {"quest_id": quest["quest_id"], "attempt": quest["attempt"], "session_id": session_id, "fence": fence, "input_head": quest["input_head"], "prompt_digest": quest["prompt_digest"], "acceptance_digest": quest["acceptance_digest"], "artifact_digests": artifacts, "result": result}
             verify_authority_receipt(receipt, expected, self.authority_keys)
             successor = None
             if residual:
@@ -440,7 +445,7 @@ class OrganismRoomRuntime:
                 state["quests"][successor_id] = successor
             elif terminal_reason not in TERMINAL_REASONS:
                 raise ValueError("SUCCESSOR_OR_VERIFIED_TERMINAL_REASON_REQUIRED")
-            quest.update({"status": "VERIFIED", "artifact_digests": artifacts, "result": result, "receipt_authority": receipt["authority_id"], "completed_at": _iso(now), "successor_id": (successor or {}).get("quest_id"), "terminal_reason": terminal_reason})
+            quest.update({"status": "VERIFIED", "artifact_digests": artifacts, "result": result, "receipt_authority": receipt["authority_id"], "evaluator_version": receipt["claims"]["evaluator_version"], "observed_at": receipt["claims"]["observed_at"], "completed_at": _iso(now), "successor_id": (successor or {}).get("quest_id"), "terminal_reason": terminal_reason})
             session["claim_status"] = "VERIFIED"
             state["version"] += 1
             state["logical_time"] += 1
