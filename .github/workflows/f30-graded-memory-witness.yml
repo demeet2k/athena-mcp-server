@@ -1,0 +1,39 @@
+name: F30 Graded Memory Witness
+
+on:
+  pull_request:
+    branches:
+      - 'agent/cell-closure-evidence-kc15-v1'
+    paths:
+      - 'spec/F30_GRADED_MEMORY_WITNESS_V1.json'
+      - 'scripts/f30_graded_memory_witness.py'
+      - '.github/workflows/f30-graded-memory-witness.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  f30-graded-memory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile bounded F30 witness
+        run: python -m compileall -q scripts/f30_graded_memory_witness.py
+      - name: Execute finite graded-memory witness
+        env:
+          PYTHONPATH: .
+        run: python scripts/f30_graded_memory_witness.py
+      - name: Upload F30 graded-memory receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f30-graded-memory-witness-v1
+          path: f30_graded_memory_witness_v1.json
+          if-no-files-found: error

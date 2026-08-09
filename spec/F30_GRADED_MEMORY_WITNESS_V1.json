@@ -1,0 +1,51 @@
+{
+  "artifact": "ATHENA.F30.GRADED.MEMORY.WITNESS.V1",
+  "role": "bounded formal witness for the generic graded-memory mechanism required by F30/GID073 while preserving moonshine exactification HOLD",
+  "parent_evidence_matrix_head": "d1d27b3f87d5d05e0a3bfe7c6ae1237f4430c746",
+  "gid": 73,
+  "carrier": "F30",
+  "constitutional_obligation": "GRADED_MEMORY_PARTIAL_EXACTIFICATION",
+  "source_roots": {
+    "math": {"name":"f01_f37_math.txt","sha256":"71ef8e97a38adeda9c521e68238e4c8349f9b3e62dc412284f5f4d009921d4d5"},
+    "symmetry": {"name":"f01_f37_symmetries.txt","sha256":"80ce12eaffe541138ba3206077f9c854e5c9c9cdef010c97705eb59d16809d8c"}
+  },
+  "formal_fixture": {
+    "grades": {
+      "0": {"basis":["e0"],"action_signs":[1]},
+      "1": {"basis":["e1a","e1b","e1c"],"action_signs":[1,1,-1]},
+      "2": {"basis":["e2a","e2b","e2c","e2d"],"action_signs":[1,-1,1,-1]},
+      "3": {"basis":["e3a","e3b","e3c","e3d","e3e","e3f"],"action_signs":[1,1,1,-1,-1,-1]}
+    },
+    "expected_dimension_series": [1,3,4,6],
+    "expected_character_series": [1,1,0,0],
+    "group_action": "C2_DIAGONAL_INVOLUTION",
+    "memory_order": [0,1,2,3]
+  },
+  "success_condition": {
+    "all_grade_dimensions_nonnegative_integers": true,
+    "dimension_series_matches_grades": true,
+    "C2_action_squares_to_identity": true,
+    "character_series_matches_grade_traces": true,
+    "grade_content_digests_are_stable": true,
+    "replay_reconstructs_dimension_and_character_series": true,
+    "tampered_dimension_series_detected": true,
+    "tampered_character_trace_detected": true,
+    "tampered_grade_memory_detected": true
+  },
+  "standing_after_pass": {
+    "generic_graded_memory_mechanism": "PASS",
+    "evidence": "HOLD",
+    "constitutional_obligation": "PARTIALLY_DISCHARGED",
+    "remaining_obligation": "SOURCE_BOUND_MOONSHINE_OR_GRADED_REPRESENTATION_EXACTIFICATION_WITNESS",
+    "truth_claim": "NOT_ESTABLISHED",
+    "promotion_authority": false
+  },
+  "firewalls": [
+    "FINITE_GRADED_VECTOR_SPACE_FIXTURE != MOONSHINE_THEOREM",
+    "FINITE_CHARACTER_SERIES != MONSTER_OR_VOA_CHARACTER_IDENTITY",
+    "CONTENT_ADDRESSED_GRADE_MEMORY != REPRESENTATION_THEOREM",
+    "GENERIC_GRADED_MEMORY_PASS != SOURCE_BOUND_F30_EXACTIFICATION",
+    "FORMAL_MECHANISM_PASS != MATHEMATICAL_TRUTH_OF_MOONSHINE_CLAIM",
+    "F30_EVIDENCE_REMAINS_HOLD_UNTIL_SOURCE_BOUND_GRADED_REPRESENTATION_WITNESS_EXISTS"
+  ]
+}
