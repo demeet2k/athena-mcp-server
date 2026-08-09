@@ -56,3 +56,11 @@ from .agent_bootstrap_cohesion_treatment import (
 )
 
 install_agent_bootstrap_cohesion_treatment(AgentBootstrapRuntime)
+
+# DEPLOYMENT-002: compose digest/source-bound activation through the current
+# PromptRuntime + AorDevelopmentSurface seams. The canonical Server root remains
+# unchanged; deployment planning and receipt verification grant no execution or
+# truth authority.
+from .deployment_extension import install_deployment_extension
+
+install_deployment_extension()
