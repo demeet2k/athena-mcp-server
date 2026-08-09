@@ -42,6 +42,13 @@ def install_release_v15(namespace: dict[str, Any]) -> None:
     namespace['SERVER_INFO']=server_info
     protocol.SERVER_INFO=dict(server_info)
 
+    # DEPLOYMENT.2 imports dispatch after V14 and before this installer. dispatch
+    # binds SERVER_INFO by value at import time, so advancing protocol.SERVER_INFO
+    # alone leaves initialize/HTTP on the V14 identity. Advance the live dispatch
+    # chart explicitly; this is release identity synchronization, not a second ABI.
+    from . import dispatch as dispatch_module
+    dispatch_module.SERVER_INFO=dict(server_info)
+
     from . import unified_manifest_protocol as ump
     if V15_RESOURCE['uri'] not in {r['uri'] for r in ump.UNIFIED_MANIFEST_RESOURCES}:
         ump.UNIFIED_MANIFEST_RESOURCES.append(dict(V15_RESOURCE))
@@ -122,6 +129,15 @@ def install_release_v15(namespace: dict[str, Any]) -> None:
     if V15_RESOURCE['uri'] not in ris.INTEGRITY_RESOURCE_URIS:
         ris.INTEGRITY_RESOURCES.append(dict(V15_RESOURCE))
         ris.INTEGRITY_RESOURCE_URIS.add(V15_RESOURCE['uri'])
+
+    # AorDevelopmentSurface snapshots INTEGRITY_RESOURCES a second time while
+    # dispatch is imported by DEPLOYMENT.2. Synchronize that second-order chart
+    # as well; resources/list and resources/read depend on these exact objects.
+    from . import aor_development_surface as ads
+    if V15_RESOURCE['uri'] not in ads.AOR_DEVELOPMENT_RESOURCE_URIS:
+        ads.AOR_DEVELOPMENT_RESOURCES.append(dict(V15_RESOURCE))
+        ads.AOR_DEVELOPMENT_RESOURCE_URIS.add(V15_RESOURCE['uri'])
+
     if not getattr(ris.RuntimeIntegritySurface,'_athena_collective_v15_installed',False):
         original_read=ris.RuntimeIntegritySurface.read_resource
         def read_resource_v15(self,uri):
