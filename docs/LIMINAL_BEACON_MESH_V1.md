@@ -1,8 +1,9 @@
 # Liminal Beacon Mesh V1 — executable candidate
 
 **Standing:** `CANDIDATE_RUNTIME_NON_AUTHORITATIVE`  
-**Runtime base:** `5e9f9986b0d774cece357b6141b026879143fdfc`  
+**Runtime base:** `114790cf5173ca5ab78d1b505849708b209f81a0`  
 **Inherited current release frontier:** `Collective Calibrated V15`  
+**Inherited canary frontier:** `Observe ATHENA v3.3.0 isolated canary — bounded subject-gate alignment`  
 **Design parent:** `demeet2k/Athena#429` / `LCOM=<L2|BF,TF,IF,DF,AF,CF,RF,SF,MF,HF>`
 
 ## Purpose
@@ -13,7 +14,7 @@ The fast plane is process-local and ephemeral. It is intentionally not a second 
 
 ## Runtime composition
 
-The V1 candidate is now a direct descendant of the current V15 runtime frontier. Existing composition remains intact:
+The V1 candidate is a direct descendant of the current V15 + canary runtime frontier. Existing composition remains intact:
 
 ```text
 legacy registration
@@ -21,10 +22,11 @@ legacy registration
 -> Collective V14
 -> Deployment
 -> Collective V15
+-> canary observation/subject-gate lineage
 -> Liminal Beacon candidate
 ```
 
-Beacon is an additive operational organ after V15. It does not change the V15 scientific/calibration authority boundary or current release identity.
+Beacon is an additive operational organ after V15. It does not change the V15 scientific/calibration authority boundary, current release identity, canary evidence standing, or deployment authority.
 
 ## Runtime path
 
@@ -131,5 +133,6 @@ QUORUM_SIGNAL != EVIDENCE
 RUNTIME_PULSE != GIT_COMMIT
 AUTOHOOK != HIDDEN_BACKGROUND_AGENT_EXECUTION
 PROCESS_LOCAL_COLONY != FEDERATED_RUNTIME
+CANARY_OBSERVATION != BEACON_AUTHORITY
 CANDIDATE_RUNTIME != CANONICAL_PROMOTION
 ```
