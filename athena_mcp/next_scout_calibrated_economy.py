@@ -54,11 +54,7 @@ def _dominates(a: dict, b: dict) -> bool:
 
 
 class NextScoutCalibratedEconomyRuntime:
-    """Read-only V5 economy evaluated with V6 calibrated cost priors.
-
-    Benefit priors are deliberately inherited unchanged from V5. Only cost
-    coordinates may be calibrated from observed V6 receipts.
-    """
+    """Read-only V5 economy evaluated with V6 calibrated cost priors."""
 
     def __init__(self, pipeline: RollingQuestPipelineRuntime, breadth: NextQuestBreadthRuntime,
                  metabolism: NextScoutMetabolismRuntime | None = None,
@@ -111,8 +107,6 @@ class NextScoutCalibratedEconomyRuntime:
 
         calibration = self.metabolism.calibrate(pipeline_id=pipeline_id, prior_strength=prior_strength)
         profiles = calibration["calibrated_profiles"]
-        # Benefit priors are constitutional in V6: overwrite them with V5 values
-        # even if a future receipt format contains similarly named fields.
         for kind, profile in profiles.items():
             for key in VALUE_KEYS:
                 profile[key] = RESOURCE_PROFILE[kind][key]
@@ -301,7 +295,7 @@ NEXT_SCOUT_CALIBRATED_ECONOMY_TOOLS = [{
             "agent_id": {"type": ["string", "null"]}, "remote": {"type": "string"},
             "shared_remote_mode": {"type": "string", "enum": ["REQUIRED", "BEST_EFFORT", "DISABLED"]},
             "choice_plan_ids": {"type": ["array", "null"], "items": {"type": "string"}}
-        }, "additionalProperties": false
+        }, "additionalProperties": False
     }
 }]
 NEXT_SCOUT_CALIBRATED_ECONOMY_TOOL_NAMES = {TOOL_NAME}
