@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://athena.local/schemas/mck_connection_operator_packet_v1.schema.json",
+  "title": "ATHENA MCK Connection Operator Packet V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact",
+    "version",
+    "standing",
+    "feature_basis",
+    "operators",
+    "historical_mapping",
+    "firewalls"
+  ],
+  "properties": {
+    "artifact": {
+      "const": "ATHENA.MCK.CONNECTION.OPERATOR_PACKET.V1"
+    },
+    "version": {
+      "const": "MCK.CONNECTION.PACKET.V1"
+    },
+    "standing": {
+      "const": "SYNTHETIC_CONTROL_PACKET_NOT_SOURCE_EVIDENCE"
+    },
+    "feature_basis": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "operators": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "edge_id",
+          "source_coordinate",
+          "target_coordinate",
+          "transforms",
+          "typed_loss",
+          "loss_standing",
+          "provenance",
+          "standing"
+        ],
+        "properties": {
+          "edge_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_coordinate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_coordinate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "transforms": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "op"
+              ],
+              "properties": {
+                "op": {
+                  "enum": [
+                    "IDENTITY",
+                    "SET",
+                    "ADD",
+                    "SCALE",
+                    "DELETE"
+                  ]
+                },
+                "operand": {}
+              }
+            }
+          },
+          "typed_loss": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "loss_standing": {
+            "const": "SCHEMA_TYPED_CONTROL_DECLARATION"
+          },
+          "inverse_edge_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          },
+          "provenance": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "standing": {
+            "const": "SYNTHETIC_CONTROL_PACKET_NOT_SOURCE_EVIDENCE"
+          }
+        }
+      }
+    },
+    "historical_mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "edges"
+      ],
+      "properties": {
+        "status": {
+          "const": "HOLD_EMPTY_V1_PROPOSAL"
+        },
+        "edges": {
+          "type": "array",
+          "maxItems": 0
+        }
+      }
+    },
+    "firewalls": {
+      "type": "array",
+      "minItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "allOf": [
+        {
+          "contains": {
+            "const": "EXPECTED_CLASS != CONNECTION_DEFINITION"
+          }
+        },
+        {
+          "contains": {
+            "const": "SYNTHETIC_CONTROL_PACKET != HISTORICAL_SOURCE_EVIDENCE"
+          }
+        },
+        {
+          "contains": {
+            "const": "PACKET_DIGEST != INTERPRETER_IMPLEMENTATION_WITNESS"
+          }
+        },
+        {
+          "contains": {
+            "const": "DECLARED_TYPED_LOSS != EXECUTED_IRREVERSIBLE_LOSS"
+          }
+        },
+        {
+          "contains": {
+            "const": "PATH_PROVENANCE != SEMANTIC_RESIDUE"
+          }
+        }
+      ]
+    },
+    "packet_semantic_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "operator_registry_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}
