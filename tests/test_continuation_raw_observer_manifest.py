@@ -93,7 +93,7 @@ class ContinuationRawObserverManifestTests(unittest.TestCase):
         joined = "\n".join(manifest["invariants"])
         self.assertIn("RAW_RUNTIME_FACT != BEHAVIORAL_EFFECT", joined)
         self.assertIn("READ_ONLY_OBSERVER != CONTROLLER", joined)
-        self.assertNotIn("behavioral_effect":="true", json.dumps(organ).lower())
+        self.assertNotIn('"behavioral_effect": true', json.dumps(organ).lower())
         self.assertFalse(any(organ["authority"].values()))
 
 
