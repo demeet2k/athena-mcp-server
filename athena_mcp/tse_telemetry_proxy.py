@@ -3,7 +3,7 @@ from __future__ import annotations
 import copy
 from collections.abc import Mapping
 
-from .tse_telemetry import TseHelixTelemetryRuntime
+from .tse_telemetry import TseHelixTelemetryRuntime, _digest
 
 
 class TseHelixTelemetryProxy:
@@ -47,6 +47,9 @@ class TseHelixTelemetryProxy:
             out["source_git_head"] = None
 
         elif kind == "COHESION_NEED_PUBLICATION":
+            # The request/event reference is already the publication identity.
+            # If the payload does not carry the publication commit coordinate,
+            # do not substitute the telemetry-mutated observer HEAD.
             event = payload.get("event") or payload.get("message_event") or {}
             if not isinstance(event, Mapping):
                 event = {}
@@ -55,7 +58,7 @@ class TseHelixTelemetryProxy:
         elif kind == "COHESION_ADVISORY_MATCH":
             # Cohesion already verified the shared frontier before producing the
             # advisory match. A later telemetry commit must not manufacture a
-            # new match identity solely by moving Git HEAD.
+            # new match source/attempt identity solely by moving Git HEAD.
             selected = payload.get("selected_match") or {}
             if isinstance(selected, Mapping):
                 selected = dict(selected)
@@ -63,6 +66,9 @@ class TseHelixTelemetryProxy:
                 payload["selected_match"] = selected
             payload.pop("match_git_head", None)
             out["source_git_head"] = None
+            stable_ref = "MATCH-" + _digest(payload).split(":", 1)[1][:24]
+            out["source_ref"] = stable_ref
+            out["attempt_ref"] = stable_ref
 
         elif kind == "MESSAGE_BOARD_HANDOFF_ROUTE":
             event = payload.get("message_event") or {}
