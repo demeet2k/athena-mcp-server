@@ -21,12 +21,13 @@ from .surface_contract import audit_surface,contract_manifest
 from .surface_protocol import SURFACE_RESOURCE,SURFACE_TOOLS,SURFACE_TOOL_NAMES
 from .unified_manifest_protocol import UNIFIED_MANIFEST_RESOURCES,UNIFIED_MANIFEST_TOOLS,UNIFIED_MANIFEST_TOOL_NAMES
 
+MANIFEST_ALIAS_RESOURCE={'uri':'athena://manifest','name':'ATHENA Effective Unified Runtime Manifest','mimeType':'application/json'}
 INTEGRITY_TOOLS=(
     list(SURFACE_TOOLS)+list(PROMOTION_TOOLS)+list(STATE_FOUNDATION_TOOLS)+
     list(SELF_TEST_TOOLS)+list(STARTUP_HEALTH_TOOLS)+list(UNIFIED_MANIFEST_TOOLS)+list(ARCHITECTURE_DRIFT_TOOLS)
 )
 INTEGRITY_RESOURCES=(
-    [SURFACE_RESOURCE,PROMOTION_RESOURCE]+list(STATE_FOUNDATION_RESOURCES)+
+    [MANIFEST_ALIAS_RESOURCE,SURFACE_RESOURCE,PROMOTION_RESOURCE]+list(STATE_FOUNDATION_RESOURCES)+
     [SELF_TEST_RESOURCE,STARTUP_HEALTH_RESOURCE]+list(UNIFIED_MANIFEST_RESOURCES)+list(ARCHITECTURE_DRIFT_RESOURCES)
 )
 INTEGRITY_TOOL_NAMES=(
@@ -93,10 +94,8 @@ class RuntimeIntegritySurface:
         if name=='athena_self_test':return True,self.self_test.run(args.get('replay_limit',10),args.get('run_composition_probes',True))
         if name=='athena_organ_inventory':return True,inventory_manifest()
         if name=='athena_architecture_drift_audit':return True,self.architecture_drift_audit(args.get('include_repository_witnesses',False))
-
         handled,value=self.state_foundation.call_tool(name,args)
         if handled:return True,value
-
         if name=='athena_surface_audit':return True,self.surface_audit(args.get('run_probes',True))
         if name=='athena_promotion_evaluate':
             surface=self.surface_audit(True);local_git=self.server.git.status()
@@ -106,10 +105,7 @@ class RuntimeIntegritySurface:
             if verification.get('verified') is not True:
                 return True,{**verification,'promotion_allowed':False,'persisted':False,'law':'failed or unavailable independent GitHub verification creates no PROMRUN and cannot be converted into caller-attested readiness'}
             surface=self.surface_audit(True);local_git=self.server.git.status()
-            qualified=self.promotion.evaluate(
-                'Server',head,surface,verification['ci_witness'],verification['smoke_witness'],local_git,
-                args.get('actor','GITHUB.PROMOTION.VERIFIER'),args.get('persist',True),verification['trusted_external_verification'],
-            )
+            qualified=self.promotion.evaluate('Server',head,surface,verification['ci_witness'],verification['smoke_witness'],local_git,args.get('actor','GITHUB.PROMOTION.VERIFIER'),args.get('persist',True),verification['trusted_external_verification'])
             return True,{**qualified,'github_verification':verification}
         if name=='athena_promotion_get':return True,self.promotion.get(args['run_id'])
         if name=='athena_promotion_replay':return True,self.promotion.replay(args['run_id'])
@@ -117,7 +113,7 @@ class RuntimeIntegritySurface:
         return False,None
 
     def read_resource(self,uri:str):
-        if uri=='athena://runtime/unified-manifest':return build_effective_manifest(self.server)
+        if uri in {'athena://manifest','athena://runtime/unified-manifest'}:return build_effective_manifest(self.server)
         if uri=='athena://runtime/maxdev':return {'mimeType':'text/plain','text':effective_maxdev_law()}
         if uri=='athena://architecture/inventory':return inventory_manifest()
         if uri=='athena://architecture/drift':return {'inventory':inventory_manifest(),'latest':self.architecture_drift_audit(False),'law':'declared mature organs must agree across runtime discovery, SURFACE, effective manifest and OMEGA; repository CI/source witnesses are available through the explicit audit option'}
@@ -129,18 +125,11 @@ class RuntimeIntegritySurface:
         if uri==SURFACE_RESOURCE['uri']:
             return {'contract':contract_manifest(),'audit':self.surface_audit(True),'law':'SURFACE.2 discovery PASS is necessary but not sufficient; declared mature organs must also pass architecture-drift and COMPOSITION gates before PROMOTION.2 readiness'}
         if uri==PROMOTION_RESOURCE['uri']:
-            return {
-                'version':'ATHENA.PROMOTION.2','compat':['ATHENA.PROMOTION.1'],'benchmark':self.promotion.benchmark(),'recent':self.promotion.recent(50),
-                'github_verifier':self.github_promotion_verifier.describe(),
-                'architecture_drift':self.architecture_drift_audit(False),
-                'law':'ATTESTED_READY iff unified Server + SURFACE.2 + COMPOSITION.2 + ARCHITECTURE.DRIFT.1 + configured local Git gate + caller-bound CI/smoke packets all PASS on the same exact head; QUALIFIED additionally requires an internal trusted verifier receipt.',
-                'boundary':'unclassified live surfaces are exposed as expansion pressure but do not become mature or authoritative by adjacency; failed declared-organ integration blocks local promotion readiness.',
-            }
+            return {'version':'ATHENA.PROMOTION.2','compat':['ATHENA.PROMOTION.1'],'benchmark':self.promotion.benchmark(),'recent':self.promotion.recent(50),'github_verifier':self.github_promotion_verifier.describe(),'architecture_drift':self.architecture_drift_audit(False),'law':'ATTESTED_READY iff unified Server + SURFACE.2 + COMPOSITION.2 + ARCHITECTURE.DRIFT.1 + configured local Git gate + caller-bound CI/smoke packets all PASS on the same exact head; QUALIFIED additionally requires an internal trusted verifier receipt.','boundary':'unclassified live surfaces are exposed as expansion pressure but do not become mature or authoritative by adjacency; failed declared-organ integration blocks local promotion readiness.'}
         raise KeyError(uri)
 
     def benchmark(self):
-        result={};result.update(self.promotion.benchmark());result.update(self.state_foundation.benchmark())
-        drift=self.architecture_drift_audit(False)
+        result={};result.update(self.promotion.benchmark());result.update(self.state_foundation.benchmark());drift=self.architecture_drift_audit(False)
         result['self_test_version']='ATHENA.SELFTEST.1';result['startup_health_version']='ATHENA.STARTUP.1';result['unified_manifest_version']=EFFECTIVE_UNIFIED_MANIFEST_VERSION;result['promotion_version']='ATHENA.PROMOTION.2'
         result['github_promotion_verifier_version']=GITHUB_PROMOTION_VERIFIER_VERSION;result['github_promotion_verifier_configured']=self.github_promotion_verifier.describe()['configured']
         result['organ_inventory_version']=drift['organ_inventory_version'];result['architecture_drift_version']=drift['version'];result['architecture_drift_status']=drift['status'];result['architecture_drift_count']=drift['drift_count'];result['unclassified_surface_count']=drift['unclassified_surface']['count']
