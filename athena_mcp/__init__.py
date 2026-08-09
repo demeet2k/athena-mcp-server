@@ -71,18 +71,21 @@ from .deployment_extension import install_deployment_extension
 
 install_deployment_extension()
 
-# NEXT-PIPE-001 adds a rolling three-quest focus/staging membrane. It consumes
-# canonical Rehydration Successor batons but owns no claim, execution, freshness,
-# promotion, release, deployment, or merge authority.
+# NEXT-PIPE-001/V2 adds rolling focus plus staged preparation. The preparation
+# membrane is installed after the core pipeline and before public protocol copy;
+# its idempotency hardening keeps one content-addressed prep identity from
+# acquiring multiple bodies on repeated planning calls.
 from .next_quest_pipeline import install_next_pipeline_extension
 from .next_quest_pipeline_hardening import install_next_pipeline_successor_authority_hardening
 from .next_quest_pipeline_bridge import install_next_pipeline_bridge
 from .next_quest_pipeline_breadth import install_next_pipeline_breadth
+from .next_quest_pipeline_breadth_hardening import install_next_pipeline_breadth_idempotency_hardening
 
 install_next_pipeline_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 install_next_pipeline_successor_authority_hardening()
 install_next_pipeline_bridge(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 install_next_pipeline_breadth(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_pipeline_breadth_idempotency_hardening()
 for _tool in PROMPT_RUNTIME_TOOLS:
     if not any(existing["name"] == _tool["name"] for existing in _protocol.TOOLS):
         _protocol.TOOLS.append(_tool)
