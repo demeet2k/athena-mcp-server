@@ -50,7 +50,18 @@ class DocumentationConsistencyTests(unittest.TestCase):
         release=text('.github/workflows/release-v3.4.yml')
         for phrase in ('Release Distribution V3.4','V15 calibrated continuous control and authority boundaries','Deployment V2 composition and authority boundaries',"test_collective_v15_unified.py",'promotion-qualification','release-candidate-v3.4.0-${{ env.RELEASE_HEAD }}','ATHENA.RUNTIME.UNIFIED.11','COLLECTIVE_CALIBRATED_V15'):
             self.assertIn(phrase,release)
-        self.assertFalse((ROOT/'.github/workflows/release-v3.3.yml').exists())
+
+        # V3.3 is no longer the current package identity, but live master retains
+        # its immutable manual publication workflow because the already-published
+        # V3.3 OCI activation/relay contract references that historical authority.
+        historical=ROOT/'.github/workflows/release-v3.3.yml'
+        self.assertTrue(historical.exists())
+        historical_text=historical.read_text(encoding='utf-8')
+        self.assertIn('Release Distribution V3.3',historical_text)
+        self.assertIn('release/v3.3.0.json',historical_text)
+        self.assertIn('workflow_dispatch:',historical_text)
+        self.assertNotIn('release/v3.4.0.json',historical_text)
+
         verifier=text('athena_mcp/github_promotion_verifier.py')
         for phrase in ('ATHENA.GITHUB.PROMOTION.VERIFIER.1',"REQUIRED_CHECKS=('syntax','unit','critical-invariants','smoke')",'github-actions','checks from different suites/runs are never spliced','ATHENA_GITHUB_REPOSITORY','ATHENA_GITHUB_RUN_ID'):
             self.assertIn(phrase,verifier)
