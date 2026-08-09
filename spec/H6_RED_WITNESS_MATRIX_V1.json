@@ -1,0 +1,11 @@
+{
+  "artifact": "ATHENA.H6.RED.WITNESS.MATRIX.V1",
+  "phase": "EMPTY_BEFORE_SOURCE_AUDIT",
+  "runtime_base": "114790cf5173ca5ab78d1b505849708b209f81a0",
+  "witnesses": [],
+  "law": [
+    "NO_GAP_WITHOUT_CURRENT_SOURCE_EVIDENCE",
+    "NO_RED_WITHOUT_REPRODUCIBLE_PARENT_STATE",
+    "NO_TREATMENT_IN_RED_BRANCH"
+  ]
+}
