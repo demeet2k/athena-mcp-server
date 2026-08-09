@@ -29,6 +29,19 @@ class CollectiveRuntimeV15AdversarialTests(unittest.TestCase):
         bad=[{'support':.5,'correct':1} for _ in range(40)];bad[0]['support']=1.2
         self.tool('athena_structural_reliability_calibrate',{'calibration_examples':bad},expect_error=True)
 
+    def test_structural_calibration_pools_duplicate_support_coordinates_before_pav(self):
+        examples=[]
+        for _ in range(20):examples.append({'support':.5,'correct':0,'weight':1})
+        for _ in range(20):examples.append({'support':.5,'correct':1,'weight':3})
+        out=self.tool('athena_structural_reliability_calibrate',{'calibration_examples':examples,'supports':[.5],'folds':5,'seed':3})
+        self.assertEqual(out['status'],'OUT_OF_FOLD_WEIGHTED_ISOTONIC_STRUCTURAL_RELIABILITY')
+        self.assertEqual(out['unique_support_coordinates'],1)
+        self.assertEqual(len(out['curve']),1)
+        self.assertAlmostEqual(out['curve'][0]['calibrated_reliability'],.75,places=10)
+        self.assertAlmostEqual(out['calibrated_supports'][0]['calibrated_reliability'],.75,places=10)
+        self.assertTrue(out['weighted'])
+        self.assertEqual(out['interpolation'],'RIGHT_CONTINUOUS_MONOTONE_STEP_WITH_ENDPOINT_EXTENSION')
+
     def test_cross_fitted_longitudinal_methods_fail_closed_on_latent_confounding(self):
         rows=self.longitudinal_rows()
         common={'samples':rows,'treatment1':'A1','intermediate':'L1','treatment2':'A2','outcome':'Y','baseline':['X'],'assumptions':{'latent_confounding_possible':True}}
@@ -36,6 +49,30 @@ class CollectiveRuntimeV15AdversarialTests(unittest.TestCase):
         self.assertEqual(tmle['status'],'UNIDENTIFIED_LATENT_CONFOUNDING_RISK')
         dr=self.tool('athena_sequential_dr_policy_crossfit',{**common,'policies':[{'id':'p','a1':1,'a2':1}]})
         self.assertEqual(dr['status'],'UNIDENTIFIED_LATENT_CONFOUNDING_RISK')
+
+    def test_longitudinal_baseline_cannot_smuggle_treatment_or_outcome_fields(self):
+        rows=self.longitudinal_rows()
+        for leaked in ('A1','L1','A2','Y'):
+            common={'samples':rows,'treatment1':'A1','intermediate':'L1','treatment2':'A2','outcome':'Y','baseline':['X',leaked]}
+            self.tool('athena_longitudinal_tmle_crossfit',common,expect_error=True)
+            self.tool('athena_sequential_dr_policy_crossfit',{**common,'policies':[{'id':'p','a1':1,'a2':1}]},expect_error=True)
+
+    def test_dynamic_policy_cannot_read_future_or_outcome_state(self):
+        rows=self.longitudinal_rows()
+        common={'samples':rows,'treatment1':'A1','intermediate':'L1','treatment2':'A2','outcome':'Y','baseline':['X']}
+        forbidden=[
+            {'id':'future-l1-at-a1','a1':{'coefficients':{'L1':1}},'a2':1},
+            {'id':'future-a2-at-a1','a1':{'coefficients':{'A2':1}},'a2':1},
+            {'id':'outcome-at-a1','a1':{'coefficients':{'Y':1}},'a2':1},
+            {'id':'own-treatment-at-a2','a1':1,'a2':{'coefficients':{'A2':1}}},
+            {'id':'outcome-at-a2','a1':1,'a2':{'coefficients':{'Y':1}}},
+        ]
+        for policy in forbidden:
+            self.tool('athena_sequential_dr_policy_crossfit',{**common,'policies':[policy]},expect_error=True)
+        allowed=self.tool('athena_sequential_dr_policy_crossfit',{**common,'policies':[{'id':'history-only','a1':{'coefficients':{'X':1}},'a2':{'coefficients':{'X':.2,'A1':.5,'L1':.7}}}]})
+        self.assertEqual(allowed['history_invariant'],'A1_POLICY_USES_BASELINE_ONLY__A2_POLICY_USES_BASELINE_A1_L1_ONLY')
+        self.assertEqual(allowed['policy_history_firewall']['a1_available_features'],['X'])
+        self.assertEqual(allowed['policy_history_firewall']['a2_available_features'],['X','A1','L1'])
 
     def test_gaussian_joint_rejects_invalid_covariance_and_degenerate_observation(self):
         self.tool('athena_joint_gaussian_update',{
