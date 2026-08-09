@@ -1,0 +1,38 @@
+name: KC144 Final KC15 KC27 Source Population
+
+on:
+  pull_request:
+    branches:
+      - 'agent/cell-closure-populate-f37-v1'
+    paths:
+      - 'spec/KC15_KC27_LIBRARY_SOURCE_POPULATION_V1.json'
+      - 'scripts/populate_kc15_kc27_cell_closure.py'
+      - '.github/workflows/kc15-kc27-source-population.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  populate-kc15-kc27:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile final population witness
+        run: python -m compileall -q scripts/populate_kc15_kc27_cell_closure.py
+      - name: Bind KC15 and KC27 sources and regenerate 144-seat matrix
+        env:
+          PYTHONPATH: .
+        run: python scripts/populate_kc15_kc27_cell_closure.py
+      - name: Upload final source-populated matrix
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kc144-final-source-population-v1
+          path: kc144_final_source_population_matrix_v1.json
+          if-no-files-found: error
