@@ -30,7 +30,7 @@ from .tse_population import TsePopulationRuntime
 from .tse_population_protocol import TSE_POPULATION_RESOURCE,TSE_POPULATION_TOOLS,TSE_POPULATION_TOOL_NAMES
 from .tse_telemetry_proxy import TseHelixTelemetryProxy
 from .tse_telemetry_protocol import TSE_TELEMETRY_RESOURCE,TSE_TELEMETRY_TOOLS,TSE_TELEMETRY_TOOL_NAMES
-from .tse_helix import TseHelixRuntime
+from .tse_helix_integrity import TseHelixIntegrityRuntime
 from .tse_helix_protocol import TSE_HELIX_RESOURCE,TSE_HELIX_TOOLS,TSE_HELIX_TOOL_NAMES
 from .tse_route_window import TseRouteWindowRuntime
 from .tse_route_window_protocol import (
@@ -70,7 +70,7 @@ class AorCollectiveTransportSurface:
         self.cohesion=CohesionEvidenceGuardRuntime(server)
         self.tse_population=TsePopulationRuntime(self.cohesion)
         self.tse_telemetry=TseHelixTelemetryProxy(server)
-        self.tse_helix=TseHelixRuntime(server,self.tse_population,self.tse_telemetry,self.cohesion)
+        self.tse_helix=TseHelixIntegrityRuntime(server,self.tse_population,self.tse_telemetry,self.cohesion)
         self.tse_route_window=TseRouteWindowRuntime(server,self.tse_telemetry)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
