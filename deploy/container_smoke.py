@@ -71,7 +71,8 @@ def main(argv: list[str] | None = None) -> None:
         {"protocolVersion": "2025-11-25"},
         1,
     )
-    assert init["serverInfo"]["deployment"]["version"] == "ATHENA.DEPLOYMENT.2", init
+    assert init["serverInfo"]["name"], init
+    assert init["serverInfo"]["version"], init
     manifest = _call(args.base_url, args.token, "athena_deployment_manifest", {}, 2)
     assert manifest["version"] == "ATHENA.DEPLOYMENT.2", manifest
 

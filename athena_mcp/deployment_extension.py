@@ -10,7 +10,6 @@ import json
 from typing import Any
 
 from .deployment import (
-    HTTP_ADAPTER_VERSION,
     activation_plan,
     assess_canary,
     benchmark as deployment_benchmark,
@@ -223,17 +222,7 @@ def install_deployment_extension() -> None:
         result = previous_handle(server, message)
         if not result or "result" not in result:
             return result
-        if method == "initialize":
-            info = dict(result["result"].get("serverInfo") or {})
-            dep = deployment_manifest()
-            info["deployment"] = {
-                "version": dep["version"],
-                "state": dep["state"],
-                "adapter": HTTP_ADAPTER_VERSION,
-                "manifestDigest": dep["manifest_digest"],
-            }
-            result["result"]["serverInfo"] = info
-        elif method == "resources/read" and params.get("uri") == "athena://manifest":
+        if method == "resources/read" and params.get("uri") == "athena://manifest":
             contents = result["result"].get("contents") or []
             if contents:
                 value = json.loads(contents[0]["text"])

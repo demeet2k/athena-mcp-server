@@ -12,6 +12,7 @@ from athena_mcp.http_host import (
     _load_token,
     build_http_server,
 )
+from athena_mcp.protocol import SERVER_INFO
 
 
 class HTTPHostV2Tests(unittest.TestCase):
@@ -36,22 +37,33 @@ class HTTPHostV2Tests(unittest.TestCase):
             thread = threading.Thread(target=server.serve_forever, daemon=True)
             thread.start()
             base = f"http://127.0.0.1:{server.server_address[1]}"
+
+            def post(message):
+                request = Request(
+                    base + "/mcp",
+                    data=json.dumps(message).encode(),
+                    headers={
+                        "Content-Type": "application/json",
+                        "Authorization": f"Bearer {token}",
+                    },
+                    method="POST",
+                )
+                return json.loads(urlopen(request, timeout=5).read())
+
             try:
                 live = json.loads(urlopen(base + "/livez", timeout=5).read())
                 self.assertEqual(live["status"], "LIVE")
                 self.assertEqual(live["version"], "ATHENA.JSONRPC.HTTP.ADAPTER.2")
 
-                payload = json.dumps(
-                    {
-                        "jsonrpc": "2.0",
-                        "id": 1,
-                        "method": "initialize",
-                        "params": {"protocolVersion": "2025-11-25"},
-                    }
-                ).encode()
+                initialize_message = {
+                    "jsonrpc": "2.0",
+                    "id": 1,
+                    "method": "initialize",
+                    "params": {"protocolVersion": "2025-11-25"},
+                }
                 unauthenticated = Request(
                     base + "/mcp",
-                    data=payload,
+                    data=json.dumps(initialize_message).encode(),
                     headers={"Content-Type": "application/json"},
                     method="POST",
                 )
@@ -59,22 +71,26 @@ class HTTPHostV2Tests(unittest.TestCase):
                     urlopen(unauthenticated, timeout=5)
                 self.assertEqual(raised.exception.code, 401)
 
-                authenticated = Request(
-                    base + "/mcp",
-                    data=payload,
-                    headers={
-                        "Content-Type": "application/json",
-                        "Authorization": f"Bearer {token}",
-                    },
-                    method="POST",
+                initialized = post(initialize_message)
+                self.assertEqual(initialized["result"]["serverInfo"], SERVER_INFO)
+                deployment = post(
+                    {
+                        "jsonrpc": "2.0",
+                        "id": 2,
+                        "method": "tools/call",
+                        "params": {
+                            "name": "athena_deployment_manifest",
+                            "arguments": {},
+                        },
+                    }
                 )
-                response = json.loads(urlopen(authenticated, timeout=5).read())
+                self.assertFalse(deployment["result"]["isError"], deployment)
                 self.assertEqual(
-                    response["result"]["serverInfo"]["deployment"]["version"],
+                    deployment["result"]["structuredContent"]["version"],
                     "ATHENA.DEPLOYMENT.2",
                 )
                 metrics = urlopen(base + "/metrics", timeout=5).read().decode()
-                self.assertIn("athena_http_rpc_requests_total 1", metrics)
+                self.assertIn("athena_http_rpc_requests_total 2", metrics)
             finally:
                 server.shutdown()
                 server.server_close()

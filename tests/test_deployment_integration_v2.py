@@ -1,6 +1,7 @@
 import tempfile
 import unittest
 
+from athena_mcp.protocol import SERVER_INFO
 from athena_mcp.server import Server
 
 
@@ -29,7 +30,7 @@ class DeploymentCurrentRuntimeIntegrationTests(unittest.TestCase):
                 "params": {"protocolVersion": "2025-11-25"},
             }
         )["result"]
-        self.assertEqual(init["serverInfo"]["deployment"]["version"], "ATHENA.DEPLOYMENT.2")
+        self.assertEqual(init["serverInfo"], SERVER_INFO)
 
         tools = {
             item["name"]
