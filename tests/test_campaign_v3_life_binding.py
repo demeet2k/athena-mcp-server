@@ -286,8 +286,9 @@ class CampaignV3LifeBindingTests(unittest.TestCase):
 
     def test_reseed_anchor_is_embedded_by_value_and_digest_protected(self):
         packet = _packet()
-        anchor_digest = packet["RESEED_ANCHOR"]["anchor_digest"]
+        anchor_digest = packet["RESEED_ANCHOR_DIGEST"]
         self.assertEqual(64, len(anchor_digest))
+        self.assertNotIn("anchor_digest", packet["RESEED_ANCHOR"])
         packet["RESEED_ANCHOR"]["anchor_id"] = "TAMPERED"
         errors = validate_campaign_v3_life_quest_packet(packet)
         self.assertIn("reseed_anchor_digest", errors)
