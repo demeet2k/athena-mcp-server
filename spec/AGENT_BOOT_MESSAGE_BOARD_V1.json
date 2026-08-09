@@ -1,0 +1,139 @@
+{
+  "artifact": "ATHENA.AGENT.BOOT.MESSAGE_BOARD.V1",
+  "authority": {
+    "bootstrap_extension": "orchestration only; may request/read/reuse/renew Message Board presence and hard-hold duplicate dispatch",
+    "message_board": "sole presence/claim/message/ack authority",
+    "not_granted": [
+      "scheduler readiness",
+      "execution authority",
+      "auto-join authority",
+      "truth authority",
+      "party membership authority",
+      "MATA semantic work-key authority"
+    ]
+  },
+  "base_runtime_head": "8b3bad6945ccdc40ca15bca70e3983c88f649154",
+  "compatibility": {
+    "base_agent_boot": "extended additively",
+    "cohesion_mesh": "not implemented here",
+    "disabled_mode": "explicit legacy/recovery escape hatch",
+    "message_board_v1": "unchanged authority and storage",
+    "party_coordination": "unchanged projection over Message Board"
+  },
+  "coordinate": "ATHENA.KC144::GITΩ::AGENT-BOOT::MESSAGE-BOARD::V1",
+  "extends": "ATHENA.AGENT.BOOT.V1",
+  "failure_policy": {
+    "exact_duplicate": "DUPLICATE_WORK_HOLD -> BOOTSTRAP_HOLD",
+    "fuzzy_similarity_only": "warning; not a veto",
+    "read_only_unverified": "advisory standing only; never upgraded to execution claim",
+    "replica_without_reason": "reject",
+    "same_agent_incompatible_active_claim": "AGENT_ALREADY_PRESENT_HOLD -> BOOTSTRAP_HOLD",
+    "shared_frontier_unverified_AUTO": "BOOTSTRAP_HOLD"
+  },
+  "inputs": {
+    "coordination_claim_mode": {
+      "default_when_new_claim": "PRIMARY",
+      "existing_active_claim": "preserved when caller leaves this unset",
+      "values": [
+        "PRIMARY",
+        "REPLICA"
+      ]
+    },
+    "coordination_details": "optional public coordination note",
+    "coordination_mode": {
+      "default": "AUTO",
+      "values": [
+        "AUTO",
+        "READ_ONLY",
+        "DISABLED"
+      ]
+    },
+    "lease_seconds": {
+      "default": 1800,
+      "max": 86400,
+      "min": 60
+    },
+    "replication_reason": "required exactly when coordination_claim_mode=REPLICA",
+    "targets": "optional exact shared-sink/artifact paths used by Message Board overlap semantics",
+    "work_key": "optional explicit identity; absence remains NONE and is not fabricated"
+  },
+  "issue": "demeet2k/athena-mcp-server#161",
+  "laws": [
+    "BOOT != CLAIM unless coordination succeeds",
+    "MESSAGE_BOARD = SOLE_PRESENCE_CLAIM_MESSAGE_AUTHORITY",
+    "READ_BOARD_BEFORE_EXPENSIVE_SHARED_WORK",
+    "PRESENT_BEFORE_WORK",
+    "DUPLICATE_WORK_HOLD -> DO_NOT_DISPATCH_DUPLICATE_LANE",
+    "AUTO != AUTO_JOIN",
+    "FUZZY_SIMILARITY != DUPLICATE_PROOF",
+    "READ_ONLY != EXECUTION_CLAIM",
+    "MISSING_WORK_KEY != FABRICATED_MATA_WORK_KEY",
+    "BOARD_SHARED_FRONTIER_HOLD -> BOOTSTRAP_HOLD"
+  ],
+  "lease_policy": {
+    "expired_presence": "Message Board present may establish a new claim while historical events remain preserved",
+    "reason": "avoid self-induced Git HEAD churn and false refresh invalidation",
+    "renew_when_remaining_lte": "max(30s, min(300s, 20% of current lease))",
+    "reuse_without_commit": "matching ACTIVE presence with sufficient lease remains valid"
+  },
+  "modes": {
+    "AUTO": [
+      "shared-fresh Message Board read before world-state composition",
+      "reuse compatible active self-claim without mutation while lease remains healthy",
+      "renew compatible claim only near expiry",
+      "otherwise request Message Board present",
+      "exact duplicate or incompatible active self-claim => HOLD",
+      "never auto-join"
+    ],
+    "DISABLED": [
+      "no Message Board read/write",
+      "preserve legacy bootstrap path",
+      "pre_dispatch=DISABLED"
+    ],
+    "READ_ONLY": [
+      "shared-current board projection only",
+      "no claim or heartbeat mutation",
+      "pre_dispatch=ADVISORY_ONLY"
+    ]
+  },
+  "ordering": [
+    "resolve coordination mode and explicit claim coordinates",
+    "shared-fresh Message Board projection",
+    "establish/reuse/renew presence when AUTO and task is non-empty",
+    "compose canonical AGENT_BOOT_V1 world/continuation packet on the resulting Git head",
+    "attach coordination projection and hard hold to packet when pre_dispatch=HOLD"
+  ],
+  "packet_extension": {
+    "execution_surface_field": "message_board_pre_dispatch",
+    "field": "coordination",
+    "hold": "MESSAGE_BOARD_PRE_DISPATCH_HOLD",
+    "refresh_dependency_cone": "message_board_coordination",
+    "refresh_field": "coordination_changed",
+    "return_contract_field": "message_board_pre_dispatch_required",
+    "witness_field": "message_board"
+  },
+  "pre_dispatch": {
+    "ADVISORY_ONLY": "READ_ONLY or empty-task observation; no execution claim",
+    "ALLOW": "AUTO has a shared-current durable compatible presence claim",
+    "DISABLED": "coordination membrane intentionally bypassed",
+    "HOLD": "AUTO cannot establish a shared-current compatible claim"
+  },
+  "purpose": "Make shared-current Message Board coordination an outer pre-dispatch membrane for one-call agent boot/refresh without creating a second presence, claim, message, party, scheduler, or truth authority.",
+  "routing_digest": {
+    "excludes": [
+      "heartbeat clock",
+      "lease expiry clock",
+      "Git HEAD clock",
+      "transition label such as PRESENT vs PRESENCE_REUSED"
+    ],
+    "includes": [
+      "coordination mode",
+      "pre-dispatch standing",
+      "stable claim identity/task/work_key/targets/join relation",
+      "exact overlap edges involving self",
+      "deterministic hard-conflict identity",
+      "unread message IDs"
+    ],
+    "law": "routine lease reuse must not manufacture a coordination change"
+  }
+}
