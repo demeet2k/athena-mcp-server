@@ -163,14 +163,25 @@ class MckEvaluationReceiptStatePathTests(unittest.TestCase):
         self.assertEqual("HOLD", result["status"])
         self.assertTrue(any("ORDERED_PATH_DIGEST_MISMATCH" in error for error in result["errors"]))
 
-    def test_original_state_and_path_mutation_after_build_cannot_change_receipt(self):
+    def test_original_values_and_path_mutation_after_build_cannot_change_receipt(self):
+        source_values = {"x": 5, "y": 9}
         source_path = ["FWD", "BACK"]
-        source_state = state()
+        source_state = SemanticState(
+            "A",
+            source_values,
+            feature_basis=("x", "y"),
+            provenance=("SEED",),
+        )
         receipt = build_evaluation_receipt(packet(), source_state, source_path)
         frozen = copy.deepcopy(receipt)
+
+        source_values["x"] = 999
         source_path.append("FWD")
-        source_state.values["x"] = 999
+
+        self.assertEqual(5, source_state.values["x"])
         self.assertEqual(frozen, receipt)
+        self.assertEqual(5, receipt["initial_state"]["values"]["x"])
+        self.assertEqual(["FWD", "BACK"], receipt["edge_path"])
 
     def test_schema_requires_state_and_path_digests(self):
         schema_path = (
