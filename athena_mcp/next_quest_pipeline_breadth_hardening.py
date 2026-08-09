@@ -40,6 +40,9 @@ def install_next_pipeline_breadth_idempotency_hardening() -> None:
         if present and len(present) != len(desired_ids):
             raise ValueError("PARTIAL_PREP_PLAN_SET_HOLD")
         if present:
+            current = self.git.head()
+            if current != expected_git_head:
+                raise ValueError("STALE_GIT_HEAD_FOR_BREADTH_REUSE")
             rows = []
             for plan_id in desired_ids:
                 packet = dict(existing[plan_id])
@@ -59,7 +62,7 @@ def install_next_pipeline_breadth_idempotency_hardening() -> None:
                 "plan_count": len(rows),
                 "reused": True,
                 "git_mutation": False,
-                "checkpoint_head": self.git.head(),
+                "checkpoint_head": current,
                 "breadth_state_digest": breadth.get("state_digest"),
                 "revision": breadth.get("revision", 0),
                 "authority": "PREPARATION_ONLY",
