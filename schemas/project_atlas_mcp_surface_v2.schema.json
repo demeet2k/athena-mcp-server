@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://athena.local/schemas/project_atlas_mcp_surface_v2.schema.json",
+  "title": "ATHENA KC144 Project Atlas MCP Surface Contract V2",
+  "type": "object",
+  "required": [
+    "schema",
+    "status",
+    "surface_version",
+    "base_v1",
+    "integration",
+    "surface",
+    "frontier",
+    "snapshot",
+    "planes",
+    "list_sources",
+    "resolve",
+    "route",
+    "hold_statuses",
+    "laws",
+    "promotion"
+  ],
+  "properties": {
+    "schema": {"const": "ATHENA.KC144.PROJECT_ATLAS.MCP_SURFACE.CONTRACT.v2"},
+    "status": {"const": "CANDIDATE_CHILD_OF_UNMERGED_V1"},
+    "surface_version": {"const": "ATHENA.PROJECT_ATLAS.MCP_SURFACE.V2"},
+    "base_v1": {
+      "type": "object",
+      "required": ["repository", "pull_request", "head", "branch"],
+      "properties": {
+        "repository": {"const": "demeet2k/athena-mcp-server"},
+        "pull_request": {"const": 295},
+        "head": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "branch": {"const": "agent/kc144-project-atlas-v1"}
+      },
+      "additionalProperties": false
+    },
+    "integration": {
+      "type": "object",
+      "required": ["branch", "child_pull_request", "qualification_only_pull_request", "head_binding", "law"],
+      "properties": {
+        "branch": {"const": "agent/kc144-project-atlas-mcp-surface-v2"},
+        "child_pull_request": {"const": 310},
+        "qualification_only_pull_request": {"const": 311},
+        "head_binding": {"type": "string"},
+        "law": {"const": "QUALIFICATION_PR != INTEGRATION_PR"}
+      },
+      "additionalProperties": false
+    },
+    "surface": {
+      "type": "object",
+      "required": ["tools", "resource", "max_page", "default_page", "read_only", "self_metering"],
+      "properties": {
+        "tools": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {"type": "string"}
+        },
+        "resource": {"const": "athena://project-atlas"},
+        "max_page": {"const": 100},
+        "default_page": {"const": 50},
+        "read_only": {"const": true},
+        "self_metering": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "frontier": {
+      "type": "object",
+      "required": ["factorization", "configured_git_source", "runtime_source_priority", "runtime_head_attestation_without_tree", "unknown_runtime_tree_law", "cache_key", "bounded_retry"]
+    },
+    "snapshot": {
+      "type": "object",
+      "required": ["prefix", "basis", "authority", "law"],
+      "properties": {
+        "prefix": {"const": "PATLASV2."},
+        "authority": {"const": "NONE"},
+        "law": {"const": "PROJECT_ATLAS_SNAPSHOT_ID != PROMOTION_RECEIPT"}
+      }
+    },
+    "planes": {
+      "type": "array",
+      "const": ["configured_git", "runtime_git", "mcp"]
+    },
+    "list_sources": {
+      "type": "array",
+      "const": ["all", "git", "configured_git", "runtime_git", "mcp"]
+    },
+    "resolve": {"type": "object"},
+    "route": {"type": "object"},
+    "hold_statuses": {
+      "type": "array",
+      "minItems": 10,
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "laws": {
+      "type": "array",
+      "minItems": 20,
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "promotion": {
+      "type": "object",
+      "required": ["standing", "package_version_change_in_child", "canonical_rpc_promotion", "publication", "deployment", "requirements"],
+      "properties": {
+        "standing": {"const": "HOLD_PENDING_V1_ACCEPTANCE_REBASE_AND_NEW_ABI_QUALIFICATION"},
+        "package_version_change_in_child": {"const": false},
+        "canonical_rpc_promotion": {"const": false},
+        "publication": {"const": false},
+        "deployment": {"const": false}
+      }
+    }
+  },
+  "additionalProperties": false
+}
