@@ -22,6 +22,8 @@ def _control_names():
         "athena_message_board",
         "athena_party_",
         "athena_cohesion_",
+        "athena_omega29_",
+        "athena_q008_",
     )
     result = set()
     for tool in protocol.TOOLS:
@@ -57,6 +59,51 @@ class OperationalBasisV1Tests(unittest.TestCase):
         self.assertEqual(rows["athena_prompt_sync"]["effect"], "BOUNDED_GIT_SYNC")
         self.assertFalse(rows["athena_prompt_sync"]["auto_select"])
         self.assertEqual(rows["athena_prompt_publish"]["effect"], "BOUNDED_PROVIDER_WRITE")
+
+    def test_omega29_operate_boundary_is_read_only_but_never_auto_selected(self):
+        rows = {row["operation"]: row for row in build_operational_basis()["descriptors"]}
+        row = rows["athena_omega29_operate"]
+        self.assertEqual(row["capability_class"], "OPERATE_BOUNDARY")
+        self.assertEqual(row["component"], "omega29_operate_boundary")
+        self.assertEqual(row["effect"], "READ_ONLY")
+        self.assertEqual(row["authority_class"], "OBSERVATION_ONLY")
+        self.assertFalse(row["auto_select"])
+        self.assertTrue(row["replayability"])
+        self.assertEqual(
+            row["freshness_dependencies"],
+            ["athena_git_head", "runtime_git_head", "prompt_stack_digest", "source_binding_digest",
+             "runtime_context_digest", "source_observation_ids", "clock_observation_id"],
+        )
+        self.assertIn(
+            "reducer output must not be used as proof of source currentness, admission, promotion, or execution authority",
+            row["preconditions"],
+        )
+
+    def test_q008_identity_boundaries_are_read_only_but_never_auto_selected(self):
+        basis = build_operational_basis()
+        rows = {row["operation"]: row for row in basis["descriptors"]}
+        for name in ("athena_omega29_q008_bridge", "athena_q008_identity_compile"):
+            row = rows[name]
+            self.assertEqual(row["capability_class"], "Q008_IDENTITY_BOUNDARY")
+            self.assertEqual(row["component"], "q008_invocation_identity_boundary")
+            self.assertEqual(row["effect"], "READ_ONLY")
+            self.assertEqual(row["authority_class"], "OBSERVATION_ONLY")
+            self.assertFalse(row["auto_select"])
+            self.assertTrue(row["replayability"])
+            self.assertIn(
+                "identity closure must not be used as proof of Q008 execution, provider effect, admission, promotion, or canonical completion",
+                row["preconditions"],
+            )
+        self.assertEqual(
+            rows["athena_omega29_q008_bridge"]["freshness_dependencies"],
+            ["athena_git_head", "runtime_git_head", "source_binding_digest", "runtime_context_digest",
+             "omega_decision_digest", "run_id", "source_invocation_id"],
+        )
+        self.assertEqual(
+            rows["athena_q008_identity_compile"]["freshness_dependencies"],
+            ["source_bridge_digest", "run_id", "source_invocation_id", "consumer_invocation_id", "source_cursor_digest"],
+        )
+        self.assertIn("Q008_IDENTITY_CLOSURE != Q008_EXECUTION_OR_PROVIDER_EFFECT", basis["laws"])
 
     def test_tool_is_routable_through_prompt_runtime_without_git_authority(self):
         value = PromptRuntime(GitBackend(None)).call_tool(TOOL_NAME, {})

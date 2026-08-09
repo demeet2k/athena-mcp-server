@@ -31,6 +31,8 @@ LAWS = [
     "COORDINATION_DESCRIPTOR != EXECUTION_AUTHORITY",
     "MESSAGE_BOARD_PRESENCE != PARTY_MEMBERSHIP",
     "MATCH != CLAIM != PARTY_MEMBERSHIP != EXECUTION_AUTHORITY",
+    "OPERATE_CLASSIFICATION != CURRENTNESS_OR_AUTHORITY",
+    "Q008_IDENTITY_CLOSURE != Q008_EXECUTION_OR_PROVIDER_EFFECT",
 ]
 
 _CONTROL_PREFIXES = (
@@ -43,9 +45,6 @@ _CONTROL_PREFIXES = (
     "athena_cohesion_",
 )
 
-# Current bounded provider membrane operations whose semantic class is claim /
-# execution even when the concrete name does not contain the word "claim".
-# This mapping is runtime metadata, not prompt policy and not execution authority.
 _CLAIM_EXECUTION_OPERATIONS = {
     "athena_frontier_provider_status",
     "athena_frontier_claim_prepare",
@@ -54,10 +53,12 @@ _CLAIM_EXECUTION_OPERATIONS = {
     "athena_frontier_claim_reconcile",
 }
 
-# Coordination operations are intentionally enumerated for effects rather than
-# inferred from prefixes. Prefixes make future coordination operations visible
-# to the basis; an unknown future operation therefore becomes UNKNOWN/HOLD
-# until its semantics are explicitly classified.
+_OPERATE_BOUNDARY_OPERATIONS = {"athena_omega29_operate"}
+_Q008_IDENTITY_BOUNDARY_OPERATIONS = {
+    "athena_omega29_q008_bridge",
+    "athena_q008_identity_compile",
+}
+
 _MESSAGE_BOARD_OPERATIONS = {"athena_message_board"}
 _PARTY_READ_SYNC_OPERATIONS = {
     "athena_party_state",
@@ -97,6 +98,8 @@ def _sha(value: Any) -> str:
 def _is_control_operation(name: str) -> bool:
     return bool(
         name == TOOL_NAME
+        or name in _OPERATE_BOUNDARY_OPERATIONS
+        or name in _Q008_IDENTITY_BOUNDARY_OPERATIONS
         or name.startswith(_CONTROL_PREFIXES)
         or "campaign" in name
         or "epoch" in name
@@ -105,6 +108,10 @@ def _is_control_operation(name: str) -> bool:
 
 
 def _capability_class(name: str) -> str:
+    if name in _Q008_IDENTITY_BOUNDARY_OPERATIONS:
+        return "Q008_IDENTITY_BOUNDARY"
+    if name in _OPERATE_BOUNDARY_OPERATIONS:
+        return "OPERATE_BOUNDARY"
     if name == TOOL_NAME or name.startswith("athena_agent_"):
         return "BOOTSTRAP_REFRESH"
     if name.startswith("athena_prompt_"):
@@ -135,6 +142,8 @@ def _capability_class(name: str) -> str:
 
 
 def _effect(name: str, capability_class: str) -> str:
+    if capability_class in {"OPERATE_BOUNDARY", "Q008_IDENTITY_BOUNDARY"}:
+        return "READ_ONLY"
     if name in {TOOL_NAME, "athena_agent_bootstrap", "athena_agent_refresh"}:
         return "READ_ONLY"
     if capability_class == "PROMPT":
@@ -170,9 +179,6 @@ def _effect(name: str, capability_class: str) -> str:
         return "BOUNDED_RUNTIME_WRITE"
     if capability_class == "MESSAGE_BOARD_COORDINATION":
         if name in _MESSAGE_BOARD_OPERATIONS:
-            # One MCP operation multiplexes read and durable board mutations.
-            # Advertise the strongest possible effect so it is never auto-selected
-            # as a pure read. Per-action modes are exposed by _descriptor().
             return "BOUNDED_PROVIDER_WRITE"
         return "UNKNOWN"
     if capability_class == "PARTY_COORDINATION":
@@ -214,6 +220,8 @@ def _component(capability_class: str) -> str:
         "SUCCESSOR": "rehydration_successor",
         "HANDOFF": "rehydration_handoff",
         "VERIFY_REPLAY_INDEX": "rehydration_verification",
+        "OPERATE_BOUNDARY": "omega29_operate_boundary",
+        "Q008_IDENTITY_BOUNDARY": "q008_invocation_identity_boundary",
         "MESSAGE_BOARD_COORDINATION": "message_board",
         "PARTY_COORDINATION": "party_coordination",
         "COHESION_COORDINATION": "cohesion_mesh",
@@ -225,6 +233,23 @@ def _component(capability_class: str) -> str:
 def _freshness_dependencies(capability_class: str, name: str) -> list[str]:
     if name == TOOL_NAME:
         return ["registered_runtime_surface"]
+    if capability_class == "OPERATE_BOUNDARY":
+        return [
+            "athena_git_head", "runtime_git_head", "prompt_stack_digest",
+            "source_binding_digest", "runtime_context_digest",
+            "source_observation_ids", "clock_observation_id",
+        ]
+    if capability_class == "Q008_IDENTITY_BOUNDARY":
+        if name == "athena_omega29_q008_bridge":
+            return [
+                "athena_git_head", "runtime_git_head", "source_binding_digest",
+                "runtime_context_digest", "omega_decision_digest", "run_id",
+                "source_invocation_id",
+            ]
+        return [
+            "source_bridge_digest", "run_id", "source_invocation_id",
+            "consumer_invocation_id", "source_cursor_digest",
+        ]
     if capability_class == "BOOTSTRAP_REFRESH":
         return [
             "git_head", "prompt_stack_digest", "frontier_source_head", "frontier_digest",
@@ -261,6 +286,19 @@ def _preconditions(capability_class: str, effect: str) -> list[str]:
         result.append("semantic classification required before automatic selection")
     if effect != "READ_ONLY":
         result.append("caller authority and operation-specific freshness/preconditions must pass")
+    if capability_class == "OPERATE_BOUNDARY":
+        result.extend([
+            "caller supplies a validated content-addressed source binding",
+            "caller supplies a run/invocation-bound runtime context and independent clock observation",
+            "reducer output must not be used as proof of source currentness, admission, promotion, or execution authority",
+        ])
+    if capability_class == "Q008_IDENTITY_BOUNDARY":
+        result.extend([
+            "source bridge must remain pending for an idempotent consumer and forbid same-invocation consumption",
+            "consumer invocation must be distinct from source invocation while preserving exact run and bridge ancestry",
+            "cursor, event, receipt, abort-set, and provider-observation receipt must share one consumer run/invocation/operation identity",
+            "identity closure must not be used as proof of Q008 execution, provider effect, admission, promotion, or canonical completion",
+        ])
     if capability_class == "CLAIM_EXECUTION" and effect != "READ_ONLY":
         result.append("provider-bounded create-if-absent claim semantics must be available")
     if capability_class in {
@@ -309,7 +347,10 @@ def _descriptor(tool: dict) -> dict:
         "description": tool.get("description"),
         "inputSchema": tool.get("inputSchema"),
     }
-    auto_select = capability_class != "UNCLASSIFIED" and effect == "READ_ONLY"
+    auto_select = (
+        capability_class not in {"UNCLASSIFIED", "OPERATE_BOUNDARY", "Q008_IDENTITY_BOUNDARY"}
+        and effect == "READ_ONLY"
+    )
     row = {
         "operation": name,
         "capability_class": capability_class,
@@ -346,8 +387,6 @@ def _registered_control_tools() -> dict[str, dict]:
 
 
 def build_operational_basis() -> dict:
-    """Derive semantic capability descriptors from the live MCP registration surface."""
-
     by_name = _registered_control_tools()
     descriptors = [_descriptor(by_name[name]) for name in sorted(by_name)]
     unclassified = [
@@ -392,8 +431,6 @@ def build_operational_basis() -> dict:
 
 
 def install() -> None:
-    """Install the read-side basis operation and bind its digest into AGENT_BOOT_V1."""
-
     if TOOL_NAME not in AGENT_BOOT_TOOL_NAMES:
         AGENT_BOOT_TOOLS.append(dict(OPERATIONAL_BASIS_TOOL))
         AGENT_BOOT_TOOL_NAMES.add(TOOL_NAME)
@@ -461,8 +498,6 @@ def install() -> None:
 
 
 def main(argv=None):
-    # Install before server/dispatch imports finish constructing the dynamic MCP surface.
     install()
     from .server import main as server_main
-
     return server_main(argv)
