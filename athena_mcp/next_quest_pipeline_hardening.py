@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .next_quest_pipeline import RollingQuestPipelineRuntime, _canon_task, _task_key, _valid_baton
+from .next_quest_pipeline import RollingQuestPipelineRuntime, RESEED_HOLD, _canon_task, _task_key, _valid_baton
 
 
 def install_next_pipeline_successor_authority_hardening() -> None:
@@ -47,8 +47,6 @@ def install_next_pipeline_successor_authority_hardening() -> None:
                 return matched[0], None
             usable_rows = [row for row in ties if usable(row)]
             if len(usable_rows) == 1:
-                # This is filtering by an explicit pipeline admissibility invariant,
-                # not a score/tie break: every other tied option is illegal here.
                 return usable_rows[0], None
             return None, {
                 "status": "AMBIGUOUS",
@@ -68,7 +66,19 @@ def install_next_pipeline_successor_authority_hardening() -> None:
             }
         raise ValueError("successor baton has unsupported status")
 
+    original_rotate = RollingQuestPipelineRuntime.rotate
+
+    def rotate_with_resolved_horizon(self, *args, **kwargs):
+        pipeline_id = kwargs.get("pipeline_id")
+        if pipeline_id is None and args:
+            raise ValueError("pipeline_id must be supplied by keyword for hardened rotate")
+        state, _ = self._read_state(pipeline_id)
+        if state.get("status") == RESEED_HOLD or state.get("reseed_hold"):
+            raise ValueError("resolve current pipeline reseed hold before another focus rotation")
+        return original_rotate(self, *args, **kwargs)
+
     RollingQuestPipelineRuntime._choose_reseed = choose_reseed
+    RollingQuestPipelineRuntime.rotate = rotate_with_resolved_horizon
     RollingQuestPipelineRuntime._athena_successor_authority_hardening_v1 = True
 
 
