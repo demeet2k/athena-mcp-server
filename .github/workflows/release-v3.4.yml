@@ -74,6 +74,7 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_collective_v15.py' -v
           python -m unittest discover -s tests -p 'test_collective_v15_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v15_calibration_geometry.py' -v
           python -m unittest discover -s tests -p 'test_collective_v15_unified.py' -v
       - name: Deployment V2 composition and authority boundaries
         run: |
@@ -180,6 +181,8 @@ jobs:
           manifest=json.loads(rpc(4,'resources/read',{'uri':'athena://runtime/unified-manifest'})['result']['contents'][0]['text'])
           assert manifest['artifact']=='ATHENA.RUNTIME.UNIFIED.11'
           assert manifest['collective_calibrated']['version']=='COLLECTIVE_RUNTIME_V15'
+          assert manifest['collective_calibrated']['decision_time_history']=={'A1':'baseline','A2':'baseline+A1+L1'}
+          assert manifest['collective_calibrated']['numeric_policy']=='reject unknown or non-finite model coordinates'
           p.terminate();p.wait(timeout=5)
           PY
       - name: Create immutable release attestation and checksums
@@ -187,7 +190,7 @@ jobs:
           cp release/v3.4.0.json dist/release-manifest.json
           cp promotion-input/promotion-receipt.json dist/promotion-receipt.json
           python - <<'PY'
-          import hashlib,json,os,pathlib,subprocess
+          import hashlib,json,os,pathlib
           dist=pathlib.Path('dist')
           promo=dist/'promotion-receipt.json'
           promotion=json.loads(promo.read_text())
