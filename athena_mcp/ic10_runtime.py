@@ -116,8 +116,13 @@ class IC10Compiler:
         )
 
         # I05 — invariant preservation -----------------------------------
-        w = self._observed_witness(c.get("invariant_witness"), required=("declared_invariants", "violations"))
+        # A valid observed invariant witness may report an empty violations list.
+        # Empty violations means no observed invariant breach; an absent violations
+        # field is still a malformed witness and must fail closed.
+        w = self._observed_witness(c.get("invariant_witness"), required=("declared_invariants",))
         defects = list(w["defects"])
+        if "violations" not in w["packet"]:
+            defects.append("missing_violations")
         violations = list(w["packet"].get("violations") or [])
         if violations:
             defects.append("invariant_violation")
