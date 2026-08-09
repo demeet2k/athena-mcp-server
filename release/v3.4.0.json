@@ -43,6 +43,14 @@
       "athena://deployment/security",
       "athena://deployment/rollout",
       "athena://deployment/evidence"
+    ],
+    "v15_contracts": [
+      "weighted duplicate-pooled out-of-fold isotonic structural reliability",
+      "stage-2 TMLE pseudo outcome preserves observed A1 and L1 before stage-1 intervention",
+      "A1 dynamic policy uses baseline only; A2 dynamic policy uses baseline plus A1 and L1 only",
+      "unknown Gaussian coefficient coordinates and non-finite numeric model state fail closed",
+      "geometric nearest, global error envelope, and radius-eligible local certificate are distinct",
+      "rectangular TV-DRO validates finite complete state/action/transition coordinates"
     ]
   },
   "source_policy": {
@@ -52,7 +60,8 @@
     "publication_requires_clean_checkout": true,
     "publication_requires_five_stage_qualification": true,
     "qualification_checks": ["syntax", "unit", "critical-invariants", "smoke", "promotion-qualification"],
-    "exact_commit_is_bound_in_release_attestation": true
+    "exact_commit_is_bound_in_release_attestation": true,
+    "critical_test_selectors_must_resolve_to_real_files": true
   },
   "release": {
     "draft": false,
@@ -71,13 +80,19 @@
     "manifest and package version identity",
     "syntax",
     "full repository unit corpus",
-    "critical invariants through V15, Deployment.2 and PROMOTION.2",
+    "critical invariant selectors resolve to real nonempty test files",
+    "critical invariants through hardened V15, Deployment.2 and PROMOTION.2",
+    "weighted duplicate-coordinate calibration regression",
+    "decision-time longitudinal history leakage regression",
+    "strict unknown/non-finite Gaussian coordinate regression",
+    "local-vs-global approximation-error transport geometry regression",
+    "strict finite TV-DRO coordinate regression",
     "subprocess smoke",
     "host-bound coherent-suite promotion qualification",
     "wheel build",
     "clean wheel installation outside repository",
     "Server MCP initialization",
-    "UNIFIED.11 manifest identity",
+    "UNIFIED.11 manifest identity across public manifest paths",
     "V15 calibrated science/control tool/resource exposure",
     "Deployment.2 tool/resource exposure",
     "V15 outputs cannot mutate Y1/JSPACE/empirical observations/execution/trust by adjacency",
@@ -92,6 +107,8 @@
     "GitHub release publication is distribution, not deployment.",
     "Release attestation certifies exact repository/package/distribution state, not empirical truth or causal validity.",
     "Calibration reliability, cross-fitted estimates, Gaussian belief state, approximation envelopes, robust plans and deployment plans do not become Y1 authority by publication.",
+    "Decision-time history validation prevents future/outcome look-ahead but does not prove causal identification assumptions.",
+    "Unknown or non-finite model coordinates are rejected; validation does not prove that supplied finite coordinates are empirically correct.",
     "Trusted PROMOTION.2 qualification is not GitHub administrative hardening.",
     "A tag or release does not authorize treatment execution, production secrets, infrastructure mutation or external package-index publication.",
     "Deployment.2 is external-control planning and receipt verification, not proof that production infrastructure was changed.",
