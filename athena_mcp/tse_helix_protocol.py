@@ -39,28 +39,30 @@ TSE_HELIX_ADVANCE_TOOL={
     'name':'athena_tse_helix_advance',
     'description':(
         'Advance one TSE Helix transition. PUBLISH/MATCH/HANDOFF/CLAIM_STATE/RETURN_CHECK execute the real population source and '
-        'append a source-bound observation. APPLY observes an externally completed shared Git ancestry adoption and may emit '
-        'RETURN_APPLIED; it never merges, rebases, cherry-picks, pushes, assigns work, or creates merge authority.'
+        'append a source-bound observation. APPLY observes an externally completed shared Git ancestry adoption. REENTRY_PREVIEW '
+        'validates SOURCE_BOUND RETURN_APPLIED against the fresh shared frontier and compiles a routing-only successor without '
+        'executing it. REENTRY_START explicitly delegates the selected or ambiguity-preserving task to the existing Git rehydration '
+        'loop. Re-entry is never background execution and never grants merge, claim, evidence or provider-counter-reset authority.'
     ),
     'inputSchema':{
         'type':'object',
         'required':['mission_id','operation','route','parent_event_id','actor_id','witnesses','cost'],
         'properties':{
             'mission_id':{'type':'string','minLength':1},
-            'operation':{'type':'string','enum':['PUBLISH','MATCH','HANDOFF','CLAIM_STATE','RETURN_CHECK','APPLY']},
+            'operation':{'type':'string','enum':['PUBLISH','MATCH','HANDOFF','CLAIM_STATE','RETURN_CHECK','APPLY','REENTRY_PREVIEW','REENTRY_START']},
             'route':{'type':'object'},
-            'parent_event_id':{'type':'string','minLength':1},
+            'parent_event_id':{
+                'type':'string','minLength':1,
+                'description':'For APPLY this is the exact SOURCE_BOUND CHILD_VERIFIED_RETURN event. For REENTRY_* it is the exact SOURCE_BOUND RETURN_APPLIED event.'
+            },
             'actor_id':{'type':'string','minLength':1},
             'witnesses':WITNESS_SCHEMA,
             'cost':COST_SCHEMA,
             'child_return':{
                 'type':['object','null'],
                 'description':(
-                    'For RETURN_CHECK: the child Return payload. For APPLY: '
-                    '{hatch:<original validated Hatch>, apply_receipt:{schema_version:ATHENA.TSE.KNOT.APPLY.RECEIPT.V1, '
-                    'apply_id, mode:ANCESTRY_ADOPTION, parent_head, child_head, applied_head, apply_witnesses, '
-                    'platform_counter_reset_claimed:false}}. For APPLY, parent_event_id is the exact SOURCE_BOUND '
-                    'CHILD_VERIFIED_RETURN event.'
+                    'RETURN_CHECK: child Return payload. APPLY: {hatch,apply_receipt}. REENTRY_PREVIEW/REENTRY_START: '
+                    '{hatch,reentry:{schema_version:ATHENA.TSE.REENTRY.PACKET.V1,reentry_id,goal?,successor_candidates?,successor_policy?,profile?,source_ref?,use_frontier?,fetch?,allow_parent_residual_fallback?,allow_ambiguity_resolution?,terminal_request?,terminal_witnesses?,max_steps?,max_no_progress?,max_prompt_chars?,depth_mode?,required_passes?,stop_conditions?,platform_counter_reset_claimed:false}}.'
                 ),
             },
             'min_score':{'type':'number','minimum':0,'maximum':100},
@@ -98,9 +100,9 @@ TSE_HELIX_CONSUMPTION_TOOL={
 TSE_HELIX_RECONCILE_TOOL={
     'name':'athena_tse_helix_reconcile',
     'description':(
-        'Re-derive a missing source-bound telemetry event from current authoritative TSE/Cohesion/Message-Board state without replaying '
-        'the original source mutation. Historical state that can no longer be reproduced fails closed. APPLY uses its own idempotent '
-        'shared-adoption observation through athena_tse_helix_advance and is never reconciled by replaying a merge.'
+        'Re-derive a missing source-bound population telemetry event from current authoritative TSE/Cohesion/Message-Board state '
+        'without replaying the original source mutation. Historical state that can no longer be reproduced fails closed. APPLY and '
+        'REENTRY use their own idempotent observation/start membranes and are never reconstructed by replaying a merge or a loop start.'
     ),
     'inputSchema':{
         'type':'object',
