@@ -1,0 +1,42 @@
+{
+  "artifact": "ATHENA.KC15.INDEPENDENT.STRUCTURAL.WITNESS.V1",
+  "role": "independent provider-executed structural witness for the active EPOCH-B 15-mask KC15 support lattice",
+  "parent_population_head": "8bc5c870646ba5ba78b7df7e1260ebd173af0138",
+  "poles": ["11", "10", "00", "01"],
+  "gid_range": [91, 105],
+  "enumeration_law": "for n=1..15, mask bits are emitted in pole order [11,10,00,01] with bit i = ((n >> i) & 1)",
+  "required_rank_distribution": {"1":4,"2":6,"3":4,"4":1},
+  "required_properties": [
+    "exactly 15 nonempty unique masks",
+    "active GID091-105 mapping equals independent enumeration",
+    "every declared support equals the set of poles selected by its mask",
+    "union of any two KC15 supports is a KC15 support",
+    "nonempty intersection of any two KC15 supports is a KC15 support",
+    "empty intersection remains the excluded empty subset and is not fabricated as a sixteenth seat",
+    "rank distribution is 4 singles, 6 pairs, 4 triples, 1 quadruple",
+    "full mask 1111 contains all four poles",
+    "no mask or coordinate is treated as truth, evidence probability, semantic identity, or execution authority"
+  ],
+  "success_standing": {
+    "structural_witness": "PASS",
+    "independence_group": "KC15.PROVIDER.COMBINATORIAL.WITNESS.V1",
+    "source_population": "CLOSED_IN_PARENT",
+    "execution": "PARTIAL",
+    "evidence": "HOLD",
+    "interpretation_review": "HOLD",
+    "admission_authority": "HOLD",
+    "truth_claim": "NOT_ESTABLISHED",
+    "promotion_authority": false
+  },
+  "firewalls": [
+    "INDEPENDENT_STRUCTURAL_WITNESS != CLAIM_TRUTH",
+    "INDEPENDENT_STRUCTURAL_WITNESS != INTERPRETATION_REVIEW",
+    "INDEPENDENT_STRUCTURAL_WITNESS != ADMISSION_AUTHORITY",
+    "KC15_SUPPORT != EVIDENCE",
+    "KC15_SUPPORT != PROBABILITY",
+    "KC15_MASK != SEMANTIC_IDENTITY",
+    "EMPTY_SUBSET_EXCLUDED != MISSING_SIXTEENTH_SEAT",
+    "PROVIDER_PASS != IC10_PROMOTION",
+    "KC15_EVIDENCE_REMAINS_HOLD_UNTIL_REMAINING_OBLIGATIONS_DISCHARGE"
+  ]
+}
