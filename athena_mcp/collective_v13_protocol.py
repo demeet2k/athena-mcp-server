@@ -15,3 +15,6 @@ COLLECTIVE_V13_TOOLS=[
     _tool('athena_dynamic_policy_value','Value deterministic two-timepoint treatment policies through the bounded longitudinal parametric g-formula. Assumption-scoped and PLAN_ONLY.',('samples','treatment1','intermediate','treatment2','outcome','policies'),{'samples':{'type':'array','minItems':80,'maxItems':20000,'items':{'type':'object'}},'treatment1':STR,'intermediate':STR,'treatment2':STR,'outcome':STR,'policies':{'type':'array','minItems':1,'maxItems':32,'items':{'type':'object'}},'baseline':{'type':'array','maxItems':16,'items':STR},'assumptions':OBJ}),
     _tool('athena_dro_resource_select','Select a finite candidate subset under correlated Gaussian resource covariance plus ellipsoidal mean ambiguity; exact enumeration only below the declared threshold.',('candidates','budgets','covariances'),{'candidates':{'type':'array','minItems':1,'maxItems':24,'items':{'type':'object'}},'budgets':OBJ,'covariances':OBJ,'ambiguity_radius':NUM,'alpha':NUM,'exact_limit':{'type':'integer','minimum':1,'maximum':18}}),
 ]
+
+from .collective_v14_protocol import COLLECTIVE_V14_TOOLS
+COLLECTIVE_V13_TOOLS.extend(t for t in COLLECTIVE_V14_TOOLS if t['name'] not in {x['name'] for x in COLLECTIVE_V13_TOOLS})

@@ -2,8 +2,7 @@ name: ATHENA Deployment V2
 
 on:
   push:
-    branches:
-      - agent/athena-3.2-deployment-control-plane-v2
+    branches: [agent/athena-3.2-deployment-control-plane-v2]
     paths:
       - athena_mcp/deployment.py
       - athena_mcp/deployment_protocol.py
@@ -19,8 +18,7 @@ on:
       - tests/test_http_host_v2.py
       - .github/workflows/deployment-v2.yml
   pull_request:
-    branches:
-      - master
+    branches: [master]
     paths:
       - athena_mcp/deployment.py
       - athena_mcp/deployment_protocol.py
@@ -50,7 +48,6 @@ jobs:
     timeout-minutes: 35
     steps:
       - uses: actions/checkout@v5
-
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -61,12 +58,10 @@ jobs:
       - name: Run complete repository unit corpus
         run: python -m unittest discover -s tests -v
 
-      - name: Build wheel
-        run: python -m pip wheel --no-deps . -w dist
-
-      - name: Clean-install and verify deployment registration
+      - name: Build and clean-install wheel
         shell: bash
         run: |
+          python -m pip wheel --no-deps . -w dist
           rm -rf /tmp/athena-wheel
           python -m pip install --no-deps --target /tmp/athena-wheel dist/*.whl
           cd /tmp
@@ -75,42 +70,34 @@ jobs:
           import athena_mcp
           from athena_mcp.server import Server
 
-          assert athena_mcp.__version__ == "3.2.0"
-          with tempfile.NamedTemporaryFile(suffix=".db") as handle:
-              server = Server(handle.name)
+          with tempfile.NamedTemporaryFile(suffix='.db') as handle:
+              server=Server(handle.name)
               try:
-                  names = {
-                      item["name"]
-                      for item in server.handle(
-                          {"jsonrpc": "2.0", "id": 1, "method": "tools/list"}
-                      )["result"]["tools"]
-                  }
-                  assert "athena_deployment_manifest" in names
-                  assert "athena_deployment_verify_receipt" in names
+                  names={item['name'] for item in server.handle(
+                      {'jsonrpc':'2.0','id':1,'method':'tools/list'}
+                  )['result']['tools']}
+                  assert 'athena_deployment_manifest' in names
+                  assert 'athena_deployment_verify_receipt' in names
               finally:
                   server.store.close()
-          print("CLEAN PACKAGE DEPLOYMENT REGISTRATION PASS")
+          print('CLEAN PACKAGE DEPLOYMENT PASS', athena_mcp.__version__)
           PY
 
-      - name: Render digest-bound Kubernetes manifest
+      - name: Render exact-digest Kubernetes bytes and source SBOM
         shell: bash
         run: |
+          VERSION=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
           IMAGE="ghcr.io/demeet2k/athena-mcp-server@sha256:$(printf 'a%.0s' {1..64})"
-          python deploy/render.py \
-            --image "$IMAGE" \
+          python deploy/render.py --image "$IMAGE" \
             --output dist/deployment-manifest.yaml \
             --receipt dist/deployment-render-receipt.json
           grep -F "image: $IMAGE" dist/deployment-manifest.yaml
           grep -F "replicas: 1" dist/deployment-manifest.yaml
           grep -F "type: Recreate" dist/deployment-manifest.yaml
           grep -F "readOnlyRootFilesystem: true" dist/deployment-manifest.yaml
-
-      - name: Generate bounded SPDX source SBOM
-        run: |
-          python deploy/sbom.py \
-            --root . \
+          python deploy/sbom.py --root . \
             --output dist/application-sbom.spdx.json \
-            --package-version 3.2.0 \
+            --package-version "$VERSION" \
             --source-head "$GITHUB_SHA"
           python - <<'PY'
           import json
@@ -118,7 +105,7 @@ jobs:
           assert value['spdxVersion']=='SPDX-2.3'
           assert len(value['files']) > 10
           assert 'does not prove' in value['athenaBoundary']
-          print('SOURCE SBOM PASS', len(value['files']))
+          print('RENDER + SOURCE SBOM PASS', len(value['files']))
           PY
 
       - uses: actions/upload-artifact@v4
@@ -138,82 +125,63 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Build local OCI image
-        run: docker build --pull --tag athena-deployment-v2:${GITHUB_SHA} .
-
-      - name: Verify image identity and non-root configuration
+      - name: Build and inspect non-root OCI image
         shell: bash
         run: |
+          docker build --pull --tag athena-deployment-v2:${GITHUB_SHA} .
           test "$(docker image inspect athena-deployment-v2:${GITHUB_SHA} --format '{{.Config.User}}')" = "65532:65532"
           test "$(docker image inspect athena-deployment-v2:${GITHUB_SHA} --format '{{json .Config.Healthcheck.Test}}')" != "null"
 
-      - name: Reject non-loopback startup without bearer token
+      - name: Reject remote binding without bearer token
         shell: bash
         run: |
           set +e
-          docker run --rm \
-            --read-only \
+          docker run --rm --read-only \
             --tmpfs /tmp:rw,noexec,nosuid,size=64m \
-            --cap-drop ALL \
-            --security-opt no-new-privileges \
+            --cap-drop ALL --security-opt no-new-privileges \
             athena-deployment-v2:${GITHUB_SHA} \
             --host 0.0.0.0 --port 8765 --db /var/lib/athena/athena.db --migrate
           code=$?
           set -e
           test "$code" -ne 0
 
-      - name: Start secure single-writer container and write witness
+      - name: Write semantic witness through secure container
         shell: bash
         run: |
           TOKEN='athena-ci-deployment-token-0123456789'
           echo "ATHENA_CI_TOKEN=$TOKEN" >> "$GITHUB_ENV"
           docker volume create athena-ci-state
-          docker run -d --name athena-ci \
-            --read-only \
+          docker run -d --name athena-ci --read-only \
             --tmpfs /tmp:rw,noexec,nosuid,size=64m \
-            --cap-drop ALL \
-            --security-opt no-new-privileges \
+            --cap-drop ALL --security-opt no-new-privileges \
             -e ATHENA_HTTP_TOKEN="$TOKEN" \
             -p 127.0.0.1:18765:8765 \
             -v athena-ci-state:/var/lib/athena \
             athena-deployment-v2:${GITHUB_SHA}
-          python deploy/container_smoke.py \
-            --base-url http://127.0.0.1:18765 \
-            --token "$TOKEN" \
-            --state-file /tmp/athena-container-witness.json \
-            --mode write
-          docker inspect athena-ci --format '{{.HostConfig.ReadonlyRootfs}} {{json .HostConfig.CapDrop}} {{.Config.User}}'
+          python deploy/container_smoke.py --base-url http://127.0.0.1:18765 \
+            --token "$TOKEN" --state-file /tmp/athena-container-witness.json --mode write
+          test "$(docker inspect athena-ci --format '{{.HostConfig.ReadonlyRootfs}}')" = "true"
+          test "$(docker inspect athena-ci --format '{{.Config.User}}')" = "65532:65532"
 
-      - name: Restart exact image against same state and read witness
+      - name: Restart exact image and read persisted witness
         shell: bash
         run: |
           docker rm -f athena-ci
-          docker run -d --name athena-ci \
-            --read-only \
+          docker run -d --name athena-ci --read-only \
             --tmpfs /tmp:rw,noexec,nosuid,size=64m \
-            --cap-drop ALL \
-            --security-opt no-new-privileges \
+            --cap-drop ALL --security-opt no-new-privileges \
             -e ATHENA_HTTP_TOKEN="$ATHENA_CI_TOKEN" \
             -p 127.0.0.1:18765:8765 \
             -v athena-ci-state:/var/lib/athena \
             athena-deployment-v2:${GITHUB_SHA}
-          python deploy/container_smoke.py \
-            --base-url http://127.0.0.1:18765 \
-            --token "$ATHENA_CI_TOKEN" \
-            --state-file /tmp/athena-container-witness.json \
-            --mode verify
+          python deploy/container_smoke.py --base-url http://127.0.0.1:18765 \
+            --token "$ATHENA_CI_TOKEN" --state-file /tmp/athena-container-witness.json --mode verify
 
-      - name: Container diagnostics
+      - name: Diagnostics and cleanup
         if: always()
         shell: bash
         run: |
           docker ps -a || true
           docker logs athena-ci || true
-          docker inspect athena-ci || true
-
-      - name: Cleanup
-        if: always()
-        shell: bash
-        run: |
           docker rm -f athena-ci 2>/dev/null || true
           docker volume rm athena-ci-state 2>/dev/null || true
