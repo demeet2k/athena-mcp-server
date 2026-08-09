@@ -4,7 +4,7 @@ import hashlib
 import json
 from typing import Any,Dict,Mapping
 
-from .architecture_drift import inventory_manifest
+from .coordination_inventory import inventory_manifest
 
 OMEGA_VERSION='ATHENA.OMEGA.1'
 OMEGA_COMPONENTS=(
@@ -53,12 +53,14 @@ def project_omega(server)->Dict[str,Any]:
         'coordination':{
             'status':'KNOWN',
             'inventory_version':coordination_inventory['version'],
+            'base_inventory_version':coordination_inventory.get('base_inventory_version'),
+            'party_reward_current':coordination_inventory.get('party_reward_current'),
             'organs':[{
                 'id':organ['id'],'version':organ['version'],'integration_class':organ['integration_class'],
                 'authority_plane':organ['authority_plane'],'manifest_layer':organ['manifest_layer'],
             } for organ in coordination_inventory['organs']],
-            'boundary':'descriptor projection only; OMEGA does not fetch/sync Message Board, Cohesion or Party Git state while observing itself',
-            'law':'Y1 semantic claim authority != Message Board coordination/presence authority; Cohesion and Party reward layers remain typed advisory/provenance surfaces',
+            'boundary':'descriptor projection only; OMEGA does not fetch/sync Message Board, Cohesion, Party or Freshness Git state while observing itself',
+            'law':'Y1 semantic claim authority != Message Board coordination/presence authority; Cohesion and Party reward layers remain typed advisory/provenance surfaces; Party reward current membrane is V3.2',
         },
         'branches':_safe(lambda:{'benchmark':server.branches.benchmark(),'review':server.branches.list(status='REVIEW',limit=100),'hibernated':server.branches.list(status='HIBERNATED',limit=100)},'branch lifecycle unavailable'),
         'authority':_safe(lambda:{'benchmark':server.authority.benchmark(),'challenged':server.authority.list(status='CHALLENGED',limit=100),'canonical_challenged':server.authority.list(status='CANONICAL_CHALLENGED',limit=100),'claim_namespace':'athena_claim_* canonical Y1; athena_discovery_claim_* V6-V13 science-shadow/model evidence only; Message Board claims belong to the distinct coordination/presence plane'},'authority state unavailable'),
@@ -70,7 +72,7 @@ def project_omega(server)->Dict[str,Any]:
         'schema_status':_safe(lambda:foundation.schema.status() if foundation else {},'schema status unavailable'),
         'reconstruction':_safe(lambda:foundation.reconstruction.recent(20) if foundation else [],'reconstruction ledger unavailable'),
         'pending_mutations':_safe(lambda:server.core.pending_mutations('ATHENA.OMEGA.1'),'pending mutation query unavailable'),
-        'boundary':'OMEGA covers accessible runtime/ledger state and explicit coordination-organ descriptors only; V5-V13 lazy model construction, remote coordination state, absent external sources and unseen world state remain explicit rather than inferred',
+        'boundary':'OMEGA covers accessible runtime/ledger state and explicit effective coordination-organ descriptors only; V5-V13 lazy model construction, Freshness Train and other unclassified extension surfaces, remote coordination state, absent external sources and unseen world state remain explicit rather than inferred',
     }
     digest_source={k:v for k,v in state.items() if k not in {'omega_id','state_digest'}};state_digest=_digest(digest_source);state['state_digest']=state_digest;state['omega_id']='OMEGA.'+state_digest[:24];return state
 
