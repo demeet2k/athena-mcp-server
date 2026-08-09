@@ -1,0 +1,97 @@
+{
+  "schema": "ATHENA.LIMINAL.BEACON.V1_1.HELD_OUT.MATRIX.1",
+  "status": "FROZEN_BEFORE_RESULTS",
+  "issue": 306,
+  "parent_candidate_head": "7b58380c6ec81f8e47bae6ad38c042a492a5f20a",
+  "parent_runtime_base": "429a480a80eeefb9e2bff1ea3015adf571d76b0e",
+  "shared": {
+    "critical_quota": 1,
+    "critical_quota_hard_cap": 2,
+    "scout_quota": 0,
+    "context_budget": 4096,
+    "overloaded_threshold": 0.95,
+    "semantic_evidence_ceiling": "RUNTIME_METADATA_ONLY"
+  },
+  "scenarios": {
+    "H0": {
+      "name": "unrelated-work-negative-control",
+      "a_work": "work:alpha",
+      "a_object": "oid:X",
+      "b_work": "work:beta",
+      "b_object": "oid:Y"
+    },
+    "H1": {
+      "name": "dependency-late-discovery-and-correction",
+      "dependency_initial": "dep:other",
+      "dependency_shared": "dep:Q",
+      "dependency_after": "dep:Z"
+    },
+    "H2": {
+      "name": "work-semantic-late-discovery",
+      "work_shared": "work:heldout",
+      "semantic_shared": "semantic:heldout",
+      "guild_a": "guild:A",
+      "guild_b": "guild:B"
+    },
+    "H3": {
+      "name": "critical-burst-bounded-reserve",
+      "object": "oid:burst",
+      "blocker_urgencies": [0.20, 0.10, 0.00],
+      "blocker_novelties": [0.20, 0.10, 0.00]
+    },
+    "H4": {
+      "name": "tiny-context-negative-control",
+      "object": "oid:tiny",
+      "context_budget": 256,
+      "summary_size": 1200
+    },
+    "H5": {
+      "name": "malformed-semantic-negative-controls",
+      "object": "oid:semantic-guard"
+    },
+    "H6": {
+      "name": "guild-isolation-colony-presence",
+      "object": "oid:guild",
+      "guild_a": "guild:A",
+      "guild_b": "guild:B"
+    },
+    "H7": {
+      "name": "local-addressing-spam-control",
+      "object": "oid:local",
+      "attention_threshold": 0.80,
+      "unaddressed_urgency": 1.0,
+      "unaddressed_novelty": 1.0,
+      "addressed_urgency": 0.0,
+      "addressed_novelty": 0.0
+    },
+    "H8": {
+      "name": "restart-replay-negative-control",
+      "explicit_epoch": "fixture-epoch-v11",
+      "object": "oid:replay",
+      "instance_a": "worker-A",
+      "instance_b": "worker-B"
+    }
+  },
+  "aggregate_rule": {
+    "required_scenarios": ["H0", "H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8"],
+    "max_full_result_leaks": 0,
+    "max_evidence_ceiling_violations": 0,
+    "max_false_presented_receipts": 0,
+    "max_existing_tool_regressions": 0,
+    "max_routine_fast_plane_git_writes": 0,
+    "require_hard_context_budget": true,
+    "max_critical_reserve_used": 1
+  },
+  "evidence_ceiling_after_pass": "REPEATED_DETERMINISTIC_HELD_OUT_FIXTURE_SUPPORT",
+  "firewalls": [
+    "HELD_OUT_FIXTURE != WORLD_DISTRIBUTION",
+    "REPEATED_DETERMINISTIC_PASS != INDEPENDENT_REPLICATION",
+    "CRITICAL_RESERVE != PRIORITY_TRUTH",
+    "SEMANTIC_ENVELOPE != EVIDENCE_PROMOTION",
+    "DIRECT_ADDRESS != ATTENTION_BYPASS",
+    "PRESENCE_VISIBILITY != PACKET_VISIBILITY",
+    "EXPLICIT_REPLAY_IDENTITY != PROCESS_IDENTITY",
+    "TEST_PASS != DEFAULT_ACTIVATION",
+    "TEST_PASS != CANONICAL_PROMOTION"
+  ]
+}
