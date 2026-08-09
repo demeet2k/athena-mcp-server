@@ -7,6 +7,7 @@ on:
       - 'release/v3.3.0.md'
       - '.github/workflows/release-v3.3.yml'
       - 'tests/test_release_distribution.py'
+      - 'tests/test_architecture_drift_v14.py'
       - 'scripts/qualify_github_head.py'
       - 'athena_mcp/github_promotion_verifier.py'
       - 'athena_mcp/promotion.py'
@@ -15,6 +16,10 @@ on:
       - 'athena_mcp/collective_v14_install.py'
       - 'athena_mcp/collective_v14_protocol.py'
       - 'athena_mcp/collective_v14_dispatch.py'
+      - 'athena_mcp/coordination_architecture_install.py'
+      - 'athena_mcp/coordination_inventory.py'
+      - 'athena_mcp/architecture_drift.py'
+      - 'athena_mcp/architecture_drift_protocol.py'
       - 'athena_mcp/__init__.py'
       - 'pyproject.toml'
   workflow_dispatch:
@@ -77,6 +82,8 @@ jobs:
           python -m unittest discover -s tests -p 'test_unified_manifest.py' -v
           python -m unittest discover -s tests -p 'test_metadata_consistency.py' -v
           python -m unittest discover -s tests -p 'test_documentation_consistency.py' -v
+      - name: Coordination organ inventory and architecture drift
+        run: python -m unittest discover -s tests -p 'test_architecture_drift_v14.py' -v
       - name: GitHub trusted promotion verifier
         run: python -m unittest discover -s tests -p 'test_github_promotion_verifier.py' -v
       - name: V13 inherited robust boundary
@@ -141,65 +148,49 @@ jobs:
         with:
           name: promotion-receipt-${{ env.RELEASE_HEAD }}
           path: promotion-input
-      - name: Validate release contract and exact checkout
+      - name: Validate Distribution.3 and exact checkout
         shell: bash
         run: |
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"
           test -z "$(git status --porcelain)"
           python - <<'PY'
-          import json, pathlib, tomllib
-          root=pathlib.Path('.')
-          manifest=json.loads((root/'release/v3.3.0.json').read_text())
-          project=tomllib.loads((root/'pyproject.toml').read_text())['project']
-          assert manifest['schema']=='ATHENA.RELEASE.DISTRIBUTION.2'
-          assert manifest['version']==project['version']=='3.3.0'
-          assert manifest['tag']=='v3.3.0'
-          assert manifest['package']['name']==project['name']=='athena-canonical-mcp'
-          assert manifest['package']['entrypoint']==project['scripts']['athena-mcp']=='athena_mcp.server:main'
-          assert manifest['runtime']['manifest']=='ATHENA.RUNTIME.UNIFIED.10'
-          assert manifest['runtime']['collective_frontier']=='COLLECTIVE_SYNTHESIS_V14'
-          assert manifest['runtime']['promotion']=='ATHENA.PROMOTION.2'
-          assert manifest['runtime']['trusted_verifier']=='ATHENA.GITHUB.PROMOTION.VERIFIER.1'
-          assert manifest['source_policy']['branch']=='master'
-          assert manifest['source_policy']['publication_requires_five_stage_qualification'] is True
-          print('RELEASE CONTRACT PASS', manifest['tag'])
+          import json,pathlib,tomllib
+          root=pathlib.Path('.');m=json.loads((root/'release/v3.3.0.json').read_text());p=tomllib.loads((root/'pyproject.toml').read_text())['project']
+          assert m['schema']=='ATHENA.RELEASE.DISTRIBUTION.3';assert m['version']==p['version']=='3.3.0';assert m['tag']=='v3.3.0'
+          assert m['package']['name']==p['name']=='athena-canonical-mcp';assert m['package']['entrypoint']==p['scripts']['athena-mcp']=='athena_mcp.server:main'
+          assert m['runtime']['synthesis_manifest']=='ATHENA.RUNTIME.UNIFIED.10';assert m['runtime']['effective_manifest']==m['runtime']['manifest']=='ATHENA.RUNTIME.UNIFIED.11'
+          assert m['runtime']['organ_inventory']=='ATHENA.ORGAN.INVENTORY.1.1';assert m['runtime']['architecture_drift']=='ATHENA.ARCHITECTURE.DRIFT.1';assert m['runtime']['party_reward_current']=='PARTY.REWARD.PROVENANCE.3.2';assert m['runtime']['collective_frontier']=='COLLECTIVE_SYNTHESIS_V14'
+          print('RELEASE CONTRACT PASS',m['tag'],m['runtime']['synthesis_manifest'],m['runtime']['effective_manifest'])
           PY
       - name: Build wheel from declared backend
         run: python -m pip wheel --no-deps . -w dist
-      - name: Clean-install and verify V14 UNIFIED.10 package
+      - name: Clean-install and verify synthesis plus effective architecture
         shell: bash
         run: |
           set -euo pipefail
+          export RELEASE_MANIFEST_PATH="$GITHUB_WORKSPACE/$MANIFEST_FILE"
           rm -rf /tmp/athena-release-wheel
           python -m pip install --no-deps --target /tmp/athena-release-wheel dist/*.whl
           cd /tmp
           PYTHONPATH=/tmp/athena-release-wheel python - <<'PY'
-          import json, tempfile
+          import json,os,tempfile
           import athena_mcp
           from athena_mcp.server import Server
-          assert athena_mcp.__version__=='3.3.0'
+          declared=json.load(open(os.environ['RELEASE_MANIFEST_PATH']));assert athena_mcp.__version__=='3.3.0'
           with tempfile.NamedTemporaryFile(suffix='.db') as handle:
               server=Server(handle.name)
               try:
-                  init=server.handle({'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-11-25','capabilities':{},'clientInfo':{'name':'release','version':'3.3.0'}}})['result']
-                  assert init['serverInfo']['version']=='3.3.0', init
-                  tools={item['name'] for item in server.handle({'jsonrpc':'2.0','id':2,'method':'tools/list'})['result']['tools']}
-                  required={'athena_joint_factor_belief','athena_structural_bootstrap_ensemble','athena_joint_science_evi','athena_sequential_dr_policy_value','athena_joint_policy_robust','athena_gp_resolution_route','athena_two_stage_resource_plan','athena_promotion_verify_github'}
-                  assert required <= tools, sorted(required-tools)
-                  manifest=server.handle({'jsonrpc':'2.0','id':3,'method':'tools/call','params':{'name':'athena_runtime_manifest','arguments':{}}})['result']['structuredContent']
-                  assert manifest['artifact']=='ATHENA.RUNTIME.UNIFIED.10', manifest
-                  assert 'COLLECTIVE_SYNTHESIS_V14' in manifest['layers']
-                  resources={r['uri'] for r in server.handle({'jsonrpc':'2.0','id':4,'method':'resources/list'})['result']['resources']}
-                  assert 'athena://collective/v14' in resources
-                  v14=json.loads(server.handle({'jsonrpc':'2.0','id':5,'method':'resources/read','params':{'uri':'athena://collective/v14'}})['result']['contents'][0]['text'])
-                  assert v14['runtime']['version']=='COLLECTIVE_RUNTIME_V14'
-                  promotion=json.loads(server.handle({'jsonrpc':'2.0','id':6,'method':'resources/read','params':{'uri':'athena://promotion'}})['result']['contents'][0]['text'])
-                  assert promotion['version']=='ATHENA.PROMOTION.2'
-                  assert promotion['github_verifier']['version']=='ATHENA.GITHUB.PROMOTION.VERIFIER.1'
-              finally:
-                  server.store.close()
-          print('CLEAN WHEEL PASS: V14 / UNIFIED.10 / PROMOTION.2 / GITHUB VERIFIER')
+                  init=server.handle({'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-11-25','capabilities':{},'clientInfo':{'name':'release','version':'3.3.0'}}})['result'];assert init['serverInfo']['version']=='3.3.0',init
+                  tools={x['name'] for x in server.handle({'jsonrpc':'2.0','id':2,'method':'tools/list'})['result']['tools']};resources={x['uri'] for x in server.handle({'jsonrpc':'2.0','id':3,'method':'resources/list'})['result']['resources']}
+                  assert set(declared['runtime']['required_tools'])<=tools,sorted(set(declared['runtime']['required_tools'])-tools);assert set(declared['runtime']['required_resources'])<=resources,sorted(set(declared['runtime']['required_resources'])-resources)
+                  effective=server.handle({'jsonrpc':'2.0','id':4,'method':'tools/call','params':{'name':'athena_runtime_manifest','arguments':{}}})['result']['structuredContent'];assert effective['artifact']=='ATHENA.RUNTIME.UNIFIED.11';assert 'COLLECTIVE_SYNTHESIS_V14' in effective['layers'];assert 'PARTY_REWARD_PROVENANCE_V3_2' in effective['layers']
+                  synthesis=json.loads(server.handle({'jsonrpc':'2.0','id':5,'method':'resources/read','params':{'uri':'athena://manifest'}})['result']['contents'][0]['text']);assert synthesis['artifact']=='ATHENA.RUNTIME.UNIFIED.10'
+                  inventory=json.loads(server.handle({'jsonrpc':'2.0','id':6,'method':'resources/read','params':{'uri':'athena://architecture/inventory'}})['result']['contents'][0]['text']);assert inventory['version']=='ATHENA.ORGAN.INVENTORY.1.1';assert inventory['party_reward_current']=='PARTY.REWARD.PROVENANCE.3.2'
+                  drift=json.loads(server.handle({'jsonrpc':'2.0','id':7,'method':'resources/read','params':{'uri':'athena://architecture/drift'}})['result']['contents'][0]['text']);assert drift['latest']['status']=='PASS';assert drift['latest']['organ_inventory_version']=='ATHENA.ORGAN.INVENTORY.1.1'
+                  promotion=json.loads(server.handle({'jsonrpc':'2.0','id':8,'method':'resources/read','params':{'uri':'athena://promotion'}})['result']['contents'][0]['text']);assert promotion['version']=='ATHENA.PROMOTION.2';assert promotion['github_verifier']['version']=='ATHENA.GITHUB.PROMOTION.VERIFIER.1';assert promotion['architecture_drift']['status']=='PASS'
+              finally:server.store.close()
+          print('CLEAN WHEEL PASS: V14 / SYNTHESIS UNIFIED.10 / EFFECTIVE UNIFIED.11 / ORGAN INVENTORY 1.1 / DRIFT PASS / PROMOTION.2')
           PY
       - name: Prepare immutable release candidate and attestation
         shell: bash
@@ -208,35 +199,11 @@ jobs:
           cp "$MANIFEST_FILE" dist/release-manifest.json
           cp promotion-input/promotion-receipt.json dist/promotion-receipt.json
           python - <<'PY'
-          import glob, hashlib, json, os, pathlib
-          manifest=json.loads(pathlib.Path(os.environ['MANIFEST_FILE']).read_text())
-          promotion=json.loads(pathlib.Path('dist/promotion-receipt.json').read_text())
-          wheels=glob.glob('dist/*.whl'); assert len(wheels)==1,wheels
-          wheel=pathlib.Path(wheels[0]); release_manifest=pathlib.Path('dist/release-manifest.json'); promo=pathlib.Path('dist/promotion-receipt.json')
-          assert wheel.name==manifest['package']['wheel'],(wheel.name,manifest['package']['wheel'])
-          assert promotion['artifact']=='ATHENA.GITHUB.PROMOTION.RECEIPT.1'
-          assert promotion['git_head']==os.environ['RELEASE_HEAD']
-          assert promotion['promotion']['status']=='QUALIFIED' and promotion['promotion']['promotion_allowed'] is True
-          assert promotion['replay']['match'] is True
-          def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
-          attestation={
-              'schema':'ATHENA.RELEASE.ATTESTATION.2',
-              'repository':os.environ['GITHUB_REPOSITORY'],
-              'release_commit':os.environ['RELEASE_HEAD'],
-              'release_ref':os.environ['GITHUB_REF'],
-              'workflow_run_id':os.environ['GITHUB_RUN_ID'],
-              'workflow_run_attempt':os.environ['GITHUB_RUN_ATTEMPT'],
-              'version':manifest['version'],'tag':manifest['tag'],'runtime':manifest['runtime'],
-              'trusted_promotion':{
-                  'promrun':promotion['promotion']['run_id'],'verification_ref':promotion['verification_ref'],
-                  'qualification_workflow_run':promotion['github_run_id'],'check_suite_id':promotion['check_suite_id'],
-                  'receipt_sha256':sha(promo),'replay_match':promotion['replay']['match']
-              },
-              'artifacts':{wheel.name:sha(wheel),promo.name:sha(promo),release_manifest.name:sha(release_manifest)},
-              'gates':{'syntax':'PASS','unit':'PASS','critical_invariants':'PASS','smoke':'PASS','promotion_qualification':'PASS','wheel_build':'PASS','clean_install':'PASS','v14_unified10_surface':'PASS'},
-              'boundary':'Distribution attestation certifies exact repository/package/distribution state; it is not deployment, empirical truth, causal proof, treatment authorization, Y1 authority, or GitHub administrative hardening.'
-          }
-          pathlib.Path('dist/release-attestation.json').write_text(json.dumps(attestation,indent=2,sort_keys=True)+'\n')
+          import glob,hashlib,json,os,pathlib
+          m=json.loads(pathlib.Path(os.environ['MANIFEST_FILE']).read_text());promotion=json.loads(pathlib.Path('dist/promotion-receipt.json').read_text());wheels=glob.glob('dist/*.whl');assert len(wheels)==1,wheels;wheel=pathlib.Path(wheels[0]);rm=pathlib.Path('dist/release-manifest.json');promo=pathlib.Path('dist/promotion-receipt.json');assert wheel.name==m['package']['wheel'];assert promotion['git_head']==os.environ['RELEASE_HEAD'];assert promotion['promotion']['status']=='QUALIFIED' and promotion['promotion']['promotion_allowed'] is True;assert promotion['replay']['match'] is True
+          def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+          att={'schema':'ATHENA.RELEASE.ATTESTATION.3','repository':os.environ['GITHUB_REPOSITORY'],'release_commit':os.environ['RELEASE_HEAD'],'release_ref':os.environ['GITHUB_REF'],'workflow_run_id':os.environ['GITHUB_RUN_ID'],'workflow_run_attempt':os.environ['GITHUB_RUN_ATTEMPT'],'version':m['version'],'tag':m['tag'],'runtime':m['runtime'],'trusted_promotion':{'promrun':promotion['promotion']['run_id'],'verification_ref':promotion['verification_ref'],'qualification_workflow_run':promotion['github_run_id'],'check_suite_id':promotion['check_suite_id'],'receipt_sha256':sha(promo),'replay_match':promotion['replay']['match']},'artifacts':{wheel.name:sha(wheel),promo.name:sha(promo),rm.name:sha(rm)},'gates':{'syntax':'PASS','unit':'PASS','critical_invariants':'PASS','smoke':'PASS','promotion_qualification':'PASS','wheel_build':'PASS','clean_install':'PASS','v14_synthesis_unified10':'PASS','effective_unified11':'PASS','coordination_architecture_drift':'PASS'},'boundary':'Distribution attestation certifies exact repository/package/distribution and declared architecture state; it is not deployment, empirical truth, causal proof, Y1 or Message Board authority, Cohesion assignment/execution authority, global XP authority, or GitHub administrative hardening.'}
+          pathlib.Path('dist/release-attestation.json').write_text(json.dumps(att,indent=2,sort_keys=True)+'\n')
           PY
           (cd dist && find . -maxdepth 1 -type f ! -name SHA256SUMS -printf '%f\n' | sort | xargs sha256sum > SHA256SUMS && sha256sum -c SHA256SUMS)
       - name: Upload immutable release candidate
@@ -256,9 +223,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-        with:
-          ref: master
-          fetch-depth: 0
+        with: {ref: master, fetch-depth: 0}
       - name: Prove release head is still exact remote master
         shell: bash
         run: |
@@ -267,8 +232,7 @@ jobs:
           test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"
           test "$(git rev-parse origin/master)" = "$RELEASE_HEAD"
           test -z "$(git status --porcelain)"
-      - name: Download immutable release candidate
-        uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v5
         with:
           name: release-candidate-v3.3.0-${{ env.RELEASE_HEAD }}
           path: dist
@@ -278,14 +242,8 @@ jobs:
           set -euo pipefail
           (cd dist && sha256sum -c SHA256SUMS)
           python - <<'PY'
-          import json, os, pathlib
-          att=json.loads(pathlib.Path('dist/release-attestation.json').read_text())
-          manifest=json.loads(pathlib.Path('dist/release-manifest.json').read_text())
-          assert att['release_commit']==os.environ['RELEASE_HEAD']
-          assert att['version']==manifest['version']=='3.3.0'
-          assert att['tag']==manifest['tag']=='v3.3.0'
-          assert att['trusted_promotion']['replay_match'] is True
-          assert all(v=='PASS' for v in att['gates'].values())
+          import json,os,pathlib
+          att=json.loads(pathlib.Path('dist/release-attestation.json').read_text());m=json.loads(pathlib.Path('dist/release-manifest.json').read_text());assert att['schema']=='ATHENA.RELEASE.ATTESTATION.3';assert m['schema']=='ATHENA.RELEASE.DISTRIBUTION.3';assert att['release_commit']==os.environ['RELEASE_HEAD'];assert att['version']==m['version']=='3.3.0';assert att['tag']==m['tag']=='v3.3.0';assert att['runtime']['synthesis_manifest']=='ATHENA.RUNTIME.UNIFIED.10';assert att['runtime']['effective_manifest']=='ATHENA.RUNTIME.UNIFIED.11';assert att['trusted_promotion']['replay_match'] is True;assert all(v=='PASS' for v in att['gates'].values())
           PY
       - name: Create exact-head tag and publish GitHub release
         shell: bash
@@ -293,22 +251,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          TAG=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['tag'])")
-          TITLE=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['title'])")
-          if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" > /tmp/tag.json 2>/dev/null; then
-            TAG_TARGET=$(python -c "import json; print(json.load(open('/tmp/tag.json'))['object']['sha'])")
-            test "$TAG_TARGET" = "$RELEASE_HEAD"
-          else
-            gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" -f ref="refs/tags/$TAG" -f sha="$RELEASE_HEAD" > /tmp/tag.json
-          fi
-          TAG_TARGET=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" --jq '.object.sha')
-          test "$TAG_TARGET" = "$RELEASE_HEAD"
-          if gh release view "$TAG" >/dev/null 2>&1; then
-            gh release edit "$TAG" --title "$TITLE" --notes-file "$NOTES_FILE"
-            gh release upload "$TAG" dist/* --clobber
-          else
-            gh release create "$TAG" dist/* --verify-tag --title "$TITLE" --notes-file "$NOTES_FILE"
-          fi
+          TAG=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['tag'])");TITLE=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['title'])")
+          if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" > /tmp/tag.json 2>/dev/null; then TAG_TARGET=$(python -c "import json; print(json.load(open('/tmp/tag.json'))['object']['sha'])");test "$TAG_TARGET" = "$RELEASE_HEAD";else gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" -f ref="refs/tags/$TAG" -f sha="$RELEASE_HEAD" > /tmp/tag.json;fi
+          TAG_TARGET=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" --jq '.object.sha');test "$TAG_TARGET" = "$RELEASE_HEAD"
+          if gh release view "$TAG" >/dev/null 2>&1;then gh release edit "$TAG" --title "$TITLE" --notes-file "$NOTES_FILE";gh release upload "$TAG" dist/* --clobber;else gh release create "$TAG" dist/* --verify-tag --title "$TITLE" --notes-file "$NOTES_FILE";fi
       - name: Verify published release and required assets
         shell: bash
         env:
@@ -318,11 +264,6 @@ jobs:
           TAG=$(python -c "import json; print(json.load(open('$MANIFEST_FILE'))['tag'])")
           gh release view "$TAG" --json tagName,isDraft,isPrerelease,url,assets > /tmp/release.json
           python - <<'PY'
-          import json, os
-          release=json.load(open('/tmp/release.json'));manifest=json.load(open(os.environ['MANIFEST_FILE']))
-          assert release['tagName']==manifest['tag']
-          assert release['isDraft'] is False and release['isPrerelease'] is False
-          observed={item['name'] for item in release['assets']};required=set(manifest['release']['required_assets'])
-          assert required <= observed, {'required':sorted(required),'observed':sorted(observed)}
-          print('RELEASE PASS', release['url'], sorted(observed))
+          import json,os
+          r=json.load(open('/tmp/release.json'));m=json.load(open(os.environ['MANIFEST_FILE']));assert r['tagName']==m['tag'];assert r['isDraft'] is False and r['isPrerelease'] is False;observed={x['name'] for x in r['assets']};required=set(m['release']['required_assets']);assert required<=observed,{'required':sorted(required),'observed':sorted(observed)};print('RELEASE PASS',r['url'],sorted(observed))
           PY
