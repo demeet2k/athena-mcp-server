@@ -1,0 +1,38 @@
+name: KC144 X16 BR21 Source Population
+
+on:
+  pull_request:
+    branches:
+      - 'agent/cell-closure-populate-governance-v1'
+    paths:
+      - 'spec/X16_BR21_SOURCE_POPULATION_V1.json'
+      - 'scripts/populate_x16_br21_cell_closure.py'
+      - '.github/workflows/x16-br21-source-population.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  populate-x16-br21:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile X16 BR21 population witness
+        run: python -m compileall -q scripts/populate_x16_br21_cell_closure.py
+      - name: Bind X16 and BR21 sources and regenerate cumulative matrix
+        env:
+          PYTHONPATH: .
+        run: python scripts/populate_x16_br21_cell_closure.py
+      - name: Upload X16 BR21 populated matrix
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kc144-x16-br21-source-population-v1
+          path: kc144_x16_br21_population_matrix_v1.json
+          if-no-files-found: error
