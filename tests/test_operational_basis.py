@@ -9,20 +9,13 @@ from athena_mcp.git_backend import GitBackend
 from athena_mcp.operational_basis import TOOL_NAME, build_operational_basis, install
 from athena_mcp.prompt_runtime import PROMPT_RUNTIME_TOOL_NAMES, PromptRuntime
 
-
 install()
 
 
 def _control_names():
     prefixes = (
-        "athena_agent_",
-        "athena_prompt_",
-        "athena_frontier_",
-        "athena_rehydration_",
-        "athena_message_board",
-        "athena_party_",
-        "athena_cohesion_",
-        "athena_omega29_",
+        "athena_agent_", "athena_prompt_", "athena_frontier_", "athena_rehydration_",
+        "athena_message_board", "athena_party_", "athena_cohesion_", "athena_omega29_", "athena_q008_",
     )
     result = set()
     for tool in protocol.TOOLS:
@@ -34,8 +27,7 @@ def _control_names():
 
 class OperationalBasisV1Tests(unittest.TestCase):
     def test_basis_is_registered_deterministic_and_surface_derived(self):
-        first = build_operational_basis()
-        second = build_operational_basis()
+        first = build_operational_basis(); second = build_operational_basis()
         self.assertEqual(first["artifact"], "OPERATIONAL_BASIS_V1")
         self.assertEqual(first["basis_digest"], second["basis_digest"])
         self.assertIn(TOOL_NAME, PROMPT_RUNTIME_TOOL_NAMES)
@@ -66,17 +58,24 @@ class OperationalBasisV1Tests(unittest.TestCase):
         self.assertEqual(row["component"], "omega29_operate_boundary")
         self.assertEqual(row["effect"], "READ_ONLY")
         self.assertEqual(row["authority_class"], "OBSERVATION_ONLY")
-        self.assertFalse(row["auto_select"])
-        self.assertTrue(row["replayability"])
-        self.assertEqual(
-            row["freshness_dependencies"],
-            ["athena_git_head", "runtime_git_head", "prompt_stack_digest", "source_binding_digest",
-             "runtime_context_digest", "source_observation_ids", "clock_observation_id"],
-        )
-        self.assertIn(
-            "reducer output must not be used as proof of source currentness, admission, promotion, or execution authority",
-            row["preconditions"],
-        )
+        self.assertFalse(row["auto_select"]); self.assertTrue(row["replayability"])
+        self.assertEqual(row["freshness_dependencies"], ["athena_git_head", "runtime_git_head", "prompt_stack_digest", "source_binding_digest", "runtime_context_digest", "source_observation_ids", "clock_observation_id"])
+        self.assertIn("reducer output must not be used as proof of source currentness, admission, promotion, or execution authority", row["preconditions"])
+
+    def test_q008_identity_boundaries_are_read_only_and_never_auto_selected(self):
+        basis = build_operational_basis(); rows = {row["operation"]: row for row in basis["descriptors"]}
+        for name in ("athena_omega29_q008_bridge", "athena_q008_identity_compile"):
+            row = rows[name]
+            self.assertEqual(row["capability_class"], "Q008_IDENTITY_BOUNDARY")
+            self.assertEqual(row["component"], "q008_invocation_identity_boundary")
+            self.assertEqual(row["effect"], "READ_ONLY")
+            self.assertEqual(row["authority_class"], "OBSERVATION_ONLY")
+            self.assertFalse(row["auto_select"])
+            self.assertTrue(row["replayability"])
+            self.assertIn("identity closure must not be used as proof of Q008 execution, provider effect, admission, promotion, or canonical completion", row["preconditions"])
+        self.assertEqual(rows["athena_omega29_q008_bridge"]["freshness_dependencies"], ["athena_git_head", "runtime_git_head", "source_binding_digest", "runtime_context_digest", "omega_decision_digest", "run_id", "source_invocation_id"])
+        self.assertEqual(rows["athena_q008_identity_compile"]["freshness_dependencies"], ["source_bridge_digest", "run_id", "source_invocation_id", "consumer_invocation_id", "source_cursor_digest"])
+        self.assertIn("Q008_IDENTITY_CLOSURE != Q008_EXECUTION_OR_PROVIDER_EFFECT", basis["laws"])
 
     def test_tool_is_routable_through_prompt_runtime_without_git_authority(self):
         value = PromptRuntime(GitBackend(None)).call_tool(TOOL_NAME, {})
@@ -85,173 +84,82 @@ class OperationalBasisV1Tests(unittest.TestCase):
 
     def test_registered_claim_surface_is_current_exposure_but_not_auto_authority(self):
         rows = {row["operation"]: row for row in build_operational_basis()["descriptors"]}
-        for name in (
-            "athena_frontier_provider_status",
-            "athena_frontier_claim_prepare",
-            "athena_frontier_ready",
-            "athena_frontier_claim",
-            "athena_frontier_claim_reconcile",
-        ):
-            self.assertIn(name, rows)
-            self.assertEqual(rows[name]["capability_class"], "CLAIM_EXECUTION")
-            self.assertTrue(rows[name]["current_exposure"])
-            self.assertIn("provider_witness", rows[name]["freshness_dependencies"])
-
+        for name in ("athena_frontier_provider_status", "athena_frontier_claim_prepare", "athena_frontier_ready", "athena_frontier_claim", "athena_frontier_claim_reconcile"):
+            self.assertIn(name, rows); self.assertEqual(rows[name]["capability_class"], "CLAIM_EXECUTION")
+            self.assertTrue(rows[name]["current_exposure"]); self.assertIn("provider_witness", rows[name]["freshness_dependencies"])
         self.assertEqual(rows["athena_frontier_provider_status"]["effect"], "READ_ONLY")
         self.assertEqual(rows["athena_frontier_claim_prepare"]["effect"], "READ_ONLY")
-        self.assertTrue(rows["athena_frontier_provider_status"]["auto_select"])
-        self.assertTrue(rows["athena_frontier_claim_prepare"]["auto_select"])
-
+        self.assertTrue(rows["athena_frontier_provider_status"]["auto_select"]); self.assertTrue(rows["athena_frontier_claim_prepare"]["auto_select"])
         for name in ("athena_frontier_ready", "athena_frontier_claim", "athena_frontier_claim_reconcile"):
             self.assertEqual(rows[name]["effect"], "BOUNDED_PROVIDER_WRITE")
             self.assertEqual(rows[name]["authority_class"], "BOUNDED_PROVIDER_WRITE")
             self.assertFalse(rows[name]["auto_select"])
-            self.assertIn(
-                "caller authority and operation-specific freshness/preconditions must pass",
-                rows[name]["preconditions"],
-            )
+            self.assertIn("caller authority and operation-specific freshness/preconditions must pass", rows[name]["preconditions"])
 
     def test_message_board_mixed_effect_is_visible_but_never_auto_selected(self):
-        rows = {row["operation"]: row for row in build_operational_basis()["descriptors"]}
-        row = rows["athena_message_board"]
-        self.assertEqual(row["capability_class"], "MESSAGE_BOARD_COORDINATION")
-        self.assertEqual(row["component"], "message_board")
-        self.assertEqual(row["effect"], "BOUNDED_PROVIDER_WRITE")
-        self.assertEqual(row["authority_class"], "BOUNDED_PROVIDER_WRITE")
-        self.assertFalse(row["auto_select"])
-        self.assertTrue(row["mixed_effect"])
-        self.assertEqual(row["effect_modes"]["read"], "BOUNDED_GIT_SYNC")
-        for action in ("present", "join", "heartbeat", "post", "ack", "release"):
-            self.assertEqual(row["effect_modes"][action], "BOUNDED_PROVIDER_WRITE")
+        rows = {row["operation"]: row for row in build_operational_basis()["descriptors"]}; row = rows["athena_message_board"]
+        self.assertEqual(row["capability_class"], "MESSAGE_BOARD_COORDINATION"); self.assertEqual(row["component"], "message_board")
+        self.assertEqual(row["effect"], "BOUNDED_PROVIDER_WRITE"); self.assertEqual(row["authority_class"], "BOUNDED_PROVIDER_WRITE")
+        self.assertFalse(row["auto_select"]); self.assertTrue(row["mixed_effect"]); self.assertEqual(row["effect_modes"]["read"], "BOUNDED_GIT_SYNC")
+        for action in ("present", "join", "heartbeat", "post", "ack", "release"): self.assertEqual(row["effect_modes"][action], "BOUNDED_PROVIDER_WRITE")
         self.assertIn("shared_remote_witness", row["freshness_dependencies"])
 
     def test_party_coordination_effects_are_current_and_conservative(self):
         rows = {row["operation"]: row for row in build_operational_basis()["descriptors"]}
         for name in ("athena_party_state", "athena_party_list"):
-            self.assertEqual(rows[name]["capability_class"], "PARTY_COORDINATION")
-            self.assertEqual(rows[name]["component"], "party_coordination")
-            self.assertEqual(rows[name]["effect"], "BOUNDED_GIT_SYNC")
-            self.assertEqual(rows[name]["authority_class"], "BOUNDED_LOCAL_FAST_FORWARD")
-            self.assertFalse(rows[name]["auto_select"])
+            self.assertEqual(rows[name]["capability_class"], "PARTY_COORDINATION"); self.assertEqual(rows[name]["component"], "party_coordination")
+            self.assertEqual(rows[name]["effect"], "BOUNDED_GIT_SYNC"); self.assertEqual(rows[name]["authority_class"], "BOUNDED_LOCAL_FAST_FORWARD"); self.assertFalse(rows[name]["auto_select"])
         for name in ("athena_party_form", "athena_party_join", "athena_party_observe", "athena_party_message"):
-            self.assertEqual(rows[name]["capability_class"], "PARTY_COORDINATION")
-            self.assertEqual(rows[name]["effect"], "BOUNDED_PROVIDER_WRITE")
-            self.assertFalse(rows[name]["auto_select"])
-            self.assertIn("message_board_frontier", rows[name]["freshness_dependencies"])
+            self.assertEqual(rows[name]["capability_class"], "PARTY_COORDINATION"); self.assertEqual(rows[name]["effect"], "BOUNDED_PROVIDER_WRITE")
+            self.assertFalse(rows[name]["auto_select"]); self.assertIn("message_board_frontier", rows[name]["freshness_dependencies"])
 
     def test_cohesion_effects_include_current_duplicate_guard_without_claim_authority(self):
         rows = {row["operation"]: row for row in build_operational_basis()["descriptors"]}
         for name in ("athena_cohesion_matchmake", "athena_cohesion_duplicate_guard"):
-            self.assertEqual(rows[name]["capability_class"], "COHESION_COORDINATION")
-            self.assertEqual(rows[name]["component"], "cohesion_mesh")
-            self.assertEqual(rows[name]["effect"], "BOUNDED_GIT_SYNC")
-            self.assertEqual(rows[name]["authority_class"], "BOUNDED_LOCAL_FAST_FORWARD")
-            self.assertFalse(rows[name]["auto_select"])
-        for name in (
-            "athena_cohesion_request_offer",
-            "athena_cohesion_coalition",
-            "athena_cohesion_solo_party_compare",
-        ):
-            self.assertEqual(rows[name]["capability_class"], "COHESION_COORDINATION")
-            self.assertEqual(rows[name]["effect"], "BOUNDED_PROVIDER_WRITE")
-            self.assertFalse(rows[name]["auto_select"])
-        for name in (
-            "athena_cohesion_matchmake",
-            "athena_cohesion_duplicate_guard",
-            "athena_cohesion_request_offer",
-            "athena_cohesion_coalition",
-            "athena_cohesion_solo_party_compare",
-        ):
+            self.assertEqual(rows[name]["capability_class"], "COHESION_COORDINATION"); self.assertEqual(rows[name]["component"], "cohesion_mesh")
+            self.assertEqual(rows[name]["effect"], "BOUNDED_GIT_SYNC"); self.assertEqual(rows[name]["authority_class"], "BOUNDED_LOCAL_FAST_FORWARD"); self.assertFalse(rows[name]["auto_select"])
+        for name in ("athena_cohesion_request_offer", "athena_cohesion_coalition", "athena_cohesion_solo_party_compare"):
+            self.assertEqual(rows[name]["capability_class"], "COHESION_COORDINATION"); self.assertEqual(rows[name]["effect"], "BOUNDED_PROVIDER_WRITE"); self.assertFalse(rows[name]["auto_select"])
             self.assertNotEqual(rows[name]["capability_class"], "CLAIM_EXECUTION")
 
     def test_new_registered_operation_changes_basis_without_prompt_rewrite(self):
-        synthetic = {
-            "name": "athena_frontier_observe_future",
-            "description": "synthetic future read-only frontier operation",
-            "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False},
-        }
-        before = build_operational_basis()["basis_digest"]
-        protocol.TOOLS.append(synthetic)
+        synthetic = {"name": "athena_frontier_observe_future", "description": "synthetic future read-only frontier operation", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False}}
+        before = build_operational_basis()["basis_digest"]; protocol.TOOLS.append(synthetic)
         try:
-            basis = build_operational_basis()
-            row = {x["operation"]: x for x in basis["descriptors"]}[synthetic["name"]]
-            self.assertEqual(row["capability_class"], "FRONTIER_READ_SELECT")
-            self.assertEqual(row["effect"], "READ_ONLY")
-            self.assertNotEqual(before, basis["basis_digest"])
-        finally:
-            protocol.TOOLS[:] = [x for x in protocol.TOOLS if x.get("name") != synthetic["name"]]
+            basis = build_operational_basis(); row = {x["operation"]: x for x in basis["descriptors"]}[synthetic["name"]]
+            self.assertEqual(row["capability_class"], "FRONTIER_READ_SELECT"); self.assertEqual(row["effect"], "READ_ONLY"); self.assertNotEqual(before, basis["basis_digest"])
+        finally: protocol.TOOLS[:] = [x for x in protocol.TOOLS if x.get("name") != synthetic["name"]]
 
     def test_unclassified_control_operation_fails_closed(self):
-        synthetic = {
-            "name": "athena_prompt_future_unknown",
-            "description": "synthetic prompt control operation with unknown semantics",
-            "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False},
-        }
+        synthetic = {"name": "athena_prompt_future_unknown", "description": "synthetic prompt control operation with unknown semantics", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False}}
         protocol.TOOLS.append(synthetic)
         try:
-            basis = build_operational_basis()
-            row = {x["operation"]: x for x in basis["descriptors"]}[synthetic["name"]]
-            self.assertEqual(row["capability_class"], "PROMPT")
-            self.assertEqual(row["effect"], "UNKNOWN")
-            self.assertEqual(row["authority_class"], "UNKNOWN_HOLD")
-            self.assertFalse(row["auto_select"])
-            self.assertEqual(basis["status"], "OPERATIONAL_BASIS_HOLD")
-        finally:
-            protocol.TOOLS[:] = [x for x in protocol.TOOLS if x.get("name") != synthetic["name"]]
+            basis = build_operational_basis(); row = {x["operation"]: x for x in basis["descriptors"]}[synthetic["name"]]
+            self.assertEqual(row["capability_class"], "PROMPT"); self.assertEqual(row["effect"], "UNKNOWN"); self.assertEqual(row["authority_class"], "UNKNOWN_HOLD")
+            self.assertFalse(row["auto_select"]); self.assertEqual(basis["status"], "OPERATIONAL_BASIS_HOLD")
+        finally: protocol.TOOLS[:] = [x for x in protocol.TOOLS if x.get("name") != synthetic["name"]]
 
     def test_future_coordination_operation_is_visible_but_fails_closed_until_classified(self):
-        synthetic = {
-            "name": "athena_cohesion_future_unknown",
-            "description": "synthetic future cohesion operation with intentionally unknown semantics",
-            "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False},
-        }
+        synthetic = {"name": "athena_cohesion_future_unknown", "description": "synthetic future cohesion operation with intentionally unknown semantics", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False}}
         protocol.TOOLS.append(synthetic)
         try:
-            basis = build_operational_basis()
-            row = {x["operation"]: x for x in basis["descriptors"]}[synthetic["name"]]
-            self.assertEqual(row["capability_class"], "COHESION_COORDINATION")
-            self.assertEqual(row["effect"], "UNKNOWN")
-            self.assertEqual(row["authority_class"], "UNKNOWN_HOLD")
-            self.assertFalse(row["auto_select"])
-            self.assertEqual(basis["status"], "OPERATIONAL_BASIS_HOLD")
-        finally:
-            protocol.TOOLS[:] = [x for x in protocol.TOOLS if x.get("name") != synthetic["name"]]
+            basis = build_operational_basis(); row = {x["operation"]: x for x in basis["descriptors"]}[synthetic["name"]]
+            self.assertEqual(row["capability_class"], "COHESION_COORDINATION"); self.assertEqual(row["effect"], "UNKNOWN"); self.assertEqual(row["authority_class"], "UNKNOWN_HOLD")
+            self.assertFalse(row["auto_select"]); self.assertEqual(basis["status"], "OPERATIONAL_BASIS_HOLD")
+        finally: protocol.TOOLS[:] = [x for x in protocol.TOOLS if x.get("name") != synthetic["name"]]
 
     def test_basis_digest_is_bound_into_boot_address_and_refresh_delta(self):
-        packet = {
-            "prompt": {"git_head": "H", "prompt_stack_digest": "P"},
-            "frontier": {"source_head": "S", "frontier_digest": "F"},
-            "contract_digest": "C",
-            "issue_pressure": {"digest": "I"},
-            "execution_surface": {},
-            "witnesses": {},
-            "laws": [],
-        }
+        packet = {"prompt": {"git_head": "H", "prompt_stack_digest": "P"}, "frontier": {"source_head": "S", "frontier_digest": "F"}, "contract_digest": "C", "issue_pressure": {"digest": "I"}, "execution_surface": {}, "witnesses": {}, "laws": []}
         address = AgentBootstrapRuntime._address(packet)
-        self.assertIn("operational_basis_digest", address)
-        self.assertEqual(address["operational_basis_digest"], packet["execution_surface"]["operational_basis_digest"])
-        self.assertTrue(packet["execution_surface"]["capability_descriptors"])
-        self.assertIn("operational_basis", packet["witnesses"])
-
-        prior = dict(address)
-        current = dict(address)
-        current["operational_basis_digest"] = "changed"
-        changed = AgentBootstrapRuntime._changed(prior, current)
-        self.assertTrue(changed["operational_basis_digest"])
-        self.assertFalse(changed["git_head"])
-        self.assertFalse(changed["prompt_stack_digest"])
+        self.assertIn("operational_basis_digest", address); self.assertEqual(address["operational_basis_digest"], packet["execution_surface"]["operational_basis_digest"])
+        self.assertTrue(packet["execution_surface"]["capability_descriptors"]); self.assertIn("operational_basis", packet["witnesses"])
+        prior = dict(address); current = dict(address); current["operational_basis_digest"] = "changed"; changed = AgentBootstrapRuntime._changed(prior, current)
+        self.assertTrue(changed["operational_basis_digest"]); self.assertFalse(changed["git_head"]); self.assertFalse(changed["prompt_stack_digest"])
 
     def test_basis_witness_contains_no_checkout_path_or_credentials(self):
-        basis = build_operational_basis()
-        witness = basis["source_witness"]
-        self.assertEqual(set(witness), {
-            "surface", "registered_count", "registered_names_digest", "registered_schema_digest"
-        })
-        text = str(basis).lower()
-        self.assertNotIn("github_token", text)
-        self.assertNotIn("private_chain_of_thought", text)
-        self.assertNotIn("source_repo", text)
+        basis = build_operational_basis(); witness = basis["source_witness"]
+        self.assertEqual(set(witness), {"surface", "registered_count", "registered_names_digest", "registered_schema_digest"})
+        text = str(basis).lower(); self.assertNotIn("github_token", text); self.assertNotIn("private_chain_of_thought", text); self.assertNotIn("source_repo", text)
 
 
-if __name__ == "__main__":
-    unittest.main()
+if __name__ == "__main__": unittest.main()
