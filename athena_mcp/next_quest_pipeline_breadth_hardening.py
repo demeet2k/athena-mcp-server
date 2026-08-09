@@ -7,6 +7,17 @@ from .next_quest_pipeline_breadth import (
 )
 
 
+def _planned_identity_basis(packet: dict) -> dict:
+    basis = dict(packet)
+    # Observation annotations belong to the plan ledger state, not to the
+    # immutable PLANNED packet identity that originally minted packet_digest.
+    if basis.get("status") in {"OBSERVED", "HOLD"}:
+        basis["status"] = "PLANNED"
+        basis.pop("result_digest", None)
+        basis.pop("updated_at", None)
+    return basis
+
+
 def install_next_pipeline_breadth_idempotency_hardening() -> None:
     if getattr(NextQuestBreadthRuntime, "_athena_breadth_idempotency_v2_registered", False):
         return
@@ -50,7 +61,7 @@ def install_next_pipeline_breadth_idempotency_hardening() -> None:
                     raise ValueError("PREP_PLAN_IDENTITY_HOLD")
                 if packet.get("pipeline_state_digest") != expected_pipeline_state_digest:
                     raise ValueError("PREP_PLAN_STATE_BINDING_HOLD")
-                if packet.get("packet_digest") != _packet_digest(packet):
+                if packet.get("packet_digest") != _packet_digest(_planned_identity_basis(packet)):
                     raise ValueError("PREP_PLAN_DIGEST_HOLD")
                 rows.append(packet)
             return {
