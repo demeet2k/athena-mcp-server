@@ -29,6 +29,29 @@
     "edge_identity": "content-derived typed relation digest over exact vertex endpoints",
     "authority": "NONE"
   },
+  "v2_snapshot_adapter": {
+    "version": "ATHENA.PROJECT_ATLAS.V2_TO_RELATION_GRAPH.V3.ADAPTER.v1",
+    "snapshot_schema": "ATHENA.KC144.FEDERATED_RUNTIME_PROJECT_ATLAS.V2",
+    "snapshot_planes": [
+      "configured_git",
+      "runtime_git",
+      "mcp"
+    ],
+    "runtime_collapse_rule": "when runtime_git_is_configured=true, do not create a duplicate runtime_git plane",
+    "git_structural_planes": [
+      "configured_git",
+      "runtime_git"
+    ],
+    "mcp_rule": "MCP virtual records become exact PVTX vertices but never pass through Git hierarchy/import/path extractors",
+    "partial_snapshot_rule": "non-GENERATED V2 snapshot -> PARTIAL_V2_SNAPSHOT coverage receipt, never full coverage",
+    "laws": [
+      "V2_SNAPSHOT_PLANES != FLAT_V1_ATLAS",
+      "CONFIGURED_GIT_VERTEX != RUNTIME_GIT_VERTEX_UNLESS_V2_COLLAPSES_RUNTIME_TO_CONFIGURED",
+      "MCP_VIRTUAL_VERTEX != GIT_BLOB_VERTEX",
+      "UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE",
+      "PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT"
+    ]
+  },
   "edge_kinds": {
     "structural_default": [
       "DIR_CONTAINS",
@@ -113,7 +136,10 @@
     "ROUTE != EXECUTION",
     "EDGE_CLASS_CHANGE_REQUIRES_GRAPH_SCHEMA_BUMP",
     "STRUCTURAL_GRAPH_ROUTE != KC144_GEOMETRIC_ROUTE != EXECUTION",
-    "QUALIFICATION_PR != INTEGRATION_PR != PROMOTION"
+    "QUALIFICATION_PR != INTEGRATION_PR != PROMOTION",
+    "V2_SNAPSHOT_PLANES != FLAT_V1_ATLAS",
+    "MCP_VIRTUAL_VERTEX != GIT_BLOB_VERTEX",
+    "PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT"
   ],
   "promotion": {
     "standing": "HOLD_PENDING_V2_ACCEPTANCE_REBASE_AND_V3_QUALIFICATION",
