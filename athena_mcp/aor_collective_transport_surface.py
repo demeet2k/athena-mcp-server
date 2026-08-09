@@ -4,12 +4,13 @@ from typing import Any,Dict
 
 from .aor_collective_transport import TransportRuntime,TRANSPORT_VERSION
 from .aor_collective_transport_protocol import TRANSPORT_RESOURCE,TRANSPORT_TOOLS,TRANSPORT_TOOL_NAMES
-from .party_coordination import PartyCoordinationRuntime
+from .party_coordination_v2 import PartyCoordinationRuntimeV2
 from .party_coordination_protocol import (
     PARTY_COORDINATION_RESOURCE,
     PARTY_COORDINATION_TOOLS,
     PARTY_COORDINATION_TOOL_NAMES,
 )
+from .party_coordination_v2_protocol import PARTY_CHANNEL_TOOLS,PARTY_CHANNEL_TOOL_NAMES
 from .impossible_godboard import ImpossibleGodboardRuntime
 from .impossible_godboard_protocol import (
     IMPOSSIBLE_GODBOARD_RESOURCE,
@@ -18,11 +19,11 @@ from .impossible_godboard_protocol import (
 )
 
 AOR_COLLECTIVE_TRANSPORT_TOOLS=(
-    list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)
+    list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(PARTY_CHANNEL_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCES=[TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE]
 AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=(
-    set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)
+    set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(PARTY_CHANNEL_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={
     TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri']
@@ -32,7 +33,7 @@ class AorCollectiveTransportSurface:
     def __init__(self,server):
         self.server=server
         self.runtime=TransportRuntime(server)
-        self.party=PartyCoordinationRuntime(server)
+        self.party=PartyCoordinationRuntimeV2(server)
         self.godboard=ImpossibleGodboardRuntime(server)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
@@ -83,6 +84,12 @@ class AorCollectiveTransportSurface:
                 return True,g.hall(
                     args.get('limit',100),args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED')
                 )
+        if name in PARTY_CHANNEL_TOOL_NAMES:
+            p=self.party
+            return True,p.message(
+                args['party_id'],args['sender'],args['recipients'],args['goal_refs'],args['message'],
+                args.get('message_kind','INFO'),args.get('reply_to'),args.get('remote','origin')
+            )
         if name in PARTY_COORDINATION_TOOL_NAMES:
             p=self.party
             if name=='athena_party_form':
