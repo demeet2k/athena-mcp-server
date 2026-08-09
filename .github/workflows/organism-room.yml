@@ -6,6 +6,7 @@ on:
       - "athena_mcp/organism_room.py"
       - "spec/ORGANISM_ROOM_V1.json"
       - "tests/test_organism_room.py"
+      - "tests/test_organism_room_wiring.py"
       - ".github/workflows/organism-room.yml"
   push:
     branches: [master]
@@ -13,6 +14,7 @@ on:
       - "athena_mcp/organism_room.py"
       - "spec/ORGANISM_ROOM_V1.json"
       - "tests/test_organism_room.py"
+      - "tests/test_organism_room_wiring.py"
 
 permissions:
   contents: read
