@@ -6,7 +6,7 @@ It is a **query membrane**, not a new identity system.
 
 ```text
 V1 PROJECT ATLAS
-    ↓ exact configured Git HEAD
+    ↓ exact configured Git HEAD × live MCP surface signature
 V2 SNAPSHOT
     ↓
 {summary, resolve, list, route, resource}
@@ -30,7 +30,7 @@ Returns only bounded top-level state:
 
 - exact `repo/ref/head/tree`;
 - Git atlas digest and counts;
-- installed MCP surface count/digest;
+- installed MCP surface count/digest plus live surface signature;
 - federation digest;
 - current dirty/branch observation;
 - pagination limits and laws.
@@ -100,23 +100,43 @@ Read-only bounded summary resource. Full navigation remains tool-mediated.
 
 ## Freshness algorithm
 
+The live project frontier is **factorized**, because Git state and process-live MCP surface state can change independently:
+
+```text
+F = <GitHEAD, MCPSurfaceSignature>
+MCPSurfaceSignature = digest(TOOLS, PROMPTS)
+```
+
+This distinction matters because dispatch may compose additional installed tool modules at process runtime without moving the repository HEAD. A cache keyed by Git alone would therefore be observably stale.
+
 For query `q(expected_head)`:
 
 ```text
 G0 = configured Git status/head
+S0 = digest(current TOOLS, current PROMPTS)
 if expected_head != null and expected_head != G0.head:
     HOLD_STALE_HEAD
-compile atlas pinned to immutable SHA G0.head
+K0 = <G0.head, S0>
+if cache.key == K0:
+    candidate = cache.value
+else:
+    candidate = compile atlas pinned to immutable SHA G0.head
 G1 = configured Git status/head
-if G1.head == G0.head == atlas.head:
-    use snapshot
+S1 = digest(current TOOLS, current PROMPTS)
+if G1.head == G0.head == candidate.head and S1 == S0:
+    cache(<G0.head,S0>, candidate)
+    use candidate
 else:
     invalidate cache and retry once
-if still moving:
-    HOLD_VOLATILE_HEAD
+if either coordinate remains moving:
+    HOLD_VOLATILE_FRONTIER
 ```
 
-The snapshot cache key is the exact Git HEAD. Dirty worktree state is observed separately and does not rewrite committed atlas identity.
+The snapshot cache key is therefore `Git HEAD × live MCP surface signature`.
+
+Dirty worktree state is observed separately and does not rewrite committed atlas identity.
+
+`MCP_SURFACE_CHANGE -> RECOMPILE_BEFORE_QUERY`.
 
 ## Read-only metering firewall
 
@@ -152,7 +172,9 @@ PROJECT_QUERY != PERSISTENT_STATE_MUTATION
 PROJECT_ROUTE != SEMANTIC_EQUIVALENCE
 AMBIGUOUS_RESOLVE -> HOLD
 STALE_EXPECTED_HEAD -> HOLD
-MOVING_HEAD -> BOUNDED_RETRY -> HOLD
+GIT_HEAD_CHANGE -> RECOMPILE
+MCP_SURFACE_CHANGE -> RECOMPILE
+MOVING_PROJECT_FRONTIER -> BOUNDED_RETRY -> HOLD
 CROSS_REPO_ROUTE_REQUIRES_EXACT_REPO_HEAD
 RPC_SURFACE_EXISTENCE != CANONICAL_RPC_PROMOTION
 GREEN_CHILD_HEAD != ACCEPTED_ANCESTRY
