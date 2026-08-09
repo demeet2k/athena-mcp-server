@@ -6,6 +6,7 @@ on:
     paths:
       - 'deploy/canary_observer.py'
       - 'tests/test_deployment_canary_observer_v3.py'
+      - 'tests/test_canary_trigger_contract.py'
       - '.github/workflows/canary-v3.3.yml'
       - 'athena_mcp/deployment.py'
   push:
@@ -13,6 +14,7 @@ on:
     paths:
       - 'deploy/canary_observer.py'
       - 'tests/test_deployment_canary_observer_v3.py'
+      - 'tests/test_canary_trigger_contract.py'
       - '.github/workflows/canary-v3.3.yml'
       - 'athena_mcp/deployment.py'
   workflow_dispatch:
@@ -27,7 +29,6 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  CANARY_SUBJECT: Observe ATHENA v3.3.0 isolated canary
   RELEASE_TAG: v3.3.0
   RELEASE_HEAD: 11211341adf599ae78784cce4ded39f21ee71ef7
   RELEASE_RUN_ID: '31297502454'
@@ -45,8 +46,9 @@ jobs:
           python-version: '3.12'
       - name: Validate observer and workflow contract
         run: |
-          python -m compileall -q deploy/canary_observer.py tests/test_deployment_canary_observer_v3.py
+          python -m compileall -q deploy/canary_observer.py tests/test_deployment_canary_observer_v3.py tests/test_canary_trigger_contract.py
           python -m unittest discover -s tests -p 'test_deployment_canary_observer_v3.py' -v
+          python -m unittest discover -s tests -p 'test_canary_trigger_contract.py' -v
 
   observe:
     if: >-
@@ -75,10 +77,10 @@ jobs:
           set -euo pipefail
           git fetch origin master
           test "$(git rev-parse HEAD)" = "$(git rev-parse origin/master)"
-          if [ "$GITHUB_EVENT_NAME" = push ]; then
-            test "$(git show -s --format=%s HEAD)" = "$CANARY_SUBJECT"
-          fi
 
+          # Push admission is owned by the job-level semantic-prefix predicate above.
+          # Immutable release identity is established below from tag, run, asset,
+          # and digest coordinates rather than from a mutable human-readable subject.
           TAG_TARGET=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$RELEASE_TAG" --jq '.object.sha')
           test "$TAG_TARGET" = "$RELEASE_HEAD"
           gh release view "$RELEASE_TAG" --json tagName,isDraft,isPrerelease,assets > /tmp/release.json
