@@ -10,32 +10,37 @@ _HEAD={
     "type":["string","null"],
     "pattern":"^[0-9a-fA-F]{40}$",
 }
+_SNAPSHOT={
+    "type":["string","null"],
+    "pattern":"^PATLASV2\.[0-9A-F]{32}$",
+}
 _LIMIT={"type":"integer","minimum":1,"maximum":100}
 _OFFSET={"type":"integer","minimum":0}
-_COMMON_HEADS={
+_COMMON_CAS={
     "expected_head":_HEAD,
     "expected_runtime_head":_HEAD,
+    "expected_snapshot_id":_SNAPSHOT,
 }
 
 PROJECT_ATLAS_TOOLS=[
     {
         "name":"athena_project_atlas_summary",
-        "description":"Return a bounded federated summary of configured Git, runtime-source Git and MCP coordinates with separate exact-head CAS.",
+        "description":"Return a bounded federated summary of configured Git, runtime-source Git and MCP coordinates with configured/runtime head CAS and full Project Atlas snapshot CAS.",
         "inputSchema":{
             "type":"object",
-            "properties":dict(_COMMON_HEADS),
+            "properties":dict(_COMMON_CAS),
             "additionalProperties":False,
         },
     },
     {
         "name":"athena_project_resolve",
-        "description":"Resolve one exact federated Project Atlas identifier (POID, Git path, full address, MCP name/locator, or native RETURN URI). Ambiguity and stale heads fail closed.",
+        "description":"Resolve one exact federated Project Atlas identifier. Ambiguity, stale Git heads and stale full-snapshot identity fail closed.",
         "inputSchema":{
             "type":"object",
             "required":["identifier"],
             "properties":{
                 "identifier":{"type":"string","minLength":1,"maxLength":4096},
-                **_COMMON_HEADS,
+                **_COMMON_CAS,
             },
             "additionalProperties":False,
         },
@@ -46,7 +51,7 @@ PROJECT_ATLAS_TOOLS=[
         "inputSchema":{
             "type":"object",
             "properties":{
-                **_COMMON_HEADS,
+                **_COMMON_CAS,
                 "source":{"type":"string","enum":["all","git","configured_git","runtime_git","mcp"]},
                 "path_prefix":{"type":"string","minLength":1,"maxLength":4096},
                 "git_type":{"type":"string","minLength":1,"maxLength":128},
@@ -65,7 +70,7 @@ PROJECT_ATLAS_TOOLS=[
     },
     {
         "name":"athena_project_route",
-        "description":"Resolve exact source/destination records across configured Git, runtime Git and MCP planes, then return normal/toroidal KC144 navigation plus native RETURN witnesses.",
+        "description":"Resolve exact source/destination records across configured Git, runtime Git and MCP planes, then return normal/toroidal KC144 navigation plus native RETURN witnesses under optional full-snapshot CAS.",
         "inputSchema":{
             "type":"object",
             "required":["src","dst"],
@@ -73,7 +78,7 @@ PROJECT_ATLAS_TOOLS=[
                 "src":{"type":"string","minLength":1,"maxLength":4096},
                 "dst":{"type":"string","minLength":1,"maxLength":4096},
                 "wrap":{"type":"boolean"},
-                **_COMMON_HEADS,
+                **_COMMON_CAS,
             },
             "additionalProperties":False,
         },
