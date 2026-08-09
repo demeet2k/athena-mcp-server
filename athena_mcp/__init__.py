@@ -63,9 +63,16 @@ from .collective_v14_install import install_release_v14 as _install_release_v14
 _install_release_v14(globals())
 del _install_release_v14
 
+# DEPLOYMENT-002 is a separately typed operational/hosting organ inherited from
+# live master. It composes after V14 and before V15 so its prompt/AOR/dispatch
+# seams are retained while V15 remains the final current release identity.
+from .deployment_extension import install_deployment_extension
+
+install_deployment_extension()
+
 # Collective V15 advances only the current release identity and calibrated
-# successor frontier. Operational Message Board/cohesion/party/prompt organs
-# remain separately typed and intact.
+# successor frontier. Deployment, Message Board, cohesion, party and prompt
+# organs remain separately typed and intact.
 from .collective_v15_install import install_release_v15 as _install_release_v15
 
 _install_release_v15(globals())
