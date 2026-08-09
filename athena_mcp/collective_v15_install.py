@@ -25,6 +25,7 @@ V15_LAWS=[
     'NONFINITE_NUMERIC_STATE != MODEL_COORDINATE',
     'GEOMETRIC_NEAREST_WITNESS != TIGHTEST_ERROR_ENVELOPE_WITNESS',
     'GLOBAL_ENVELOPE != RADIUS_ELIGIBLE_LOCAL_CERTIFICATE',
+    'NO_RADIUS_ELIGIBLE_WITNESS != GLOBAL_FALLBACK_CERTIFICATE',
     'UNKNOWN_STATE_COORDINATE != UNUSED_METADATA',
     'NONFINITE_TRANSITION != PROBABILITY_MODEL',
     'STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION',
@@ -91,6 +92,7 @@ def install_release_v15(namespace: dict[str, Any]) -> None:
                 'forbidden_future':['A2','Y'],
             }
             organ['numerical_membrane']='unknown coordinates and non-finite numeric state fail closed'
+            organ['transport_membrane']='radius-constrained transport returns a null local certificate when no witness is radius-eligible; unrestricted global envelope remains separately visible'
             organs['collective_v15']=organ
             payload['organs']=organs
             cycle=str(payload.get('cycle','')).replace('COLLECTIVE(V1-V14)','COLLECTIVE(V1-V15)').replace('Collective(V1-V14)','Collective(V1-V15)')
@@ -114,6 +116,7 @@ def install_release_v15(namespace: dict[str, Any]) -> None:
                 'laws':list(V15_LAWS),
                 'decision_time_history':{'A1':'baseline','A2':'baseline+A1+L1'},
                 'error_transport_coordinates':['geometric_nearest','global_envelope','radius_eligible_local_certificate'],
+                'radius_empty_behavior':'null local certificate; global envelope remains separate and nonlocal',
                 'numeric_policy':'reject unknown or non-finite model coordinates',
             }
             for unresolved in payload.get('unresolved') or []:
@@ -127,7 +130,7 @@ def install_release_v15(namespace: dict[str, Any]) -> None:
 
         def maxdev_law_v15():
             base=original_maxdev().replace('COLLECTIVE(V1-V14)','COLLECTIVE(V1-V15)').replace('Collective(V1-V14)','Collective(V1-V15)')
-            return base + '''\n\nV15 CALIBRATION LAW:\n- pool identical structural-support coordinates before weighted PAV; one semantic calibration coordinate cannot carry order-dependent duplicate fitted values;\n- calibrate structural bootstrap support only against externally labelled correctness with out-of-fold reliability; calibrated reliability != causal graph posterior;\n- cross-fit two-timepoint sequential TMLE/AIPW nuisance and evaluation folds while preserving explicit causal assumptions and observed history ordering; stage-1 policies may use baseline only and stage-2 policies may use baseline+A1+L1 only;\n- reject unknown Gaussian/state/action coordinates and non-finite model numbers instead of silently mapping them to zero or valid state;\n- use exact multivariate-Gaussian conditioning only for declared linear-Gaussian observation models; Gaussian joint belief != general continuous Bayes;\n- rank linear actions under Gaussian moments/CVaR as PLAN_ONLY; action value != execution authority;\n- keep geometric nearest witness, tightest global error envelope, and radius-eligible local transport certificate distinct;\n- transport approximation error only through a declared Lipschitz envelope that is consistent with supplied witnesses; transport certificate remains assumption/domain scoped;\n- solve finite-horizon robust dynamic programs exactly only under supplied state-action rectangular total-variation ambiguity with finite complete coordinate validation; rectangular TV-DRO != general multistage DRO;\n- zero selected tests are not proof even when a test command exits successfully;\n- never promote calibration curves, cross-fitted estimates, Gaussian posterior state, transported error bounds, or robust policies into observation/Y1/JSPACE/execution/trust state without a separately witnessed transition.\n'''
+            return base + '''\n\nV15 CALIBRATION LAW:\n- pool identical structural-support coordinates before weighted PAV; one semantic calibration coordinate cannot carry order-dependent duplicate fitted values;\n- calibrate structural bootstrap support only against externally labelled correctness with out-of-fold reliability; calibrated reliability != causal graph posterior;\n- cross-fit two-timepoint sequential TMLE/AIPW nuisance and evaluation folds while preserving explicit causal assumptions and observed history ordering; stage-1 policies may use baseline only and stage-2 policies may use baseline+A1+L1 only;\n- reject unknown Gaussian/state/action coordinates and non-finite model numbers instead of silently mapping them to zero or valid state;\n- use exact multivariate-Gaussian conditioning only for declared linear-Gaussian observation models; Gaussian joint belief != general continuous Bayes;\n- rank linear actions under Gaussian moments/CVaR as PLAN_ONLY; action value != execution authority;\n- keep geometric nearest witness, tightest global error envelope, and radius-eligible local transport certificate distinct; when a declared radius contains no witness, return no local certificate rather than falling back to the global envelope;\n- transport approximation error only through a declared Lipschitz envelope that is consistent with supplied witnesses; transport certificate remains assumption/domain scoped;\n- solve finite-horizon robust dynamic programs exactly only under supplied state-action rectangular total-variation ambiguity with finite complete coordinate validation; rectangular TV-DRO != general multistage DRO;\n- zero selected tests are not proof even when a test command exits successfully;\n- never promote calibration curves, cross-fitted estimates, Gaussian posterior state, transported error bounds, or robust policies into observation/Y1/JSPACE/execution/trust state without a separately witnessed transition.\n'''
         um.build_unified_manifest=build_unified_manifest_v15
         um.maxdev_law=maxdev_law_v15
         um._athena_collective_v15_installed=True
@@ -182,6 +185,7 @@ def install_release_v15(namespace: dict[str, Any]) -> None:
                     'claim_namespace':CLAIM_NAMESPACE_LAW,
                     'decision_time_history':{'A1':'baseline only','A2':'baseline + A1 + L1 only'},
                     'error_transport_coordinates':['geometric_nearest','global_envelope','radius_eligible_local_certificate'],
+                    'radius_empty_behavior':'null local certificate; global envelope remains visible separately and does not satisfy the radius constraint',
                     'numeric_policy':'unknown coordinates and non-finite model numbers fail closed',
                     'boundary':'V15 reliability calibration, history-safe cross-fitted longitudinal estimates, strict Gaussian joint beliefs/actions, approximation-error transport and rectangular-TV robust plans are calibration/model/science/control state. They do not mutate Y1 authority, canonical JSPACE, empirical observations, execution history, or trusted promotion state by adjacency.'
                 }
