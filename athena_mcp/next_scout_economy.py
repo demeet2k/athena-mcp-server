@@ -72,12 +72,7 @@ def _dominates(a: dict, b: dict) -> bool:
 
 
 class NextScoutEconomyRuntime:
-    """Read-only multi-resource economy over staged scout prep plans.
-
-    V5 converts V4's identical-slot abstraction into a bounded resource-vector
-    optimization. It consumes observed Message Board occupancy but creates no
-    claim, runs no scout, mutates no Git state, and grants no authority.
-    """
+    """Read-only multi-resource economy over staged scout prep plans."""
 
     def __init__(self, pipeline: RollingQuestPipelineRuntime, breadth: NextQuestBreadthRuntime,
                  board: MessageBoardRuntime | None = None):
@@ -154,8 +149,20 @@ class NextScoutEconomyRuntime:
                     "unknown_active_plan_ids": sorted(set(unknown_active)), "authority": "ROUTING_ONLY"}
 
         active_profile = _sum_profiles(active_rows)
-        available_after_active = {k: max(0, available_total[k] - active_profile[k]) for k in RESOURCE_KEYS}
         usable_slots = max(0, max_scouts - reserve_slots)
+        if len(active_ids) > usable_slots:
+            return {"artifact": VERSION, "status": "ACTIVE_SCOUTS_EXCEED_SLOT_BUDGET_HOLD",
+                    "active_plan_ids": active_ids, "active_count": len(active_ids),
+                    "usable_slots": usable_slots, "authority": "ROUTING_ONLY"}
+        oversubscribed = [key for key in RESOURCE_KEYS if active_profile[key] > available_total[key]]
+        if oversubscribed:
+            return {"artifact": VERSION, "status": "ACTIVE_SCOUTS_EXCEED_RESOURCE_BUDGET_HOLD",
+                    "active_plan_ids": active_ids, "active_profile": active_profile,
+                    "available_total": available_total, "oversubscribed_resources": oversubscribed,
+                    "cost_standing": "PLANNING_ESTIMATES_NOT_OBSERVED_CONSUMPTION",
+                    "authority": "ROUTING_ONLY"}
+
+        available_after_active = {k: available_total[k] - active_profile[k] for k in RESOURCE_KEYS}
         new_slots = max(0, usable_slots - len(active_ids))
 
         candidates, excluded = [], []
@@ -193,14 +200,9 @@ class NextScoutEconomyRuntime:
                 quest_ids = {str((r.get("quest") or {}).get("quest_id")) for r in combined}
                 kinds = {str(r.get("kind")) for r in combined}
                 near = sum(1 for r in combined if roles.get(str((r.get("quest") or {}).get("quest_id"))) == 1)
-                feasible.append({
-                    "plan_ids": sorted(str(r.get("plan_id")) for r in rows),
-                    "new_profile": profile,
-                    "combined_profile": combined_profile,
-                    "coverage": len(quest_ids),
-                    "diversity": len(kinds),
-                    "near_count": near,
-                })
+                feasible.append({"plan_ids": sorted(str(r.get("plan_id")) for r in rows),
+                                 "new_profile": profile, "combined_profile": combined_profile,
+                                 "coverage": len(quest_ids), "diversity": len(kinds), "near_count": near})
 
         pareto = []
         for row in feasible:
@@ -211,19 +213,10 @@ class NextScoutEconomyRuntime:
             pareto.append(row)
 
         def policy_key(row: dict) -> tuple:
-            cp = row["combined_profile"]
-            np = row["new_profile"]
+            cp, np = row["combined_profile"], row["new_profile"]
             total_cost = sum(np[k] for k in ("minutes", "tool_calls", "coordination", "git_risk"))
-            return (
-                row["coverage"],
-                cp["blocker_removal"],
-                cp["reconstruction_reduction"],
-                cp["information_gain"],
-                row["diversity"],
-                row["near_count"],
-                -total_cost,
-                -np["tokens"],
-            )
+            return (row["coverage"], cp["blocker_removal"], cp["reconstruction_reduction"], cp["information_gain"],
+                    row["diversity"], row["near_count"], -total_cost, -np["tokens"])
 
         if pareto:
             best_key = max(policy_key(row) for row in pareto)
@@ -231,10 +224,9 @@ class NextScoutEconomyRuntime:
         else:
             best_key, optima = tuple(), []
 
-        normalized = sorted({tuple(row["plan_ids"]) for row in optima})
-        optimal_sets = [list(x) for x in normalized]
+        optimal_sets = [list(x) for x in sorted({tuple(row["plan_ids"]) for row in optima})]
         selected_ids = None
-        status = "NO_SCOUT_WORK" if not feasible or (not candidates and not active_ids) else "SELECTED"
+        status = "NO_SCOUT_WORK" if not candidates and not active_ids else "SELECTED"
         if optimal_sets:
             if len(optimal_sets) == 1:
                 selected_ids = optimal_sets[0]
@@ -246,54 +238,37 @@ class NextScoutEconomyRuntime:
                         raise ValueError("SCOUT_ECONOMY_CHOICE_NOT_OPTIMAL")
                     selected_ids = choice
                     status = "RESOLVED_ECONOMIC_ALLOCATION"
+        if candidates and selected_ids == []:
+            status = "BUDGET_HOLD_NO_FEASIBLE_NEW_WORK"
 
         selected_rows = [dict(plans[x]) for x in (selected_ids or [])]
         selected_profile = _sum_profiles(selected_rows)
         basis = {
-            "artifact": VERSION,
-            "pipeline_id": pipeline_id,
+            "artifact": VERSION, "pipeline_id": pipeline_id,
             "pipeline_state_digest": expected_pipeline_state_digest,
-            "breadth_state_digest": breadth.get("state_digest"),
-            "git_head": self.git.head(),
-            "budgets": budgets,
-            "reserves": reserves,
-            "available_total": available_total,
-            "active_plan_ids": active_ids,
-            "active_profile": active_profile,
-            "available_after_active": available_after_active,
-            "max_scouts": max_scouts,
-            "reserve_slots": reserve_slots,
-            "usable_slots": usable_slots,
-            "new_slots": new_slots,
+            "breadth_state_digest": breadth.get("state_digest"), "git_head": self.git.head(),
+            "budgets": budgets, "reserves": reserves, "available_total": available_total,
+            "active_plan_ids": active_ids, "active_profile": active_profile,
+            "available_after_active": available_after_active, "max_scouts": max_scouts,
+            "reserve_slots": reserve_slots, "usable_slots": usable_slots, "new_slots": new_slots,
             "candidate_plan_ids": [str(x.get("plan_id")) for x in candidates],
             "pareto_allocations": [row["plan_ids"] for row in pareto],
-            "optimal_allocations": optimal_sets,
-            "selected_plan_ids": selected_ids,
+            "optimal_allocations": optimal_sets, "selected_plan_ids": selected_ids,
             "selected_profile": selected_profile,
-            "policy": "RESOURCE_FEASIBLE_PARETO_THEN_BALANCED_VALUE_V1",
-            "policy_key": list(best_key),
+            "policy": "RESOURCE_FEASIBLE_PARETO_THEN_BALANCED_VALUE_V1", "policy_key": list(best_key),
         }
-        return {
-            **basis,
-            "status": status,
-            "selected": selected_rows,
-            "excluded": excluded,
-            "allocation_digest": _digest(basis),
-            "resource_profiles": RESOURCE_PROFILE,
-            "cost_standing": "PLANNING_ESTIMATES_NOT_OBSERVED_CONSUMPTION",
-            "authority": "ROUTING_ONLY",
-            "claim_effect": "NONE",
-            "execution_effect": "NONE",
-            "promotion_effect": "NONE",
-            "laws": [
-                "ECONOMIC_ALLOCATION != CLAIM",
-                "PLANNING_COST_ESTIMATE != OBSERVED_RESOURCE_CONSUMPTION",
-                "RESERVE_VECTOR_IS_NOT_SPENDABLE",
-                "ACTIVE_SCOUTS_CONSUME_RESOURCE_BUDGET_FIRST",
-                "PARETO_TIE != HIDDEN_TIE_BREAK",
-                "MESSAGE_BOARD_REMAINS_CLAIM_AUTHORITY",
-            ],
-        }
+        return {**basis, "status": status, "selected": selected_rows, "excluded": excluded,
+                "allocation_digest": _digest(basis), "resource_profiles": RESOURCE_PROFILE,
+                "cost_standing": "PLANNING_ESTIMATES_NOT_OBSERVED_CONSUMPTION",
+                "authority": "ROUTING_ONLY", "claim_effect": "NONE", "execution_effect": "NONE",
+                "promotion_effect": "NONE",
+                "laws": ["ECONOMIC_ALLOCATION != CLAIM",
+                         "PLANNING_COST_ESTIMATE != OBSERVED_RESOURCE_CONSUMPTION",
+                         "RESERVE_VECTOR_IS_NOT_SPENDABLE",
+                         "ACTIVE_SCOUTS_CONSUME_RESOURCE_BUDGET_FIRST",
+                         "ACTIVE_SCOUT_OVERSUBSCRIPTION => HOLD",
+                         "PARETO_TIE != HIDDEN_TIE_BREAK",
+                         "MESSAGE_BOARD_REMAINS_CLAIM_AUTHORITY"]}
 
     def call_tool(self, name: str, a: dict) -> dict:
         if name != TOOL_NAME:
@@ -307,30 +282,25 @@ class NextScoutEconomyRuntime:
             coordination_budget=a.get("coordination_budget", 10), reserve_coordination=a.get("reserve_coordination", 2),
             git_risk_budget=a.get("git_risk_budget", 8), reserve_git_risk=a.get("reserve_git_risk", 1),
             agent_id=a.get("agent_id"), remote=a.get("remote", "origin"),
-            shared_remote_mode=a.get("shared_remote_mode", "REQUIRED"), choice_plan_ids=a.get("choice_plan_ids"),
-        )
+            shared_remote_mode=a.get("shared_remote_mode", "REQUIRED"), choice_plan_ids=a.get("choice_plan_ids"))
 
 
-NEXT_SCOUT_ECONOMY_TOOLS = [{
-    "name": TOOL_NAME,
+NEXT_SCOUT_ECONOMY_TOOLS = [{"name": TOOL_NAME,
     "description": "Read-only V5 multi-resource scout economy. Chooses Pareto-feasible staged prep plans under scout-count, token, time, tool-call, coordination, Git-risk, and protected reserve budgets. Resource profiles are routing estimates, not observed consumption. The tool never claims or executes work.",
-    "inputSchema": {
-        "type": "object", "required": ["pipeline_id", "expected_pipeline_state_digest"],
-        "properties": {
-            "pipeline_id": {"type": "string"}, "expected_pipeline_state_digest": {"type": "string"},
-            "max_scouts": {"type": "integer", "minimum": 1, "maximum": 32},
-            "reserve_slots": {"type": "integer", "minimum": 0, "maximum": 31},
-            "token_budget": {"type": "integer", "minimum": 1}, "reserve_tokens": {"type": "integer", "minimum": 0},
-            "minute_budget": {"type": "integer", "minimum": 1}, "reserve_minutes": {"type": "integer", "minimum": 0},
-            "tool_call_budget": {"type": "integer", "minimum": 1}, "reserve_tool_calls": {"type": "integer", "minimum": 0},
-            "coordination_budget": {"type": "integer", "minimum": 1}, "reserve_coordination": {"type": "integer", "minimum": 0},
-            "git_risk_budget": {"type": "integer", "minimum": 1}, "reserve_git_risk": {"type": "integer", "minimum": 0},
-            "agent_id": {"type": ["string", "null"]}, "remote": {"type": "string"},
-            "shared_remote_mode": {"type": "string", "enum": ["REQUIRED", "BEST_EFFORT", "DISABLED"]},
-            "choice_plan_ids": {"type": ["array", "null"], "items": {"type": "string"}},
-        }, "additionalProperties": False,
-    },
-}]
+    "inputSchema": {"type": "object", "required": ["pipeline_id", "expected_pipeline_state_digest"],
+      "properties": {
+        "pipeline_id": {"type": "string"}, "expected_pipeline_state_digest": {"type": "string"},
+        "max_scouts": {"type": "integer", "minimum": 1, "maximum": 32},
+        "reserve_slots": {"type": "integer", "minimum": 0, "maximum": 31},
+        "token_budget": {"type": "integer", "minimum": 1}, "reserve_tokens": {"type": "integer", "minimum": 0},
+        "minute_budget": {"type": "integer", "minimum": 1}, "reserve_minutes": {"type": "integer", "minimum": 0},
+        "tool_call_budget": {"type": "integer", "minimum": 1}, "reserve_tool_calls": {"type": "integer", "minimum": 0},
+        "coordination_budget": {"type": "integer", "minimum": 1}, "reserve_coordination": {"type": "integer", "minimum": 0},
+        "git_risk_budget": {"type": "integer", "minimum": 1}, "reserve_git_risk": {"type": "integer", "minimum": 0},
+        "agent_id": {"type": ["string", "null"]}, "remote": {"type": "string"},
+        "shared_remote_mode": {"type": "string", "enum": ["REQUIRED", "BEST_EFFORT", "DISABLED"]},
+        "choice_plan_ids": {"type": ["array", "null"], "items": {"type": "string"}}},
+      "additionalProperties": False}}]
 NEXT_SCOUT_ECONOMY_TOOL_NAMES = {TOOL_NAME}
 
 
@@ -338,7 +308,6 @@ def install_next_scout_economy_extension(prompt_runtime_cls, tool_list: list[dic
     if getattr(prompt_runtime_cls, "_athena_next_scout_economy_v5_registered", False):
         return
     previous_call = prompt_runtime_cls.call_tool
-
     def call_with_economy(self, name, arguments):
         if name in NEXT_SCOUT_ECONOMY_TOOL_NAMES:
             runtime = getattr(self, "_next_scout_economy_runtime_v5", None)
@@ -351,7 +320,6 @@ def install_next_scout_economy_extension(prompt_runtime_cls, tool_list: list[dic
                 self._next_scout_economy_runtime_v5 = runtime
             return runtime.call_tool(name, arguments)
         return previous_call(self, name, arguments)
-
     prompt_runtime_cls.call_tool = call_with_economy
     prompt_runtime_cls._athena_next_scout_economy_v5_registered = True
     for tool in NEXT_SCOUT_ECONOMY_TOOLS:
