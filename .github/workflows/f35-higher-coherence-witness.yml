@@ -1,0 +1,39 @@
+name: F35 Higher Coherence Witness
+
+on:
+  pull_request:
+    branches:
+      - 'agent/cell-closure-evidence-kc15-v1'
+    paths:
+      - 'spec/F35_HIGHER_COHERENCE_WITNESS_V1.json'
+      - 'scripts/f35_higher_coherence_witness.py'
+      - '.github/workflows/f35-higher-coherence-witness.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  f35-coherence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile bounded F35 witness
+        run: python -m compileall -q scripts/f35_higher_coherence_witness.py
+      - name: Execute finite higher-coherence witness
+        env:
+          PYTHONPATH: .
+        run: python scripts/f35_higher_coherence_witness.py
+      - name: Upload F35 coherence receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f35-higher-coherence-witness-v1
+          path: f35_higher_coherence_witness_v1.json
+          if-no-files-found: error
