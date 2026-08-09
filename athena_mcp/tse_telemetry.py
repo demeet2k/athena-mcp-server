@@ -1,21 +1,27 @@
 from __future__ import annotations
 
+import hashlib
 import json
+import math
 import os
 import re
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, Mapping, Optional
+from typing import Any, Dict, Iterable, Mapping
 
 from .git_backend import GitBackend, GitStateError, GitStaleHead
 from .prompt_remote import PromptRemoteSync
 
-TELEMETRY_VERSION = "TSE.HELICAL.HANDOFF.TELEMETRY.1"
-TELEMETRY_ARTIFACT = "ATHENA.TSE.HELIX.EVENT.V1"
+TELEMETRY_VERSION = "TSE.HELICAL.HANDOFF.TELEMETRY.2"
+TELEMETRY_ARTIFACT = "ATHENA.TSE.HELIX.EVENT.V2"
+LEGACY_TELEMETRY_ARTIFACT = "ATHENA.TSE.HELIX.EVENT.V1"
 TELEMETRY_ROOT = "runtime/tse_population/v1/telemetry"
 EVENT_ROOT = f"{TELEMETRY_ROOT}/events"
 RESOURCE_URI = "athena://tse-telemetry/v1"
+
+SOURCE_BOUND = "SOURCE_BOUND"
+DECLARED_ONLY = "DECLARED_ONLY"
 
 SUCCESS_TRANSITIONS = (
     "HATCH_CREATED",
@@ -66,7 +72,6 @@ def _canonical(value: Any) -> str:
 
 
 def _digest(value: Any) -> str:
-    import hashlib
     return "sha256:" + hashlib.sha256(_canonical(value).encode("utf-8")).hexdigest()
 
 
@@ -82,8 +87,12 @@ def _require_id(value: Any, field: str) -> str:
 
 
 def _finite_nonnegative(value: Any) -> bool:
-    import math
-    return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(float(value)) and float(value) >= 0
+    return (
+        isinstance(value, (int, float))
+        and not isinstance(value, bool)
+        and math.isfinite(float(value))
+        and float(value) >= 0
+    )
 
 
 def _walk_items(value: Any):
@@ -131,11 +140,51 @@ def _ratio(numerator: int, denominator: int):
     return numerator / denominator
 
 
+def _source_packet(
+    verification: str,
+    *,
+    kind: str,
+    ref: str,
+    digest: str | None,
+    git_head: str | None,
+    authority: str,
+) -> dict:
+    return {
+        "verification": verification,
+        "kind": str(kind or "").strip(),
+        "ref": str(ref or "").strip(),
+        "digest": digest,
+        "git_head": str(git_head or "").strip() or None,
+        "authority": str(authority or "").strip(),
+    }
+
+
+def _source_errors(source: Any) -> list[str]:
+    if not isinstance(source, Mapping):
+        return ["source_not_mapping"]
+    errors = []
+    if source.get("verification") not in {SOURCE_BOUND, DECLARED_ONLY}:
+        errors.append("source_verification")
+    for key in ("kind", "ref", "authority"):
+        if not str(source.get(key) or "").strip():
+            errors.append(f"source_{key}")
+    digest = source.get("digest")
+    if source.get("verification") == SOURCE_BOUND:
+        if not isinstance(digest, str) or not digest.startswith("sha256:") or len(digest) != 71:
+            errors.append("source_digest")
+    elif digest is not None and (not isinstance(digest, str) or not digest.startswith("sha256:")):
+        errors.append("source_digest")
+    errors += _public_errors(source)
+    return sorted(set(errors))
+
+
 class TseHelixTelemetryRuntime:
     """Git-backed public telemetry for the TSE Helical Handoff.
 
-    Telemetry is an observation ledger only. It does not assign work, create
-    claims, authorize Return application, or establish causal treatment effect.
+    The ledger is observation-only. Low-level caller-declared observations are
+    retained for audit, but primary conversion metrics count only SOURCE_BOUND
+    events emitted by adapters that re-derive the transition from actual public
+    TSE/Cohesion/Message-Board state.
     """
 
     def __init__(self, server):
@@ -165,7 +214,7 @@ class TseHelixTelemetryRuntime:
         out = []
         for path in sorted(root.glob("*.json")):
             value = self._read_json(path)
-            if value and value.get("artifact") == TELEMETRY_ARTIFACT:
+            if value and value.get("artifact") in {TELEMETRY_ARTIFACT, LEGACY_TELEMETRY_ARTIFACT}:
                 out.append(value)
         return sorted(out, key=lambda row: (str(row.get("created_at")), str(row.get("event_id"))))
 
@@ -187,7 +236,9 @@ class TseHelixTelemetryRuntime:
     def _commit_files(self, expected_head: str, files: Dict[str, str], actor: str, message: str) -> dict:
         current = self.git.head()
         if current != expected_head:
-            raise GitStaleHead(json.dumps({"status": "STALE_GIT_HEAD", "expected": expected_head, "current": current}))
+            raise GitStaleHead(
+                json.dumps({"status": "STALE_GIT_HEAD", "expected": expected_head, "current": current})
+            )
         if self.git._git("status", "--porcelain"):
             raise GitStateError("DIRTY_GIT_ROOT: TSE telemetry refuses unrelated working-tree state")
         actor = _require_id(actor, "actor_id")
@@ -211,7 +262,9 @@ class TseHelixTelemetryRuntime:
             env.setdefault("GIT_COMMITTER_EMAIL", "athena@local")
             proc = subprocess.run(
                 ["git", "-C", str(self._root()), "commit", "-m", message],
-                text=True, capture_output=True, env=env,
+                text=True,
+                capture_output=True,
+                env=env,
             )
             if proc.returncode:
                 raise GitStateError(proc.stderr.strip() or proc.stdout.strip())
@@ -226,10 +279,14 @@ class TseHelixTelemetryRuntime:
         try:
             parent = self.git._git("rev-parse", f"{created_head}^")
             changed = self.git._git("diff", "--name-only", f"{base_head}..{created_head}").splitlines()
-            ancestor = subprocess.run(
-                ["git", "-C", str(self._root()), "merge-base", "--is-ancestor", base_head, remote_head],
-                text=True, capture_output=True,
-            ).returncode == 0
+            ancestor = (
+                subprocess.run(
+                    ["git", "-C", str(self._root()), "merge-base", "--is-ancestor", base_head, remote_head],
+                    text=True,
+                    capture_output=True,
+                ).returncode
+                == 0
+            )
         except GitStateError:
             return False
         if parent != base_head or not ancestor:
@@ -259,7 +316,12 @@ class TseHelixTelemetryRuntime:
                 return value
             commit = self._commit_files(base, plan["files"], actor_id, plan["message"])
             if commit["status"] == "NO_CHANGES":
-                return {**dict(plan.get("result") or {}), "git": commit, "remote_sync": sync, "durable_return": True}
+                return {
+                    **dict(plan.get("result") or {}),
+                    "git": commit,
+                    "remote_sync": sync,
+                    "durable_return": True,
+                }
             published = self.remote_sync.publish(commit["head"], remote)
             if published.get("shared_frontier_verified"):
                 return {
@@ -269,7 +331,10 @@ class TseHelixTelemetryRuntime:
                     "durable_return": True,
                     "attempt": attempt,
                 }
-            if published.get("status") == "PUBLISH_HOLD_DIVERGED_HOLD" and self._safe_race_reset(base, commit["head"], published.get("remote_head")):
+            if (
+                published.get("status") == "PUBLISH_HOLD_DIVERGED_HOLD"
+                and self._safe_race_reset(base, commit["head"], published.get("remote_head"))
+            ):
                 continue
             return {
                 **dict(plan.get("result") or {}),
@@ -308,6 +373,7 @@ class TseHelixTelemetryRuntime:
         hold_class: str | None,
         seam: str | None,
         attempt_ref: str | None,
+        source: Mapping[str, Any],
     ) -> dict:
         return {
             "mission_id": mission_id,
@@ -324,9 +390,10 @@ class TseHelixTelemetryRuntime:
             "hold_class": hold_class,
             "seam": seam,
             "attempt_ref": attempt_ref,
+            "source": dict(source),
         }
 
-    def record(
+    def _record(
         self,
         *,
         mission_id: str,
@@ -336,6 +403,7 @@ class TseHelixTelemetryRuntime:
         actor_id: str,
         witnesses: Iterable[str],
         cost: Mapping[str, Any],
+        source: Mapping[str, Any],
         parent_event_id: str | None = None,
         child_agent_id: str | None = None,
         child_claim_id: str | None = None,
@@ -363,7 +431,7 @@ class TseHelixTelemetryRuntime:
 
         transition = str(transition or "").upper()
         witness_list = sorted({str(value).strip() for value in witnesses if str(value).strip()})
-        errors = _cost_errors(cost)
+        errors = _cost_errors(cost) + _source_errors(source)
         if transition not in set(SUCCESS_TRANSITIONS) | {HOLD_TRANSITION}:
             errors.append("unknown_transition")
         if not witness_list:
@@ -401,48 +469,124 @@ class TseHelixTelemetryRuntime:
             hold_class=hold_class,
             seam=str(seam) if seam else None,
             attempt_ref=attempt_ref,
+            source=source,
         )
         errors += _public_errors(basis)
         if errors:
-            return {"status": "TSE_TELEMETRY_RECORD_HOLD", "hold": "EVIDENCE_HOLD", "errors": sorted(set(errors))}
+            return {
+                "status": "TSE_TELEMETRY_RECORD_HOLD",
+                "hold": "EVIDENCE_HOLD",
+                "errors": sorted(set(errors)),
+            }
 
         event_id = self._event_id(mission_id, route_id, transition, attempt_ref)
         semantic_digest = _digest(basis)
         path = self._event_path(event_id)
+        source_bound = source.get("verification") == SOURCE_BOUND
 
         def build(base_head: str):
             existing = self._read_json(self._root() / path)
             if existing:
                 if existing.get("semantic_digest") == semantic_digest:
-                    return {"return": {"status": "TSE_TELEMETRY_ALREADY_RECORDED", "event": existing}}
-                return {"return": {
-                    "status": "TSE_TELEMETRY_EVENT_CONFLICT_HOLD",
-                    "hold": "EVIDENCE_HOLD",
-                    "event_id": event_id,
-                    "existing_semantic_digest": existing.get("semantic_digest"),
-                    "requested_semantic_digest": semantic_digest,
-                }}
+                    return {
+                        "return": {
+                            "status": "TSE_TELEMETRY_ALREADY_RECORDED",
+                            "event": existing,
+                            "source_bound": bool(
+                                (existing.get("source") or {}).get("verification") == SOURCE_BOUND
+                            ),
+                        }
+                    }
+                return {
+                    "return": {
+                        "status": "TSE_TELEMETRY_EVENT_CONFLICT_HOLD",
+                        "hold": "EVIDENCE_HOLD",
+                        "event_id": event_id,
+                        "existing_semantic_digest": existing.get("semantic_digest"),
+                        "requested_semantic_digest": semantic_digest,
+                    }
+                }
 
             events = {str(row.get("event_id")): row for row in self._events()}
             if transition in SUCCESS_TRANSITIONS:
                 allowed = PARENT_RULES[transition]
                 if not allowed:
                     if parent_event_id is not None:
-                        return {"return": {"status": "TSE_TELEMETRY_PARENT_HOLD", "hold": "EVIDENCE_HOLD", "reason": "root_transition_must_not_have_parent"}}
+                        return {
+                            "return": {
+                                "status": "TSE_TELEMETRY_PARENT_HOLD",
+                                "hold": "EVIDENCE_HOLD",
+                                "reason": "root_transition_must_not_have_parent",
+                            }
+                        }
                 else:
                     parent = events.get(str(parent_event_id or ""))
                     if not parent:
-                        return {"return": {"status": "TSE_TELEMETRY_PARENT_HOLD", "hold": "EVIDENCE_HOLD", "reason": "parent_event_missing"}}
+                        return {
+                            "return": {
+                                "status": "TSE_TELEMETRY_PARENT_HOLD",
+                                "hold": "EVIDENCE_HOLD",
+                                "reason": "parent_event_missing",
+                            }
+                        }
                     if parent.get("transition") not in allowed:
-                        return {"return": {"status": "TSE_TELEMETRY_PARENT_HOLD", "hold": "EVIDENCE_HOLD", "reason": "parent_transition_invalid"}}
-                    if parent.get("mission_id") != mission_id or parent.get("route_id") != route_id or parent.get("hatch_id") != hatch_id:
-                        return {"return": {"status": "TSE_TELEMETRY_PARENT_HOLD", "hold": "EVIDENCE_HOLD", "reason": "parent_lineage_mismatch"}}
+                        return {
+                            "return": {
+                                "status": "TSE_TELEMETRY_PARENT_HOLD",
+                                "hold": "EVIDENCE_HOLD",
+                                "reason": "parent_transition_invalid",
+                            }
+                        }
+                    if (
+                        parent.get("mission_id") != mission_id
+                        or parent.get("route_id") != route_id
+                        or parent.get("hatch_id") != hatch_id
+                    ):
+                        return {
+                            "return": {
+                                "status": "TSE_TELEMETRY_PARENT_HOLD",
+                                "hold": "EVIDENCE_HOLD",
+                                "reason": "parent_lineage_mismatch",
+                            }
+                        }
+                    if source_bound and (parent.get("source") or {}).get("verification") != SOURCE_BOUND:
+                        return {
+                            "return": {
+                                "status": "TSE_TELEMETRY_PARENT_HOLD",
+                                "hold": "EVIDENCE_HOLD",
+                                "reason": "source_bound_child_requires_source_bound_parent",
+                            }
+                        }
             elif parent_event_id:
                 parent = events.get(parent_event_id)
                 if not parent:
-                    return {"return": {"status": "TSE_TELEMETRY_PARENT_HOLD", "hold": "EVIDENCE_HOLD", "reason": "hold_parent_missing"}}
-                if parent.get("mission_id") != mission_id or parent.get("route_id") != route_id or parent.get("hatch_id") != hatch_id:
-                    return {"return": {"status": "TSE_TELEMETRY_PARENT_HOLD", "hold": "EVIDENCE_HOLD", "reason": "hold_parent_lineage_mismatch"}}
+                    return {
+                        "return": {
+                            "status": "TSE_TELEMETRY_PARENT_HOLD",
+                            "hold": "EVIDENCE_HOLD",
+                            "reason": "hold_parent_missing",
+                        }
+                    }
+                if (
+                    parent.get("mission_id") != mission_id
+                    or parent.get("route_id") != route_id
+                    or parent.get("hatch_id") != hatch_id
+                ):
+                    return {
+                        "return": {
+                            "status": "TSE_TELEMETRY_PARENT_HOLD",
+                            "hold": "EVIDENCE_HOLD",
+                            "reason": "hold_parent_lineage_mismatch",
+                        }
+                    }
+                if source_bound and (parent.get("source") or {}).get("verification") != SOURCE_BOUND:
+                    return {
+                        "return": {
+                            "status": "TSE_TELEMETRY_PARENT_HOLD",
+                            "hold": "EVIDENCE_HOLD",
+                            "reason": "source_bound_hold_requires_source_bound_parent",
+                        }
+                    }
 
             event = {
                 "artifact": TELEMETRY_ARTIFACT,
@@ -459,10 +603,135 @@ class TseHelixTelemetryRuntime:
             return {
                 "files": {path: _json_text(event)},
                 "message": f"Record TSE helix {transition} {event_id}",
-                "result": {"status": "TSE_TELEMETRY_RECORDED", "event": event},
+                "result": {
+                    "status": (
+                        "TSE_TELEMETRY_RECORDED_SOURCE_BOUND"
+                        if source_bound
+                        else "TSE_TELEMETRY_RECORDED_DECLARED"
+                    ),
+                    "event": event,
+                    "source_bound": source_bound,
+                },
             }
 
         return self._mutate(actor_id=actor_id, remote=remote, build_files=build)
+
+    def record(
+        self,
+        *,
+        mission_id: str,
+        route_id: str,
+        hatch_id: str,
+        transition: str,
+        actor_id: str,
+        witnesses: Iterable[str],
+        cost: Mapping[str, Any],
+        parent_event_id: str | None = None,
+        child_agent_id: str | None = None,
+        child_claim_id: str | None = None,
+        verified_delta: float | None = None,
+        hold_class: str | None = None,
+        seam: str | None = None,
+        attempt_ref: str | None = None,
+        remote: str = "origin",
+    ) -> dict:
+        """Persist a caller-declared observation.
+
+        Declared observations remain audit-visible but never enter primary
+        source-bound conversion metrics. Use the TSE Helix composition tools for
+        source-bound success observations.
+        """
+        declared_basis = {
+            "mission_id": mission_id,
+            "route_id": route_id,
+            "hatch_id": hatch_id,
+            "transition": str(transition or "").upper(),
+            "attempt_ref": attempt_ref,
+        }
+        source = _source_packet(
+            DECLARED_ONLY,
+            kind="CALLER_DECLARED",
+            ref="DECLARED-" + _digest(declared_basis).split(":", 1)[1][:24],
+            digest=_digest(declared_basis),
+            git_head=self.git.head() if self.git.enabled else None,
+            authority="NONE",
+        )
+        return self._record(
+            mission_id=mission_id,
+            route_id=route_id,
+            hatch_id=hatch_id,
+            transition=transition,
+            actor_id=actor_id,
+            witnesses=witnesses,
+            cost=cost,
+            source=source,
+            parent_event_id=parent_event_id,
+            child_agent_id=child_agent_id,
+            child_claim_id=child_claim_id,
+            verified_delta=verified_delta,
+            hold_class=hold_class,
+            seam=seam,
+            attempt_ref=attempt_ref,
+            remote=remote,
+        )
+
+    def record_source_bound(
+        self,
+        *,
+        mission_id: str,
+        route_id: str,
+        hatch_id: str,
+        transition: str,
+        actor_id: str,
+        witnesses: Iterable[str],
+        cost: Mapping[str, Any],
+        source_kind: str,
+        source_ref: str,
+        source_payload: Mapping[str, Any],
+        source_git_head: str | None,
+        source_authority: str,
+        parent_event_id: str | None = None,
+        child_agent_id: str | None = None,
+        child_claim_id: str | None = None,
+        verified_delta: float | None = None,
+        hold_class: str | None = None,
+        seam: str | None = None,
+        attempt_ref: str | None = None,
+        remote: str = "origin",
+    ) -> dict:
+        errors = _public_errors(source_payload)
+        if errors:
+            return {"status": "TSE_TELEMETRY_RECORD_HOLD", "hold": "EVIDENCE_HOLD", "errors": errors}
+        try:
+            source_ref = _require_id(source_ref, "source_ref")
+        except ValueError as exc:
+            return {"status": "TSE_TELEMETRY_RECORD_HOLD", "hold": "EVIDENCE_HOLD", "errors": [str(exc)]}
+        source = _source_packet(
+            SOURCE_BOUND,
+            kind=source_kind,
+            ref=source_ref,
+            digest=_digest(source_payload),
+            git_head=source_git_head,
+            authority=source_authority,
+        )
+        return self._record(
+            mission_id=mission_id,
+            route_id=route_id,
+            hatch_id=hatch_id,
+            transition=transition,
+            actor_id=actor_id,
+            witnesses=witnesses,
+            cost=cost,
+            source=source,
+            parent_event_id=parent_event_id,
+            child_agent_id=child_agent_id,
+            child_claim_id=child_claim_id,
+            verified_delta=verified_delta,
+            hold_class=hold_class,
+            seam=seam,
+            attempt_ref=attempt_ref or source_ref,
+            remote=remote,
+        )
 
     def report(
         self,
@@ -478,16 +747,30 @@ class TseHelixTelemetryRuntime:
         sync = self._sync(remote, shared_remote_mode)
         events = [row for row in self._events() if row.get("mission_id") == mission_id]
         if str(shared_remote_mode).upper() == "REQUIRED" and not sync.get("shared_frontier_verified"):
-            return {"status": "TSE_TELEMETRY_REPORT_HOLD", "hold": "STALE_STATE_HOLD", "remote_sync": sync, "events": events}
+            return {
+                "status": "TSE_TELEMETRY_REPORT_HOLD",
+                "hold": "STALE_STATE_HOLD",
+                "remote_sync": sync,
+                "events": events,
+            }
+
+        source_bound_events = [
+            row for row in events if (row.get("source") or {}).get("verification") == SOURCE_BOUND
+        ]
+        source_bound_ids = {id(row) for row in source_bound_events}
+        declared_events = [row for row in events if id(row) not in source_bound_ids]
 
         counts = {transition: 0 for transition in SUCCESS_TRANSITIONS}
+        declared_counts = {transition: 0 for transition in SUCCESS_TRANSITIONS}
         residuals = {hold: 0 for hold in sorted(HOLD_CLASSES)}
+        declared_residuals = {hold: 0 for hold in sorted(HOLD_CLASSES)}
+
         known_cost_total = 0.0
         all_costs_known = True
         applied_delta = 0.0
-        route_ids = set()
-        for event in events:
-            route_ids.add(str(event.get("route_id")))
+        route_ids = {str(event.get("route_id")) for event in events}
+
+        for event in source_bound_events:
             transition = str(event.get("transition"))
             if transition in counts:
                 counts[transition] += 1
@@ -502,6 +785,15 @@ class TseHelixTelemetryRuntime:
                 all_costs_known = False
             if transition == "RETURN_APPLIED" and _finite_nonnegative(event.get("verified_delta")):
                 applied_delta += float(event["verified_delta"])
+
+        for event in declared_events:
+            transition = str(event.get("transition"))
+            if transition in declared_counts:
+                declared_counts[transition] += 1
+            elif transition == HOLD_TRANSITION:
+                hold = str(event.get("hold_class"))
+                if hold in declared_residuals:
+                    declared_residuals[hold] += 1
 
         metrics = {
             "eta_match": _ratio(counts["MATCH_FOUND"], counts["HATCH_NEED_PUBLISHED"]),
@@ -518,8 +810,12 @@ class TseHelixTelemetryRuntime:
             "mission_id": mission_id,
             "route_count": len(route_ids - {"None"}),
             "event_count": len(events),
+            "source_bound_event_count": len(source_bound_events),
+            "declared_event_count": len(declared_events),
             "counts": counts,
+            "declared_counts": declared_counts,
             "residuals": residuals,
+            "declared_residuals": declared_residuals,
             "metrics": metrics,
             "known_cost_total": known_cost_total,
             "all_costs_known": all_costs_known,
@@ -531,10 +827,15 @@ class TseHelixTelemetryRuntime:
             "report_digest": _digest(report_basis),
             "remote_sync": sync,
             "shared_frontier_verified": bool(sync.get("shared_frontier_verified")),
+            "measurement_standing": "PRIMARY_METRICS_SOURCE_BOUND_ONLY",
+            "cost_standing": "REPORTED_COST_ATTACHED_TO_SOURCE_BOUND_EVENTS_NOT_CAUSAL_COST_PROOF",
             "behavioral_treatment_effect": "UNKNOWN",
             "causal_promotion_authority": False,
             "laws": [
                 "TELEMETRY != AUTHORITY",
+                "DECLARED_EVENT != SOURCE_BOUND_EVENT",
+                "SOURCE_BOUND_EVENT != CAUSAL_EFFECT",
+                "VERIFIED_CHILD_REQUIRES_VERIFIED_PARENT_LINEAGE",
                 "UNKNOWN_DENOMINATOR != ZERO_EFFICIENCY",
                 "UNKNOWN_COST != ZERO_COST",
                 "MORE_HATCHES != MORE_CONTINUATION",
@@ -549,19 +850,24 @@ class TseHelixTelemetryRuntime:
     def resource() -> dict:
         return {
             "version": TELEMETRY_VERSION,
-            "artifact": "ATHENA.TSE.HELICAL.HANDOFF.TELEMETRY.V1",
+            "artifact": "ATHENA.TSE.HELICAL.HANDOFF.TELEMETRY.V2",
             "success_transitions": list(SUCCESS_TRANSITIONS),
             "hold_transition": HOLD_TRANSITION,
             "hold_classes": sorted(HOLD_CLASSES),
             "metrics": ["eta_match", "eta_claim", "eta_return", "eta_apply", "eta_helix"],
+            "primary_metric_population": SOURCE_BOUND,
+            "declared_observation_population": DECLARED_ONLY,
             "authority": "OBSERVATION_ONLY",
             "behavioral_treatment_effect": "UNKNOWN",
             "laws": [
                 "TELEMETRY != AUTHORITY",
+                "DECLARED_EVENT != SOURCE_BOUND_EVENT",
+                "SOURCE_BOUND_EVENT != EXECUTION_AUTHORITY",
+                "SOURCE_BOUND_EVENT != CAUSAL_TREATMENT_EFFECT",
                 "SHARED_MUTATION_REQUIRES_FRESH_REMOTE_FRONTIER",
+                "VERIFIED_CHILD_REQUIRES_VERIFIED_PARENT_LINEAGE",
                 "UNKNOWN_DENOMINATOR != ZERO_EFFICIENCY",
                 "UNKNOWN_COST != ZERO_COST",
                 "EVENT_REPLAY_IDEMPOTENT_CHANGED_SAME_ID_CONFLICTS",
-                "MECHANISM_TELEMETRY != CAUSAL_TREATMENT_EFFECT",
             ],
         }
