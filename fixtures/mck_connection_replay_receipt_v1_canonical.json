@@ -2,16 +2,10 @@
   "artifact": "ATHENA.MCK.EVALUATION.RECEIPT.V1",
   "authority_delta": "NONE",
   "ci_qualification": "NOT_INFERRED_BY_RECEIPT",
-  "edge_path": [
-    "DROP",
-    "RESTORE"
-  ],
+  "edge_path": ["DROP", "RESTORE"],
   "evaluation_input_digest": "058f26a1c5d88ecc4cfb4ab8dede4c1b7ca7c5f798440a412fef3ae92501536f",
   "evidence_standing": "SYNTHETIC_CONTROL_EXECUTION_ONLY",
-  "historical_mapping": {
-    "edges": [],
-    "status": "HOLD_EMPTY_V1_PROPOSAL"
-  },
+  "historical_mapping": {"edges": [], "status": "HOLD_EMPTY_V1_PROPOSAL"},
   "implementation_binding": {
     "ci_conclusion": null,
     "ci_run_id": null,
@@ -24,19 +18,11 @@
   "independent_witness": false,
   "initial_state": {
     "coordinate": "A",
-    "feature_basis": [
-      "memo",
-      "x"
-    ],
+    "feature_basis": ["memo", "x"],
     "irreversible_loss": [],
-    "provenance": [
-      "CANONICAL:SEED"
-    ],
+    "provenance": ["CANONICAL:SEED"],
     "standing": "SYNTHETIC_CONTROL",
-    "values": {
-      "memo": "seed",
-      "x": 5
-    }
+    "values": {"memo": "seed", "x": 5}
   },
   "initial_state_digest": "717c0a1fc3af12e2e37484e225c6369ceff52ab2a6c4af9839224a34779699a8",
   "operator_registry_digest": "87074dea1c8431f7ae9e5fd12e8b62e7227ade3dc8522ee9a047904561a0b144",
@@ -51,10 +37,7 @@
         "43c920592966f4da1c0ade816074fc46f34433d9d2f76a1dfbca07da1254b89f",
         "154ce35946070b96d51cfc94a7f52542b656eab413a113b20ef3ae1654404919"
       ],
-      "feature_basis": [
-        "memo",
-        "x"
-      ],
+      "feature_basis": ["memo", "x"],
       "final_provenance": [
         "CANONICAL:SEED",
         "EDGE::DROP",
@@ -63,25 +46,14 @@
         "CANONICAL:LOSS:RESTORE"
       ],
       "provenance_excluded_from_residue": true,
-      "route": [
-        "DROP",
-        "RESTORE"
-      ]
+      "route": ["DROP", "RESTORE"]
     },
     "classification": "NONZERO_RESIDUE",
-    "executed_edges": [
-      "DROP",
-      "RESTORE"
-    ],
+    "executed_edges": ["DROP", "RESTORE"],
     "final_state": {
       "coordinate": "A",
-      "feature_basis": [
-        "memo",
-        "x"
-      ],
-      "irreversible_loss": [
-        "memo"
-      ],
+      "feature_basis": ["memo", "x"],
+      "irreversible_loss": ["memo"],
       "provenance": [
         "CANONICAL:SEED",
         "EDGE::DROP",
@@ -90,36 +62,18 @@
         "CANONICAL:LOSS:RESTORE"
       ],
       "standing": "SYNTHETIC_CONTROL",
-      "values": {
-        "memo": "seed",
-        "x": 5
-      }
+      "values": {"memo": "seed", "x": 5}
     },
     "initial_state": {
       "coordinate": "A",
-      "feature_basis": [
-        "memo",
-        "x"
-      ],
+      "feature_basis": ["memo", "x"],
       "irreversible_loss": [],
-      "provenance": [
-        "CANONICAL:SEED"
-      ],
+      "provenance": ["CANONICAL:SEED"],
       "standing": "SYNTHETIC_CONTROL",
-      "values": {
-        "memo": "seed",
-        "x": 5
-      }
+      "values": {"memo": "seed", "x": 5}
     },
     "reason": "CLOSED_TYPED_CONNECTION_EXECUTED",
-    "residue": {
-      "__irreversible_loss__": {
-        "after": [
-          "memo"
-        ],
-        "before": []
-      }
-    },
+    "residue": {"__irreversible_loss__": {"after": ["memo"], "before": []}},
     "residue_zero": false,
     "standing": "DEFINED"
   },
@@ -133,45 +87,24 @@
     "classification": "NONZERO_RESIDUE",
     "final_state": {
       "coordinate": "A",
-      "feature_basis": [
-        "memo",
-        "x"
-      ],
-      "irreversible_loss": [
-        "memo"
-      ],
+      "feature_basis": ["memo", "x"],
+      "irreversible_loss": ["memo"],
       "standing": "SYNTHETIC_CONTROL",
-      "values": {
-        "memo": "seed",
-        "x": 5
-      }
+      "values": {"memo": "seed", "x": 5}
     },
     "initial_state": {
       "coordinate": "A",
-      "feature_basis": [
-        "memo",
-        "x"
-      ],
+      "feature_basis": ["memo", "x"],
       "irreversible_loss": [],
       "standing": "SYNTHETIC_CONTROL",
-      "values": {
-        "memo": "seed",
-        "x": 5
-      }
+      "values": {"memo": "seed", "x": 5}
     },
     "reason": "CLOSED_TYPED_CONNECTION_EXECUTED",
-    "residue": {
-      "__irreversible_loss__": {
-        "after": [
-          "memo"
-        ],
-        "before": []
-      }
-    },
+    "residue": {"__irreversible_loss__": {"after": ["memo"], "before": []}},
     "residue_zero": false,
     "standing": "DEFINED"
   },
-  "semantic_result_digest": "831a9a4afcd0f940beedb1a1eeb4db4a6089a61aade3714e860c4c389c840e8e6",
+  "semantic_result_digest": "831a9a4afcd0f940beed1a1eeb4db4a6089a61aade3714e860c4c389c840e8e6",
   "semantic_result_projection_basis": "runtime_result minus executed_edges/audit/provenance; includes artifact, standing, classification, reason, initial/final public semantics, residue, residue_zero",
   "source_evidence": "NONE_SYNTHETIC_CONTROL",
   "status": "RECORDED",
