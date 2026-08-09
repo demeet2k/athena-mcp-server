@@ -3,6 +3,10 @@
 This module does not own Life Loop state or classify play outcomes. It only binds a
 validated life-aware quest packet to a host-observed execution-event identity so an
 actual play can keep one stable attempt_id across transport retries.
+
+The canonical merged semantic base and any newer unmerged semantic-replay candidate
+are recorded separately. Runtime identity metadata never promotes a candidate Life
+reducer and never substitutes for external semantic Life resolution.
 """
 from __future__ import annotations
 
@@ -30,19 +34,33 @@ SEMANTIC_BASE = {
     "independent_witness": False,
 }
 
+# Compatibility name retained for existing consumers. The object now records the
+# successor semantic-execution replay candidate rather than the superseded #291
+# attempt-alias-only candidate.
 ATTEMPT_REPLAY_EXTENSION = {
+    "kind": "SEMANTIC_EXECUTION_REPLAY_V2",
     "repo": "demeet2k/Athena",
-    "pull_request": 291,
-    "branch": "agent/life-loop-replay-hardening-v1",
-    "branch_head_at_binding": "6e96348ad5a8adfe7f111695d9ed6ec168f43bfb",
-    "script_blob": "cd699b842d95e9a1c0794c2c23afab370a3ab39f",
-    "schema_blob": "09f66fc421ff2a9cb4a9e8d74927503a2d5c1c8d",
-    "test_blob": "ce7a72a4f74fabc8cb18c3d36cf69d85168fd75a",
-    "standing": "CANDIDATE_LOCAL_COMPOSED_TESTED_REMOTE_BLOB_VERIFIED",
-    "local_composed_tests": "20/20 PASS",
+    "pull_request": 315,
+    "supersedes_pull_request": 291,
+    "branch": "agent/life-loop-semantic-replay-v2",
+    "branch_head_at_binding": "97ebac3d47b607a43eb31fda372afbe10a0ddfdc",
+    "base_head": "9aeddf08bf3d73e35ba0a67107e4c420e83aa416",
+    "canonical_reseed_blob": "8eb274cc8d7f966e8778da5677fa0207233ae39b",
+    "life_script_blob": "0e07e4e5a3cdf4be05fa189909c95c54f32aece4",
+    "life_schema_blob": "585a08c57ca1f20cd301d32d8fa9dd6c5eee77b7",
+    "life_test_blob": "88c408ba294158bf548337a677e6f471b6c56814",
+    "dispatch_script_blob": "8ec6b38f2c441efce21ea636db15ce3b78fcbdab",
+    "dispatch_schema_blob": "b1736e7e157e23daf2ae9919efe4bebf8e35f10d",
+    "dispatch_test_blob": "69e8e92788d366b9071aa2360bc77bbbc021986c",
+    "standing": "CANDIDATE_SEMANTIC_REPLAY_EXACT_SOURCE_TESTED",
+    "life_exact_source_local_tests": "23/23 PASS",
+    "dispatch_exact_source_local_tests": "23/23 PASS",
+    "combined_exact_source_local_tests": "46/46 PASS",
     "github_actions_ci": False,
     "independent_witness": False,
+    "performance_effect": "UNKNOWN",
     "canonical_promotion": False,
+    "semantic_base_commit_remains_canonical": True,
 }
 
 IDENTITY_POLICY = {
@@ -52,6 +70,9 @@ IDENTITY_POLICY = {
     "delivery_id_participates_in_attempt_identity": False,
     "new_actual_play_requires_new_execution_event_id": True,
     "runtime_may_not_infer_new_play_from_delivery_retry": True,
+    "execution_event_id_forwarded_unchanged_to_semantic_reducer": True,
+    "attempt_id_is_settlement_identity": True,
+    "semantic_replay_decision_owned_by_runtime": False,
     "attempt_id_grants_execution_authority": False,
     "attempt_id_grants_reward_authority": False,
     "attempt_id_grants_reseed_authority": False,
@@ -147,9 +168,11 @@ def bind_campaign_v3_life_attempt_identity(
         "firewalls": [
             "DELIVERY_ID != ATTEMPT_ID",
             "RETRY_DELIVERY != NEW_PLAY",
+            "ATTEMPT_ID != EXECUTION_EVENT_ID",
             "ATTEMPT_ID != EXECUTION_AUTHORITY",
             "ATTEMPT_ID != REWARD_AUTHORITY",
             "ATTEMPT_ID != RESEED_AUTHORITY",
+            "RUNTIME_IDENTITY != SEMANTIC_REPLAY_DECISION",
             "CANDIDATE_EXTENSION != CANONICAL_PROMOTION",
         ],
     }
@@ -185,9 +208,35 @@ def validate_campaign_v3_life_attempt_identity(envelope: Mapping[str, Any]) -> l
             errors.append(f"{key}_must_be_false")
     if envelope.get("platform_counter_reset_claimed") is not False:
         errors.append("platform_counter_reset_claimed_must_be_false")
+
+    base = envelope.get("semantic_base")
+    if not isinstance(base, Mapping) or base.get("commit") != SEMANTIC_BASE["commit"]:
+        errors.append("semantic_base")
+
     extension = envelope.get("attempt_replay_extension")
-    if not isinstance(extension, Mapping) or extension.get("canonical_promotion") is not False:
-        errors.append("candidate_extension_promotion_firewall")
+    if not isinstance(extension, Mapping):
+        errors.append("semantic_replay_extension")
+    else:
+        if extension.get("kind") != "SEMANTIC_EXECUTION_REPLAY_V2":
+            errors.append("semantic_replay_extension_kind")
+        if extension.get("pull_request") != 315:
+            errors.append("semantic_replay_extension_stale_pr")
+        if extension.get("branch_head_at_binding") != ATTEMPT_REPLAY_EXTENSION["branch_head_at_binding"]:
+            errors.append("semantic_replay_extension_head")
+        if extension.get("canonical_promotion") is not False:
+            errors.append("candidate_extension_promotion_firewall")
+        if extension.get("semantic_base_commit_remains_canonical") is not True:
+            errors.append("semantic_base_promotion_firewall")
+
+    policy = envelope.get("identity_policy")
+    if not isinstance(policy, Mapping):
+        errors.append("identity_policy")
+    else:
+        if policy.get("execution_event_id_forwarded_unchanged_to_semantic_reducer") is not True:
+            errors.append("execution_event_forwarding_firewall")
+        if policy.get("semantic_replay_decision_owned_by_runtime") is not False:
+            errors.append("semantic_replay_ownership_firewall")
+
     digest = str(envelope.get("envelope_digest") or "")
     expected_digest = _sha(
         {key: value for key, value in envelope.items() if key != "envelope_digest"}

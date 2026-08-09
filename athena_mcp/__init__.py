@@ -36,3 +36,14 @@ if not getattr(PromptRuntime, "_athena_message_board_v1_registered", False):
 
     PromptRuntime.call_tool = _prompt_call_with_message_board
     PromptRuntime._athena_message_board_v1_registered = True
+
+# BOOT-MB-001: Message Board is the sole coordination authority. Install the
+# mechanism first, then the activation policy that distinguishes observing a
+# boot context from actually starting a mutable work lane.
+from .agent_bootstrap_message_board import install_agent_bootstrap_message_board
+from .agent_bootstrap_message_board_activation import (
+    install_agent_bootstrap_message_board_activation,
+)
+
+install_agent_bootstrap_message_board(AgentBootstrapRuntime)
+install_agent_bootstrap_message_board_activation(AgentBootstrapRuntime)
