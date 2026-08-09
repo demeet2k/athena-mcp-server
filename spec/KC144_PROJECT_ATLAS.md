@@ -54,15 +54,36 @@ This creates 144 semantic project seats. Multiple objects may lawfully occupy on
 
 ## Navigation
 
-Every record exposes five simultaneous routes:
+Every record exposes simultaneous routes:
 
 - native Git route: repository → ref/head → tree → path → object SHA;
 - hierarchical KC144 route: repository root → every path prefix → leaf;
 - semantic station route: lifecycle row × carrier column;
 - grid neighbors: N/E/S/W without wrap;
-- toroidal neighbors: N/E/S/W with 12×12 wrap.
+- toroidal neighbors: N/E/S/W with 12×12 wrap;
+- deterministic previous/next tree-order links and local indexes.
 
 `route_records(src,dst)` gives a deterministic row-then-column route in `PROJECT_KC144`. The route is navigation only; it does not assert semantic equivalence between objects occupying visited stations.
+
+## Exact Git-path preservation
+
+Git paths are native identity witnesses. Project Atlas removes only explicit caller convenience prefixes such as `./`; it never strips a legal leading dot. Therefore `.github/workflows/ci.yml` remains exactly `.github/workflows/ci.yml` through address generation and RETURN.
+
+Absolute paths and parent escapes are rejected rather than silently normalized into another repository object.
+
+## Frontier digest factorization
+
+The atlas compiles the committed Git tree selected by `ref`, not the mutable checkout. Its digest therefore binds:
+
+`<repo_key, ref, head, tree, record identities>`.
+
+It deliberately excludes local checkout root, current branch label, and dirty/untracked worktree state. Those remain visible observation metadata, but they cannot mutate the identity of an unchanged committed frontier.
+
+This preserves:
+
+`SAME_REPO_REF_HEAD_TREE -> SAME_ATLAS_DIGEST`
+
+across agents and checkout paths while still exposing `dirty=true` when local uncommitted state exists.
 
 ## MCP surface
 
@@ -72,6 +93,8 @@ Every record exposes five simultaneous routes:
 
 A virtual MCP record is head-qualified to the runtime repository frontier and has a definition digest. It is not falsely represented as a Git blob.
 
+Its RETURN is an `athena+mcp://...` locator carrying runtime HEAD and definition digest, not an `athena+git://...` blob locator.
+
 `compile_runtime_atlas(...)` combines the exact Git tree atlas and the installed `TOOLS`/`PROMPTS` surface, then emits a federation root.
 
 ## Cross-repository federation
@@ -80,7 +103,7 @@ A virtual MCP record is head-qualified to the runtime repository frontier and ha
 
 ## RETURN
 
-Every Git record contains a reversible native locator and `git_show` witness. KC144 coordinates are never sufficient RETURN authority by themselves.
+Every Git record contains a reversible native locator and `git_show` witness. KC144 coordinates are never sufficient RETURN authority by themselves. MCP virtual objects terminate at a head-qualified MCP definition witness instead.
 
 ## Laws
 
@@ -93,6 +116,9 @@ HEAD != VID
 SAME_STATION != SAME_OBJECT
 RENAME_CHANGES_PATH_MANIFESTATION_COORDINATE
 HEAD_CHANGE_INVALIDATES_VERSION_FIBER_UNTIL_RECOMPILE
+SAME_REPO_REF_HEAD_TREE -> SAME_ATLAS_DIGEST
+CHECKOUT_DIRTY_STATE != COMMITTED_FRONTIER_IDENTITY
+MCP_VIRTUAL_OBJECT != GIT_BLOB
 CROSS_REPO_ROUTE_REQUIRES_EXACT_REPO_HEAD
 RETURN_REQUIRES_NATIVE_WITNESS
 COORDINATE_NAVIGATION != PROMOTION_AUTHORITY
