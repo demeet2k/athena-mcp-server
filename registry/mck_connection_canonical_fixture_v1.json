@@ -23,25 +23,28 @@
     ],
     "standing": "SYNTHETIC_CONTROL"
   },
+  "initial_state_digest": "717c0a1fc3af12e2e37484e225c6369ceff52ab2a6c4af9839224a34779699a8",
   "controls": {
     "reversible_zero": {
       "edge_path": [
         "FWD",
         "BACK"
       ],
+      "ordered_path_digest": "42ef64d7be75a0f721eb428bbe01cbac0c0fd8e2524d615b91eef743b8713305",
       "expected_classification": "ZERO_RESIDUE",
       "expected_residue_zero": true,
       "evaluation_input_digest": "62e2dd449198e941a10aa59ab57a063427761edb93451b1d735b29af75b7d252",
       "raw_result_digest": "b792af2a594d9deed64cefb43e21dd211861e848c333d64843ce82f1d62fdccf",
       "semantic_result_digest": "d5a07bc1c75a5fb9affe99dbc1209c0aee2d42f28e80154c6b884174cefc23cd",
-      "receipt_digest": "d4e3c4e171be1019ba313aebd8d64b98504d4f127b85a5687b8958fa51972abb",
-      "receipt_id": "MCK-EVAL-d4e3c4e171be1019ba313aeb"
+      "receipt_digest": "70add0de7aaa3a7c756b171230f1d7b5ddd206962fa12e9047765a83e503a058",
+      "receipt_id": "MCK-EVAL-70add0de7aaa3a7c756b1712"
     },
     "irreversible_loss": {
       "edge_path": [
         "DROP",
         "RESTORE"
       ],
+      "ordered_path_digest": "f5ef22305b9a8567c68bdec0a763208092682fa8cf1c54fa7f8ed53f3a4acd2f",
       "expected_classification": "NONZERO_RESIDUE",
       "expected_residue_zero": false,
       "expected_irreversible_loss": [
@@ -49,9 +52,9 @@
       ],
       "evaluation_input_digest": "058f26a1c5d88ecc4cfb4ab8dede4c1b7ca7c5f798440a412fef3ae92501536f",
       "raw_result_digest": "236442de7aeecc61b377d16b797a3a57033879214d5c729f4acd7bd23b227017",
-      "semantic_result_digest": "831a9a4afcd0f940beed1a1eeb4db4a6089a61aade3714e860c4c389c840e8e6",
-      "receipt_digest": "e6dcb8bd616815e0de00318e2a871dbab2349f5118b1e0a699dd2062e2530531",
-      "receipt_id": "MCK-EVAL-e6dcb8bd616815e0de00318e"
+      "semantic_result_digest": "831a9a4afcd0f940beedb1a1eeb4db4a6089a61aade3714e860c4c389c840e8e6",
+      "receipt_digest": "69d1072142dfc94a49cc52d1c5d271cc8566899aa9fbae0d13e9cdbeb956b49b",
+      "receipt_id": "MCK-EVAL-69d1072142dfc94a49cc52d1"
     }
   },
   "canonical_receipt_control": "irreversible_loss",
