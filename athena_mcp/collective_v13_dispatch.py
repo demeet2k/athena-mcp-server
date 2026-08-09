@@ -2,13 +2,18 @@ from __future__ import annotations
 
 from .collective_longitudinal_v13 import longitudinal_tmle as longitudinal_tmle_v13
 from .collective_synthesis import CollectiveSynthesisRuntime
+from .collective_calibrated import CollectiveCalibratedRuntime
 from .collective_v14_dispatch import call as call_v14
 from .collective_v14_protocol import COLLECTIVE_V14_TOOLS
+from .collective_v15_dispatch import call as call_v15
+from .collective_v15_protocol import COLLECTIVE_V15_TOOLS
 
-V14_NAMES={t['name'] for t in COLLECTIVE_V14_TOOLS}
+V15_NAMES={t['name'] for t in COLLECTIVE_V15_TOOLS}
+V14_NAMES={t['name'] for t in COLLECTIVE_V14_TOOLS}-V15_NAMES
 
 
 def call(robust,name,a):
+    if name in V15_NAMES:return call_v15(CollectiveCalibratedRuntime(CollectiveSynthesisRuntime(robust)),name,a)
     if name in V14_NAMES:return call_v14(CollectiveSynthesisRuntime(robust),name,a)
     if name=='athena_gp_hyperqmc':return robust.gp_hyperqmc(a['context_key'],a.get('bounds'),a.get('samples',96),a.get('seed',0))
     if name=='athena_gp_fitc_predict':return robust.gp_fitc_predict(a['context_key'],a['features'],a.get('inducing_count',16),a.get('include_observation_noise',True))
