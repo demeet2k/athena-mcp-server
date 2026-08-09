@@ -74,6 +74,54 @@ DISPATCH_OPTIONAL_KEYS = {
 }
 DISPATCH_ALLOWED_KEYS = DISPATCH_REQUIRED_KEYS | DISPATCH_OPTIONAL_KEYS
 
+RESEED_REQUIRED_KEYS = {
+    "schema_version",
+    "anchor_id",
+    "run_id",
+    "agent_coordinate_name",
+    "reseed_epoch",
+    "pulse_age_before",
+    "pulse_age_after",
+    "git",
+    "prompt_digest",
+    "issue_pressure_digest",
+    "target_versions",
+    "durable_returns",
+    "satisfied_work",
+    "residuals",
+    "holds",
+    "continuation_value_class",
+    "selected_successor",
+    "stop_class",
+    "reverse_route",
+    "witnesses",
+    "platform_counter_reset_claimed",
+}
+RESEED_OPTIONAL_KEYS = {"parent_anchor_id", "parent_reseed_epoch", "git_positions"}
+RESEED_ALLOWED_KEYS = RESEED_REQUIRED_KEYS | RESEED_OPTIONAL_KEYS
+RESEED_GIT_ALLOWED_KEYS = {
+    "repo",
+    "ref",
+    "head_before",
+    "head_after",
+    "tree_after",
+    "changed",
+}
+RESEED_STOP_CLASSES = {
+    None,
+    "CONTINUE_POSITIVE_FRONTIER",
+    "SUCCESS_CLOSED",
+    "NO_POSITIVE_FRONTIER",
+    "BUDGET_EXHAUSTED",
+    "AUTHORITY_HOLD",
+    "EVIDENCE_HOLD",
+    "STALE_STATE_HOLD",
+    "CAPABILITY_HOLD",
+    "HUMAN_VALUE_CHOICE",
+    "META_OVERHEAD_COLLAPSE",
+    "DUPLICATION_COLLAPSE",
+}
+
 
 def _canonical_json(value: Any) -> str:
     return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
@@ -123,6 +171,19 @@ def _nonempty_strings(value: Any, field: str) -> list[str]:
     if not rows:
         raise ValueError(f"{field} must be non-empty")
     return rows
+
+
+def _schema_string_list(value: Any, field: str, *, min_items: int = 0) -> list[str]:
+    if not isinstance(value, list):
+        raise ValueError(f"{field} must be a list")
+    if len(value) < min_items:
+        raise ValueError(f"{field} must contain at least {min_items} item(s)")
+    for raw in value:
+        if not isinstance(raw, str):
+            raise ValueError(f"{field} entries must be strings")
+        if min_items and not raw:
+            raise ValueError(f"{field} entries must be non-empty strings")
+    return list(value)
 
 
 def _condition_observations(
@@ -198,6 +259,12 @@ def compute_pinned_dispatch_clear_condition_digest(
     for raw in frozen_clear_conditions:
         if not isinstance(raw, Mapping):
             raise ValueError("clear condition must be a mapping")
+        extra = sorted(set(raw) - {"id", "definition", "satisfied"})
+        missing = sorted({"id", "definition", "satisfied"} - set(raw))
+        if extra:
+            raise ValueError("clear condition has unsupported fields: " + ",".join(extra))
+        if missing:
+            raise ValueError("clear condition missing fields: " + ",".join(missing))
         criterion_id = raw.get("id")
         definition = raw.get("definition")
         satisfied = raw.get("satisfied")
@@ -227,18 +294,29 @@ def _git_positions(value: Any) -> list[dict[str, Any]] | None:
     for raw in value:
         if not isinstance(raw, Mapping):
             raise ValueError("current_git_positions entries must be objects")
-        repo = str(raw.get("repo") or "").strip()
-        ref = str(raw.get("ref") or "").strip()
-        head = str(raw.get("head") or "").strip()
-        tree = raw.get("tree")
-        if not repo or not ref or not head:
-            raise ValueError("current_git_positions requires repo/ref/head")
+        allowed = {"repo", "ref", "head", "tree"}
+        extra = sorted(set(raw) - allowed)
+        missing = sorted({"repo", "ref", "head"} - set(raw))
+        if extra:
+            raise ValueError("current_git_positions has unsupported fields: " + ",".join(extra))
+        if missing:
+            raise ValueError("current_git_positions missing fields: " + ",".join(missing))
+        repo = raw.get("repo")
+        ref = raw.get("ref")
+        head = raw.get("head")
+        if not isinstance(repo, str) or not repo:
+            raise ValueError("current_git_positions repo must be a non-empty string")
+        if not isinstance(ref, str) or not ref:
+            raise ValueError("current_git_positions ref must be a non-empty string")
+        if not isinstance(head, str) or not head:
+            raise ValueError("current_git_positions head must be a non-empty string")
         coordinate = f"{repo}::{ref}"
         if coordinate in seen:
             raise ValueError(f"duplicate current_git_position: {coordinate}")
         seen.add(coordinate)
         row: dict[str, Any] = {"repo": repo, "ref": ref, "head": head}
-        if tree is not None:
+        if "tree" in raw:
+            tree = raw.get("tree")
             if not isinstance(tree, str):
                 raise ValueError("current_git_positions tree must be a string")
             row["tree"] = tree
@@ -256,18 +334,21 @@ def _reward(value: Any) -> dict[str, Any] | None:
         raise ValueError("extra_life_reward must be an object")
     allowed = {"receipt_id", "delta", "verified", "self_scored", "witnesses"}
     extra = sorted(set(value) - allowed)
+    missing = sorted(allowed - set(value))
     if extra:
         raise ValueError("extra_life_reward has unsupported fields: " + ",".join(extra))
-    receipt_id = str(value.get("receipt_id") or "").strip()
-    if not receipt_id:
+    if missing:
+        raise ValueError("extra_life_reward missing fields: " + ",".join(missing))
+    receipt_id = value.get("receipt_id")
+    if not isinstance(receipt_id, str) or not receipt_id:
         raise ValueError("extra_life_reward receipt_id required")
-    if value.get("delta") != 1:
-        raise ValueError("extra_life_reward delta must equal 1")
+    if value.get("delta") != 1 or type(value.get("delta")) is not int:
+        raise ValueError("extra_life_reward delta must equal integer 1")
     if type(value.get("verified")) is not bool:
         raise ValueError("extra_life_reward verified must be boolean")
     if type(value.get("self_scored")) is not bool:
         raise ValueError("extra_life_reward self_scored must be boolean")
-    witnesses = _nonempty_strings(value.get("witnesses"), "extra_life_reward witnesses")
+    witnesses = _schema_string_list(value.get("witnesses"), "extra_life_reward witnesses", min_items=1)
     return {
         "receipt_id": receipt_id,
         "delta": 1,
@@ -275,6 +356,118 @@ def _reward(value: Any) -> dict[str, Any] | None:
         "self_scored": value["self_scored"],
         "witnesses": witnesses,
     }
+
+
+def _validate_reseed_anchor_shape(value: Any) -> list[str]:
+    """Strict structural mirror of pinned ATHENA.RESEED_ANCHOR.V1."""
+    if not isinstance(value, Mapping):
+        return ["reseed_anchor_not_object"]
+    errors: list[str] = []
+    errors.extend(f"unknown:{key}" for key in sorted(set(value) - RESEED_ALLOWED_KEYS))
+    errors.extend(f"missing:{key}" for key in sorted(RESEED_REQUIRED_KEYS - set(value)))
+    if value.get("schema_version") != "ATHENA.RESEED_ANCHOR.V1":
+        errors.append("schema_version")
+    for key in ("anchor_id", "run_id", "agent_coordinate_name"):
+        if not isinstance(value.get(key), str) or not value.get(key):
+            errors.append(key)
+    if "parent_anchor_id" in value and value.get("parent_anchor_id") is not None and not isinstance(value.get("parent_anchor_id"), str):
+        errors.append("parent_anchor_id")
+    for key in ("reseed_epoch", "pulse_age_before"):
+        raw = value.get(key)
+        if type(raw) is not int or raw < 0:
+            errors.append(key)
+    if "parent_reseed_epoch" in value:
+        raw = value.get("parent_reseed_epoch")
+        if raw is not None and (type(raw) is not int or raw < 0):
+            errors.append("parent_reseed_epoch")
+    if type(value.get("pulse_age_after")) is not int or value.get("pulse_age_after") != 0:
+        errors.append("pulse_age_after")
+
+    git = value.get("git")
+    if not isinstance(git, Mapping):
+        errors.append("git")
+    else:
+        extra = sorted(set(git) - RESEED_GIT_ALLOWED_KEYS)
+        missing = sorted({"head_after", "changed"} - set(git))
+        if extra:
+            errors.append("git:unknown:" + ",".join(extra))
+        if missing:
+            errors.append("git:missing:" + ",".join(missing))
+        for key in ("repo", "ref", "head_before", "tree_after"):
+            if key in git and git.get(key) is not None and not isinstance(git.get(key), str):
+                errors.append(f"git:{key}")
+        if not isinstance(git.get("head_after"), str) or not git.get("head_after"):
+            errors.append("git:head_after")
+        if type(git.get("changed")) is not bool:
+            errors.append("git:changed")
+
+    if "git_positions" in value:
+        positions = value.get("git_positions")
+        if not isinstance(positions, list) or not positions:
+            errors.append("git_positions")
+        else:
+            for index, raw in enumerate(positions):
+                prefix = f"git_positions[{index}]"
+                if not isinstance(raw, Mapping):
+                    errors.append(prefix)
+                    continue
+                extra = sorted(set(raw) - {"repo", "ref", "head", "tree"})
+                missing = sorted({"repo", "ref", "head"} - set(raw))
+                if extra:
+                    errors.append(prefix + ":unknown:" + ",".join(extra))
+                if missing:
+                    errors.append(prefix + ":missing:" + ",".join(missing))
+                for key in ("repo", "ref", "head"):
+                    if not isinstance(raw.get(key), str) or not raw.get(key):
+                        errors.append(prefix + ":" + key)
+                if "tree" in raw and raw.get("tree") is not None and not isinstance(raw.get("tree"), str):
+                    errors.append(prefix + ":tree")
+
+    for key in ("prompt_digest", "issue_pressure_digest"):
+        raw = value.get(key)
+        if raw is not None and not isinstance(raw, str):
+            errors.append(key)
+
+    target_versions = value.get("target_versions")
+    if not isinstance(target_versions, list):
+        errors.append("target_versions")
+    else:
+        for index, raw in enumerate(target_versions):
+            prefix = f"target_versions[{index}]"
+            if not isinstance(raw, Mapping):
+                errors.append(prefix)
+                continue
+            extra = sorted(set(raw) - {"id", "version"})
+            missing = sorted({"id", "version"} - set(raw))
+            if extra:
+                errors.append(prefix + ":unknown:" + ",".join(extra))
+            if missing:
+                errors.append(prefix + ":missing:" + ",".join(missing))
+            for key in ("id", "version"):
+                if not isinstance(raw.get(key), str) or not raw.get(key):
+                    errors.append(prefix + ":" + key)
+
+    for key, minimum in (
+        ("durable_returns", 1),
+        ("satisfied_work", 0),
+        ("residuals", 0),
+        ("holds", 0),
+        ("reverse_route", 0),
+        ("witnesses", 1),
+    ):
+        raw = value.get(key)
+        if not isinstance(raw, list) or len(raw) < minimum or any(not isinstance(item, str) for item in raw):
+            errors.append(key)
+
+    if value.get("continuation_value_class") not in {"POSITIVE", "CONTINUE_POSITIVE_FRONTIER", "NONPOSITIVE"}:
+        errors.append("continuation_value_class")
+    if value.get("selected_successor") is not None and not isinstance(value.get("selected_successor"), str):
+        errors.append("selected_successor")
+    if value.get("stop_class") not in RESEED_STOP_CLASSES:
+        errors.append("stop_class")
+    if value.get("platform_counter_reset_claimed") is not False:
+        errors.append("platform_counter_reset_claimed")
+    return errors
 
 
 def _attempt_compatibility(
@@ -312,7 +505,7 @@ def _attempt_compatibility(
 
 
 def validate_pinned_dispatch_packet_shape(packet: Mapping[str, Any]) -> list[str]:
-    """Structural mirror of the pinned schema; it never executes the packet."""
+    """Strict structural mirror of the pinned schema; it never executes the packet."""
     if not isinstance(packet, Mapping):
         return ["packet_not_object"]
     errors: list[str] = []
@@ -344,13 +537,22 @@ def validate_pinned_dispatch_packet_shape(packet: Mapping[str, Any]) -> list[str
         if packet.get("clear_condition_digest") != expected_digest:
             errors.append("clear_condition_digest")
 
+    if "executed" in packet and type(packet.get("executed")) is not bool:
+        errors.append("executed")
+    if "hard_gate_status" in packet and packet.get("hard_gate_status") not in {"PASS", "FAIL"}:
+        errors.append("hard_gate_status")
+    if "witnesses" in packet:
+        try:
+            _schema_string_list(packet.get("witnesses"), "witnesses", min_items=1)
+        except ValueError as exc:
+            errors.append(f"witnesses:{exc}")
+
     if packet.get("result_class") in PLAYED_CLASSES:
         if packet.get("executed") is not True:
             errors.append("executed")
         if packet.get("hard_gate_status") not in {"PASS", "FAIL"}:
             errors.append("hard_gate_status")
-        witnesses = packet.get("witnesses")
-        if not isinstance(witnesses, list) or not witnesses:
+        if "witnesses" not in packet:
             errors.append("witnesses")
 
     reward = packet.get("extra_life_reward")
@@ -364,8 +566,17 @@ def validate_pinned_dispatch_packet_shape(packet: Mapping[str, Any]) -> list[str
                 errors.append("extra_life_reward_not_normalized")
         except ValueError as exc:
             errors.append(f"extra_life_reward:{exc}")
+
+    if "reseed_anchor" in packet:
+        errors.extend(
+            f"reseed_anchor:{item}"
+            for item in _validate_reseed_anchor_shape(packet.get("reseed_anchor"))
+        )
+
     try:
-        _git_positions(packet.get("current_git_positions"))
+        normalized_positions = _git_positions(packet.get("current_git_positions"))
+        if "current_git_positions" in packet and normalized_positions != packet.get("current_git_positions"):
+            errors.append("current_git_positions_not_normalized")
     except ValueError as exc:
         errors.append(f"current_git_positions:{exc}")
     return errors
