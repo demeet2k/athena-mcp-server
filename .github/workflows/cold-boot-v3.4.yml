@@ -1,0 +1,93 @@
+name: ATHENA V3.4 / V15 Independent Cold Boot
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - 'deploy/cold_boot_v34.py'
+      - 'tests/test_deployment_cold_boot_v34.py'
+      - '.github/workflows/cold-boot-v3.4.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: athena-v3.4-v15-independent-cold-boot
+  cancel-in-progress: false
+
+env:
+  TARGET_HEAD: 429a480a80eeefb9e2bff1ea3015adf571d76b0e
+  CANDIDATE_RUN_ID: '31306063395'
+  CANDIDATE_ARTIFACT_ID: '9036019567'
+  CANDIDATE_ARTIFACT: release-candidate-v3.4.0-429a480a80eeefb9e2bff1ea3015adf571d76b0e
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Validate exact cold-boot contract
+        run: |
+          python -m compileall -q deploy/cold_boot_v34.py tests/test_deployment_cold_boot_v34.py
+          python -m unittest discover -s tests -p 'test_deployment_cold_boot_v34.py' -v
+
+  observe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Prove exact canonical target is still current
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin master
+          test "$(git rev-parse refs/remotes/origin/master)" = "$TARGET_HEAD"
+      - name: Read back frozen candidate artifact metadata
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$CANDIDATE_ARTIFACT_ID" > /tmp/candidate-artifact.json
+          python - <<'PY'
+          import json, os
+          a=json.load(open('/tmp/candidate-artifact.json'))
+          assert str(a['id']) == os.environ['CANDIDATE_ARTIFACT_ID']
+          assert a['name'] == os.environ['CANDIDATE_ARTIFACT']
+          assert a['expired'] is False
+          assert a['workflow_run']['head_sha'] == os.environ['TARGET_HEAD']
+          print('CANDIDATE ARTIFACT READBACK PASS', a['digest'])
+          PY
+      - name: Download exact V3.4 candidate
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          rm -rf dist/candidate dist/cold-boot
+          mkdir -p dist/candidate dist/cold-boot
+          gh run download "$CANDIDATE_RUN_ID" --name "$CANDIDATE_ARTIFACT" --dir dist/candidate
+      - name: Execute independent clean-wheel cold boot
+        shell: bash
+        run: |
+          set -euo pipefail
+          python deploy/cold_boot_v34.py \
+            --candidate-dir dist/candidate \
+            --target-head "$TARGET_HEAD" \
+            --output-dir dist/cold-boot
+          (cd dist/cold-boot && sha256sum -c SHA256SUMS.cold-boot)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: athena-v3.4-v15-cold-boot-${{ github.run_id }}
+          path: dist/cold-boot/*
+          if-no-files-found: error
