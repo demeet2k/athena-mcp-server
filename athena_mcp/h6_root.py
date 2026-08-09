@@ -58,7 +58,6 @@ class H6RootRuntime:
                     candidates = valid_supplied | alias_targets
                     decision = "CONFLICT_HOLD"
             elif valid_supplied:
-                # A caller-supplied candidate is retrieval context, not identity evidence.
                 candidates = valid_supplied
                 selected = None
                 decision = "AMBIG_HOLD"
@@ -91,48 +90,31 @@ class H6RootRuntime:
         if not self._existing_oid(oid):
             return {
                 "artifact": "ATHENA.H02.PROJECTION.DECISION.V1",
-                "oid": oid,
-                "chart": chart,
-                "epoch": epoch,
-                "authority": "NONE",
-                "status": "UNMAPPED",
-                "constitutional_gid": None,
-                "projection_address": None,
+                "oid": oid, "chart": chart, "epoch": epoch,
+                "authority": "NONE", "status": "UNMAPPED",
+                "constitutional_gid": None, "projection_address": None,
                 "defects": ["UNKNOWN_OID"],
             }
         if epoch != ACTIVE_EPOCH:
             return {
                 "artifact": "ATHENA.H02.PROJECTION.DECISION.V1",
-                "oid": oid,
-                "chart": chart,
-                "epoch": epoch,
+                "oid": oid, "chart": chart, "epoch": epoch,
                 "active_epoch": ACTIVE_EPOCH,
-                "authority": "PROJECTION_ONLY",
-                "status": "SUPERSEDED",
-                "constitutional_gid": None,
-                "projection_address": None,
+                "authority": "PROJECTION_ONLY", "status": "SUPERSEDED",
+                "constitutional_gid": None, "projection_address": None,
                 "defects": ["EPOCH_CROSSWALK_UNAVAILABLE"],
                 "law": "HISTORICAL_EPOCH != ACTIVE_EPOCH_WITHOUT_CROSSWALK",
             }
         coord = self.crystal._coordinate(oid, chart)
         raw_status = coord.get("status") if coord else None
-        status = {
-            "RESOLVED": "ACTIVE",
-            "PARTIAL": "ACTIVE",
-            "UNKNOWN": "UNMAPPED",
-            "N/A": "DORMANT",
-            "HOLD": "CONFLICT",
-        }.get(raw_status, "UNMAPPED")
+        status = {"RESOLVED": "ACTIVE", "PARTIAL": "ACTIVE", "UNKNOWN": "UNMAPPED",
+                  "N/A": "DORMANT", "HOLD": "CONFLICT"}.get(raw_status, "UNMAPPED")
         value = coord.get("value") if coord else None
         return {
             "artifact": "ATHENA.H02.PROJECTION.DECISION.V1",
-            "oid": oid,
-            "chart": chart,
-            "epoch": epoch,
-            "authority": "PROJECTION_ONLY",
-            "status": status,
-            "constitutional_gid": None,
-            "projection_address": value,
+            "oid": oid, "chart": chart, "epoch": epoch,
+            "authority": "PROJECTION_ONLY", "status": status,
+            "constitutional_gid": None, "projection_address": value,
             "projection_gid": value.get("gid") if isinstance(value, dict) else None,
             "source_eid": coord.get("source_eid") if coord else None,
             "transform_id": coord.get("transform_id") if coord else None,
@@ -148,9 +130,9 @@ class H6RootRuntime:
         source_vid = (nav.get("head") or {}).get("vid") if nav.get("found") else None
         found = bool(path.get("found"))
         steps = [
-            {"edge_id": e.get("edge_id"), "source": e.get("src"), "relation": e.get("relation"),
-             "target": e.get("dst"), "eid": e.get("eid")}
-            for e in path.get("edges", [])
+            {"edge_id": edge.get("edge_id"), "source": edge.get("src"),
+             "relation": edge.get("relation"), "target": edge.get("dst"), "eid": edge.get("eid")}
+            for edge in path.get("edges", [])
         ]
         payload = {"query_id": query_id, "source_oid": source_oid, "source_vid": source_vid,
                    "target": target, "steps": steps, "relations": sorted(set(relations or []))}
@@ -159,13 +141,39 @@ class H6RootRuntime:
             "route_id": "H6ROUTE." + digest(payload, 24), **payload,
             "required_bridges": [], "required_evidence": [],
             "required_authority": ["READ_ONLY_NAVIGATION"],
-            "cost_vector": {"hops": path.get("length") if found else None, "semantic_loss": "UNKNOWN",
-                            "stale_risk": "UNKNOWN", "integration_cost": "UNKNOWN"},
-            "gain_vector": {"reachability": 1.0 if found else 0.0, "information_gain": "UNKNOWN",
-                            "closure_gain": "UNKNOWN"},
+            "cost_vector": {"hops": path.get("length") if found else None,
+                            "semantic_loss": "UNKNOWN", "stale_risk": "UNKNOWN",
+                            "integration_cost": "UNKNOWN"},
+            "gain_vector": {"reachability": 1.0 if found else 0.0,
+                            "information_gain": "UNKNOWN", "closure_gain": "UNKNOWN"},
             "hard_gate_status": "PASS" if found and source_vid else "HOLD",
-            "pareto_status": "UNMEASURED", "route_status": "CANDIDATE" if found else "HOLD",
+            "pareto_status": "UNMEASURED",
+            "route_status": "CANDIDATE" if found else "HOLD",
             "native_path": path, "authority": "PROPOSAL_ONLY",
+        }
+
+    def navrun_observe(self, route_proposal: dict[str, Any], *, actual_steps: Iterable[dict[str, Any]] | None = None,
+                       actual_cost: dict[str, Any] | None = None, observed_gain: dict[str, Any] | None = None,
+                       outcome: str = "OBSERVED", final_frontier: dict[str, Any] | None = None) -> dict[str, Any]:
+        steps = [dict(x) for x in (actual_steps if actual_steps is not None else route_proposal.get("steps", []))]
+        payload = {
+            "route_id": route_proposal.get("route_id"),
+            "query_id": route_proposal.get("query_id"),
+            "actual_steps": steps,
+            "actual_cost": actual_cost or {},
+            "observed_gain": observed_gain or {},
+            "outcome": outcome,
+            "final_frontier": final_frontier or {},
+        }
+        admissible = route_proposal.get("hard_gate_status") == "PASS" and route_proposal.get("route_status") == "CANDIDATE"
+        return {
+            "artifact": "ATHENA.H03.NAVRUN.V1",
+            "navrun_id": "NAVRUN." + digest(payload, 24),
+            **payload,
+            "status": "OBSERVED" if admissible else "HOLD",
+            "persisted": False,
+            "authority": "OBSERVATION_ONLY",
+            "defects": [] if admissible else ["ROUTE_NOT_ADMISSIBLE"],
         }
 
     # H04 -----------------------------------------------------------------
@@ -291,3 +299,96 @@ class H6RootRuntime:
                 "laws": ["H6_ADMISSION != EXECUTION_AUTHORITY",
                          "H05_EVIDENCE_SUFFICIENCY != PROMOTION_AUTHORITY",
                          "SEMANTIC_VID != GIT_HEAD != TOPOLOGY_VERSION != PROMPT_DIGEST"]}
+
+    def compile_integrated(self, *, compile_input: dict[str, Any], route_requests: Iterable[dict[str, Any]] | None = None,
+                           bridge_requests: Iterable[dict[str, Any]] | None = None,
+                           evidence_requests: Iterable[dict[str, Any]] | None = None) -> dict[str, Any]:
+        root = self.compile_query(**compile_input)
+        query_id = root["query_bundle"]["query_id"]
+        holds = list(root["holds"])
+
+        bridges = []
+        bridge_by_transform = {}
+        for request in bridge_requests or []:
+            decision = self.bridge_decide(request["transform_id"], request.get("contract"))
+            bridges.append(decision)
+            bridge_by_transform[request["transform_id"]] = decision
+            if decision["decision"] != "ADMITTED":
+                holds.append({"type": "BRIDGE_HOLD", "transform_id": request["transform_id"],
+                              "decision": decision["decision"], "defects": decision.get("defects", []),
+                              "missing_obligations": decision.get("missing_obligations", [])})
+
+        evidence = []
+        evidence_by_claim = {}
+        for request in evidence_requests or []:
+            decision = self.evidence_decide(request["claim"], request.get("evidence_items", []))
+            evidence.append(decision)
+            claim_id = request["claim"].get("claim_id")
+            if claim_id:
+                evidence_by_claim[claim_id] = decision
+            if decision["status"] != "EVIDENCE_SUFFICIENT":
+                holds.append({"type": "EVIDENCE_HOLD", "claim_id": claim_id,
+                              "status": decision["status"], "defects": decision.get("defects", [])})
+
+        routes = []
+        for request in route_requests or []:
+            proposal = self.route_propose(
+                request["source_oid"], request["target"], query_id=request.get("query_id", query_id),
+                relations=request.get("relations"), max_depth=int(request.get("max_depth", 12)))
+            required_transforms = self._norm_ids(request.get("required_transforms"))
+            required_claims = self._norm_ids(request.get("required_claims"))
+            proposal["required_bridges"] = required_transforms
+            proposal["required_evidence"] = required_claims
+            routes.append(proposal)
+            if proposal["hard_gate_status"] != "PASS":
+                holds.append({"type": "ROUTE_HOLD", "route_id": proposal["route_id"],
+                              "status": proposal["route_status"]})
+            for transform_id in required_transforms:
+                decision = bridge_by_transform.get(transform_id)
+                if not decision or decision.get("decision") != "ADMITTED":
+                    holds.append({"type": "REQUIRED_BRIDGE_HOLD", "route_id": proposal["route_id"],
+                                  "transform_id": transform_id})
+            for claim_id in required_claims:
+                decision = evidence_by_claim.get(claim_id)
+                if not decision or decision.get("status") != "EVIDENCE_SUFFICIENT":
+                    holds.append({"type": "REQUIRED_EVIDENCE_HOLD", "route_id": proposal["route_id"],
+                                  "claim_id": claim_id})
+
+        # De-duplicate structurally identical holds without erasing distinct defects.
+        deduped = []
+        seen = set()
+        for hold in holds:
+            key = json.dumps(hold, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+            if key not in seen:
+                seen.add(key)
+                deduped.append(hold)
+
+        active = dict(root["active_subcrystal_candidate"])
+        active.update({
+            "route_refs": [r["route_id"] for r in routes],
+            "bridge_refs": [b.get("bridge_id") for b in bridges],
+            "claim_refs": [e.get("claim_id") for e in evidence],
+        })
+        state = {
+            "query_bundle": root["query_bundle"],
+            "identity_decisions": root["identity_decisions"],
+            "projection_decisions": root["projection_decisions"],
+            "route_proposals": routes,
+            "bridge_decisions": bridges,
+            "evidence_decisions": evidence,
+            "admission": "ADMITTED" if not deduped else "CONDITIONAL",
+            "active_subcrystal_candidate": active,
+            "holds": deduped,
+        }
+        return {
+            "artifact": "ATHENA.H6.INTEGRATED.COMPILE.V1",
+            **state,
+            "h6_root_digest": "H6ROOT." + digest(state, 32),
+            "execution_authority": False,
+            "promotion_authority": False,
+            "laws": [
+                "ROUTE_PASS != BRIDGE_PASS",
+                "BRIDGE_PASS != EVIDENCE_PASS",
+                "H6_INTEGRATED_ADMISSION != EXECUTION_AUTHORITY",
+            ],
+        }
