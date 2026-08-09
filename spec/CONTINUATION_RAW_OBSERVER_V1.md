@@ -30,10 +30,13 @@ Every returned source row binds:
 category
 source_path
 git_blob_sha
-record_sha256
+record_sha256              # exact persisted bytes
+record_canonical_sha256    # canonical decoded object
 observed_at
 record
 ```
+
+The byte and canonical-record digests are separate on purpose: exact storage identity and decoded transport identity are not interchangeable. The trace digest binds both.
 
 The trace additionally binds exact current Git HEAD, a timezone-aware half-open window `[start,end)`, coverage status, malformed-source inventory, a record limit, and a deterministic trace digest.
 
@@ -72,6 +75,7 @@ RAW_RUNTIME_FACT != BEHAVIORAL_EFFECT
 REHYDRATION_RECEIPT != USER_UI_EVENT
 MESSAGE_BOARD_EVENT != COORDINATION_SUCCESS
 TERMINAL_GATE_REJECTION != HUMAN_REENTRY_WITHOUT_EXPLICIT_CLASSIFIER
+EXACT_BYTE_DIGEST != CANONICAL_RECORD_DIGEST
 TRACE_DIGEST != SIGNATURE
 TRACKED_FILE != WORLD_TRUTH
 DIRTY_OR_MALFORMED_SOURCE => COVERAGE_HOLD
@@ -100,4 +104,4 @@ The tool is registered additively through the existing `PromptRuntime` compositi
 
 ## Downstream contract
 
-Semantic/behavioral repositories may consume this trace only through an explicit validator/classifier that binds the exact trace digest and classification-policy digest. Any mapping from raw events into assay metrics is a separate semantic act and must retain residual/unknown fields when the runtime cannot observe the requested fact.
+Semantic/behavioral repositories may consume this trace only through an explicit validator/classifier that binds the exact trace digest, canonical record digests, and classification-policy digest. Any mapping from raw events into assay metrics is a separate semantic act and must retain residual/unknown fields when the runtime cannot observe the requested fact.
