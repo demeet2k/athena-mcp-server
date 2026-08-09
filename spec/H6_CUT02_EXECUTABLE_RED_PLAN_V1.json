@@ -1,0 +1,26 @@
+{
+  "artifact": "ATHENA.H6.EXECUTION.CUT02.RED.PLAN.V1",
+  "role": "pre-treatment executable RED design",
+  "semantic_head": "f32eb817d48de73a0c591b0f7fb3561e4f08e7da",
+  "runtime_parent": "429a480a80eeefb9e2bff1ea3015adf571d76b0e",
+  "treatment_code": false,
+  "facade_target": "athena_mcp.h6_root.H6RootRuntime",
+  "red_order": [
+    "H6G01_IDENTITY_DECISION",
+    "H6G02_PROJECTION_AUTHORITY",
+    "H6G04_BRIDGE_ADMISSION",
+    "H6G05_EVIDENCE_GRAPH",
+    "H6G03_ROUTE_NAVRUN_ABI",
+    "H6G06_QUERYBUNDLE_ROOT_FACADE"
+  ],
+  "laws": [
+    "RED_WITNESS != TREATMENT",
+    "PARENT_BEHAVIOR_FIRST",
+    "TRANSFORM_REGISTRATION != BRIDGE_ADMISSION",
+    "HASH_PROJECTION != CONSTITUTIONAL_SEATING",
+    "GRAPH_PATH != ROUTE_PROPOSAL",
+    "RAW_EVIDENCE_PAYLOAD != H05_EVIDENCE_DECISION",
+    "HYDRATE_SNAPSHOT != QUERYBUNDLE",
+    "NO_GREEN_UNTIL_SIX_INTENDED_REDS_OBSERVED"
+  ]
+}

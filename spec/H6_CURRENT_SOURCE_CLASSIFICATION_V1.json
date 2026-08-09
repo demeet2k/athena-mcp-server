@@ -1,0 +1,84 @@
+{
+  "artifact": "ATHENA.H6.CURRENT.SOURCE.CLASSIFICATION.V1",
+  "audit_parent": "429a480a80eeefb9e2bff1ea3015adf571d76b0e",
+  "standing": "SOURCE_AUDIT_NOT_RUNTIME_QUALIFICATION",
+  "stations": {
+    "H01": {
+      "gid": 1,
+      "classification": "PARTIAL",
+      "exists": [
+        "athena_mcp/identity.py: deterministic CID/OID/VID/MID/EID constructors",
+        "athena_mcp/crystal_compile.py: expected_vid stale-target rejection and OID/VID/MID lineage",
+        "athena_mcp/state_foundation_*: current state/reconstruction primitives"
+      ],
+      "surviving_gap": "No single constitutional IdentityDecision projection presently establishes alias/referent/lineage ambiguity and conflict semantics over the existing identity primitives.",
+      "treatment_shape": "ADAPTER/CONTRACT_ONLY"
+    },
+    "H02": {
+      "gid": 2,
+      "classification": "PARTIAL",
+      "exists": [
+        "athena_mcp/kc144.py: exact 144-seat topology and band lookup",
+        "athena_mcp/crystal_schema.py: coordinate chart and coordinate persistence",
+        "athena_mcp/polycoord.py/state_projection.py: alternate chart/projection machinery"
+      ],
+      "surviving_gap": "Frozen constitutional seating authority is not yet expressed as one explicit projection/alias/epoch decision contract distinct from deterministic hash-based projection helpers such as stable_gid(canonical_name).",
+      "treatment_shape": "ADAPTER/CONTRACT_ONLY"
+    },
+    "H03": {
+      "gid": 3,
+      "classification": "PARTIAL",
+      "exists": [
+        "athena_mcp/crystal_graph.py",
+        "athena_mcp/frontier_runtime.py",
+        "athena_mcp/orchestration_graph.py",
+        "athena_mcp/orchestration_retrieval/*",
+        "athena_mcp/orchestration_metric.py",
+        "athena_mcp/qhug_pareto_kernel.py"
+      ],
+      "surviving_gap": "Existing routing/search/frontier mechanisms do not yet expose one constitutional RouteProposal + NAVRUN identity/receipt contract that every route implementation projects into.",
+      "treatment_shape": "NORMALIZATION_FACADE_ONLY"
+    },
+    "H04": {
+      "gid": 4,
+      "classification": "PARTIAL",
+      "exists": [
+        "athena_mcp/crystal_schema.py: transforms, transform_programs, transform_executions, holonomy_observations",
+        "athena_mcp/transform_dsl.py: declarative transform modes and defect comparison"
+      ],
+      "surviving_gap": "Transform existence/execution is not equivalent to constitutional bridge admission. A bridge decision still needs declared preserved/lost invariants, validity corridor, evidence/authority prerequisites, reverse or compensation semantics, counterexamples, and admitted/conditional/held status.",
+      "treatment_shape": "BRIDGE_ADMISSION_PROJECTION"
+    },
+    "H05": {
+      "gid": 5,
+      "classification": "PARTIAL",
+      "exists": [
+        "athena_mcp/store.py and state foundation: durable event/version state",
+        "athena_mcp/promotion.py + github_promotion_verifier.py: trusted exact-head qualification boundary",
+        "athena_mcp/cohesion_evidence_guard.py and Party provenance: specialized evidence-lineage membranes",
+        "athena_mcp/crystal_compile.py: evidence field carried into crystal manifests"
+      ],
+      "surviving_gap": "Evidence is distributed across specialized organs; there is no single H05 projection normalizing Source -> Evidence -> Claim, independence-group, freshness, counterevidence, evidence-floor, and authority-ceiling semantics without duplicating the underlying ledgers.",
+      "treatment_shape": "READ_ONLY_EVIDENCE_GRAPH_PROJECTION"
+    },
+    "H06": {
+      "gid": 6,
+      "classification": "PARTIAL",
+      "exists": [
+        "athena_mcp/state_foundation_*: Omega projection and RECONRUN",
+        "athena_mcp/frontier_runtime.py: current frontier selection",
+        "athena_mcp/rehydration_loop.py / rehydration_successor.py / rehydration_terminal.py",
+        "athena_mcp/reconstruction.py / successor_baton.py"
+      ],
+      "surviving_gap": "No constitutional H6 QueryBundle/H6Root facade currently binds H01-H05 digests, semantic/Git/topology/prompt frontiers, evidence floor, authority envelope, completion predicate, stop predicate, return target, replay, reseed, and quiescence into one root contract.",
+      "treatment_shape": "FACADE/COMPILER_ONLY"
+    }
+  },
+  "global_decision": "NO_H6_GREENFIELD_ORGAN_REQUIRED",
+  "law": [
+    "PROJECT_DO_NOT_DUPLICATE",
+    "PARTIAL != MISSING",
+    "SOURCE_AUDIT != MECHANISM_PASS",
+    "NO_TREATMENT_UNTIL_RED_WITNESSES_ARE_FROZEN"
+  ]
+}

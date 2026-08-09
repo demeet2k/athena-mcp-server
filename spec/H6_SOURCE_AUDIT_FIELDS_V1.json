@@ -1,0 +1,6 @@
+{
+  "artifact":"ATHENA.H6.SOURCE.AUDIT.FIELDS.V1",
+  "fields":["obligation_id","station","constitutional_requirement","implementation_refs","classification","reason","surviving_gap","red_witness","treatment_authorized"],
+  "allowed_classification":["EXISTS","PARTIAL","MISSING","DUPLICATE","SUPERSEDED"],
+  "treatment_default":false
+}
