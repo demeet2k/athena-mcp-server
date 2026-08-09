@@ -65,12 +65,15 @@ class ReleaseDistributionV32Tests(unittest.TestCase):
             'This release certifies repository/package/distribution state. It is not a production deployment',
         ):self.assertIn(phrase,n)
 
-    def test_v32_recipe_is_historical_not_current_executable_workflow(self):
+    def test_v32_recipe_is_historical_while_current_release_is_v34(self):
         self.assertFalse((self.root/'.github'/'workflows'/'release.yml').exists())
-        current=(self.root/'.github'/'workflows'/'release-v3.3.yml').read_text(encoding='utf-8')
-        self.assertIn('Release Distribution V3.3',current)
-        self.assertIn('release/v3.3.0.json',current)
+        current=(self.root/'.github'/'workflows'/'release-v3.4.yml').read_text(encoding='utf-8')
+        self.assertIn('Release Distribution V3.4',current)
+        self.assertIn('release/v3.4.0.json',current)
         self.assertNotIn('release/v3.2.0.json',current)
+        legacy=(self.root/'.github'/'workflows'/'release-v3.3.yml').read_text(encoding='utf-8')
+        self.assertIn('Release Distribution V3.3',legacy)
+        self.assertNotIn('release/v3.2.0.json',legacy)
 
 
 if __name__=='__main__':unittest.main()
