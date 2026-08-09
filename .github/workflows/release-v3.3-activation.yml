@@ -18,7 +18,7 @@ on:
 
 permissions:
   contents: read
-  actions: write
+  actions: read
 
 concurrency:
   group: athena-v3.3-release-activation-${{ github.event.workflow_run.head_sha || github.sha }}
@@ -48,6 +48,9 @@ jobs:
       github.event.workflow_run.name == 'CI' &&
       github.event.workflow_run.event == 'push' &&
       github.event.workflow_run.conclusion == 'success'
+    permissions:
+      contents: read
+      actions: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -134,6 +137,9 @@ jobs:
       github.event.workflow_run.name == 'Release Distribution V3.3' &&
       github.event.workflow_run.event == 'workflow_dispatch' &&
       github.event.workflow_run.conclusion == 'success'
+    permissions:
+      contents: read
+      actions: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
