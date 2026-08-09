@@ -1,0 +1,120 @@
+{
+  "schema": "ATHENA.RELEASE.DISTRIBUTION.2",
+  "version": "3.4.0",
+  "tag": "v3.4.0",
+  "title": "ATHENA 3.4.0 — Collective Calibrated V15 × UNIFIED.11 × Deployment.2",
+  "package": {
+    "name": "athena-canonical-mcp",
+    "wheel": "athena_canonical_mcp-3.4.0-py3-none-any.whl",
+    "entrypoint": "athena_mcp.server:main",
+    "python": ">=3.11"
+  },
+  "runtime": {
+    "manifest": "ATHENA.RUNTIME.UNIFIED.11",
+    "collective_frontier": "COLLECTIVE_CALIBRATED_V15",
+    "deployment_frontier": "ATHENA.DEPLOYMENT.2",
+    "promotion": "ATHENA.PROMOTION.2",
+    "trusted_verifier": "ATHENA.GITHUB.PROMOTION.VERIFIER.1",
+    "required_tools": [
+      "athena_joint_factor_belief",
+      "athena_gp_resolution_route",
+      "athena_structural_reliability_calibrate",
+      "athena_longitudinal_tmle_crossfit",
+      "athena_sequential_dr_policy_crossfit",
+      "athena_joint_gaussian_update",
+      "athena_joint_gaussian_control",
+      "athena_approx_error_transport",
+      "athena_multistage_tv_dro_plan",
+      "athena_deployment_manifest",
+      "athena_deployment_validate",
+      "athena_deployment_activation_plan",
+      "athena_deployment_assess_canary",
+      "athena_deployment_verify_receipt",
+      "athena_promotion_evaluate",
+      "athena_promotion_verify_github"
+    ],
+    "required_resources": [
+      "athena://manifest",
+      "athena://runtime/unified-manifest",
+      "athena://promotion",
+      "athena://collective/v14",
+      "athena://collective/v15",
+      "athena://deployment",
+      "athena://deployment/security",
+      "athena://deployment/rollout",
+      "athena://deployment/evidence"
+    ],
+    "v15_contracts": [
+      "weighted duplicate-pooled out-of-fold isotonic structural reliability",
+      "stage-2 TMLE pseudo outcome preserves observed A1 and L1 before stage-1 intervention",
+      "A1 dynamic policy uses baseline only; A2 dynamic policy uses baseline plus A1 and L1 only",
+      "unknown Gaussian coefficient coordinates and non-finite numeric model state fail closed",
+      "geometric nearest, global error envelope, and radius-eligible local certificate are distinct",
+      "no radius-eligible witness yields a null local certificate rather than an unrestricted global fallback",
+      "rectangular TV-DRO validates finite complete state/action/transition coordinates"
+    ]
+  },
+  "source_policy": {
+    "repository": "demeet2k/athena-mcp-server",
+    "branch": "master",
+    "publication_requires_exact_current_master": true,
+    "publication_requires_clean_checkout": true,
+    "publication_requires_five_stage_qualification": true,
+    "qualification_checks": ["syntax", "unit", "critical-invariants", "smoke", "promotion-qualification"],
+    "exact_commit_is_bound_in_release_attestation": true,
+    "critical_test_selectors_must_resolve_to_real_files": true
+  },
+  "release": {
+    "draft": false,
+    "prerelease": false,
+    "notes_file": "release/v3.4.0.md",
+    "required_assets": [
+      "athena_canonical_mcp-3.4.0-py3-none-any.whl",
+      "promotion-receipt.json",
+      "release-manifest.json",
+      "release-attestation.json",
+      "SHA256SUMS"
+    ]
+  },
+  "gates": [
+    "exact master checkout at publication",
+    "manifest and package version identity",
+    "syntax",
+    "full repository unit corpus",
+    "critical invariant selectors resolve to real nonempty test files",
+    "critical invariants through hardened V15, Deployment.2 and PROMOTION.2",
+    "weighted duplicate-coordinate calibration regression",
+    "decision-time longitudinal history leakage regression",
+    "strict unknown/non-finite Gaussian coordinate regression",
+    "local-vs-global approximation-error transport geometry regression",
+    "no radius-eligible witness returns no local certificate regression",
+    "strict finite TV-DRO coordinate regression",
+    "subprocess smoke",
+    "host-bound coherent-suite promotion qualification",
+    "wheel build",
+    "clean wheel installation outside repository",
+    "Server MCP initialization",
+    "UNIFIED.11 manifest identity across public manifest paths",
+    "V15 calibrated science/control tool/resource exposure",
+    "Deployment.2 tool/resource exposure",
+    "V15 outputs cannot mutate Y1/JSPACE/empirical observations/execution/trust by adjacency",
+    "deployment planning remains external-control state until independently executed and witnessed",
+    "caller attestation remains ATTESTED_READY",
+    "trusted verifier surface remains host-bound",
+    "release attestation binds exact commit plus trusted PROMRUN receipt",
+    "exact-head tag compare-and-swap",
+    "release asset checksum verification"
+  ],
+  "authority_boundaries": [
+    "GitHub release publication is distribution, not deployment.",
+    "Release attestation certifies exact repository/package/distribution state, not empirical truth or causal validity.",
+    "Calibration reliability, cross-fitted estimates, Gaussian belief state, approximation envelopes, robust plans and deployment plans do not become Y1 authority by publication.",
+    "Decision-time history validation prevents future/outcome look-ahead but does not prove causal identification assumptions.",
+    "Unknown or non-finite model coordinates are rejected; validation does not prove that supplied finite coordinates are empirically correct.",
+    "A missing radius-eligible approximation witness remains a missing local certificate; an unrestricted global envelope cannot silently satisfy a declared locality constraint.",
+    "Trusted PROMOTION.2 qualification is not GitHub administrative hardening.",
+    "A tag or release does not authorize treatment execution, production secrets, infrastructure mutation or external package-index publication.",
+    "Deployment.2 is external-control planning and receipt verification, not proof that production infrastructure was changed.",
+    "A v3.3.0 release attestation is not evidence for v3.4.0 bytes."
+  ]
+}

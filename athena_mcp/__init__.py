@@ -23,6 +23,7 @@ for _tool in MESSAGE_BOARD_TOOLS:
 
 if not getattr(PromptRuntime, "_athena_message_board_v1_registered", False):
     _prompt_call_without_message_board = PromptRuntime.call_tool
+
     def _prompt_call_with_message_board(self, name, arguments):
         if name in MESSAGE_BOARD_TOOL_NAMES:
             runtime = getattr(self, "_message_board_runtime_v1", None)
@@ -31,6 +32,7 @@ if not getattr(PromptRuntime, "_athena_message_board_v1_registered", False):
                 self._message_board_runtime_v1 = runtime
             return runtime.call_tool(name, arguments)
         return _prompt_call_without_message_board(self, name, arguments)
+
     PromptRuntime.call_tool = _prompt_call_with_message_board
     PromptRuntime._athena_message_board_v1_registered = True
 
@@ -49,10 +51,16 @@ del _install_release_v14
 from .deployment_extension import install_deployment_extension
 install_deployment_extension()
 
-# NEXT V1→V6: rolling focus, staged preparation, exact prep-plan scouts,
-# bounded allocation, resource economics, observed-cost metabolism, then a
-# calibrated-economy reader. Only cost priors learn from observed receipts;
-# benefit priors remain V5 policy priors and no layer gains claim/promotion authority.
+# Collective V15 is the current release identity inherited from live master.
+from .collective_v15_install import install_release_v15 as _install_release_v15
+_install_release_v15(globals())
+del _install_release_v15
+
+# NEXT V1→V6 composes additively after the current Collective V15 / v3.4
+# registration spine. NEXT owns rolling focus, staged preparation, scout routing,
+# resource economics, and observed-cost calibration only. It does not replace
+# Message Board claim authority, Collective release identity, deployment,
+# promotion, merge, or release authority.
 from .next_quest_pipeline import install_next_pipeline_extension
 from .next_quest_pipeline_hardening import install_next_pipeline_successor_authority_hardening
 from .next_quest_pipeline_bridge import install_next_pipeline_bridge

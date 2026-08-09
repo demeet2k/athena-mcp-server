@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "athena-canonical-mcp"
-version = "3.3.0"
-description = "Canonical KC144/JSPACE/SCALE developmental control with joint posterior scientific control, sequential doubly robust policy value, decision-relative model resolution, and finite two-stage recourse"
+version = "3.4.0"
+description = "Canonical KC144/JSPACE/SCALE developmental control with calibrated structural reliability, cross-fitted longitudinal causal estimation, continuous Gaussian joint belief, approximation-error transport, and bounded multistage robust control"
 requires-python = ">=3.11"
 dependencies = []
 
