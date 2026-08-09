@@ -56,11 +56,11 @@ jobs:
           python -m compileall -q deploy/canary_observer.py tests/test_deployment_canary_observer_v3.py
           python -m unittest discover -s tests -p 'test_deployment_canary_observer_v3.py' -v
           python - <<'PY'
-          import pathlib, yaml
-          workflow=yaml.safe_load(pathlib.Path('.github/workflows/canary-v3.3.yml').read_text())
-          assert workflow['jobs']['contract']
-          assert workflow['jobs']['observe']
-          print('CANARY WORKFLOW YAML PASS')
+          import pathlib
+          text=pathlib.Path('.github/workflows/canary-v3.3.yml').read_text(encoding='utf-8')
+          for fragment in ('name: ATHENA v3.3 Isolated Canary','\n  contract:','\n  observe:','contents: write'):
+              assert fragment in text, fragment
+          print('CANARY WORKFLOW STRUCTURE PASS')
           PY
 
       - name: Commit only the decoded canary lane
