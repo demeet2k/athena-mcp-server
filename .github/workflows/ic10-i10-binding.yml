@@ -1,0 +1,248 @@
+name: IC10 I10 Trusted Binding
+
+on:
+  pull_request:
+    branches:
+      - 'agent/ic10-execution-cut03-observed-v1'
+    paths:
+      - 'spec/IC10_I10_BINDING_V1.json'
+      - 'scripts/ic10_observed_witness.py'
+      - 'scripts/ic10_i10_binding.py'
+      - '.github/workflows/ic10-i10-binding.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  checks: read
+
+jobs:
+  ic10-observed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile observed I01-I09 cartridge
+        run: python -m compileall -q scripts/ic10_observed_witness.py
+      - name: Execute observed I01-I09 witness on exact head
+        env:
+          PYTHONPATH: .
+        run: python scripts/ic10_observed_witness.py
+      - name: Upload exact-head observed witness
+        uses: actions/upload-artifact@v4
+        with:
+          name: ic10-i01-i09-observed-exact-head
+          path: ic10_observed_witness_v1.json
+          if-no-files-found: error
+
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile runtime, tests and IC10 binding cartridges
+        run: python -m compileall -q athena_mcp tests smoke.py scripts/qualify_github_head.py scripts/ic10_observed_witness.py scripts/ic10_i10_binding.py
+
+  unit:
+    runs-on: ubuntu-latest
+    env:
+      GIT_CONFIG_COUNT: '3'
+      GIT_CONFIG_KEY_0: gc.auto
+      GIT_CONFIG_VALUE_0: '0'
+      GIT_CONFIG_KEY_1: maintenance.auto
+      GIT_CONFIG_VALUE_1: 'false'
+      GIT_CONFIG_KEY_2: gc.autoDetach
+      GIT_CONFIG_VALUE_2: 'false'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Full unit suite
+        shell: bash
+        run: |
+          set +e
+          python -m unittest discover -s tests -v 2>&1 | tee /tmp/athena-tests.log
+          code=${PIPESTATUS[0]}
+          if [ "$code" -ne 0 ]; then
+            msg=$(python - <<'PY'
+          from pathlib import Path
+          s=Path('/tmp/athena-tests.log').read_text(errors='replace')
+          marker='======================================================================'
+          failure=s[s.find(marker):] if marker in s else '\n'.join(s.splitlines()[-240:])
+          failure=failure.replace('%','%25').replace('\r','%0D').replace('\n','%0A')
+          print(failure[:30000])
+          PY
+            )
+            echo "::error title=ATHENA full-suite traceback::$msg"
+            exit "$code"
+          fi
+
+  critical-invariants:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Schema migration and restart durability
+        run: python -m unittest discover -s tests -p 'test_state_foundation_unified.py' -v
+      - name: Unknown legacy-state preservation
+        run: python -m unittest discover -s tests -p 'test_legacy_migration_preservation.py' -v
+      - name: Three independent CAS domains
+        run: python -m unittest discover -s tests -p 'test_three_domain_cas_unified.py' -v
+      - name: Whole-cycle fail-closed metabolism
+        run: python -m unittest discover -s tests -p 'test_cycle_unified.py' -v
+      - name: Surface and composition integrity
+        run: python -m unittest discover -s tests -p 'test_surface_composition_unified.py' -v
+      - name: Local self-test and startup readiness
+        run: |
+          python -m unittest discover -s tests -p 'test_self_test_unified.py' -v
+          python -m unittest discover -s tests -p 'test_startup_health_unified.py' -v
+      - name: Live runtime manifest and MAXDEV law
+        run: python -m unittest discover -s tests -p 'test_unified_manifest.py' -v
+      - name: Release metadata and RPC namespace uniqueness
+        run: python -m unittest discover -s tests -p 'test_metadata_consistency.py' -v
+      - name: Documentation and repository-brain consistency
+        run: python -m unittest discover -s tests -p 'test_documentation_consistency.py' -v
+      - name: Release distribution contract
+        run: python -m unittest discover -s tests -p 'test_release_distribution.py' -v
+      - name: GitHub trusted promotion verifier
+        run: python -m unittest discover -s tests -p 'test_github_promotion_verifier.py' -v
+      - name: V6 upstream scientific diagnostics and unified Y1 firewall
+        run: |
+          python -m unittest discover -s tests -p 'test_00_collective_v6_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_00a_collective_v6_assertion_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_diagnostics.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v6_unified.py' -v
+      - name: V7 upstream dual-control suites and unified authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v7.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v7_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v7_unified.py' -v
+      - name: V8-V9 upstream belief inference suites and unified authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v8.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v8_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v9.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v9_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v8_v9_unified.py' -v
+      - name: V10 probabilistic constructive adversarial and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v10.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v10_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v10_unified.py' -v
+      - name: V11 adaptive constructive adversarial and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v11.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v11_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v11_unified.py' -v
+      - name: V12 joint-model constructive adversarial and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v12.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v12_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v12_unified.py' -v
+      - name: V13 robust continuous-bayes causal-control and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v13.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v13_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v13_unified.py' -v
+      - name: V14 joint posterior synthesis and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v14.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v14_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v14_unified.py' -v
+      - name: V15 calibrated continuous control and authority boundaries
+        run: |
+          python -m unittest discover -s tests -p 'test_collective_v15.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v15_adversarial.py' -v
+          python -m unittest discover -s tests -p 'test_collective_v15_unified.py' -v
+      - name: AOR Collective transport firewalls
+        run: python -m unittest discover -s tests -p 'test_aor_collective_transport.py' -v
+      - name: Promotion trust and exact-head predicate
+        run: python -m unittest discover -s tests -p 'test_promotion_unified.py' -v
+
+  smoke:
+    needs: [syntax, unit, critical-invariants]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: MCP smoke
+        run: python smoke.py
+
+  promotion-qualification:
+    needs: [ic10-observed, syntax, unit, critical-invariants, smoke]
+    runs-on: ubuntu-latest
+    env:
+      ATHENA_GITHUB_REPOSITORY: ${{ github.repository }}
+      ATHENA_GITHUB_API_URL: ${{ github.api_url }}
+      ATHENA_GITHUB_RUN_ID: ${{ github.run_id }}
+      ATHENA_GITHUB_TOKEN: ${{ github.token }}
+      ATHENA_PROMOTION_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Create and replay host-verified PROMOTION.2 receipt
+        run: python scripts/qualify_github_head.py --git-root . --output promotion-receipt.json
+      - name: Upload trusted promotion receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: ic10-i10-promotion-receipt
+          path: promotion-receipt.json
+          if-no-files-found: error
+
+  ic10-bind:
+    needs: [ic10-observed, promotion-qualification]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Download observed I01-I09 packet
+        uses: actions/download-artifact@v4
+        with:
+          name: ic10-i01-i09-observed-exact-head
+          path: .
+      - name: Download trusted PROMOTION.2 receipt
+        uses: actions/download-artifact@v4
+        with:
+          name: ic10-i10-promotion-receipt
+          path: .
+      - name: Bind exact-head I10 and re-evaluate full IC10 chain
+        env:
+          PYTHONPATH: .
+        run: python scripts/ic10_i10_binding.py --observed ic10_observed_witness_v1.json --promotion promotion-receipt.json --output ic10_i10_binding_receipt_v1.json
+      - name: Upload bounded IC10 chain-satisfied receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ic10-i10-binding-receipt-v1
+          path: ic10_i10_binding_receipt_v1.json
+          if-no-files-found: error
