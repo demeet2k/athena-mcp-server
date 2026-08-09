@@ -10,10 +10,11 @@
     "independent_witness", "authority_delta", "ci_qualification",
     "implementation_binding", "semantic_control_artifact",
     "packet_compiler_revision", "packet_semantic_digest",
-    "operator_registry_digest", "initial_state", "edge_path",
-    "evaluation_input_digest", "raw_result", "raw_result_digest",
-    "semantic_result", "semantic_result_digest",
-    "semantic_result_projection_basis", "receipt_digest"
+    "operator_registry_digest", "initial_state", "initial_state_digest",
+    "edge_path", "ordered_path_digest", "evaluation_input_digest",
+    "raw_result", "raw_result_digest", "semantic_result",
+    "semantic_result_digest", "semantic_result_projection_basis",
+    "receipt_digest"
   ],
   "properties": {
     "artifact": {"const": "ATHENA.MCK.EVALUATION.RECEIPT.V1"},
@@ -52,7 +53,9 @@
     "packet_semantic_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "operator_registry_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "initial_state": {"$ref": "#/$defs/auditState"},
+    "initial_state_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "edge_path": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "ordered_path_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "evaluation_input_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "raw_result": {"type": "object"},
     "raw_result_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
