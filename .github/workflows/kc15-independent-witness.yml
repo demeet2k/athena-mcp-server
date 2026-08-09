@@ -1,0 +1,38 @@
+name: KC15 Independent Structural Witness
+
+on:
+  pull_request:
+    branches:
+      - 'agent/cell-closure-populate-kc15-kc27-v1'
+    paths:
+      - 'spec/KC15_INDEPENDENT_WITNESS_V1.json'
+      - 'scripts/kc15_independent_witness.py'
+      - '.github/workflows/kc15-independent-witness.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  kc15-independent:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile independent KC15 witness
+        run: python -m compileall -q scripts/kc15_independent_witness.py
+      - name: Verify 15-mask support lattice independently
+        env:
+          PYTHONPATH: .
+        run: python scripts/kc15_independent_witness.py
+      - name: Upload independent structural receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kc15-independent-structural-witness-v1
+          path: kc15_independent_witness_v1.json
+          if-no-files-found: error
