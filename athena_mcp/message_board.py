@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import json
 import os
+import posixpath
 import re
 import subprocess
+import unicodedata
 import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -34,6 +36,7 @@ LAWS = [
     "COLLABORATION_OR_REPLICATION_MUST_BE_EXPLICIT",
     "FUZZY_SIMILARITY != DUPLICATE_PROOF",
     "LEASE_EXPIRY != COMPLETION",
+    "RELEASE_DONE != TASK_VERIFIED",
     "MESSAGE_ROUTE != CONSUMPTION",
     "LOCAL_COMMIT != SHARED_RETURN",
     "SHARED_MUTATION_REQUIRES_FRESH_REMOTE_FRONTIER",
@@ -67,11 +70,51 @@ def _require_id(value: str, field: str) -> str:
 
 
 def _norm(value: str | None) -> str:
-    return " ".join(str(value or "").casefold().split())
+    return " ".join(unicodedata.normalize("NFKC", str(value or "")).casefold().split())
 
 
 def _norm_target(value: str) -> str:
-    return str(value or "").strip().replace("\\", "/").casefold().rstrip("/")
+    raw = unicodedata.normalize("NFKC", str(value or "")).strip().replace("\\", "/")
+    if not raw:
+        return ""
+    prefix = ""
+    if "://" in raw:
+        prefix, raw = raw.split("://", 1)
+        prefix = prefix.casefold() + "://"
+    normalized = posixpath.normpath("/" + raw).lstrip("/")
+    if normalized in {"", "."}:
+        return ""
+    return prefix + normalized.casefold().rstrip("/")
+
+
+def _completion_receipt_error(receipt: dict | None, row: dict) -> str | None:
+    if not isinstance(receipt, dict):
+        return "DONE_REQUIRES_STRUCTURED_COMPLETION_RECEIPT"
+    if str(receipt.get("claim_id") or "") != str(row.get("claim_id") or ""):
+        return "COMPLETION_CLAIM_MISMATCH"
+    if str(receipt.get("agent_id") or "") != str(row.get("agent_id") or ""):
+        return "COMPLETION_AGENT_MISMATCH"
+    refs = [str(x).strip() for x in (receipt.get("result_refs") or []) if str(x).strip()]
+    if not refs:
+        return "COMPLETION_RESULT_REFS_EMPTY"
+    verification = receipt.get("verification")
+    if not isinstance(verification, dict):
+        return "COMPLETION_VERIFICATION_MISSING"
+    executed = int(verification.get("executed") or 0)
+    passed = int(verification.get("passed") or 0)
+    failed = int(verification.get("failed") or 0)
+    skipped = int(verification.get("skipped") or 0)
+    if executed <= 0 or passed != executed or failed or skipped:
+        return "COMPLETION_VERIFICATION_NOT_NONEMPTY_CLEAN_PASS"
+    if not str(verification.get("provider_ref") or "").strip():
+        return "COMPLETION_PROVIDER_REF_MISSING"
+    if not str(verification.get("witness_digest") or "").strip():
+        return "COMPLETION_WITNESS_DIGEST_MISSING"
+    claimed_targets = {_norm_target(str(x)) for x in (row.get("targets") or []) if _norm_target(str(x))}
+    delta_targets = {_norm_target(str(x)) for x in (receipt.get("owned_delta_targets") or []) if _norm_target(str(x))}
+    if claimed_targets and (not delta_targets or not delta_targets.issubset(claimed_targets)):
+        return "COMPLETION_OWNED_TARGET_MISMATCH"
+    return None
 
 
 def _tokens(value: str | None) -> set[str]:
@@ -501,13 +544,16 @@ class MessageBoardRuntime:
 
         return self._mutate(agent_id=agent_id, remote=remote, build_files=build)
 
-    def heartbeat(self, *, agent_id: str, lease_seconds: int | None = None, note: str | None = None, remote: str = "origin") -> dict:
+    def heartbeat(self, *, agent_id: str, expected_claim_id: str, lease_seconds: int | None = None, note: str | None = None, remote: str = "origin") -> dict:
         agent_id = _require_id(agent_id, "agent_id")
+        expected_claim_id = _require_id(expected_claim_id, "expected_claim_id")
 
         def build(base):
             row = next((r for r in self._presence_rows() if r.get("agent_id") == agent_id), None)
             if not row or self._lease_state(row) != "ACTIVE":
                 return {"return": {"status": "NOT_ACTIVE_HOLD", "next": "present again before continuing work"}}
+            if str(row.get("claim_id")) != expected_claim_id:
+                return {"return": {"status": "STALE_CLAIM_HOLD", "expected_claim_id": expected_claim_id, "current_claim_id": row.get("claim_id")}}
             lease = self._lease_seconds(lease_seconds or row.get("lease_seconds") or 1800)
             now = _utcnow()
             updated = dict(row)
@@ -543,6 +589,9 @@ class MessageBoardRuntime:
         message_id = _require_id(message_id, "message_id")
 
         def build(base):
+            active = next((r for r in self._active() if r.get("agent_id") == agent_id), None)
+            if not active:
+                return {"return": {"status": "NOT_PRESENT_HOLD", "next": "present or join before acknowledging"}}
             events = self._events()
             message = next((e for e in events if e.get("event_id") == message_id and e.get("kind") == "MESSAGE"), None)
             if not message:
@@ -557,8 +606,9 @@ class MessageBoardRuntime:
 
         return self._mutate(agent_id=agent_id, remote=remote, build_files=build)
 
-    def release(self, *, agent_id: str, release_status: str = "DONE", outcome: str | None = None, handoff_to: str | None = None, remote: str = "origin") -> dict:
+    def release(self, *, agent_id: str, expected_claim_id: str, release_status: str = "DONE", outcome: str | None = None, handoff_to: str | None = None, completion_receipt: dict | None = None, remote: str = "origin") -> dict:
         agent_id = _require_id(agent_id, "agent_id")
+        expected_claim_id = _require_id(expected_claim_id, "expected_claim_id")
         release_status = str(release_status or "DONE").upper()
         if release_status not in _RELEASE_STATES:
             raise ValueError(f"release_status must be one of {sorted(_RELEASE_STATES)}")
@@ -569,11 +619,16 @@ class MessageBoardRuntime:
             row = next((r for r in self._presence_rows() if r.get("agent_id") == agent_id), None)
             if not row or str(row.get("status")) != "ACTIVE":
                 return {"return": {"status": "ALREADY_RELEASED" if row else "NOT_PRESENT", "presence": row}}
+            if str(row.get("claim_id")) != expected_claim_id:
+                return {"return": {"status": "STALE_CLAIM_HOLD", "expected_claim_id": expected_claim_id, "current_claim_id": row.get("claim_id")}}
+            receipt_error = _completion_receipt_error(completion_receipt, row) if release_status == "DONE" else None
+            if receipt_error:
+                return {"return": {"status": "COMPLETION_GATE_HOLD", "reason": receipt_error, "claim_id": expected_claim_id}}
             updated = dict(row)
-            updated.update({"status": "RELEASED", "release_status": release_status, "released_at": _iso(), "outcome": str(outcome or "").strip() or None, "handoff_to": handoff_to})
+            updated.update({"status": "RELEASED", "release_status": release_status, "released_at": _iso(), "outcome": str(outcome or "").strip() or None, "handoff_to": handoff_to, "completion_receipt": completion_receipt, "completion_standing": "STRUCTURALLY_VALID_PROVIDER_REF_UNVERIFIED" if completion_receipt else "NOT_CLAIMED"})
             kind = "HANDOFF" if handoff_to or release_status == "HANDOFF" else "RELEASE"
             event_rel, event = self._event(kind, agent_id, {"claim_id": row.get("claim_id"), "release_status": release_status, "outcome": updated["outcome"], "handoff_to": handoff_to}, recipients=[handoff_to] if handoff_to else [])
-            return {"files": {self._presence_path(agent_id): _json_text(updated), event_rel: _json_text(event)}, "message": f"message board release {agent_id}", "result": {"status": "RELEASED", "presence": updated, "handoff": handoff_to, "law": "RELEASE_PRESERVES_HISTORY"}}
+            return {"files": {self._presence_path(agent_id): _json_text(updated), event_rel: _json_text(event)}, "message": f"message board release {agent_id}", "result": {"status": "RELEASED", "presence": updated, "handoff": handoff_to, "completion_authority": False, "law": "RELEASE_PRESERVES_HISTORY; RELEASE_DONE != TASK_VERIFIED"}}
 
         return self._mutate(agent_id=agent_id, remote=remote, build_files=build)
 
@@ -591,13 +646,13 @@ class MessageBoardRuntime:
         if action == "join":
             return self.join(agent_id=a["agent_id"], join_agent_id=a["join_agent_id"], task=a.get("task"), details=a.get("details"), lease_seconds=a.get("lease_seconds", 1800), remote=remote)
         if action == "heartbeat":
-            return self.heartbeat(agent_id=a["agent_id"], lease_seconds=a.get("lease_seconds"), note=a.get("note"), remote=remote)
+            return self.heartbeat(agent_id=a["agent_id"], expected_claim_id=a["expected_claim_id"], lease_seconds=a.get("lease_seconds"), note=a.get("note"), remote=remote)
         if action == "post":
             return self.post(agent_id=a["agent_id"], message=a["message"], message_kind=a.get("message_kind", "INFO"), recipients=a.get("recipients") or [], reply_to=a.get("reply_to"), remote=remote)
         if action == "ack":
             return self.ack(agent_id=a["agent_id"], message_id=a["message_id"], remote=remote)
         if action == "release":
-            return self.release(agent_id=a["agent_id"], release_status=a.get("release_status", "DONE"), outcome=a.get("outcome"), handoff_to=a.get("handoff_to"), remote=remote)
+            return self.release(agent_id=a["agent_id"], expected_claim_id=a["expected_claim_id"], release_status=a.get("release_status", "DONE"), outcome=a.get("outcome"), handoff_to=a.get("handoff_to"), completion_receipt=a.get("completion_receipt"), remote=remote)
         raise KeyError(action)
 
 
@@ -624,8 +679,10 @@ MESSAGE_BOARD_TOOLS = [{
             "reply_to": {"type": ["string", "null"]},
             "message_id": {"type": ["string", "null"]},
             "note": {"type": ["string", "null"]},
+            "expected_claim_id": {"type": ["string", "null"]},
             "release_status": {"type": "string", "enum": sorted(_RELEASE_STATES)},
             "outcome": {"type": ["string", "null"]},
+            "completion_receipt": {"type": ["object", "null"]},
             "handoff_to": {"type": ["string", "null"]},
             "limit": {"type": "integer", "minimum": 1, "maximum": 500},
             "include_stale": {"type": "boolean"},
