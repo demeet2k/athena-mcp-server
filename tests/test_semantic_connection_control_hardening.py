@@ -26,7 +26,7 @@ class SemanticConnectionControlHardeningTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "feature_basis contains empty feature"):
             SemanticState(
                 "A",
-                {"x": 1, "": 2},
+                {"x": 1},
                 feature_basis=("x", ""),
             )
 
