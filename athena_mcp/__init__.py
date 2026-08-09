@@ -77,6 +77,37 @@ from .agent_bootstrap_message_board_activation import (
 install_agent_bootstrap_message_board(AgentBootstrapRuntime)
 install_agent_bootstrap_message_board_activation(AgentBootstrapRuntime)
 
+# ROOM-HOMEOSTASIS-001: occupancy is distinct from work ownership. The room
+# shares Message Board's Git transport and CAS frontier; allocation remains
+# advisory until an exact Message Board claim succeeds.
+from .organism_room import (
+    TOOL_NAMES as ORGANISM_ROOM_TOOL_NAMES,
+    TOOLS as ORGANISM_ROOM_TOOLS,
+    OrganismRoomRuntime,
+)
+
+for _tool in ORGANISM_ROOM_TOOLS:
+    if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
+        PROMPT_RUNTIME_TOOLS.append(_tool)
+        PROMPT_RUNTIME_TOOL_NAMES.add(_tool["name"])
+    if not any(existing["name"] == _tool["name"] for existing in _protocol.TOOLS):
+        _protocol.TOOLS.append(_tool)
+
+if not getattr(PromptRuntime, "_athena_organism_room_v1_registered", False):
+    _prompt_call_without_organism_room = PromptRuntime.call_tool
+
+    def _prompt_call_with_organism_room(self, name, arguments):
+        if name in ORGANISM_ROOM_TOOL_NAMES:
+            runtime = getattr(self, "_organism_room_runtime_v1", None)
+            if runtime is None:
+                runtime = OrganismRoomRuntime(self.git)
+                self._organism_room_runtime_v1 = runtime
+            return runtime.call_tool(name, arguments)
+        return _prompt_call_without_organism_room(self, name, arguments)
+
+    PromptRuntime.call_tool = _prompt_call_with_organism_room
+    PromptRuntime._athena_organism_room_v1_registered = True
+
 # BOOT-C3-001: deterministic BOOT-MB holds receive a read-only Cohesion C3-11
 # treatment projection. Install after BOOT-MB activation so this wrapper can
 # observe final pre-dispatch standing without changing claim authority.
@@ -85,6 +116,13 @@ from .agent_bootstrap_cohesion_treatment import (
 )
 
 install_agent_bootstrap_cohesion_treatment(AgentBootstrapRuntime)
+
+# ROOM-HOMEOSTASIS-001: every material boot must enter the shared room before
+# execution returns. Install after Message Board/Cohesion so any exact work
+# claim is bound to the same boot session rather than becoming a second bus.
+from .agent_bootstrap_organism_room import install_agent_bootstrap_organism_room
+
+install_agent_bootstrap_organism_room(AgentBootstrapRuntime)
 
 # Collective V14 preserves the historical registration body and installs the
 # joint scientific-control frontier inherited by V15.
