@@ -1,21 +1,21 @@
-# ATHENA Canonical MCP v3.3 — AΩR × Collective V1–V14 × Operational Organism
+# ATHENA Canonical MCP v3.4 — AΩR × Collective V1–V15 × Operational Organism × Deployment.2
 
-ATHENA is an executable Git/MCP developmental substrate. The current runtime composes canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, exact visible-output crystallization, AOR/Y1 developmental routing, Collective scientific/control layers, restart-safe state foundation, prompt/frontier and rehydration loops, Message Board/cohesion coordination, campaign/life-loop/game-time organs, bounded bionanomachine/mythic kernels, and exact-head release qualification through a host-bound GitHub verifier.
+ATHENA is an executable Git/MCP developmental substrate. The current runtime composes canonical identity/versioning, typed JSPACE, SCALE, KC144/polycoordinates, AOR/Y1 developmental routing, Collective V1–V15 science/control layers, restart-safe state foundation, prompt/frontier and rehydration loops, Message Board/cohesion/party coordination, campaign/life/game organs, bounded symbolic/mythic/bionano kernels, Deployment.2 external-control planning, versioned release distribution, and exact-head qualification through a host-bound GitHub verifier.
 
 Current executable coordinates:
 
-- package: `athena-canonical-mcp 3.3.0`;
-- live architecture: `ATHENA.RUNTIME.UNIFIED.10`;
+- package: `athena-canonical-mcp 3.4.0`;
+- live architecture: `ATHENA.RUNTIME.UNIFIED.11`;
 - runtime root: one composed `Server`;
-- Collective ladder: V1–V14;
-- current Collective coordinate: `COLLECTIVE_SYNTHESIS=<JB,SE,JE,DR,RP,AZ,MR,L>`;
+- Collective ladder: V1–V15;
+- current Collective coordinate: `COLLECTIVE_CALIBRATED=<SR,XT,XD,CJ,AT,MD,L>`;
+- inherited V14 coordinate: `COLLECTIVE_SYNTHESIS=<JB,SE,JE,DR,RP,AZ,MR,L>`;
+- deployment frontier: `ATHENA.DEPLOYMENT.2`;
 - authority: Y1 `athena_claim_*`;
 - science-shadow namespace: `athena_discovery_claim_*`;
-- state foundation: `SCHEMA.2 / OMEGA.1 / RECON.1`;
-- governance: `SELFTEST.1 / STARTUP.1 / SURFACE.2 / COMPOSITION.2 / PROMOTION.2`;
+- governance: `SCHEMA.2 / SELFTEST.1 / SURFACE.2 / COMPOSITION.2 / PROMOTION.2`;
 - trusted verifier: `GITHUB_PROMOTION_VERIFIER.1`;
-- readiness: `syntax ∧ unit ∧ critical-invariants ∧ smoke`;
-- trusted qualification: `readiness → promotion-qualification`.
+- trusted qualification: `syntax ∧ unit ∧ critical-invariants ∧ smoke → promotion-qualification`.
 
 ## Constitutional braid
 
@@ -25,11 +25,11 @@ Current executable coordinates:
 
 `Y1 = canonical claim authority`.
 
-`OPERATIONAL ORGANISM = prompt/frontier + rehydration/successor/handoff + Message Board/cohesion + campaign/life/game organs`.
+`OPERATIONAL ORGANISM = prompt/frontier + rehydration/successor/handoff + Message Board/cohesion/party + campaign/life/game + symbolic/mythic/bionano organs`.
+
+`DEPLOYMENT.2 = separately typed external-control planning / validation / canary / receipt verification`.
 
 `PROMOTION.2 = caller-bound readiness + separately trusted qualification`.
-
-`GITHUB_PROMOTION_VERIFIER.1 = host-bound exact-head Actions verification`.
 
 Core firewalls:
 
@@ -41,127 +41,121 @@ Core firewalls:
 
 `MODEL_GRAPH != CANONICAL_JSPACE_GRAPH`
 
-`athena_claim_* != athena_discovery_claim_*`
-
 `CALLER_ATTESTATION != TRUSTED_EXTERNAL_VERIFICATION`
 
 `ATTESTED_READY != QUALIFIED`
 
-`CHECKS_FROM_DIFFERENT_SUITES_OR_RUNS != ONE_TRUSTED_QUALIFICATION`.
+`COLLECTIVE_CALIBRATED != DEPLOYMENT_AUTHORITY != COORDINATION_AUTHORITY`.
 
 ## Runtime cycle
 
-`HYDRATE → RECONRUN/OMEGA → MEMORY → SX → RAG → HUG → GAP → FIELD → MEASURE/CALIBRATE → Y1/AOR → COLLECTIVE(V1–V14) → EXECUTE → VERIFY → LEARN → SUCCESSOR → COMPLETE`.
+`HYDRATE → RECONRUN/OMEGA → MEMORY → SX → RAG → HUG → GAP → FIELD → MEASURE/CALIBRATE → Y1/AOR → COLLECTIVE(V1–V15) → AUTHORIZED EXECUTION → VERIFY → LEARN → SUCCESSOR → COMPLETE`.
 
-CYCLE stops at typed missing prerequisites instead of fabricating execution, evidence, tests, workers or authority.
+CYCLE stops at typed missing prerequisites instead of fabricating execution, evidence, workers, tests or authority.
 
-## Collective V1–V13
+## Collective V1–V14 lineage
 
-V1–V4 are the resident organization/memory/learning/ecology substrate. V5–V9 add causal science, active discovery, dual control, finite belief and Gaussian/continuous inference. V10 adds a bounded probabilistic world model. V11 adds model adaptation/latent causal geometry. V12 preserves finite joint world-model uncertainty. V13 adds continuous-domain QMC GP hyperbelief, FITC approximation, joint GP experiment design, bounded FCI-lite, history-preserving two-timepoint sequential TMLE, dynamic policy value and correlated robust resources.
-
-V13 coordinate:
-
-`COLLECTIVE_ROBUST=<HB,FG,JD,FC,LT,DP,DR,L>`.
-
-The V13 temporal invariant remains constitutional:
-
-`STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION`.
-
-Resource: `athena://collective/v13`.
-
-## V14 — Joint Posterior Scientific Control
-
-V14 does not claim a universal joint posterior. It adds bounded synthesis operators that join previously separate uncertainty planes while preserving their types.
-
-### JB — finite joint factor belief
-
-`athena_joint_factor_belief` constructs an exact finite science-twin distribution from explicit factor axes, compatibility multipliers and optional complete state likelihoods.
-
-`FINITE_FACTOR_PRODUCT_BELIEF != FULL_JOINT_POSTERIOR`.
-
-### SE — bootstrap structural ensemble
-
-`athena_structural_bootstrap_ensemble` reruns bounded FCI-lite on bootstrap row samples and reports graph-variant/marked-edge stability.
-
-`BOOTSTRAP_GRAPH_FREQUENCY != CAUSAL_POSTERIOR`.
-
-No result writes JSPACE.
-
-### JE — joint science EVI
-
-`athena_joint_science_evi` exposes both decision EVI and joint-state entropy reduction for explicit finite action/experiment models.
-
-`JOINT_SCIENCE_EVI != OBSERVATION_OR_EVIDENCE`.
-
-Hypothetical outcomes remain DESIGN_ONLY.
-
-### DR — sequential doubly robust policy value
-
-`athena_sequential_dr_policy_value` evaluates deterministic two-timepoint policies with a sequential AIPW score over binary `X → A1 → L1 → A2 → Y` histories.
-
-`STAGE2_POLICY_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_POLICY_EVALUATION`.
-
-The current estimator explicitly reports `cross_fitted=false`.
-
-`SEQUENTIAL_DR_POLICY_VALUE != GENERAL_LONGITUDINAL_CAUSAL_VALUE_THEOREM`.
-
-Declared latent confounding fails closed.
-
-### RP — robust policy geometry
-
-`athena_joint_policy_robust` preserves expected utility, lower-tail CVaR, worst-case utility, expected/max regret, cost and a Pareto frontier across supplied finite weighted joint states.
-
-`FINITE_SCENARIO_ROBUST_POLICY != GENERAL_ROBUST_CONTROL`.
-
-### AZ — decision-relative approximation / zoom
-
-`athena_gp_resolution_route` chooses the shallowest tested FITC/full-GP representation that preserves the exact current action winner on the supplied action/query set while respecting a declared fraction of the exact decision margin.
-
-`QUERY_SET_DECISION_PRESERVATION != GLOBAL_APPROXIMATION_CERTIFICATE`.
-
-This is a concrete computational zoom law: **use the cheapest witnessed resolution sufficient for the current decision, not the deepest available model by default**.
-
-### MR — finite two-stage recourse
-
-`athena_two_stage_resource_plan` chooses a first-stage subset and then the best feasible bounded recourse option under each explicit scenario. Below the declared first-stage threshold it exhaustively enumerates subsets and may return:
-
-`EXACT_ENUMERATION_FOR_SUPPLIED_FINITE_TWO_STAGE_SCENARIO_MODEL`.
-
-Above the threshold it returns an uncertified deterministic greedy plan.
-
-`FINITE_TWO_STAGE_SCENARIO_RECOURSE != GENERAL_MULTISTAGE_STOCHASTIC_PROGRAM`.
+V1–V9 provide organization, memory, empirical learning, ecology, causal science, active discovery, dual control, finite belief and Gaussian/continuous inference. V10–V13 add bounded GP world models, adaptation, joint hypermodel uncertainty, FCI-lite/longitudinal causal estimation and robust resources. V14 adds finite joint factor belief, bootstrap structural ensembles, joint decision/information value, sequential DR policy value, robust policy geometry, decision-relative GP zoom and finite two-stage recourse.
 
 Resource: `athena://collective/v14`.
 
-Specs: `spec/COLLECTIVE_RUNTIME_V14.md`, `spec/ATHENA_UNIFIED_V14.md`, `spec/ARCHITECTURE_V14.md`, `spec/MIGRATION_V14.md`.
+V14 remains historical/currently callable science substrate; V15 does not silently rename it.
 
-## Science-twin / canonical boundary
+## V15 — calibrated continuous scientific control
 
-At canonical coordinate `x`, the system may attach a V14 fiber:
+### SR — externally witnessed structural reliability
 
-`F_x = JointBelief × StructuralEnsemble × ExperimentValue × PolicyValue × RobustPolicy × ApproximationRoute × Recourse × Trust`.
+`athena_structural_reliability_calibrate` fits a monotone isotonic mapping from bootstrap structural support to externally labelled correctness. Diagnostic predictions are out-of-fold.
 
-`FIBER_MOTION != BASE_CANON_MUTATION`.
+`OUT_OF_FOLD_ISOTONIC_RELIABILITY != CAUSAL_GRAPH_POSTERIOR`.
 
-A changed joint belief, graph frequency, EVI branch, policy estimate, approximation route or recourse plan cannot mutate semantic identity, Y1, JSPACE, GP observations, execution history or trusted promotion state by adjacency.
+`CALIBRATION_LABELS_REQUIRE_EXTERNAL_WITNESS`.
+
+Calibration never writes JSPACE.
+
+### XT — cross-fitted sequential TMLE
+
+`athena_longitudinal_tmle_crossfit` is bounded to binary two-timepoint histories `X → A1 → L1 → A2 → Y`. Nuisance and targeting models are trained without each held-out evaluation fold.
+
+`CROSS_FITTED_TWO_TIMEPOINT_TMLE != GENERAL_LONGITUDINAL_TMLE_THEOREM`.
+
+`CROSS_FITTING != IDENTIFICATION`.
+
+Declared latent confounding fails closed.
+
+### XD — cross-fitted sequential DR policy value
+
+`athena_sequential_dr_policy_crossfit` evaluates deterministic two-timepoint policies with out-of-fold sequential AIPW scores while preserving observed `A1,L1` at stage 2 before stage-1 policy action.
+
+`CROSS_FITTED_SEQUENTIAL_DR != GENERAL_OFF_POLICY_CAUSAL_VALUE`.
+
+Policy value remains PLAN_ONLY.
+
+### CJ — continuous Gaussian joint belief/control
+
+`athena_joint_gaussian_update` implements the exact finite-dimensional update for `X~N(mu,Sigma)` and a declared linear Gaussian observation `y=h^T X+epsilon`.
+
+`LINEAR_GAUSSIAN_UPDATE != GENERAL_CONTINUOUS_JOINT_BAYES`.
+
+`athena_joint_gaussian_control` propagates linear action utilities through that Gaussian belief and retains expected utility, lower-tail Normal CVaR, cost and Pareto state.
+
+`GAUSSIAN_LINEAR_CONTROL != GENERAL_BELIEF_MDP`.
+
+### AT — approximation-error transport
+
+`athena_approx_error_transport` validates a caller-declared Lipschitz error envelope against supplied witness pairs and transports the conditional bound to explicit query coordinates:
+
+`e(x) <= min_i [e_i + L ||x-x_i||]`.
+
+`DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH`.
+
+`TRANSPORT_CERTIFICATE_CONDITIONAL_ON_LIPSCHITZ_BOUND`.
+
+### MD — finite-horizon rectangular TV-DRO
+
+`athena_multistage_tv_dro_plan` solves exact backward induction for supplied finite states/actions and state-action rectangular total-variation ambiguity:
+
+`V_t(s)=max_a[r(s,a)+gamma min_{q:TV(q,p_sa)<=rho} q^T V_{t+1}]`.
+
+Certificate:
+
+`EXACT_DYNAMIC_PROGRAM_FOR_SUPPLIED_FINITE_RECTANGULAR_TV_AMBIGUITY_MODEL`.
+
+`RECTANGULAR_TV_ROBUST_MDP != GENERAL_MULTISTAGE_DRO`.
+
+Resource: `athena://collective/v15`.
+
+Specs: `spec/COLLECTIVE_RUNTIME_V15.md`, `spec/ATHENA_UNIFIED_V15.md`, `spec/ARCHITECTURE_V15.md`, `spec/MIGRATION_V15.md`.
+
+## Deployment.2 braid
+
+Live `master` evolved Deployment.2 while Ω15 was in flight. Ω15 therefore uses a true two-parent Git braid and composes the initializer as:
+
+`V14 → Deployment.2 → V15 release overlay`.
+
+Deployment tools include `athena_deployment_manifest`, `athena_deployment_validate`, `athena_deployment_activation_plan`, `athena_deployment_assess_canary`, and `athena_deployment_verify_receipt`.
+
+Deployment resources include `athena://deployment`, `athena://deployment/security`, `athena://deployment/rollout`, and `athena://deployment/evidence`.
+
+Deployment is external-control state; planning or validating a deployment is not proof that production infrastructure changed.
 
 ## Trusted promotion topology
 
 `athena_promotion_evaluate` remains caller-bound and can reach `ATTESTED_READY` from exact-head caller packets.
 
-`athena_promotion_verify_github(git_head)` is the independent host-bound route. Repository, API endpoint, Actions run, token, trusted app and required checks are not caller-selected MCP inputs.
+`athena_promotion_verify_github(git_head)` is the host-bound route. Repository, API root, Actions run, token, trusted app and required checks are not caller-selected MCP arguments. One coherent Actions suite must contain successful `{syntax, unit, critical-invariants, smoke}` checks for one exact head before `promotion-qualification` can mint a trusted receipt.
 
-The verifier requires `{syntax, unit, critical-invariants, smoke}` to succeed for one exact head inside one coherent trusted Actions check suite. Different runs/suites are never spliced.
+`CHECKS_FROM_DIFFERENT_SUITES_OR_RUNS != ONE_TRUSTED_QUALIFICATION`.
 
-The fifth `promotion-qualification` stage creates/replays a trusted `QUALIFIED` PROMRUN and uploads a receipt for that exact CI head.
-
-`VERIFIER_IMPLEMENTATION_EXISTS != THIS_HEAD_IS_QUALIFIED`.
-
-Every release candidate requires its own receipt.
+`VERIFIER_IMPLEMENTED != HEAD_QUALIFIED`.
 
 ## Release distribution
 
-V3.2 distribution files remain historical/replayable evidence for v3.2 bytes. V3.3 has a separate release manifest/notes/workflow so new evidence cannot be silently substituted for old release evidence.
+V3.2 and V3.3 manifests/notes/frozen regressions remain historical evidence for their exact bytes. V3.4 owns the current executable distribution workflow.
+
+`OLD_RELEASE_RECEIPT != NEW_RELEASE_EVIDENCE`.
+
+`HISTORICAL_RELEASE_RECIPE != CURRENT_EXECUTABLE_PUBLISHER`.
 
 Release qualification:
 
@@ -171,11 +165,11 @@ A distribution receipt certifies exact repository/package/distribution state. It
 
 ## Historical architecture
 
-`ARCHITECTURE.md` and `MIGRATION.md` retain the V13/UNIFIED.9 transition. Current V14 architecture/migration are versioned separately under `spec/ARCHITECTURE_V14.md` and `spec/MIGRATION_V14.md` so history is preserved instead of overwritten.
+`ARCHITECTURE.md` / `MIGRATION.md` preserve the V13/UNIFIED.9 transition. V14 history remains in `spec/ARCHITECTURE_V14.md` and `spec/MIGRATION_V14.md`. Current V15 composition/migration are versioned separately, preserving the actual succession rather than rewriting prior evidence.
 
 ## Run
 
 `python -m athena_mcp --db ./state/athena.db`
 
-Package: `athena-canonical-mcp 3.3.0`  
+Package: `athena-canonical-mcp 3.4.0`  
 MCP protocol revision: `2025-11-25`.
