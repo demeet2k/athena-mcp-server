@@ -12,9 +12,11 @@ import argparse
 import json
 import os
 import sys
+import time
 from typing import Any
 
 from .command_hub import KC144CommandHub
+from .dispatch import _meter
 from .deployment import (
     HTTP_ADAPTER_VERSION,
     activation_plan,
@@ -30,7 +32,9 @@ from .deployment_protocol import (
 )
 from .hub_server import HubServer
 from .protocol import TOOLS
+from .validate import validate
 
+_DEPLOYMENT_TOOL_MAP = {item["name"]: item for item in DEPLOYMENT_TOOLS}
 _DEPLOYMENT_URIS = {item["uri"] for item in DEPLOYMENT_RESOURCES}
 
 
@@ -143,6 +147,57 @@ class DeploymentHubServer(HubServer):
         method = message.get("method")
         params = message.get("params") or {}
         mid = message.get("id")
+
+        if method == "tools/call" and params.get("name") in _DEPLOYMENT_TOOL_MAP:
+            name = params["name"]
+            arguments = params.get("arguments") or {}
+            if not self.rate.allow(name):
+                return self.result(
+                    mid,
+                    {
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "Rate limit exceeded; retry later.",
+                            }
+                        ],
+                        "isError": True,
+                    },
+                )
+            started = time.perf_counter()
+            try:
+                validate(_DEPLOYMENT_TOOL_MAP[name]["inputSchema"], arguments)
+                value = self.call_tool(name, arguments)
+                _meter(self, name, started, "OK")
+                return self.result(
+                    mid,
+                    {
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": json.dumps(
+                                    value,
+                                    ensure_ascii=False,
+                                    sort_keys=True,
+                                ),
+                            }
+                        ],
+                        "structuredContent": value,
+                        "isError": False,
+                    },
+                )
+            except (ValueError, KeyError) as exc:
+                _meter(self, name, started, "REJECTED")
+                return self.result(
+                    mid,
+                    {
+                        "content": [{"type": "text", "text": str(exc)}],
+                        "isError": True,
+                    },
+                )
+            except Exception:
+                _meter(self, name, started, "ERROR")
+                return self.error(mid, -32603, "Internal error")
 
         if method == "initialize":
             result = super().handle(message)
