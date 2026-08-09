@@ -20,3 +20,7 @@ Runtime secrets are mandatory and fail closed:
 
 The candidate is not scheduler-ready until exact-head CI passes and Athena's
 runtime manifest is advanced in a separate activation change.
+
+Population routing mirrors the active Athena room contract: W0/W1/W2 target
+50/30/20, while domain priors are Git 20, math 15, navigation 15, corpus 15,
+tool/physical-limit mapping 10, alchemy 10, myth 5, and integration/meta 10.
