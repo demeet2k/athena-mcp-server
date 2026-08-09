@@ -1,3 +1,4 @@
+from .omega29_bootstrap import install as install_omega29_operate
 from .operational_basis import install as install_operational_basis
 from .frontier_claim import (
     FRONTIER_CLAIM_TOOLS,
@@ -14,9 +15,9 @@ from .frontier_runtime import FrontierRuntime, FRONTIER_TOOLS, FRONTIER_TOOL_NAM
 from .prompt_runtime import PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES
 
 # Server imports this module on every canonical startup before dispatch builds
-# the final protocol tool union. Install both additive control-plane organs here:
-# operational-basis discovery remains read-side only, while bounded claim tools
-# retain their existing provider/freshness/authority gates.
+# the final protocol tool union. Install the pure Ω29 read boundary first so the
+# operational basis observes it, then install the existing additive organs.
+install_omega29_operate()
 install_operational_basis()
 install_frontier_claim_extension(FrontierRuntime, FRONTIER_TOOLS)
 install_frontier_claim_idempotency(FrontierClaimRuntime, FRONTIER_CLAIM_TOOLS)
