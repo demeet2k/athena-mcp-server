@@ -283,6 +283,7 @@ def main() -> int:
         "decision_digest": result_a.get("decision_digest"),
         "event_count_before_ic10": before_events,
         "event_count_after_ic10": after_events,
+        "candidate_packet": candidate,
         "authority_ceiling": "I01_I09_PROVIDER_OBSERVED_I10_EXTERNAL_PROMOTION_UNBOUND",
         "evidence_ceiling": [
             "OBSERVED_I01_I09 != FULL_IC10_PROMOTION",
@@ -294,7 +295,7 @@ def main() -> int:
         ],
     }
     OUTPUT.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(json.dumps(receipt, indent=2, sort_keys=True))
+    print(json.dumps({k: v for k, v in receipt.items() if k != "candidate_packet"}, indent=2, sort_keys=True))
     return 0 if ok else 1
 
 

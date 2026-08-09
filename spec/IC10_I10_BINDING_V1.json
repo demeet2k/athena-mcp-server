@@ -1,0 +1,45 @@
+{
+  "artifact": "ATHENA.IC10.I10.BINDING.V1",
+  "role": "read-only binding of provider-observed I01-I09 candidate evidence to an independently produced exact-head trusted PROMOTION.2 certificate",
+  "parent_observed_head": "013c5210ad19d46ced00d3ab5ee953045cf6ee3c",
+  "new_stores": 0,
+  "new_promotion_ledger": false,
+  "new_verifier": false,
+  "canonical_emission_authority": false,
+  "workflow_contract": {
+    "single_run_required_checks": ["syntax", "unit", "critical-invariants", "smoke"],
+    "observed_i01_i09_job": "ic10-observed",
+    "trusted_promotion_job": "promotion-qualification",
+    "binding_job": "ic10-bind",
+    "exact_head": "github.event.pull_request.head.sha || github.sha"
+  },
+  "binding_preconditions": [
+    "observed receipt status = I01_I09_OBSERVED_I10_UNBOUND_MATCH",
+    "observed candidate git_head equals exact checkout head",
+    "observed I01-I09 gates all PASS",
+    "observed first_hold is I10_EXISTING_PROMOTION_QUALIFICATION",
+    "promotion receipt git_head equals exact checkout head",
+    "promotion.status = QUALIFIED",
+    "promotion.promotion_allowed = true",
+    "promotion.gates.external_verification.status = PASS",
+    "promotion.gates.external_verification.trusted = true",
+    "promotion replay match = true and stored/recomputed status = QUALIFIED"
+  ],
+  "success_condition": {
+    "all_I01_I10": "PASS",
+    "decision": "IC10_CHAIN_SATISFIED",
+    "first_hold": null,
+    "promotion_authority": false,
+    "canonical_emission_authority": "EXISTING_PROMOTION_LEDGER_ONLY"
+  },
+  "firewalls": [
+    "I10_BINDING != PROMOTION_CREATION",
+    "IC10_CHAIN_SATISFIED != CLAIM_TRUTH",
+    "IC10_CHAIN_SATISFIED != MERGE_AUTHORITY",
+    "IC10_CHAIN_SATISFIED != CANONICAL_INSTALLATION",
+    "PROMOTION2_QUALIFIED != WHOLE_CRYSTAL_CERTIFIED",
+    "OBSERVED_I01_I09_PACKET_MUST_MATCH_I10_EXACT_HEAD",
+    "CHECKS_FROM_DIFFERENT_RUNS_MUST_NOT_BE_SPLICED",
+    "BINDING_JOB_MAY_CONSUME_BUT_NOT_MINT_TRUSTED_PROMOTION"
+  ]
+}
