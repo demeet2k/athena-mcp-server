@@ -19,6 +19,8 @@ ADAPTER_LAWS = [
     "MCP_VIRTUAL_VERTEX != GIT_BLOB_VERTEX",
     "UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE",
     "PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT",
+    "EXACT_V2_SNAPSHOT != COMPLETE_CONTENT_EXTRACTION_IF_BLOB_READERS_MISSING",
+    "RUNTIME_CONTENT_ROOT_DEFAULTS_TO_EXACT_V2_RUNTIME_PROVENANCE_ROOT",
 ]
 
 
@@ -34,14 +36,14 @@ def _tag(records: list[dict], source: str) -> list[dict]:
 def _reader_dispatch(
     configured_root: str | Path | None,
     runtime_root: str | Path | None,
-) -> Callable[[dict], str] | None:
+) -> tuple[Callable[[dict], str] | None, tuple[str, ...]]:
     readers: dict[str, Callable[[dict], str]] = {}
     if configured_root is not None:
         readers["configured_git"] = git_blob_reader(configured_root)
     if runtime_root is not None:
         readers["runtime_git"] = git_blob_reader(runtime_root)
     if not readers:
-        return None
+        return None, ()
 
     def read(record: dict) -> str:
         source = str(record.get("source") or "configured_git")
@@ -50,7 +52,7 @@ def _reader_dispatch(
             raise ValueError(f"exact blob reader unavailable for source plane {source}")
         return reader(record)
 
-    return read
+    return read, tuple(sorted(readers))
 
 
 def _git_records(snapshot: dict) -> tuple[list[dict], dict]:
@@ -78,6 +80,29 @@ def _mcp_records(snapshot: dict) -> list[dict]:
     return _tag(list((snapshot.get("mcp_surface") or {}).get("records") or []), "mcp")
 
 
+def _runtime_root(snapshot: dict, explicit: str | Path | None) -> str | Path | None:
+    if explicit is not None:
+        return explicit
+    provenance = snapshot.get("runtime_provenance") or {}
+    if provenance.get("status") != "RESOLVED":
+        return None
+    return provenance.get("root") or None
+
+
+def _required_content_planes(
+    coverage: dict,
+    options: GraphBuildOptions,
+) -> tuple[str, ...]:
+    if not (options.include_python_imports or options.include_exact_path_references):
+        return ()
+    required = []
+    if coverage["configured_git_records"]:
+        required.append("configured_git")
+    if coverage["runtime_git_records"]:
+        required.append("runtime_git")
+    return tuple(required)
+
+
 def compile_v2_snapshot_relation_graph(
     snapshot: dict,
     *,
@@ -88,8 +113,12 @@ def compile_v2_snapshot_relation_graph(
     """Compile V3 from the exact three-plane V2 snapshot without flattening frontier identity.
 
     Git structural/content extractors run only over configured/runtime Git planes.
-    MCP virtual objects remain exact PVTX vertices.  They are not treated as Git paths or
-    blobs.  Optional KC144 geometric edges may be compiled inside the MCP plane explicitly.
+    MCP virtual objects remain exact PVTX vertices. They are not treated as Git paths or
+    blobs. Optional KC144 geometric edges may be compiled inside the MCP plane explicitly.
+
+    `runtime_root` defaults to the exact V2 runtime-provenance root when available. The
+    configured checkout root remains an explicit caller input because V2 intentionally does
+    not put local configured-root paths in its durable snapshot identity.
     """
     if snapshot.get("schema") != V2_SNAPSHOT_SCHEMA:
         raise ValueError(f"expected {V2_SNAPSHOT_SCHEMA}")
@@ -100,7 +129,10 @@ def compile_v2_snapshot_relation_graph(
     options = options or GraphBuildOptions()
     git_records, coverage = _git_records(snapshot)
     mcp_records = _mcp_records(snapshot)
-    reader = _reader_dispatch(configured_root, runtime_root)
+    resolved_runtime_root = _runtime_root(snapshot, runtime_root)
+    reader, reader_planes = _reader_dispatch(configured_root, resolved_runtime_root)
+    required_content_planes = _required_content_planes(coverage, options)
+    missing_content_planes = tuple(sorted(set(required_content_planes) - set(reader_planes)))
 
     git_graph = compile_project_relation_graph(
         {"records": git_records},
@@ -142,7 +174,8 @@ def compile_v2_snapshot_relation_graph(
         options=options,
     )
 
-    # Coverage receipt is diagnostic only; it does not mutate graph identity or authority.
+    # Coverage receipt is diagnostic only; graph identity already binds the exact V2 snapshot,
+    # exact vertices and extracted edges. Coverage must still say what content was unobservable.
     graph.v2_adapter = {
         "version": ADAPTER_VERSION,
         "snapshot_schema": snapshot.get("schema"),
@@ -152,6 +185,16 @@ def compile_v2_snapshot_relation_graph(
             **coverage,
             "mcp_records": len(mcp_records),
             "total_vertices": len(graph.vertices),
+            "content_reader_planes": list(reader_planes),
+            "required_content_planes": list(required_content_planes),
+            "missing_content_reader_planes": list(missing_content_planes),
+            "runtime_root_source": (
+                "explicit"
+                if runtime_root is not None
+                else "v2_runtime_provenance"
+                if resolved_runtime_root is not None
+                else "unavailable"
+            ),
         },
         "laws": list(ADAPTER_LAWS),
         "authority": "NONE",
@@ -164,9 +207,13 @@ def v2_graph_summary(graph: ProjectRelationGraph) -> dict:
     adapter = getattr(graph, "v2_adapter", None)
     if adapter is not None:
         out["v2_adapter"] = adapter
+        missing = adapter["coverage"].get("missing_content_reader_planes") or []
         if adapter["snapshot_status"] != "GENERATED":
             out["coverage_standing"] = "PARTIAL_V2_SNAPSHOT"
             out["coverage_law"] = "PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT"
+        elif missing:
+            out["coverage_standing"] = "EXACT_V2_SNAPSHOT_PARTIAL_CONTENT"
+            out["coverage_law"] = "EXACT_V2_SNAPSHOT != COMPLETE_CONTENT_EXTRACTION_IF_BLOB_READERS_MISSING"
         else:
             out["coverage_standing"] = "EXACT_V2_SNAPSHOT"
     return out
