@@ -1,0 +1,200 @@
+{
+  "schema": "ATHENA.CLOSURE.CUT02.RED.1",
+  "artifact": "ATHENA.KC144.CLOSURE.CUT02.RED.V1",
+  "standing": "PRE_TREATMENT_RED_CONTRACT",
+  "runtime_base": "82a519ffe25f9eacbbec0e119345ec395bf88c83",
+  "semantic_base": "40c3a2fa43f4cc971c0a7bfb8b22794710c62707",
+  "parent_work_order": "athena-mcp-server#147",
+  "evaluation_contract": "Athena#192",
+  "laws": [
+    "PROJECT_DO_NOT_DUPLICATE",
+    "ROUTED != CONSUMED != COMPLIED != TRUE",
+    "ACK != CONSUMPTION",
+    "PARTY_MEMBERSHIP != UNIVERSAL_DEPENDENCY",
+    "DISJOINT_OBSERVED_PATH != PROVEN_SEMANTIC_INDEPENDENCE",
+    "EXECUTION != OBSERVED_OUTCOME",
+    "EXECUTION_CONTRIBUTION != COORDINATION_CONTRIBUTION != TRUTH_STANDING != CAUSAL_EFFECT",
+    "COHESION_PULSE != QUEST_PULSE",
+    "COHESION_SIGNAL != EXECUTION_AUTHORITY",
+    "UNKNOWN != ZERO",
+    "MECHANISM_PASS != BEHAVIORAL_GAIN"
+  ],
+  "operators": {
+    "EvidenceCoverage": {
+      "classification": "EXISTS_REUSE",
+      "canonical_surface": "COHESION.EVIDENCE.GUARD.1",
+      "required_regressions": [
+        "UNMATCHED_MISSION_KEYS -> UNKNOWN_INSUFFICIENT_EVIDENCE",
+        "DUPLICATE_EVIDENCE_REF -> UNKNOWN_INSUFFICIENT_EVIDENCE",
+        "causal_effect == UNKNOWN",
+        "promotion_authority == false"
+      ]
+    },
+    "Consume": {
+      "classification": "MISSING_BUILD",
+      "target_tool": "athena_cohesion_consume",
+      "red_cases": [
+        {
+          "id": "CN-R1",
+          "given": "route exists and ACK exists but no consumption event exists",
+          "must_not_claim": "CONSUMED",
+          "green": "explicit typed consumption event is required"
+        },
+        {
+          "id": "CN-R2",
+          "given": "decision ACCEPTED_CHANGED with no behavior_change_ref",
+          "green": "HOLD_INVALID_CONSUMPTION_RECEIPT"
+        },
+        {
+          "id": "CN-R3",
+          "given": "consumption targets a stale or superseded route",
+          "green": "STALE_HOLD"
+        },
+        {
+          "id": "CN-R4",
+          "given": "recipient explicitly rejects the route",
+          "green": "consumption is observed while acceptance=false and truth remains separate"
+        }
+      ]
+    },
+    "DependencyCone": {
+      "classification": "STALE_CANDIDATE_REPLAY",
+      "source_pr": 242,
+      "target_tool": "athena_cohesion_dependency_cone",
+      "red_cases": [
+        {
+          "id": "DC-R1",
+          "given": "one exact target changes among three active lanes",
+          "must_not": "global-reset all lanes",
+          "green": "only explicitly affected lanes receive rehydrate/recheck actions"
+        },
+        {
+          "id": "DC-R2",
+          "given": "party membership only",
+          "must_not": "propagate dependency to every member",
+          "green": "membership is context-only/non-propagating"
+        },
+        {
+          "id": "DC-R3",
+          "given": "invalid Git ref",
+          "must_not": "return invented empty diff",
+          "green": "GIT_REF_HOLD"
+        },
+        {
+          "id": "DC-R4",
+          "given": "no observed path hits a lane",
+          "must_not": "claim semantic independence",
+          "green": "NO_OBSERVED_LANE_HIT_WITH_UNKNOWN_SEMANTIC_RESIDUE"
+        }
+      ]
+    },
+    "CohesionPulse": {
+      "classification": "MISSING_BUILD",
+      "target_tool": "athena_cohesion_pulse",
+      "red_cases": [
+        {
+          "id": "CP-R1",
+          "given": "pulse is called",
+          "must_not": "dispatch or mutate work",
+          "green": "execution_authority=false"
+        },
+        {
+          "id": "CP-R2",
+          "given": "one required pressure input is unavailable",
+          "must_not": "zero-fill missing evidence",
+          "green": "unknown_pressures contains the missing coordinate"
+        },
+        {
+          "id": "CP-R3",
+          "given": "favorable productivity signal but evidence guard is HOLD",
+          "must_not": "recommend a winner as established",
+          "green": "EVIDENCE_REQUIRED or HOLD outranks the favorable score"
+        },
+        {
+          "id": "CP-R4",
+          "given": "one exact dependency changes",
+          "green": "targeted rehydrate pressure follows DependencyCone rather than global reset"
+        }
+      ]
+    },
+    "OutcomeCredit": {
+      "classification": "MISSING_BUILD_WITH_EXISTING_PROVENANCE_SUBSTRATE",
+      "target_tool": "athena_cohesion_outcome_credit",
+      "red_cases": [
+        {
+          "id": "OC-R1",
+          "given": "execution receipt says SUCCEEDED but no fresh world observation exists",
+          "green": "execution may be observed while outcome effect and truth remain UNKNOWN"
+        },
+        {
+          "id": "OC-R2",
+          "given": "one evidence ref is presented as support for distinct mission samples",
+          "green": "DUPLICATE_EVIDENCE_ATTRIBUTION_HOLD or explicit de-duplication"
+        },
+        {
+          "id": "OC-R3",
+          "given": "message was routed but not consumed",
+          "green": "coordination_contribution is NOT_ESTABLISHED"
+        },
+        {
+          "id": "OC-R4",
+          "given": "guidance was consumed and behavior changed",
+          "green": "coordination contribution may be observed but truth and causal effect remain separate"
+        }
+      ]
+    },
+    "ContinuationBraid": {
+      "classification": "PARTIAL_BRAID_PRUNE",
+      "semantic_components": [
+        "GTC",
+        "QPM",
+        "QUEST::PULSE",
+        "OMEGA_OPERATE",
+        "QMR"
+      ],
+      "hold_out": [
+        "full TSE continuation",
+        "TSE population circulation",
+        "Q008",
+        "Pet host differential",
+        "MCK holonomy"
+      ],
+      "red_cases": [
+        {
+          "id": "CB-R1",
+          "given": "completed parent unlocks a child",
+          "must_not": "reselect or redispatch the completed parent",
+          "green": "completed parent satisfies dependency but is excluded from selectable frontier"
+        },
+        {
+          "id": "CB-R2",
+          "given": "one lane CLEARs",
+          "must_not": "treat lane clear as mission terminal",
+          "green": "fresh GTC/QMR continuation decision"
+        },
+        {
+          "id": "CB-R3",
+          "given": "GTC proves NO_POSITIVE_FRONTIER",
+          "must_not": "invent a new generation",
+          "green": "STOP_PROVED"
+        },
+        {
+          "id": "CB-R4",
+          "given": "process SUCCEEDED but observed postconditions are missing",
+          "must_not": "COMPLETE",
+          "green": "OMEGA_OPERATE returns HOLD/RECHECK/REPLAN as appropriate"
+        },
+        {
+          "id": "CB-R5",
+          "given": "handoff route exists but no consumption receipt exists",
+          "must_not": "count handoff as integrated",
+          "green": "QMR cannot close the prior integration obligation"
+        }
+      ]
+    }
+  },
+  "red_test_command": "python -m unittest -v tests.red.test_closure_cut02_red",
+  "ordinary_ci_discovery_intentionally_unchanged": true,
+  "treatment_code_added": false,
+  "next_gate": "EXECUTE_RED_AND_RECORD_EXACT_FAILURE_SET"
+}
