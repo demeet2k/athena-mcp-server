@@ -114,7 +114,7 @@
   ],
   "authority_boundaries": [
     "GitHub release publication is distribution, not deployment.",
-    "Automatic master-push validation and package-readiness do not publish a tag or GitHub release; publication remains manual workflow_dispatch authority.",
+    "Master-push validation does not publish a tag or GitHub release; package-readiness on push is candidate evidence only, and publication remains manual workflow_dispatch authority.",
     "Release attestation certifies exact repository/package/distribution-candidate state, not empirical truth or causal validity.",
     "Calibration reliability, cross-fitted estimates, Gaussian belief state, approximation envelopes, robust plans and deployment plans do not become Y1 authority by publication or validation.",
     "Decision-time history validation prevents future/outcome look-ahead but does not prove causal identification assumptions.",
