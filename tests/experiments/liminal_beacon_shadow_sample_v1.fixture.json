@@ -1,0 +1,53 @@
+{
+  "schema": "ATHENA.LIMINAL.BEACON.SHADOW.SAMPLE.FIXTURE.1",
+  "contract_issue": 339,
+  "parent_contract_issue": 332,
+  "shadow_parent_head": "3fa883c40e12ac49e62e8055021b22bf7e5d6861",
+  "integration_parent_head": "df74f7388cdb43c36cfdeeff684724b73fdfc117",
+  "master_ancestry": "d8bb4cc6e2e6861eeb7141dc52a2efcea252ff36",
+  "trial_count": 3,
+  "arms": {
+    "OFF": {
+      "ATHENA_LIMINAL_SHADOW": false,
+      "ATHENA_LIMINAL_AUTOHOOK": false
+    },
+    "SHADOW": {
+      "ATHENA_LIMINAL_SHADOW": true,
+      "ATHENA_LIMINAL_AUTOHOOK": false
+    }
+  },
+  "paired_crossings": [
+    {"id": 101, "name": "hydrate_a", "tool": "athena_hydrate", "arguments": {"agent": "SAMPLE-A"}},
+    {"id": 102, "name": "hydrate_b_first", "tool": "athena_hydrate", "arguments": {"agent": "SAMPLE-B"}},
+    {"id": 103, "name": "hydrate_b_duplicate", "tool": "athena_hydrate", "arguments": {"agent": "SAMPLE-B"}},
+    {"id": 104, "name": "unknown_agent_git_status", "tool": "athena_git_status", "arguments": {}}
+  ],
+  "seed": {
+    "sender_id": "SAMPLE-A",
+    "message_class": "RESULT",
+    "summary": "bounded shadow sample seed",
+    "semantic_tags": ["tool:athena_hydrate"],
+    "urgency": 0.5,
+    "novelty": 0.5,
+    "ttl_seconds": 900
+  },
+  "live_control": {
+    "agent_id": "LIVE-CONTROL",
+    "work_refs": ["live-control"],
+    "summary": "bounded live carrier isolation control"
+  },
+  "standing_ceiling": "SCOPED_ACTUAL_DISPATCH_SHADOW_OBSERVATION",
+  "latency_rule": "MEASUREMENT_ONLY_NO_PASS_THRESHOLD",
+  "firewalls": [
+    "SAMPLE_FIXTURE != WORLD_DISTRIBUTION",
+    "GITHUB_RUNNER != PRODUCTION_HOST",
+    "WOULD_PRESENT != PRESENTED",
+    "OUTPUT_EQUIVALENCE != USEFULNESS_PROOF",
+    "LATENCY_OBSERVATION != LATENCY_ACCEPTANCE_THRESHOLD",
+    "SHADOW_PASS != ACTIVATION",
+    "SHADOW_PASS != DEFAULT_AUTOHOOK",
+    "SHADOW_PASS != CANONICAL_PROMOTION",
+    "HIDDEN_PROCESS_COUNT = UNKNOWN",
+    "INDEPENDENT_PROCESS_COUNT = UNKNOWN"
+  ]
+}
