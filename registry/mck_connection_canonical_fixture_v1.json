@@ -1,0 +1,75 @@
+{
+  "artifact": "ATHENA.MCK.CONNECTION.CANONICAL_FIXTURE.V1",
+  "version": "MCK.CONNECTION.CANONICAL_FIXTURE.V1",
+  "standing": "SYNTHETIC_CANONICAL_FIXTURE_NOT_SOURCE_EVIDENCE",
+  "packet_path": "fixtures/mck_connection_packet_v1_canonical.json",
+  "canonical_receipt_path": "fixtures/mck_connection_replay_receipt_v1_canonical.json",
+  "runtime_module": "athena_mcp.mck_evaluation_receipt_v1",
+  "packet_compiler_revision": "SEMANTIC_CONTROL_FUSION_R1",
+  "packet_semantic_digest": "3d17c0ad309864bcb2ded027bd0419141f3baf567491985ff833442a404819eb",
+  "operator_registry_digest": "87074dea1c8431f7ae9e5fd12e8b62e7227ade3dc8522ee9a047904561a0b144",
+  "initial_state": {
+    "coordinate": "A",
+    "feature_basis": [
+      "x",
+      "memo"
+    ],
+    "values": {
+      "x": 5,
+      "memo": "seed"
+    },
+    "provenance": [
+      "CANONICAL:SEED"
+    ],
+    "standing": "SYNTHETIC_CONTROL"
+  },
+  "controls": {
+    "reversible_zero": {
+      "edge_path": [
+        "FWD",
+        "BACK"
+      ],
+      "expected_classification": "ZERO_RESIDUE",
+      "expected_residue_zero": true,
+      "evaluation_input_digest": "62e2dd449198e941a10aa59ab57a063427761edb93451b1d735b29af75b7d252",
+      "raw_result_digest": "b792af2a594d9deed64cefb43e21dd211861e848c333d64843ce82f1d62fdccf",
+      "semantic_result_digest": "d5a07bc1c75a5fb9affe99dbc1209c0aee2d42f28e80154c6b884174cefc23cd",
+      "receipt_digest": "d4e3c4e171be1019ba313aebd8d64b98504d4f127b85a5687b8958fa51972abb",
+      "receipt_id": "MCK-EVAL-d4e3c4e171be1019ba313aeb"
+    },
+    "irreversible_loss": {
+      "edge_path": [
+        "DROP",
+        "RESTORE"
+      ],
+      "expected_classification": "NONZERO_RESIDUE",
+      "expected_residue_zero": false,
+      "expected_irreversible_loss": [
+        "memo"
+      ],
+      "evaluation_input_digest": "058f26a1c5d88ecc4cfb4ab8dede4c1b7ca7c5f798440a412fef3ae92501536f",
+      "raw_result_digest": "236442de7aeecc61b377d16b797a3a57033879214d5c729f4acd7bd23b227017",
+      "semantic_result_digest": "831a9a4afcd0f940beed1a1eeb4db4a6089a61aade3714e860c4c389c840e8e6",
+      "receipt_digest": "e6dcb8bd616815e0de00318e2a871dbab2349f5118b1e0a699dd2062e2530531",
+      "receipt_id": "MCK-EVAL-e6dcb8bd616815e0de00318e"
+    }
+  },
+  "canonical_receipt_control": "irreversible_loss",
+  "external_attestation": {
+    "standing": "NOT_SELF_BOUND",
+    "repository": null,
+    "git_head": null,
+    "workflow": null,
+    "run_id": null,
+    "run_number": null,
+    "conclusion": null,
+    "attestation_ref": null
+  },
+  "firewalls": [
+    "CANONICAL_FIXTURE != HISTORICAL_MCK_MAPPING",
+    "PINNED_DIGEST != EXTERNAL_REPOSITORY_WITNESS",
+    "SELF_GENERATED_RECEIPT != CI_ATTESTATION",
+    "ATTESTATION_DOCUMENT != SOURCE_EVIDENCE",
+    "MCK_V2_PROMOTION = HOLD"
+  ]
+}
