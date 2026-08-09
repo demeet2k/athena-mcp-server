@@ -1,0 +1,27 @@
+{
+  "artifact": "ATHENA.ORGANISM.ROOM.CONFORMANCE.V1",
+  "parent_runtime_pr": 363,
+  "canonical_room": {"repo": "demeet2k/Athena", "issue": 555, "registry": "registry/organism_room_v1.json"},
+  "event_lifecycle": ["SIGNIN", "WORK", "HEARTBEAT", "DELTA", "SIGNOUT"],
+  "waves": {"IMMEDIATE": 50, "MIDDLE": 30, "RECURSIVE_META": 20},
+  "job_families": ["GIT", "MATH", "MYTH", "NAV", "TOOLS", "CORPUS", "ALCHEMY", "META", "INTEGRATION"],
+  "prompt_runtime": {
+    "accepted": ["ATHENA.PROMPT.RUNTIME.V1", "ATHENA.PROMPT.RUNTIME.V2"],
+    "v2_overlay_law": "every active overlay path binds exactly one ACTIVE_SCOPED state path",
+    "digest_binds": ["manifest", "active state", "policy", "enabled and mandatory modules", "overlay text", "overlay state", "room registry", "allocator", "harness genotype"]
+  },
+  "resource_dimensions": ["tool_calls", "api_calls", "tokens", "wall_seconds", "storage_writes", "external_mutations"],
+  "resource_laws": [
+    "UNKNOWN_RESOURCE != ZERO",
+    "LIVE_RESERVATIONS + REQUEST + PROTECTED_RESERVE <= HOST_BUDGET",
+    "SHARED_SINK_COLLISION => HOLD",
+    "VERIFIED_OR_REQUEUED_CLAIM_RELEASES_RESERVATION"
+  ],
+  "fences": [
+    "MALFORMED_EXISTING_STATE => HOLD",
+    "EXPIRED_SESSION_REQUEUES_ORPHAN_BEFORE_RECLAIM",
+    "STALE_PROMPT_SESSION_CANNOT_COMPLETE",
+    "MESSAGE_BOARD_PRESENCE_MUST_MATCH_SESSION_FENCE_AND_CLAIM"
+  ],
+  "evidence_ceiling": "STRUCTURAL_AND_SAME_HARNESS_ONLY; FIELD_EFFECT_UNKNOWN; PROVIDER_MEMBERSHIP_NOT_PROVEN_BY_LOCAL_BYTES"
+}

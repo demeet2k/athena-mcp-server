@@ -93,11 +93,59 @@ class PromptRuntime:
 
     def _manifest(self):
         m = self._read_json(PROMPT_MANIFEST)
-        if m.get("artifact") != "ATHENA.PROMPT.RUNTIME.V1":
+        if m.get("artifact") not in {"ATHENA.PROMPT.RUNTIME.V1", "ATHENA.PROMPT.RUNTIME.V2"}:
             raise ValueError("unsupported prompt runtime manifest")
         if not isinstance(m.get("modules"), dict) or not m["modules"]:
             raise ValueError("prompt runtime has no modules")
         return m
+
+    def _overlay_entries(self, active):
+        """Normalize V1 object overlays and V2 path/state overlays.
+
+        V2 deliberately keeps executable text and lifecycle state in separate
+        files.  Never infer ACTIVE_SCOPED from a path alone.
+        """
+        raw = active.get("active_scoped_overlays") or []
+        if not isinstance(raw, list):
+            raise ValueError("active_scoped_overlays must be an array")
+        state_paths = active.get("active_scoped_state") or []
+        if not isinstance(state_paths, list):
+            raise ValueError("active_scoped_state must be an array")
+        states = {}
+        for state_path in state_paths:
+            if not isinstance(state_path, str):
+                raise ValueError("active_scoped_state entries must be paths")
+            state = self._read_json(state_path)
+            overlay_path = state.get("overlay")
+            if not isinstance(overlay_path, str):
+                raise ValueError(f"overlay state missing overlay path: {state_path}")
+            if overlay_path in states:
+                raise ValueError(f"ambiguous overlay state binding: {overlay_path}")
+            states[overlay_path] = {**state, "state_path": state_path}
+        entries = []
+        for item in raw:
+            if isinstance(item, dict):
+                entries.append(dict(item))
+                continue
+            if not isinstance(item, str):
+                raise ValueError("active_scoped_overlays entries must be objects or paths")
+            state = states.get(item)
+            if not state or state.get("status") != "ACTIVE_SCOPED":
+                raise ValueError(f"active overlay lacks ACTIVE_SCOPED state: {item}")
+            activation = state.get("activation") if isinstance(state.get("activation"), dict) else {}
+            entries.append({
+                "overlay_id": state.get("artifact") or item,
+                "path": item,
+                "status": "ACTIVE_SCOPED",
+                "module_id": None,
+                "scope": ["global"] if activation.get("automatic") is True else [],
+                "expires_at": state.get("expires_at"),
+                "state_path": state["state_path"],
+            })
+        orphaned = sorted(set(states) - {item for item in raw if isinstance(item, str)})
+        if orphaned:
+            raise ValueError(f"overlay state is not active: {orphaned[0]}")
+        return entries
 
     def _active(self, manifest=None):
         manifest = manifest or self._manifest()
@@ -105,6 +153,8 @@ class PromptRuntime:
         a = self._read_json(path)
         if a.get("status") != "ACTIVE":
             raise ValueError("prompt runtime active state is not ACTIVE")
+        if a.get("prompt_runtime") not in {None, manifest.get("artifact")}:
+            raise ValueError("prompt runtime active state targets another manifest")
         return a, path
 
     def _changed_paths(self, old_head: str | None, new_head: str | None = None):
@@ -219,7 +269,7 @@ class PromptRuntime:
         components.append({"kind": "policy", "id": "policy", "path": policy_path, "sha256": _sha(policy)})
         chunks = [f"[ATHENA_GIT_RUNTIME_ADDENDUM profile={profile}]", policy.decode("utf-8")]
 
-        active_overlays = active.get("active_scoped_overlays") or []
+        active_overlays = self._overlay_entries(active)
         selected_overlays = []
         for name in ordered:
             cfg = manifest["modules"][name]
@@ -241,6 +291,26 @@ class PromptRuntime:
                 chunks.extend([f"\n[ACTIVE_SCOPED_OVERLAY {ov_id} module={name}]", ov_raw.decode("utf-8")])
                 selected_overlays.append(ov_id)
 
+        # V2 supports global path/state overlays that are not owned by a
+        # particular module.  Append them once after the ordered modules.
+        for ov in active_overlays:
+            if ov.get("module_id"):
+                continue
+            if ov.get("status") != "ACTIVE_SCOPED" or not self._not_expired(ov.get("expires_at")):
+                continue
+            if not self._scope_applies(ov.get("scope") or [], profile, task):
+                continue
+            ov_path = ov.get("path")
+            ov_raw = self._read_bytes(ov_path)
+            ov_id = ov.get("overlay_id") or ov_path
+            component = {"kind": "overlay", "id": ov_id, "module_id": None, "path": ov_path, "sha256": _sha(ov_raw)}
+            if ov.get("state_path"):
+                component["state_path"] = ov["state_path"]
+                component["state_sha256"] = _sha(self._read_bytes(ov["state_path"]))
+            components.append(component)
+            chunks.extend([f"\n[ACTIVE_SCOPED_OVERLAY {ov_id} module=GLOBAL]", ov_raw.decode("utf-8")])
+            selected_overlays.append(ov_id)
+
         ancestry = {
             "git_head": head,
             "manifest_sha256": _sha(self._read_bytes(PROMPT_MANIFEST)),
@@ -253,6 +323,8 @@ class PromptRuntime:
             "authority_ceiling": manifest.get("authority_ceiling"),
         }
         stack_digest = _sha(_canonical_json(ancestry).encode("utf-8"))
+        semantic_ancestry = {key: value for key, value in ancestry.items() if key != "git_head"}
+        content_digest = _sha(_canonical_json(semantic_ancestry).encode("utf-8"))
         result = {
             "status": "COMPILED",
             "artifact": manifest.get("artifact"),
@@ -261,6 +333,7 @@ class PromptRuntime:
             "selected_modules": ordered,
             "selected_overlays": selected_overlays,
             "prompt_stack_digest": stack_digest,
+            "prompt_content_digest": content_digest,
             "ancestry": ancestry,
             "authority_ceiling": manifest.get("authority_ceiling"),
             "laws": [
@@ -508,9 +581,36 @@ class PromptRuntime:
             "expires_at": expires_at,
         }
         existing = active.get("active_scoped_overlays") or []
-        if any(x.get("candidate_ref") == candidate_ref and x.get("status") == "ACTIVE_SCOPED" for x in existing):
-            raise ValueError("candidate already has active scoped overlay")
-        active["active_scoped_overlays"] = existing + [entry]
+        if manifest.get("artifact") == "ATHENA.PROMPT.RUNTIME.V2":
+            if any(not isinstance(x, str) for x in existing):
+                raise ValueError("V2 active overlays must be paths")
+            state_paths = active.get("active_scoped_state") or []
+            if any(not isinstance(x, str) for x in state_paths):
+                raise ValueError("V2 active overlay state entries must be paths")
+            for state_path in state_paths:
+                state = self._read_json(state_path)
+                if state.get("candidate_source") == candidate_ref and state.get("status") == "ACTIVE_SCOPED":
+                    raise ValueError("candidate already has active scoped overlay")
+            state_rel = f"prompts/state/{oid}.json"
+            state_entry = {
+                "artifact": "ATHENA.PROMPT.OVERLAY.STATE.V2",
+                "status": "ACTIVE_SCOPED",
+                "overlay": overlay_rel,
+                "candidate_source": candidate_ref,
+                "scope": list(scope),
+                "witness": witness,
+                "experiment_refs": refs,
+                "activated_by": actor,
+                "activated_at": _utcnow(),
+                "expires_at": expires_at,
+                "rollback": {"method": "remove overlay and state paths from ACTIVE"},
+            }
+            active["active_scoped_overlays"] = existing + [overlay_rel]
+            active["active_scoped_state"] = state_paths + [state_rel]
+        else:
+            if any(isinstance(x, dict) and x.get("candidate_ref") == candidate_ref and x.get("status") == "ACTIVE_SCOPED" for x in existing):
+                raise ValueError("candidate already has active scoped overlay")
+            active["active_scoped_overlays"] = existing + [entry]
         active["revision"] = int(active.get("revision") or 0) + 1
         meta["status"] = "ACTIVE_SCOPED"
         eid, event = self._event("PROMPT_ACTIVATE", actor, {"candidate_ref": candidate_ref, "overlay_id": oid, "scope": scope, "experiment_refs": refs})
@@ -520,6 +620,8 @@ class PromptRuntime:
             candidate_ref: self._candidate_render(meta, body),
             f"prompts/events/{eid}.json": json.dumps(event, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         }
+        if manifest.get("artifact") == "ATHENA.PROMPT.RUNTIME.V2":
+            files[state_rel] = json.dumps(state_entry, indent=2, sort_keys=True, ensure_ascii=False) + "\n"
         result = self._commit_files(expected_git_head, files, actor, f"activate scoped prompt overlay {oid}")
         return {"overlay": entry, "active_revision": active["revision"], "git": result, "law": "ACTIVE_SCOPED != CANONICAL"}
 
@@ -544,7 +646,20 @@ class PromptRuntime:
         manifest = self._manifest()
         active, active_path = self._active(manifest)
         before = active.get("active_scoped_overlays") or []
-        after = [x for x in before if x.get("candidate_ref") != candidate_ref]
+        if manifest.get("artifact") == "ATHENA.PROMPT.RUNTIME.V2":
+            state_before = active.get("active_scoped_state") or []
+            remove_overlays, state_after = set(), []
+            for state_path in state_before:
+                state = self._read_json(state_path)
+                if state.get("candidate_source") == candidate_ref:
+                    if isinstance(state.get("overlay"), str):
+                        remove_overlays.add(state["overlay"])
+                else:
+                    state_after.append(state_path)
+            after = [path for path in before if path not in remove_overlays]
+            active["active_scoped_state"] = state_after
+        else:
+            after = [x for x in before if not (isinstance(x, dict) and x.get("candidate_ref") == candidate_ref)]
         files = {target: body.rstrip() + "\n"}
         if after != before:
             active["active_scoped_overlays"] = after

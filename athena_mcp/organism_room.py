@@ -27,26 +27,29 @@ STATE_PATH = "runtime/message_board/v1/organism/state.json"
 STATE_ARTIFACT = "ATHENA.ORGANISM.ROOM.STATE.V1"
 SESSION_ARTIFACT = "ATHENA.ORGANISM.ROOM.SESSION.V1"
 RECEIPT_ARTIFACT = "ATHENA.ORGANISM.ROOM.RECEIPT.V1"
+RESOURCE_DIMENSIONS = ("tool_calls", "api_calls", "tokens", "wall_seconds", "storage_writes", "external_mutations")
 
 FAMILIES = (
-    "BUILD_GIT",
-    "INTEGRATE_META",
-    "NAVIGATION",
-    "TOOL_LIMITS",
+    "GIT",
+    "MATH",
+    "MYTH",
+    "NAV",
+    "TOOLS",
+    "CORPUS",
     "ALCHEMY",
-    "DRIVE_DISTILL",
-    "MATH_MINE",
-    "MYTH_MINE",
+    "META",
+    "INTEGRATION",
 )
 BASE_WEIGHTS = {
-    "BUILD_GIT": 0.20,
-    "INTEGRATE_META": 0.10,
-    "NAVIGATION": 0.15,
-    "TOOL_LIMITS": 0.10,
+    "GIT": 0.20,
+    "MATH": 0.15,
+    "MYTH": 0.05,
+    "NAV": 0.15,
+    "TOOLS": 0.10,
+    "CORPUS": 0.15,
     "ALCHEMY": 0.10,
-    "DRIVE_DISTILL": 0.15,
-    "MATH_MINE": 0.15,
-    "MYTH_MINE": 0.05,
+    "META": 0.10,
+    "INTEGRATION": 0.10,
 }
 TIE_ORDER = {name: index for index, name in enumerate(FAMILIES)}
 WAVES = (
@@ -67,6 +70,49 @@ def _canonical(value: Any) -> bytes:
 
 def _digest(value: Any) -> str:
     return hashlib.sha256(_canonical(value)).hexdigest()
+
+
+def _resource_contract(value: Any, label: str) -> dict:
+    if not isinstance(value, dict):
+        raise ValueError(f"{label}_UNKNOWN_HOLD")
+    normalized = {}
+    for name in RESOURCE_DIMENSIONS:
+        raw = value.get(name)
+        if not isinstance(raw, int) or isinstance(raw, bool) or raw < 0:
+            raise ValueError(f"{label}_{name}_UNKNOWN_HOLD")
+        normalized[name] = raw
+    sinks = value.get("shared_sinks")
+    if not isinstance(sinks, list) or any(not isinstance(item, str) or not item.strip() for item in sinks):
+        raise ValueError(f"{label}_shared_sinks_UNKNOWN_HOLD")
+    normalized["shared_sinks"] = sorted(set(item.strip() for item in sinks))
+    return normalized
+
+
+def validate_resource_admission(resource_upper_bound: Any, room_budget: Any, protected_reserve: Any, live_quests: list[dict]) -> dict:
+    request = _resource_contract(resource_upper_bound, "RESOURCE")
+    budget = _resource_contract(room_budget, "ROOM_BUDGET")
+    reserve = _resource_contract(protected_reserve, "PROTECTED_RESERVE")
+    budget_digest, reserve_digest = _digest(budget), _digest(reserve)
+    reservations = []
+    for quest in live_quests:
+        if quest.get("status") != "ACTIVE":
+            continue
+        if quest.get("room_budget_digest") != budget_digest or quest.get("protected_reserve_digest") != reserve_digest:
+            raise ValueError("RESOURCE_POLICY_DRIFT_HOLD")
+        reservations.append(_resource_contract(quest.get("resource_upper_bound"), "ACTIVE_RESOURCE"))
+    for name in RESOURCE_DIMENSIONS:
+        if sum(item[name] for item in reservations) + request[name] + reserve[name] > budget[name]:
+            raise ValueError(f"RESOURCE_CAPACITY_HOLD:{name}")
+    occupied = {sink for item in reservations for sink in item["shared_sinks"]}
+    collision = sorted(occupied & set(request["shared_sinks"]))
+    if collision:
+        raise ValueError("SHARED_SINK_HOLD:" + ",".join(collision))
+    return {
+        "resource_upper_bound": request,
+        "room_budget_digest": budget_digest,
+        "protected_reserve_digest": reserve_digest,
+        "resource_standing": "HOST_BOUND_UPPER_BOUND_RESERVED",
+    }
 
 
 def _secret(name: str) -> bytes:
@@ -138,19 +184,28 @@ def _largest_remainder(total: int, weights: dict[str, float]) -> dict[str, int]:
     return result
 
 
+def _largest_remainder_with_minimums(total: int, weights: dict[str, float], minimums: dict[str, int]) -> dict[str, int]:
+    result = {key: int(minimums.get(key, 0)) for key in weights}
+    used = sum(result.values())
+    if used > total:
+        raise ValueError("minimums exceed population")
+    extras = _largest_remainder(total - used, weights)
+    return {key: result[key] + extras[key] for key in weights}
+
+
 def allocate_population(agent_ids: list[str], pressure: dict[str, float] | None = None) -> dict:
     """Deterministic homeostat; quotas are targets and empty lanes lend capacity."""
     ids = sorted({_require_id(value, "agent_id") for value in agent_ids})
     pressure = pressure or {}
-    eligible = {name: max(0.0, float(pressure.get(name, 1.0))) for name in FAMILIES}
+    eligible = {name: max(0.0, float(pressure.get(name, 0.0 if name == "INTEGRATION" else 1.0))) for name in FAMILIES}
     active = {name: BASE_WEIGHTS[name] * eligible[name] for name in FAMILIES if eligible[name] > 0}
     if not active:
-        active = {"BUILD_GIT": 1.0}
+        active = {"GIT": 1.0}
     counts = _largest_remainder(len(ids), active)
     # Tiny populations stay builder-generalists; wave time still reserves integration/meta.
-    if len(ids) <= 3 and "BUILD_GIT" in active:
+    if len(ids) <= 3:
         counts = {key: 0 for key in active}
-        counts["BUILD_GIT"] = len(ids)
+        counts["GIT"] = len(ids)
     roles: dict[str, str] = {}
     cursor = 0
     for family in FAMILIES:
@@ -162,8 +217,7 @@ def allocate_population(agent_ids: list[str], pressure: dict[str, float] | None 
         wave_counts = {"IMMEDIATE": 1 if ids else 0, "MIDDLE": 1 if len(ids) == 2 else 0, "RECURSIVE_META": 0}
     else:
         wave_counts = {key: 1 for key in wave_weights}
-        extras = _largest_remainder(len(ids) - 3, wave_weights)
-        wave_counts = {key: wave_counts[key] + extras[key] for key in wave_weights}
+        wave_counts = _largest_remainder_with_minimums(len(ids), wave_weights, {key: 1 for key in wave_weights})
     agent_waves, cursor = {}, 0
     for wave in wave_weights:
         for _ in range(wave_counts[wave]):
@@ -174,24 +228,66 @@ def allocate_population(agent_ids: list[str], pressure: dict[str, float] | None 
 
 def _prompt_digest(root: Path) -> str:
     manifest_path = root / "prompts/PROMPT.manifest.json"
-    active_path = root / "prompts/state/ACTIVE.json"
     try:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        active_rel = str(manifest.get("active_state") or "prompts/state/ACTIVE.json")
+        active_path = root / active_rel
         active = json.loads(active_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         raise RuntimeError("PROMPT_HYDRATION_HOLD:manifest_or_active") from exc
-    paths = {"prompts/PROMPT.manifest.json", "prompts/state/ACTIVE.json"}
+    manifest_artifact = manifest.get("artifact")
+    if manifest_artifact not in {"ATHENA.PROMPT.RUNTIME.V1", "ATHENA.PROMPT.RUNTIME.V2"}:
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:unsupported_manifest")
+    if active.get("status") != "ACTIVE" or active.get("prompt_runtime") not in {None, manifest_artifact}:
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:inactive_state")
+    room = manifest.get("room") or {}
+    if room.get("repo") != "demeet2k/Athena" or room.get("issue") != 555:
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:canonical_room_coordinate")
+    paths = {"prompts/PROMPT.manifest.json", active_rel}
     for key in ("bootstrap", "core", "policy"):
         if manifest.get(key):
             paths.add(str(manifest[key]))
     modules = manifest.get("modules") or {}
+    profile = active.get("profile") or manifest.get("default_profile")
+    profiles = manifest.get("profiles") or {}
+    if profile not in profiles:
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:profile")
+    enabled = set(active.get("enabled_modules") or [])
+    required = set(profiles[profile]) | {name for name, row in modules.items() if isinstance(row, dict) and row.get("mandatory")}
+    if not required.issubset(enabled):
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:required_module_disabled")
     for name in active.get("enabled_modules") or []:
         row = modules.get(name)
         if not isinstance(row, dict) or not row.get("path"):
             raise RuntimeError(f"PROMPT_HYDRATION_HOLD:enabled_module:{name}")
         paths.add(str(row["path"]))
-    for key in ("active_scoped_overlays", "active_scoped_state"):
-        paths.update(str(value) for value in active.get(key) or [])
+    overlays = active.get("active_scoped_overlays") or []
+    state_paths = active.get("active_scoped_state") or []
+    if not isinstance(overlays, list) or not isinstance(state_paths, list):
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:overlay_arrays")
+    if any(not isinstance(value, str) for value in overlays + state_paths):
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:overlay_path_type")
+    state_by_overlay: dict[str, list[str]] = {}
+    for state_rel in state_paths:
+        try:
+            state = json.loads((root / state_rel).read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise RuntimeError(f"PROMPT_HYDRATION_HOLD:{state_rel}") from exc
+        overlay_rel = state.get("overlay")
+        if not isinstance(overlay_rel, str):
+            raise RuntimeError(f"PROMPT_HYDRATION_HOLD:overlay_state_binding:{state_rel}")
+        state_by_overlay.setdefault(overlay_rel, []).append(state_rel)
+        if state.get("status") != "ACTIVE_SCOPED":
+            raise RuntimeError(f"PROMPT_HYDRATION_HOLD:overlay_state_status:{state_rel}")
+    if manifest_artifact == "ATHENA.PROMPT.RUNTIME.V2" or active.get("artifact") == "ATHENA.PROMPT.STATE.ACTIVE.V2":
+        for overlay_rel in overlays:
+            if len(state_by_overlay.get(overlay_rel, [])) != 1:
+                raise RuntimeError(f"PROMPT_HYDRATION_HOLD:overlay_state_cardinality:{overlay_rel}")
+        unbound = sorted(set(state_by_overlay) - set(overlays))
+        if unbound:
+            raise RuntimeError(f"PROMPT_HYDRATION_HOLD:orphan_overlay_state:{unbound[0]}")
+    paths.update(overlays)
+    paths.update(state_paths)
     for value in (
         active.get("harness_genotype"),
         (manifest.get("room") or {}).get("registry"),
@@ -200,6 +296,16 @@ def _prompt_digest(root: Path) -> str:
     ):
         if value:
             paths.add(str(value))
+    registry_rel = room.get("registry")
+    try:
+        registry = json.loads((root / registry_rel).read_text(encoding="utf-8"))
+    except (TypeError, OSError, json.JSONDecodeError) as exc:
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:room_registry") from exc
+    expected_jobs = {"GIT", "MATH", "MYTH", "NAV", "TOOLS", "CORPUS", "ALCHEMY", "META", "INTEGRATION"}
+    if registry.get("artifact") != "ATHENA.ORGANISM.ROOM.V1" or registry.get("status") != "ACTIVE":
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:room_registry_identity")
+    if registry.get("waves") != {"W0": 0.5, "W1": 0.3, "W2": 0.2} or set(registry.get("job_families") or []) != expected_jobs:
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:room_registry_contract")
     records = []
     for rel in sorted(paths):
         path = root / rel
@@ -260,8 +366,16 @@ class OrganismRoomRuntime:
         return {str(key): str(secret).encode("utf-8") for key, secret in value.items()}
 
     def _state(self) -> dict:
-        value = self.board._read_json(self.board._root() / STATE_PATH)
-        return value if value and value.get("artifact") == STATE_ARTIFACT else _empty_state()
+        path = self.board._root() / STATE_PATH
+        if not path.exists():
+            return _empty_state()
+        value = self.board._read_json(path)
+        if not value or value.get("artifact") != STATE_ARTIFACT:
+            raise RuntimeError("ROOM_STATE_CORRUPTION_HOLD")
+        for key in ("sessions", "quests", "idempotency"):
+            if not isinstance(value.get(key), dict):
+                raise RuntimeError("ROOM_STATE_CORRUPTION_HOLD")
+        return value
 
     @staticmethod
     def _live(session: dict, now: datetime) -> bool:
@@ -284,12 +398,12 @@ class OrganismRoomRuntime:
         if seen.get("command_digest") != _digest(command):
             raise ValueError("IDEMPOTENCY_KEY_REUSE_CONFLICT")
         result = dict(seen["result"])
-        if command.get("action") == "enter" and isinstance(result.get("session"), dict):
+        if command.get("action") in {"sign_in", "enter"} and isinstance(result.get("session"), dict):
             session = result["session"]
             result["session_token"] = _token(str(session["session_id"]), int(session["fence"]))
         return result
 
-    def _authenticate(self, state: dict, agent_id: str, session_id: str, fence: int, token: str, now: datetime) -> dict:
+    def _authenticate(self, state: dict, agent_id: str, session_id: str, fence: int, token: str, now: datetime, *, require_presence: bool = True) -> dict:
         row = state.get("sessions", {}).get(agent_id)
         if not row or row.get("session_id") != session_id or int(row.get("fence", -1)) != int(fence):
             raise ValueError("FENCED_SESSION_HOLD")
@@ -297,6 +411,10 @@ class OrganismRoomRuntime:
             raise ValueError("SESSION_TOKEN_HOLD")
         if not self._live(row, now):
             raise ValueError("SESSION_LEASE_EXPIRED_HOLD")
+        if require_presence:
+            presence = next((item for item in self.board._active() if item.get("agent_id") == agent_id), None)
+            if not presence or any(presence.get(key) != row.get(key) for key in ("session_id", "fence", "claim_id")):
+                raise ValueError("ROOM_PRESENCE_LINEAGE_HOLD")
         return row
 
     def read(self, *, agent_id: str | None = None, remote: str = "origin") -> dict:
@@ -305,7 +423,46 @@ class OrganismRoomRuntime:
         allocation = allocate_population([row["agent_id"] for row in board.get("active", [])])
         return {"status": board.get("status"), "board": board, "room": state, "allocation": allocation, "waves": list(WAVES), "metrics": _observational_metrics(state)}
 
-    def enter(self, *, agent_id: str, task: str, work_key: str, targets: list[str], ack_head: str, ack_prompt_digest: str, idempotency_key: str, lease_seconds: int = 1800, remote: str = "origin") -> dict:
+    def sign_in(self, *, agent_id: str, ack_head: str, ack_prompt_digest: str, idempotency_key: str, capabilities: list[str] | None = None, lease_seconds: int = 1800, remote: str = "origin") -> dict:
+        agent_id = _require_id(agent_id, "agent_id")
+        key = _idempotency_key(idempotency_key)
+        lease = self.board._lease_seconds(lease_seconds)
+        capabilities = sorted({str(value).strip() for value in (capabilities or []) if str(value).strip()})
+        command = {"action": "sign_in", "ack_head": ack_head, "ack_prompt_digest": ack_prompt_digest, "capabilities": capabilities, "lease_seconds": lease}
+
+        def build(base: str) -> dict:
+            state = self._state()
+            replay = self._replay(state, agent_id, key, command)
+            if replay is not None:
+                return {"return": replay}
+            current_prompt = _prompt_digest(self.board._root())
+            if base != ack_head or current_prompt != ack_prompt_digest:
+                return {"return": {"status": "REHYDRATE_HOLD", "current_head": base, "current_prompt_digest": current_prompt}}
+            now = _utcnow()
+            prior = state["sessions"].get(agent_id)
+            if prior and self._live(prior, now):
+                return {"return": {"status": "AGENT_ALREADY_PRESENT_HOLD", "session": prior}}
+            if prior and prior.get("quest_id"):
+                orphan = state["quests"].get(prior["quest_id"])
+                if orphan and orphan.get("status") == "ACTIVE" and orphan.get("session_id") == prior.get("session_id"):
+                    orphan.update({"status": "READY", "session_id": None, "fence": None, "claim_id": None, "reclaimed_after_expiry": True})
+            fence = int((prior or {}).get("fence", 0)) + 1
+            session_id = f"ROOM-{uuid.uuid4().hex}"
+            active_ids = [row["agent_id"] for row in self.board._active()] + [agent_id]
+            allocation = allocate_population(active_ids)
+            session = {"artifact": SESSION_ARTIFACT, "agent_id": agent_id, "session_id": session_id, "fence": fence, "status": "ACTIVE", "head": base, "prompt_digest": current_prompt, "claim_id": None, "quest_id": None, "attempt": 0, "role": allocation["roles"][agent_id], "wave": allocation["agent_waves"][agent_id], "capabilities": capabilities, "entered_at": _iso(now), "lease_until": _iso(now + timedelta(seconds=lease)), "source_identity_ceiling": "LOCAL_CHECKOUT_COORDINATES_VALIDATED_PROVIDER_MEMBERSHIP_NOT_PROVEN"}
+            presence = {"artifact": PRESENCE_ARTIFACT, "agent_id": agent_id, "claim_id": None, "session_id": session_id, "fence": fence, "status": "ACTIVE", "mode": "OBSERVER", "task": "ROOM_OCCUPANCY", "work_key": None, "targets": [], "details": f"organism-room signed-in role={session['role']}", "join_of": None, "started_at": session["entered_at"], "heartbeat_at": session["entered_at"], "lease_seconds": lease, "expires_at": session["lease_until"], "claim_base_head": base, "law": "SIGNIN != WORK != COMPLETION"}
+            state["version"] += 1
+            state["logical_time"] += 1
+            state["sessions"][agent_id] = session
+            result = {"status": "SIGNED_IN", "session": session, "session_token": _token(session_id, fence), "allocation": allocation, "waves": list(WAVES), "next": "claim exact WORK before consequential shared mutation"}
+            self._remember(state, agent_id, key, command, result)
+            event_rel, event = self.board._event("SIGNIN", agent_id, {"session_id": session_id, "fence": fence, "capabilities": capabilities, "role": session["role"], "wave": session["wave"]})
+            return {"files": {STATE_PATH: _json_text(state), self.board._presence_path(agent_id): _json_text(presence), event_rel: _json_text(event)}, "message": f"organism room sign in {agent_id}", "result": result}
+
+        return self.board._mutate(agent_id=agent_id, remote=remote, build_files=build)
+
+    def enter(self, *, agent_id: str, task: str, work_key: str, targets: list[str], ack_head: str, ack_prompt_digest: str, idempotency_key: str, resource_upper_bound: dict, room_budget: dict, protected_reserve: dict, session_id: str | None = None, fence: int | None = None, session_token: str | None = None, lease_seconds: int = 1800, remote: str = "origin") -> dict:
         agent_id = _require_id(agent_id, "agent_id")
         idempotency_key = _idempotency_key(idempotency_key)
         task = str(task or "").strip()
@@ -315,21 +472,29 @@ class OrganismRoomRuntime:
         if len(work_key) > 256:
             raise ValueError("work_key must contain at most 256 characters")
         lease = self.board._lease_seconds(lease_seconds)
-        current_head = self.board.git.head()
-        current_prompt = _prompt_digest(self.board._root())
-        command = {"action": "enter", "task": task, "work_key": work_key, "targets": sorted(targets), "ack_head": ack_head, "ack_prompt_digest": ack_prompt_digest, "lease_seconds": lease}
+        command = {"action": "enter", "task": task, "work_key": work_key, "targets": sorted(targets), "ack_head": ack_head, "ack_prompt_digest": ack_prompt_digest, "resource_upper_bound": resource_upper_bound, "room_budget": room_budget, "protected_reserve": protected_reserve, "session_id": session_id, "fence": fence, "lease_seconds": lease}
 
         def build(base: str) -> dict:
             state = self._state()
             replay = self._replay(state, agent_id, idempotency_key, command)
             if replay is not None:
                 return {"return": replay}
-            if base != ack_head or _prompt_digest(self.board._root()) != ack_prompt_digest:
-                return {"return": {"status": "REHYDRATE_HOLD", "current_head": base, "current_prompt_digest": _prompt_digest(self.board._root())}}
+            prompt_at_base = _prompt_digest(self.board._root())
+            if base != ack_head or prompt_at_base != ack_prompt_digest:
+                return {"return": {"status": "REHYDRATE_HOLD", "current_head": base, "current_prompt_digest": prompt_at_base}}
             now = _utcnow()
             prior = state["sessions"].get(agent_id)
-            if prior and self._live(prior, now):
+            signed_in_upgrade = bool(prior and self._live(prior, now) and not prior.get("quest_id"))
+            if prior and self._live(prior, now) and not signed_in_upgrade:
                 return {"return": {"status": "AGENT_ALREADY_PRESENT_HOLD", "session": prior}}
+            if signed_in_upgrade:
+                if not session_id or fence is None or not session_token:
+                    return {"return": {"status": "SIGNED_IN_SESSION_AUTH_REQUIRED_HOLD", "session": prior}}
+                self._authenticate(state, agent_id, session_id, int(fence), session_token, now)
+            if prior and prior.get("quest_id"):
+                orphan = state["quests"].get(prior["quest_id"])
+                if orphan and orphan.get("status") == "ACTIVE" and orphan.get("session_id") == prior.get("session_id"):
+                    orphan.update({"status": "READY", "session_id": None, "fence": None, "claim_id": None, "reclaimed_after_expiry": True})
             candidate = {"agent_id": agent_id, "task": task, "work_key": work_key, "targets": [_norm_target(v) for v in targets], "mode": "PRIMARY"}
             conflicts = []
             for other in self.board._active():
@@ -338,31 +503,41 @@ class OrganismRoomRuntime:
                     conflicts.append({"agent_id": other.get("agent_id"), "reasons": hard})
             if conflicts:
                 return {"return": {"status": "DUPLICATE_WORK_HOLD", "conflicts": conflicts}}
-            fence = int((prior or {}).get("fence", 0)) + 1
-            session_id = f"ROOM-{uuid.uuid4().hex}"
+            next_fence = int(prior["fence"]) if signed_in_upgrade else int((prior or {}).get("fence", 0)) + 1
+            next_session_id = str(prior["session_id"]) if signed_in_upgrade else f"ROOM-{uuid.uuid4().hex}"
             claim_id = f"RCL-{uuid.uuid4().hex}"
             prior_quest = state["quests"].get(work_key)
             if prior_quest and prior_quest.get("status") not in {"READY"}:
                 return {"return": {"status": "QUEST_NOT_READY_HOLD", "quest": prior_quest}}
             attempt = int((prior_quest or {}).get("attempt", 0)) + 1
+            try:
+                resource = validate_resource_admission(
+                    resource_upper_bound, room_budget, protected_reserve, list(state["quests"].values())
+                )
+            except ValueError as exc:
+                return {"return": {"status": "RESOURCE_ADMISSION_HOLD", "detail": str(exc)}}
             active_ids = [row["agent_id"] for row in self.board._active()] + [agent_id]
             allocation = allocate_population(active_ids)
-            session = {"artifact": SESSION_ARTIFACT, "agent_id": agent_id, "session_id": session_id, "fence": fence, "status": "ACTIVE", "head": base, "prompt_digest": current_prompt, "claim_id": claim_id, "quest_id": work_key, "attempt": attempt, "role": allocation["roles"][agent_id], "wave": allocation["agent_waves"][agent_id], "entered_at": _iso(now), "lease_until": _iso(now + timedelta(seconds=lease))}
+            session = {"artifact": SESSION_ARTIFACT, "agent_id": agent_id, "session_id": next_session_id, "fence": next_fence, "status": "ACTIVE", "head": base, "prompt_digest": prompt_at_base, "claim_id": claim_id, "quest_id": work_key, "attempt": attempt, "role": allocation["roles"][agent_id], "wave": allocation["agent_waves"][agent_id], "entered_at": prior.get("entered_at") if signed_in_upgrade else _iso(now), "lease_until": _iso(now + timedelta(seconds=lease)), "source_identity_ceiling": "LOCAL_CHECKOUT_COORDINATES_VALIDATED_PROVIDER_MEMBERSHIP_NOT_PROVEN", **resource}
             acceptance_digest = _digest({"task": task, "targets": candidate["targets"]})
-            quest = {**(prior_quest or {}), "quest_id": work_key, "work_key": work_key, "attempt": attempt, "status": "ACTIVE", "claim_id": claim_id, "session_id": session_id, "fence": fence, "task": task, "targets": candidate["targets"], "acceptance_digest": acceptance_digest, "input_head": base, "prompt_digest": current_prompt, "claimed_at": _iso(now)}
+            quest = {**(prior_quest or {}), "quest_id": work_key, "work_key": work_key, "attempt": attempt, "status": "ACTIVE", "claim_id": claim_id, "session_id": next_session_id, "fence": next_fence, "task": task, "targets": candidate["targets"], "acceptance_digest": acceptance_digest, "input_head": base, "prompt_digest": prompt_at_base, "claimed_at": _iso(now), **resource}
             parent_id = quest.get("parent_quest_id")
             if parent_id and parent_id in state["quests"]:
-                state["quests"][parent_id]["successor_consumed_by"] = session_id
+                state["quests"][parent_id]["successor_consumed_by"] = next_session_id
                 state["quests"][parent_id]["successor_consumed_at"] = _iso(now)
-            presence = {"artifact": PRESENCE_ARTIFACT, "agent_id": agent_id, "claim_id": claim_id, "session_id": session_id, "fence": fence, "status": "ACTIVE", "mode": "PRIMARY", "task": task, "work_key": work_key, "targets": candidate["targets"], "details": f"organism-room role={session['role']}", "join_of": None, "started_at": session["entered_at"], "heartbeat_at": session["entered_at"], "lease_seconds": lease, "expires_at": session["lease_until"], "claim_base_head": base, "law": "FENCED_CLAIM_NOT_COMPLETION"}
+            presence = {"artifact": PRESENCE_ARTIFACT, "agent_id": agent_id, "claim_id": claim_id, "session_id": next_session_id, "fence": next_fence, "status": "ACTIVE", "mode": "PRIMARY", "task": task, "work_key": work_key, "targets": candidate["targets"], "details": f"organism-room role={session['role']}", "join_of": None, "started_at": session["entered_at"], "heartbeat_at": _iso(now), "lease_seconds": lease, "expires_at": session["lease_until"], "claim_base_head": base, "law": "FENCED_CLAIM_NOT_COMPLETION"}
             state["version"] += 1
             state["logical_time"] += 1
             state["sessions"][agent_id] = session
             state["quests"][work_key] = quest
-            result = {"status": "ENTERED", "session": session, "session_token": _token(session_id, fence), "allocation": allocation, "waves": list(WAVES), "next": "execute the material delta; heartbeat before lease expiry"}
+            result = {"status": "WORK_CLAIMED" if signed_in_upgrade else "ENTERED", "session": session, "session_token": _token(next_session_id, next_fence), "allocation": allocation, "waves": list(WAVES), "next": "execute the material delta; heartbeat before lease expiry"}
             self._remember(state, agent_id, idempotency_key, command, result)
-            event_rel, event = self.board._event("ROOM_ENTER", agent_id, {"session_id": session_id, "fence": fence, "claim_id": claim_id, "quest_id": work_key, "role": session["role"]})
-            return {"files": {STATE_PATH: _json_text(state), self.board._presence_path(agent_id): _json_text(presence), event_rel: _json_text(event)}, "message": f"organism room enter {agent_id}", "result": result}
+            event_rel, event = self.board._event("WORK", agent_id, {"session_id": next_session_id, "fence": next_fence, "claim_id": claim_id, "quest_id": work_key, "role": session["role"], "wave": session["wave"]})
+            files = {STATE_PATH: _json_text(state), self.board._presence_path(agent_id): _json_text(presence), event_rel: _json_text(event)}
+            if not signed_in_upgrade:
+                signin_rel, signin_event = self.board._event("SIGNIN", agent_id, {"session_id": next_session_id, "fence": next_fence, "role": session["role"], "wave": session["wave"], "composed_with_work": True})
+                files[signin_rel] = _json_text(signin_event)
+            return {"files": files, "message": f"organism room work {agent_id}", "result": result}
 
         return self.board._mutate(agent_id=agent_id, remote=remote, build_files=build)
 
@@ -393,7 +568,7 @@ class OrganismRoomRuntime:
             self._remember(state, agent_id, key, command, result)
             presence = self.board._read_json(self.board._root() / self.board._presence_path(agent_id)) or {}
             presence.update({"heartbeat_at": _iso(now), "expires_at": session["lease_until"]})
-            event_rel, event = self.board._event("ROOM_HEARTBEAT", agent_id, {"session_id": session_id, "fence": fence, "status": result["status"]})
+            event_rel, event = self.board._event("HEARTBEAT", agent_id, {"session_id": session_id, "fence": fence, "status": result["status"]})
             return {"files": {STATE_PATH: _json_text(state), self.board._presence_path(agent_id): _json_text(presence), event_rel: _json_text(event)}, "message": f"organism room heartbeat {agent_id}", "result": result}
 
         return self.board._mutate(agent_id=agent_id, remote=remote, build_files=build)
@@ -433,6 +608,8 @@ class OrganismRoomRuntime:
                 return {"return": replay}
             now = _utcnow()
             session = self._authenticate(state, agent_id, session_id, fence, session_token, now)
+            if session.get("status") == "STALE" or session.get("prompt_digest") != _prompt_digest(self.board._root()):
+                raise ValueError("COMPLETION_STALE_PROMPT_HOLD")
             quest = state["quests"].get(session["quest_id"])
             if not quest or quest.get("session_id") != session_id or quest.get("fence") != fence or quest.get("status") != "ACTIVE":
                 raise ValueError("CLAIM_ATTEMPT_HOLD")
@@ -451,7 +628,7 @@ class OrganismRoomRuntime:
             state["logical_time"] += 1
             outcome = {"status": "VERIFIED_COMPLETION", "quest": quest, "successor": successor, "campaign_terminal": bool(not successor and terminal_reason in TERMINAL_REASONS)}
             self._remember(state, agent_id, key, command, outcome)
-            event_rel, event = self.board._event("ROOM_COMPLETE", agent_id, {"session_id": session_id, "fence": fence, "quest_id": quest["quest_id"], "attempt": quest["attempt"], "successor_id": (successor or {}).get("quest_id"), "authority_id": receipt["authority_id"]})
+            event_rel, event = self.board._event("DELTA", agent_id, {"session_id": session_id, "fence": fence, "quest_id": quest["quest_id"], "attempt": quest["attempt"], "successor_id": (successor or {}).get("quest_id"), "authority_id": receipt["authority_id"], "result": result})
             return {"files": {STATE_PATH: _json_text(state), event_rel: _json_text(event)}, "message": f"organism room complete {agent_id}", "result": outcome}
 
         return self.board._mutate(agent_id=agent_id, remote=remote, build_files=build)
@@ -467,7 +644,7 @@ class OrganismRoomRuntime:
             if replay is not None:
                 return {"return": replay}
             now = _utcnow()
-            session = self._authenticate(state, agent_id, session_id, fence, session_token, now)
+            session = self._authenticate(state, agent_id, session_id, fence, session_token, now, require_presence=False)
             quest = state["quests"].get(session["quest_id"])
             if quest and quest.get("status") == "ACTIVE" and not force:
                 return {"return": {"status": "OPEN_CLAIM_HOLD", "next": "complete, hand off, or force sign-out"}}
@@ -480,7 +657,7 @@ class OrganismRoomRuntime:
             state["logical_time"] += 1
             result = {"status": "SIGNED_OUT", "session": session, "requeued": bool(quest and quest.get("status") == "READY")}
             self._remember(state, agent_id, key, command, result)
-            event_rel, event = self.board._event("ROOM_SIGN_OUT", agent_id, {"session_id": session_id, "fence": fence, "force": force, "handoff_to": handoff_to})
+            event_rel, event = self.board._event("SIGNOUT", agent_id, {"session_id": session_id, "fence": fence, "force": force, "handoff_to": handoff_to})
             return {"files": {STATE_PATH: _json_text(state), self.board._presence_path(agent_id): _json_text(presence), event_rel: _json_text(event)}, "message": f"organism room sign out {agent_id}", "result": result}
 
         return self.board._mutate(agent_id=agent_id, remote=remote, build_files=build)
@@ -492,6 +669,8 @@ class OrganismRoomRuntime:
         kwargs = {key: value for key, value in args.items() if key != "action" and value is not None}
         if action == "read":
             return self.read(**kwargs)
+        if action == "sign_in":
+            return self.sign_in(**kwargs)
         if action == "enter":
             return self.enter(**kwargs)
         if action == "heartbeat":
@@ -500,19 +679,21 @@ class OrganismRoomRuntime:
             return self.complete(**kwargs)
         if action == "sign_out":
             return self.sign_out(**kwargs)
-        raise ValueError("action must be read, enter, heartbeat, complete, or sign_out")
+        raise ValueError("action must be read, sign_in, enter, heartbeat, complete, or sign_out")
 
 
 ORGANISM_ROOM_TOOLS = [{
     "name": TOOL_NAME,
-    "description": "Mandatory fenced room lifecycle over ATHENA's existing Git-backed Message Board: read/ack current prompt and HEAD, sign in and claim exact work, heartbeat, externally verify a material completion, consume or create a successor, and sign out.",
+    "description": "Mandatory fenced room lifecycle over ATHENA's existing Git-backed Message Board: read/ack current prompt and HEAD, SIGNIN independently, claim exact WORK, heartbeat, externally verify a DELTA, consume or create a successor, and SIGNOUT only at actual exit.",
     "inputSchema": {
         "type": "object",
         "required": ["action"],
         "properties": {
-            "action": {"type": "string", "enum": ["read", "enter", "heartbeat", "complete", "sign_out"]},
+            "action": {"type": "string", "enum": ["read", "sign_in", "enter", "heartbeat", "complete", "sign_out"]},
             "agent_id": {"type": ["string", "null"]}, "task": {"type": ["string", "null"]}, "work_key": {"type": ["string", "null"]},
             "targets": {"type": "array", "items": {"type": "string"}}, "ack_head": {"type": ["string", "null"]}, "ack_prompt_digest": {"type": ["string", "null"]},
+            "resource_upper_bound": {"type": ["object", "null"]}, "room_budget": {"type": ["object", "null"]}, "protected_reserve": {"type": ["object", "null"]},
+            "capabilities": {"type": "array", "items": {"type": "string"}},
             "session_id": {"type": ["string", "null"]}, "fence": {"type": ["integer", "null"]}, "session_token": {"type": ["string", "null"]},
             "idempotency_key": {"type": ["string", "null"], "minLength": 16, "maxLength": 128}, "lease_seconds": {"type": ["integer", "null"], "minimum": 60, "maximum": 86400},
             "artifact_digests": {"type": "array", "items": {"type": "string"}}, "result": {"type": ["string", "null"]}, "receipt": {"type": ["object", "null"]},
