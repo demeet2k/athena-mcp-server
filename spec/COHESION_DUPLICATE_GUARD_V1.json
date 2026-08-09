@@ -1,0 +1,127 @@
+{
+  "artifact": "ATHENA.COHESION.DUPLICATE.GUARD.V1",
+  "version": "COHESION.DUPLICATE.GUARD.1",
+  "coordinate": "ATHENA.KC144::COHESION::C3-11::DUPLICATE-GUARD",
+  "issue": "demeet2k/athena-mcp-server#192",
+  "parents": [
+    "demeet2k/athena-mcp-server#147",
+    "demeet2k/athena-mcp-server#161",
+    "demeet2k/Athena#233"
+  ],
+  "base_runtime_head_at_design": "939bca127b2f7f96d15afbeca34a558cc0cd3b76",
+  "authority": {
+    "message_board": "sole presence/claim/message authority",
+    "duplicate_guard": "read-only collision classification and treatment projection",
+    "assignment_authority": false,
+    "claim_authority": false,
+    "execution_authority": false,
+    "auto_join_authority": false,
+    "mata_authority": false,
+    "independent_verification_authority": false
+  },
+  "inputs": {
+    "agent_id": "required explicit candidate agent identity",
+    "task": "required public task text",
+    "work_key": "optional explicit work identity; absence remains NONE",
+    "targets": "optional exact normalized shared sinks/artifacts",
+    "intended_mode": ["PRIMARY", "REPLICA"],
+    "replication_reason": "required for REPLICA",
+    "join_agent_id": "optional advisory JOIN target; never executed by this tool",
+    "partition_proof": {
+      "proof_id": "required when proof object is supplied",
+      "disjoint_targets": "at least two candidate future partition targets",
+      "shared_sinks": "the exact current target-overlap reasons the proof claims to cover",
+      "evidence_refs": "at least one public evidence reference"
+    },
+    "remote": "Git remote name",
+    "shared_remote_mode": ["REQUIRED", "BEST_EFFORT", "DISABLED"]
+  },
+  "exact_overlap_source": {
+    "runtime": "ATHENA Message Board V1",
+    "reason_codes": ["EXACT_WORK_KEY", "EXACT_TASK", "TARGET:<normalized sinks>"],
+    "law": "MESSAGE_BOARD_EXACT_CLASSIFICATION != MATA_SEMANTIC_CLASSIFICATION"
+  },
+  "classifications": {
+    "SHARED_FRONTIER_HOLD": "required shared-current board state unavailable",
+    "SELF_ACTIVE_CLAIM_CONFLICT": "candidate agent already owns a different active board claim",
+    "DECLARED_JOIN_TARGET_INVALID": "declared join target is not a relevant current conflict",
+    "DECLARED_JOIN": "join treatment is relevant but remains unexecuted",
+    "INTENTIONAL_REPLICA": "explicit REPLICA plus reason over an exact conflict; no independent-evidence standing",
+    "EXACT_DUPLICATE_HOLD": "exact work-key or exact-task identity conflicts with active claimed work",
+    "SHARED_SINK_HOLD": "target-only exact overlap requires sequencing/partition/join/pivot/replica treatment",
+    "PARTITION_PROOF_REQUIRED": "caller supplied partition assertion is structurally incomplete or lacks evidence",
+    "PARTITION_CLEARS_TARGET_ONLY": "structural evidence covers all target-only collision reasons; still HOLD until a new disjoint claim is committed",
+    "FUZZY_WARNING_ONLY": "semantic token similarity without deterministic exact overlap; not a veto",
+    "CLEAR": "no deterministic exact overlap and no fuzzy warning"
+  },
+  "treatments": {
+    "PROCEED": "eligible only on CLEAR or FUZZY_WARNING_ONLY; still no execution authority",
+    "JOIN": "eligible on exact conflict; must be executed through athena_message_board action=join",
+    "PIVOT": "eligible on holds/conflicts; requires selecting and claiming a non-conflicting residual",
+    "PARTITION": "eligible only for target-only conflicts; exact task/work-key identity makes it ineligible even if structural target evidence exists",
+    "REPLICA": "eligible on exact conflict only with explicit future/actual REPLICA intent and a non-empty reason"
+  },
+  "partition_semantics": {
+    "standing": "caller-supplied structural partition evidence",
+    "independent_verification": false,
+    "may_clear": ["target-overlap treatment eligibility"],
+    "may_not_clear": ["EXACT_WORK_KEY", "EXACT_TASK"],
+    "commit_boundary": "PARTITION_CLEARS_TARGET_ONLY remains HOLD_UNTIL_PARTITION_COMMITTED; this tool never creates the new disjoint board claim",
+    "laws": [
+      "PARTITION_ASSERTION != PARTITION_PROOF",
+      "STRUCTURAL_PARTITION_EVIDENCE != INDEPENDENT_VERIFICATION",
+      "PARTITION_PROOF != CLEAR_EXACT_WORK_IDENTITY"
+    ]
+  },
+  "mata_boundary": {
+    "runtime_available": false,
+    "semantic_relation": "UNAVAILABLE_NOT_IN_RUNTIME",
+    "semantic_spec": "demeet2k/Athena#233",
+    "law": "No SAME-WORK/SAME-BASE, OID/VID relation, portfolio relation, or canonical MATA work identity is fabricated from Message Board task prose"
+  },
+  "read_only_contract": {
+    "board_write_performed": false,
+    "read_sync_may_fast_forward": true,
+    "same_fresh_head": "when the checkout is already shared-current, guard evaluation leaves Git HEAD and Message Board bytes unchanged",
+    "remote_sync": "required shared freshness may fast-forward an otherwise clean behind checkout; that synchronization is not a board event or claim mutation"
+  },
+  "composition": {
+    "existing_cohesion_runtime": "passed into duplicate_guard(runtime, ...) rather than subclassed",
+    "reason": "compose with current/future CohesionMatchmakingRuntime guards, including the orthogonal evidence-coverage candidate, without competing inheritance",
+    "sibling_candidate": "PR #198 Cohesion evidence coverage touches the same AOR constructor seam but is semantically orthogonal; rebase/compose rather than overwrite"
+  },
+  "laws": [
+    "DUPLICATE_GUARD != CLAIM_MUTATION",
+    "DUPLICATE_GUARD != ASSIGNMENT",
+    "DUPLICATE_GUARD != AUTO_JOIN",
+    "DUPLICATE_GUARD != MATA",
+    "MESSAGE_BOARD = SOLE_PRESENCE_CLAIM_MESSAGE_AUTHORITY",
+    "MESSAGE_BOARD_EXACT_CLASSIFICATION != MATA_SEMANTIC_CLASSIFICATION",
+    "FUZZY_SIMILARITY != DUPLICATE_PROOF",
+    "PARTITION_ASSERTION != PARTITION_PROOF",
+    "PARTITION_PROOF != CLEAR_EXACT_WORK_IDENTITY",
+    "REPLICA != INDEPENDENT_EVIDENCE",
+    "JOIN_OPTION != JOIN_EXECUTED",
+    "PROCEED_OPTION != EXECUTION_AUTHORITY",
+    "READ_SIDE_SYNC != BOARD_WRITE",
+    "UNKNOWN != ZERO"
+  ],
+  "acceptance": [
+    "required shared freshness failure holds",
+    "clear lane returns advisory PROCEED",
+    "fuzzy similarity remains warning-only",
+    "exact work-key and exact task collisions hard-hold",
+    "target-only collision exposes partition treatment",
+    "incomplete partition evidence does not clear",
+    "valid structural target-only proof remains held until partition commit",
+    "partition cannot erase exact work-key/task identity",
+    "REPLICA requires reason and never claims independent evidence",
+    "declared JOIN must target a relevant conflict and remains unexecuted",
+    "self active incompatible claim is distinct",
+    "already-fresh guard call leaves board bytes and Git head unchanged",
+    "MATA runtime absence is explicit",
+    "tool/resource registration is additive",
+    "full Message Board/BOOT-MB/Party/Cohesion/repository regression suite passes"
+  ],
+  "successor": "After merge, project BOOT-MB DUPLICATE_WORK_HOLD through this guard so bootstrap can return structured treatment options without executing them"
+}
