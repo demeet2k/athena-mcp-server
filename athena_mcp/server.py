@@ -20,6 +20,8 @@ from .orchestration_authority_runtime import AuthorityOrchestrationRuntime
 from .orchestration_robustness import successor_robustness,elasticity_packet
 from .orchestration import orchestration_law
 from .aor_development_surface import AorDevelopmentSurface,AOR_DEVELOPMENT_TOOLS,AOR_DEVELOPMENT_TOOL_NAMES
+from .message_board import MessageBoardRuntime
+from .organism_room import OrganismRoomRuntime,ORGANISM_ROOM_TOOLS,ORGANISM_ROOM_TOOL_NAMES
 
 from .protocol import PROTOCOL_VERSION,SERVER_INFO,TOOLS,PROMPTS
 from .collective_protocol import COLLECTIVE_TOOLS
@@ -33,7 +35,7 @@ from .orchestration_authority_protocol import AUTHORITY_TOOLS
 from .orchestration_robustness_protocol import ROBUSTNESS_TOOLS
 
 _existing_tool_names={t['name'] for t in TOOLS}
-for tool in COLLECTIVE_TOOLS+COLLECTIVE_GROWTH_TOOLS+COLLECTIVE_V2_TOOLS+COLLECTIVE_V3_TOOLS+COLLECTIVE_V4_TOOLS+AOR_TOOLS+BRANCH_TOOLS+AUTHORITY_TOOLS+ROBUSTNESS_TOOLS+AOR_DEVELOPMENT_TOOLS:
+for tool in COLLECTIVE_TOOLS+COLLECTIVE_GROWTH_TOOLS+COLLECTIVE_V2_TOOLS+COLLECTIVE_V3_TOOLS+COLLECTIVE_V4_TOOLS+AOR_TOOLS+BRANCH_TOOLS+AUTHORITY_TOOLS+ROBUSTNESS_TOOLS+AOR_DEVELOPMENT_TOOLS+ORGANISM_ROOM_TOOLS:
     if tool['name'] not in _existing_tool_names:
         TOOLS.append(tool);_existing_tool_names.add(tool['name'])
 COLLECTIVE_V3_NAMES={tool['name'] for tool in COLLECTIVE_V3_TOOLS}
@@ -56,7 +58,7 @@ class Server:
         self.collective_learning=CollectiveLearningRuntime(self.store,self.collective,self.collective_memory)
         self.collective_ecology=CollectiveEcologyRuntime(self.store,self.collective,self.collective_growth,self.collective_memory,self.collective_learning)
         self.branches=BranchLedger(self.core);self.authority=AuthorityLedger(self.core);self.orchestration=AuthorityOrchestrationRuntime(self.core,self.branches,self.authority)
-        self.aor_development=AorDevelopmentSurface(self);self.rate=RateLimiter();self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'),autocommit=False)
+        self.aor_development=AorDevelopmentSurface(self);self.rate=RateLimiter();self.git=GitBackend(git_root or os.getenv('ATHENA_GIT_ROOT'),autocommit=False);self.organism_room=OrganismRoomRuntime(MessageBoardRuntime(self.git))
 
     def result(self,id,result):return {'jsonrpc':'2.0','id':id,'result':result}
     def error(self,id,code,msg,data=None):
@@ -111,6 +113,7 @@ class Server:
         if name in AOR_DEVELOPMENT_TOOL_NAMES:
             handled,value=self.aor_development.call_tool(name,a)
             if handled:return value
+        if name in ORGANISM_ROOM_TOOL_NAMES:return self.organism_room.call_tool(name,a)
         if name=='athena_register':return c.register(a['kind'],a['domain'],a['verb'],a['object_name'],a['method'],a['input_contract'],a['output_contract'],a.get('constraints'),a.get('payload'),a.get('actor','agent'))
         if name=='athena_resolve':return c.navigate(a['identifier'])
         if name=='athena_search':return c.s.search(a['query'],a.get('limit',20))
