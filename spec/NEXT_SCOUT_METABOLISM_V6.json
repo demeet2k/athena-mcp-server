@@ -1,0 +1,48 @@
+{
+  "artifact": "ATHENA.NEXT.SCOUT.METABOLISM.6",
+  "coordinate": "ATHENA.KC144::GITΩ::NEXT::SCOUT-METABOLISM::V6",
+  "purpose": "Bind completed staged-scout preparation results to immutable observed-cost receipts and calibrate future resource-cost priors from observed measurements only.",
+  "tools": [
+    "athena_next_scout_receipt_record",
+    "athena_next_scout_calibrate"
+  ],
+  "measurement_coordinates": [
+    "tokens",
+    "minutes",
+    "tool_calls",
+    "coordination",
+    "git_risk"
+  ],
+  "receipt_preconditions": [
+    "exact current pipeline state digest",
+    "prep plan exists",
+    "observed Breadth V2 prep result exists",
+    "measurement object has observed=true",
+    "measurement source is non-empty"
+  ],
+  "calibration": {
+    "method": "PRIOR_SHRINKAGE_TOWARD_OBSERVED_MEDIAN_V1",
+    "default_prior_strength": 3,
+    "missing_measurement": "retain V5 prior",
+    "benefit_prior_update": "FORBIDDEN_IN_V6"
+  },
+  "authority": {
+    "receipt": "COST_CALIBRATION_ONLY",
+    "calibration": "ROUTING_CALIBRATION_ONLY",
+    "claim": false,
+    "execution": false,
+    "quest_completion": false,
+    "evidence_promotion": false,
+    "merge": false,
+    "release": false
+  },
+  "laws": [
+    "PREDICTION != OBSERVATION",
+    "MISSING_MEASUREMENT != ZERO",
+    "ONLY_OBSERVED_RECEIPTS_UPDATE_COST_PRIORS",
+    "OBSERVED_COST != TASK_VALUE",
+    "COST_CALIBRATION != BENEFIT_CALIBRATION",
+    "SCOUT_RECEIPT != EVIDENCE_PROMOTION",
+    "CALIBRATION != CLAIM_OR_EXECUTION_AUTHORITY"
+  ]
+}
