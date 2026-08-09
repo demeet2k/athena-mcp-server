@@ -134,8 +134,22 @@ class CollectiveRuntimeV15AdversarialTests(unittest.TestCase):
             'queries':[{'features':{'x':10},'decision_margin':100}],
             'lipschitz_bound':.1,'max_transport_radius':1,
         })
-        self.assertFalse(out['queries'][0]['within_transport_radius'])
-        self.assertFalse(out['queries'][0]['decision_preserving_under_bound'])
+        query=out['queries'][0]
+        self.assertFalse(query['within_transport_radius'])
+        self.assertFalse(query['local_certificate_available'])
+        self.assertIsNone(query['transported_error_upper_bound'])
+        self.assertIsNone(query['transport_witness_index'])
+        self.assertIsNone(query['transport_witness_distance'])
+        self.assertIsNotNone(query['global_envelope_upper_bound'])
+        self.assertFalse(query['decision_preserving_under_bound'])
+
+    def test_error_transport_requires_unique_query_identity(self):
+        common={
+            'feature_order':['x'],
+            'witnesses':[{'features':{'x':0},'absolute_error':.1},{'features':{'x':1},'absolute_error':.2}],
+            'lipschitz_bound':.2,
+        }
+        self.tool('athena_approx_error_transport',{**common,'queries':[{'id':'Q','features':{'x':.2}},{'id':'Q','features':{'x':.8}}]},expect_error=True)
 
     def test_error_transport_rejects_nonfinite_and_invalid_locality_parameters(self):
         common={
