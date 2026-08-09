@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ATHENA.MCK.CONNECTION.EVALUATION.RECEIPT.V1",
+  "title": "ATHENA MCK Connection Evaluation Receipt V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "artifact",
+    "version",
+    "standing",
+    "packet_artifact",
+    "packet_version",
+    "packet_semantic_digest",
+    "operator_registry_digest",
+    "runtime_contract_version",
+    "initial_state",
+    "initial_state_digest",
+    "ordered_path",
+    "ordered_path_digest",
+    "raw_result",
+    "result_semantic_digest",
+    "source_evidence",
+    "historical_mapping",
+    "implementation_binding",
+    "expected_class_used",
+    "laws",
+    "evaluation_receipt_digest"
+  ],
+  "properties": {
+    "status": {"const": "EVALUATED"},
+    "artifact": {"const": "ATHENA.MCK.CONNECTION.EVALUATION.RECEIPT.V1"},
+    "version": {"const": "MCK.CONNECTION.EVALUATION.RECEIPT.V1"},
+    "standing": {"const": "SYNTHETIC_REPLAY_RECEIPT_NOT_EXTERNAL_IMPLEMENTATION_WITNESS"},
+    "packet_artifact": {"const": "ATHENA.MCK.CONNECTION.OPERATOR_PACKET.V1"},
+    "packet_version": {"const": "MCK.CONNECTION.PACKET.V1"},
+    "packet_semantic_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "operator_registry_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "runtime_contract_version": {"const": "MCK.SYNTHETIC.CONNECTION.CONTROL.V1"},
+    "initial_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["coordinate", "values", "irreversible_loss", "provenance"],
+      "properties": {
+        "coordinate": {"type": "string", "minLength": 1},
+        "values": {"type": "object"},
+        "irreversible_loss": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "provenance": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "initial_state_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "ordered_path": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "ordered_path_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "raw_result": {"type": "object"},
+    "result_semantic_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_evidence": {"const": "NONE_SYNTHETIC_CONTROL"},
+    "historical_mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "edges"],
+      "properties": {
+        "status": {"const": "HOLD_EMPTY_V1_PROPOSAL"},
+        "edges": {"type": "array", "maxItems": 0}
+      }
+    },
+    "implementation_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["standing", "repository", "git_head", "ci_workflow", "ci_run_id", "ci_run_number", "ci_conclusion"],
+      "properties": {
+        "standing": {"const": "EXTERNAL_BINDING_REQUIRED"},
+        "repository": {"type": "null"},
+        "git_head": {"type": "null"},
+        "ci_workflow": {"type": "null"},
+        "ci_run_id": {"type": "null"},
+        "ci_run_number": {"type": "null"},
+        "ci_conclusion": {"type": "null"}
+      }
+    },
+    "expected_class_used": {"const": false},
+    "laws": {
+      "type": "array",
+      "items": {"type": "string"},
+      "contains": {"const": "SELF_GENERATED_RECEIPT != REPOSITORY_CI_WITNESS"}
+    },
+    "evaluation_receipt_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}
