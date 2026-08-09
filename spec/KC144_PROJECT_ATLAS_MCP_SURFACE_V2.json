@@ -26,7 +26,8 @@
     "max_page": 100,
     "default_page": 50,
     "read_only": true,
-    "self_metering": false
+    "self_metering": false,
+    "full_snapshot_cas": true
   },
   "frontier": {
     "factorization": [
@@ -44,6 +45,8 @@
     "runtime_head_attestation_without_tree": "PARTIAL_RUNTIME_TREE_UNAVAILABLE",
     "unknown_runtime_tree_law": "UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE",
     "cache_key": "<configured_git_head,runtime_source_frontier,live_mcp_surface_signature>",
+    "snapshot_cas_input": "expected_snapshot_id",
+    "snapshot_cas_pattern": "^PATLASV2\\.[0-9A-F]{32}$",
     "bounded_retry": 1
   },
   "query_index": {
@@ -78,6 +81,7 @@
       "federation_digest"
     ],
     "authority": "NONE",
+    "cas": "exact equality against expected_snapshot_id after stable snapshot construction",
     "law": "PROJECT_ATLAS_SNAPSHOT_ID != PROMOTION_RECEIPT"
   },
   "planes": [
@@ -122,12 +126,14 @@
     "toroidal": "PROJECT_KC144_12x12_WRAP",
     "cross_frontier_receipt": true,
     "native_return_both_endpoints": true,
+    "snapshot_cas_before_endpoint_resolution": true,
     "law": "PROJECT_ROUTE != SEMANTIC_EQUIVALENCE"
   },
   "hold_statuses": [
     "HOLD_GIT_UNAVAILABLE",
     "HOLD_STALE_CONFIGURED_HEAD",
     "HOLD_STALE_RUNTIME_HEAD",
+    "HOLD_STALE_SNAPSHOT",
     "HOLD_RUNTIME_PROVENANCE",
     "HOLD_RUNTIME_TREE_UNAVAILABLE",
     "HOLD_VOLATILE_FRONTIER",
@@ -154,6 +160,7 @@
     "HEAD_CHANGE -> RECOMPILE_BEFORE_CONSEQUENTIAL_ROUTE",
     "RUNTIME_HEAD_CHANGE -> RECOMPILE_BEFORE_QUERY",
     "MCP_SURFACE_CHANGE -> RECOMPILE_BEFORE_QUERY",
+    "STALE_SNAPSHOT -> HOLD",
     "CROSS_REPO_ROUTE_REQUIRES_EXACT_REPO_HEAD",
     "STALE_CONFIGURED_HEAD -> HOLD",
     "STALE_RUNTIME_HEAD -> HOLD",
