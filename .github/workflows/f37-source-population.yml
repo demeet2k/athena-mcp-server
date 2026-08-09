@@ -1,0 +1,38 @@
+name: KC144 F37 Source Population
+
+on:
+  pull_request:
+    branches:
+      - 'agent/cell-closure-populate-x16-br21-v1'
+    paths:
+      - 'spec/F37_LIBRARY_SOURCE_POPULATION_V1.json'
+      - 'scripts/populate_f37_cell_closure.py'
+      - '.github/workflows/f37-source-population.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  populate-f37:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile F37 population witness
+        run: python -m compileall -q scripts/populate_f37_cell_closure.py
+      - name: Bind content-addressed F37 source manifests and regenerate cumulative matrix
+        env:
+          PYTHONPATH: .
+        run: python scripts/populate_f37_cell_closure.py
+      - name: Upload F37 populated matrix
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kc144-f37-source-population-v1
+          path: kc144_f37_population_matrix_v1.json
+          if-no-files-found: error
