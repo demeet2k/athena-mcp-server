@@ -299,6 +299,7 @@ def _coordination_packet(
         if remaining is None or remaining <= threshold:
             transition = board.heartbeat(
                 agent_id=agent_id,
+                expected_claim_id=existing["claim_id"],
                 lease_seconds=lease_seconds or None,
                 note="agent bootstrap lease renewal",
                 remote=remote,
@@ -327,6 +328,7 @@ def _coordination_packet(
         if transition.get("status") == "ALREADY_PRESENT":
             transition = board.heartbeat(
                 agent_id=agent_id,
+                expected_claim_id=transition["presence"]["claim_id"],
                 lease_seconds=lease_seconds or None,
                 note="agent bootstrap concurrent same-claim renewal",
                 remote=remote,
