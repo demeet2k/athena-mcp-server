@@ -211,6 +211,29 @@ def _empty_state() -> dict:
     return {"artifact": STATE_ARTIFACT, "version": 0, "logical_time": 0, "sessions": {}, "quests": {}, "idempotency": {}}
 
 
+def _observational_metrics(state: dict) -> dict:
+    quests = list((state.get("quests") or {}).values())
+    successors = [quest for quest in quests if quest.get("parent_quest_id")]
+    consumed = [quest for quest in successors if quest.get("status") != "READY"]
+    statuses: dict[str, int] = {}
+    for quest in quests:
+        status = str(quest.get("status") or "UNKNOWN")
+        statuses[status] = statuses.get(status, 0) + 1
+    sessions = list((state.get("sessions") or {}).values())
+    return {
+        "standing": "OBSERVATIONAL_PROJECTION_NOT_CAUSAL_EFFECT",
+        "quest_status_counts": statuses,
+        "verified_artifact_sets": sum(1 for quest in quests if quest.get("status") == "VERIFIED" and quest.get("artifact_digests")),
+        "successors_created": len(successors),
+        "successors_consumed": len(consumed),
+        "successor_consumption_rate": (len(consumed) / len(successors)) if successors else None,
+        "session_count": len(sessions),
+        "active_session_count": sum(1 for session in sessions if session.get("status") in {"ACTIVE", "STALE", "DRAINING"}),
+        "human_interventions": "NOT_OBSERVED_BY_THIS_RUNTIME",
+        "control_plane_to_work_ratio": "REQUIRES_HOST_TIMING_OBSERVER",
+    }
+
+
 class OrganismRoomRuntime:
     """Fenced orchestration over the existing Message Board transport.
 
@@ -276,7 +299,7 @@ class OrganismRoomRuntime:
         board = self.board.read(agent_id=agent_id, include_stale=True, remote=remote)
         state = self._state()
         allocation = allocate_population([row["agent_id"] for row in board.get("active", [])])
-        return {"status": board.get("status"), "board": board, "room": state, "allocation": allocation, "waves": list(WAVES)}
+        return {"status": board.get("status"), "board": board, "room": state, "allocation": allocation, "waves": list(WAVES), "metrics": _observational_metrics(state)}
 
     def enter(self, *, agent_id: str, task: str, work_key: str, targets: list[str], ack_head: str, ack_prompt_digest: str, idempotency_key: str, lease_seconds: int = 1800, remote: str = "origin") -> dict:
         agent_id = _require_id(agent_id, "agent_id")
@@ -285,6 +308,8 @@ class OrganismRoomRuntime:
         work_key = str(work_key or "").strip()
         if not task or not work_key:
             raise ValueError("task and work_key are required")
+        if len(work_key) > 256:
+            raise ValueError("work_key must contain at most 256 characters")
         lease = self.board._lease_seconds(lease_seconds)
         current_head = self.board.git.head()
         current_prompt = _prompt_digest(self.board._root())
@@ -312,11 +337,18 @@ class OrganismRoomRuntime:
             fence = int((prior or {}).get("fence", 0)) + 1
             session_id = f"ROOM-{uuid.uuid4().hex}"
             claim_id = f"RCL-{uuid.uuid4().hex}"
-            attempt = max([int(q.get("attempt", 0)) for q in state["quests"].values() if q.get("work_key") == work_key] or [0]) + 1
+            prior_quest = state["quests"].get(work_key)
+            if prior_quest and prior_quest.get("status") not in {"READY"}:
+                return {"return": {"status": "QUEST_NOT_READY_HOLD", "quest": prior_quest}}
+            attempt = int((prior_quest or {}).get("attempt", 0)) + 1
             active_ids = [row["agent_id"] for row in self.board._active()] + [agent_id]
             allocation = allocate_population(active_ids)
             session = {"artifact": SESSION_ARTIFACT, "agent_id": agent_id, "session_id": session_id, "fence": fence, "status": "ACTIVE", "head": base, "prompt_digest": current_prompt, "claim_id": claim_id, "quest_id": work_key, "attempt": attempt, "role": allocation["roles"][agent_id], "wave": allocation["agent_waves"][agent_id], "entered_at": _iso(now), "lease_until": _iso(now + timedelta(seconds=lease))}
-            quest = {"quest_id": work_key, "work_key": work_key, "attempt": attempt, "status": "ACTIVE", "claim_id": claim_id, "session_id": session_id, "fence": fence, "task": task, "targets": candidate["targets"], "input_head": base, "prompt_digest": current_prompt}
+            quest = {**(prior_quest or {}), "quest_id": work_key, "work_key": work_key, "attempt": attempt, "status": "ACTIVE", "claim_id": claim_id, "session_id": session_id, "fence": fence, "task": task, "targets": candidate["targets"], "input_head": base, "prompt_digest": current_prompt, "claimed_at": _iso(now)}
+            parent_id = quest.get("parent_quest_id")
+            if parent_id and parent_id in state["quests"]:
+                state["quests"][parent_id]["successor_consumed_by"] = session_id
+                state["quests"][parent_id]["successor_consumed_at"] = _iso(now)
             presence = {"artifact": PRESENCE_ARTIFACT, "agent_id": agent_id, "claim_id": claim_id, "session_id": session_id, "fence": fence, "status": "ACTIVE", "mode": "PRIMARY", "task": task, "work_key": work_key, "targets": candidate["targets"], "details": f"organism-room role={session['role']}", "join_of": None, "started_at": session["entered_at"], "heartbeat_at": session["entered_at"], "lease_seconds": lease, "expires_at": session["lease_until"], "claim_base_head": base, "law": "FENCED_CLAIM_NOT_COMPLETION"}
             state["version"] += 1
             state["logical_time"] += 1
