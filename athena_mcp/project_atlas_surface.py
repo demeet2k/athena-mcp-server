@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import PurePosixPath
 
+from .identity import digest
 from .project_atlas import compile_runtime_atlas, route_records
 from .project_atlas_protocol import PROJECT_ATLAS_RESOURCE, PROJECT_ATLAS_TOOL_NAMES
 
@@ -15,6 +16,7 @@ PROJECT_ATLAS_LAWS=[
     "PROJECT_ROUTE != SEMANTIC_EQUIVALENCE",
     "AMBIGUOUS_RESOLVE -> HOLD",
     "HEAD_CHANGE -> RECOMPILE_BEFORE_CONSEQUENTIAL_ROUTE",
+    "MCP_SURFACE_CHANGE -> RECOMPILE_BEFORE_QUERY",
     "CROSS_REPO_ROUTE_REQUIRES_EXACT_REPO_HEAD",
     "PROJECT_QUERY != PERSISTENT_STATE_MUTATION",
 ]
@@ -25,7 +27,9 @@ class ProjectAtlasSurface:
 
     def __init__(self, server):
         self.server=server
+        self._cache_key=None
         self._cache_head=None
+        self._cache_surface_signature=None
         self._cache=None
 
     def _hold(self, status: str, **extra):
@@ -35,6 +39,20 @@ class ProjectAtlasSurface:
             "laws":list(PROJECT_ATLAS_LAWS),
             **extra,
         }
+
+    @staticmethod
+    def _surface_signature():
+        # Protocol TOOLS/PROMPTS are process-live surfaces: dispatch can lawfully
+        # compose additional tool modules after server import without moving Git.
+        # A Git-only cache key would therefore return stale MCP coordinates.
+        from .protocol import PROMPTS, TOOLS
+        return digest({"tools":TOOLS,"prompts":PROMPTS},32)
+
+    def _invalidate_cache(self):
+        self._cache_key=None
+        self._cache_head=None
+        self._cache_surface_signature=None
+        self._cache=None
 
     def _snapshot(self, expected_head=None):
         git=getattr(self.server,"git",None)
@@ -49,44 +67,55 @@ class ProjectAtlasSurface:
         for _ in range(2):
             before=git.status()
             head=before["head"]
+            surface_signature=self._surface_signature()
+            cache_key=(head,surface_signature)
             if expected is not None and head != expected:
                 return None,self._hold(
                     "HOLD_STALE_HEAD",
                     expected_head=expected,
                     current_head=head,
+                    current_surface_signature=surface_signature,
                     head=head,
                     reason="Expected Git head does not match the current configured project frontier.",
                 ),before
 
-            if self._cache_head == head and self._cache is not None:
+            if self._cache_key == cache_key and self._cache is not None:
                 atlas=self._cache
             else:
                 # Compile against the immutable SHA, not the moving symbolic HEAD.
                 atlas=compile_runtime_atlas(git.root, ref=head, include_trees=True)
                 atlas_head=atlas.get("git",{}).get("repository",{}).get("head")
                 if atlas_head != head:
-                    self._cache_head=None;self._cache=None
+                    self._invalidate_cache()
                     continue
-                self._cache_head=head;self._cache=atlas
 
             after=git.status()
+            after_signature=self._surface_signature()
             atlas_head=atlas.get("git",{}).get("repository",{}).get("head")
-            if after["head"] == head == atlas_head:
+            if after["head"] == head == atlas_head and after_signature == surface_signature:
+                # Cache only a doubly stable frontier: committed Git + live MCP ABI.
+                self._cache_key=cache_key
+                self._cache_head=head
+                self._cache_surface_signature=surface_signature
+                self._cache=atlas
                 observation={
                     "branch":after.get("branch"),
                     "head":head,
                     "dirty":bool(after.get("dirty")),
                     "git_enabled":True,
+                    "mcp_surface_signature":surface_signature,
                 }
                 return atlas,None,observation
-            self._cache_head=None;self._cache=None
+            self._invalidate_cache()
 
         current=git.status()
+        current_signature=self._surface_signature()
         return None,self._hold(
-            "HOLD_VOLATILE_HEAD",
+            "HOLD_VOLATILE_FRONTIER",
             current_head=current.get("head"),
+            current_surface_signature=current_signature,
             head=current.get("head"),
-            reason="Git HEAD moved while compiling the Project Atlas; retry against a stable frontier.",
+            reason="Git HEAD or the live MCP tool/prompt surface moved while compiling the Project Atlas; retry against a stable frontier.",
         ),current
 
     @staticmethod
@@ -218,6 +247,7 @@ class ProjectAtlasSurface:
                 "server":surface.get("server"),
                 "count":surface.get("count",0),
                 "surface_digest":surface.get("surface_digest"),
+                "live_signature":observation.get("mcp_surface_signature") if observation else None,
             },
             "federation":{
                 "count":federation.get("count",0),
@@ -344,7 +374,8 @@ class ProjectAtlasSurface:
             "project_atlas_surface":PROJECT_ATLAS_SURFACE_VERSION,
             "project_atlas_max_page":PROJECT_ATLAS_MAX_PAGE,
             "project_atlas_cached_head":self._cache_head,
+            "project_atlas_cached_surface_signature":self._cache_surface_signature,
             "project_atlas_query_tools":4,
             "project_atlas_resource":PROJECT_ATLAS_RESOURCE["uri"],
-            "project_atlas_boundary":"READ_ONLY; PROJECT_QUERY != PERSISTENT_STATE_MUTATION; PROJECT_ROUTE != SEMANTIC_EQUIVALENCE",
+            "project_atlas_boundary":"READ_ONLY; cache frontier=Git HEAD x live MCP surface signature; PROJECT_QUERY != PERSISTENT_STATE_MUTATION; PROJECT_ROUTE != SEMANTIC_EQUIVALENCE",
         }
