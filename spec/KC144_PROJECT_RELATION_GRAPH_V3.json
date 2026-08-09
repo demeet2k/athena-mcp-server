@@ -2,10 +2,7 @@
   "schema": "ATHENA.KC144.PROJECT_RELATION_GRAPH.CONTRACT.v3",
   "status": "CANDIDATE_CHILD_OF_UNMERGED_V2",
   "version": "ATHENA.PROJECT_ATLAS.RELATION_GRAPH.V3",
-  "private_work_order": {
-    "repository": "demeet2k/Athena",
-    "issue": 508
-  },
+  "private_work_order": {"repository": "demeet2k/Athena", "issue": 508},
   "parent_v2": {
     "repository": "demeet2k/athena-mcp-server",
     "pull_request": 310,
@@ -27,25 +24,21 @@
     "poid_identity": "stable project path/kind identity within a repository",
     "vertex_identity": "PVTX(<plane,repo,head,POID>) exact federated manifestation",
     "edge_identity": "content-derived typed relation digest over exact vertex endpoints",
+    "adapted_graph_identity_schema": "ATHENA.PROJECT_ATLAS.RELATION_GRAPH.V3.ADAPTED_IDENTITY.v1",
+    "adapted_graph_identity": "PATLASG3 digest binds base V/E graph + exact snapshot standing + extraction profile + reader/tree coverage",
     "authority": "NONE"
   },
   "v2_snapshot_adapter": {
     "version": "ATHENA.PROJECT_ATLAS.V2_TO_RELATION_GRAPH.V3.ADAPTER.v1",
     "snapshot_schema": "ATHENA.KC144.FEDERATED_RUNTIME_PROJECT_ATLAS.V2",
-    "snapshot_planes": [
-      "configured_git",
-      "runtime_git",
-      "mcp"
-    ],
+    "snapshot_planes": ["configured_git", "runtime_git", "mcp"],
     "runtime_collapse_rule": "when runtime_git_is_configured=true, do not create a duplicate runtime_git plane",
-    "git_structural_planes": [
-      "configured_git",
-      "runtime_git"
-    ],
+    "git_structural_planes": ["configured_git", "runtime_git"],
     "mcp_rule": "MCP virtual records become exact PVTX vertices but never pass through Git hierarchy/import/path extractors",
     "partial_snapshot_rule": "non-GENERATED V2 snapshot -> PARTIAL_V2_SNAPSHOT coverage receipt, never full coverage",
     "content_coverage_rule": "GENERATED V2 snapshot with missing required Git blob readers -> EXACT_V2_SNAPSHOT_PARTIAL_CONTENT",
     "runtime_content_root_rule": "explicit runtime_root wins; otherwise exact RESOLVED V2 runtime_provenance.root is used; otherwise runtime content remains unavailable",
+    "graph_identity_rule": "adapted graph identity includes extraction profile and content/tree observability so equal visible edges under different observability do not share CAS identity",
     "laws": [
       "V2_SNAPSHOT_PLANES != FLAT_V1_ATLAS",
       "CONFIGURED_GIT_VERTEX != RUNTIME_GIT_VERTEX_UNLESS_V2_COLLAPSES_RUNTIME_TO_CONFIGURED",
@@ -53,21 +46,14 @@
       "UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE",
       "PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT",
       "EXACT_V2_SNAPSHOT != COMPLETE_CONTENT_EXTRACTION_IF_BLOB_READERS_MISSING",
-      "RUNTIME_CONTENT_ROOT_DEFAULTS_TO_EXACT_V2_RUNTIME_PROVENANCE_ROOT"
+      "RUNTIME_CONTENT_ROOT_DEFAULTS_TO_EXACT_V2_RUNTIME_PROVENANCE_ROOT",
+      "GRAPH_ID_BINDS_EXTRACTION_PROFILE_AND_COVERAGE",
+      "SAME_VISIBLE_EDGES_WITH_DIFFERENT_OBSERVABILITY != SAME_GRAPH_RECEIPT"
     ]
   },
   "edge_kinds": {
-    "structural_default": [
-      "DIR_CONTAINS",
-      "DIR_PARENT_OF",
-      "PY_IMPORTS",
-      "PY_RELATIVE_IMPORTS",
-      "SAME_BLOB_ALIAS",
-      "EXACT_PATH_REFERENCE"
-    ],
-    "geometric_optional": [
-      "KC144_GRID_ADJACENT"
-    ]
+    "structural_default": ["DIR_CONTAINS", "DIR_PARENT_OF", "PY_IMPORTS", "PY_RELATIVE_IMPORTS", "SAME_BLOB_ALIAS", "EXACT_PATH_REFERENCE"],
+    "geometric_optional": ["KC144_GRID_ADJACENT"]
   },
   "extractors": {
     "DIR_CONTAINS": "git_tree_hierarchy_v1",
@@ -91,23 +77,14 @@
     "vertex_scope": "<plane,repo,head,POID>",
     "bare_poid_resolution": "allowed only when exactly one PVTX exists in the snapshot; otherwise HOLD_AMBIGUOUS_VERTEX",
     "edge_snapshot_binding": "exact PATLASV2 snapshot equality",
-    "graph_digest_basis": [
-      "graph schema",
-      "exact PATLASV2 snapshot_id",
-      "sorted exact PVTX vertex receipts",
-      "sorted typed edge receipts with exact PVTX endpoints"
-    ],
+    "base_graph_digest_basis": ["graph schema", "exact PATLASV2 snapshot_id", "sorted exact PVTX vertex receipts", "sorted typed edge receipts with exact PVTX endpoints"],
+    "adapted_graph_digest_basis": ["base graph id", "adapter version", "snapshot status", "runtime provenance/tree state", "content reader planes", "required content planes", "missing content reader planes", "exact extraction option profile"],
     "enumeration_order_invariant": true,
     "unknown_is_zero": false
   },
   "queries": {
     "mcp_rpc_promoted": false,
-    "internal": [
-      "summary",
-      "neighbors",
-      "shortest_path:bfs",
-      "shortest_path:dijkstra"
-    ],
+    "internal": ["summary", "neighbors", "shortest_path:bfs", "shortest_path:dijkstra"],
     "locator": "exact PVTX preferred; bare POID accepted only when unique",
     "max_page": 100,
     "max_depth": 128,
@@ -115,16 +92,7 @@
     "dijkstra_requires_explicit_weights": true,
     "default_route_edge_domain": "structural_default"
   },
-  "hold_statuses": [
-    "HOLD_EDGE",
-    "HOLD_STALE_SNAPSHOT",
-    "HOLD_STALE_GRAPH",
-    "HOLD_UNKNOWN_VERTEX",
-    "HOLD_AMBIGUOUS_VERTEX",
-    "HOLD_EXPANSION_LIMIT",
-    "HOLD_DEPTH_LIMIT",
-    "HOLD_NO_PATH"
-  ],
+  "hold_statuses": ["HOLD_EDGE", "HOLD_STALE_SNAPSHOT", "HOLD_STALE_GRAPH", "HOLD_UNKNOWN_VERTEX", "HOLD_AMBIGUOUS_VERTEX", "HOLD_EXPANSION_LIMIT", "HOLD_DEPTH_LIMIT", "HOLD_NO_PATH"],
   "laws": [
     "EDGE != CLAIM_OF_SEMANTIC_EQUIVALENCE",
     "KC144_GRID_ADJACENT != DEPENDS_ON",
@@ -145,7 +113,9 @@
     "MCP_VIRTUAL_VERTEX != GIT_BLOB_VERTEX",
     "PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT",
     "EXACT_V2_SNAPSHOT != COMPLETE_CONTENT_EXTRACTION_IF_BLOB_READERS_MISSING",
-    "RUNTIME_CONTENT_ROOT_DEFAULTS_TO_EXACT_V2_RUNTIME_PROVENANCE_ROOT"
+    "RUNTIME_CONTENT_ROOT_DEFAULTS_TO_EXACT_V2_RUNTIME_PROVENANCE_ROOT",
+    "GRAPH_ID_BINDS_EXTRACTION_PROFILE_AND_COVERAGE",
+    "SAME_VISIBLE_EDGES_WITH_DIFFERENT_OBSERVABILITY != SAME_GRAPH_RECEIPT"
   ],
   "promotion": {
     "standing": "HOLD_PENDING_V2_ACCEPTANCE_REBASE_AND_V3_QUALIFICATION",
