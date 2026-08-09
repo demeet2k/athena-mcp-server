@@ -4,7 +4,6 @@ import argparse
 import json
 import time
 from pathlib import Path
-from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 
@@ -49,8 +48,12 @@ def _wait_ready(base_url: str, attempts: int = 60) -> dict:
             )
             if last.get("ready"):
                 return last
-        except (HTTPError, URLError, TimeoutError, json.JSONDecodeError) as exc:
-            last = {"error": str(exc)}
+        except (OSError, json.JSONDecodeError) as exc:
+            # A newly published container port can accept and then reset a
+            # connection while the Python host is still completing startup.
+            # Treat transport-level startup races and partial JSON as retryable;
+            # the bounded attempt count remains the fail-closed deadline.
+            last = {"error": str(exc), "error_type": type(exc).__name__}
         time.sleep(1)
     raise RuntimeError({"status": "NOT_READY", "last": last})
 
