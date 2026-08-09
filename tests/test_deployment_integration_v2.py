@@ -110,6 +110,46 @@ class DeploymentCurrentRuntimeIntegrationTests(unittest.TestCase):
         benchmark = self.server.call_tool("athena_benchmark", {})
         self.assertEqual(benchmark["deployment_version"], "ATHENA.DEPLOYMENT.2")
 
+    def test_early_deployment_dispatch_import_preserves_late_bootstrap_tools(self):
+        """DEPLOYMENT.2 may import dispatch during package initialization.
+
+        Canonical server bootstrap must still publish the complete bounded
+        frontier-provider surface into the shared protocol registry afterward.
+        """
+
+        expected = {
+            "athena_frontier_provider_status",
+            "athena_frontier_claim_prepare",
+            "athena_frontier_ready",
+            "athena_frontier_claim",
+            "athena_frontier_claim_reconcile",
+        }
+        tools = {
+            item["name"]
+            for item in self.server.handle(
+                {"jsonrpc": "2.0", "id": 20, "method": "tools/list"}
+            )["result"]["tools"]
+        }
+        self.assertTrue(expected <= tools)
+
+        basis = self.server.handle(
+            {
+                "jsonrpc": "2.0",
+                "id": 21,
+                "method": "tools/call",
+                "params": {"name": "athena_operational_basis", "arguments": {}},
+            }
+        )["result"]
+        self.assertFalse(basis["isError"], basis)
+        rows = {
+            row["operation"]: row
+            for row in basis["structuredContent"]["descriptors"]
+        }
+        self.assertTrue(expected <= rows.keys())
+        for name in expected:
+            self.assertEqual(rows[name]["capability_class"], "CLAIM_EXECUTION")
+            self.assertTrue(rows[name]["current_exposure"])
+
 
 if __name__ == "__main__":
     unittest.main()
