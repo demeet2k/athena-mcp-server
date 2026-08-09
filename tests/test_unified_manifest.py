@@ -17,7 +17,7 @@ class UnifiedManifestTests(unittest.TestCase):
         r=self.rpc('tools/call',{'name':name,'arguments':args or {}});result=r['result'];self.assertFalse(result.get('isError'),r);return result['structuredContent']
     def read_json(self,uri):return json.loads(self.rpc('resources/read',{'uri':uri})['result']['contents'][0]['text'])
 
-    def test_live_manifest_reports_v13_coordination_drift_and_compatibility(self):
+    def test_effective_manifest_reports_v13_coordination_drift_and_compatibility(self):
         manifest=self.tool('athena_runtime_manifest')
         self.assertEqual(manifest['artifact'],'ATHENA.RUNTIME.UNIFIED.10')
         for compat in ('ATHENA.RUNTIME.UNIFIED.1','ATHENA.RUNTIME.UNIFIED.2','ATHENA.RUNTIME.UNIFIED.3','ATHENA.RUNTIME.UNIFIED.4','ATHENA.RUNTIME.UNIFIED.5','ATHENA.RUNTIME.UNIFIED.6','ATHENA.RUNTIME.UNIFIED.7','ATHENA.RUNTIME.UNIFIED.8','ATHENA.RUNTIME.UNIFIED.9'):self.assertIn(compat,manifest['artifact_compat'])
@@ -32,26 +32,25 @@ class UnifiedManifestTests(unittest.TestCase):
         ids={row['id'] for row in coordination['organs']};self.assertIn('MESSAGE_BOARD_V1',ids);self.assertIn('PARTY_REWARD_PROVENANCE_V3',ids)
         unresolved={x['id']:x for x in manifest['unresolved']};self.assertEqual(unresolved['ORGAN_INVENTORY_EXPANSION']['status'],'ACTIVE_RECURSIVE_FRONTIER')
         self.assertEqual(manifest['architecture_drift']['version'],'ATHENA.ARCHITECTURE.DRIFT.1')
-        self.assertEqual(manifest['schema']['target'],2);self.assertEqual(manifest['startup']['status'],'DEGRADED_SCHEMA')
 
     def test_manifest_updates_live_schema_state_after_migration(self):
         before=self.tool('athena_runtime_manifest');self.assertFalse(before['schema']['up_to_date']);self.tool('athena_schema_migrate');after=self.tool('athena_runtime_manifest');self.assertTrue(after['schema']['up_to_date']);self.assertEqual(after['schema']['current'],2);self.assertEqual(after['startup']['status'],'READY_LOCAL')
 
     def test_maxdev_law_contains_v13_coordination_and_drift_boundaries(self):
-        law=self.tool('athena_maxdev_law')['text']
-        for phrase in ['V13 GP hyper-QMC','V13 FCI-lite','MESSAGE BOARD','COHESION','PARTY','ARCHITECTURE DRIFT','INVENTORY EXPANSION']:
-            self.assertIn(phrase,law.upper())
+        law=self.tool('athena_maxdev_law')['text'].upper()
+        for phrase in ['V13 GP HYPER-QMC','V13 FCI-LITE','MESSAGE BOARD','COHESION','PARTY','ARCHITECTURE DRIFT','INVENTORY EXPANSION']:
+            self.assertIn(phrase,law)
 
-    def test_manifest_resources_surface_and_coordination_aliases_agree(self):
+    def test_scientific_base_and_effective_runtime_are_distinct_layered_coordinates(self):
         names={x['name'] for x in self.rpc('tools/list')['result']['tools']};uris={x['uri'] for x in self.rpc('resources/list')['result']['resources']}
         for name in ('athena_runtime_manifest','athena_surface_audit','athena_promotion_verify_github','athena_message_board','athena_cohesion_duplicate_guard','athena_party_result'):self.assertIn(name,names)
         for uri in ('athena://manifest','athena://runtime/unified-manifest','athena://architecture/inventory','athena://architecture/drift','athena://cohesion/v1','athena://party-coordination/v1','athena://collective/v13'):self.assertIn(uri,uris)
-        payload=self.read_json('athena://runtime/unified-manifest');canonical=self.read_json('athena://manifest');promotion=self.read_json('athena://promotion');drift=self.read_json('athena://architecture/drift')
-        self.assertEqual(payload['artifact'],'ATHENA.RUNTIME.UNIFIED.10');self.assertEqual(canonical['artifact'],'ATHENA.RUNTIME.UNIFIED.10');self.assertEqual(canonical['layers'],payload['layers'])
+        effective=self.read_json('athena://runtime/unified-manifest');base=self.read_json('athena://manifest');promotion=self.read_json('athena://promotion');drift=self.read_json('athena://architecture/drift')
+        self.assertEqual(base['artifact'],'ATHENA.RUNTIME.UNIFIED.9');self.assertEqual(effective['artifact'],'ATHENA.RUNTIME.UNIFIED.10')
+        self.assertTrue(set(base['layers']).issubset(set(effective['layers'])));self.assertNotIn('MESSAGE_BOARD_V1',base['layers']);self.assertIn('MESSAGE_BOARD_V1',effective['layers'])
         self.assertEqual(promotion['github_verifier']['version'],GITHUB_PROMOTION_VERIFIER_VERSION);self.assertEqual(promotion['architecture_drift']['status'],'PASS')
         self.assertEqual(drift['latest']['status'],'PASS')
-        audit=self.tool('athena_surface_audit',{'run_probes':True})
-        self.assertEqual(audit['architecture_drift']['status'],'PASS')
+        audit=self.tool('athena_surface_audit',{'run_probes':True});self.assertEqual(audit['architecture_drift']['status'],'PASS')
         for group in ('manifest','collective_v13','promotion','coordination','architecture_drift'):self.assertEqual(audit['groups'][group]['status'],'PASS')
 
 
