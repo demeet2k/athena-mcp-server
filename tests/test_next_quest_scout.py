@@ -119,6 +119,35 @@ class NextQuestScoutTests(unittest.TestCase):
         self.assertEqual(first["status"], "SCOUT_CLAIMED")
         self.assertEqual(second["status"], "SCOUT_CLAIM_HOLD")
 
+    def test_distinct_prep_plans_can_be_scouted_concurrently_but_returns_serialize_on_git_head(self):
+        plan_a = self.planned["plans"][0]
+        plan_b = next(row for row in self.planned["plans"] if row["plan_id"] != plan_a["plan_id"])
+        claim_a = self.scout.claim(
+            pipeline_id=self.start["pipeline_id"], plan_id=plan_a["plan_id"],
+            expected_pipeline_state_digest=self.start["state_digest"], agent_id="scout-a"
+        )
+        claim_b = self.scout.claim(
+            pipeline_id=self.start["pipeline_id"], plan_id=plan_b["plan_id"],
+            expected_pipeline_state_digest=self.start["state_digest"], agent_id="scout-b"
+        )
+        self.assertEqual(claim_a["status"], "SCOUT_CLAIMED")
+        self.assertEqual(claim_b["status"], "SCOUT_CLAIMED")
+        shared_return_base = self.git.head()
+        returned_a = self.scout.return_result(
+            pipeline_id=self.start["pipeline_id"], plan_id=plan_a["plan_id"],
+            expected_pipeline_state_digest=self.start["state_digest"], expected_git_head=shared_return_base,
+            agent_id="scout-a", result={"summary": "A finished"}
+        )
+        self.assertEqual(returned_a["status"], "SCOUT_RETURNED")
+        stale_b = self.scout.return_result(
+            pipeline_id=self.start["pipeline_id"], plan_id=plan_b["plan_id"],
+            expected_pipeline_state_digest=self.start["state_digest"], expected_git_head=shared_return_base,
+            agent_id="scout-b", result={"summary": "B finished"}
+        )
+        self.assertEqual(stale_b["status"], "STALE_GIT_HEAD_FOR_SCOUT_RETURN")
+        self.assertTrue(stale_b["claim_preserved"])
+        self.assertIn("scout-b", self.board.active)
+
     def test_return_requires_active_exact_claim(self):
         result = self.scout.return_result(
             pipeline_id=self.start["pipeline_id"], plan_id=self.plan["plan_id"], expected_pipeline_state_digest=self.start["state_digest"],
