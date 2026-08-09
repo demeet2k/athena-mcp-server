@@ -1,4 +1,5 @@
 import unittest
+from unittest import mock
 
 from athena_mcp.deployment import (
     ACTIVATION_RECEIPT_VERSION,
@@ -9,6 +10,7 @@ from athena_mcp.deployment import (
     validate_image_ref,
     verify_activation_receipt,
 )
+from deploy.container_smoke import _wait_ready
 
 IMAGE = "ghcr.io/demeet2k/athena-mcp-server@sha256:" + "a" * 64
 CURRENT_IMAGE = "ghcr.io/demeet2k/athena-mcp-server@sha256:" + "b" * 64
@@ -114,6 +116,23 @@ class DeploymentContractV2Tests(unittest.TestCase):
         rejected = verify_activation_receipt(receipt, **kwargs)
         self.assertFalse(rejected["verified"])
         self.assertEqual(rejected["checks"]["image_ref"], "FAIL")
+
+    def test_container_readiness_retries_transient_connection_reset(self):
+        response = mock.Mock()
+        response.read.return_value = b'{"status":"READY","ready":true}'
+        with (
+            mock.patch(
+                "deploy.container_smoke.urlopen",
+                side_effect=[ConnectionResetError(104, "reset by peer"), response],
+            ) as opener,
+            mock.patch("deploy.container_smoke.time.sleep") as sleep,
+        ):
+            ready = _wait_ready("http://127.0.0.1:18765", attempts=2)
+
+        self.assertTrue(ready["ready"])
+        self.assertEqual(ready["status"], "READY")
+        self.assertEqual(opener.call_count, 2)
+        sleep.assert_called_once_with(1)
 
 
 if __name__ == "__main__":
