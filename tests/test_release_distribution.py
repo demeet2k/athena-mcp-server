@@ -52,6 +52,15 @@ class ReleaseDistributionTests(unittest.TestCase):
             self.assertIn(fragment,w)
         self.assertNotRegex(w,re.compile(r'(?m)^\s*push:\s*$'));self.assertNotRegex(w,re.compile(r'continue-on-error:\s*true'))
 
+    def test_critical_test_patterns_select_real_nonempty_witnesses(self):
+        critical=self.workflow[self.workflow.index('\n  critical-invariants:'):self.workflow.index('\n  smoke:')]
+        patterns=re.findall(r"-p '([^']+)'",critical)
+        self.assertGreaterEqual(len(patterns),16,patterns)
+        for pattern in patterns:
+            matches=list((self.root/'tests').glob(pattern))
+            self.assertEqual(len(matches),1,(pattern,[path.name for path in matches]))
+            self.assertTrue(matches[0].is_file(),pattern)
+
     def test_job_level_env_blocks_use_contexts_legal_at_job_env_scope(self):
         lines=self.workflow.splitlines();in_job_env=False
         for line in lines:
