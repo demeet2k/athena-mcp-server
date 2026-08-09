@@ -104,3 +104,10 @@ install_liminal_beacon_backpressure_v11(LiminalBeaconMeshRuntime)
 install_liminal_beacon_scope(LiminalBeaconMeshRuntime)
 install_liminal_beacon_semantic_v11(LiminalBeaconMeshRuntime)
 install_liminal_beacon_mesh()
+
+# LSH-001 is a separately opt-in no-injection observer. It executes the installed
+# V1.1 autohook only on an isolated projection and publishes telemetry through a
+# separate read-only surface; domain tool results remain unchanged.
+from .liminal_beacon_shadow_extension import install_liminal_beacon_shadow
+
+install_liminal_beacon_shadow()
