@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from .collective_v15_calibration import structural_reliability_calibrate
+from .collective_v15_control import joint_gaussian_control, joint_gaussian_update, multistage_tv_dro_plan
 from .collective_v15_error_transport import approx_error_transport
 from .collective_v15_history import validate_longitudinal_baseline
 from .collective_v15_longitudinal import longitudinal_tmle_crossfit
@@ -28,10 +29,10 @@ def call(calibrated, name, a):
             a.get('folds', 2), a.get('seed', 0),
         )
     if name == 'athena_joint_gaussian_update':
-        return calibrated.joint_gaussian_update(a['variables'], a['mean'], a['covariance'], a['observation'])
+        return joint_gaussian_update(calibrated, a['variables'], a['mean'], a['covariance'], a['observation'])
     if name == 'athena_joint_gaussian_control':
-        return calibrated.joint_gaussian_control(
-            a['variables'], a['mean'], a['covariance'], a['actions'], a.get('cvar_alpha', .1),
+        return joint_gaussian_control(
+            calibrated, a['variables'], a['mean'], a['covariance'], a['actions'], a.get('cvar_alpha', .1),
             a.get('risk_weight', 1.0), a.get('cost_weight', 1.0),
         )
     if name == 'athena_approx_error_transport':
@@ -40,8 +41,8 @@ def call(calibrated, name, a):
             a.get('max_transport_radius'), a.get('margin_safety', .5),
         )
     if name == 'athena_multistage_tv_dro_plan':
-        return calibrated.multistage_tv_dro_plan(
-            a['states'], a['initial_state'], a['actions_by_state'], a['horizon'], a['tv_radius'],
+        return multistage_tv_dro_plan(
+            calibrated, a['states'], a['initial_state'], a['actions_by_state'], a['horizon'], a['tv_radius'],
             a.get('discount', 1.0),
         )
     raise KeyError(name)
