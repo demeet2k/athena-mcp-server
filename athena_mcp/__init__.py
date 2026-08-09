@@ -70,3 +70,13 @@ del _install_release_v14
 from .deployment_extension import install_deployment_extension
 
 install_deployment_extension()
+
+# NEXT-PIPE-001 adds a rolling three-quest focus/staging membrane. It consumes
+# canonical Rehydration Successor batons but owns no claim, execution, freshness,
+# promotion, release, deployment, or merge authority.
+from .next_quest_pipeline import install_next_pipeline_extension
+
+install_next_pipeline_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+for _tool in PROMPT_RUNTIME_TOOLS:
+    if not any(existing["name"] == _tool["name"] for existing in _protocol.TOOLS):
+        _protocol.TOOLS.append(_tool)
