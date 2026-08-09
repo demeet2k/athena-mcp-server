@@ -1,0 +1,69 @@
+name: KC144 KC15 Evidence Closure Matrix
+
+on:
+  pull_request:
+    branches:
+      - 'agent/cell-closure-populate-kc15-kc27-v1'
+    paths:
+      - 'spec/KC15_EVIDENCE_CLOSURE_V1.json'
+      - 'scripts/derive_kc15_evidence_closure.py'
+      - '.github/workflows/kc15-evidence-closure-matrix.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  derive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Download sealed 144-seat source-population receipt
+        uses: actions/download-artifact@v4
+        with:
+          name: kc144-final-source-population-v1
+          path: evidence/population
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 31336281325
+      - name: Download exact-head KC15 observed admission packet
+        uses: actions/download-artifact@v4
+        with:
+          name: kc15-ic10-observed-exact-head
+          path: evidence/observed
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 31337517391
+      - name: Download exact-head KC15 trusted IC10 admission receipt
+        uses: actions/download-artifact@v4
+        with:
+          name: kc15-ic10-admission-receipt-v1
+          path: evidence/binding
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 31337517391
+      - name: Compile evidence-closure derivation
+        run: python -m compileall -q scripts/derive_kc15_evidence_closure.py
+      - name: Derive updated CellClosure evidence matrix
+        env:
+          PYTHONPATH: .
+        run: >-
+          python scripts/derive_kc15_evidence_closure.py
+          --population evidence/population/kc144_final_source_population_matrix_v1.json
+          --observed evidence/observed/kc15_ic10_admission_observed_v1.json
+          --binding evidence/binding/kc15_ic10_admission_receipt_v1.json
+          --output kc144_kc15_evidence_closure_matrix_v1.json
+      - name: Upload updated evidence matrix
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kc144-kc15-evidence-closure-v1
+          path: kc144_kc15_evidence_closure_matrix_v1.json
+          if-no-files-found: error
