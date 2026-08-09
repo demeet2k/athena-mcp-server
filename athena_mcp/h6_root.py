@@ -32,7 +32,7 @@ class H6RootRuntime:
     # H01 -----------------------------------------------------------------
     def identity_decide(self, input_ref: str, candidate_oids: Iterable[str] | None = None) -> dict[str, Any]:
         direct = self.core.navigate(input_ref)
-        candidates = set(self._norm_ids(candidate_oids))
+        supplied = set(self._norm_ids(candidate_oids))
         alias_rows = self.s.rows(
             "SELECT dst,eid FROM edges WHERE src=? AND relation='ALIAS_OF' ORDER BY created_at",
             (input_ref,),
@@ -41,20 +41,29 @@ class H6RootRuntime:
 
         if direct.get("found"):
             selected = direct["object"]["oid"]
-            candidates.add(selected)
+            candidates = {selected, *supplied}
             decision = "RESOLVED_EXISTING"
         else:
-            valid = {oid for oid in candidates if self._existing_oid(oid)}
+            valid_supplied = {oid for oid in supplied if self._existing_oid(oid)}
             if alias_targets:
-                valid = valid & alias_targets if valid else alias_targets
-            candidates = valid
-            if len(candidates) == 1:
-                selected = next(iter(candidates))
-                decision = "RESOLVED_EXISTING"
-            elif len(candidates) > 1:
+                candidates = valid_supplied & alias_targets if valid_supplied else set(alias_targets)
+                if len(candidates) == 1:
+                    selected = next(iter(candidates))
+                    decision = "RESOLVED_EXISTING"
+                elif len(candidates) > 1:
+                    selected = None
+                    decision = "AMBIG_HOLD"
+                else:
+                    selected = None
+                    candidates = valid_supplied | alias_targets
+                    decision = "CONFLICT_HOLD"
+            elif valid_supplied:
+                # A caller-supplied candidate is retrieval context, not identity evidence.
+                candidates = valid_supplied
                 selected = None
                 decision = "AMBIG_HOLD"
             else:
+                candidates = set()
                 selected = None
                 decision = "CREATE_NEW"
 
@@ -71,7 +80,7 @@ class H6RootRuntime:
             },
             "lineage_compatibility": {oid: "OBSERVED_OBJECT" for oid in ordered},
             "context_compatibility": {oid: "UNKNOWN" for oid in ordered},
-            "contradictions": [],
+            "contradictions": [] if decision != "CONFLICT_HOLD" else ["CANDIDATE_ALIAS_MISMATCH"],
             "alias_eids": [row["eid"] for row in alias_rows],
             "authority": "IDENTITY_ONLY",
             "mutation": False,
@@ -90,6 +99,20 @@ class H6RootRuntime:
                 "constitutional_gid": None,
                 "projection_address": None,
                 "defects": ["UNKNOWN_OID"],
+            }
+        if epoch != ACTIVE_EPOCH:
+            return {
+                "artifact": "ATHENA.H02.PROJECTION.DECISION.V1",
+                "oid": oid,
+                "chart": chart,
+                "epoch": epoch,
+                "active_epoch": ACTIVE_EPOCH,
+                "authority": "PROJECTION_ONLY",
+                "status": "SUPERSEDED",
+                "constitutional_gid": None,
+                "projection_address": None,
+                "defects": ["EPOCH_CROSSWALK_UNAVAILABLE"],
+                "law": "HISTORICAL_EPOCH != ACTIVE_EPOCH_WITHOUT_CROSSWALK",
             }
         coord = self.crystal._coordinate(oid, chart)
         raw_status = coord.get("status") if coord else None
