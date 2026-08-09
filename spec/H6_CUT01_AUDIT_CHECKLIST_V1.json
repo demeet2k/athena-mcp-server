@@ -1,0 +1,15 @@
+{
+  "artifact":"ATHENA.H6.CUT01.AUDIT.CHECKLIST.V1",
+  "checks":[
+    "current master exact head",
+    "changed-path overlap since frozen RED parent",
+    "H01 source obligations",
+    "H02 source obligations",
+    "H03 source obligations",
+    "H04 source obligations",
+    "H05 source obligations",
+    "H06 source obligations",
+    "surviving-gap ledger",
+    "RED witness matrix"
+  ]
+}
