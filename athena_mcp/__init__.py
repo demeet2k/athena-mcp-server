@@ -23,7 +23,6 @@ for _tool in MESSAGE_BOARD_TOOLS:
 
 if not getattr(PromptRuntime, "_athena_message_board_v1_registered", False):
     _prompt_call_without_message_board = PromptRuntime.call_tool
-
     def _prompt_call_with_message_board(self, name, arguments):
         if name in MESSAGE_BOARD_TOOL_NAMES:
             runtime = getattr(self, "_message_board_runtime_v1", None)
@@ -32,7 +31,6 @@ if not getattr(PromptRuntime, "_athena_message_board_v1_registered", False):
                 self._message_board_runtime_v1 = runtime
             return runtime.call_tool(name, arguments)
         return _prompt_call_without_message_board(self, name, arguments)
-
     PromptRuntime.call_tool = _prompt_call_with_message_board
     PromptRuntime._athena_message_board_v1_registered = True
 
@@ -52,9 +50,9 @@ from .deployment_extension import install_deployment_extension
 install_deployment_extension()
 
 # NEXT V1→V6: rolling focus, staged preparation, exact prep-plan scouts,
-# bounded slot allocation, resource-vector economics, and observed-cost
-# metabolism. Cost receipts calibrate routing priors only; they do not grant
-# task value, evidence, truth, claim, execution, promotion, merge, or release authority.
+# bounded allocation, resource economics, observed-cost metabolism, then a
+# calibrated-economy reader. Only cost priors learn from observed receipts;
+# benefit priors remain V5 policy priors and no layer gains claim/promotion authority.
 from .next_quest_pipeline import install_next_pipeline_extension
 from .next_quest_pipeline_hardening import install_next_pipeline_successor_authority_hardening
 from .next_quest_pipeline_bridge import install_next_pipeline_bridge
@@ -64,6 +62,7 @@ from .next_quest_scout import install_next_scout_extension
 from .next_scout_allocation import install_next_scout_allocation_extension
 from .next_scout_economy import install_next_scout_economy_extension
 from .next_scout_metabolism import install_next_scout_metabolism_extension
+from .next_scout_calibrated_economy import install_next_scout_calibrated_economy_extension
 
 install_next_pipeline_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 install_next_pipeline_successor_authority_hardening()
@@ -74,6 +73,7 @@ install_next_scout_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME
 install_next_scout_allocation_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 install_next_scout_economy_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 install_next_scout_metabolism_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_scout_calibrated_economy_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 
 for _tool in PROMPT_RUNTIME_TOOLS:
     if not any(existing["name"] == _tool["name"] for existing in _protocol.TOOLS):
