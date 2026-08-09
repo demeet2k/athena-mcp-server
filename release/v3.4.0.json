@@ -1,0 +1,100 @@
+{
+  "schema": "ATHENA.RELEASE.DISTRIBUTION.2",
+  "version": "3.4.0",
+  "tag": "v3.4.0",
+  "title": "ATHENA 3.4.0 — Collective Calibrated V15 × UNIFIED.11 × Deployment.2",
+  "package": {
+    "name": "athena-canonical-mcp",
+    "wheel": "athena_canonical_mcp-3.4.0-py3-none-any.whl",
+    "entrypoint": "athena_mcp.server:main",
+    "python": ">=3.11"
+  },
+  "runtime": {
+    "manifest": "ATHENA.RUNTIME.UNIFIED.11",
+    "collective_frontier": "COLLECTIVE_CALIBRATED_V15",
+    "deployment_frontier": "ATHENA.DEPLOYMENT.2",
+    "promotion": "ATHENA.PROMOTION.2",
+    "trusted_verifier": "ATHENA.GITHUB.PROMOTION.VERIFIER.1",
+    "required_tools": [
+      "athena_joint_factor_belief",
+      "athena_gp_resolution_route",
+      "athena_structural_reliability_calibrate",
+      "athena_longitudinal_tmle_crossfit",
+      "athena_sequential_dr_policy_crossfit",
+      "athena_joint_gaussian_update",
+      "athena_joint_gaussian_control",
+      "athena_approx_error_transport",
+      "athena_multistage_tv_dro_plan",
+      "athena_deployment_manifest",
+      "athena_deployment_validate",
+      "athena_deployment_activation_plan",
+      "athena_deployment_assess_canary",
+      "athena_deployment_verify_receipt",
+      "athena_promotion_evaluate",
+      "athena_promotion_verify_github"
+    ],
+    "required_resources": [
+      "athena://manifest",
+      "athena://runtime/unified-manifest",
+      "athena://promotion",
+      "athena://collective/v14",
+      "athena://collective/v15",
+      "athena://deployment",
+      "athena://deployment/security",
+      "athena://deployment/rollout",
+      "athena://deployment/evidence"
+    ]
+  },
+  "source_policy": {
+    "repository": "demeet2k/athena-mcp-server",
+    "branch": "master",
+    "publication_requires_exact_current_master": true,
+    "publication_requires_clean_checkout": true,
+    "publication_requires_five_stage_qualification": true,
+    "qualification_checks": ["syntax", "unit", "critical-invariants", "smoke", "promotion-qualification"],
+    "exact_commit_is_bound_in_release_attestation": true
+  },
+  "release": {
+    "draft": false,
+    "prerelease": false,
+    "notes_file": "release/v3.4.0.md",
+    "required_assets": [
+      "athena_canonical_mcp-3.4.0-py3-none-any.whl",
+      "promotion-receipt.json",
+      "release-manifest.json",
+      "release-attestation.json",
+      "SHA256SUMS"
+    ]
+  },
+  "gates": [
+    "exact master checkout at publication",
+    "manifest and package version identity",
+    "syntax",
+    "full repository unit corpus",
+    "critical invariants through V15, Deployment.2 and PROMOTION.2",
+    "subprocess smoke",
+    "host-bound coherent-suite promotion qualification",
+    "wheel build",
+    "clean wheel installation outside repository",
+    "Server MCP initialization",
+    "UNIFIED.11 manifest identity",
+    "V15 calibrated science/control tool/resource exposure",
+    "Deployment.2 tool/resource exposure",
+    "V15 outputs cannot mutate Y1/JSPACE/empirical observations/execution/trust by adjacency",
+    "deployment planning remains external-control state until independently executed and witnessed",
+    "caller attestation remains ATTESTED_READY",
+    "trusted verifier surface remains host-bound",
+    "release attestation binds exact commit plus trusted PROMRUN receipt",
+    "exact-head tag compare-and-swap",
+    "release asset checksum verification"
+  ],
+  "authority_boundaries": [
+    "GitHub release publication is distribution, not deployment.",
+    "Release attestation certifies exact repository/package/distribution state, not empirical truth or causal validity.",
+    "Calibration reliability, cross-fitted estimates, Gaussian belief state, approximation envelopes, robust plans and deployment plans do not become Y1 authority by publication.",
+    "Trusted PROMOTION.2 qualification is not GitHub administrative hardening.",
+    "A tag or release does not authorize treatment execution, production secrets, infrastructure mutation or external package-index publication.",
+    "Deployment.2 is external-control planning and receipt verification, not proof that production infrastructure was changed.",
+    "A v3.3.0 release attestation is not evidence for v3.4.0 bytes."
+  ]
+}
