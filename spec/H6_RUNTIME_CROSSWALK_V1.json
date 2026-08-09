@@ -1,0 +1,45 @@
+{
+  "artifact": "ATHENA.H6.RUNTIME.CROSSWALK.V1",
+  "phase": "INVENTORY_DRAFT",
+  "runtime_base": "114790cf5173ca5ab78d1b505849708b209f81a0",
+  "standing": "UNQUALIFIED_SOURCE_CROSSWALK",
+  "stations": {
+    "H01": {
+      "gid": 1,
+      "role": "ADDRESS_IDENTITY_REGISTRY",
+      "known_primitives": ["athena_mcp/identity.py", "athena_mcp/core.py", "athena_mcp/crystal_compile.py", "athena_mcp/state_foundation_*"],
+      "provisional": "PARTIAL"
+    },
+    "H02": {
+      "gid": 2,
+      "role": "PROJECTION_SEATING_ALIAS_REGISTRY",
+      "known_primitives": ["athena_mcp/kc144.py", "athena_mcp/polycoord.py", "athena_mcp/crystal_schema.py", "athena_mcp/state_projection.py"],
+      "provisional": "PARTIAL"
+    },
+    "H03": {
+      "gid": 3,
+      "role": "MYCELIAL_NAVIGATION_REGISTRY",
+      "known_primitives": ["athena_mcp/crystal_graph.py", "athena_mcp/frontier_runtime.py", "athena_mcp/orchestration_graph.py", "athena_mcp/orchestration_retrieval/*", "athena_mcp/orchestration_metric.py", "athena_mcp/qhug_pareto_kernel.py"],
+      "provisional": "PARTIAL"
+    },
+    "H04": {
+      "gid": 4,
+      "role": "INVARIANT_BRIDGE_DEFECT_REGISTRY",
+      "known_primitives": ["athena_mcp/crystal_schema.py", "athena_mcp/transform_dsl.py", "athena_mcp/crystal_compile.py"],
+      "provisional": "PARTIAL"
+    },
+    "H05": {
+      "gid": 5,
+      "role": "SOURCE_EVIDENCE_VERSION_LEDGER",
+      "known_primitives": ["athena_mcp/store.py", "athena_mcp/state_foundation_*", "athena_mcp/promotion.py", "athena_mcp/github_promotion_verifier.py", "athena_mcp/cohesion_evidence_guard.py", "athena_mcp/party_coordination_v3*"],
+      "provisional": "PARTIAL"
+    },
+    "H06": {
+      "gid": 6,
+      "role": "ACTIVATION_REPLAY_RESEED_HUB",
+      "known_primitives": ["athena_mcp/state_foundation_*", "athena_mcp/frontier_runtime.py", "athena_mcp/rehydration_loop.py", "athena_mcp/rehydration_successor.py", "athena_mcp/rehydration_terminal.py", "athena_mcp/reconstruction.py", "athena_mcp/successor_baton.py"],
+      "provisional": "PARTIAL"
+    }
+  },
+  "law": "This file is a provisional source crosswalk. It does not establish runtime qualification, absence, or treatment need until exact obligations are checked against current source and tests."
+}
