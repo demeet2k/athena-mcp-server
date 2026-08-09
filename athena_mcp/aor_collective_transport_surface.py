@@ -18,11 +18,15 @@ from .impossible_godboard_protocol import (
     IMPOSSIBLE_GODBOARD_TOOLS,
     IMPOSSIBLE_GODBOARD_TOOL_NAMES,
 )
-from .cohesion_evidence_guard import CohesionEvidenceGuardRuntime
+from .cohesion_partition_handoff_v3 import CohesionPartitionHandoffRuntimeV3
 from .cohesion_mesh_protocol import (
     COHESION_MESH_RESOURCE,
     COHESION_MESH_TOOLS,
     COHESION_MESH_TOOL_NAMES,
+)
+from .cohesion_partition_handoff_protocol import (
+    COHESION_PARTITION_HANDOFF_TOOLS,
+    COHESION_PARTITION_HANDOFF_TOOL_NAMES,
 )
 from .cohesion_duplicate_guard import augment_cohesion_resource,duplicate_guard
 from .cohesion_duplicate_guard_protocol import DUPLICATE_GUARD_TOOLS,DUPLICATE_GUARD_TOOL_NAMES
@@ -30,7 +34,7 @@ from .cohesion_duplicate_guard_protocol import DUPLICATE_GUARD_TOOLS,DUPLICATE_G
 AOR_COLLECTIVE_TRANSPORT_TOOLS=(
     list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(PARTY_CHANNEL_TOOLS)+
     list(PARTY_REWARD_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)+list(COHESION_MESH_TOOLS)+
-    list(DUPLICATE_GUARD_TOOLS)
+    list(COHESION_PARTITION_HANDOFF_TOOLS)+list(DUPLICATE_GUARD_TOOLS)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCES=[
     TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE,COHESION_MESH_RESOURCE
@@ -38,7 +42,7 @@ AOR_COLLECTIVE_TRANSPORT_RESOURCES=[
 AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=(
     set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(PARTY_CHANNEL_TOOL_NAMES)|
     set(PARTY_REWARD_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)|set(COHESION_MESH_TOOL_NAMES)|
-    set(DUPLICATE_GUARD_TOOL_NAMES)
+    set(COHESION_PARTITION_HANDOFF_TOOL_NAMES)|set(DUPLICATE_GUARD_TOOL_NAMES)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={
     TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri'],
@@ -51,9 +55,24 @@ class AorCollectiveTransportSurface:
         self.runtime=TransportRuntime(server)
         self.party=PartyCoordinationRuntimeV3(server)
         self.godboard=ImpossibleGodboardRuntime(server)
-        self.cohesion=CohesionEvidenceGuardRuntime(server)
+        self.cohesion=CohesionPartitionHandoffRuntimeV3(server)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        if name in COHESION_PARTITION_HANDOFF_TOOL_NAMES:
+            c=self.cohesion
+            if name=='athena_cohesion_partition':
+                return True,c.partition(
+                    args['partition_id'],args['proposer_id'],args['goal_ref'],args['packets'],
+                    args.get('party_id'),args.get('quest_ref'),args.get('remote','origin')
+                )
+            if name=='athena_cohesion_handoff':
+                return True,c.handoff(
+                    args['handoff_id'],args['sender'],args['receiver'],args['exact_refs'],
+                    args['completed_delta'],args['residual'],args['invariants'],args['tests'],
+                    args['blockers'],args['next_edge'],args['required_receipt'],args.get('partition_id'),
+                    args.get('packet_id'),args.get('work_key'),args.get('party_id'),args.get('goal_refs'),
+                    args.get('remote','origin')
+                )
         if name in DUPLICATE_GUARD_TOOL_NAMES:
             return True,duplicate_guard(
                 self.cohesion,
