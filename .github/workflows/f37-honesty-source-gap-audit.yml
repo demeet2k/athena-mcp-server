@@ -1,0 +1,40 @@
+name: F37 Honesty Source Gap Audit
+
+on:
+  pull_request:
+    branches:
+      - 'agent/cell-closure-evidence-kc15-v1'
+    paths:
+      - 'spec/F37_HONESTY_SOURCE_ADMISSION_V1.json'
+      - 'spec/F37_PRIMARY_SOURCE_ADMISSIONS_V1.json'
+      - 'scripts/f37_honesty_source_gap_audit.py'
+      - '.github/workflows/f37-honesty-source-gap-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-gap-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile source-gap audit
+        run: python -m compileall -q scripts/f37_honesty_source_gap_audit.py
+      - name: Classify primary-source admission frontier
+        env:
+          PYTHONPATH: .
+        run: python scripts/f37_honesty_source_gap_audit.py
+      - name: Upload source-frontier receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f37-honesty-source-gap-audit-v1
+          path: f37_honesty_source_gap_audit_v1.json
+          if-no-files-found: error
