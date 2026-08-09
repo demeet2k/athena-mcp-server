@@ -58,6 +58,7 @@
     "H7": {
       "name": "local-addressing-spam-control",
       "object": "oid:local",
+      "attention_threshold": 0.80,
       "unaddressed_urgency": 1.0,
       "unaddressed_novelty": 1.0,
       "addressed_urgency": 0.0,
