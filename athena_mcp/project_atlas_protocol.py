@@ -6,41 +6,48 @@ PROJECT_ATLAS_RESOURCE={
     "mimeType":"application/json",
 }
 
-_HEAD={"type":["string","null"]}
+_HEAD={
+    "type":["string","null"],
+    "pattern":"^[0-9a-fA-F]{40}$",
+}
 _LIMIT={"type":"integer","minimum":1,"maximum":100}
 _OFFSET={"type":"integer","minimum":0}
+_COMMON_HEADS={
+    "expected_head":_HEAD,
+    "expected_runtime_head":_HEAD,
+}
 
 PROJECT_ATLAS_TOOLS=[
     {
         "name":"athena_project_atlas_summary",
-        "description":"Return a bounded exact-head summary of the current Git/KC144/MCP Project Atlas without returning the full atlas.",
+        "description":"Return a bounded federated summary of configured Git, runtime-source Git and MCP coordinates with separate exact-head CAS.",
         "inputSchema":{
             "type":"object",
-            "properties":{"expected_head":_HEAD},
+            "properties":dict(_COMMON_HEADS),
             "additionalProperties":False,
         },
     },
     {
         "name":"athena_project_resolve",
-        "description":"Resolve one exact Project Atlas identifier (POID, Git path, full address, MCP name/locator, or native RETURN URI). Ambiguity and stale heads fail closed.",
+        "description":"Resolve one exact federated Project Atlas identifier (POID, Git path, full address, MCP name/locator, or native RETURN URI). Ambiguity and stale heads fail closed.",
         "inputSchema":{
             "type":"object",
             "required":["identifier"],
             "properties":{
                 "identifier":{"type":"string","minLength":1,"maxLength":4096},
-                "expected_head":_HEAD,
+                **_COMMON_HEADS,
             },
             "additionalProperties":False,
         },
     },
     {
         "name":"athena_project_list",
-        "description":"List a bounded deterministic page of Project Atlas records filtered by native path/type, KC144 coordinates, directory, MCP kind, or POID prefix.",
+        "description":"List a bounded deterministic page of federated Project Atlas records filtered by Git plane, native type, KC144 coordinates, directory, MCP kind, or POID prefix.",
         "inputSchema":{
             "type":"object",
             "properties":{
-                "expected_head":_HEAD,
-                "source":{"type":"string","enum":["all","git","mcp"]},
+                **_COMMON_HEADS,
+                "source":{"type":"string","enum":["all","git","configured_git","runtime_git","mcp"]},
                 "path_prefix":{"type":"string","minLength":1,"maxLength":4096},
                 "git_type":{"type":"string","minLength":1,"maxLength":128},
                 "project_gid":{"type":"integer","minimum":1,"maximum":144},
@@ -58,7 +65,7 @@ PROJECT_ATLAS_TOOLS=[
     },
     {
         "name":"athena_project_route",
-        "description":"Resolve exact source/destination Project Atlas records and return a deterministic normal or toroidal KC144 station route plus both native RETURN witnesses.",
+        "description":"Resolve exact source/destination records across configured Git, runtime Git and MCP planes, then return normal/toroidal KC144 navigation plus native RETURN witnesses.",
         "inputSchema":{
             "type":"object",
             "required":["src","dst"],
@@ -66,7 +73,7 @@ PROJECT_ATLAS_TOOLS=[
                 "src":{"type":"string","minLength":1,"maxLength":4096},
                 "dst":{"type":"string","minLength":1,"maxLength":4096},
                 "wrap":{"type":"boolean"},
-                "expected_head":_HEAD,
+                **_COMMON_HEADS,
             },
             "additionalProperties":False,
         },
