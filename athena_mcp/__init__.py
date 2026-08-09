@@ -77,3 +77,20 @@ from .collective_v15_install import install_release_v15 as _install_release_v15
 
 _install_release_v15(globals())
 del _install_release_v15
+
+# LBM-001 is an additive candidate communication organ after the current V15
+# release frontier. Manual tools/resources are always exposed; automatic
+# tool-crossing sharing remains opt-in until matched behavioral evidence exists.
+# Identity, attention and visibility treatments are applied before any mesh
+# instance is created so restart/rebind rotates the sender epoch, topological
+# adjacency cannot bypass attention, and scope cannot silently widen.
+from .liminal_beacon_mesh import LiminalBeaconMeshRuntime
+from .liminal_beacon_mesh_identity import install_liminal_beacon_identity
+from .liminal_beacon_mesh_backpressure import install_liminal_beacon_backpressure
+from .liminal_beacon_mesh_scope import install_liminal_beacon_scope
+from .liminal_beacon_mesh_extension import install_liminal_beacon_mesh
+
+install_liminal_beacon_identity(LiminalBeaconMeshRuntime)
+install_liminal_beacon_backpressure(LiminalBeaconMeshRuntime)
+install_liminal_beacon_scope(LiminalBeaconMeshRuntime)
+install_liminal_beacon_mesh()
