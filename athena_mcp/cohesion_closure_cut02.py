@@ -5,7 +5,7 @@ from typing import Any, Iterable, Mapping, Optional
 
 from .cohesion_dependency_cone import dependency_cone
 from .cohesion_mesh import COMPARISON_EVENT, COHESION_VERSION, _digest, _names
-from .message_board import _iso, _json_text, _parse_time, _require_id, _utcnow
+from .message_board import _iso, _json_text, _require_id
 
 CUT02_VERSION = "ATHENA.COHESION.CLOSURE.CUT02.1"
 CONSUMPTION_ARTIFACT = "ATHENA.COHESION.CONSUMPTION.V1"
@@ -37,14 +37,6 @@ LAWS = [
 
 def _text(value: Any) -> str:
     return str(value or "").strip()
-
-
-def _event_map(board) -> dict[str, dict]:
-    return {
-        str(event.get("event_id")): dict(event)
-        for event in board._events()
-        if event.get("event_id")
-    }
 
 
 def _consumption_events(board) -> list[dict]:
@@ -180,7 +172,7 @@ def consume(
                 }
             }
         ack_refs = _route_acks(events, route_ref, recipient_id)
-        semantic_basis = {
+        identity_basis = {
             "cohesion_version": COHESION_VERSION,
             "cohesion_artifact": CONSUMPTION_ARTIFACT,
             "consumption_id": consumption_id,
@@ -192,18 +184,12 @@ def consume(
             "behavior_change_ref": behavior_change_ref,
             "reason": _text(reason) or None,
             "evidence_refs": evidence,
-            "ack_observed": bool(ack_refs),
-            "ack_event_refs": ack_refs,
-            "truth_authority": False,
-            "compliance_authority": False,
-            "execution_authority": False,
-            "xp_authority": False,
         }
-        semantic_digest = _digest(semantic_basis)
+        consumption_digest = _digest(identity_basis)
         existing = _consumption_by_id(board, consumption_id)
         if existing:
             old = existing.get("payload") or {}
-            if old.get("semantic_digest") != semantic_digest:
+            if old.get("consumption_digest") != consumption_digest:
                 raise ValueError(f"COHESION_CONSUMPTION_ID_CONFLICT: {consumption_id}")
             return {
                 "return": {
@@ -217,8 +203,14 @@ def consume(
                 }
             }
         payload = {
-            **semantic_basis,
-            "semantic_digest": semantic_digest,
+            **identity_basis,
+            "consumption_digest": consumption_digest,
+            "ack_observed": bool(ack_refs),
+            "ack_event_refs": ack_refs,
+            "truth_authority": False,
+            "compliance_authority": False,
+            "execution_authority": False,
+            "xp_authority": False,
             "consumed_at": _iso(),
             "consumed_from_git_head": base,
             "law": "ROUTED != ACKED != CONSUMED != COMPLIED != TRUE",
