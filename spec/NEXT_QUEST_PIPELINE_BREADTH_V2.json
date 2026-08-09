@@ -1,0 +1,52 @@
+{
+  "artifact": "ATHENA.NEXT.QUEST.PIPELINE.BREADTH.2",
+  "coordinate": "ATHENA.KC144::GITΩ::NEXT::ROLLING-QUEST-PIPELINE::BREADTH::V2",
+  "purpose": "Allow staged Q2/Q3 quests to accumulate bounded preparation context while Q1 remains the sole mutable focus.",
+  "focus_law": {
+    "Q1": "SOLE_MUTABLE_FOCUS",
+    "Q2": "STAGED_WITH_PREPARATION_ALLOWED",
+    "Q3": "STAGED_WITH_PREPARATION_ALLOWED"
+  },
+  "prep_kinds": [
+    "DEPENDENCY_MAP",
+    "RETRIEVAL_PLAN",
+    "TEST_DESIGN",
+    "RISK_SCAN",
+    "SOURCE_REVIEW",
+    "INTERFACE_MAP"
+  ],
+  "tools": [
+    "athena_next_pipeline_prepare_staged",
+    "athena_next_pipeline_record_prep",
+    "athena_next_pipeline_prep_context",
+    "athena_next_pipeline_verify_breadth"
+  ],
+  "canonical_owners": {
+    "focus_rotation": "ATHENA.NEXT.QUEST.PIPELINE.1",
+    "what_next": "ATHENA.REHYDRATION.SUCCESSOR.BATON.V1",
+    "campaign_parallel_graph": "ATHENA.REHYDRATION.CAMPAIGN.V2",
+    "coordination_claims": "MESSAGE_BOARD_V1_WHERE_INSTALLED",
+    "moving_master": "ATHENA.FRESHNESS.TRAIN.1",
+    "staged_preparation_context": "ATHENA.NEXT.QUEST.PIPELINE.BREADTH.2"
+  },
+  "packet_states": ["PLANNED", "OBSERVED", "HOLD", "SUPERSEDED"],
+  "invariants": [
+    "prep plans are created only for staged Q2/Q3",
+    "prep packets never complete a quest",
+    "prep packets never mutate focus identity",
+    "prep packets never claim work or grant execution authority",
+    "prep observations never self-promote evidence or truth standing",
+    "prep records are bound to an exact pipeline state digest",
+    "stale pipeline-state prep results fail closed",
+    "prep observations persist by quest identity and may become context when that quest later rotates into Q1"
+  ],
+  "laws": [
+    "PREP_PACKET != QUEST_EXECUTION",
+    "STAGED_QUEST != ACTIVE_FOCUS",
+    "PREP_RESULT != EVIDENCE_PROMOTION",
+    "PREP_CONTEXT != CLAIM_AUTHORITY",
+    "PREP_CONTEXT != QUEST_COMPLETION",
+    "PREP_CONTEXT_MAY_REDUCE_FUTURE_RECONSTRUCTION_COST",
+    "MASS_ORCHESTRATION != BACKGROUND_EXECUTION"
+  ]
+}

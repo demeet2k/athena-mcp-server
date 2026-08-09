@@ -1,0 +1,34 @@
+{
+  "artifact": "ATHENA.NEXT.SCOUT.ECONOMY.5",
+  "coordinate": "ATHENA.KC144::GITΩ::NEXT::SCOUT-ECONOMY::V5",
+  "tool": "athena_next_scout_economy",
+  "purpose": "Choose a Pareto-feasible set of staged prep-plan identities under explicit scout-count, token, time, tool-call, coordination, Git-risk, and protected reserve budgets.",
+  "authority": "ROUTING_ONLY",
+  "resource_standing": "PLANNING_ESTIMATES_NOT_OBSERVED_CONSUMPTION",
+  "inputs": [
+    "exact pipeline state digest",
+    "Breadth V2 prep plans and observations",
+    "active Message Board scout claims",
+    "max scout width and reserve slots",
+    "resource budgets and protected reserve vector"
+  ],
+  "optimization": {
+    "feasibility": "active resource use + selected prep estimates must fit every non-reserve budget coordinate",
+    "frontier": "preserve nondominated value/cost allocations",
+    "policy": "RESOURCE_FEASIBLE_PARETO_THEN_BALANCED_VALUE_V1",
+    "value_order": ["staged coverage", "blocker removal", "reconstruction reduction", "information gain", "kind diversity", "Q2 nearness", "lower non-token cost", "lower token estimate"]
+  },
+  "resource_coordinates": ["tokens", "minutes", "tool_calls", "coordination", "git_risk"],
+  "value_coordinates": ["reconstruction_reduction", "blocker_removal", "information_gain"],
+  "laws": [
+    "ECONOMIC_ALLOCATION != CLAIM",
+    "ECONOMIC_ALLOCATION != EXECUTION",
+    "PLANNING_COST_ESTIMATE != OBSERVED_RESOURCE_CONSUMPTION",
+    "RESERVE_VECTOR_IS_NOT_SPENDABLE",
+    "ACTIVE_SCOUTS_CONSUME_RESOURCE_BUDGET_FIRST",
+    "UNKNOWN_ACTIVE_SCOUT_COST => HOLD",
+    "PARETO_TIE != HIDDEN_TIE_BREAK",
+    "MESSAGE_BOARD_REMAINS_CLAIM_AUTHORITY",
+    "ROUTING_VALUE != EVIDENCE_OR_TRUTH"
+  ]
+}

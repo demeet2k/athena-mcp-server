@@ -85,3 +85,43 @@ from .collective_v15_install import install_release_v15 as _install_release_v15
 
 _install_release_v15(globals())
 del _install_release_v15
+
+# NEXT V1→V10 composes additively after the current V15 + deployment/cutover
+# spine. V10 is a bounded reversible routing canary only: it cannot mutate the
+# canonical V5 benefit table or inherit Message Board, promotion, merge, release,
+# deployment, state-transition, traffic, or cutover authority.
+from .next_quest_pipeline import install_next_pipeline_extension
+from .next_quest_pipeline_hardening import install_next_pipeline_successor_authority_hardening
+from .next_quest_pipeline_bridge import install_next_pipeline_bridge
+from .next_quest_pipeline_breadth import install_next_pipeline_breadth
+from .next_quest_pipeline_breadth_hardening import install_next_pipeline_breadth_idempotency_hardening
+from .next_quest_scout import install_next_scout_extension
+from .next_scout_allocation import install_next_scout_allocation_extension
+from .next_scout_economy import install_next_scout_economy_extension
+from .next_scout_metabolism import install_next_scout_metabolism_extension
+from .next_scout_calibrated_economy import install_next_scout_calibrated_economy_extension
+from .next_scout_outcome_value import install_next_scout_outcome_value_extension
+from .next_scout_outcome_value_hardening import install_next_scout_outcome_value_completion_ledger_hardening
+from .next_scout_counterfactual_credit import install_next_scout_counterfactual_credit_extension
+from .next_scout_causal_promotion import install_next_scout_causal_promotion_extension
+from .next_scout_benefit_canary import install_next_scout_benefit_canary_extension
+
+install_next_pipeline_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_pipeline_successor_authority_hardening()
+install_next_pipeline_bridge(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_pipeline_breadth(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_pipeline_breadth_idempotency_hardening()
+install_next_scout_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_scout_allocation_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_scout_economy_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_scout_metabolism_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_scout_calibrated_economy_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_scout_outcome_value_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_scout_outcome_value_completion_ledger_hardening()
+install_next_scout_counterfactual_credit_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_scout_causal_promotion_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_scout_benefit_canary_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+
+for _tool in PROMPT_RUNTIME_TOOLS:
+    if not any(existing["name"] == _tool["name"] for existing in _protocol.TOOLS):
+        _protocol.TOOLS.append(_tool)

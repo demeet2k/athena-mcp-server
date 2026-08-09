@@ -1,0 +1,65 @@
+{
+  "artifact": "ATHENA.NEXT.QUEST.PIPELINE.1",
+  "coordinate": "ATHENA.KC144::GITΩ::NEXT::ROLLING-QUEST-PIPELINE::V1",
+  "purpose": "Maintain one focus quest plus two staged successor quests so explicit NEXT cycles can continue for long engagements without collapsing into one-task-at-a-time orchestration.",
+  "window": {
+    "execution_order": ["Q1_FOCUS", "Q2_STAGED", "Q3_STAGED"],
+    "display_order": ["Q3_STAGED", "Q2_STAGED", "Q1_FOCUS"],
+    "rotation": "Q1 complete => Q2 focus; Q3 shifts forward; Q4 reseeds from canonical Rehydration Successor baton"
+  },
+  "canonical_owners": {
+    "what_next": "ATHENA.REHYDRATION.SUCCESSOR.BATON.V1",
+    "branch_graph_and_bounded_parallelism": "ATHENA.REHYDRATION.CAMPAIGN.V2",
+    "moving_master_classification": "ATHENA.FRESHNESS.TRAIN.1",
+    "quest_execution": "explicit agent/RehydrationLoop invocation",
+    "rolling_focus_window": "ATHENA.NEXT.QUEST.PIPELINE.1"
+  },
+  "states": ["ACTIVE", "RESEED_HOLD", "COMPLETE", "ABORTED"],
+  "tools": [
+    "athena_next_pipeline_start",
+    "athena_next_pipeline_advance_focus",
+    "athena_next_pipeline_rotate",
+    "athena_next_pipeline_resolve_reseed",
+    "athena_next_pipeline_state",
+    "athena_next_pipeline_verify"
+  ],
+  "composite_next": {
+    "algorithm": [
+      "verify pipeline Q1 equals loop current task",
+      "require substantive Git delta outside loop/pipeline/message-board bookkeeping",
+      "compile far-end Q4 from residual/candidate evidence with canonical SuccessorCompiler while deliberately omitting staged Q2",
+      "advance RehydrationLoop with self_steer=false and next_task forced to staged Q2",
+      "rotate pipeline Q1->history, Q2->focus, Q3->stage, Q4->far-end reseed",
+      "return both loop and pipeline receipts"
+    ],
+    "law": "Q4_RESEED != Q2_FOCUS"
+  },
+  "invariants": [
+    "exactly one Q1 focus when ACTIVE",
+    "Q2 and Q3 are staged context, not hidden background execution",
+    "ACTIVE window contains exactly three concrete quests",
+    "only Q1 may complete and rotate the window",
+    "rotation preserves Q2/Q3 order",
+    "Q4 is derived from a valid canonical successor baton",
+    "a SELECTED successor cannot be silently replaced by a lower-ranked candidate",
+    "ambiguous Q4 remains RESEED_HOLD until explicitly resolved",
+    "a pending reseed hold must be resolved before another focus rotation",
+    "active duplicate tasks are forbidden",
+    "completed tasks are not silently revisited by default",
+    "bookkeeping-only Git deltas do not count as substantive quest progress in composite NEXT",
+    "pipeline state is Git persisted and state-digest guarded",
+    "pipeline routing grants no execution, evidence, promotion, release, deployment, or merge authority"
+  ],
+  "laws": [
+    "MASS_ORCHESTRATION != BACKGROUND_EXECUTION",
+    "STAGED_QUEST != ACTIVE_WORK",
+    "Q1_COMPLETE => Q2_IS_NEXT_FOCUS",
+    "Q4_RESEED != Q2_FOCUS",
+    "SUCCESSOR_SCORE != EVIDENCE",
+    "AMBIGUITY != HIDDEN_TIE_BREAK",
+    "BOOKKEEPING_COMMIT != SUBSTANTIVE_QUEST_PROGRESS",
+    "PIPELINE_ROUTING != MESSAGE_BOARD_CLAIM_AUTHORITY",
+    "PIPELINE_ROUTING != PROMOTION_OR_MERGE_AUTHORITY",
+    "HEAD_CHANGE => FRESHNESS_RECHECK"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "artifact": "ATHENA.NEXT.SCOUT.CAUSAL.PROMOTION.9",
+  "coordinate": "ATHENA.KC144::GITΩ::NEXT::SCOUT-CAUSAL-PROMOTION::V9",
+  "purpose": "Freeze discovery and held-out validation cohorts over V8 matched observational contrasts and emit reversible promotion candidates only after out-of-sample replication.",
+  "tools": [
+    "athena_next_scout_validation_freeze",
+    "athena_next_scout_validation_evaluate",
+    "athena_next_scout_validation_overlay"
+  ],
+  "inputs": {
+    "source": "V8 counterfactual pair receipts",
+    "split": "independently sourced attestation with observed=true and assigned_before_outcome=true",
+    "split_evidence_ceiling": "ATTESTED_PREOUTCOME_SPLIT_NOT_HOST_VERIFIED_RANDOMIZATION",
+    "minimum_pairs_per_cohort": 3
+  },
+  "gates": {
+    "cohort_pair_disjointness": true,
+    "cohort_receipt_identity_disjointness": true,
+    "within_cohort_pseudoreplication_hold": true,
+    "discovery_support": true,
+    "validation_support": true,
+    "minimum_sign_consistency": 0.6666666667,
+    "minimum_median_effect": 0.05,
+    "minimum_validation_retention": 0.5,
+    "validation_q25_nonnegative": true
+  },
+  "standing": {
+    "pass": "BENEFIT_PRIOR_PROMOTION_CANDIDATE",
+    "fail": "ABSTAIN_HELD_OUT_VALIDATION",
+    "causal_proof": false,
+    "reversible_candidate": true,
+    "live_benefit_prior_mutation": "NONE",
+    "allocation_effect": "NONE",
+    "promotion_effect": "NONE"
+  },
+  "laws": [
+    "DISCOVERY_SET != VALIDATION_SET",
+    "VALIDATION_ASSIGNMENT_MUST_PRECEDE_OUTCOME_OBSERVATION",
+    "PREOUTCOME_SPLIT_ATTESTATION != RANDOMIZATION_PROOF",
+    "RECEIPT_IDENTITY_CANNOT_LEAK_ACROSS_COHORTS",
+    "HELD_OUT_REPLICATION != RANDOMIZED_CAUSAL_PROOF",
+    "VALIDATION_FAILURE => ABSTAIN",
+    "V9_PROMOTION_CANDIDATE != LIVE_ECONOMY_MUTATION",
+    "MESSAGE_BOARD_REMAINS_CLAIM_AUTHORITY"
+  ]
+}

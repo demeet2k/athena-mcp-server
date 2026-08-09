@@ -1,0 +1,48 @@
+{
+  "artifact": "ATHENA.NEXT.SCOUT.OUTCOME.VALUE.7",
+  "coordinate": "ATHENA.KC144::GITΩ::NEXT::SCOUT-OUTCOME-VALUE::V7",
+  "purpose": "Bind prep observations to later completed-focus outcomes and expose delayed observational association by prep kind without claiming causal effect.",
+  "tools": [
+    "athena_next_focus_outcome_record",
+    "athena_next_scout_value_calibrate",
+    "athena_next_scout_value_overlay"
+  ],
+  "outcome_metrics": [
+    "focus_success",
+    "test_pass_ratio",
+    "rework_count",
+    "blocker_resolution_ratio"
+  ],
+  "record_preconditions": [
+    "quest is present in pipeline completed history",
+    "quest has one or more observed prep packets",
+    "pipeline state digest is exact current",
+    "Git head is exact current",
+    "every supplied outcome metric has observed=true and a non-empty source"
+  ],
+  "calibration": {
+    "standing": "OBSERVATIONAL_ASSOCIATION_ONLY",
+    "method": "PRIOR_SHRINKAGE_TOWARD_DOWNSTREAM_OUTCOME_MEDIAN_V1",
+    "neutral_prior": 0.5,
+    "default_prior_strength": 3,
+    "causal_effect": false,
+    "v5_v6_benefit_prior_mutation": false,
+    "allocation_effect": "NONE"
+  },
+  "authority": {
+    "receipt": "ASSOCIATIONAL_ROUTING_ONLY",
+    "calibration": "ROUTING_ANALYSIS_ONLY",
+    "claim": false,
+    "execution": false,
+    "promotion": false,
+    "merge": false,
+    "release": false
+  },
+  "laws": [
+    "SCOUT_SELF_REPORT != VALUE_EVIDENCE",
+    "OBSERVED_ASSOCIATION != CAUSAL_EFFECT",
+    "FOCUS_OUTCOME != PREP_CAUSAL_CREDIT",
+    "OUTCOME_RECEIPT != EVIDENCE_PROMOTION",
+    "V7_ASSOCIATION_OVERLAY_DOES_NOT_CHANGE_V5_V6_ECONOMY"
+  ]
+}
