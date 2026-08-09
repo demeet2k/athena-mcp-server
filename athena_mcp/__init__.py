@@ -115,3 +115,13 @@ from .collective_v15_install import install_release_v15 as _install_release_v15
 
 _install_release_v15(globals())
 del _install_release_v15
+
+# The observer was registered before V15, but V15 advances/snapshots the unified
+# manifest builder. Re-bind the post-V15 self-model so the canonical manifest
+# explicitly contains the already-live observer organ and its authority limits.
+from .continuation_raw_observer_manifest import (
+    install_continuation_raw_observer_manifest as _install_continuation_raw_observer_manifest,
+)
+
+_install_continuation_raw_observer_manifest(globals())
+del _install_continuation_raw_observer_manifest
