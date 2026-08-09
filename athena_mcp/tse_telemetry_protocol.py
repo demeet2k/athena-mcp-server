@@ -1,8 +1,9 @@
 TSE_TELEMETRY_RECORD_TOOL={
     'name':'athena_tse_telemetry_record',
     'description':(
-        'Persist one public TSE Helical Handoff transition receipt to the shared Git telemetry ledger. '
-        'Telemetry is observation-only: it creates no claim, assignment, execution authority, life, Return application, or causal evidence.'
+        'Persist one caller-declared public TSE Helical Handoff observation to the shared Git ledger. '
+        'Declared events are audit-visible but excluded from primary source-bound conversion metrics; use the TSE Helix composition tools '
+        'when the transition can be re-derived from actual TSE/Cohesion/Message-Board state.'
     ),
     'inputSchema':{
         'type':'object',
@@ -41,8 +42,8 @@ TSE_TELEMETRY_RECORD_TOOL={
 TSE_TELEMETRY_REPORT_TOOL={
     'name':'athena_tse_telemetry_report',
     'description':(
-        'Read the shared TSE Helical Handoff ledger for one mission and report funnel conversion, typed residuals and value efficiency. '
-        'Zero denominators and unknown costs remain UNKNOWN. The report has no causal promotion authority.'
+        'Read one mission helix ledger and report source-bound funnel conversion separately from caller-declared observations. '
+        'Primary eta metrics count SOURCE_BOUND events only; zero denominators and unknown costs remain UNKNOWN and the report has no causal authority.'
     ),
     'inputSchema':{
         'type':'object','required':['mission_id'],
@@ -59,6 +60,6 @@ TSE_TELEMETRY_TOOLS=[TSE_TELEMETRY_RECORD_TOOL,TSE_TELEMETRY_REPORT_TOOL]
 TSE_TELEMETRY_TOOL_NAMES={tool['name'] for tool in TSE_TELEMETRY_TOOLS}
 TSE_TELEMETRY_RESOURCE={
     'uri':'athena://tse-telemetry/v1',
-    'name':'ATHENA TSE Helical Handoff Telemetry V1',
+    'name':'ATHENA TSE Helical Handoff Telemetry V2',
     'mimeType':'application/json',
 }
