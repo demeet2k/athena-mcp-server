@@ -79,6 +79,13 @@ class ProjectAtlasTests(unittest.TestCase):
         self.assertTrue(a["return"]["git_show"].startswith("a" * 40))
         self.assertIn("KC144_STATION != OBJECT_IDENTITY", a["laws"])
 
+    def test_dot_prefixed_git_path_is_preserved_exactly(self):
+        base = dict(repo_key="github.com/demeet2k/Athena", ref="main", head="a" * 40, tree="b" * 40, git_type="blob", mode="100644")
+        rec = project_coordinate(path=".github/workflows/ci.yml", object_sha="1" * 40, **base)
+        self.assertEqual(rec["native"]["path"], ".github/workflows/ci.yml")
+        self.assertEqual(rec["return"]["git_show"], f"{'a' * 40}:.github/workflows/ci.yml")
+        self.assertEqual(rec["project_kc144"]["col_semantic"], "WORKFLOW_CI")
+
     def test_compiler_covers_every_git_tree_object_and_roundtrips(self):
         root = self.repo()
         atlas = compile_git_atlas(root)
@@ -89,6 +96,7 @@ class ProjectAtlasTests(unittest.TestCase):
         paths = {r["native"]["path"] for r in atlas["records"]}
         self.assertIn("navigation/README.md", paths)
         self.assertIn("tests/test_runtime.py", paths)
+        self.assertIn(".github/workflows/ci.yml", paths)
         poids = [r["poid"] for r in atlas["records"]]
         self.assertEqual(len(poids), len(set(poids)))
         for rec in atlas["records"]:
@@ -122,6 +130,27 @@ class ProjectAtlasTests(unittest.TestCase):
         self.assertEqual(rec1["project_kc144"], rec2["project_kc144"])
         self.assertNotEqual(rec1["version_fiber"], rec2["version_fiber"])
 
+    def test_dirty_worktree_does_not_mutate_head_atlas_digest(self):
+        root = self.repo()
+        clean = compile_git_atlas(root)
+        (root / "untracked.tmp").write_text("not in HEAD\n")
+        dirty = compile_git_atlas(root)
+        self.assertFalse(clean["repository"]["dirty"])
+        self.assertTrue(dirty["repository"]["dirty"])
+        self.assertEqual(clean["repository"]["head"], dirty["repository"]["head"])
+        self.assertEqual(clean["atlas_digest"], dirty["atlas_digest"])
+        self.assertIn("excludes checkout root, branch label and dirty worktree state", dirty["atlas_digest_basis"])
+
+    def test_branch_label_does_not_mutate_same_head_atlas_digest(self):
+        root = self.repo()
+        first = compile_git_atlas(root)
+        run(root, "branch", "same-head")
+        run(root, "checkout", "same-head")
+        second = compile_git_atlas(root)
+        self.assertNotEqual(first["repository"]["branch"], second["repository"]["branch"])
+        self.assertEqual(first["repository"]["head"], second["repository"]["head"])
+        self.assertEqual(first["atlas_digest"], second["atlas_digest"])
+
     def test_mcp_surface_is_virtual_and_head_qualified(self):
         tools = [
             {"name": "athena_resolve", "inputSchema": {"type": "object"}},
@@ -132,6 +161,8 @@ class ProjectAtlasTests(unittest.TestCase):
         self.assertEqual({r["mcp"]["name"] for r in surface["records"]}, {"athena_resolve", "athena_hydrate"})
         self.assertTrue(all(r["native"]["head"] == "c" * 40 for r in surface["records"]))
         self.assertTrue(all(r["native"]["git_type"] == "mcp_tool" for r in surface["records"]))
+        self.assertTrue(all(r["return"]["uri"].startswith("athena+mcp://") for r in surface["records"]))
+        self.assertTrue(all(r["return"]["runtime_head"] == "c" * 40 for r in surface["records"]))
 
     def test_cross_repo_federation_never_collapses_heads(self):
         root = self.repo()
