@@ -13,24 +13,37 @@ class ReleaseOciActivationContractTests(unittest.TestCase):
         self.manifest = json.loads((ROOT / 'release/v3.3.0.json').read_text())
         self.notes = (ROOT / 'release/v3.3.0.md').read_text()
 
-    def test_activation_is_exact_ci_to_release_to_oci_workflow_dispatch_chain(self):
+    def test_activation_keeps_release_and_oci_dispatch_in_one_ci_triggered_job(self):
         text = self.activation
         for needle in (
             'workflow_run:',
             '- CI',
-            '- Release Distribution V3.3',
             "github.event.workflow_run.event == 'push'",
-            "github.event.workflow_run.event == 'workflow_dispatch'",
+            "startsWith(github.event.workflow_run.head_commit.message, 'Activate ATHENA v3.3.0 release and OCI publication')",
             'test "$(git rev-parse origin/master)" = "$HEAD_SHA"',
-            'Activate ATHENA v3.3.0 release and OCI publication',
             'actions/workflows/$RELEASE_WORKFLOW/dispatches',
+            'Resolve and await the exact release workflow run',
+            'actions/workflows/$RELEASE_WORKFLOW/runs?event=workflow_dispatch&branch=master&per_page=50',
+            'repos/$GITHUB_REPOSITORY/actions/runs/$RELEASE_RUN_ID',
+            'Verify the published release and dispatch exact OCI publication',
             'actions/workflows/$OCI_WORKFLOW/dispatches',
-            '-f "inputs[expected_head]=$HEAD_SHA"',
-            '-f "inputs[release_run_id]=$RELEASE_RUN_ID"',
+            "'expected_head':os.environ['HEAD_SHA']",
+            "'release_run_id':os.environ['RELEASE_RUN_ID']",
+            'ATHENA.RELEASE.OCI.ACTIVATION.RECEIPT.2',
         ):
             self.assertIn(needle, text)
+        self.assertNotIn('- Release Distribution V3.3', text)
+        self.assertNotIn('\n  dispatch-oci:', text)
         self.assertNotIn('gh release create', text)
         self.assertNotIn('docker buildx build', text)
+
+    def test_activation_filters_unrelated_master_ci_and_is_idempotent(self):
+        text = self.activation
+        self.assertIn("startsWith(github.event.workflow_run.head_commit.message, 'Activate ATHENA v3.3.0 release and OCI publication')", text)
+        self.assertIn('STATUS=ALREADY_PUBLISHED', text)
+        self.assertIn("status=='ALREADY_PUBLISHED'", text)
+        self.assertIn("successful=[r for r in candidates if r.get('status')=='completed' and r.get('conclusion')=='success']", text)
+        self.assertIn('test "$TAG_TARGET" = "$HEAD_SHA"', text)
 
     def test_oci_workflow_is_exact_head_multiarch_attested_distribution_only(self):
         text = self.oci
@@ -75,7 +88,7 @@ class ReleaseOciActivationContractTests(unittest.TestCase):
     def test_write_permissions_are_limited_to_effectful_jobs(self):
         activation_prefix = self.activation[: self.activation.index('\n  dispatch-release:')]
         self.assertNotIn('actions: write', activation_prefix)
-        self.assertEqual(self.activation.count('actions: write'), 2)
+        self.assertEqual(self.activation.count('actions: write'), 1)
 
         oci_prefix = self.oci[: self.oci.index('\n  publish:')]
         self.assertNotIn('contents: write', oci_prefix)
