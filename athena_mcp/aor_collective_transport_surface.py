@@ -23,17 +23,19 @@ from .cohesion_mesh_protocol import (
     COHESION_MESH_TOOLS,
     COHESION_MESH_TOOL_NAMES,
 )
+from .cohesion_duplicate_guard import augment_cohesion_resource,duplicate_guard
+from .cohesion_duplicate_guard_protocol import DUPLICATE_GUARD_TOOLS,DUPLICATE_GUARD_TOOL_NAMES
 
 AOR_COLLECTIVE_TRANSPORT_TOOLS=(
     list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(PARTY_CHANNEL_TOOLS)+
-    list(IMPOSSIBLE_GODBOARD_TOOLS)+list(COHESION_MESH_TOOLS)
+    list(IMPOSSIBLE_GODBOARD_TOOLS)+list(COHESION_MESH_TOOLS)+list(DUPLICATE_GUARD_TOOLS)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCES=[
     TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE,COHESION_MESH_RESOURCE
 ]
 AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=(
     set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(PARTY_CHANNEL_TOOL_NAMES)|
-    set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)|set(COHESION_MESH_TOOL_NAMES)
+    set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)|set(COHESION_MESH_TOOL_NAMES)|set(DUPLICATE_GUARD_TOOL_NAMES)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={
     TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri'],
@@ -49,6 +51,20 @@ class AorCollectiveTransportSurface:
         self.cohesion=CohesionMatchmakingRuntime(server)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        if name in DUPLICATE_GUARD_TOOL_NAMES:
+            return True,duplicate_guard(
+                self.cohesion,
+                agent_id=args['agent_id'],
+                task=args['task'],
+                work_key=args.get('work_key'),
+                targets=args.get('targets'),
+                intended_mode=args.get('intended_mode','PRIMARY'),
+                replication_reason=args.get('replication_reason'),
+                join_agent_id=args.get('join_agent_id'),
+                partition_proof=args.get('partition_proof'),
+                remote=args.get('remote','origin'),
+                shared_remote_mode=args.get('shared_remote_mode','REQUIRED'),
+            )
         if name in COHESION_MESH_TOOL_NAMES:
             c=self.cohesion
             if name=='athena_cohesion_request_offer':
@@ -163,7 +179,7 @@ class AorCollectiveTransportSurface:
         return False,None
 
     def read_resource(self,uri:str):
-        if uri==COHESION_MESH_RESOURCE['uri']:return self.cohesion.resource()
+        if uri==COHESION_MESH_RESOURCE['uri']:return augment_cohesion_resource(self.cohesion.resource())
         if uri==IMPOSSIBLE_GODBOARD_RESOURCE['uri']:return self.godboard.resource()
         if uri==PARTY_COORDINATION_RESOURCE['uri']:return self.party.resource()
         if uri!=TRANSPORT_RESOURCE['uri']:raise KeyError(uri)
