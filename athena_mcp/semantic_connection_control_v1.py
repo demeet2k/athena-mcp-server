@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 from dataclasses import dataclass, field, replace
 from typing import Any, Iterable, Mapping, Sequence
 
@@ -16,8 +17,11 @@ UNKNOWN_RESIDUE = "UNKNOWN_RESIDUE"
 FORBIDDEN_RAW_KEYS = frozenset({
     "expected_class",
     "expected_label",
+    "expected",
     "answer_key",
+    "oracle",
     "oracle_label",
+    "benchmark_label",
 })
 
 _ALLOWED_OPS = frozenset({"IDENTITY", "SET", "ADD", "SCALE", "DELETE"})
@@ -26,7 +30,13 @@ _IRREVERSIBLY_LOST = {"$state": "IRREVERSIBLY_LOST"}
 
 
 def _canonical_json(value: Any) -> str:
-    return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+    return json.dumps(
+        value,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=False,
+        allow_nan=False,
+    )
 
 
 def digest(value: Any) -> str:
@@ -34,8 +44,29 @@ def digest(value: Any) -> str:
 
 
 def _deepcopy_json(value: Any) -> Any:
-    # The V1 synthetic harness deliberately accepts JSON-like public state only.
-    return json.loads(json.dumps(value, ensure_ascii=False))
+    # The V1 synthetic harness accepts strict portable JSON only.
+    return json.loads(json.dumps(value, ensure_ascii=False, allow_nan=False))
+
+
+def _contains_forbidden_key(value: Any) -> bool:
+    if isinstance(value, Mapping):
+        for key, child in value.items():
+            if str(key).strip().lower() in FORBIDDEN_RAW_KEYS:
+                return True
+            if _contains_forbidden_key(child):
+                return True
+        return False
+    if isinstance(value, (list, tuple)):
+        return any(_contains_forbidden_key(child) for child in value)
+    return False
+
+
+def _finite_numeric(value: Any) -> bool:
+    return (
+        isinstance(value, (int, float))
+        and not isinstance(value, bool)
+        and (not isinstance(value, float) or math.isfinite(value))
+    )
 
 
 @dataclass(frozen=True)
@@ -62,25 +93,42 @@ class SemanticState:
     def __post_init__(self) -> None:
         if not self.coordinate:
             raise ValueError("coordinate is required")
-        values = _deepcopy_json(dict(self.values))
-        basis = tuple(dict.fromkeys(str(x) for x in self.feature_basis)) or tuple(sorted(values))
+
+        raw_values = dict(self.values)
+        if any(not isinstance(key, str) or not key for key in raw_values):
+            raise ValueError("values keys must be non-empty strings")
+        values = _deepcopy_json(raw_values)
+
+        raw_basis = tuple(str(x) for x in self.feature_basis)
+        if raw_basis and len(raw_basis) != len(set(raw_basis)):
+            raise ValueError("feature_basis contains duplicates")
+        if any(not item for item in raw_basis):
+            raise ValueError("feature_basis contains empty feature")
+        basis = raw_basis or tuple(sorted(values))
         if not basis:
             raise ValueError("feature_basis is required")
-        if len(basis) != len(set(basis)):
-            raise ValueError("feature_basis contains duplicates")
+
         value_keys = set(values)
         basis_keys = set(basis)
         if value_keys != basis_keys:
             missing = sorted(basis_keys - value_keys)
             extra = sorted(value_keys - basis_keys)
-            raise ValueError(f"values must exactly match feature_basis missing={missing} extra={extra}")
+            raise ValueError(
+                f"values must exactly match feature_basis missing={missing} extra={extra}"
+            )
+
         irreversible = frozenset(str(x) for x in self.irreversible_loss)
         if not irreversible.issubset(basis_keys):
             extra_loss = sorted(irreversible - basis_keys)
             raise ValueError(f"irreversible_loss outside feature_basis: {extra_loss}")
+
+        provenance = tuple(str(x) for x in self.provenance)
+        _deepcopy_json(list(provenance))
+        _deepcopy_json(self.standing)
+
         object.__setattr__(self, "values", values)
         object.__setattr__(self, "feature_basis", basis)
-        object.__setattr__(self, "provenance", tuple(str(x) for x in self.provenance))
+        object.__setattr__(self, "provenance", provenance)
         object.__setattr__(self, "irreversible_loss", irreversible)
 
     def public_semantics(self) -> dict[str, Any]:
@@ -112,11 +160,22 @@ class FieldOperation:
             raise ValueError("field is required")
         if op not in _ALLOWED_OPS:
             raise ValueError(f"unsupported field operation: {op}")
-        if op in {"ADD", "SCALE"} and not isinstance(self.value, (int, float)):
-            raise ValueError(f"{op} requires a numeric value")
+
+        if op in {"ADD", "SCALE"}:
+            if not _finite_numeric(self.value):
+                raise ValueError(f"{op} requires a finite non-bool numeric value")
+        elif op in {"IDENTITY", "DELETE"}:
+            if self.value is not None:
+                raise ValueError(f"{op} does not accept a value")
+        else:  # SET
+            _deepcopy_json(self.value)
 
     def to_dict(self) -> dict[str, Any]:
-        return {"field": self.field, "op": self.op, "value": _deepcopy_json(self.value)}
+        return {
+            "field": self.field,
+            "op": self.op,
+            "value": _deepcopy_json(self.value),
+        }
 
 
 @dataclass(frozen=True)
@@ -136,8 +195,12 @@ class EdgeOperator:
         if not self.edge_id or not self.source or not self.target:
             raise ValueError("edge_id, source and target are required")
         object.__setattr__(self, "operations", tuple(self.operations))
-        object.__setattr__(self, "typed_loss", frozenset(str(x) for x in self.typed_loss))
-        object.__setattr__(self, "provenance", tuple(str(x) for x in self.provenance))
+        object.__setattr__(
+            self, "typed_loss", frozenset(str(x) for x in self.typed_loss)
+        )
+        object.__setattr__(
+            self, "provenance", tuple(str(x) for x in self.provenance)
+        )
         object.__setattr__(self, "metadata", _deepcopy_json(dict(self.metadata)))
 
     def raw_spec(self) -> dict[str, Any]:
@@ -180,7 +243,11 @@ class ConnectionResult:
             "reason": self.reason,
             "initial_state": self.initial_state.audit_view(),
             "final_state": self.final_state.audit_view() if self.final_state else None,
-            "residue": _deepcopy_json(dict(self.residue)) if self.residue is not None else None,
+            "residue": (
+                _deepcopy_json(dict(self.residue))
+                if self.residue is not None
+                else None
+            ),
             "residue_zero": self.residue_zero,
             "executed_edges": list(self.executed_edges),
             "audit": _deepcopy_json(dict(self.audit)),
@@ -208,10 +275,12 @@ def _unknown(
 
 
 def _metadata_is_oracle_free(edge: EdgeOperator) -> bool:
-    return not bool(FORBIDDEN_RAW_KEYS.intersection(edge.metadata))
+    return not _contains_forbidden_key(edge.metadata)
 
 
-def _apply_field_operation(values: dict[str, Any], operation: FieldOperation) -> tuple[bool, str | None]:
+def _apply_field_operation(
+    values: dict[str, Any], operation: FieldOperation
+) -> tuple[bool, str | None]:
     field_name = operation.field
     op = operation.op
     if field_name not in values:
@@ -228,18 +297,25 @@ def _apply_field_operation(values: dict[str, Any], operation: FieldOperation) ->
     current = values.get(field_name, _MISSING)
     if current in (_MISSING, _IRREVERSIBLY_LOST):
         return False, f"MISSING_NUMERIC_FIELD:{field_name}"
-    if not isinstance(current, (int, float)):
+    if not _finite_numeric(current):
         return False, f"NON_NUMERIC_FIELD:{field_name}"
+
     if op == "ADD":
-        values[field_name] = current + operation.value
-        return True, None
-    if op == "SCALE":
-        values[field_name] = current * operation.value
-        return True, None
-    return False, f"UNSUPPORTED_OPERATION:{op}"
+        result = current + operation.value
+    elif op == "SCALE":
+        result = current * operation.value
+    else:
+        return False, f"UNSUPPORTED_OPERATION:{op}"
+
+    if not _finite_numeric(result):
+        return False, f"NONFINITE_NUMERIC_RESULT:{field_name}"
+    values[field_name] = result
+    return True, None
 
 
-def _apply_edge(state: SemanticState, edge: EdgeOperator) -> tuple[SemanticState | None, str | None]:
+def _apply_edge(
+    state: SemanticState, edge: EdgeOperator
+) -> tuple[SemanticState | None, str | None]:
     if not edge.typed:
         return None, f"UNTYPED_EDGE:{edge.edge_id}"
     if not _metadata_is_oracle_free(edge):
@@ -278,10 +354,6 @@ def _apply_edge(state: SemanticState, edge: EdgeOperator) -> tuple[SemanticState
         if not ok:
             return None, f"{reason}:{edge.edge_id}"
 
-    # V1 irreversible loss is deletion-backed: every loss marker corresponds to a
-    # feature that existed in the fixed ambient basis and was actually erased on
-    # this execution. The marker survives even if a later edge restores the same
-    # syntactic value. Representation/audit fields never enter semantic residue.
     irreversible = frozenset(set(state.irreversible_loss) | typed_loss)
     provenance = state.provenance + (f"EDGE::{edge.edge_id}",) + edge.provenance
     return (
@@ -297,12 +369,10 @@ def _apply_edge(state: SemanticState, edge: EdgeOperator) -> tuple[SemanticState
     )
 
 
-def semantic_residue(initial: SemanticState, final: SemanticState) -> dict[str, Any]:
-    """Return a typed semantic residue; `{}` is exact zero.
-
-    Path/provenance bookkeeping is intentionally absent. Both states must be in
-    the same fixed ambient feature basis; route closure is checked by the caller.
-    """
+def semantic_residue(
+    initial: SemanticState, final: SemanticState
+) -> dict[str, Any]:
+    """Return a typed semantic residue; `{}` is exact zero."""
 
     if initial.feature_basis != final.feature_basis:
         raise ValueError("semantic residue requires identical feature_basis")
@@ -323,7 +393,10 @@ def semantic_residue(initial: SemanticState, final: SemanticState) -> dict[str, 
             "after": sorted(final.irreversible_loss),
         }
     if initial.standing != final.standing:
-        residue["__standing__"] = {"before": initial.standing, "after": final.standing}
+        residue["__standing__"] = {
+            "before": initial.standing,
+            "after": final.standing,
+        }
     return residue
 
 
@@ -332,12 +405,7 @@ def compose_closed_route(
     edge_ids: Sequence[str],
     operators: Mapping[str, EdgeOperator],
 ) -> ConnectionResult:
-    """Execute an explicitly typed closed route in one ambient feature basis.
-
-    Missing/untyped/ill-typed edges and open routes are UNKNOWN. A result is
-    DEFINED only after every declared edge executes and the final coordinate is
-    the initial coordinate without changing the feature basis.
-    """
+    """Execute an explicitly typed closed route in one ambient feature basis."""
 
     if not edge_ids:
         return ConnectionResult(
@@ -348,7 +416,11 @@ def compose_closed_route(
             final_state=initial,
             residue={},
             executed_edges=(),
-            audit={"route": [], "connection_defined": True, "feature_basis": list(initial.feature_basis)},
+            audit={
+                "route": [],
+                "connection_defined": True,
+                "feature_basis": list(initial.feature_basis),
+            },
         )
 
     current = initial
@@ -371,7 +443,11 @@ def compose_closed_route(
                 reason or f"EDGE_UNDEFINED:{edge_id}",
                 executed_edges=executed,
                 final_state=current,
-                audit={"route": list(edge_ids), "failed_edge": edge_id, "connection_defined": False},
+                audit={
+                    "route": list(edge_ids),
+                    "failed_edge": edge_id,
+                    "connection_defined": False,
+                },
             )
         current = next_state
         executed.append(edge_id)
@@ -383,7 +459,11 @@ def compose_closed_route(
             f"OPEN_PATH_NO_RETURN:{current.coordinate}!={initial.coordinate}",
             executed_edges=executed,
             final_state=current,
-            audit={"route": list(edge_ids), "connection_defined": False, "edge_digests": edge_digests},
+            audit={
+                "route": list(edge_ids),
+                "connection_defined": False,
+                "edge_digests": edge_digests,
+            },
         )
     if current.feature_basis != initial.feature_basis:
         return _unknown(
@@ -391,7 +471,11 @@ def compose_closed_route(
             "AMBIENT_BASIS_CHANGED",
             executed_edges=executed,
             final_state=current,
-            audit={"route": list(edge_ids), "connection_defined": False, "edge_digests": edge_digests},
+            audit={
+                "route": list(edge_ids),
+                "connection_defined": False,
+                "edge_digests": edge_digests,
+            },
         )
 
     residue = semantic_residue(initial, current)
@@ -420,12 +504,7 @@ def declared_round_trip(
     forward_edge_id: str,
     operators: Mapping[str, EdgeOperator],
 ) -> ConnectionResult:
-    """Execute one edge and its explicitly declared inverse.
-
-    The helper intentionally refuses to guess a return edge. Missing inverse
-    declaration or implementation is UNKNOWN. Inverse metadata does not prove
-    reversibility: the operators are still executed and residue is measured.
-    """
+    """Execute one edge and its explicitly declared inverse."""
 
     forward = operators.get(forward_edge_id)
     if forward is None:
@@ -451,11 +530,7 @@ def raw_behavior_with_expected_label(
     *,
     expected_class: str | None = None,
 ) -> ConnectionResult:
-    """Compatibility fixture proving expected labels are post-hoc only.
-
-    `expected_class` is accepted to make mutation tests explicit and deliberately
-    not read by the raw connection engine.
-    """
+    """Compatibility fixture proving expected labels are post-hoc only."""
 
     del expected_class
     return compose_closed_route(initial, edge_ids, operators)
