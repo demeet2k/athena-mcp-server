@@ -1,0 +1,105 @@
+{
+  "artifact": "ATHENA.CAMPAIGN.V3.LIFE.BOUND.IDENTITY.SPEC.V1",
+  "status": "CANDIDATE",
+  "runtime_issue": 149,
+  "runtime_base_head": "6d9d545b5fe608b9b173aa139c94caa32b25cffd",
+  "purpose": "Pure structural identity join between a final Campaign V3 BOUND loop receipt and a validated Campaign V3 Life quest packet.",
+  "source_contracts": {
+    "bound_receipt": {
+      "artifact": "ATHENA.CAMPAIGN.V3.LOOP.BINDING.V1",
+      "required_status": "BOUND",
+      "required_standing": "BOUND_LOOP_NOT_WORK_EXECUTED",
+      "required_laws": [
+        "PULSE_DIGEST_VERIFIED_BEFORE_LEASE",
+        "BOUND_RECEIPT_RETAINS_VERIFIED_PULSE_DIGEST"
+      ],
+      "execution_authority_granted": false,
+      "work_executed": false
+    },
+    "life_packet": {
+      "artifact": "ATHENA.CAMPAIGN.V3.LIFE.QUEST.PACKET.V1",
+      "validator": "validate_campaign_v3_life_quest_packet",
+      "execution_authority": false,
+      "work_executed": false
+    }
+  },
+  "alignment_coordinates": [
+    "campaign_id",
+    "branch_id",
+    "residual_step",
+    "pulse_digest"
+  ],
+  "alignment_law": {
+    "campaign_id": "bound_receipt.campaign_id == life_packet.campaign.campaign_id",
+    "branch_id": "bound_receipt.branch_id == life_packet.campaign.branch_id",
+    "residual_step": "bound_receipt.residual_step == life_packet.campaign.residual_step",
+    "pulse_digest": "bound_receipt.pulse_digest == life_packet.pulse_binding.pulse_digest",
+    "loop_id": "retained from BOUND receipt as identity context; Life packet does not independently assert loop identity"
+  },
+  "output": {
+    "artifact": "ATHENA.CAMPAIGN.V3.LIFE.BOUND.IDENTITY.V1",
+    "pass_status": "ALIGNED",
+    "hold_statuses": [
+      "HOLD_INVALID_BOUND_RECEIPT",
+      "HOLD_INVALID_LIFE_PACKET",
+      "HOLD_IDENTITY_MISMATCH"
+    ],
+    "structural_alignment": "true only for exact identity agreement",
+    "receipt_provenance_proven": false,
+    "execution_authority": false,
+    "work_executed": false,
+    "life_dispatch_executed": false,
+    "platform_counter_reset_claimed": false,
+    "integrity": {
+      "bound_receipt_digest": "SHA-256 of the caller-supplied BOUND receipt",
+      "life_packet_digest": "existing validated Life packet digest",
+      "alignment_digest": "SHA-256 of the identity receipt excluding alignment_digest"
+    }
+  },
+  "epistemic_boundary": {
+    "structural_alignment_proves": [
+      "the two supplied public objects agree on Campaign/branch/residual/pulse identity",
+      "the Life packet passes its existing runtime validator",
+      "the BOUND receipt has the required non-authoritative structural markers"
+    ],
+    "structural_alignment_does_not_prove": [
+      "the caller-supplied BOUND receipt was produced by an authentic runtime mutation",
+      "the loop was actually executed",
+      "Life Dispatch was invoked",
+      "a life or reseed anchor was consumed",
+      "a reward or XP was issued",
+      "Campaign success",
+      "platform/model/token/context/quota reset"
+    ]
+  },
+  "ownership": {
+    "dispatch_translator_files": "unchanged and separately claimed",
+    "semantic_life_state_machine": "not copied/called/owned",
+    "scheduler_or_execution_surface_added": false
+  },
+  "attack_regressions": [
+    "exact BOUND + exact Life packet => ALIGNED",
+    "pulse mismatch => HOLD",
+    "campaign mismatch => HOLD",
+    "branch mismatch => HOLD",
+    "residual-step mismatch => HOLD",
+    "non-BOUND or incomplete binding receipt => HOLD",
+    "forged execution/work authority => HOLD",
+    "Life packet tamper invalidating packet digest => HOLD",
+    "unknown identity-wrapper fields rejected even after digest recomputation",
+    "receipt_provenance_proven may never become true"
+  ],
+  "firewalls": [
+    "STRUCTURAL_ALIGNMENT != RECEIPT_PROVENANCE",
+    "IDENTITY_ALIGNMENT != EXECUTION_AUTHORITY",
+    "BOUND != WORK_EXECUTED",
+    "LIFE_PACKET != PLAYED_ATTEMPT",
+    "DISPATCH_TRANSLATOR_OWNERSHIP_UNCHANGED",
+    "LOGICAL_RESEED != PLATFORM_RESET"
+  ],
+  "verification_ceiling": {
+    "github_actions_exact_head_required_before_integration": true,
+    "treatment_effect_claim": false,
+    "campaign_execution_claim": false
+  }
+}
