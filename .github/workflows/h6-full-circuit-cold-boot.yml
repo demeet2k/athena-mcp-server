@@ -1,0 +1,36 @@
+name: H6 Full Circuit Cold Boot
+
+on:
+  pull_request:
+    branches:
+      - 'agent/h6-execution-cut05-integrated-v1'
+    paths:
+      - 'scripts/h6_full_circuit_cold_boot.py'
+      - 'spec/H6_FULL_CIRCUIT_COLD_BOOT_V1.json'
+      - '.github/workflows/h6-full-circuit-cold-boot.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  full-circuit-cold-boot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile full H6 cold boot witness
+        run: python -m compileall -q athena_mcp scripts/h6_full_circuit_cold_boot.py
+      - name: Reconstruct and exercise H01-H06 in two independent processes
+        env:
+          PYTHONPATH: .
+        run: python scripts/h6_full_circuit_cold_boot.py
+      - name: Upload full-circuit cold boot receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: h6-full-circuit-cold-boot-receipt
+          path: h6_full_circuit_cold_receipt.json
+          if-no-files-found: error

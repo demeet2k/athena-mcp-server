@@ -1,0 +1,38 @@
+{
+  "artifact": "ATHENA.H6.FULL.CIRCUIT.COLD.BOOT.V1",
+  "role": "independent-process closure witness for coupled H01-H06 runtime",
+  "runtime_parent": "429a480a80eeefb9e2bff1ea3015adf571d76b0e",
+  "integrated_parent": "7e09c83a6e93ba0a604c19b8c5a195293a7112c8",
+  "semantic_head": "f32eb817d48de73a0c591b0f7fb3561e4f08e7da",
+  "seed": "one durable SQLite state containing two crystallized semantic objects, one explicit route edge, a forward/reverse transform pair and no H6-specific persisted state",
+  "independent_children": 2,
+  "required_reconstruction": [
+    "H01 identities",
+    "H02 active KC144 projections",
+    "H03 route proposal",
+    "H04 bridge admission",
+    "H05 evidence sufficiency",
+    "H06 integrated admission",
+    "H03 NAVRUN observation"
+  ],
+  "required_deterministic_fields": [
+    "h6_root_digest",
+    "query_id",
+    "route_id",
+    "bridge_id",
+    "claim_id",
+    "navrun_id"
+  ],
+  "required_firewalls": [
+    "durable_counts_unchanged",
+    "execution_authority=false",
+    "promotion_authority=false",
+    "navrun_persisted=false"
+  ],
+  "success_status": "FULL_CIRCUIT_COLD_MATCH",
+  "evidence_ceiling": [
+    "H6_FULL_CIRCUIT_MECHANISM_CLOSURE_ONLY",
+    "H6_ROOT_CLOSED != WHOLE_KC144_CLOSED",
+    "COLD_MATCH != BEHAVIORAL_GAIN"
+  ]
+}
