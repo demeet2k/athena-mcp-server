@@ -1,53 +1,48 @@
 {
   "artifact": "ATHENA.REHYDRATION.CONTROL.V1_1",
   "coordinate": "ATHENA.KC144::GITΩ::REHYDRATION-CONTROL::V1.1",
-  "purpose": "Coordinate long explicit Git rehydration chains through Message Board ownership, deterministic successor derivation, and local cycle verification gates.",
-  "authorities": {
-    "claim_and_lease": "MessageBoardRuntime",
-    "prompt_receipt_chain": "RehydrationLoopRuntime",
-    "promotion_and_merge": "external promotion/release governance"
+  "purpose": "Conjoin canonical rehydration-loop causality with Message Board ownership and add cycle-local verification gates without duplicating successor or handoff semantics.",
+  "owners": {
+    "claims_leases_coordination_handoff": "MessageBoardRuntime",
+    "what_next": "rehydration_successor",
+    "what_to_rehydrate": "rehydration_handoff",
+    "prompt_receipt_replay": "RehydrationLoopRuntime",
+    "cycle_conjunction_gate": "RehydrationControlRuntime"
   },
   "tools": [
     "athena_rehydration_claim",
     "athena_rehydration_advance_claimed",
-    "athena_rehydration_handoff",
+    "athena_rehydration_claim_handoff",
     "athena_rehydration_resume_controlled"
   ],
   "work_key": "rehydration:<loop_id>",
-  "successor_precedence": [
-    "completion.next_task",
-    "completion.residuals",
-    "frontier.selected",
-    "frontier.residuals",
-    "current task"
-  ],
-  "cycle_gate_states": [
-    "VERIFIED_CYCLE",
-    "WORK_COMMITTED",
-    "OBSERVED_CYCLE",
-    "HOLD_CYCLE"
-  ],
+  "cycle_gate_states": ["VERIFIED_CYCLE", "WORK_COMMITTED", "OBSERVED_CYCLE", "HOLD_CYCLE"],
   "verified_cycle_requires": [
     "completion.status == SUCCEEDED",
-    "material Git work outside prompts/rehydration and runtime/message_board/v1",
+    "substantive Git work outside loop and Message Board control namespaces",
     "at least one evidence_ref",
     "at least one recorded test",
     "all recorded tests == PASS"
   ],
+  "delegations": {
+    "successor": "RehydrationLoopRuntime.advance successor extension compiles and persists successor_baton when routing is open",
+    "handoff_delta": "athena_rehydration_handoff_delta / athena_rehydration_handoff_resume remain canonical",
+    "claim_handoff": "Message Board HANDOFF release changes coordination only"
+  },
   "invariants": [
     "Message Board is the sole claim authority",
-    "a controlled advance requires an active PRIMARY claim for rehydration:<loop_id>",
-    "Message Board-only commits are not substantive work",
-    "successor derivation updates the next bounded prompt but grants no authority",
-    "cycle verification never sets promotion_qualified=true",
-    "handoff routes work but does not prove target consumption",
-    "raw V1 replay remains the causal integrity verifier"
+    "controlled advance requires active PRIMARY claim for rehydration:<loop_id>",
+    "Message Board-only or rehydration-control-only changes are not substantive work",
+    "cycle verification is local evidence only and never sets promotion_qualified=true",
+    "coordination handoff does not replace or imply rehydration handoff-delta consumption",
+    "existing successor ambiguity/tie preservation is not reimplemented here"
   ],
   "laws": [
     "MESSAGE_BOARD_IS_SOLE_CLAIM_AUTHORITY",
-    "SELF_PROMPT != CLAIM_AUTHORITY",
-    "SUCCESSOR_DERIVATION != PROMOTION_AUTHORITY",
+    "WHAT_NEXT_OWNED_BY_REHYDRATION_SUCCESSOR",
+    "WHAT_TO_REHYDRATE_OWNED_BY_REHYDRATION_HANDOFF",
     "MESSAGE_BOARD_ONLY_CHANGE != SUBSTANTIVE_WORK",
+    "CLAIM_HANDOFF != REHYDRATION_HANDOFF_DELTA",
     "HANDOFF_ROUTE != HANDOFF_CONSUMPTION",
     "CYCLE_VERIFIED != PROMOTION_QUALIFIED != MERGE_AUTHORIZED"
   ]

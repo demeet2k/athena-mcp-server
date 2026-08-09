@@ -31,11 +31,8 @@ def _write(root: Path, rel: str, value) -> None:
 class _Frontier:
     def select(self, **kwargs):
         return {
-            "status": "SELECTED",
-            "source_head": "source-head",
-            "frontier_digest": "frontier-digest",
-            "selected": {"run_id": "run.alpha", "node_id": "frontier-build"},
-            "pareto_front": [],
+            "status": "SELECTED", "source_head": "source-head", "frontier_digest": "frontier-digest",
+            "selected": {"run_id": "run.alpha", "node_id": "frontier-build"}, "pareto_front": [],
             "frontier": {"residuals": [{"summary": "frontier residual"}], "source_coverage": {}},
         }
 
@@ -60,15 +57,7 @@ class _Board:
     def present(self, *, agent_id, task, work_key, targets, details, mode, lease_seconds, remote):
         if self.row and self.row.get("status") == "ACTIVE" and self.row.get("work_key") == work_key and self.row.get("agent_id") != agent_id:
             return {"status": "DUPLICATE_WORK_HOLD", "presence": self.row}
-        self.row = {
-            "agent_id": agent_id,
-            "claim_id": "MBC-test",
-            "status": "ACTIVE",
-            "mode": "PRIMARY",
-            "task": task,
-            "work_key": work_key,
-            "targets": targets,
-        }
+        self.row = {"agent_id": agent_id, "claim_id": "MBC-test", "status": "ACTIVE", "mode": "PRIMARY", "task": task, "work_key": work_key, "targets": targets}
         return {"status": "PRESENT", "presence": dict(self.row), "durable_return": True}
 
     def read(self, *, agent_id=None, include_stale=False, remote="origin", shared_remote_mode="REQUIRED"):
@@ -90,12 +79,9 @@ def _runtime(base: Path):
     _run(root, "config", "user.name", "test")
     _run(root, "config", "user.email", "test@example.invalid")
     _write(root, "prompts/PROMPT.manifest.json", {
-        "artifact": "ATHENA.PROMPT.RUNTIME.V1",
-        "authority_ceiling": "below external authority",
-        "active_state": "prompts/state/ACTIVE.json",
-        "policy": "policies/PROMPT_RUNTIME.md",
-        "default_profile": "BUILD",
-        "profiles": {"BUILD": ["core"]},
+        "artifact": "ATHENA.PROMPT.RUNTIME.V1", "authority_ceiling": "below external authority",
+        "active_state": "prompts/state/ACTIVE.json", "policy": "policies/PROMPT_RUNTIME.md",
+        "default_profile": "BUILD", "profiles": {"BUILD": ["core"]},
         "modules": {"core": {"path": "prompts/ORCHESTRATION_CORE.md", "order": 0, "mandatory": True}},
     })
     _write(root, "prompts/state/ACTIVE.json", {
@@ -144,13 +130,13 @@ class RehydrationControlTests(unittest.TestCase):
             shared_remote_mode="DISABLED", depth_mode="deep", max_steps=8,
         )
 
-    def test_claim_uses_message_board_work_key(self):
+    def test_claim_uses_message_board_as_only_claim_authority(self):
         control, base, board, _ = self._case()
         started = self._start(base)
         claimed = control.claim(loop_id=started["loop_id"], agent_id="agent_a")
         self.assertEqual(claimed["status"], "PRESENT")
         self.assertEqual(board.row["work_key"], f"rehydration:{started['loop_id']}")
-        self.assertIn("MESSAGE_BOARD_IS_SOLE_CLAIM_AUTHORITY", claimed["law"])
+        self.assertIn("MESSAGE_BOARD_IS_SOLE_CLAIM_AUTHORITY", claimed["laws"])
 
     def test_advance_without_claim_holds(self):
         control, base, _, _ = self._case()
@@ -163,7 +149,7 @@ class RehydrationControlTests(unittest.TestCase):
         )
         self.assertEqual(result["status"], "REHYDRATION_CLAIM_REQUIRED_HOLD")
 
-    def test_claimed_advance_derives_successor_and_cycle_gate(self):
+    def test_claimed_advance_delegates_successor_and_adds_cycle_gate(self):
         control, base, _, root = self._case()
         started = self._start(base)
         control.claim(loop_id=started["loop_id"], agent_id="agent_a")
@@ -173,22 +159,21 @@ class RehydrationControlTests(unittest.TestCase):
         result = control.advance_claimed(
             loop_id=started["loop_id"], agent_id="agent_a",
             expected_checkpoint_head=started["checkpoint_head"], expected_state_digest=started["state_digest"],
-            expected_prompt_digest=started["prompt_digest"], completion=_completion(),
-            shared_remote_mode="DISABLED",
+            expected_prompt_digest=started["prompt_digest"], completion=_completion(), shared_remote_mode="DISABLED",
         )
         self.assertEqual(result["status"], "ACTIVE")
-        self.assertEqual(result["successor"]["task"], "Implement the next residual")
-        self.assertEqual(result["successor"]["selected_source"], "completion.residual")
         self.assertEqual(result["cycle_gate"]["state"], "VERIFIED_CYCLE")
         self.assertFalse(result["cycle_gate"]["promotion_qualified"])
-        self.assertIn("Implement the next residual", result["compiled_self_prompt"])
         state = base._read_state(started["loop_id"])[0]
-        control_packet = state["last_completion"]["_rehydration_control"]
-        self.assertEqual(control_packet["claim_id"], "MBC-test")
-        self.assertEqual(control_packet["cycle_gate"]["state"], "VERIFIED_CYCLE")
-        self.assertEqual(base.verify(started["loop_id"])["status"], "PASS")
+        last = state["last_completion"]
+        self.assertEqual(last["_rehydration_control"]["claim_id"], "MBC-test")
+        self.assertEqual(last["_rehydration_control"]["cycle_gate"]["state"], "VERIFIED_CYCLE")
+        self.assertEqual(last["successor_baton"]["artifact"], "ATHENA.REHYDRATION.SUCCESSOR.BATON.V1")
+        self.assertEqual(last["next_task"], "Implement the next residual")
+        self.assertIn("Implement the next residual", result["compiled_self_prompt"])
+        self.assertEqual(base.verify(started["loop_id"], shared_remote_mode="DISABLED")["status"], "PASS")
 
-    def test_explicit_successor_wins_over_residuals(self):
+    def test_explicit_next_task_preserves_existing_successor_compatibility(self):
         control, base, _, root = self._case()
         started = self._start(base)
         control.claim(loop_id=started["loop_id"], agent_id="agent_a")
@@ -201,10 +186,12 @@ class RehydrationControlTests(unittest.TestCase):
             expected_prompt_digest=started["prompt_digest"], completion=_completion(next_task="Run adversarial verification"),
             shared_remote_mode="DISABLED",
         )
-        self.assertEqual(result["successor"]["status"], "EXPLICIT_SUCCESSOR")
-        self.assertEqual(result["successor"]["task"], "Run adversarial verification")
+        state = base._read_state(started["loop_id"])[0]
+        self.assertEqual(state["last_completion"]["next_task"], "Run adversarial verification")
+        self.assertNotIn("successor_baton", state["last_completion"])
+        self.assertIn("Run adversarial verification", result["compiled_self_prompt"])
 
-    def test_message_board_only_changes_do_not_count_as_substantive_work(self):
+    def test_control_only_changes_never_count_as_substantive_work(self):
         control, base, _, _ = self._case()
         started = self._start(base)
         control.claim(loop_id=started["loop_id"], agent_id="agent_a")
@@ -212,35 +199,37 @@ class RehydrationControlTests(unittest.TestCase):
             control.advance_claimed(
                 loop_id=started["loop_id"], agent_id="agent_a",
                 expected_checkpoint_head=started["checkpoint_head"], expected_state_digest=started["state_digest"],
-                expected_prompt_digest=started["prompt_digest"], completion=_completion(),
-                shared_remote_mode="DISABLED",
+                expected_prompt_digest=started["prompt_digest"], completion=_completion(), shared_remote_mode="DISABLED",
             )
 
-    def test_handoff_routes_through_message_board(self):
+    def test_claim_handoff_is_coordination_only(self):
         control, base, board, _ = self._case()
         started = self._start(base)
         control.claim(loop_id=started["loop_id"], agent_id="agent_a")
-        result = control.handoff(loop_id=started["loop_id"], agent_id="agent_a", handoff_to="agent_b")
+        result = control.claim_handoff(loop_id=started["loop_id"], agent_id="agent_a", handoff_to="agent_b")
         self.assertEqual(result["status"], "RELEASED")
         self.assertEqual(board.release_calls[-1], ("agent_a", "HANDOFF", "agent_b"))
-        self.assertEqual(result["handoff_to"], "agent_b")
+        self.assertIn("CLAIM_HANDOFF != REHYDRATION_HANDOFF_DELTA", result["laws"])
 
-    def test_controlled_resume_exposes_owner_and_last_gate(self):
+    def test_controlled_resume_exposes_owner_without_replacing_handoff_delta(self):
         control, base, _, _ = self._case()
         started = self._start(base)
         control.claim(loop_id=started["loop_id"], agent_id="agent_a")
         resumed = control.resume_controlled(loop_id=started["loop_id"], agent_id="agent_a", shared_remote_mode="DISABLED")
         self.assertEqual(resumed["status"], "RESUMED")
         self.assertEqual(resumed["coordination"]["active_owners"][0]["agent_id"], "agent_a")
-        self.assertEqual(resumed["coordination"]["work_key"], f"rehydration:{started['loop_id']}")
+        self.assertIn("athena_rehydration_handoff_delta/resume", resumed["next"])
 
-    def test_control_tool_surface(self):
+    def test_control_tool_surface_does_not_duplicate_successor_or_handoff_delta_names(self):
         self.assertEqual(CONTROL_TOOL_NAMES, {
             "athena_rehydration_claim",
             "athena_rehydration_advance_claimed",
-            "athena_rehydration_handoff",
+            "athena_rehydration_claim_handoff",
             "athena_rehydration_resume_controlled",
         })
+        self.assertNotIn("athena_rehydration_successor_preview", CONTROL_TOOL_NAMES)
+        self.assertNotIn("athena_rehydration_handoff_delta", CONTROL_TOOL_NAMES)
+        self.assertNotIn("athena_rehydration_handoff_resume", CONTROL_TOOL_NAMES)
 
 
 if __name__ == "__main__":

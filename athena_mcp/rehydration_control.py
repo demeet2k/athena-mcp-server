@@ -1,8 +1,5 @@
 from __future__ import annotations
 
-import json
-from typing import Any
-
 from .message_board import BOARD_ROOT, MessageBoardRuntime
 from .rehydration_loop import RehydrationLoopRuntime, TERMINAL_STATES
 
@@ -10,32 +7,22 @@ ARTIFACT = "ATHENA.REHYDRATION.CONTROL.V1_1"
 WORK_KEY_PREFIX = "rehydration:"
 
 
-def _text(value: Any) -> str | None:
-    if isinstance(value, str):
-        value = " ".join(value.split())
-        return value or None
-    if isinstance(value, dict):
-        for key in ("task", "objective", "summary", "value", "message", "code", "kind"):
-            candidate = value.get(key)
-            if isinstance(candidate, str) and candidate.strip():
-                return " ".join(candidate.split())
-    return None
-
-
 class RehydrationControlRuntime:
-    """V1.1 coordination and successor layer for the Git rehydration loop.
+    """Coordination membrane for the canonical rehydration stack.
 
-    Message Board remains the sole claim/lease authority. This layer only proves
-    that the advancing agent currently owns the loop work lane, derives a bounded
-    successor task, annotates the observed cycle with a local verification gate,
-    and delegates causal persistence to RehydrationLoopRuntime.
+    Existing owners remain authoritative:
+      MessageBoardRuntime   -> claims, leases, collaboration, coordination handoff
+      rehydration_successor -> WHAT NEXT routing and tie preservation
+      rehydration_handoff   -> WHAT TO REHYDRATE delta compression
+      RehydrationLoopRuntime-> causal prompt/receipt persistence and replay
+
+    This layer adds only the missing conjunction: an advancing agent must own the
+    current primary work lane, control-only Git writes are not substantive work,
+    and each observed cycle receives a local verification gate that is explicitly
+    below promotion/merge authority.
     """
 
-    def __init__(
-        self,
-        base: RehydrationLoopRuntime,
-        board: MessageBoardRuntime | None = None,
-    ):
+    def __init__(self, base: RehydrationLoopRuntime, board: MessageBoardRuntime | None = None):
         self.base = base
         self.git = base.git
         self.board = board or MessageBoardRuntime(self.git)
@@ -65,7 +52,7 @@ class RehydrationControlRuntime:
             task=str(state.get("task") or state.get("goal") or loop_id),
             work_key=self.work_key(loop_id),
             targets=[paths["base"]],
-            details=details or f"rehydration loop {loop_id} step {state.get('step_index')} state {state.get('state_digest')}",
+            details=details or f"rehydration {loop_id} step={state.get('step_index')} state={state.get('state_digest')}",
             mode="PRIMARY",
             lease_seconds=lease_seconds,
             remote=remote,
@@ -77,7 +64,10 @@ class RehydrationControlRuntime:
             "step_index": state.get("step_index"),
             "loop_state_digest": state.get("state_digest"),
             "work_key": self.work_key(loop_id),
-            "law": "MESSAGE_BOARD_IS_SOLE_CLAIM_AUTHORITY",
+            "laws": [
+                "MESSAGE_BOARD_IS_SOLE_CLAIM_AUTHORITY",
+                "CLAIM != LOOP_COMPLETION",
+            ],
         }
 
     def _claim_snapshot(self, *, loop_id: str, agent_id: str, remote: str, shared_remote_mode: str) -> dict:
@@ -99,59 +89,6 @@ class RehydrationControlRuntime:
         if str(row.get("mode")) != "PRIMARY":
             return {"ok": False, "status": "REHYDRATION_PRIMARY_CLAIM_REQUIRED_HOLD", "snapshot": snapshot, "presence": row}
         return {"ok": True, "status": "CLAIM_VERIFIED", "snapshot": snapshot, "presence": row}
-
-    @staticmethod
-    def _candidate(source: str, value: Any, order: int) -> dict | None:
-        text = _text(value)
-        if not text:
-            return None
-        return {"source": source, "task": text[:2000], "order": order, "digest_basis": value}
-
-    def _successor(self, state: dict, completion: dict, frontier: dict) -> dict:
-        explicit = _text(completion.get("next_task"))
-        if explicit:
-            return {
-                "status": "EXPLICIT_SUCCESSOR",
-                "task": explicit,
-                "selected_source": "completion.next_task",
-                "candidates": [{"source": "completion.next_task", "task": explicit, "order": 0}],
-                "law": "EXPLICIT_SUCCESSOR != PROMOTION_AUTHORITY",
-            }
-
-        candidates: list[dict] = []
-        order = 0
-        for value in completion.get("residuals") or []:
-            candidate = self._candidate("completion.residual", value, order)
-            order += 1
-            if candidate:
-                candidates.append(candidate)
-        selected = frontier.get("selected")
-        candidate = self._candidate("frontier.selected", selected, order)
-        order += 1
-        if candidate:
-            candidates.append(candidate)
-        for value in frontier.get("residuals") or []:
-            candidate = self._candidate("frontier.residual", value, order)
-            order += 1
-            if candidate:
-                candidates.append(candidate)
-
-        if candidates:
-            chosen = sorted(candidates, key=lambda x: (x["order"], x["source"], x["task"]))[0]
-            task = chosen["task"]
-            source = chosen["source"]
-            status = "DERIVED_SUCCESSOR"
-        else:
-            task = str(state.get("task") or state.get("goal") or "Continue the current bounded objective")
-            source = "current.task"
-            status = "FALLBACK_SUCCESSOR"
-        return {
-            "status": status,
-            "task": task,
-            "selected_source": source,
-            "candidates": [{"source": x["source"], "task": x["task"], "order": x["order"]} for x in candidates],
-            "law": "DERIVED_SUCCESSOR != PROMOTION_AUTHORITY",
-        }
 
     @staticmethod
     def _cycle_gate(completion: dict, material_work_paths: list[str]) -> dict:
@@ -176,7 +113,11 @@ class RehydrationControlRuntime:
             "all_tests_pass": all_tests_pass,
             "promotion_qualified": False,
             "authority": "LOCAL_CYCLE_ONLY",
-            "law": "CYCLE_VERIFIED != PROMOTION_QUALIFIED != MERGE_AUTHORIZED",
+            "laws": [
+                "GIT_COMMIT != OBSERVED_SUCCESS",
+                "CYCLE_VERIFIED != PROMOTION_QUALIFIED",
+                "PROMOTION_QUALIFIED != MERGE_AUTHORIZED",
+            ],
         }
 
     def advance_claimed(
@@ -192,7 +133,7 @@ class RehydrationControlRuntime:
         shared_remote_mode: str = "REQUIRED",
         allow_no_git_change: bool = False,
     ) -> dict:
-        state, paths = self._loop(loop_id)
+        _, paths = self._loop(loop_id)
         claim = self._claim_snapshot(
             loop_id=loop_id,
             agent_id=agent_id,
@@ -221,25 +162,18 @@ class RehydrationControlRuntime:
         if not material and not allow_no_git_change:
             raise ValueError("controlled advance requires substantive work outside loop and message-board control paths")
 
-        frontier = self.base._frontier_snapshot(
-            task=str(state.get("task") or state.get("goal") or ""),
-            profile=state.get("profile"),
-            source_ref=(state.get("source") or {}).get("source_ref") or "main",
-            remote=remote,
-            fetch=bool((state.get("source") or {}).get("fetch", True)),
-            use_frontier=bool((state.get("source") or {}).get("use_frontier", True)),
-        )
-        successor = self._successor(state, completion, frontier)
         gate = self._cycle_gate(completion, material)
         enriched = dict(completion)
-        enriched["next_task"] = successor["task"]
         enriched["_rehydration_control"] = {
             "artifact": ARTIFACT,
             "claim_id": (claim.get("presence") or {}).get("claim_id"),
             "agent_id": agent_id,
             "work_key": self.work_key(loop_id),
-            "successor": successor,
             "cycle_gate": gate,
+            "delegation": {
+                "successor": "canonical rehydration_successor extension on RehydrationLoopRuntime.advance",
+                "handoff_delta": "canonical rehydration_handoff operator",
+            },
         }
         result = self.base.advance(
             loop_id=loop_id,
@@ -252,15 +186,29 @@ class RehydrationControlRuntime:
             shared_remote_mode=shared_remote_mode,
             remote=remote,
         )
+        successor = ((result.get("successor_baton") or {}) if isinstance(result, dict) else {})
+        if not successor:
+            try:
+                next_state = self.base._read_state(loop_id)[0]
+                last = next_state.get("last_completion") or {}
+                successor = last.get("successor_baton") or {}
+            except Exception:
+                successor = {}
         return {
             **result,
             "artifact": ARTIFACT,
             "claim": {"status": "CLAIM_VERIFIED", "claim_id": (claim.get("presence") or {}).get("claim_id")},
-            "successor": successor,
             "cycle_gate": gate,
+            "routing_successor": successor or None,
+            "laws": [
+                "MESSAGE_BOARD_IS_SOLE_CLAIM_AUTHORITY",
+                "WHAT_NEXT_OWNED_BY_REHYDRATION_SUCCESSOR",
+                "WHAT_TO_REHYDRATE_OWNED_BY_REHYDRATION_HANDOFF",
+                "CYCLE_VERIFIED != PROMOTION_QUALIFIED != MERGE_AUTHORIZED",
+            ],
         }
 
-    def handoff(
+    def claim_handoff(
         self,
         *,
         loop_id: str,
@@ -273,7 +221,7 @@ class RehydrationControlRuntime:
         result = self.board.release(
             agent_id=agent_id,
             release_status="HANDOFF",
-            outcome=outcome or f"handoff rehydration loop {loop_id} step {state.get('step_index')}",
+            outcome=outcome or f"coordination handoff for rehydration {loop_id} step {state.get('step_index')}",
             handoff_to=handoff_to,
             remote=remote,
         )
@@ -283,8 +231,11 @@ class RehydrationControlRuntime:
             "loop_id": loop_id,
             "step_index": state.get("step_index"),
             "handoff_to": handoff_to,
-            "next": "target agent reads board, claims the released rehydration work_key, then resumes the loop",
-            "law": "HANDOFF_ROUTE != HANDOFF_CONSUMPTION",
+            "next": "target reads Message Board, claims rehydration:<loop_id>, then consumes the canonical rehydration handoff delta or resumes normally",
+            "laws": [
+                "CLAIM_HANDOFF != REHYDRATION_HANDOFF_DELTA",
+                "HANDOFF_ROUTE != HANDOFF_CONSUMPTION",
+            ],
         }
 
     def resume_controlled(
@@ -296,19 +247,22 @@ class RehydrationControlRuntime:
         shared_remote_mode: str = "REQUIRED",
         include_prompt: bool = True,
     ) -> dict:
-        loop = self.base.resume(loop_id, include_prompt=include_prompt)
+        loop = self.base.resume(
+            loop_id,
+            include_prompt=include_prompt,
+            shared_remote_mode=shared_remote_mode,
+            remote=remote,
+        )
         board = self.board.read(
             agent_id=agent_id,
             include_stale=True,
             remote=remote,
             shared_remote_mode=shared_remote_mode,
         )
-        owners = [
-            row for row in (board.get("active") or [])
-            if str(row.get("work_key") or "") == self.work_key(loop_id)
-        ]
+        owners = [row for row in (board.get("active") or []) if str(row.get("work_key") or "") == self.work_key(loop_id)]
         last = self.base._read_state(loop_id)[0].get("last_completion") or {}
         control = last.get("_rehydration_control") if isinstance(last, dict) else None
+        successor = last.get("successor_baton") if isinstance(last, dict) else None
         return {
             "artifact": ARTIFACT,
             "status": loop.get("status") if board.get("status") in {"OK", "OK_UNVERIFIED"} else board.get("status"),
@@ -321,9 +275,12 @@ class RehydrationControlRuntime:
                 "shared_frontier_verified": board.get("shared_frontier_verified"),
             },
             "last_control": control,
+            "routing_successor": successor,
+            "next": "use athena_rehydration_handoff_delta/resume for compressed cross-agent rehydration state",
             "laws": [
                 "MESSAGE_BOARD_IS_SOLE_CLAIM_AUTHORITY",
                 "SELF_PROMPT != CLAIM_AUTHORITY",
+                "ROUTING_SUCCESSOR != HANDOFF_DELTA",
                 "CYCLE_VERIFIED != PROMOTION_QUALIFIED",
             ],
         }
@@ -339,11 +296,10 @@ class RehydrationControlRuntime:
                 loop_id=a["loop_id"], agent_id=a["agent_id"], expected_checkpoint_head=a["expected_checkpoint_head"],
                 expected_state_digest=a["expected_state_digest"], expected_prompt_digest=a["expected_prompt_digest"],
                 completion=a["completion"], remote=a.get("remote", "origin"),
-                shared_remote_mode=a.get("shared_remote_mode", "REQUIRED"),
-                allow_no_git_change=a.get("allow_no_git_change", False),
+                shared_remote_mode=a.get("shared_remote_mode", "REQUIRED"), allow_no_git_change=a.get("allow_no_git_change", False),
             )
-        if name == "athena_rehydration_handoff":
-            return self.handoff(
+        if name == "athena_rehydration_claim_handoff":
+            return self.claim_handoff(
                 loop_id=a["loop_id"], agent_id=a["agent_id"], handoff_to=a["handoff_to"],
                 outcome=a.get("outcome"), remote=a.get("remote", "origin"),
             )
@@ -358,55 +314,39 @@ class RehydrationControlRuntime:
 CONTROL_TOOLS = [
     {
         "name": "athena_rehydration_claim",
-        "description": "Claim one rehydration loop through Message Board V1, the sole shared coordination authority. Exact work_key is rehydration:<loop_id>; duplicate primary claims hold.",
-        "inputSchema": {
-            "type": "object", "required": ["loop_id", "agent_id"],
-            "properties": {
-                "loop_id": {"type": "string"}, "agent_id": {"type": "string"},
-                "lease_seconds": {"type": "integer", "minimum": 60, "maximum": 86400},
-                "remote": {"type": "string"}, "details": {"type": ["string", "null"]},
-            }, "additionalProperties": False,
-        },
+        "description": "Claim a rehydration:<loop_id> lane through Message Board V1, the sole coordination authority. Duplicate primary work holds rather than creating a second lease plane.",
+        "inputSchema": {"type": "object", "required": ["loop_id", "agent_id"], "properties": {
+            "loop_id": {"type": "string"}, "agent_id": {"type": "string"},
+            "lease_seconds": {"type": "integer", "minimum": 60, "maximum": 86400},
+            "remote": {"type": "string"}, "details": {"type": ["string", "null"]}
+        }, "additionalProperties": False},
     },
     {
         "name": "athena_rehydration_advance_claimed",
-        "description": "Advance a rehydration loop only when the agent owns the active primary Message Board claim. Derives a bounded successor from explicit next_task, observed residuals, or the fresh frontier; annotates a local cycle verification gate; then delegates persistence to the V1 loop.",
-        "inputSchema": {
-            "type": "object",
-            "required": ["loop_id", "agent_id", "expected_checkpoint_head", "expected_state_digest", "expected_prompt_digest", "completion"],
-            "properties": {
-                "loop_id": {"type": "string"}, "agent_id": {"type": "string"},
-                "expected_checkpoint_head": {"type": "string"}, "expected_state_digest": {"type": "string"},
-                "expected_prompt_digest": {"type": "string"}, "completion": {"type": "object"},
-                "remote": {"type": "string"},
-                "shared_remote_mode": {"type": "string", "enum": ["REQUIRED", "BEST_EFFORT", "DISABLED"]},
-                "allow_no_git_change": {"type": "boolean"},
-            }, "additionalProperties": False,
-        },
+        "description": "Advance only when the caller owns the active PRIMARY Message Board claim. Reject control-only Git changes as work, attach a local cycle verification gate, then delegate successor routing and causal persistence to the canonical rehydration runtime.",
+        "inputSchema": {"type": "object", "required": ["loop_id", "agent_id", "expected_checkpoint_head", "expected_state_digest", "expected_prompt_digest", "completion"], "properties": {
+            "loop_id": {"type": "string"}, "agent_id": {"type": "string"},
+            "expected_checkpoint_head": {"type": "string"}, "expected_state_digest": {"type": "string"},
+            "expected_prompt_digest": {"type": "string"}, "completion": {"type": "object"},
+            "remote": {"type": "string"}, "shared_remote_mode": {"type": "string", "enum": ["REQUIRED", "BEST_EFFORT", "DISABLED"]},
+            "allow_no_git_change": {"type": "boolean"}
+        }, "additionalProperties": False},
     },
     {
-        "name": "athena_rehydration_handoff",
-        "description": "Release the current rehydration claim through Message Board with HANDOFF semantics and route the lane to another agent without marking the work complete.",
-        "inputSchema": {
-            "type": "object", "required": ["loop_id", "agent_id", "handoff_to"],
-            "properties": {
-                "loop_id": {"type": "string"}, "agent_id": {"type": "string"}, "handoff_to": {"type": "string"},
-                "outcome": {"type": ["string", "null"]}, "remote": {"type": "string"},
-            }, "additionalProperties": False,
-        },
+        "name": "athena_rehydration_claim_handoff",
+        "description": "Transfer only the Message Board work claim with HANDOFF semantics. The canonical rehydration_handoff tools remain responsible for what state/prompt delta the next agent must consume.",
+        "inputSchema": {"type": "object", "required": ["loop_id", "agent_id", "handoff_to"], "properties": {
+            "loop_id": {"type": "string"}, "agent_id": {"type": "string"}, "handoff_to": {"type": "string"},
+            "outcome": {"type": ["string", "null"]}, "remote": {"type": "string"}
+        }, "additionalProperties": False},
     },
     {
         "name": "athena_rehydration_resume_controlled",
-        "description": "Resume a rehydration loop together with its Message Board ownership/handoff state and the prior cycle's successor/gate annotation.",
-        "inputSchema": {
-            "type": "object", "required": ["loop_id"],
-            "properties": {
-                "loop_id": {"type": "string"}, "agent_id": {"type": ["string", "null"]},
-                "remote": {"type": "string"},
-                "shared_remote_mode": {"type": "string", "enum": ["REQUIRED", "BEST_EFFORT", "DISABLED"]},
-                "include_prompt": {"type": "boolean"},
-            }, "additionalProperties": False,
-        },
+        "description": "Resume the shared-current loop together with Message Board ownership and the receipt-bound canonical routing successor. Use rehydration_handoff_delta/resume for compressed handoff state.",
+        "inputSchema": {"type": "object", "required": ["loop_id"], "properties": {
+            "loop_id": {"type": "string"}, "agent_id": {"type": ["string", "null"]}, "remote": {"type": "string"},
+            "shared_remote_mode": {"type": "string", "enum": ["REQUIRED", "BEST_EFFORT", "DISABLED"]}, "include_prompt": {"type": "boolean"}
+        }, "additionalProperties": False},
     },
 ]
 CONTROL_TOOL_NAMES = {x["name"] for x in CONTROL_TOOLS}

@@ -1,67 +1,67 @@
 ---
 name: git-rehydration-control
-description: Coordinate long Git rehydration chains across agents using Message Board ownership, deterministic successor derivation, and cycle-local verification gates without confusing work completion with promotion.
+description: Add Message Board ownership and cycle-local verification gates to long Git rehydration chains without duplicating the canonical successor-routing or handoff-delta organs.
 ---
 
 # ATHENA Git Rehydration Control V1.1
 
-Use this skill after `git-rehydration-loop` when a loop must survive multiple explicit cycles or pass between agents without duplicate work.
+Use this skill with `git-rehydration-loop` when a long explicit chain can span several agents and must prevent duplicate work.
 
 ## Coordinate
 
 `ATHENA.KC144::GITΩ::REHYDRATION-CONTROL::V1.1`
 
-## Architecture
+## Ownership boundaries
 
 ```text
-RehydrationLoopRuntime = causal prompt/receipt authority
-MessageBoardRuntime    = sole coordination/claim authority
-RehydrationControl     = bridge: claim check + successor + local cycle gate
+MessageBoardRuntime      = claim / lease / coordination handoff authority
+rehydration_successor    = WHAT NEXT routing authority
+rehydration_handoff      = WHAT TO REHYDRATE delta/handoff authority
+RehydrationLoopRuntime   = causal prompt / receipt / replay authority
+RehydrationControl V1.1  = conjunction + local cycle gate only
 ```
 
-Never create a second lease/claim store for rehydration. Message Board V1 owns presence, exact work-key exclusion, collaboration, heartbeats and handoff.
+Do not create another lease file, successor selector, or handoff-delta algorithm in this layer.
 
 ## Tools
 
 ### `athena_rehydration_claim`
 
-Claims `rehydration:<loop_id>` through Message Board using the loop path as the target. Duplicate primary work claims fail closed at the board.
+Claim exact work key `rehydration:<loop_id>` through Message Board V1. The loop directory is declared as the work target. Duplicate primary claims remain a Message Board hold.
 
 ### `athena_rehydration_advance_claimed`
 
-Use instead of the raw advance tool for coordinated long chains. It requires the caller to hold the active PRIMARY Message Board claim, rejects message-board-only commits as substantive work, and then:
-
-1. reads the exact loop state;
-2. verifies current claim ownership;
-3. calculates material Git paths excluding loop/control files;
-4. derives the next bounded task;
-5. emits a local cycle gate;
-6. embeds both packets inside the completion receipt;
-7. delegates persistence and next-prompt compilation to RehydrationLoopRuntime.
-
-Successor precedence is deterministic:
+Use this instead of raw `athena_rehydration_advance` for coordinated chains. It requires the caller to hold the current active PRIMARY Message Board claim and rejects Git changes confined to:
 
 ```text
-explicit completion.next_task
-> observed completion residual
-> fresh frontier selected item
-> fresh frontier residual
-> current task fallback
+prompts/rehydration/<loop_id>/
+runtime/message_board/v1/
 ```
 
-The chosen successor changes the **next prompt**, not authority.
+as non-substantive control traffic.
 
-### `athena_rehydration_handoff`
+The tool adds `_rehydration_control.cycle_gate` to the completion receipt and then delegates to the existing RehydrationLoopRuntime. Existing successor auto-steering remains responsible for `successor_baton` and next-prompt routing.
 
-Releases the current board claim with `HANDOFF` semantics and routes it to a target agent. The target must read the board, claim the released `rehydration:<loop_id>` lane, then resume the loop. Message routing does not prove message consumption.
+### `athena_rehydration_claim_handoff`
+
+Transfers **only coordination ownership** through Message Board `HANDOFF` release semantics. It deliberately does not derive or consume the rehydration handoff delta.
+
+After claim handoff, the target agent should use:
+
+```text
+athena_rehydration_handoff_delta
+athena_rehydration_handoff_resume
+```
+
+or ordinary resume as appropriate.
 
 ### `athena_rehydration_resume_controlled`
 
-Returns the ordinary rehydration packet plus active Message Board owners, unread messages, and the previous cycle's successor/gate packet.
+Returns shared-current loop state plus active Message Board owner(s), unread messages, prior local cycle gate, and the receipt-bound canonical routing successor when present.
 
-## Cycle gates
+## Cycle gate
 
-`cycle_gate.state` is one of:
+States:
 
 ```text
 VERIFIED_CYCLE
@@ -70,48 +70,43 @@ OBSERVED_CYCLE
 HOLD_CYCLE
 ```
 
-`VERIFIED_CYCLE` currently requires:
+`VERIFIED_CYCLE` requires:
 
-- `status=SUCCEEDED`;
-- substantive Git paths outside the rehydration and Message Board namespaces;
+- `completion.status == SUCCEEDED`;
+- substantive work outside loop/Message Board control paths;
 - at least one evidence reference;
-- at least one test and every recorded test `PASS`.
+- at least one recorded test;
+- all recorded test states `PASS`.
 
-Every gate carries:
+Every cycle gate carries:
 
 ```text
 promotion_qualified = false
 authority = LOCAL_CYCLE_ONLY
 ```
 
-because:
+because local cycle verification is not the Promotion/Release system.
+
+## Long-chain pattern
 
 ```text
-CYCLE_VERIFIED != PROMOTION_QUALIFIED != MERGE_AUTHORIZED
-```
-
-Promotion remains the separate exact-head Promotion/Release system.
-
-## Cross-agent algorithm
-
-```text
-agent A claims loop
-→ resume exact prompt
-→ commit one bounded work slice
+claim loop through Message Board
+→ resume current prompt/handoff
+→ execute bounded cycle
+→ commit substantive work
 → advance_claimed
-→ optionally repeat
-→ handoff(agent B)
-→ agent B reads Message Board
-→ agent B claims released work_key
-→ resume_controlled
-→ continue from exact loop checkpoint
+→ canonical successor compiler updates next prompt when routing was left open
+→ repeat
+→ claim_handoff when ownership changes
+→ target consumes canonical handoff delta and claims lane
 ```
 
 ## Laws
 
 - `MESSAGE_BOARD_IS_SOLE_CLAIM_AUTHORITY`.
-- `SELF_PROMPT != CLAIM_AUTHORITY`.
-- `SUCCESSOR_DERIVATION != PROMOTION_AUTHORITY`.
+- `WHAT_NEXT_OWNED_BY_REHYDRATION_SUCCESSOR`.
+- `WHAT_TO_REHYDRATE_OWNED_BY_REHYDRATION_HANDOFF`.
 - `MESSAGE_BOARD_ONLY_CHANGE != SUBSTANTIVE_WORK`.
+- `CLAIM_HANDOFF != REHYDRATION_HANDOFF_DELTA`.
 - `HANDOFF_ROUTE != HANDOFF_CONSUMPTION`.
 - `CYCLE_VERIFIED != PROMOTION_QUALIFIED != MERGE_AUTHORIZED`.
