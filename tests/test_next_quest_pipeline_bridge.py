@@ -110,7 +110,7 @@ class NextPipelineFocusBridgeTests(unittest.TestCase):
         self.assertEqual(result["new_focus"]["task"], "Quest two")
         self.assertEqual(result["reseed_baton"]["selected"]["task"], "Quest four")
         self.assertEqual([q["task"] for q in result["pipeline"]["window"]["execution_order"]], ["Quest two", "Quest three", "Quest four"])
-        resumed = self.loop.resume(self.loop_start["loop_id"])
+        resumed = self.loop.resume(self.loop_start["loop_id"], shared_remote_mode="DISABLED")
         self.assertEqual(resumed["task"], "Quest two")
         self.assertIn("feature.txt", result["material_work_paths"])
 
