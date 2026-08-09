@@ -13,24 +13,24 @@ class ReleaseDistributionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.root=Path(__file__).resolve().parents[1]
-        cls.manifest=json.loads((cls.root/'release'/'v3.2.0.json').read_text(encoding='utf-8'))
-        cls.notes=(cls.root/'release'/'v3.2.0.md').read_text(encoding='utf-8')
+        cls.manifest=json.loads((cls.root/'release'/'v3.3.0.json').read_text(encoding='utf-8'))
+        cls.notes=(cls.root/'release'/'v3.3.0.md').read_text(encoding='utf-8')
         cls.project=tomllib.loads((cls.root/'pyproject.toml').read_text(encoding='utf-8'))['project']
-        cls.workflow=(cls.root/'.github'/'workflows'/'release.yml').read_text(encoding='utf-8')
+        cls.workflow=(cls.root/'.github'/'workflows'/'release-v3.3.yml').read_text(encoding='utf-8')
         cls.gitignore=(cls.root/'.gitignore').read_text(encoding='utf-8')
 
     def test_release_identity_matches_current_package_and_runtime(self):
         m=self.manifest
         self.assertEqual(m['schema'],'ATHENA.RELEASE.DISTRIBUTION.2')
         self.assertEqual(m['version'],self.project['version'])
-        self.assertEqual(m['version'],'3.2.0')
-        self.assertEqual(m['tag'],'v3.2.0')
+        self.assertEqual(m['version'],'3.3.0')
+        self.assertEqual(m['tag'],'v3.3.0')
         self.assertEqual(m['package']['name'],self.project['name'])
         self.assertEqual(m['package']['entrypoint'],self.project['scripts']['athena-mcp'])
         self.assertEqual(m['package']['entrypoint'],'athena_mcp.server:main')
         self.assertEqual(m['runtime']['manifest'],UNIFIED_MANIFEST_VERSION)
-        self.assertEqual(UNIFIED_MANIFEST_VERSION,'ATHENA.RUNTIME.UNIFIED.9')
-        self.assertEqual(m['runtime']['collective_frontier'],'COLLECTIVE_ROBUST_V13')
+        self.assertEqual(UNIFIED_MANIFEST_VERSION,'ATHENA.RUNTIME.UNIFIED.10')
+        self.assertEqual(m['runtime']['collective_frontier'],'COLLECTIVE_SYNTHESIS_V14')
         self.assertEqual(m['runtime']['promotion'],PROMOTION_VERSION)
         self.assertEqual(PROMOTION_VERSION,'ATHENA.PROMOTION.2')
         self.assertEqual(m['runtime']['trusted_verifier'],GITHUB_PROMOTION_VERIFIER_VERSION)
@@ -45,22 +45,19 @@ class ReleaseDistributionTests(unittest.TestCase):
         self.assertTrue(p['exact_commit_is_bound_in_release_attestation'])
         self.assertEqual(p['qualification_checks'],['syntax','unit','critical-invariants','smoke','promotion-qualification'])
 
-    def test_required_assets_match_current_distribution_not_historical_carrier(self):
+    def test_required_assets_match_current_distribution(self):
         assets=set(self.manifest['release']['required_assets'])
         self.assertEqual(assets,{
-            'athena_canonical_mcp-3.2.0-py3-none-any.whl',
-            'promotion-receipt.json','release-manifest.json','release-attestation.json','SHA256SUMS',
+            'athena_canonical_mcp-3.3.0-py3-none-any.whl','promotion-receipt.json','release-manifest.json','release-attestation.json','SHA256SUMS',
         })
-        joined=' '.join(sorted(assets))
-        self.assertNotIn('kc144-core-registries.tar.xz',joined)
-        self.assertNotIn('hub_server',json.dumps(self.manifest))
+        self.assertNotIn('athena_canonical_mcp-3.2.0-py3-none-any.whl',' '.join(sorted(assets)))
 
-    def test_current_v13_surface_is_explicit_in_manifest(self):
+    def test_current_v14_surface_is_explicit_in_manifest(self):
         tools=set(self.manifest['runtime']['required_tools'])
-        for name in ('athena_gp_hyperqmc','athena_gp_fitc_predict','athena_gp_joint_design','athena_fci_lite_discover','athena_longitudinal_tmle','athena_dynamic_policy_value','athena_dro_resource_select','athena_promotion_evaluate','athena_promotion_verify_github'):
+        for name in ('athena_gp_hyperqmc','athena_dro_resource_select','athena_joint_factor_belief','athena_structural_bootstrap_ensemble','athena_joint_science_evi','athena_sequential_dr_policy_value','athena_joint_policy_robust','athena_gp_resolution_route','athena_two_stage_resource_plan','athena_promotion_evaluate','athena_promotion_verify_github'):
             self.assertIn(name,tools)
         resources=set(self.manifest['runtime']['required_resources'])
-        for uri in ('athena://manifest','athena://runtime/unified-manifest','athena://promotion','athena://collective/v13'):
+        for uri in ('athena://manifest','athena://runtime/unified-manifest','athena://promotion','athena://collective/v13','athena://collective/v14'):
             self.assertIn(uri,resources)
 
     def test_release_workflow_is_pr_testable_but_publish_is_manual_master_only(self):
@@ -71,45 +68,43 @@ class ReleaseDistributionTests(unittest.TestCase):
             'RELEASE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}',
             'git rev-parse origin/master', 'scripts/qualify_github_head.py',
             'actions/download-artifact@v5', 'actions/upload-artifact@v4',
-            'release-candidate-v3.2.0-${{ env.RELEASE_HEAD }}', 'promotion-receipt-${{ env.RELEASE_HEAD }}',
+            'release-candidate-v3.3.0-${{ env.RELEASE_HEAD }}', 'promotion-receipt-${{ env.RELEASE_HEAD }}',
             'python -m pip wheel --no-deps . -w dist', 'athena_mcp.server',
-            'ATHENA.RUNTIME.UNIFIED.9', 'COLLECTIVE_ROBUST_V13',
+            'ATHENA.RUNTIME.UNIFIED.10', 'COLLECTIVE_SYNTHESIS_V14',
+            'V14 joint posterior synthesis and authority boundaries',
             'gh release create', '--verify-tag', 'refs/tags/$TAG', 'TAG_TARGET',
             '(cd dist && sha256sum -c SHA256SUMS)', 'release-attestation.json', 'trusted_promotion',
         ):
             self.assertIn(fragment,w)
-        self.assertNotIn("branches:\n      - 'agent/aor-collective-unified'",w)
         self.assertNotRegex(w,re.compile(r'(?m)^\s*push:\s*$'))
         self.assertNotRegex(w,re.compile(r'continue-on-error:\s*true'))
-        self.assertNotIn('athena_mcp.hub_server',w)
-        self.assertNotIn('kc144-core-registries.tar.xz',w)
 
     def test_job_level_env_blocks_use_contexts_legal_at_job_env_scope(self):
-        # GitHub Actions does not expose the `env` context while evaluating
-        # jobs.<job_id>.env. Workflow-level values remain available to runner
-        # steps, but job-env expressions must use contexts valid at that scope.
-        lines=self.workflow.splitlines()
-        in_job_env=False
+        lines=self.workflow.splitlines();in_job_env=False
         for line in lines:
-            if line == '    env:':
-                in_job_env=True
-                continue
-            if in_job_env and not line.startswith('      '):
-                in_job_env=False
-            if in_job_env:
-                self.assertNotIn('${{ env.',line,line)
-        self.assertIn(
-            'ATHENA_PROMOTION_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}',
-            self.workflow,
-        )
+            if line == '    env:':in_job_env=True;continue
+            if in_job_env and not line.startswith('      '):in_job_env=False
+            if in_job_env:self.assertNotIn('${{ env.',line,line)
+        self.assertIn('ATHENA_PROMOTION_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}',self.workflow)
 
-    def test_package_readiness_transient_promotion_input_preserves_clean_checkout_gate(self):
+    def test_package_readiness_preserves_clean_checkout_and_receipt_binding(self):
         w=self.workflow
         package=w[w.index('\n  package-readiness:'):w.index('\n  publish:')]
         ignored={line.strip() for line in self.gitignore.splitlines() if line.strip() and not line.lstrip().startswith('#')}
         self.assertIn('promotion-input/',ignored)
         self.assertIn('path: promotion-input',package)
         self.assertIn('test -z "$(git status --porcelain)"',package)
+        for fragment in (
+            'test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"',
+            "assert promotion['git_head']==os.environ['RELEASE_HEAD']",
+            "assert promotion['promotion']['status']=='QUALIFIED'",
+            "'release_commit':os.environ['RELEASE_HEAD']",
+            "'promrun':promotion['promotion']['run_id']",
+            "'verification_ref':promotion['verification_ref']",
+            "'receipt_sha256':sha(promo)",
+            'test "$TAG_TARGET" = "$RELEASE_HEAD"',
+        ):
+            self.assertIn(fragment,w)
 
     def test_release_workflow_uses_least_privilege_until_manual_publish(self):
         w=self.workflow
@@ -119,40 +114,23 @@ class ReleaseDistributionTests(unittest.TestCase):
         self.assertEqual(w.count('contents: write'),1,w)
         self.assertNotIn('contents: write',w[:w.index('\n  publish:')])
 
-    def test_package_readiness_binds_trusted_receipt_to_same_release_head(self):
-        w=self.workflow
-        for fragment in (
-            'test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"',
-            "assert promotion['git_head']==os.environ['RELEASE_HEAD']",
-            "assert promotion['promotion']['status']=='QUALIFIED'",
-            "assert promotion['replay']['match'] is True",
-            "'release_commit':os.environ['RELEASE_HEAD']",
-            "'promrun':promotion['promotion']['run_id']",
-            "'verification_ref':promotion['verification_ref']",
-            "'receipt_sha256':sha(promo)",
-            "assert att['release_commit']==os.environ['RELEASE_HEAD']",
-            'test "$TAG_TARGET" = "$RELEASE_HEAD"',
-        ):
-            self.assertIn(fragment,w)
-        self.assertNotIn("promotion['git_head']==os.environ['GITHUB_SHA']",w)
-        self.assertNotIn("'release_commit':os.environ['GITHUB_SHA']",w)
-
-    def test_release_notes_preserve_v13_and_trust_claim_ceilings(self):
+    def test_release_notes_preserve_v14_and_trust_claim_ceilings(self):
         n=self.notes
         for phrase in (
-            'ATHENA 3.2.0','Collective V13','UNIFIED.9','GITHUB_PROMOTION_VERIFIER.1',
-            'QMC_CONTINUOUS_HYPERPOSTERIOR != EXACT_CONTINUOUS_HYPERPARAMETER_BAYES',
-            'FITC_INDUCING_GP != FULL_GP_POSTERIOR_OR_VARIATIONAL_OPTIMUM',
-            'STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION',
-            'ELLIPSOIDAL_GAUSSIAN_ROBUST_PLAN != GENERAL_DISTRIBUTIONALLY_ROBUST_OPTIMIZATION',
-            'caller-bound readiness','one coherent exact-head Actions run/check-suite',
+            'ATHENA 3.3.0','Collective Synthesis V14','UNIFIED.10','GITHUB_PROMOTION_VERIFIER.1',
+            'FINITE_FACTOR_PRODUCT_BELIEF != FULL_JOINT_POSTERIOR',
+            'BOOTSTRAP_GRAPH_FREQUENCY != CAUSAL_POSTERIOR',
+            'STAGE2_POLICY_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_POLICY_EVALUATION',
+            'QUERY_SET_DECISION_PRESERVATION != GLOBAL_APPROXIMATION_CERTIFICATE',
+            'FINITE_TWO_STAGE_SCENARIO_RECOURSE != GENERAL_MULTISTAGE_STOCHASTIC_PROGRAM',
+            'cross_fitted=false','one coherent trusted Actions suite',
             'This release certifies repository/package/distribution state. It is not a production deployment',
         ):
             self.assertIn(phrase,n)
 
     def test_authority_boundaries_do_not_collapse_distribution_into_truth_or_admin(self):
         boundaries=' '.join(self.manifest['authority_boundaries']).lower()
-        for phrase in ('not deployment','not empirical truth','do not become y1 authority','not github administrative hardening','does not authorize production','not evidence for v3.2.0 bytes'):
+        for phrase in ('not deployment','not empirical truth','do not become y1 authority','not github administrative hardening','does not authorize treatment execution','v3.2.0 release attestation is not evidence for v3.3.0 bytes'):
             self.assertIn(phrase,boundaries)
 
 

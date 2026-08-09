@@ -1,9 +1,8 @@
-"""ATHENA canonical MCP package registrations plus Message Board V1.
+"""ATHENA canonical MCP package registrations plus additive runtime extensions.
 
-The exact v3.2.0 registration body preceding Message Board V1 is preserved in
-`_init_v32_legacy.py` and executed in this package namespace. Keeping that body
-byte-identical makes this extension additive instead of reimplementing the
-existing frontier/rehydration/bootstrap compatibility stack.
+The exact v3.2.0 registration body is preserved in `_init_v32_legacy.py` and
+executed in this package namespace. Current organs are installed additively so
+historical registration lineage remains inspectable instead of being rewritten.
 """
 
 from pathlib import Path as _Path
@@ -56,3 +55,18 @@ from .agent_bootstrap_cohesion_treatment import (
 )
 
 install_agent_bootstrap_cohesion_treatment(AgentBootstrapRuntime)
+
+# Collective V14 advances only current release identity and the lazy scientific
+# frontier; it leaves the preserved v3.2 registration body and later operational
+# organs intact.
+from .collective_v14_install import install_release_v14 as _install_release_v14
+
+_install_release_v14(globals())
+del _install_release_v14
+
+# DEPLOYMENT-002 composes after V14 so initialize/manifest projections preserve
+# the current release identity and scientific frontier. It extends existing
+# PromptRuntime and AorDevelopmentSurface seams without replacing Server.
+from .deployment_extension import install_deployment_extension
+
+install_deployment_extension()

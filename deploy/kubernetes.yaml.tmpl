@@ -1,0 +1,126 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: __NAMESPACE__
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: __PVC_NAME__
+  namespace: __NAMESPACE__
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: athena-mcp
+  namespace: __NAMESPACE__
+  labels:
+    app.kubernetes.io/name: athena-mcp
+    app.kubernetes.io/component: canonical-runtime
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: athena-mcp
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: athena-mcp
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
+        fsGroup: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: athena
+          image: __IMAGE__
+          imagePullPolicy: IfNotPresent
+          args:
+            - --host
+            - 0.0.0.0
+            - --port
+            - "8765"
+            - --db
+            - /var/lib/athena/athena.db
+            - --migrate
+            - --token-file
+            - /run/secrets/athena/token
+          ports:
+            - name: http
+              containerPort: 8765
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
+              cpu: "2"
+              memory: 2Gi
+          volumeMounts:
+            - name: state
+              mountPath: /var/lib/athena
+            - name: token
+              mountPath: /run/secrets/athena
+              readOnly: true
+            - name: tmp
+              mountPath: /tmp
+          livenessProbe:
+            httpGet:
+              path: /livez
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 15
+            timeoutSeconds: 3
+            failureThreshold: 4
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: state
+          persistentVolumeClaim:
+            claimName: __PVC_NAME__
+        - name: token
+          secret:
+            secretName: __SECRET_NAME__
+            defaultMode: 0400
+        - name: tmp
+          emptyDir:
+            medium: Memory
+            sizeLimit: 64Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: athena-mcp
+  namespace: __NAMESPACE__
+spec:
+  selector:
+    app.kubernetes.io/name: athena-mcp
+  ports:
+    - name: http
+      port: 8765
+      targetPort: http
+  type: ClusterIP
