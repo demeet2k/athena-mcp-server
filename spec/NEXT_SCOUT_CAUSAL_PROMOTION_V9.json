@@ -9,7 +9,8 @@
   ],
   "inputs": {
     "source": "V8 counterfactual pair receipts",
-    "split": "independently sourced, observed, assigned_before_outcome=true",
+    "split": "independently sourced attestation with observed=true and assigned_before_outcome=true",
+    "split_evidence_ceiling": "ATTESTED_PREOUTCOME_SPLIT_NOT_HOST_VERIFIED_RANDOMIZATION",
     "minimum_pairs_per_cohort": 3
   },
   "gates": {
@@ -35,6 +36,7 @@
   "laws": [
     "DISCOVERY_SET != VALIDATION_SET",
     "VALIDATION_ASSIGNMENT_MUST_PRECEDE_OUTCOME_OBSERVATION",
+    "PREOUTCOME_SPLIT_ATTESTATION != RANDOMIZATION_PROOF",
     "RECEIPT_IDENTITY_CANNOT_LEAK_ACROSS_COHORTS",
     "HELD_OUT_REPLICATION != RANDOMIZED_CAUSAL_PROOF",
     "VALIDATION_FAILURE => ABSTAIN",
