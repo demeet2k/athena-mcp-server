@@ -1,0 +1,62 @@
+{
+  "artifact": "ATHENA.AGENT.BOOT.PROJECT.MEMORY.V1",
+  "coordinate": "ATHENA::AGENT-BOOT::PROJECT-MEMORY::RUNTIME-ADAPTER::V1",
+  "status": "CANDIDATE",
+  "semantic_contract": {
+    "repo": "demeet2k/Athena",
+    "claim": 371,
+    "draft_pr": 383,
+    "head": "cb6b21ba70b25ffdb926681395ef999f7bafaf62",
+    "packet_artifact": "ATHENA.PROJECT.MEMORY.BOOT.PACKET.V1"
+  },
+  "runtime_claim": 232,
+  "address_extension": "project_memory_digest",
+  "packet_field": "project_memory",
+  "request_fields": [
+    "project_memory_packet",
+    "project_memory_selected",
+    "project_memory_required"
+  ],
+  "installation": "last-installed sibling wrapper after BOOT-MB activation and Cohesion treatment",
+  "scope": "validate/bind an already compiled project-memory packet; no PM40/NCAB/JSPACE retrieval duplication",
+  "statuses": [
+    "PROJECT_MEMORY_NOT_SELECTED",
+    "PROJECT_MEMORY_OPTIONAL_HOLD",
+    "PROJECT_MEMORY_REQUIRED_HOLD",
+    "PROJECT_MEMORY_HYDRATED"
+  ],
+  "refresh": {
+    "coordinate": "project_memory_digest",
+    "dependency_cone": "project_memory",
+    "remember_request_in_session": true,
+    "memory_only_change_must_not_invalidate": [
+      "prompt_policy",
+      "scheduler_frontier",
+      "issue_pressure_routing",
+      "rehydration_handoff"
+    ]
+  },
+  "hold_law": {
+    "optional": "typed project-memory HOLD; preserve unrelated boot standing",
+    "required": "PROJECT_MEMORY_REQUIRED_HOLD appended to holds and overall BOOTSTRAP_HOLD",
+    "invalid_packet": "fail closed; no selected content admitted"
+  },
+  "laws": [
+    "PROJECT_MEMORY != PROMPT_POLICY",
+    "PROJECT_MEMORY != SCHED_FRONTIER",
+    "PROJECT_MEMORY != ISSUE_PRESSURE",
+    "PROJECT_MEMORY != CONTINUATION_STATE",
+    "PROJECT_MEMORY != EXECUTION_AUTHORITY",
+    "RETRIEVED_MEMORY != EVIDENCE",
+    "RETRIEVED_MEMORY != FACTUAL_TRUTH",
+    "MEMORY_QUERY != SCHED_READY",
+    "INVALID_MEMORY_PACKET != EMPTY_MEMORY"
+  ],
+  "non_goals": [
+    "perform retrieval inside runtime adapter",
+    "mutate scheduler readiness",
+    "mint claim or execution authority",
+    "promote memory to evidence/truth",
+    "persist provider credentials or private reasoning"
+  ]
+}

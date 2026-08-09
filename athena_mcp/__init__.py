@@ -56,3 +56,16 @@ from .agent_bootstrap_cohesion_treatment import (
 )
 
 install_agent_bootstrap_cohesion_treatment(AgentBootstrapRuntime)
+
+# BOOT-PM-001: bind an already witnessed PM40/NCAB/JSPACE project-memory
+# packet as an independent routing coordinate. Install last so it preserves all
+# preceding boot/coordination/treatment semantics and only augments the final
+# address, refresh cone, and typed required-memory HOLD.
+from .agent_bootstrap_project_memory import (
+    extend_agent_boot_tool_schemas,
+    install_agent_bootstrap_project_memory,
+)
+
+extend_agent_boot_tool_schemas(AGENT_BOOT_TOOLS)
+extend_agent_boot_tool_schemas(_protocol.TOOLS)
+install_agent_bootstrap_project_memory(AgentBootstrapRuntime)
