@@ -62,7 +62,6 @@ def install_release_v14(namespace: dict[str, Any]) -> None:
     if namespace.get('_ATHENA_COLLECTIVE_V14_INSTALLED'):
         return
 
-    # Release identity override after the preserved v3.2 registration body.
     protocol=namespace['_protocol']
     namespace['__version__']=V14_PACKAGE_VERSION
     server_info={
@@ -73,16 +72,11 @@ def install_release_v14(namespace: dict[str, Any]) -> None:
     namespace['SERVER_INFO']=server_info
     protocol.SERVER_INFO=dict(server_info)
 
-    # Add the V14 resource before RuntimeIntegritySurface snapshots the unified
-    # manifest resource list into its composed integrity surface.
     from . import unified_manifest_protocol as ump
     if V14_RESOURCE['uri'] not in {r['uri'] for r in ump.UNIFIED_MANIFEST_RESOURCES}:
         ump.UNIFIED_MANIFEST_RESOURCES.append(dict(V14_RESOURCE))
         ump.UNIFIED_MANIFEST_RESOURCE_URIS.add(V14_RESOURCE['uri'])
 
-    # Extend live manifest semantics while preserving the V9 implementation as
-    # compatibility history. build_unified_manifest is wrapped rather than copied,
-    # so future state/schema/promotion fields still come from the mature source.
     from . import unified_manifest as um
     if not getattr(um,'_athena_collective_v14_installed',False):
         original_build=um.build_unified_manifest
@@ -104,15 +98,33 @@ def install_release_v14(namespace: dict[str, Any]) -> None:
             organs=dict(payload.get('organs') or {})
             organs['collective_v14']=_synthesis(server).describe()
             payload['organs']=organs
-            payload['cycle']=str(payload.get('cycle','')).replace('COLLECTIVE(V1-V13)','COLLECTIVE(V1-V14)')
-            payload['navigation']=str(payload.get('navigation','')).replace(
+
+            cycle=str(payload.get('cycle',''))
+            cycle=cycle.replace('COLLECTIVE(V1-V13)','COLLECTIVE(V1-V14)')
+            cycle=cycle.replace('Collective(V1-V13)','Collective(V1-V14)')
+            payload['cycle']=cycle
+
+            navigation=str(payload.get('navigation',''))
+            navigation=navigation.replace(
                 'COLLECTIVE_ROBUST_V13 <-> PROMOTION_TRUST_V2',
                 'COLLECTIVE_ROBUST_V13 <-> COLLECTIVE_SYNTHESIS_V14 <-> PROMOTION_TRUST_V2',
             )
-            payload['navigation']=payload['navigation'].replace(
+            navigation=navigation.replace(
                 'COLLECTIVE_ROBUST_V13 <-> Git/MCP',
                 'COLLECTIVE_ROBUST_V13 <-> COLLECTIVE_SYNTHESIS_V14 <-> Git/MCP',
             )
+            # UNIFIED.9 uses a compact aggregate chart rather than the older
+            # explicit successor ladder. Advance that chart as a distinct
+            # coordinate transform instead of assuming the older string form.
+            navigation=navigation.replace(
+                'Collective(V1-V13) <-> Git/MCP',
+                'Collective(V1-V14) <-> COLLECTIVE_SYNTHESIS_V14 <-> Git/MCP',
+            )
+            navigation=navigation.replace('Collective(V1-V13)','Collective(V1-V14)')
+            if V14_LAYER not in navigation:
+                navigation=f'{navigation} <-> {V14_LAYER}' if navigation else V14_LAYER
+            payload['navigation']=navigation
+
             invariants=list(payload.get('invariants') or [])
             for law in V14_LAWS:
                 if law not in invariants:
@@ -138,15 +150,13 @@ def install_release_v14(namespace: dict[str, Any]) -> None:
             return payload
 
         def maxdev_law_v14():
-            base=original_maxdev().replace('COLLECTIVE(V1-V13)','COLLECTIVE(V1-V14)')
+            base=original_maxdev().replace('COLLECTIVE(V1-V13)','COLLECTIVE(V1-V14)').replace('Collective(V1-V13)','Collective(V1-V14)')
             return base + '''\n\nV14 SYNTHESIS LAW:\n- build bounded finite joint science-twin states only from explicit factor axes/compatibility/likelihoods; factor product != universal posterior;\n- bootstrap FCI-lite graphs measure procedural stability, not causal edge probability;\n- value experiments jointly by finite-state decision EVI and entropy reduction while preserving DESIGN_ONLY;\n- two-timepoint sequential AIPW policy value preserves observed A1/L1 histories, declares cross_fitted=false, and remains assumption scoped;\n- robust policy comparison preserves expected utility, lower-tail CVaR, worst case, regret and Pareto alternatives before hidden scalarization;\n- route GP resolution only when FITC preserves the exact current decision on the witnessed action/query set within the declared margin-error rule;\n- finite two-stage resource recourse may be exactly enumerated only below its declared first-stage threshold; larger greedy plans are uncertified;\n- never feed joint beliefs, bootstrap graph frequencies, EVI branches, policy values, approximation routes or recourse plans back as observations, JSPACE edges, Y1 authority or execution history without a separate witnessed transition.\n'''
 
         um.build_unified_manifest=build_unified_manifest_v14
         um.maxdev_law=maxdev_law_v14
         um._athena_collective_v14_installed=True
 
-    # SURFACE.2 gets a dedicated V14 group instead of silently counting V14 as
-    # V13 merely because the protocol membrane is transitively extended.
     from . import surface_contract as sc
     from .collective_v14_protocol import COLLECTIVE_V14_TOOLS
     v14_names={tool['name'] for tool in COLLECTIVE_V14_TOOLS}
@@ -163,9 +173,6 @@ def install_release_v14(namespace: dict[str, Any]) -> None:
         sc.contract_manifest=contract_manifest_v14
         sc._athena_collective_v14_installed=True
 
-    # Register native read behavior through the integrity surface. Because the
-    # resource was added before this import, AorDevelopmentSurface will compose it
-    # automatically into resources/list and route resources/read here.
     from . import runtime_integrity_surface as ris
     ris.UNIFIED_MANIFEST_VERSION=V14_MANIFEST
     ris.build_unified_manifest=um.build_unified_manifest
