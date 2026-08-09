@@ -6,7 +6,7 @@ from typing import Any,Dict
 from .architecture_drift import audit_architecture
 from .architecture_drift_protocol import ARCHITECTURE_DRIFT_RESOURCES,ARCHITECTURE_DRIFT_TOOLS,ARCHITECTURE_DRIFT_TOOL_NAMES
 from .composition_integrity import composition_certificate
-from .coordination_inventory import inventory_manifest,mature_organs
+from .coordination_inventory import COORDINATION_INVENTORY_VERSION,inventory_manifest,mature_organs
 from .coordination_manifest import EFFECTIVE_UNIFIED_MANIFEST_VERSION,build_effective_manifest,effective_layers,effective_maxdev_law
 from .github_promotion_verifier import GITHUB_PROMOTION_VERIFIER_VERSION,GithubPromotionVerifier
 from .promotion import PromotionLedger
@@ -75,7 +75,7 @@ class RuntimeIntegritySurface:
         return audit_architecture(
             observed_tools=tool_names,observed_resources=resource_uris,manifest_layers=effective_layers(),
             surface_required_tools=req_tools,surface_required_resources=req_resources,omega_components=OMEGA_COMPONENTS,
-            ci_text=ci_text,available_paths=available_paths,organs=organs,
+            ci_text=ci_text,available_paths=available_paths,organs=organs,organ_inventory_version=COORDINATION_INVENTORY_VERSION,
             classified_tool_baseline=req_tools,classified_resource_baseline=req_resources,
         )
 
@@ -123,7 +123,12 @@ class RuntimeIntegritySurface:
         if uri==SURFACE_RESOURCE['uri']:
             return {'contract':contract_manifest(),'audit':self.surface_audit(True),'law':'SURFACE.2 discovery PASS is necessary but not sufficient; declared mature organs must also pass architecture-drift and COMPOSITION gates before PROMOTION.2 readiness'}
         if uri==PROMOTION_RESOURCE['uri']:
-            return {'version':'ATHENA.PROMOTION.2','compat':['ATHENA.PROMOTION.1'],'benchmark':self.promotion.benchmark(),'recent':self.promotion.recent(50),'github_verifier':self.github_promotion_verifier.describe(),'architecture_drift':self.architecture_drift_audit(False),'law':'ATTESTED_READY iff unified Server + SURFACE.2 + COMPOSITION.2 + ARCHITECTURE.DRIFT.1 + configured local Git gate + caller-bound CI/smoke packets all PASS on the same exact head; QUALIFIED additionally requires an internal trusted verifier receipt.','boundary':'unclassified live surfaces are exposed as expansion pressure but do not become mature or authoritative by adjacency; failed declared-organ integration blocks local promotion readiness.'}
+            return {
+                'version':'ATHENA.PROMOTION.2','compat':['ATHENA.PROMOTION.1'],'benchmark':self.promotion.benchmark(),'recent':self.promotion.recent(50),
+                'github_verifier':self.github_promotion_verifier.describe(),'architecture_drift':self.architecture_drift_audit(False),
+                'law':'ATTESTED_READY iff unified Server + SURFACE.2 + COMPOSITION.2 + ARCHITECTURE.DRIFT.1 + configured local Git gate + caller-bound CI/smoke packets all PASS on the same exact head; QUALIFIED additionally requires an internal trusted verifier receipt.',
+                'boundary':'MCP caller witness packets are caller-attested and are never independently verified or sufficient for QUALIFIED; declared architecture drift blocks local promotion readiness; unclassified live surfaces are exposed as expansion pressure but do not become mature or authoritative by adjacency.',
+            }
         raise KeyError(uri)
 
     def benchmark(self):
