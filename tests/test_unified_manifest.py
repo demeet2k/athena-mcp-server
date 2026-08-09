@@ -31,7 +31,7 @@ class UnifiedManifestTests(unittest.TestCase):
             'CROSS_FITTED_TWO_TIMEPOINT_TMLE != GENERAL_LONGITUDINAL_TMLE_THEOREM','STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION',
             'CROSS_FITTED_SEQUENTIAL_DR != GENERAL_OFF_POLICY_CAUSAL_VALUE','DECISION_TIME_HISTORY != FULL_ROW_STATE',
             'LINEAR_GAUSSIAN_UPDATE != GENERAL_CONTINUOUS_JOINT_BAYES','GAUSSIAN_LINEAR_CONTROL != GENERAL_BELIEF_MDP','UNKNOWN_COEFFICIENT != ZERO_COEFFICIENT','NONFINITE_NUMERIC_STATE != MODEL_COORDINATE',
-            'DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH','GEOMETRIC_NEAREST_WITNESS != TIGHTEST_ERROR_ENVELOPE_WITNESS','GLOBAL_ENVELOPE != RADIUS_ELIGIBLE_LOCAL_CERTIFICATE',
+            'DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH','GEOMETRIC_NEAREST_WITNESS != TIGHTEST_ERROR_ENVELOPE_WITNESS','GLOBAL_ENVELOPE != RADIUS_ELIGIBLE_LOCAL_CERTIFICATE','NO_RADIUS_ELIGIBLE_WITNESS != GLOBAL_FALLBACK_CERTIFICATE',
             'RECTANGULAR_TV_ROBUST_MDP != GENERAL_MULTISTAGE_DRO','UNKNOWN_STATE_COORDINATE != UNUSED_METADATA','NONFINITE_TRANSITION != PROBABILITY_MODEL','ZERO_TEST_SELECTION != PROOF',
             'athena_claim_* = Y1 canonical authority',
         ]:
@@ -41,9 +41,12 @@ class UnifiedManifestTests(unittest.TestCase):
         self.assertEqual(manifest['collective_calibrated']['coordinate'],'COLLECTIVE_CALIBRATED=<SR,XT,XD,CJ,AT,MD,L>')
         self.assertEqual(manifest['collective_calibrated']['decision_time_history'],{'A1':'baseline','A2':'baseline+A1+L1'})
         self.assertEqual(manifest['collective_calibrated']['error_transport_coordinates'],['geometric_nearest','global_envelope','radius_eligible_local_certificate'])
+        self.assertEqual(manifest['collective_calibrated']['radius_empty_behavior'],'null local certificate; global envelope remains separate and nonlocal')
         self.assertEqual(manifest['collective_calibrated']['numeric_policy'],'reject unknown or non-finite model coordinates')
         self.assertIn('collective_v15',manifest['organs'])
         self.assertIn('DECISION_TIME_HISTORY != FULL_ROW_STATE',manifest['organs']['collective_v15']['audit_laws'])
+        self.assertIn('NO_RADIUS_ELIGIBLE_WITNESS != GLOBAL_FALLBACK_CERTIFICATE',manifest['organs']['collective_v15']['audit_laws'])
+        self.assertIn('null local certificate',manifest['organs']['collective_v15']['transport_membrane'])
         self.assertIn('COLLECTIVE(V1-V15)',manifest['cycle'])
         self.assertIn('COLLECTIVE_CALIBRATED_V15',manifest['navigation'])
         verifier=manifest['promotion_verifier'];self.assertEqual(verifier['version'],GITHUB_PROMOTION_VERIFIER_VERSION);self.assertEqual(verifier['required_checks'],['syntax','unit','critical-invariants','smoke']);self.assertEqual(verifier['trusted_app_slug'],'github-actions')
@@ -58,7 +61,7 @@ class UnifiedManifestTests(unittest.TestCase):
 
     def test_maxdev_law_contains_v15_and_trusted_github_promotion_boundaries(self):
         law=self.tool('athena_maxdev_law')['text']
-        for phrase in ['RECONSTRUCT through RECONRUN + canonical OMEGA','V14 SYNTHESIS LAW','V15 CALIBRATION LAW','pool identical structural-support coordinates','out-of-fold reliability','stage-1 policies may use baseline only','reject unknown Gaussian/state/action coordinates','geometric nearest witness','cross-fit two-timepoint sequential TMLE/AIPW','multivariate-Gaussian conditioning','transport approximation error','rectangular total-variation ambiguity','zero selected tests are not proof','caller-bound packets stop at ATTESTED_READY','prefer athena_promotion_verify_github','one coherent exact-head Actions run/check-suite','Never splice checks across runs/suites']:
+        for phrase in ['RECONSTRUCT through RECONRUN + canonical OMEGA','V14 SYNTHESIS LAW','V15 CALIBRATION LAW','pool identical structural-support coordinates','out-of-fold reliability','stage-1 policies may use baseline only','reject unknown Gaussian/state/action coordinates','geometric nearest witness','when a declared radius contains no witness, return no local certificate','cross-fit two-timepoint sequential TMLE/AIPW','multivariate-Gaussian conditioning','transport approximation error','rectangular total-variation ambiguity','zero selected tests are not proof','caller-bound packets stop at ATTESTED_READY','prefer athena_promotion_verify_github','one coherent exact-head Actions run/check-suite','Never splice checks across runs/suites']:
             self.assertIn(phrase,law)
 
     def test_manifest_resources_surface2_promotion_and_deployment_include_v15(self):
@@ -76,8 +79,10 @@ class UnifiedManifestTests(unittest.TestCase):
             self.assertEqual(current['invariants'],tool_manifest['invariants'])
         self.assertEqual(v15['runtime']['version'],'COLLECTIVE_RUNTIME_V15');self.assertIn('Y1 authority',v15['boundary']);self.assertIn('trusted promotion state',v15['boundary'])
         self.assertEqual(v15['decision_time_history'],{'A1':'baseline only','A2':'baseline + A1 + L1 only'})
+        self.assertEqual(v15['radius_empty_behavior'],'null local certificate; global envelope remains visible separately and does not satisfy the radius constraint')
         self.assertIn('DECISION_TIME_HISTORY != FULL_ROW_STATE',v15['runtime']['audit_laws'])
         self.assertIn('NONFINITE_NUMERIC_STATE != MODEL_COORDINATE',v15['runtime']['audit_laws'])
+        self.assertIn('NO_RADIUS_ELIGIBLE_WITNESS != GLOBAL_FALLBACK_CERTIFICATE',v15['runtime']['audit_laws'])
         self.assertEqual(promotion['github_verifier']['version'],GITHUB_PROMOTION_VERIFIER_VERSION);self.assertIn('failed GitHub verification creates no PROMRUN',promotion['boundary'])
         audit=self.tool('athena_surface_audit',{'run_probes':True})
         for group in ('manifest','collective_v13','collective_v14','collective_v15','promotion'):self.assertEqual(audit['groups'][group]['status'],'PASS')
