@@ -82,19 +82,65 @@ class ProjectAtlasGraphV2AdapterTests(unittest.TestCase):
         self.assertEqual(summary["v2_adapter"]["coverage"]["configured_git_records"], configured_count)
         self.assertEqual(summary["v2_adapter"]["coverage"]["runtime_git_records"], configured_count)
         self.assertEqual(summary["v2_adapter"]["coverage"]["mcp_records"], 1)
+        self.assertEqual(summary["v2_adapter"]["coverage"]["content_reader_planes"], ["configured_git", "runtime_git"])
+        self.assertEqual(summary["v2_adapter"]["coverage"]["missing_content_reader_planes"], [])
         self.assertEqual(summary["vertices"], configured_count * 2 + 1)
         self.assertEqual(summary["coverage_standing"], "EXACT_V2_SNAPSHOT")
         planes = {rec.get("source") for rec in graph.vertices.values()}
         self.assertEqual(planes, {"configured_git", "runtime_git", "mcp"})
 
+    def test_runtime_content_root_derives_from_v2_provenance(self):
+        root, atlas, mcp = self.fixture()
+        snapshot = self.snapshot(atlas, mcp, duplicate_runtime=True)
+        snapshot["runtime_provenance"]["root"] = str(root)
+        graph = compile_v2_snapshot_relation_graph(snapshot, configured_root=root)
+        summary = v2_graph_summary(graph)
+        coverage = summary["v2_adapter"]["coverage"]
+        self.assertEqual(coverage["content_reader_planes"], ["configured_git", "runtime_git"])
+        self.assertEqual(coverage["runtime_root_source"], "v2_runtime_provenance")
+        self.assertEqual(coverage["missing_content_reader_planes"], [])
+        self.assertEqual(summary["coverage_standing"], "EXACT_V2_SNAPSHOT")
+        self.assertIn("RUNTIME_CONTENT_ROOT_DEFAULTS_TO_EXACT_V2_RUNTIME_PROVENANCE_ROOT", ADAPTER_LAWS)
+
+    def test_exact_snapshot_with_missing_runtime_blob_reader_reports_partial_content(self):
+        root, atlas, mcp = self.fixture()
+        snapshot = self.snapshot(atlas, mcp, duplicate_runtime=True)
+        graph = compile_v2_snapshot_relation_graph(snapshot, configured_root=root)
+        summary = v2_graph_summary(graph)
+        coverage = summary["v2_adapter"]["coverage"]
+        self.assertEqual(coverage["content_reader_planes"], ["configured_git"])
+        self.assertEqual(coverage["required_content_planes"], ["configured_git", "runtime_git"])
+        self.assertEqual(coverage["missing_content_reader_planes"], ["runtime_git"])
+        self.assertEqual(coverage["runtime_root_source"], "unavailable")
+        self.assertEqual(summary["coverage_standing"], "EXACT_V2_SNAPSHOT_PARTIAL_CONTENT")
+        self.assertIn("BLOB_READERS_MISSING", summary["coverage_law"])
+        runtime_import_holds = [
+            h for h in graph.holds
+            if h.get("kind") == "PY_IMPORTS" and (h.get("subject") or {}).get("frontier", [None])[0] == "runtime_git"
+        ]
+        self.assertTrue(runtime_import_holds)
+        self.assertIn("EXACT_V2_SNAPSHOT != COMPLETE_CONTENT_EXTRACTION_IF_BLOB_READERS_MISSING", ADAPTER_LAWS)
+
+    def test_content_extractors_disabled_need_no_blob_reader(self):
+        root, atlas, mcp = self.fixture()
+        snapshot = self.snapshot(atlas, mcp, duplicate_runtime=True)
+        options = GraphBuildOptions(include_python_imports=False, include_exact_path_references=False)
+        graph = compile_v2_snapshot_relation_graph(snapshot, options=options)
+        summary = v2_graph_summary(graph)
+        coverage = summary["v2_adapter"]["coverage"]
+        self.assertEqual(coverage["required_content_planes"], [])
+        self.assertEqual(coverage["missing_content_reader_planes"], [])
+        self.assertEqual(summary["coverage_standing"], "EXACT_V2_SNAPSHOT")
+
     def test_runtime_is_configured_collapses_duplicate_plane_exactly_as_v2_does(self):
         root, atlas, mcp = self.fixture()
         snapshot = self.snapshot(atlas, mcp, duplicate_runtime=False)
-        graph = compile_v2_snapshot_relation_graph(snapshot, configured_root=root, runtime_root=root)
+        graph = compile_v2_snapshot_relation_graph(snapshot, configured_root=root)
         summary = v2_graph_summary(graph)
         self.assertEqual(summary["v2_adapter"]["coverage"]["runtime_git_records"], 0)
         self.assertTrue(summary["v2_adapter"]["coverage"]["runtime_git_is_configured"])
         self.assertEqual(summary["vertices"], len(atlas["records"]) + 1)
+        self.assertEqual(summary["coverage_standing"], "EXACT_V2_SNAPSHOT")
 
     def test_same_poid_across_configured_runtime_requires_exact_pvtx(self):
         root, atlas, mcp = self.fixture()
@@ -123,8 +169,6 @@ class ProjectAtlasGraphV2AdapterTests(unittest.TestCase):
 
     def test_optional_geometric_overlay_can_include_mcp_plane_without_structural_claim(self):
         root, atlas, mcp = self.fixture()
-        # Add a second MCP definition so a neighboring-station edge may exist if coordinates land adjacent;
-        # regardless of placement, no structural extractor is allowed to reinterpret MCP virtual paths.
         mcp2 = mcp_surface_atlas(
             repo_key=atlas["repository"]["repo_key"],
             head=atlas["repository"]["head"],
@@ -142,8 +186,9 @@ class ProjectAtlasGraphV2AdapterTests(unittest.TestCase):
         )
         mcp_vertices = [rec for rec in graph.vertices.values() if rec.get("source") == "mcp"]
         self.assertEqual(len(mcp_vertices), 2)
+        mcp_vertex_ids = {vid for vid, rec in graph.vertices.items() if rec.get("source") == "mcp"}
         for edge in graph.edges:
-            if edge["src_vertex_id"] in {vid for vid, rec in graph.vertices.items() if rec.get("source") == "mcp"}:
+            if edge["src_vertex_id"] in mcp_vertex_ids:
                 self.assertNotIn(edge["kind"], {"DIR_CONTAINS", "DIR_PARENT_OF", "PY_IMPORTS", "PY_RELATIVE_IMPORTS", "EXACT_PATH_REFERENCE"})
 
     def test_partial_v2_snapshot_is_reported_as_partial_not_full(self):
