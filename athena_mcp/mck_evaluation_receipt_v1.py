@@ -190,8 +190,13 @@ def _normalize_audit_state(
         raise ValueError("RECEIPT_INITIAL_FEATURE_BASIS_INVALID")
     if len(basis) != len(set(basis)):
         raise ValueError("DUPLICATE_RECEIPT_INITIAL_FEATURE_BASIS")
-    if expected_basis is not None and basis != list(expected_basis):
-        raise ValueError("RECEIPT_INITIAL_FEATURE_BASIS_MISMATCH")
+    if expected_basis is not None:
+        canonical_basis = list(expected_basis)
+        if len(canonical_basis) != len(set(canonical_basis)):
+            raise ValueError("EXPECTED_FEATURE_BASIS_NOT_UNIQUE")
+        if set(basis) != set(canonical_basis):
+            raise ValueError("RECEIPT_INITIAL_FEATURE_BASIS_MISMATCH")
+        basis = canonical_basis
 
     values = value.get("values")
     if not isinstance(values, Mapping):
@@ -214,6 +219,7 @@ def _normalize_audit_state(
         raise ValueError("DUPLICATE_RECEIPT_INITIAL_IRREVERSIBLE_LOSS")
     if not set(loss).issubset(set(basis)):
         raise ValueError("RECEIPT_INITIAL_LOSS_OUTSIDE_BASIS")
+    loss = sorted(loss)
 
     if value.get("standing") != SEMANTIC_STATE_STANDING:
         raise ValueError("RECEIPT_INITIAL_STATE_STANDING_MISMATCH")
@@ -338,16 +344,21 @@ def build_evaluation_receipt(
     if compiled is None or packet_validation.get("status") != "VALID":
         return _hold("PACKET_VALIDATION_HOLD", packet_validation=packet_validation)
     if packet_validation.get("compiler_revision") != PACKET_COMPILER_REVISION:
-        return _hold(
-            "PACKET_COMPILER_REVISION_DRIFT",
-            packet_validation=packet_validation,
-        )
+        return _hold("PACKET_COMPILER_REVISION_DRIFT", packet_validation=packet_validation)
 
     try:
         path = _normalize_path(edge_path)
         initial_audit = _normalize_audit_state(
             initial_state.audit_view(),
             expected_basis=packet_validation["canonical_semantics"]["feature_basis"],
+        )
+        execution_state = SemanticState(
+            initial_audit["coordinate"],
+            initial_audit["values"],
+            feature_basis=tuple(initial_audit["feature_basis"]),
+            provenance=tuple(initial_audit["provenance"]),
+            irreversible_loss=frozenset(initial_audit["irreversible_loss"]),
+            standing=SEMANTIC_STATE_STANDING,
         )
     except (KeyError, TypeError, ValueError) as exc:
         return _hold(f"INVALID_EVALUATION_INPUT:{type(exc).__name__}:{exc}")
@@ -361,7 +372,7 @@ def build_evaluation_receipt(
     evaluation_input_digest = _domain_digest(INPUT_DIGEST_DOMAIN, input_payload)
 
     try:
-        raw_result = _strict_copy(compiled.evaluate_closed_loop(initial_state, path))
+        raw_result = _strict_copy(compiled.evaluate_closed_loop(execution_state, path))
         semantic_result = _strict_copy(_semantic_result_projection(raw_result))
     except (TypeError, ValueError) as exc:
         return _hold(f"RUNTIME_RESULT_NORMALIZATION_HOLD:{type(exc).__name__}:{exc}")
