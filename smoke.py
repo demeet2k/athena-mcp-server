@@ -46,7 +46,7 @@ try:
         {
             "protocolVersion": "2025-11-25",
             "capabilities": {},
-            "clientInfo": {"name": "smoke", "version": "7"},
+            "clientInfo": {"name": "smoke", "version": "8"},
         },
         1,
     )
@@ -64,6 +64,7 @@ try:
         "athena_cycle_start",
         "athena_self_test",
         "athena_schema_migrate",
+        "athena_gp_observe",
         "athena_gp_hyperfit",
         "athena_system_upgrade_plan",
         "athena_kc144_hub_validate",
@@ -150,7 +151,24 @@ try:
         },
         11,
     )
-    before = call("athena_gp_state", {"context_key": "SMOKE.GP"}, 12)
+    for request_id, (x_value, target) in enumerate(
+        ((-1.0, 1.0), (0.0, 0.0), (1.0, 1.0)), start=12
+    ):
+        observed = call(
+            "athena_gp_observe",
+            {
+                "context_key": "SMOKE.GP",
+                "features": {"x": x_value},
+                "target": target,
+                "evidence_ref": f"smoke://gp/{request_id}",
+                "actor": "SMOKE",
+            },
+            request_id,
+        )
+        assert observed["status"] == "OBSERVED", observed
+
+    before = call("athena_gp_state", {"context_key": "SMOKE.GP"}, 15)
+    assert before["observation_count"] == 3, before
     design = call(
         "athena_gp_hyperfit",
         {
@@ -160,10 +178,10 @@ try:
             "noise_variances": [0.02],
             "apply": False,
         },
-        13,
+        16,
     )
     assert design["status"] == "GP_HYPERPARAMETER_DESIGN_ONLY", design
-    after = call("athena_gp_state", {"context_key": "SMOKE.GP"}, 14)
+    after = call("athena_gp_state", {"context_key": "SMOKE.GP"}, 17)
     assert before["observation_count"] == after["observation_count"]
 
     emission = call(
@@ -184,7 +202,7 @@ try:
             "task": "ci",
             "seq": 1,
         },
-        15,
+        18,
     )
     assert emission["envelope_id"].startswith("ENV."), emission
     verified = call(
@@ -193,7 +211,7 @@ try:
             "envelope_id": emission["envelope_id"],
             "visible_text": emission["visible_text"],
         },
-        16,
+        19,
     )
     assert verified["verified"] is True
     print(
