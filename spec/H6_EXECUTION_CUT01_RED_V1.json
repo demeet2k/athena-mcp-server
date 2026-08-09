@@ -1,0 +1,36 @@
+{
+  "artifact": "ATHENA.H6.EXECUTION.CUT01.RED.V1",
+  "phase": "INVENTORY_AND_RED_ONLY",
+  "runtime_base": "114790cf5173ca5ab78d1b505849708b209f81a0",
+  "constitutional_epoch": "EPOCH-B-EIGHT-BLOCK",
+  "gids": [1,2,3,4,5,6],
+  "law": [
+    "RED_WITNESS != TREATMENT",
+    "H6_CONSTITUTION != SIX_NEW_STATE_UNIVERSES",
+    "PROJECT_DO_NOT_DUPLICATE",
+    "OID != MID != VID != EID",
+    "COORDINATE != IDENTITY",
+    "ROUTE != AUTHORITY",
+    "TRANSFORM != BRIDGE_ADMISSION",
+    "EVIDENCE_SUFFICIENCY != PROMOTION_AUTHORITY",
+    "REHYDRATION != BACKGROUND_EXECUTION",
+    "UNKNOWN != ZERO"
+  ],
+  "stations": {
+    "H01": {"gid":1,"role":"ADDRESS_IDENTITY_REGISTRY"},
+    "H02": {"gid":2,"role":"PROJECTION_SEATING_ALIAS_REGISTRY"},
+    "H03": {"gid":3,"role":"MYCELIAL_NAVIGATION_REGISTRY"},
+    "H04": {"gid":4,"role":"INVARIANT_BRIDGE_DEFECT_REGISTRY"},
+    "H05": {"gid":5,"role":"SOURCE_EVIDENCE_VERSION_LEDGER"},
+    "H06": {"gid":6,"role":"ACTIVATION_REPLAY_RESEED_HUB"}
+  },
+  "required_classification": ["EXISTS","PARTIAL","MISSING","DUPLICATE","SUPERSEDED"],
+  "required_outputs": [
+    "H6_RUNTIME_CROSSWALK_V1",
+    "H6_SURVIVING_GAPS_V1",
+    "H6_RED_WITNESS_MATRIX_V1"
+  ],
+  "treatment_code": false,
+  "promotion_authority": false,
+  "behavioral_claim": "UNKNOWN"
+}
