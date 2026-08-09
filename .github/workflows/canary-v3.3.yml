@@ -76,7 +76,11 @@ jobs:
           git fetch origin master
           test "$(git rev-parse HEAD)" = "$(git rev-parse origin/master)"
           if [ "$GITHUB_EVENT_NAME" = push ]; then
-            test "$(git show -s --format=%s HEAD)" = "$CANARY_SUBJECT"
+            SUBJECT=$(git show -s --format=%s HEAD)
+            case "$SUBJECT" in
+              "$CANARY_SUBJECT"|"$CANARY_SUBJECT — "*) ;;
+              *) echo "unexpected canary subject: $SUBJECT" >&2; exit 1 ;;
+            esac
           fi
 
           TAG_TARGET=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$RELEASE_TAG" --jq '.object.sha')
