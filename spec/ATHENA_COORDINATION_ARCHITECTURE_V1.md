@@ -1,8 +1,10 @@
 # ATHENA COORDINATION ARCHITECTURE V1
 
-Coordinate: `COORDINATION=<MB,CM,DG,EG,BT,P1,P2,P3,OI,AD>`.
+Coordinate: `COORDINATION=<MB,CM,DG,EG,BT,P1,P2,P3.2,OI,AD>`.
 
 Effective runtime coordinate: `ATHENA.RUNTIME.UNIFIED.10` over scientific carrier `ATHENA.RUNTIME.UNIFIED.9`.
+
+Effective mature-organ inventory: `ATHENA.ORGAN.INVENTORY.1.1` over base registry `ATHENA.ORGAN.INVENTORY.1`.
 
 ## 1. Separate authority planes
 
@@ -86,7 +88,9 @@ Party-scoped messages are routed through Message Board V1.
 
 `ACK != RESULT_TRUTH`.
 
-## 9. Party Reward Provenance V3
+## 9. Party Reward Provenance V3 → V3.2
+
+### V3 — attributable result provenance
 
 Party results carry attributable `RESULT` / `VERIFY` provenance events through Message Board.
 
@@ -98,13 +102,35 @@ The sender must still hold the frozen/current work claim and recipients must rem
 
 `SOURCE_XP_REUSE != NEW_REWARD`.
 
-## 10. ORGAN_INVENTORY.1
+### V3.1 — envelope coherence membrane
+
+Only exact V3 result packets are accepted. Inner `RESULT` / `VERIFY` role must agree with the enclosing Message Board role before inherited reward processing.
+
+`V3_PACKET_VERSION_REQUIRED`.
+
+`INNER_RESULT_VERIFY_MUST_MATCH_OUTER_MESSAGE_BOARD_ROLE`.
+
+Envelope coherence validates attribution shape; it does not establish result truth.
+
+### V3.2 — finite XP membrane
+
+Before any inherited Message Board read/mutation, source-XP scan, or receipt construction, imported `base_xp` must coerce to a finite, non-boolean, non-negative real. Finite numeric-string compatibility remains allowed.
+
+`BASE_XP_MUST_BE_FINITE_NON_BOOLEAN_BEFORE_PARTY_REWARD_PROCESSING`.
+
+`FINITE_NUMERIC_VALIDATION != UPSTREAM_XP_VERIFICATION_OR_MINT_AUTHORITY`.
+
+V3.2 changes no reward formula and grants no new authority.
+
+## 10. ORGAN_INVENTORY.1 / 1.1
 
 Mature coordination organs are declared explicitly. File/module/tool existence is insufficient.
 
 Each descriptor carries:
 
 `<id,version,integration_class,authority_plane,tools,resources,manifest_layer,omega_key,critical_tests,source/spec refs,laws>`.
+
+The stable base registry remains `ATHENA.ORGAN.INVENTORY.1`; the effective coordination view is `ATHENA.ORGAN.INVENTORY.1.1`, which replaces the historical active Party V3 descriptor with Party V3.2 while preserving V3/V3.1 source and witness lineage.
 
 ## 11. ARCHITECTURE_DRIFT.1
 
@@ -118,6 +144,10 @@ Unclassified live surfaces remain `OBSERVE_EXPANSION_FRONTIER`; they are neither
 
 ## 12. Recursive successor
 
-The first inventory cohort intentionally covers Message Board/Cohesion/Party only. Subsequent cohorts should be admitted one family at a time after authority/mutation semantics are reconstructed—for example Frontier/Rehydration/Campaign, QHUG Pareto, Mythic, Bionanomachine, operational-basis and other extension families.
+The first effective inventory cohort covers Message Board/Cohesion/Party through V3.2 only.
 
-No cohort gains maturity solely because it is old, large, popular, already imported, or already callable.
+`Freshness Train` is the first named internal/bootstrap expansion candidate. It is intentionally **not** mature yet because its authority, mutation, freshness-read and observation semantics have not been admitted into this constitution.
+
+Subsequent cohorts should be admitted one family at a time after authority/mutation semantics are reconstructed—for example Frontier/Rehydration/Campaign, QHUG Pareto, Mythic, Bionanomachine, operational-basis and other extension families.
+
+No cohort gains maturity solely because it is old, large, popular, already imported, already callable, or already tested somewhere in the broad unit pool.
