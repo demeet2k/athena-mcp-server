@@ -18,6 +18,7 @@ from athena_mcp.project_atlas_graph import (
     VERTEX_ID_PREFIX,
 )
 from athena_mcp.project_atlas_graph_v2_adapter import (
+    ADAPTED_GRAPH_IDENTITY_SCHEMA,
     ADAPTER_LAWS,
     ADAPTER_VERSION,
     V2_SNAPSHOT_SCHEMA,
@@ -45,7 +46,7 @@ class ProjectAtlasGraphV3ContractTests(unittest.TestCase):
         self.assertEqual(c["integration"]["qualification_only_pull_request"], 336)
         self.assertEqual(c["integration"]["law"], "QUALIFICATION_PR != INTEGRATION_PR != PROMOTION")
 
-    def test_graph_vertex_and_edge_namespaces_match_implementation(self):
+    def test_graph_vertex_edge_and_adapted_namespaces_match_implementation(self):
         i = self.c["identity"]
         self.assertEqual(GRAPH_SCHEMA, "ATHENA.KC144.PROJECT_RELATION_GRAPH.v3")
         self.assertEqual(i["snapshot_prefix"], "PATLASV2.")
@@ -53,9 +54,14 @@ class ProjectAtlasGraphV3ContractTests(unittest.TestCase):
         self.assertEqual(i["vertex_prefix"], VERTEX_ID_PREFIX)
         self.assertEqual(i["edge_prefix"], "PEDGE.")
         self.assertEqual(i["vertex_identity"], "PVTX(<plane,repo,head,POID>) exact federated manifestation")
+        self.assertEqual(i["adapted_graph_identity_schema"], ADAPTED_GRAPH_IDENTITY_SCHEMA)
+        self.assertIn("extraction profile", i["adapted_graph_identity"])
+        self.assertIn("reader/tree coverage", i["adapted_graph_identity"])
         self.assertEqual(i["authority"], "NONE")
         self.assertEqual(self.c["frontier"]["vertex_scope"], "<plane,repo,head,POID>")
         self.assertIn("HOLD_AMBIGUOUS_VERTEX", self.c["frontier"]["bare_poid_resolution"])
+        self.assertIn("base graph id", self.c["frontier"]["adapted_graph_digest_basis"])
+        self.assertIn("exact extraction option profile", self.c["frontier"]["adapted_graph_digest_basis"])
 
     def test_v2_snapshot_adapter_is_machine_locked(self):
         a = self.c["v2_snapshot_adapter"]
@@ -66,6 +72,8 @@ class ProjectAtlasGraphV3ContractTests(unittest.TestCase):
         self.assertIn("runtime_git_is_configured=true", a["runtime_collapse_rule"])
         self.assertIn("never pass through Git hierarchy/import/path extractors", a["mcp_rule"])
         self.assertIn("PARTIAL_V2_SNAPSHOT", a["partial_snapshot_rule"])
+        self.assertIn("EXACT_V2_SNAPSHOT_PARTIAL_CONTENT", a["content_coverage_rule"])
+        self.assertIn("equal visible edges", a["graph_identity_rule"])
         self.assertEqual(set(a["laws"]), set(ADAPTER_LAWS))
 
     def test_edge_lattice_is_exact_and_geometric_is_not_structural(self):
@@ -100,6 +108,9 @@ class ProjectAtlasGraphV3ContractTests(unittest.TestCase):
             "V2_SNAPSHOT_PLANES != FLAT_V1_ATLAS",
             "MCP_VIRTUAL_VERTEX != GIT_BLOB_VERTEX",
             "PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT",
+            "EXACT_V2_SNAPSHOT != COMPLETE_CONTENT_EXTRACTION_IF_BLOB_READERS_MISSING",
+            "GRAPH_ID_BINDS_EXTRACTION_PROFILE_AND_COVERAGE",
+            "SAME_VISIBLE_EDGES_WITH_DIFFERENT_OBSERVABILITY != SAME_GRAPH_RECEIPT",
         ):
             self.assertIn(law, laws)
 
