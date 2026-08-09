@@ -32,27 +32,27 @@ FAMILIES = (
     "BUILD_GIT",
     "INTEGRATE_META",
     "NAVIGATION",
-    "TOOLS_ALCHEMY",
+    "TOOL_LIMITS",
+    "ALCHEMY",
     "DRIVE_DISTILL",
     "MATH_MINE",
     "MYTH_MINE",
-    "PHYSICAL_LIMITS",
 )
 BASE_WEIGHTS = {
-    "BUILD_GIT": 0.60,
+    "BUILD_GIT": 0.20,
     "INTEGRATE_META": 0.10,
-    "NAVIGATION": 0.05,
-    "TOOLS_ALCHEMY": 0.05,
-    "DRIVE_DISTILL": 0.05,
-    "MATH_MINE": 0.05,
+    "NAVIGATION": 0.15,
+    "TOOL_LIMITS": 0.10,
+    "ALCHEMY": 0.10,
+    "DRIVE_DISTILL": 0.15,
+    "MATH_MINE": 0.15,
     "MYTH_MINE": 0.05,
-    "PHYSICAL_LIMITS": 0.05,
 }
 TIE_ORDER = {name: index for index, name in enumerate(FAMILIES)}
 WAVES = (
-    {"wave": "IMMEDIATE", "time_percent": 60, "purpose": "enter, hydrate, claim, and produce an observed material delta"},
+    {"wave": "IMMEDIATE", "time_percent": 50, "purpose": "enter, hydrate, claim, and produce an observed material delta"},
     {"wave": "MIDDLE", "time_percent": 30, "purpose": "integrate a producer output and consume the next runnable successor"},
-    {"wave": "RECURSIVE_META", "time_percent": 10, "purpose": "attack outcomes, update pressures, generate quests, and improve the pipeline"},
+    {"wave": "RECURSIVE_META", "time_percent": 20, "purpose": "attack outcomes, update pressures, generate quests, and improve the pipeline"},
 )
 TERMINAL_REASONS = {"NO_RESIDUAL", "EXTERNAL_WAIT", "AUTHORITY_BOUND"}
 
@@ -116,7 +116,7 @@ def _largest_remainder(total: int, weights: dict[str, float]) -> dict[str, int]:
     raw = {key: total * max(0.0, value) / scale for key, value in weights.items()}
     result = {key: int(value) for key, value in raw.items()}
     remaining = total - sum(result.values())
-    order = sorted(weights, key=lambda key: (-(raw[key] - result[key]), TIE_ORDER[key]))
+    order = sorted(weights, key=lambda key: (-(raw[key] - result[key]), TIE_ORDER.get(key, 1000), key))
     for key in order[:remaining]:
         result[key] += 1
     return result
@@ -130,9 +130,6 @@ def allocate_population(agent_ids: list[str], pressure: dict[str, float] | None 
     active = {name: BASE_WEIGHTS[name] * eligible[name] for name in FAMILIES if eligible[name] > 0}
     if not active:
         active = {"BUILD_GIT": 1.0}
-    if "BUILD_GIT" in active:
-        other = sum(value for key, value in active.items() if key != "BUILD_GIT")
-        active["BUILD_GIT"] = max(active["BUILD_GIT"], 1.5 * other)
     counts = _largest_remainder(len(ids), active)
     # Tiny populations stay builder-generalists; wave time still reserves integration/meta.
     if len(ids) <= 3 and "BUILD_GIT" in active:
@@ -144,18 +141,51 @@ def allocate_population(agent_ids: list[str], pressure: dict[str, float] | None 
         for _ in range(counts.get(family, 0)):
             roles[ids[cursor]] = family
             cursor += 1
-    return {"population": len(ids), "counts": {name: counts.get(name, 0) for name in FAMILIES}, "roles": roles, "waves": list(WAVES)}
+    wave_weights = {"IMMEDIATE": 0.50, "MIDDLE": 0.30, "RECURSIVE_META": 0.20}
+    if len(ids) <= 2:
+        wave_counts = {"IMMEDIATE": 1 if ids else 0, "MIDDLE": 1 if len(ids) == 2 else 0, "RECURSIVE_META": 0}
+    else:
+        wave_counts = {key: 1 for key in wave_weights}
+        extras = _largest_remainder(len(ids) - 3, wave_weights)
+        wave_counts = {key: wave_counts[key] + extras[key] for key in wave_weights}
+    agent_waves, cursor = {}, 0
+    for wave in wave_weights:
+        for _ in range(wave_counts[wave]):
+            agent_waves[ids[cursor]] = wave
+            cursor += 1
+    return {"population": len(ids), "counts": {name: counts.get(name, 0) for name in FAMILIES}, "roles": roles, "wave_counts": wave_counts, "agent_waves": agent_waves, "waves": list(WAVES)}
 
 
 def _prompt_digest(root: Path) -> str:
-    paths = (
-        "prompts/PROMPT.manifest.json",
-        "prompts/state/ACTIVE.json",
-        "prompts/ORCHESTRATION_CORE.md",
-        "prompts/modules/GIT_ORGANISM.md",
-    )
+    manifest_path = root / "prompts/PROMPT.manifest.json"
+    active_path = root / "prompts/state/ACTIVE.json"
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        active = json.loads(active_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:manifest_or_active") from exc
+    paths = {"prompts/PROMPT.manifest.json", "prompts/state/ACTIVE.json"}
+    for key in ("bootstrap", "core", "policy"):
+        if manifest.get(key):
+            paths.add(str(manifest[key]))
+    modules = manifest.get("modules") or {}
+    for name in active.get("enabled_modules") or []:
+        row = modules.get(name)
+        if not isinstance(row, dict) or not row.get("path"):
+            raise RuntimeError(f"PROMPT_HYDRATION_HOLD:enabled_module:{name}")
+        paths.add(str(row["path"]))
+    for key in ("active_scoped_overlays", "active_scoped_state"):
+        paths.update(str(value) for value in active.get(key) or [])
+    for value in (
+        active.get("harness_genotype"),
+        (manifest.get("room") or {}).get("registry"),
+        (manifest.get("room") or {}).get("harness_genotype"),
+        (manifest.get("room") or {}).get("allocator"),
+    ):
+        if value:
+            paths.add(str(value))
     records = []
-    for rel in paths:
+    for rel in sorted(paths):
         path = root / rel
         try:
             data = path.read_bytes()
@@ -201,7 +231,11 @@ class OrganismRoomRuntime:
 
     @staticmethod
     def _remember(state: dict, actor: str, key: str, command: dict, result: dict) -> None:
-        state["idempotency"][f"{actor}:{key}"] = {"command_digest": _digest(command), "result": result}
+        persisted = json.loads(json.dumps(result))
+        # Capability tokens are derivable only inside the host from the session
+        # secret. Persisting a bearer token in Git would destroy fencing.
+        persisted.pop("session_token", None)
+        state["idempotency"][f"{actor}:{key}"] = {"command_digest": _digest(command), "result": persisted}
 
     @staticmethod
     def _replay(state: dict, actor: str, key: str, command: dict) -> dict | None:
@@ -210,7 +244,11 @@ class OrganismRoomRuntime:
             return None
         if seen.get("command_digest") != _digest(command):
             raise ValueError("IDEMPOTENCY_KEY_REUSE_CONFLICT")
-        return dict(seen["result"])
+        result = dict(seen["result"])
+        if command.get("action") == "enter" and isinstance(result.get("session"), dict):
+            session = result["session"]
+            result["session_token"] = _token(str(session["session_id"]), int(session["fence"]))
+        return result
 
     def _authenticate(self, state: dict, agent_id: str, session_id: str, fence: int, token: str, now: datetime) -> dict:
         row = state.get("sessions", {}).get(agent_id)
@@ -265,7 +303,7 @@ class OrganismRoomRuntime:
             attempt = max([int(q.get("attempt", 0)) for q in state["quests"].values() if q.get("work_key") == work_key] or [0]) + 1
             active_ids = [row["agent_id"] for row in self.board._active()] + [agent_id]
             allocation = allocate_population(active_ids)
-            session = {"artifact": SESSION_ARTIFACT, "agent_id": agent_id, "session_id": session_id, "fence": fence, "status": "ACTIVE", "head": base, "prompt_digest": current_prompt, "claim_id": claim_id, "quest_id": work_key, "attempt": attempt, "role": allocation["roles"][agent_id], "entered_at": _iso(now), "lease_until": _iso(now + timedelta(seconds=lease))}
+            session = {"artifact": SESSION_ARTIFACT, "agent_id": agent_id, "session_id": session_id, "fence": fence, "status": "ACTIVE", "head": base, "prompt_digest": current_prompt, "claim_id": claim_id, "quest_id": work_key, "attempt": attempt, "role": allocation["roles"][agent_id], "wave": allocation["agent_waves"][agent_id], "entered_at": _iso(now), "lease_until": _iso(now + timedelta(seconds=lease))}
             quest = {"quest_id": work_key, "work_key": work_key, "attempt": attempt, "status": "ACTIVE", "claim_id": claim_id, "session_id": session_id, "fence": fence, "task": task, "targets": candidate["targets"], "input_head": base, "prompt_digest": current_prompt}
             presence = {"artifact": PRESENCE_ARTIFACT, "agent_id": agent_id, "claim_id": claim_id, "session_id": session_id, "fence": fence, "status": "ACTIVE", "mode": "PRIMARY", "task": task, "work_key": work_key, "targets": candidate["targets"], "details": f"organism-room role={session['role']}", "join_of": None, "started_at": session["entered_at"], "heartbeat_at": session["entered_at"], "lease_seconds": lease, "expires_at": session["lease_until"], "claim_base_head": base, "law": "FENCED_CLAIM_NOT_COMPLETION"}
             state["version"] += 1
