@@ -3,24 +3,24 @@ from __future__ import annotations
 """Pure read-only SHSO organism-pressure projection.
 
 This is a deliberately small public-runtime port of the private semantic contract
-`ATHENA.SHSO.READONLY.BRIDGE.V1`.  It does not port the private V2a/V2b/V2c
-reducers and cannot create health/ecology truth by itself.  It only validates
+`ATHENA.SHSO.READONLY.BRIDGE.V1`. It does not port the private V2a/V2b/V2c
+reducers and cannot create health/ecology truth by itself. It only validates
 caller-supplied advisory packets and translates them into a non-authoritative
 work/organism pressure label.
 
-PRESSURE != DISPATCH.  READY_BUILD != EXECUTION_PERMISSION.
+PRESSURE != DISPATCH. READY_BUILD != EXECUTION_PERMISSION.
 """
 
 import hashlib
 import json
-import math
 from typing import Any, Iterable, Mapping, Sequence
 
 SHSO_READONLY_VERSION = "ATHENA.SHSO.READONLY.RUNTIME.V1"
 PRIVATE_SEMANTIC_CONTRACT = "ATHENA.SHSO.READONLY.BRIDGE.V1"
 PRIVATE_V2D_HEAD = "0aa81433ee35ef27a819023594f621ab1dfe909c"
 PRIVATE_RECONCILIATION_COMMIT = "98bda154c3c99de82d047b13b1aaaf4944772102"
-PUBLIC_RUNTIME_BASE_HEAD = "d8bb4cc6e2e6861eeb7141dc52a2efcea252ff36"
+PUBLIC_RUNTIME_BASE_HEAD = "2ca4b01c2a8591bc7159ae1c941e7d80fa007343"
+PUBLIC_RUNTIME_RECONCILIATION_COMMIT = "80bda63556da7158f93874eee724fda38313e7e1"
 BEHAVIORAL_TREATMENT_EFFECT = "UNKNOWN"
 
 HEALTH_PHASES = {
@@ -301,6 +301,7 @@ def manifest() -> dict[str, Any]:
         "private_v2d_head": PRIVATE_V2D_HEAD,
         "private_reconciliation_commit": PRIVATE_RECONCILIATION_COMMIT,
         "public_runtime_base_head": PUBLIC_RUNTIME_BASE_HEAD,
+        "public_runtime_reconciliation_commit": PUBLIC_RUNTIME_RECONCILIATION_COMMIT,
         "behavioral_treatment_effect": BEHAVIORAL_TREATMENT_EFFECT,
         "ports_full_private_shso_reducers": False,
         "operations": ["athena_shso_project_organism_pressure"],
@@ -379,6 +380,7 @@ __all__ = [
     "PRIVATE_SEMANTIC_CONTRACT",
     "PRIVATE_V2D_HEAD",
     "PUBLIC_RUNTIME_BASE_HEAD",
+    "PUBLIC_RUNTIME_RECONCILIATION_COMMIT",
     "SHSO_READONLY_VERSION",
     "benchmark",
     "manifest",
