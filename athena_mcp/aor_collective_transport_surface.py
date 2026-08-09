@@ -26,11 +26,15 @@ from .cohesion_mesh_protocol import (
 )
 from .cohesion_duplicate_guard import augment_cohesion_resource,duplicate_guard
 from .cohesion_duplicate_guard_protocol import DUPLICATE_GUARD_TOOLS,DUPLICATE_GUARD_TOOL_NAMES
+from .cohesion_dependency_cone import augment_dependency_cone_resource,dependency_cone
+from .cohesion_dependency_cone_protocol import DEPENDENCY_CONE_TOOLS,DEPENDENCY_CONE_TOOL_NAMES
+from .cohesion_closure_cut02 import augment_cut02_resource,consume,outcome_credit,pulse
+from .cohesion_closure_cut02_protocol import CUT02_TOOLS,CUT02_TOOL_NAMES
 
 AOR_COLLECTIVE_TRANSPORT_TOOLS=(
     list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(PARTY_CHANNEL_TOOLS)+
     list(PARTY_REWARD_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)+list(COHESION_MESH_TOOLS)+
-    list(DUPLICATE_GUARD_TOOLS)
+    list(DUPLICATE_GUARD_TOOLS)+list(DEPENDENCY_CONE_TOOLS)+list(CUT02_TOOLS)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCES=[
     TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE,COHESION_MESH_RESOURCE
@@ -38,7 +42,7 @@ AOR_COLLECTIVE_TRANSPORT_RESOURCES=[
 AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=(
     set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(PARTY_CHANNEL_TOOL_NAMES)|
     set(PARTY_REWARD_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)|set(COHESION_MESH_TOOL_NAMES)|
-    set(DUPLICATE_GUARD_TOOL_NAMES)
+    set(DUPLICATE_GUARD_TOOL_NAMES)|set(DEPENDENCY_CONE_TOOL_NAMES)|set(CUT02_TOOL_NAMES)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={
     TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri'],
@@ -54,6 +58,49 @@ class AorCollectiveTransportSurface:
         self.cohesion=CohesionEvidenceGuardRuntime(server)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        if name in CUT02_TOOL_NAMES:
+            if name=='athena_cohesion_consume':
+                return True,consume(
+                    self.cohesion,
+                    consumption_id=args['consumption_id'],
+                    recipient_id=args['recipient_id'],
+                    route_ref=args['route_ref'],
+                    decision=args['decision'],
+                    behavior_change=args['behavior_change'],
+                    behavior_change_ref=args.get('behavior_change_ref'),
+                    reason=args.get('reason'),
+                    evidence_refs=args.get('evidence_refs'),
+                    expected_route_digest=args.get('expected_route_digest'),
+                    remote=args.get('remote','origin'),
+                )
+            if name=='athena_cohesion_outcome_credit':
+                return True,outcome_credit(
+                    self.cohesion,
+                    credit_id=args['credit_id'],
+                    observer_id=args['observer_id'],
+                    outcomes=args['outcomes'],
+                    remote=args.get('remote','origin'),
+                    shared_remote_mode=args.get('shared_remote_mode','REQUIRED'),
+                )
+            if name=='athena_cohesion_pulse':
+                return True,pulse(
+                    self.cohesion,self.party,
+                    observer_id=args['observer_id'],
+                    comparison_id=args.get('comparison_id'),
+                    change=args.get('change'),
+                    caller_edges=args.get('caller_edges'),
+                    remote=args.get('remote','origin'),
+                    shared_remote_mode=args.get('shared_remote_mode','REQUIRED'),
+                )
+        if name in DEPENDENCY_CONE_TOOL_NAMES:
+            return True,dependency_cone(
+                self.cohesion,self.party,
+                change=args['change'],
+                caller_edges=args.get('caller_edges'),
+                max_depth=args.get('max_depth',4),
+                remote=args.get('remote','origin'),
+                shared_remote_mode=args.get('shared_remote_mode','REQUIRED'),
+            )
         if name in DUPLICATE_GUARD_TOOL_NAMES:
             return True,duplicate_guard(
                 self.cohesion,
@@ -189,7 +236,10 @@ class AorCollectiveTransportSurface:
         return False,None
 
     def read_resource(self,uri:str):
-        if uri==COHESION_MESH_RESOURCE['uri']:return augment_cohesion_resource(self.cohesion.resource())
+        if uri==COHESION_MESH_RESOURCE['uri']:
+            value=augment_cohesion_resource(self.cohesion.resource())
+            value=augment_dependency_cone_resource(value)
+            return augment_cut02_resource(value)
         if uri==IMPOSSIBLE_GODBOARD_RESOURCE['uri']:return self.godboard.resource()
         if uri==PARTY_COORDINATION_RESOURCE['uri']:return self.party.resource()
         if uri!=TRANSPORT_RESOURCE['uri']:raise KeyError(uri)

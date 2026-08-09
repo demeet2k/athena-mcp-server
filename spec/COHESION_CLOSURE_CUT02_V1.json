@@ -1,0 +1,84 @@
+{
+  "schema": "ATHENA.COHESION.CLOSURE.CUT02.1",
+  "artifact": "ATHENA.KC144.CLOSURE.CUT02.RUNTIME.V1",
+  "standing": "TREATMENT_CANDIDATE_UNQUALIFIED",
+  "base_head": "82a519ffe25f9eacbbec0e119345ec395bf88c83",
+  "parent_work_order": "athena-mcp-server#147",
+  "evaluation_contract": "Athena#192",
+  "operators": {
+    "EvidenceCoverage": {
+      "action": "REUSE",
+      "version": "COHESION.EVIDENCE.GUARD.1",
+      "causal_effect": "UNKNOWN",
+      "promotion_authority": false
+    },
+    "DependencyCone": {
+      "action": "REPLAY_CURRENT_HEAD",
+      "version": "COHESION.DEPENDENCY.CONE.1",
+      "tool": "athena_cohesion_dependency_cone",
+      "read_only": true,
+      "authority": false
+    },
+    "Consume": {
+      "action": "BUILD",
+      "artifact": "ATHENA.COHESION.CONSUMPTION.V1",
+      "tool": "athena_cohesion_consume",
+      "transport": "Message Board V1 event log",
+      "laws": [
+        "ROUTED != ACKED != CONSUMED != COMPLIED != TRUE",
+        "CONSUMPTION != EXECUTION_AUTHORITY",
+        "CONSUMPTION != XP_AUTHORITY"
+      ]
+    },
+    "OutcomeCredit": {
+      "action": "BUILD",
+      "artifact": "ATHENA.COHESION.OUTCOME.CREDIT.V1",
+      "tool": "athena_cohesion_outcome_credit",
+      "read_only": true,
+      "scalar_credit": null,
+      "causal_effect": "UNKNOWN",
+      "laws": [
+        "EXECUTION_CONTRIBUTION != COORDINATION_CONTRIBUTION != TRUTH_STANDING != CAUSAL_EFFECT",
+        "DUPLICATE_EVIDENCE_ATTRIBUTION != INDEPENDENT_SUPPORT"
+      ]
+    },
+    "CohesionPulse": {
+      "action": "BUILD",
+      "artifact": "ATHENA.COHESION.PULSE.CUT02.V1",
+      "tool": "athena_cohesion_pulse",
+      "read_only": true,
+      "execution_authority": false,
+      "scheduler_authority": false,
+      "law": "COHESION_PULSE != QUEST_PULSE"
+    }
+  },
+  "persistent_state": {
+    "new_store_created": false,
+    "consume_writes": "runtime/message_board/v1/events via existing MessageBoard CAS/publish",
+    "outcome_credit_writes": false,
+    "pulse_writes": false,
+    "dependency_cone_writes": false
+  },
+  "qualification": {
+    "required": [
+      "python syntax",
+      "full repository unit corpus",
+      "complete critical invariant chain",
+      "MCP smoke",
+      "exact-head provider qualification",
+      "fresh-master anti-stale comparison"
+    ],
+    "behavioral_effect": "UNKNOWN_UNTIL_FIELD_EVALUATION"
+  },
+  "firewalls": [
+    "MISSING_SURFACE != PROOF_OF_BENEFIT",
+    "ROUTED != CONSUMED != COMPLIED != TRUE",
+    "PARTY_MEMBERSHIP != UNIVERSAL_DEPENDENCY",
+    "DISJOINT_OBSERVED_PATH != PROVEN_SEMANTIC_INDEPENDENCE",
+    "EXECUTION != OBSERVED_OUTCOME",
+    "COHESION_PULSE != QUEST_PULSE",
+    "COHESION_SIGNAL != EXECUTION_AUTHORITY",
+    "UNKNOWN != ZERO",
+    "MECHANISM_PASS != BEHAVIORAL_GAIN"
+  ]
+}
