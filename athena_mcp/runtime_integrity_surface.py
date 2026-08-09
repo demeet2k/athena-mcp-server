@@ -21,13 +21,12 @@ from .surface_contract import audit_surface,contract_manifest
 from .surface_protocol import SURFACE_RESOURCE,SURFACE_TOOLS,SURFACE_TOOL_NAMES
 from .unified_manifest_protocol import UNIFIED_MANIFEST_RESOURCES,UNIFIED_MANIFEST_TOOLS,UNIFIED_MANIFEST_TOOL_NAMES
 
-MANIFEST_ALIAS_RESOURCE={'uri':'athena://manifest','name':'ATHENA Effective Unified Runtime Manifest','mimeType':'application/json'}
 INTEGRITY_TOOLS=(
     list(SURFACE_TOOLS)+list(PROMOTION_TOOLS)+list(STATE_FOUNDATION_TOOLS)+
     list(SELF_TEST_TOOLS)+list(STARTUP_HEALTH_TOOLS)+list(UNIFIED_MANIFEST_TOOLS)+list(ARCHITECTURE_DRIFT_TOOLS)
 )
 INTEGRITY_RESOURCES=(
-    [MANIFEST_ALIAS_RESOURCE,SURFACE_RESOURCE,PROMOTION_RESOURCE]+list(STATE_FOUNDATION_RESOURCES)+
+    [SURFACE_RESOURCE,PROMOTION_RESOURCE]+list(STATE_FOUNDATION_RESOURCES)+
     [SELF_TEST_RESOURCE,STARTUP_HEALTH_RESOURCE]+list(UNIFIED_MANIFEST_RESOURCES)+list(ARCHITECTURE_DRIFT_RESOURCES)
 )
 INTEGRITY_TOOL_NAMES=(
@@ -92,8 +91,6 @@ class RuntimeIntegritySurface:
         if name=='athena_maxdev_law':return True,{'text':effective_maxdev_law()}
         if name=='athena_startup_health':return True,self.startup.evaluate(args.get('run_replay_samples',False))
         if name=='athena_self_test':return True,self.self_test.run(args.get('replay_limit',10),args.get('run_composition_probes',True))
-        if name=='athena_organ_inventory':return True,inventory_manifest()
-        if name=='athena_architecture_drift_audit':return True,self.architecture_drift_audit(args.get('include_repository_witnesses',False))
         handled,value=self.state_foundation.call_tool(name,args)
         if handled:return True,value
         if name=='athena_surface_audit':return True,self.surface_audit(args.get('run_probes',True))
@@ -113,7 +110,7 @@ class RuntimeIntegritySurface:
         return False,None
 
     def read_resource(self,uri:str):
-        if uri in {'athena://manifest','athena://runtime/unified-manifest'}:return build_effective_manifest(self.server)
+        if uri=='athena://runtime/unified-manifest':return build_effective_manifest(self.server)
         if uri=='athena://runtime/maxdev':return {'mimeType':'text/plain','text':effective_maxdev_law()}
         if uri=='athena://architecture/inventory':return inventory_manifest()
         if uri=='athena://architecture/drift':return {'inventory':inventory_manifest(),'latest':self.architecture_drift_audit(False),'law':'declared mature organs must agree across runtime discovery, SURFACE, effective manifest and OMEGA; repository CI/source witnesses are available through the explicit audit option'}
