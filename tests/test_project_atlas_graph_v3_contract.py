@@ -15,6 +15,7 @@ from athena_mcp.project_atlas_graph import (
     MAX_EXPANSIONS,
     MAX_QUERY_LIMIT,
     STRUCTURAL_EDGE_KINDS,
+    VERTEX_ID_PREFIX,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,15 +36,21 @@ class ProjectAtlasGraphV3ContractTests(unittest.TestCase):
         self.assertEqual(c["parent_v2"]["pull_request"], 310)
         self.assertEqual(c["parent_v2"]["head_at_branch_creation"], "c7445bcd70a354e5deb912add6716d7e5191e02c")
         self.assertEqual(c["integration"]["branch"], "agent/kc144-project-atlas-graph-v3")
+        self.assertEqual(c["integration"]["integration_pull_request"], 335)
+        self.assertEqual(c["integration"]["qualification_only_pull_request"], 336)
+        self.assertEqual(c["integration"]["law"], "QUALIFICATION_PR != INTEGRATION_PR != PROMOTION")
 
-    def test_graph_and_edge_namespaces_match_implementation(self):
+    def test_graph_vertex_and_edge_namespaces_match_implementation(self):
         i = self.c["identity"]
         self.assertEqual(GRAPH_SCHEMA, "ATHENA.KC144.PROJECT_RELATION_GRAPH.v3")
         self.assertEqual(i["snapshot_prefix"], "PATLASV2.")
         self.assertEqual(i["graph_prefix"], GRAPH_ID_PREFIX)
+        self.assertEqual(i["vertex_prefix"], VERTEX_ID_PREFIX)
         self.assertEqual(i["edge_prefix"], "PEDGE.")
-        self.assertEqual(i["vertex_identity"], "Project Atlas POID")
+        self.assertEqual(i["vertex_identity"], "PVTX(<plane,repo,head,POID>) exact federated manifestation")
         self.assertEqual(i["authority"], "NONE")
+        self.assertEqual(self.c["frontier"]["vertex_scope"], "<plane,repo,head,POID>")
+        self.assertIn("HOLD_AMBIGUOUS_VERTEX", self.c["frontier"]["bare_poid_resolution"])
 
     def test_edge_lattice_is_exact_and_geometric_is_not_structural(self):
         declared_structural = set(self.c["edge_kinds"]["structural_default"])
@@ -59,6 +66,7 @@ class ProjectAtlasGraphV3ContractTests(unittest.TestCase):
     def test_query_bounds_and_no_hidden_scalarization(self):
         q = self.c["queries"]
         self.assertFalse(q["mcp_rpc_promoted"])
+        self.assertEqual(q["locator"], "exact PVTX preferred; bare POID accepted only when unique")
         self.assertEqual(q["max_page"], MAX_QUERY_LIMIT)
         self.assertEqual(q["max_depth"], MAX_DEPTH)
         self.assertEqual(q["max_expansions"], MAX_EXPANSIONS)
@@ -69,8 +77,10 @@ class ProjectAtlasGraphV3ContractTests(unittest.TestCase):
         laws = set(self.c["laws"])
         self.assertTrue(set(GRAPH_LAWS).issubset(laws))
         for law in (
+            "POID != FEDERATED_VERTEX_ID",
+            "AMBIGUOUS_POID_ACROSS_FRONTIERS -> HOLD_AMBIGUOUS_VERTEX",
             "STRUCTURAL_GRAPH_ROUTE != KC144_GEOMETRIC_ROUTE != EXECUTION",
-            "V3_CHILD_HEAD != ACCEPTED_V2_ANCESTRY",
+            "QUALIFICATION_PR != INTEGRATION_PR != PROMOTION",
         ):
             self.assertIn(law, laws)
 
@@ -80,6 +90,7 @@ class ProjectAtlasGraphV3ContractTests(unittest.TestCase):
             "HOLD_STALE_SNAPSHOT",
             "HOLD_STALE_GRAPH",
             "HOLD_UNKNOWN_VERTEX",
+            "HOLD_AMBIGUOUS_VERTEX",
             "HOLD_EXPANSION_LIMIT",
             "HOLD_DEPTH_LIMIT",
             "HOLD_NO_PATH",
