@@ -1,0 +1,80 @@
+name: Bootstrap ATHENA v3.3 Canary Source
+
+on:
+  push:
+    branches: [agent/athena-v3.3-isolated-canary-v1]
+    paths:
+      - '.github/workflows/canary-bootstrap-v1.yml'
+      - '.athena/bootstrap/canary-v3.3.payload.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bootstrap-athena-v3.3-canary-source
+  cancel-in-progress: false
+
+jobs:
+  unpack:
+    if: startsWith(github.event.head_commit.message, 'Stage isolated canary payload')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: agent/athena-v3.3-isolated-canary-v1
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Decode bounded source payload and verify it
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import base64, gzip, json, pathlib
+
+          root=pathlib.Path('.').resolve()
+          payload_path=root/'.athena/bootstrap/canary-v3.3.payload.json'
+          payload=json.loads(payload_path.read_text(encoding='utf-8'))
+          allowed={
+              'deploy/canary_observer.py',
+              'tests/test_deployment_canary_observer_v3.py',
+              '.github/workflows/canary-v3.3.yml',
+          }
+          assert set(payload)==allowed, {'expected':sorted(allowed),'observed':sorted(payload)}
+          for relative, encoded in payload.items():
+              target=(root/relative).resolve()
+              assert root in target.parents, relative
+              raw=gzip.decompress(base64.b64decode(encoded, validate=True))
+              assert raw and b'\x00' not in raw, relative
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_bytes(raw)
+          payload_path.unlink()
+          (root/'.github/workflows/canary-bootstrap-v1.yml').unlink()
+          PY
+          python -m compileall -q deploy/canary_observer.py tests/test_deployment_canary_observer_v3.py
+          python -m unittest discover -s tests -p 'test_deployment_canary_observer_v3.py' -v
+          python - <<'PY'
+          import pathlib, yaml
+          workflow=yaml.safe_load(pathlib.Path('.github/workflows/canary-v3.3.yml').read_text())
+          assert workflow['jobs']['contract']
+          assert workflow['jobs']['observe']
+          print('CANARY WORKFLOW YAML PASS')
+          PY
+
+      - name: Commit only the decoded canary lane
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            deploy/canary_observer.py \
+            tests/test_deployment_canary_observer_v3.py \
+            .github/workflows/canary-v3.3.yml \
+            .athena/bootstrap/canary-v3.3.payload.json \
+            .github/workflows/canary-bootstrap-v1.yml
+          test -n "$(git status --porcelain)"
+          git commit -m 'Add exact v3.3 isolated canary witness'
+          git push origin HEAD:agent/athena-v3.3-isolated-canary-v1
