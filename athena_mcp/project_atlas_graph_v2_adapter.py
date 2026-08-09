@@ -4,7 +4,9 @@ from dataclasses import replace
 from pathlib import Path
 from typing import Callable
 
+from .identity import digest
 from .project_atlas_graph import (
+    GRAPH_ID_PREFIX,
     GraphBuildOptions,
     ProjectRelationGraph,
     compile_project_relation_graph,
@@ -13,6 +15,7 @@ from .project_atlas_graph import (
 
 V2_SNAPSHOT_SCHEMA = "ATHENA.KC144.FEDERATED_RUNTIME_PROJECT_ATLAS.V2"
 ADAPTER_VERSION = "ATHENA.PROJECT_ATLAS.V2_TO_RELATION_GRAPH.V3.ADAPTER.v1"
+ADAPTED_GRAPH_IDENTITY_SCHEMA = "ATHENA.PROJECT_ATLAS.RELATION_GRAPH.V3.ADAPTED_IDENTITY.v1"
 ADAPTER_LAWS = [
     "V2_SNAPSHOT_PLANES != FLAT_V1_ATLAS",
     "CONFIGURED_GIT_VERTEX != RUNTIME_GIT_VERTEX_UNLESS_V2_COLLAPSES_RUNTIME_TO_CONFIGURED",
@@ -21,6 +24,8 @@ ADAPTER_LAWS = [
     "PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT",
     "EXACT_V2_SNAPSHOT != COMPLETE_CONTENT_EXTRACTION_IF_BLOB_READERS_MISSING",
     "RUNTIME_CONTENT_ROOT_DEFAULTS_TO_EXACT_V2_RUNTIME_PROVENANCE_ROOT",
+    "GRAPH_ID_BINDS_EXTRACTION_PROFILE_AND_COVERAGE",
+    "SAME_VISIBLE_EDGES_WITH_DIFFERENT_OBSERVABILITY != SAME_GRAPH_RECEIPT",
 ]
 
 
@@ -103,6 +108,36 @@ def _required_content_planes(
     return tuple(required)
 
 
+def _options_receipt(options: GraphBuildOptions) -> dict:
+    return {
+        "default_plane": options.default_plane,
+        "include_hierarchy": options.include_hierarchy,
+        "include_python_imports": options.include_python_imports,
+        "include_blob_aliases": options.include_blob_aliases,
+        "include_exact_path_references": options.include_exact_path_references,
+        "include_geometric": options.include_geometric,
+    }
+
+
+def _adapted_graph_identity(base_graph_id: str, snapshot: dict, coverage: dict, options: GraphBuildOptions) -> tuple[str, dict]:
+    """Bind graph CAS identity to what was observable, not only the emitted V/E set."""
+    basis = {
+        "schema": ADAPTED_GRAPH_IDENTITY_SCHEMA,
+        "adapter_version": ADAPTER_VERSION,
+        "base_graph_id": base_graph_id,
+        "snapshot_id": snapshot["snapshot_id"],
+        "snapshot_status": snapshot.get("status"),
+        "runtime_provenance_status": coverage.get("runtime_provenance_status"),
+        "runtime_tree_available": coverage.get("runtime_tree_available"),
+        "runtime_git_is_configured": coverage.get("runtime_git_is_configured"),
+        "content_reader_planes": coverage.get("content_reader_planes"),
+        "required_content_planes": coverage.get("required_content_planes"),
+        "missing_content_reader_planes": coverage.get("missing_content_reader_planes"),
+        "options": _options_receipt(options),
+    }
+    return GRAPH_ID_PREFIX + digest(basis, 32), basis
+
+
 def compile_v2_snapshot_relation_graph(
     snapshot: dict,
     *,
@@ -133,6 +168,21 @@ def compile_v2_snapshot_relation_graph(
     reader, reader_planes = _reader_dispatch(configured_root, resolved_runtime_root)
     required_content_planes = _required_content_planes(coverage, options)
     missing_content_planes = tuple(sorted(set(required_content_planes) - set(reader_planes)))
+
+    coverage = {
+        **coverage,
+        "mcp_records": len(mcp_records),
+        "content_reader_planes": list(reader_planes),
+        "required_content_planes": list(required_content_planes),
+        "missing_content_reader_planes": list(missing_content_planes),
+        "runtime_root_source": (
+            "explicit"
+            if runtime_root is not None
+            else "v2_runtime_provenance"
+            if resolved_runtime_root is not None
+            else "unavailable"
+        ),
+    }
 
     git_graph = compile_project_relation_graph(
         {"records": git_records},
@@ -174,28 +224,23 @@ def compile_v2_snapshot_relation_graph(
         options=options,
     )
 
-    # Coverage receipt is diagnostic only; graph identity already binds the exact V2 snapshot,
-    # exact vertices and extracted edges. Coverage must still say what content was unobservable.
+    coverage["total_vertices"] = len(graph.vertices)
+    base_graph_id = graph.graph_id
+    graph.graph_id, identity_basis = _adapted_graph_identity(base_graph_id, snapshot, coverage, options)
+
+    # Coverage is part of the adapted graph CAS identity because observable edge classes are
+    # semantically different from edge classes that were enabled but not readable.
     graph.v2_adapter = {
         "version": ADAPTER_VERSION,
+        "identity_schema": ADAPTED_GRAPH_IDENTITY_SCHEMA,
         "snapshot_schema": snapshot.get("schema"),
         "snapshot_status": snapshot.get("status"),
         "snapshot_id": snapshot_id,
-        "coverage": {
-            **coverage,
-            "mcp_records": len(mcp_records),
-            "total_vertices": len(graph.vertices),
-            "content_reader_planes": list(reader_planes),
-            "required_content_planes": list(required_content_planes),
-            "missing_content_reader_planes": list(missing_content_planes),
-            "runtime_root_source": (
-                "explicit"
-                if runtime_root is not None
-                else "v2_runtime_provenance"
-                if resolved_runtime_root is not None
-                else "unavailable"
-            ),
-        },
+        "base_graph_id": base_graph_id,
+        "adapted_graph_id": graph.graph_id,
+        "identity_basis_digest": digest(identity_basis, 32),
+        "extraction_profile": _options_receipt(options),
+        "coverage": coverage,
         "laws": list(ADAPTER_LAWS),
         "authority": "NONE",
     }
