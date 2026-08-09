@@ -1,0 +1,97 @@
+{
+  "artifact": "ATHENA.MCK.CONNECTION.OPERATOR_PACKET.V1",
+  "feature_basis": [
+    "x",
+    "memo"
+  ],
+  "firewalls": [
+    "DECLARED_TYPED_LOSS != EXECUTED_IRREVERSIBLE_LOSS",
+    "EXPECTED_CLASS != CONNECTION_DEFINITION",
+    "PACKET_DIGEST != INTERPRETER_IMPLEMENTATION_WITNESS",
+    "PATH_PROVENANCE != SEMANTIC_RESIDUE",
+    "SYNTHETIC_CONTROL_PACKET != HISTORICAL_SOURCE_EVIDENCE"
+  ],
+  "historical_mapping": {
+    "edges": [],
+    "status": "HOLD_EMPTY_V1_PROPOSAL"
+  },
+  "operator_registry_digest": "87074dea1c8431f7ae9e5fd12e8b62e7227ade3dc8522ee9a047904561a0b144",
+  "operators": [
+    {
+      "edge_id": "FWD",
+      "inverse_edge_id": "BACK",
+      "loss_standing": "SCHEMA_TYPED_CONTROL_DECLARATION",
+      "provenance": [
+        "CANONICAL:ZERO:FWD"
+      ],
+      "source_coordinate": "A",
+      "standing": "SYNTHETIC_CONTROL_PACKET_NOT_SOURCE_EVIDENCE",
+      "target_coordinate": "B",
+      "transforms": {
+        "x": {
+          "op": "ADD",
+          "operand": 1
+        }
+      },
+      "typed_loss": []
+    },
+    {
+      "edge_id": "BACK",
+      "inverse_edge_id": "FWD",
+      "loss_standing": "SCHEMA_TYPED_CONTROL_DECLARATION",
+      "provenance": [
+        "CANONICAL:ZERO:BACK"
+      ],
+      "source_coordinate": "B",
+      "standing": "SYNTHETIC_CONTROL_PACKET_NOT_SOURCE_EVIDENCE",
+      "target_coordinate": "A",
+      "transforms": {
+        "x": {
+          "op": "ADD",
+          "operand": -1
+        }
+      },
+      "typed_loss": []
+    },
+    {
+      "edge_id": "DROP",
+      "inverse_edge_id": null,
+      "loss_standing": "SCHEMA_TYPED_CONTROL_DECLARATION",
+      "provenance": [
+        "CANONICAL:LOSS:DROP"
+      ],
+      "source_coordinate": "A",
+      "standing": "SYNTHETIC_CONTROL_PACKET_NOT_SOURCE_EVIDENCE",
+      "target_coordinate": "C",
+      "transforms": {
+        "memo": {
+          "op": "DELETE"
+        }
+      },
+      "typed_loss": [
+        "memo"
+      ]
+    },
+    {
+      "edge_id": "RESTORE",
+      "inverse_edge_id": null,
+      "loss_standing": "SCHEMA_TYPED_CONTROL_DECLARATION",
+      "provenance": [
+        "CANONICAL:LOSS:RESTORE"
+      ],
+      "source_coordinate": "C",
+      "standing": "SYNTHETIC_CONTROL_PACKET_NOT_SOURCE_EVIDENCE",
+      "target_coordinate": "A",
+      "transforms": {
+        "memo": {
+          "op": "SET",
+          "operand": "seed"
+        }
+      },
+      "typed_loss": []
+    }
+  ],
+  "packet_semantic_digest": "3d17c0ad309864bcb2ded027bd0419141f3baf567491985ff833442a404819eb",
+  "standing": "SYNTHETIC_CONTROL_PACKET_NOT_SOURCE_EVIDENCE",
+  "version": "MCK.CONNECTION.PACKET.V1"
+}
