@@ -51,8 +51,42 @@ def packet():
     }
 
 
-def state():
-    return SemanticState("A", {"x": 5}, feature_basis=("x",), provenance=("SEED",))
+def state(provenance=("SEED",)):
+    return SemanticState(
+        "A",
+        {"x": 5},
+        feature_basis=("x",),
+        provenance=provenance,
+    )
+
+
+def reseal(forged):
+    normalized_initial = receipt_mod._normalize_audit_state(forged["initial_state"])
+    normalized_path = receipt_mod._normalize_path(forged["edge_path"])
+    forged["initial_state_digest"] = receipt_mod._domain_digest(
+        receipt_mod.STATE_DIGEST_DOMAIN,
+        normalized_initial,
+    )
+    forged["ordered_path_digest"] = receipt_mod._domain_digest(
+        receipt_mod.PATH_DIGEST_DOMAIN,
+        normalized_path,
+    )
+    input_payload = receipt_mod._evaluation_input_payload(
+        packet_semantic_digest=forged["packet_semantic_digest"],
+        operator_registry_digest=forged["operator_registry_digest"],
+        initial_state=normalized_initial,
+        edge_path=normalized_path,
+    )
+    forged["evaluation_input_digest"] = receipt_mod._domain_digest(
+        receipt_mod.INPUT_DIGEST_DOMAIN,
+        input_payload,
+    )
+    forged["receipt_digest"] = receipt_mod._domain_digest(
+        receipt_mod.RECEIPT_DIGEST_DOMAIN,
+        receipt_mod._receipt_identity_payload(forged),
+    )
+    forged["receipt_id"] = f"MCK-EVAL-{forged['receipt_digest'][:24]}"
+    return forged
 
 
 class MckEvaluationReceiptHardeningTests(unittest.TestCase):
@@ -69,6 +103,36 @@ class MckEvaluationReceiptHardeningTests(unittest.TestCase):
         self.assertEqual("HOLD", value["status"])
         self.assertEqual("PACKET_COMPILER_REVISION_DRIFT", value["reason"])
         self.assertIsNone(value["receipt_id"])
+
+    def test_state_and_path_have_separate_digest_coordinates(self):
+        short = self.good_receipt()
+        long = receipt_mod.build_evaluation_receipt(
+            packet(), state(), ["FWD", "BACK", "FWD", "BACK"]
+        )
+        self.assertEqual(64, len(short["initial_state_digest"]))
+        self.assertEqual(64, len(short["ordered_path_digest"]))
+        self.assertEqual(short["initial_state_digest"], long["initial_state_digest"])
+        self.assertNotEqual(short["ordered_path_digest"], long["ordered_path_digest"])
+        self.assertEqual(short["semantic_result_digest"], long["semantic_result_digest"])
+
+    def test_provenance_change_splits_state_digest_not_semantic_result(self):
+        first = receipt_mod.build_evaluation_receipt(
+            packet(), state(("TRACE:A",)), ["FWD", "BACK"]
+        )
+        second = receipt_mod.build_evaluation_receipt(
+            packet(), state(("TRACE:B",)), ["FWD", "BACK"]
+        )
+        self.assertNotEqual(first["initial_state_digest"], second["initial_state_digest"])
+        self.assertEqual(first["ordered_path_digest"], second["ordered_path_digest"])
+        self.assertEqual(first["semantic_result_digest"], second["semantic_result_digest"])
+
+    def test_stored_receipt_replays_from_its_own_frozen_inputs(self):
+        stored = self.good_receipt()
+        replay = receipt_mod.replay_stored_evaluation_receipt(stored, packet())
+        self.assertEqual("MATCH", replay["status"])
+        self.assertEqual("EXACT_REPLAY_MATCH", replay["reason"])
+        self.assertEqual(stored["receipt_id"], replay["stored_receipt_id"])
+        self.assertEqual(stored["receipt_id"], replay["replay_receipt_id"])
 
     def test_scalar_stored_initial_state_holds_before_replay(self):
         forged = self.good_receipt()
@@ -91,23 +155,24 @@ class MckEvaluationReceiptHardeningTests(unittest.TestCase):
         self.assertEqual("HOLD", result["status"])
         self.assertTrue(any("DUPLICATE_RECEIPT_INITIAL_FEATURE_BASIS" in x for x in result["errors"]))
 
+    def test_state_digest_is_independently_verified(self):
+        forged = self.good_receipt()
+        forged["initial_state_digest"] = "0" * 64
+        result = receipt_mod.validate_evaluation_receipt(forged)
+        self.assertEqual("HOLD", result["status"])
+        self.assertTrue(any("INITIAL_STATE_DIGEST_MISMATCH" in x for x in result["errors"]))
+
+    def test_path_digest_is_independently_verified(self):
+        forged = self.good_receipt()
+        forged["ordered_path_digest"] = "0" * 64
+        result = receipt_mod.validate_evaluation_receipt(forged)
+        self.assertEqual("HOLD", result["status"])
+        self.assertTrue(any("ORDERED_PATH_DIGEST_MISMATCH" in x for x in result["errors"]))
+
     def test_state_raw_result_binding_cannot_be_split(self):
         forged = self.good_receipt()
         forged["initial_state"]["values"]["x"] = 6
-        input_payload = receipt_mod._evaluation_input_payload(
-            packet_semantic_digest=forged["packet_semantic_digest"],
-            operator_registry_digest=forged["operator_registry_digest"],
-            initial_state=forged["initial_state"],
-            edge_path=forged["edge_path"],
-        )
-        forged["evaluation_input_digest"] = receipt_mod._domain_digest(
-            receipt_mod.INPUT_DIGEST_DOMAIN, input_payload
-        )
-        forged["receipt_digest"] = receipt_mod._domain_digest(
-            receipt_mod.RECEIPT_DIGEST_DOMAIN,
-            receipt_mod._receipt_identity_payload(forged),
-        )
-        forged["receipt_id"] = f"MCK-EVAL-{forged['receipt_digest'][:24]}"
+        reseal(forged)
         result = receipt_mod.validate_evaluation_receipt(forged)
         self.assertEqual("HOLD", result["status"])
         self.assertTrue(any("RECEIPT_INITIAL_STATE_RAW_RESULT_MISMATCH" in x for x in result["errors"]))
@@ -115,20 +180,7 @@ class MckEvaluationReceiptHardeningTests(unittest.TestCase):
     def test_path_raw_result_binding_cannot_be_split(self):
         forged = self.good_receipt()
         forged["edge_path"] = ["FWD", "BACK", "FWD", "BACK"]
-        input_payload = receipt_mod._evaluation_input_payload(
-            packet_semantic_digest=forged["packet_semantic_digest"],
-            operator_registry_digest=forged["operator_registry_digest"],
-            initial_state=forged["initial_state"],
-            edge_path=forged["edge_path"],
-        )
-        forged["evaluation_input_digest"] = receipt_mod._domain_digest(
-            receipt_mod.INPUT_DIGEST_DOMAIN, input_payload
-        )
-        forged["receipt_digest"] = receipt_mod._domain_digest(
-            receipt_mod.RECEIPT_DIGEST_DOMAIN,
-            receipt_mod._receipt_identity_payload(forged),
-        )
-        forged["receipt_id"] = f"MCK-EVAL-{forged['receipt_digest'][:24]}"
+        reseal(forged)
         result = receipt_mod.validate_evaluation_receipt(forged)
         self.assertEqual("HOLD", result["status"])
         self.assertTrue(any("RECEIPT_PATH_RAW_RESULT_MISMATCH" in x for x in result["errors"]))
