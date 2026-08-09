@@ -1,0 +1,56 @@
+{
+  "artifact": "ATHENA.H6.RED.WITNESS.MATRIX.CURRENT.V1",
+  "audit_parent": "429a480a80eeefb9e2bff1ea3015adf571d76b0e",
+  "witnesses": [
+    {
+      "red_id": "H6R01_IDENTITY_AMBIGUITY",
+      "gap_id": "H6G01_IDENTITY_DECISION",
+      "fixture": "Present two type-compatible near-identical candidates with different referent/lineage constraints and require one constitutional identity decision object preserving AMBIG/CONFLICT rather than selecting by digest/similarity alone.",
+      "current_parent_expectation": "Existing deterministic identity constructors remain usable, but no H01 constitutional resolver result is available as the required output contract.",
+      "green_condition": "IdentityDecision returns candidates, compatibility evidence, contradiction state, and AMBIG_HOLD/CONFLICT_HOLD without mutating the object store when unresolved."
+    },
+    {
+      "red_id": "H6R02_HASH_SEATING_FIREWALL",
+      "gap_id": "H6G02_PROJECTION_AUTHORITY",
+      "fixture": "Use arbitrary canonical-name inputs with kc144.stable_gid/coordinate_text and require the runtime to distinguish the resulting deterministic projection from a frozen constitutional semantic seat/alias decision.",
+      "current_parent_expectation": "Hash projection can produce a GID/band coordinate, but no constitutional ProjectionDecision explicitly states that this is not semantic seating authority.",
+      "green_condition": "ProjectionDecision names chart/epoch/address authority and cannot create/reseat constitutional GIDs."
+    },
+    {
+      "red_id": "H6R03_ROUTE_ABI_FRAGMENTATION",
+      "gap_id": "H6G03_ROUTE_NAVRUN_ABI",
+      "fixture": "Run equivalent route candidates through current crystal/frontier/orchestration/retrieval surfaces and require projection into one RouteProposal identity plus one replayable NAVRUN shape.",
+      "current_parent_expectation": "Existing routing mechanisms expose their own shapes; no single constitutional H03 ABI is required across them.",
+      "green_condition": "All retained route implementations project losslessly enough into one RouteProposal/NAVRUN ABI without replacing their native algorithms."
+    },
+    {
+      "red_id": "H6R04_TRANSFORM_WITHOUT_BRIDGE_ADMISSION",
+      "gap_id": "H6G04_BRIDGE_ADMISSION",
+      "fixture": "Register/execute a syntactically valid transform with status/loss model but without declared preserved invariants, validity corridor, evidence prerequisites, reverse/compensation or counterexample, then ask whether it is constitutionally admitted as a cross-chart bridge.",
+      "current_parent_expectation": "Current transform schema/DSL can represent and execute transforms/defects, but transform existence alone does not yield a full BridgeDecision.",
+      "green_condition": "BridgeDecision fails closed or remains CONDITIONAL until invariant/corridor/evidence/return obligations are satisfied."
+    },
+    {
+      "red_id": "H6R05_RAW_EVIDENCE_WITHOUT_NORMALIZED_LINEAGE",
+      "gap_id": "H6G05_EVIDENCE_GRAPH",
+      "fixture": "Provide evidence metadata containing duplicated source lineage, stale source revision and a strong claim standing, then require normalized independence/freshness/evidence-floor/authority-ceiling output before promotion use.",
+      "current_parent_expectation": "Specialized evidence guards and promotion verifiers exist, and crystal manifests can carry evidence metadata, but there is no single H05 normalized evidence-graph receipt required at the crystal boundary.",
+      "green_condition": "H05 projection preserves source revision, groups duplicate lineage, surfaces counterevidence/freshness defects, computes evidence sufficiency separately from promotion authority, and does not create a second promotion ledger."
+    },
+    {
+      "red_id": "H6R06_NO_CONSTITUTIONAL_QUERYBUNDLE",
+      "gap_id": "H6G06_QUERYBUNDLE_ROOT_FACADE",
+      "fixture": "Start a fresh H6 compile from current durable state and require one QueryBundle binding identity/projection/route/bridge/evidence roots, semantic/Git/topology/prompt frontiers, evidence floor, authority envelope, completion predicate, stop predicate and return target.",
+      "current_parent_expectation": "Reconstruction/frontier/rehydration/successor machinery exists, but no single constitutional H6 root packet is required as the shared entry contract.",
+      "green_condition": "H6Root facade composes existing organs by reference/digest, emits deterministic QueryBundle/Reconstruction receipts, and delegates continuation to existing rehydration/successor machinery."
+    }
+  ],
+  "count": 6,
+  "treatment_code": false,
+  "law": [
+    "RED_WITNESS != BENEFIT_PROOF",
+    "STATIC_SOURCE_GAP != BEHAVIORAL_DEFECT",
+    "NO_TREATMENT_FROM_STALE_PARENT",
+    "GREEN_MUST_BEGIN_FROM_THEN_CURRENT_MASTER"
+  ]
+}
