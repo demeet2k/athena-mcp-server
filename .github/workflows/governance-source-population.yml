@@ -1,0 +1,38 @@
+name: KC144 Governance Source Population
+
+on:
+  pull_request:
+    branches:
+      - 'agent/cell-closure-populate-h6-v1'
+    paths:
+      - 'spec/GOVERNANCE_RETURN_SOURCE_POPULATION_V1.json'
+      - 'scripts/populate_governance_cell_closure.py'
+      - '.github/workflows/governance-source-population.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  populate-governance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile governance population witness
+        run: python -m compileall -q scripts/populate_governance_cell_closure.py
+      - name: Bind IC10 and SSN12 sources and regenerate cumulative matrix
+        env:
+          PYTHONPATH: .
+        run: python scripts/populate_governance_cell_closure.py
+      - name: Upload governance-populated matrix
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kc144-governance-source-population-v1
+          path: kc144_governance_population_matrix_v1.json
+          if-no-files-found: error

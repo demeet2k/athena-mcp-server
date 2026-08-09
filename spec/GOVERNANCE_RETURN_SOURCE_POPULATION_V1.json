@@ -1,0 +1,46 @@
+{
+  "artifact": "ATHENA.KC144.GOVERNANCE.RETURN.SOURCE.POPULATION.V1",
+  "role": "explicit Git-source population plan for IC10 GID081-090 and SSN12 GID133-144",
+  "parent_h6_population": "fae9f61be9eee2dbae60ff407698e41ac7c74725",
+  "canonical_installation": false,
+  "bindings": {
+    "81": {"code":"I01","sources":["athena_mcp/identity.py","athena_mcp/state_foundation_protocol.py","athena_mcp/promotion.py"]},
+    "82": {"code":"I02","sources":["athena_mcp/runtime_schema.py","athena_mcp/validate.py","athena_mcp/orchestration_extract/specs.py"]},
+    "83": {"code":"I03","sources":["athena_mcp/crystal_schema.py","athena_mcp/runtime_schema.py","athena_mcp/protocol.py"]},
+    "84": {"code":"I04","sources":["athena_mcp/orchestration_gate.py","athena_mcp/promotion.py","athena_mcp/h6_root.py"]},
+    "85": {"code":"I05","sources":["athena_mcp/transform_dsl.py","athena_mcp/crystal_graph.py","athena_mcp/composition_integrity.py"]},
+    "86": {"code":"I06","sources":["athena_mcp/cohesion_evidence_guard.py","athena_mcp/promotion.py","athena_mcp/h6_root.py"]},
+    "87": {"code":"I07","sources":["athena_mcp/frontier_runtime.py","athena_mcp/rehydration_loop.py","athena_mcp/reconstruction.py"]},
+    "88": {"code":"I08","sources":["athena_mcp/crystal_graph.py","athena_mcp/h6_root.py","athena_mcp/rehydration_handoff.py"]},
+    "89": {"code":"I09","sources":["athena_mcp/reconstruction.py","athena_mcp/self_test.py","athena_mcp/runtime_integrity_surface.py"]},
+    "90": {"code":"I10","sources":["athena_mcp/promotion.py","athena_mcp/github_promotion_verifier.py","athena_mcp/rehydration_successor.py"]},
+
+    "133": {"code":"M01","sources":["athena_mcp/unified_manifest.py","athena_mcp/state_projection.py","athena_mcp/startup_health.py"]},
+    "134": {"code":"M02","sources":["athena_mcp/crystal_graph.py","athena_mcp/orchestration_graph.py","athena_mcp/h6_root.py"]},
+    "135": {"code":"M03","sources":["athena_mcp/kc144.py","athena_mcp/polycoord.py","athena_mcp/h6_root.py"]},
+    "136": {"code":"M04","sources":["athena_mcp/crystal_schema.py","athena_mcp/orchestration_equivalence.py","spec/LIMINAL_MESH.md"]},
+    "137": {"code":"M05","sources":["athena_mcp/state_projection.py","athena_mcp/startup_health.py","athena_mcp/frontier_runtime.py"]},
+    "138": {"code":"M06","sources":["athena_mcp/orchestration_branch.py","athena_mcp/campaign_v3_sibling_disposition.py","athena_mcp/rehydration_terminal.py"]},
+    "139": {"code":"M07","sources":["athena_mcp/orchestration_gap/compiler.py","athena_mcp/orchestration_gap/ledger.py","athena_mcp/orchestration_field/compiler.py"]},
+    "140": {"code":"M08","sources":["athena_mcp/rehydration_handoff.py","athena_mcp/campaign_fresh_resume.py","athena_mcp/freshness_train.py"]},
+    "141": {"code":"M09","sources":["athena_mcp/h6_root.py","athena_mcp/crystal_graph.py","athena_mcp/orchestration_retrieval/ledger.py"]},
+    "142": {"code":"M10","sources":["athena_mcp/reconstruction.py","athena_mcp/campaign_v3_cold_resume.py","tests/test_agent_bootstrap_cold_process_continuation.py"]},
+    "143": {"code":"M11","sources":["athena_mcp/deployment.py","athena_mcp/promotion.py","athena_mcp/runtime_integrity_surface.py"]},
+    "144": {"code":"M12","sources":["athena_mcp/successor_baton.py","athena_mcp/rehydration_successor.py","athena_mcp/rehydration_terminal.py"]}
+  },
+  "projected_standing": {
+    "population": "CLOSED",
+    "execution": "PARTIAL",
+    "evidence": "PARTIAL",
+    "ssn12_return": "PARTIAL",
+    "ic10_return": "UNKNOWN",
+    "authority": "SOURCE_POPULATION_ONLY"
+  },
+  "firewalls": [
+    "SOURCE_BUNDLE != GATE_QUALIFICATION",
+    "SOURCE_POPULATION != EXECUTION_CLOSURE",
+    "IC10_SOURCE_POPULATED != I01_I10_COMPILER_CLOSED",
+    "SSN12_SOURCE_POPULATED != RETURN_CERTIFIED",
+    "GOVERNANCE_POPULATION != WHOLE_KC144_POPULATION"
+  ]
+}
