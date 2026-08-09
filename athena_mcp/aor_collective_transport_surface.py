@@ -17,16 +17,29 @@ from .impossible_godboard_protocol import (
     IMPOSSIBLE_GODBOARD_TOOLS,
     IMPOSSIBLE_GODBOARD_TOOL_NAMES,
 )
+from .cohesion_evidence_guard import CohesionEvidenceGuardRuntime
+from .cohesion_mesh_protocol import (
+    COHESION_MESH_RESOURCE,
+    COHESION_MESH_TOOLS,
+    COHESION_MESH_TOOL_NAMES,
+)
+from .cohesion_duplicate_guard import augment_cohesion_resource,duplicate_guard
+from .cohesion_duplicate_guard_protocol import DUPLICATE_GUARD_TOOLS,DUPLICATE_GUARD_TOOL_NAMES
 
 AOR_COLLECTIVE_TRANSPORT_TOOLS=(
-    list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(PARTY_CHANNEL_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)
+    list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(PARTY_CHANNEL_TOOLS)+
+    list(IMPOSSIBLE_GODBOARD_TOOLS)+list(COHESION_MESH_TOOLS)+list(DUPLICATE_GUARD_TOOLS)
 )
-AOR_COLLECTIVE_TRANSPORT_RESOURCES=[TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE]
+AOR_COLLECTIVE_TRANSPORT_RESOURCES=[
+    TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE,COHESION_MESH_RESOURCE
+]
 AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=(
-    set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(PARTY_CHANNEL_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)
+    set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(PARTY_CHANNEL_TOOL_NAMES)|
+    set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)|set(COHESION_MESH_TOOL_NAMES)|set(DUPLICATE_GUARD_TOOL_NAMES)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={
-    TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri']
+    TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri'],
+    COHESION_MESH_RESOURCE['uri']
 }
 
 class AorCollectiveTransportSurface:
@@ -35,8 +48,49 @@ class AorCollectiveTransportSurface:
         self.runtime=TransportRuntime(server)
         self.party=PartyCoordinationRuntimeV2(server)
         self.godboard=ImpossibleGodboardRuntime(server)
+        self.cohesion=CohesionEvidenceGuardRuntime(server)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        if name in DUPLICATE_GUARD_TOOL_NAMES:
+            return True,duplicate_guard(
+                self.cohesion,
+                agent_id=args['agent_id'],
+                task=args['task'],
+                work_key=args.get('work_key'),
+                targets=args.get('targets'),
+                intended_mode=args.get('intended_mode','PRIMARY'),
+                replication_reason=args.get('replication_reason'),
+                join_agent_id=args.get('join_agent_id'),
+                partition_proof=args.get('partition_proof'),
+                remote=args.get('remote','origin'),
+                shared_remote_mode=args.get('shared_remote_mode','REQUIRED'),
+            )
+        if name in COHESION_MESH_TOOL_NAMES:
+            c=self.cohesion
+            if name=='athena_cohesion_request_offer':
+                return True,c.request_offer(
+                    args['request_id'],args['agent_id'],args['kind'],args['capabilities'],args['goal_ref'],
+                    args.get('role',''),args.get('work_key'),args.get('targets'),args.get('dependencies'),
+                    args.get('provides'),args.get('capacity_units',1),args.get('needed_units',1),
+                    args.get('constraints'),args.get('acceptance_criteria'),args.get('party_id'),
+                    args.get('quest_ref'),args.get('life_policy'),args.get('clear_condition_digest'),
+                    args.get('allow_collaboration',False),args.get('expires_at'),args.get('remote','origin')
+                )
+            if name=='athena_cohesion_matchmake':
+                return True,c.matchmake(
+                    args['need_id'],args.get('limit',10),args.get('remote','origin'),
+                    args.get('shared_remote_mode','REQUIRED')
+                )
+            if name=='athena_cohesion_coalition':
+                return True,c.coalition(
+                    args['campaign_id'],args['proposer_id'],args['need_ids'],args.get('max_participants',8),
+                    args.get('exit_criteria'),args.get('rendezvous_refs'),args.get('remote','origin')
+                )
+            if name=='athena_cohesion_solo_party_compare':
+                return True,c.solo_party_compare(
+                    args['comparison_id'],args['observer_id'],args['solo_samples'],args['party_samples'],
+                    args['decision_rule'],args.get('remote','origin')
+                )
         if name in IMPOSSIBLE_GODBOARD_TOOL_NAMES:
             g=self.godboard
             if name=='athena_impossible_open':
@@ -125,6 +179,7 @@ class AorCollectiveTransportSurface:
         return False,None
 
     def read_resource(self,uri:str):
+        if uri==COHESION_MESH_RESOURCE['uri']:return augment_cohesion_resource(self.cohesion.resource())
         if uri==IMPOSSIBLE_GODBOARD_RESOURCE['uri']:return self.godboard.resource()
         if uri==PARTY_COORDINATION_RESOURCE['uri']:return self.party.resource()
         if uri!=TRANSPORT_RESOURCE['uri']:raise KeyError(uri)
@@ -146,4 +201,5 @@ class AorCollectiveTransportSurface:
         result=dict(self.runtime.benchmark())
         result.update(self.party.benchmark())
         result.update(self.godboard.benchmark())
+        result.update(self.cohesion.benchmark())
         return result
