@@ -1,0 +1,60 @@
+{
+  "artifact": "ATHENA.NEXT.SCOUT.ALLOCATION.4",
+  "coordinate": "ATHENA.KC144::GITΩ::NEXT::SCOUT-ALLOCATION::V4",
+  "purpose": "Choose which staged Q2/Q3 preparation plans should consume bounded scout capacity without claiming or executing them.",
+  "inputs": [
+    "exact rolling pipeline state",
+    "Breadth V2 prep plans and observations",
+    "current Message Board scout claims",
+    "max scout capacity",
+    "reserved capacity"
+  ],
+  "policy": {
+    "name": "BALANCED_STAGED_COVERAGE_THEN_STRUCTURAL_READINESS_V1",
+    "objective_order": [
+      "maximize staged quest coverage",
+      "maximize structural readiness value",
+      "maximize prep-kind diversity",
+      "prefer nearer Q2 when otherwise equal"
+    ],
+    "kind_value": {
+      "DEPENDENCY_MAP": 6,
+      "TEST_DESIGN": 5,
+      "RISK_SCAN": 4,
+      "RETRIEVAL_PLAN": 3,
+      "INTERFACE_MAP": 2,
+      "SOURCE_REVIEW": 1
+    }
+  },
+  "capacity": {
+    "max_scouts_default": 4,
+    "reserve_slots_default": 1,
+    "active_scout_claims_consume_capacity": true,
+    "reserved_slots_are_never_allocated": true
+  },
+  "exclusions": [
+    "Q1 focus plans",
+    "stale pipeline-state plans",
+    "already observed plans",
+    "already claimed plans",
+    "non-PLANNED plan states",
+    "unknown prep kinds"
+  ],
+  "ambiguity": "Every exactly optimal allocation is preserved. The caller may explicitly choose only an allocation already in the optimal set.",
+  "authority": {
+    "claim": false,
+    "execute": false,
+    "quest_complete": false,
+    "evidence": false,
+    "promotion": false,
+    "merge": false
+  },
+  "laws": [
+    "ALLOCATION != CLAIM",
+    "ALLOCATION != EXECUTION",
+    "RESERVE_CAPACITY_IS_NOT_ALLOCATED",
+    "ACTIVE_SCOUT_CLAIMS_CONSUME_CAPACITY",
+    "AMBIGUOUS_OPTIMAL_ALLOCATION != HIDDEN_TIE_BREAK",
+    "MESSAGE_BOARD_REMAINS_CLAIM_AUTHORITY"
+  ]
+}
