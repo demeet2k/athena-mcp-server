@@ -17,6 +17,11 @@ from athena_mcp.project_atlas_graph import (
     STRUCTURAL_EDGE_KINDS,
     VERTEX_ID_PREFIX,
 )
+from athena_mcp.project_atlas_graph_v2_adapter import (
+    ADAPTER_LAWS,
+    ADAPTER_VERSION,
+    V2_SNAPSHOT_SCHEMA,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACT = ROOT / "spec" / "KC144_PROJECT_RELATION_GRAPH_V3.json"
@@ -52,6 +57,17 @@ class ProjectAtlasGraphV3ContractTests(unittest.TestCase):
         self.assertEqual(self.c["frontier"]["vertex_scope"], "<plane,repo,head,POID>")
         self.assertIn("HOLD_AMBIGUOUS_VERTEX", self.c["frontier"]["bare_poid_resolution"])
 
+    def test_v2_snapshot_adapter_is_machine_locked(self):
+        a = self.c["v2_snapshot_adapter"]
+        self.assertEqual(a["version"], ADAPTER_VERSION)
+        self.assertEqual(a["snapshot_schema"], V2_SNAPSHOT_SCHEMA)
+        self.assertEqual(a["snapshot_planes"], ["configured_git", "runtime_git", "mcp"])
+        self.assertEqual(a["git_structural_planes"], ["configured_git", "runtime_git"])
+        self.assertIn("runtime_git_is_configured=true", a["runtime_collapse_rule"])
+        self.assertIn("never pass through Git hierarchy/import/path extractors", a["mcp_rule"])
+        self.assertIn("PARTIAL_V2_SNAPSHOT", a["partial_snapshot_rule"])
+        self.assertEqual(set(a["laws"]), set(ADAPTER_LAWS))
+
     def test_edge_lattice_is_exact_and_geometric_is_not_structural(self):
         declared_structural = set(self.c["edge_kinds"]["structural_default"])
         declared_geometric = set(self.c["edge_kinds"]["geometric_optional"])
@@ -73,7 +89,7 @@ class ProjectAtlasGraphV3ContractTests(unittest.TestCase):
         self.assertTrue(q["dijkstra_requires_explicit_weights"])
         self.assertEqual(q["default_route_edge_domain"], "structural_default")
 
-    def test_graph_laws_are_machine_locked(self):
+    def test_graph_and_adapter_laws_are_machine_locked(self):
         laws = set(self.c["laws"])
         self.assertTrue(set(GRAPH_LAWS).issubset(laws))
         for law in (
@@ -81,6 +97,9 @@ class ProjectAtlasGraphV3ContractTests(unittest.TestCase):
             "AMBIGUOUS_POID_ACROSS_FRONTIERS -> HOLD_AMBIGUOUS_VERTEX",
             "STRUCTURAL_GRAPH_ROUTE != KC144_GEOMETRIC_ROUTE != EXECUTION",
             "QUALIFICATION_PR != INTEGRATION_PR != PROMOTION",
+            "V2_SNAPSHOT_PLANES != FLAT_V1_ATLAS",
+            "MCP_VIRTUAL_VERTEX != GIT_BLOB_VERTEX",
+            "PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT",
         ):
             self.assertIn(law, laws)
 
