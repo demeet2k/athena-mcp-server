@@ -5,7 +5,6 @@ from typing import Any, Iterable
 
 from .identity import digest
 
-
 ARTIFACT = "ATHENA.H6.ROOT.RUNTIME.V1"
 ACTIVE_EPOCH = "EPOCH-B-EIGHT-BLOCK"
 
@@ -13,9 +12,9 @@ ACTIVE_EPOCH = "EPOCH-B-EIGHT-BLOCK"
 class H6RootRuntime:
     """Read-only constitutional facade over existing ATHENA root primitives.
 
-    H6 does not create a second object store, coordinate store, transform store,
-    evidence ledger, scheduler, execution engine, or promotion authority. It
-    normalizes current primitives into the six H01-H06 constitutional decisions.
+    This facade adds no second object/coordinate/transform/evidence store, no
+    scheduler, no execution engine and no promotion authority. It normalizes
+    existing primitives into the six H01-H06 constitutional decisions.
     """
 
     def __init__(self, core, crystal):
@@ -45,10 +44,10 @@ class H6RootRuntime:
             candidates.add(selected)
             decision = "RESOLVED_EXISTING"
         else:
-            valid_candidates = {oid for oid in candidates if self._existing_oid(oid)}
+            valid = {oid for oid in candidates if self._existing_oid(oid)}
             if alias_targets:
-                valid_candidates = valid_candidates & alias_targets if valid_candidates else alias_targets
-            candidates = valid_candidates
+                valid = valid & alias_targets if valid else alias_targets
+            candidates = valid
             if len(candidates) == 1:
                 selected = next(iter(candidates))
                 decision = "RESOLVED_EXISTING"
@@ -94,14 +93,13 @@ class H6RootRuntime:
             }
         coord = self.crystal._coordinate(oid, chart)
         raw_status = coord.get("status") if coord else None
-        status_map = {
+        status = {
             "RESOLVED": "ACTIVE",
             "PARTIAL": "ACTIVE",
             "UNKNOWN": "UNMAPPED",
             "N/A": "DORMANT",
             "HOLD": "CONFLICT",
-        }
-        status = status_map.get(raw_status, "UNMAPPED")
+        }.get(raw_status, "UNMAPPED")
         value = coord.get("value") if coord else None
         return {
             "artifact": "ATHENA.H02.PROJECTION.DECISION.V1",
@@ -130,23 +128,20 @@ class H6RootRuntime:
         max_depth: int = 12,
     ) -> dict[str, Any]:
         path = self.crystal.graph_path(
-            source_oid,
-            target,
-            relations=list(relations or []),
-            max_depth=max_depth,
+            source_oid, target, relations=list(relations or []), max_depth=max_depth
         )
         nav = self.core.navigate(source_oid)
         source_vid = (nav.get("head") or {}).get("vid") if nav.get("found") else None
         found = bool(path.get("found"))
         steps = [
             {
-                "edge_id": e.get("edge_id"),
-                "source": e.get("src"),
-                "relation": e.get("relation"),
-                "target": e.get("dst"),
-                "eid": e.get("eid"),
+                "edge_id": edge.get("edge_id"),
+                "source": edge.get("src"),
+                "relation": edge.get("relation"),
+                "target": edge.get("dst"),
+                "eid": edge.get("eid"),
             }
-            for e in path.get("edges", [])
+            for edge in path.get("edges", [])
         ]
         payload = {
             "query_id": query_id,
@@ -218,8 +213,7 @@ class H6RootRuntime:
             missing.append("counterexamples")
 
         reverse_id = contract.get("reverse_transform_id")
-        reverse_ok = bool(reverse_id or contract.get("compensation") or contract.get("irreversible_reason"))
-        if not reverse_ok:
+        if not (reverse_id or contract.get("compensation") or contract.get("irreversible_reason")):
             missing.append("reverse_or_compensation")
 
         defects: list[str] = []
@@ -231,8 +225,7 @@ class H6RootRuntime:
             defects.append("ISOMORPHISM_REVERSE_REQUIRED")
         if reverse_id:
             reverse_row = self.s.one(
-                "SELECT src_chart,dst_chart FROM transforms WHERE transform_id=?",
-                (reverse_id,),
+                "SELECT src_chart,dst_chart FROM transforms WHERE transform_id=?", (reverse_id,)
             )
             if not reverse_row:
                 defects.append("REVERSE_TRANSFORM_UNKNOWN")
@@ -265,45 +258,47 @@ class H6RootRuntime:
 
     # H05 -----------------------------------------------------------------
     def evidence_decide(self, claim: dict[str, Any], evidence_items: Iterable[dict[str, Any]]) -> dict[str, Any]:
-        items = [dict(x) for x in evidence_items]
+        items = [dict(item) for item in evidence_items]
         defects: list[str] = []
 
-        evidence_ids = [str(x.get("evidence_id") or "") for x in items]
-        evidence_ids_nonempty = [x for x in evidence_ids if x]
-        if len(set(evidence_ids_nonempty)) < len(evidence_ids_nonempty):
+        evidence_ids = [str(item.get("evidence_id") or "") for item in items]
+        nonempty_ids = [value for value in evidence_ids if value]
+        if len(set(nonempty_ids)) < len(nonempty_ids):
             defects.append("duplicate_lineage")
 
         lineage_keys = [
             (
-                str(x.get("source_id") or ""),
-                str(x.get("source_revision") or ""),
-                str(x.get("independence_group") or ""),
+                str(item.get("source_id") or ""),
+                str(item.get("source_revision") or ""),
+                str(item.get("independence_group") or ""),
             )
-            for x in items
+            for item in items
         ]
-        nonempty_lineages = [k for k in lineage_keys if any(k)]
+        nonempty_lineages = [key for key in lineage_keys if any(key)]
         if len(set(nonempty_lineages)) < len(nonempty_lineages) and "duplicate_lineage" not in defects:
             defects.append("duplicate_lineage")
 
         groups = {
-            str(x.get("independence_group"))
-            for x in items
-            if x.get("independence_group") not in (None, "")
+            str(item.get("independence_group"))
+            for item in items
+            if item.get("independence_group") not in (None, "")
         }
         independent_count = len(groups)
         minimum_independent = int((claim.get("evidence_floor") or {}).get("minimum_independent", 0))
 
-        stale = [x for x in items if str(x.get("freshness", "")).upper() == "STALE"]
-        if stale:
+        if any(str(item.get("freshness", "")).upper() == "STALE" for item in items):
             defects.append("stale_evidence")
         if independent_count < minimum_independent:
             defects.append("independence_floor_unmet")
 
         counterevidence = [
-            x
-            for x in items
-            if str(x.get("support_direction", "")).upper() in {"CONTRADICT", "COUNTER"}
+            item
+            for item in items
+            if str(item.get("support_direction", "")).upper() in {"CONTRADICT", "COUNTER"}
         ]
+        if counterevidence:
+            defects.append("counterevidence_present")
+
         status = "EVIDENCE_SUFFICIENT" if not defects else "EVIDENCE_INSUFFICIENT"
         return {
             "artifact": "ATHENA.H05.EVIDENCE.DECISION.V1",
@@ -365,18 +360,18 @@ class H6RootRuntime:
         holds: list[dict[str, Any]] = []
         for decision in identities:
             if decision["decision"] != "RESOLVED_EXISTING":
-                holds.append(
-                    {
-                        "type": "IDENTITY_HOLD",
-                        "input_ref": decision["input_ref"],
-                        "decision": decision["decision"],
-                    }
-                )
+                holds.append({
+                    "type": "IDENTITY_HOLD",
+                    "input_ref": decision["input_ref"],
+                    "decision": decision["decision"],
+                })
         for decision in projections:
-            if decision["status"] == "CONFLICT":
-                holds.append(
-                    {"type": "PROJECTION_HOLD", "oid": decision["oid"], "status": decision["status"]}
-                )
+            if decision["status"] in {"UNMAPPED", "AMBIG", "SUPERSEDED", "CONFLICT"}:
+                holds.append({
+                    "type": "PROJECTION_HOLD",
+                    "oid": decision["oid"],
+                    "status": decision["status"],
+                })
 
         admission = "ADMITTED" if not holds else "CONDITIONAL"
         active_candidate = {
