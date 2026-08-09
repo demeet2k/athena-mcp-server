@@ -71,15 +71,16 @@ from .deployment_extension import install_deployment_extension
 
 install_deployment_extension()
 
-# NEXT-PIPE-001/V2/V3 adds rolling focus, staged preparation, then exact prep-plan
-# scout claims through the already-canonical Message Board. Scouts own prep units,
-# never parent quests, and cannot mutate Q1 or acquire promotion authority.
+# NEXT V1→V4: rolling focus, staged preparation, exact prep-plan scouts, then a
+# read-only bounded allocation membrane. Allocation may recommend claims but
+# cannot create them, execute work, or acquire evidence/promotion authority.
 from .next_quest_pipeline import install_next_pipeline_extension
 from .next_quest_pipeline_hardening import install_next_pipeline_successor_authority_hardening
 from .next_quest_pipeline_bridge import install_next_pipeline_bridge
 from .next_quest_pipeline_breadth import install_next_pipeline_breadth
 from .next_quest_pipeline_breadth_hardening import install_next_pipeline_breadth_idempotency_hardening
 from .next_quest_scout import install_next_scout_extension
+from .next_scout_allocation import install_next_scout_allocation_extension
 
 install_next_pipeline_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 install_next_pipeline_successor_authority_hardening()
@@ -87,6 +88,7 @@ install_next_pipeline_bridge(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME
 install_next_pipeline_breadth(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 install_next_pipeline_breadth_idempotency_hardening()
 install_next_scout_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_scout_allocation_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 for _tool in PROMPT_RUNTIME_TOOLS:
     if not any(existing["name"] == _tool["name"] for existing in _protocol.TOOLS):
         _protocol.TOOLS.append(_tool)
