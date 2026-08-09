@@ -1,0 +1,184 @@
+name: ATHENA v3.3 Release and OCI Activation
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - '.github/workflows/release-v3.3-activation.yml'
+      - '.github/workflows/oci-v3.3.yml'
+      - 'release/v3.3.0.json'
+      - 'release/v3.3.0.md'
+      - 'tests/test_release_oci_activation.py'
+  workflow_run:
+    workflows:
+      - CI
+      - Release Distribution V3.3
+    types: [completed]
+    branches: [master]
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: athena-v3.3-release-activation-${{ github.event.workflow_run.head_sha || github.sha }}
+  cancel-in-progress: false
+
+env:
+  RELEASE_TAG: v3.3.0
+  RELEASE_WORKFLOW: release-v3.3.yml
+  OCI_WORKFLOW: oci-v3.3.yml
+  ACTIVATION_SUBJECT: Activate ATHENA v3.3.0 release and OCI publication
+
+jobs:
+  contract:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Validate activation and OCI workflow contracts
+        run: python -m unittest discover -s tests -p 'test_release_oci_activation.py' -v
+
+  dispatch-release:
+    if: >-
+      github.event_name == 'workflow_run' &&
+      github.event.workflow_run.name == 'CI' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+      - name: Prove one-shot exact-master release activation
+        id: identity
+        shell: bash
+        env:
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          git fetch origin master
+          test "$(git rev-parse HEAD)" = "$HEAD_SHA"
+          test "$(git rev-parse origin/master)" = "$HEAD_SHA"
+          SUBJECT=$(git show -s --format=%s HEAD)
+          test "$SUBJECT" = "$ACTIVATION_SUBJECT"
+          python - <<'PY'
+          import json, pathlib, tomllib
+          manifest=json.loads(pathlib.Path('release/v3.3.0.json').read_text())
+          project=tomllib.loads(pathlib.Path('pyproject.toml').read_text())['project']
+          assert manifest['schema']=='ATHENA.RELEASE.DISTRIBUTION.2'
+          assert manifest['version']==project['version']=='3.3.0'
+          assert manifest['tag']=='v3.3.0'
+          assert manifest['oci_distribution']['activation_workflow']=='.github/workflows/release-v3.3-activation.yml'
+          assert manifest['oci_distribution']['publication_workflow']=='.github/workflows/oci-v3.3.yml'
+          PY
+          echo "head_sha=$HEAD_SHA" >> "$GITHUB_OUTPUT"
+          echo "ci_run_id=${{ github.event.workflow_run.id }}" >> "$GITHUB_OUTPUT"
+      - name: Preflight tag/release and dispatch exact release workflow
+        id: dispatch
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ steps.identity.outputs.head_sha }}
+        run: |
+          set -euo pipefail
+          STATUS=DISPATCHED
+          if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$RELEASE_TAG" > /tmp/tag.json 2>/dev/null; then
+            TAG_TARGET=$(python -c "import json; print(json.load(open('/tmp/tag.json'))['object']['sha'])")
+            test "$TAG_TARGET" = "$HEAD_SHA"
+            if gh api "repos/$GITHUB_REPOSITORY/releases/tags/$RELEASE_TAG" > /tmp/release.json 2>/dev/null; then
+              STATUS=ALREADY_PUBLISHED
+            fi
+          fi
+          if [ "$STATUS" = DISPATCHED ]; then
+            gh api --method POST \
+              "repos/$GITHUB_REPOSITORY/actions/workflows/$RELEASE_WORKFLOW/dispatches" \
+              -f ref=master
+          fi
+          echo "status=$STATUS" >> "$GITHUB_OUTPUT"
+      - name: Seal release-dispatch receipt
+        shell: bash
+        env:
+          HEAD_SHA: ${{ steps.identity.outputs.head_sha }}
+          CI_RUN_ID: ${{ steps.identity.outputs.ci_run_id }}
+          DISPATCH_STATUS: ${{ steps.dispatch.outputs.status }}
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          receipt={
+              'schema':'ATHENA.RELEASE.ACTIVATION.RECEIPT.1',
+              'repository':os.environ['GITHUB_REPOSITORY'],
+              'head_sha':os.environ['HEAD_SHA'],
+              'ci_run_id':os.environ['CI_RUN_ID'],
+              'activation_run_id':os.environ['GITHUB_RUN_ID'],
+              'tag':os.environ['RELEASE_TAG'],
+              'release_workflow':os.environ['RELEASE_WORKFLOW'],
+              'status':os.environ['DISPATCH_STATUS'],
+              'boundary':'Release dispatch is not publication, OCI publication, deployment, cutover authority, or production health.'
+          }
+          pathlib.Path('release-dispatch-receipt.json').write_text(json.dumps(receipt,indent=2,sort_keys=True)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-dispatch-${{ steps.identity.outputs.head_sha }}
+          path: release-dispatch-receipt.json
+          if-no-files-found: error
+
+  dispatch-oci:
+    if: >-
+      github.event_name == 'workflow_run' &&
+      github.event.workflow_run.name == 'Release Distribution V3.3' &&
+      github.event.workflow_run.event == 'workflow_dispatch' &&
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+      - name: Verify exact published release before OCI dispatch
+        id: release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          git fetch origin master
+          test "$(git rev-parse HEAD)" = "$HEAD_SHA"
+          test "$(git rev-parse origin/master)" = "$HEAD_SHA"
+          SUBJECT=$(git show -s --format=%s HEAD)
+          test "$SUBJECT" = "$ACTIVATION_SUBJECT"
+          TAG_TARGET=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$RELEASE_TAG" --jq '.object.sha')
+          test "$TAG_TARGET" = "$HEAD_SHA"
+          gh release view "$RELEASE_TAG" --json tagName,isDraft,isPrerelease,assets > /tmp/release.json
+          python - <<'PY'
+          import json, pathlib
+          release=json.load(open('/tmp/release.json'))
+          manifest=json.loads(pathlib.Path('release/v3.3.0.json').read_text())
+          assert release['tagName']==manifest['tag']=='v3.3.0'
+          assert release['isDraft'] is False and release['isPrerelease'] is False
+          observed={item['name'] for item in release['assets']}
+          required=set(manifest['release']['required_assets'])
+          assert required <= observed, {'required':sorted(required),'observed':sorted(observed)}
+          PY
+          echo "head_sha=$HEAD_SHA" >> "$GITHUB_OUTPUT"
+          echo "release_run_id=${{ github.event.workflow_run.id }}" >> "$GITHUB_OUTPUT"
+      - name: Dispatch exact OCI publication workflow
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ steps.release.outputs.head_sha }}
+          RELEASE_RUN_ID: ${{ steps.release.outputs.release_run_id }}
+        run: |
+          set -euo pipefail
+          gh api --method POST \
+            "repos/$GITHUB_REPOSITORY/actions/workflows/$OCI_WORKFLOW/dispatches" \
+            -f ref=master \
+            -f "inputs[tag]=$RELEASE_TAG" \
+            -f "inputs[expected_head]=$HEAD_SHA" \
+            -f "inputs[release_run_id]=$RELEASE_RUN_ID"
