@@ -66,6 +66,7 @@ class ProjectAtlasMcpSurfaceV2Tests(unittest.TestCase):
         self.assertNotIn("records",result)
         # Server import composes developmental tools into protocol.TOOLS before the call.
         self.assertEqual(result["mcp_surface"]["count"],len(TOOLS)+len(PROMPTS))
+        self.assertEqual(result["mcp_surface"]["live_signature"],result["checkout_observation"]["mcp_surface_signature"])
 
     def test_stale_head_fails_closed_before_resolution(self):
         root,server=self.repo()
@@ -74,6 +75,7 @@ class ProjectAtlasMcpSurfaceV2Tests(unittest.TestCase):
         self.assertEqual(result["status"],"HOLD_STALE_HEAD")
         self.assertEqual(result["current_head"],head)
         self.assertEqual(result["expected_head"],"0"*40)
+        self.assertTrue(result["current_surface_signature"])
 
     def test_exact_git_dot_path_and_return_resolve(self):
         root,server=self.repo()
@@ -161,6 +163,30 @@ class ProjectAtlasMcpSurfaceV2Tests(unittest.TestCase):
         self.assertEqual(result["status"],"PASS")
         self.assertEqual(result["resource"],PROJECT_ATLAS_RESOURCE["uri"])
         self.assertNotIn("records",result)
+
+    def test_cache_keys_live_mcp_surface_not_only_git_head(self):
+        root,server=self.repo()
+        head=run(root,"rev-parse","HEAD")
+        first=server.call_tool("athena_project_atlas_summary",{})
+        fake={
+            "name":"athena_project_atlas_cache_probe_test_only",
+            "description":"test-only live surface cache probe",
+            "inputSchema":{"type":"object","additionalProperties":False},
+        }
+        TOOLS.append(fake)
+        try:
+            second=server.call_tool("athena_project_atlas_summary",{})
+            self.assertEqual(second["head"],head)
+            self.assertEqual(second["mcp_surface"]["count"],first["mcp_surface"]["count"]+1)
+            self.assertNotEqual(second["mcp_surface"]["surface_digest"],first["mcp_surface"]["surface_digest"])
+            self.assertNotEqual(second["mcp_surface"]["live_signature"],first["mcp_surface"]["live_signature"])
+        finally:
+            TOOLS.remove(fake)
+        third=server.call_tool("athena_project_atlas_summary",{})
+        self.assertEqual(third["head"],head)
+        self.assertEqual(third["mcp_surface"]["count"],first["mcp_surface"]["count"])
+        self.assertEqual(third["mcp_surface"]["surface_digest"],first["mcp_surface"]["surface_digest"])
+        self.assertEqual(third["mcp_surface"]["live_signature"],first["mcp_surface"]["live_signature"])
 
     def test_dispatch_call_marks_project_query_non_self_metering(self):
         _,server=self.repo()
