@@ -33,10 +33,25 @@ class H6RootAdversarialTests(unittest.TestCase):
         self.assertEqual(len(d["candidate_oids"]), 2)
         self.assertFalse(d["mutation"])
 
+    def test_h01_single_ungrounded_candidate_does_not_self_resolve(self):
+        a = self.register("UNGROUNDED")
+        d = self.h6.identity_decide("UNRELATED.INPUT.REF", candidate_oids=[a["object"]["oid"]])
+        self.assertEqual(d["decision"], "AMBIG_HOLD")
+        self.assertIsNone(d["selected_oid"])
+        self.assertEqual(d["candidate_oids"], [a["object"]["oid"]])
+
     def test_h02_unknown_object_is_unmapped_without_authority(self):
         d = self.h6.projection_decide("OID.DOES.NOT.EXIST", "KC144")
         self.assertEqual(d["status"], "UNMAPPED")
         self.assertEqual(d["authority"], "NONE")
+        self.assertIsNone(d["constitutional_gid"])
+
+    def test_h02_nonactive_epoch_requires_crosswalk(self):
+        a = self.register("EPOCH_TARGET")
+        d = self.h6.projection_decide(a["object"]["oid"], "KC144", epoch="EPOCH-A-HISTORICAL")
+        self.assertEqual(d["status"], "SUPERSEDED")
+        self.assertEqual(d["active_epoch"], "EPOCH-B-EIGHT-BLOCK")
+        self.assertIn("EPOCH_CROSSWALK_UNAVAILABLE", d["defects"])
         self.assertIsNone(d["constitutional_gid"])
 
     def test_h03_unreachable_route_holds(self):
@@ -56,14 +71,12 @@ class H6RootAdversarialTests(unittest.TestCase):
             "JSPACE", "KC144", status="TESTED", mode="ISOMORPHISM",
             program={"op": "identity"}, metric={"type": "EXACT"})
         d = self.h6.bridge_decide(forward["transform_id"], {
-            "preserved_invariants": ["IDENTITY", "VALUE"],
-            "lost_invariants": [],
+            "preserved_invariants": ["IDENTITY", "VALUE"], "lost_invariants": [],
             "validity_corridor": {"type": "ALL_FIXTURE_VALUES"},
             "evidence_refs": ["TEST.H6.BRIDGE.ROUNDTRIP"],
             "required_authority": ["READ_ONLY_TRANSFORM"],
             "reverse_transform_id": reverse["transform_id"],
-            "counterexamples": ["OUTSIDE_DECLARED_FIXTURE_DOMAIN"],
-        })
+            "counterexamples": ["OUTSIDE_DECLARED_FIXTURE_DOMAIN"]})
         self.assertEqual(d["decision"], "ADMITTED")
         self.assertEqual(d["missing_obligations"], [])
         self.assertEqual(d["defects"], [])
@@ -73,13 +86,10 @@ class H6RootAdversarialTests(unittest.TestCase):
             "KC144", "JSPACE", status="TESTED", mode="ISOMORPHISM",
             program={"op": "identity"}, metric={"type": "EXACT"})
         d = self.h6.bridge_decide(forward["transform_id"], {
-            "preserved_invariants": ["IDENTITY"],
-            "lost_invariants": [],
+            "preserved_invariants": ["IDENTITY"], "lost_invariants": [],
             "validity_corridor": {"type": "ALL_FIXTURE_VALUES"},
-            "evidence_refs": ["TEST.H6.BRIDGE"],
-            "reverse_transform_id": "TRANSFORM.NOT.REAL",
-            "counterexamples": ["OUTSIDE_DOMAIN"],
-        })
+            "evidence_refs": ["TEST.H6.BRIDGE"], "reverse_transform_id": "TRANSFORM.NOT.REAL",
+            "counterexamples": ["OUTSIDE_DOMAIN"]})
         self.assertNotEqual(d["decision"], "ADMITTED")
         self.assertIn("REVERSE_TRANSFORM_UNKNOWN", d["defects"])
 
