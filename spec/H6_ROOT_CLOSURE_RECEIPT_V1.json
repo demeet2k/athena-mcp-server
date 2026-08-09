@@ -1,0 +1,114 @@
+{
+  "artifact": "ATHENA.H6.ROOT.CLOSURE.RECEIPT.V1",
+  "status": "H6_ROOT_QUALIFIED_CANDIDATE",
+  "mechanism_closed_on_candidate_lineage": true,
+  "canonical_installation": false,
+  "master_merge": false,
+  "whole_kc144_closed": false,
+  "semantic_head": "f32eb817d48de73a0c591b0f7fb3561e4f08e7da",
+  "runtime_master_parent": "429a480a80eeefb9e2bff1ea3015adf571d76b0e",
+  "candidate_head": "7e09c83a6e93ba0a604c19b8c5a195293a7112c8",
+  "constitutional_scope": {
+    "block": "H6",
+    "gids": [1, 2, 3, 4, 5, 6],
+    "stations": [
+      "H01_ADDRESS_IDENTITY_REGISTRY",
+      "H02_PROJECTION_SEATING_ALIAS_REGISTRY",
+      "H03_MYCELIAL_NAVIGATION_REGISTRY",
+      "H04_INVARIANT_BRIDGE_DEFECT_REGISTRY",
+      "H05_SOURCE_EVIDENCE_VERSION_LEDGER",
+      "H06_ACTIVATION_REPLAY_RESEED_HUB"
+    ]
+  },
+  "evidence": {
+    "cut02_red": {
+      "run_id": 31308175432,
+      "artifact_id": 9036587022,
+      "artifact_digest": "sha256:44d5128488df033f5f9479015982ebe9cb2b1b49e2dd7d34f5d3dc665a4ccfb8",
+      "standing": "6_OF_6_INTENDED_PARENT_REDS_CONFIRMED",
+      "treatment_code": false
+    },
+    "cut03_facade_exact_head": {
+      "head": "80f47b21a8bc26ece6032f9d4b89e96d9c987e9e",
+      "run_id": 31308664210,
+      "jobs": ["syntax", "unit", "critical-invariants", "smoke", "promotion-qualification"],
+      "conclusion": "SUCCESS",
+      "promotion_artifact_id": 9036757863,
+      "promotion_artifact_digest": "sha256:96cce10a5a75088ce9489d2f9054e8c19b383692c2666390941b5156028a54c1"
+    },
+    "cut04_partial_cold_boot": {
+      "run_id": 31308765756,
+      "artifact_id": 9036748939,
+      "artifact_digest": "sha256:9af944bbde575a6b4d3be52736b26c8501f6e7fbaaed7d949ce6301eb252b5bd",
+      "status": "COLD_BOOT_MATCH"
+    },
+    "cut05_coupled_integration": {
+      "head": "7e09c83a6e93ba0a604c19b8c5a195293a7112c8",
+      "run_id": 31308955892,
+      "conclusion": "SUCCESS",
+      "standing": "H01_H06_COUPLED_ROUTE_BRIDGE_EVIDENCE_NAVRUN_PASS"
+    },
+    "cut06_full_circuit_cold_boot": {
+      "run_id": 31309026358,
+      "artifact_id": 9036815919,
+      "artifact_digest": "sha256:cddf36c80bf0e7a87f43141e5caf69e7cc15691e639793232fb8fa3640215a6c",
+      "status": "FULL_CIRCUIT_COLD_MATCH",
+      "deterministic_ids": [
+        "H6ROOT.85962F2A74C6D208F292C55BE2FA97CA",
+        "H6Q.0EC2EA59D2B4E2C09EFEE510",
+        "H6ROUTE.F0FE6134D4F813B6B6F82876",
+        "H6BRIDGE.A88121A8D3543081C30A9B4A",
+        "CLAIM.H6.FULL.COLD",
+        "NAVRUN.BDCAE937C7ACED72BCD517CD"
+      ],
+      "durable_counts_unchanged": true,
+      "execution_authority": false,
+      "promotion_authority": false
+    },
+    "master_target_exact_head": {
+      "pr": 317,
+      "head": "7e09c83a6e93ba0a604c19b8c5a195293a7112c8",
+      "base": "429a480a80eeefb9e2bff1ea3015adf571d76b0e",
+      "run_id": 31309078331,
+      "jobs": ["syntax", "unit", "critical-invariants", "smoke", "promotion-qualification"],
+      "conclusion": "SUCCESS",
+      "promotion_artifact_id": 9036871189,
+      "promotion_artifact_digest": "sha256:7f908071ada8774050e8a3275bab86a6c51d9267ac51029c916eb4f99333f372"
+    }
+  },
+  "station_gates": {
+    "H01": "PASS_IDENTITY_DECISION_AND_AMBIGUITY_FIREWALL",
+    "H02": "PASS_PROJECTION_AUTHORITY_AND_EPOCH_FIREWALL",
+    "H03": "PASS_ROUTE_PROPOSAL_AND_NAVRUN",
+    "H04": "PASS_BRIDGE_ADMISSION_AND_REVERSE_VALIDATION",
+    "H05": "PASS_INDEPENDENCE_FRESHNESS_COUNTEREVIDENCE",
+    "H06": "PASS_QUERYBUNDLE_SEMANTIC_CAS_AND_INTEGRATED_ADMISSION"
+  },
+  "cross_station": {
+    "identity_to_projection": "PASS",
+    "projection_to_route": "PASS",
+    "route_to_bridge": "PASS",
+    "route_to_evidence": "PASS",
+    "bridge_and_evidence_to_admission": "PASS",
+    "integrated_cold_reconstruction": "PASS"
+  },
+  "remaining_residuals": [
+    "MASTER_MERGE_NOT_PERFORMED",
+    "MERGED_MASTER_HEAD_NOT_REQUALIFIED",
+    "WHOLE_KC144_POPULATION_NOT_COMPLETE",
+    "WHOLE_KC144_CERTIFICATION_NOT_COMPLETE"
+  ],
+  "next_lawful_work": [
+    "REVIEW_AND_OPTIONALLY_MERGE_PR_317_UNDER_EXTERNAL_MERGE_AUTHORITY",
+    "IF_MERGED_REQUALIFY_EXACT_MERGED_MASTER_HEAD",
+    "CONTINUE_CELL_CLOSURE_PACKET_COMPILER_AS_NONCANONICAL_CONSUMER",
+    "GENERATE_FIRST_144_SEAT_EVIDENCE_CONSERVATIVE_GAP_MATRIX"
+  ],
+  "firewalls": [
+    "H6_ROOT_QUALIFIED_CANDIDATE != CANONICAL_MASTER_INSTALLATION",
+    "H6_ROOT_CLOSED != WHOLE_KC144_CLOSED",
+    "PROMOTION_QUALIFIED != MERGE_AUTHORIZED",
+    "FULL_CIRCUIT_COLD_MATCH != BEHAVIORAL_GAIN",
+    "PROJECT_DO_NOT_DUPLICATE"
+  ]
+}
