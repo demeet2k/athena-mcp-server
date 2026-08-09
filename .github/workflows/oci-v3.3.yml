@@ -1,0 +1,230 @@
+name: ATHENA OCI Distribution V3.3
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - '.github/workflows/oci-v3.3.yml'
+      - '.github/workflows/release-v3.3-activation.yml'
+      - 'Dockerfile'
+      - '.dockerignore'
+      - 'deploy/**'
+      - 'release/v3.3.0.json'
+      - 'tests/test_release_oci_activation.py'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Exact published GitHub release tag
+        required: true
+        type: string
+      expected_head:
+        description: Exact source commit bound to the tag and release
+        required: true
+        type: string
+      release_run_id:
+        description: Successful Release Distribution V3.3 workflow run
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: athena-oci-v3.3-${{ inputs.expected_head || github.sha }}
+  cancel-in-progress: false
+
+env:
+  IMAGE_NAME: ghcr.io/${{ github.repository }}
+  RELEASE_VERSION: '3.3.0'
+
+jobs:
+  contract:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Validate release/OCI orchestration contract
+        run: python -m unittest discover -s tests -p 'test_release_oci_activation.py' -v
+      - name: Build and inspect non-publishing OCI candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker build --pull --tag athena-oci-contract:${GITHUB_SHA} .
+          test "$(docker image inspect athena-oci-contract:${GITHUB_SHA} --format '{{.Config.User}}')" = '65532:65532'
+          test "$(docker image inspect athena-oci-contract:${GITHUB_SHA} --format '{{json .Config.Healthcheck.Test}}')" != 'null'
+          IMAGE="ghcr.io/demeet2k/athena-mcp-server@sha256:$(printf 'a%.0s' {1..64})"
+          python deploy/render.py --image "$IMAGE" \
+            --output /tmp/deployment-manifest.yaml \
+            --receipt /tmp/deployment-render-receipt.json
+          grep -F "image: $IMAGE" /tmp/deployment-manifest.yaml
+          test ! -e /tmp/athena-cluster-applied
+
+  publish:
+    if: github.event_name == 'workflow_dispatch'
+    permissions:
+      contents: write
+      packages: write
+      id-token: write
+      attestations: write
+      actions: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.expected_head }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Prove tag, release, workflow and exact source identity
+        id: identity
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_HEAD: ${{ inputs.expected_head }}
+          RELEASE_TAG: ${{ inputs.tag }}
+          RELEASE_RUN_ID: ${{ inputs.release_run_id }}
+        run: |
+          set -euo pipefail
+          test "$RELEASE_TAG" = 'v3.3.0'
+          test "$EXPECTED_HEAD" = "$(git rev-parse HEAD)"
+          git fetch --force origin master "refs/tags/$RELEASE_TAG:refs/tags/$RELEASE_TAG"
+          test "$EXPECTED_HEAD" = "$(git rev-parse "refs/tags/$RELEASE_TAG^{commit}")"
+          TAG_TARGET=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$RELEASE_TAG" --jq '.object.sha')
+          test "$TAG_TARGET" = "$EXPECTED_HEAD"
+          gh release view "$RELEASE_TAG" --json tagName,isDraft,isPrerelease,assets > /tmp/release.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RELEASE_RUN_ID" > /tmp/release-run.json
+          python - <<'PY'
+          import json, os, pathlib, tomllib
+          release=json.load(open('/tmp/release.json'))
+          run=json.load(open('/tmp/release-run.json'))
+          manifest=json.loads(pathlib.Path('release/v3.3.0.json').read_text())
+          project=tomllib.loads(pathlib.Path('pyproject.toml').read_text())['project']
+          assert release['tagName']==manifest['tag']==os.environ['RELEASE_TAG']=='v3.3.0'
+          assert release['isDraft'] is False and release['isPrerelease'] is False
+          assert run['name']=='Release Distribution V3.3'
+          assert run['path']=='.github/workflows/release-v3.3.yml'
+          assert run['event']=='workflow_dispatch'
+          assert run['status']=='completed' and run['conclusion']=='success'
+          assert run['head_sha']==os.environ['EXPECTED_HEAD']
+          assert manifest['version']==project['version']=='3.3.0'
+          observed={item['name'] for item in release['assets']}
+          assert set(manifest['release']['required_assets']) <= observed
+          PY
+          echo "source_head=$EXPECTED_HEAD" >> "$GITHUB_OUTPUT"
+          echo "release_tag=$RELEASE_TAG" >> "$GITHUB_OUTPUT"
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+      - name: Build and push multi-architecture image with BuildKit attestations
+        id: build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          pull: true
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ${{ env.IMAGE_NAME }}:3.3.0
+            ${{ env.IMAGE_NAME }}:3.3
+            ${{ env.IMAGE_NAME }}:latest
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ steps.identity.outputs.source_head }}
+            org.opencontainers.image.version=${{ env.RELEASE_VERSION }}
+          provenance: mode=max
+          sbom: true
+      - name: Publish GitHub build provenance attestation
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ${{ env.IMAGE_NAME }}
+          subject-digest: ${{ steps.build.outputs.digest }}
+          push-to-registry: true
+      - name: Verify registry digest and extract attached evidence
+        id: evidence
+        shell: bash
+        env:
+          DIGEST: ${{ steps.build.outputs.digest }}
+          SOURCE_HEAD: ${{ steps.identity.outputs.source_head }}
+          RELEASE_TAG: ${{ steps.identity.outputs.release_tag }}
+          RELEASE_RUN_ID: ${{ inputs.release_run_id }}
+        run: |
+          set -euo pipefail
+          case "$DIGEST" in sha256:[0-9a-f][0-9a-f]*) ;; *) echo "invalid digest: $DIGEST" >&2; exit 1 ;; esac
+          test "${#DIGEST}" -eq 71
+          mkdir -p dist/oci
+          IMAGE_REF="$IMAGE_NAME@$DIGEST"
+          docker buildx imagetools inspect "$IMAGE_REF" > dist/oci/image-inspect.txt
+          docker buildx imagetools inspect "$IMAGE_REF" --format '{{ json .SBOM }}' > dist/oci/image-sbom.buildkit.json
+          docker buildx imagetools inspect "$IMAGE_REF" --format '{{ json .Provenance }}' > dist/oci/image-provenance.buildkit.json
+          python deploy/render.py --image "$IMAGE_REF" \
+            --output dist/oci/deployment-manifest.yaml \
+            --receipt dist/oci/deployment-render-receipt.json
+          printf '%s\n' "$IMAGE_REF" > dist/oci/oci-image-ref.txt
+          python - <<'PY'
+          import hashlib, json, os, pathlib
+          root=pathlib.Path('dist/oci')
+          for name in ('image-sbom.buildkit.json','image-provenance.buildkit.json'):
+              text=(root/name).read_text().strip()
+              assert text and text!='null', (name,text)
+              json.loads(text)
+          digest=os.environ['DIGEST']
+          image_ref=f"{os.environ['IMAGE_NAME']}@{digest}"
+          def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
+          receipt=json.loads((root/'deployment-render-receipt.json').read_text())
+          assert receipt['image_ref']==image_ref
+          attestation={
+              'schema':'ATHENA.OCI.RELEASE.ATTESTATION.1',
+              'repository':os.environ['GITHUB_REPOSITORY'],
+              'release_tag':os.environ['RELEASE_TAG'],
+              'release_workflow_run_id':os.environ['RELEASE_RUN_ID'],
+              'oci_workflow_run_id':os.environ['GITHUB_RUN_ID'],
+              'source_head':os.environ['SOURCE_HEAD'],
+              'image':os.environ['IMAGE_NAME'],
+              'digest':digest,
+              'image_ref':image_ref,
+              'platforms':['linux/amd64','linux/arm64'],
+              'discovery_tags':['3.3.0','3.3','latest'],
+              'deployment_manifest_sha256':sha(root/'deployment-manifest.yaml'),
+              'render_receipt_sha256':sha(root/'deployment-render-receipt.json'),
+              'buildkit_sbom_sha256':sha(root/'image-sbom.buildkit.json'),
+              'buildkit_provenance_sha256':sha(root/'image-provenance.buildkit.json'),
+              'github_build_provenance':'PUBLISHED_TO_REGISTRY',
+              'boundary':'OCI distribution and exact-digest rendering are not Kubernetes apply, cutover authority, traffic activation, production health, empirical truth, causal proof, or Y1 authority.'
+          }
+          (root/'oci-release-attestation.json').write_text(json.dumps(attestation,indent=2,sort_keys=True)+'\n')
+          PY
+          (cd dist/oci && find . -maxdepth 1 -type f ! -name SHA256SUMS.oci -printf '%f\n' | sort | xargs sha256sum > SHA256SUMS.oci && sha256sum -c SHA256SUMS.oci)
+          echo "digest=$DIGEST" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: athena-oci-v3.3.0-${{ steps.identity.outputs.source_head }}
+          path: dist/oci/*
+          if-no-files-found: error
+      - name: Attach exact-digest OCI evidence to the GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.identity.outputs.release_tag }}
+        run: |
+          set -euo pipefail
+          gh release upload "$RELEASE_TAG" dist/oci/* --clobber
+          gh release view "$RELEASE_TAG" --json assets > /tmp/final-release.json
+          python - <<'PY'
+          import json, pathlib
+          release=json.load(open('/tmp/final-release.json'))
+          manifest=json.loads(pathlib.Path('release/v3.3.0.json').read_text())
+          observed={item['name'] for item in release['assets']}
+          required=set(manifest['release']['required_assets']) | set(manifest['oci_distribution']['release_assets'])
+          assert required <= observed, {'required':sorted(required),'observed':sorted(observed)}
+          print('OCI RELEASE ASSETS PASS', sorted(required))
+          PY

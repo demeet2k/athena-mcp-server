@@ -67,6 +67,40 @@
       "SHA256SUMS"
     ]
   },
+  "oci_distribution": {
+    "image": "ghcr.io/demeet2k/athena-mcp-server",
+    "activation_workflow": ".github/workflows/release-v3.3-activation.yml",
+    "publication_workflow": ".github/workflows/oci-v3.3.yml",
+    "publication_requires_successful_github_release": true,
+    "publication_requires_exact_tag_head": true,
+    "publication_requires_release_workflow_run": true,
+    "platforms": [
+      "linux/amd64",
+      "linux/arm64"
+    ],
+    "discovery_tags": [
+      "3.3.0",
+      "3.3",
+      "latest"
+    ],
+    "deployment_requires_digest": true,
+    "buildkit_attestations": [
+      "provenance",
+      "sbom"
+    ],
+    "github_build_provenance": true,
+    "release_assets": [
+      "oci-image-ref.txt",
+      "image-inspect.txt",
+      "image-sbom.buildkit.json",
+      "image-provenance.buildkit.json",
+      "deployment-manifest.yaml",
+      "deployment-render-receipt.json",
+      "oci-release-attestation.json",
+      "SHA256SUMS.oci"
+    ],
+    "activation_boundary": "OCI publication is distribution only; it does not apply Kubernetes objects, issue cutover authority, activate traffic, or establish production health."
+  },
   "gates": [
     "exact master checkout at publication",
     "manifest and package version identity",
@@ -85,11 +119,19 @@
     "trusted verifier surface remains host-bound",
     "release attestation binds exact commit plus trusted PROMRUN receipt",
     "exact-head tag compare-and-swap",
-    "release asset checksum verification"
+    "release asset checksum verification",
+    "successful exact-head GitHub release before OCI dispatch",
+    "multi-architecture OCI digest publication",
+    "BuildKit SBOM and provenance attachment",
+    "GitHub build-provenance attestation",
+    "exact-digest Kubernetes rendering without apply",
+    "OCI release-asset checksum verification"
   ],
   "authority_boundaries": [
     "GitHub release publication is distribution, not deployment.",
-    "Release attestation certifies exact repository/package/distribution state, not empirical truth or causal validity.",
+    "OCI image publication is distribution, not Kubernetes apply, traffic cutover, or production activation.",
+    "Mutable discovery tags are never accepted by the deployment renderer; activation requires repository@sha256 digest identity.",
+    "Release and OCI attestations certify exact repository/package/image distribution state, not empirical truth or causal validity.",
     "Model, posterior, graph, bootstrap frequency, policy value, navigation, reward, consensus and science-shadow state do not become Y1 authority by publication.",
     "Trusted PROMOTION.2 qualification is not GitHub administrative hardening.",
     "A tag or release does not authorize treatment execution, production secrets, infrastructure mutation or external package-index publication.",
