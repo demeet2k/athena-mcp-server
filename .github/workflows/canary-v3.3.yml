@@ -160,7 +160,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python deploy/canary_observer.py \
+          PYTHONPATH=. python deploy/canary_observer.py \
             --image-ref "$IMAGE_REF" \
             --source-head "$RELEASE_HEAD" \
             --release-tag "$RELEASE_TAG" \

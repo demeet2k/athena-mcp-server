@@ -244,6 +244,7 @@ class DeploymentCanaryObserverV3Tests(unittest.TestCase):
             "31298729440",
             "sha256:d7eada158c5f202dd7a061218188d0c00b7317c867bedc742857a7b90298d8be",
             "REPLICATED_SAME_DIGEST_STATE_RESTART",
+            "PYTHONPATH=. python deploy/canary_observer.py",
             "--sample-count 31",
             "--interval-seconds 2.1",
             "--minimum-window-seconds 60",
