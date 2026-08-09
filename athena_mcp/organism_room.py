@@ -75,6 +75,10 @@ def _digest(value: Any) -> str:
 def _resource_contract(value: Any, label: str) -> dict:
     if not isinstance(value, dict):
         raise ValueError(f"{label}_UNKNOWN_HOLD")
+    allowed = set(RESOURCE_DIMENSIONS) | {"shared_sinks"}
+    extra = sorted(set(value) - allowed)
+    if extra:
+        raise ValueError(f"{label}_UNSUPPORTED_DIMENSION_HOLD:{','.join(extra)}")
     normalized = {}
     for name in RESOURCE_DIMENSIONS:
         raw = value.get(name)
@@ -290,9 +294,7 @@ def _prompt_digest(root: Path) -> str:
     paths.update(state_paths)
     for value in (
         active.get("harness_genotype"),
-        (manifest.get("room") or {}).get("registry"),
-        (manifest.get("room") or {}).get("harness_genotype"),
-        (manifest.get("room") or {}).get("allocator"),
+        *(value for key, value in room.items() if key not in {"repo"} and isinstance(value, str)),
     ):
         if value:
             paths.add(str(value))
@@ -304,8 +306,18 @@ def _prompt_digest(root: Path) -> str:
     expected_jobs = {"GIT", "MATH", "MYTH", "NAV", "TOOLS", "CORPUS", "ALCHEMY", "META", "INTEGRATION"}
     if registry.get("artifact") != "ATHENA.ORGANISM.ROOM.V1" or registry.get("status") != "ACTIVE":
         raise RuntimeError("PROMPT_HYDRATION_HOLD:room_registry_identity")
+    expected_domains = {"GIT": 0.2, "MATH": 0.15, "NAV": 0.15, "CORPUS": 0.15, "TOOLS": 0.1, "ALCHEMY": 0.1, "MYTH": 0.05, "META": 0.1}
+    expected_events = {"SIGNIN", "WORK", "HEARTBEAT", "DELTA", "NEED", "OFFER", "QUEST_CREATE", "QUEST_RETIRE", "PLAN", "HARNESS_MUTATION", "HARNESS_REVERT", "SIGNOUT"}
+    transport = registry.get("transport") or {}
+    events = set(registry.get("events") or expected_events)
     if registry.get("waves") != {"W0": 0.5, "W1": 0.3, "W2": 0.2} or set(registry.get("job_families") or []) != expected_jobs:
         raise RuntimeError("PROMPT_HYDRATION_HOLD:room_registry_contract")
+    if registry.get("domains") not in (None, expected_domains):
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:room_registry_domains")
+    if transport and (transport.get("repo") != "demeet2k/Athena" or transport.get("issue") != 555):
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:room_registry_transport")
+    if not expected_events.issubset(events):
+        raise RuntimeError("PROMPT_HYDRATION_HOLD:room_registry_events")
     records = []
     for rel in sorted(paths):
         path = root / rel
@@ -351,9 +363,11 @@ class OrganismRoomRuntime:
     adds sessions, quest attempts, allocation, and verified completion.
     """
 
-    def __init__(self, board: MessageBoardRuntime, *, authority_keys: dict[str, bytes] | None = None):
+    def __init__(self, board: MessageBoardRuntime, *, authority_keys: dict[str, bytes] | None = None, room_budget: dict | None = None, protected_reserve: dict | None = None):
         self.board = board
         self.authority_keys = authority_keys or self._authority_keys_from_env()
+        self.room_budget = _resource_contract(room_budget, "ROOM_BUDGET") if room_budget is not None else None
+        self.protected_reserve = _resource_contract(protected_reserve, "PROTECTED_RESERVE") if protected_reserve is not None else None
 
     @staticmethod
     def _authority_keys_from_env() -> dict[str, bytes]:
@@ -371,6 +385,8 @@ class OrganismRoomRuntime:
             return _empty_state()
         value = self.board._read_json(path)
         if not value or value.get("artifact") != STATE_ARTIFACT:
+            raise RuntimeError("ROOM_STATE_CORRUPTION_HOLD")
+        if not isinstance(value.get("version"), int) or value["version"] < 0 or not isinstance(value.get("logical_time"), int) or value["logical_time"] < 0:
             raise RuntimeError("ROOM_STATE_CORRUPTION_HOLD")
         for key in ("sessions", "quests", "idempotency"):
             if not isinstance(value.get(key), dict):
@@ -398,10 +414,21 @@ class OrganismRoomRuntime:
         if seen.get("command_digest") != _digest(command):
             raise ValueError("IDEMPOTENCY_KEY_REUSE_CONFLICT")
         result = dict(seen["result"])
-        if command.get("action") in {"sign_in", "enter"} and isinstance(result.get("session"), dict):
-            session = result["session"]
-            result["session_token"] = _token(str(session["session_id"]), int(session["fence"]))
+        # Replays never mint or reconstruct bearer credentials. The original
+        # caller must retain its host-returned token.
+        result.pop("session_token", None)
         return result
+
+    @staticmethod
+    def _reap_expired(state: dict, now: datetime) -> None:
+        for session in state.get("sessions", {}).values():
+            expires = _parse_time(session.get("lease_until"))
+            if session.get("status") not in {"ACTIVE", "STALE", "DRAINING"} or expires is None or now < expires:
+                continue
+            session["status"] = "EXPIRED"
+            quest = state.get("quests", {}).get(session.get("quest_id"))
+            if quest and quest.get("status") == "ACTIVE" and quest.get("session_id") == session.get("session_id"):
+                quest.update({"status": "READY", "session_id": None, "fence": None, "claim_id": None, "reclaimed_after_expiry": True})
 
     def _authenticate(self, state: dict, agent_id: str, session_id: str, fence: int, token: str, now: datetime, *, require_presence: bool = True) -> dict:
         row = state.get("sessions", {}).get(agent_id)
@@ -462,7 +489,7 @@ class OrganismRoomRuntime:
 
         return self.board._mutate(agent_id=agent_id, remote=remote, build_files=build)
 
-    def enter(self, *, agent_id: str, task: str, work_key: str, targets: list[str], ack_head: str, ack_prompt_digest: str, idempotency_key: str, resource_upper_bound: dict, room_budget: dict, protected_reserve: dict, session_id: str | None = None, fence: int | None = None, session_token: str | None = None, lease_seconds: int = 1800, remote: str = "origin") -> dict:
+    def enter(self, *, agent_id: str, task: str, work_key: str, targets: list[str], ack_head: str, ack_prompt_digest: str, idempotency_key: str, resource_upper_bound: dict, room_budget: dict | None = None, protected_reserve: dict | None = None, session_id: str | None = None, fence: int | None = None, session_token: str | None = None, lease_seconds: int = 1800, remote: str = "origin") -> dict:
         agent_id = _require_id(agent_id, "agent_id")
         idempotency_key = _idempotency_key(idempotency_key)
         task = str(task or "").strip()
@@ -472,24 +499,29 @@ class OrganismRoomRuntime:
         if len(work_key) > 256:
             raise ValueError("work_key must contain at most 256 characters")
         lease = self.board._lease_seconds(lease_seconds)
-        command = {"action": "enter", "task": task, "work_key": work_key, "targets": sorted(targets), "ack_head": ack_head, "ack_prompt_digest": ack_prompt_digest, "resource_upper_bound": resource_upper_bound, "room_budget": room_budget, "protected_reserve": protected_reserve, "session_id": session_id, "fence": fence, "lease_seconds": lease}
+        command = {"action": "enter", "task": task, "work_key": work_key, "targets": sorted(targets), "ack_head": ack_head, "ack_prompt_digest": ack_prompt_digest, "resource_upper_bound": resource_upper_bound, "session_id": session_id, "fence": fence, "lease_seconds": lease}
 
         def build(base: str) -> dict:
             state = self._state()
+            now = _utcnow()
+            prior = state["sessions"].get(agent_id)
+            signed_in_upgrade = bool(prior and self._live(prior, now) and not prior.get("quest_id"))
+            if session_id is not None:
+                if fence is None or not session_token:
+                    return {"return": {"status": "SIGNED_IN_SESSION_AUTH_REQUIRED_HOLD", "session": prior}}
+                self._authenticate(state, agent_id, session_id, int(fence), session_token, now)
             replay = self._replay(state, agent_id, idempotency_key, command)
             if replay is not None:
                 return {"return": replay}
             prompt_at_base = _prompt_digest(self.board._root())
             if base != ack_head or prompt_at_base != ack_prompt_digest:
                 return {"return": {"status": "REHYDRATE_HOLD", "current_head": base, "current_prompt_digest": prompt_at_base}}
-            now = _utcnow()
+            self._reap_expired(state, now)
             prior = state["sessions"].get(agent_id)
             signed_in_upgrade = bool(prior and self._live(prior, now) and not prior.get("quest_id"))
             if prior and self._live(prior, now) and not signed_in_upgrade:
                 return {"return": {"status": "AGENT_ALREADY_PRESENT_HOLD", "session": prior}}
             if signed_in_upgrade:
-                if not session_id or fence is None or not session_token:
-                    return {"return": {"status": "SIGNED_IN_SESSION_AUTH_REQUIRED_HOLD", "session": prior}}
                 self._authenticate(state, agent_id, session_id, int(fence), session_token, now)
             if prior and prior.get("quest_id"):
                 orphan = state["quests"].get(prior["quest_id"])
@@ -511,9 +543,9 @@ class OrganismRoomRuntime:
                 return {"return": {"status": "QUEST_NOT_READY_HOLD", "quest": prior_quest}}
             attempt = int((prior_quest or {}).get("attempt", 0)) + 1
             try:
-                resource = validate_resource_admission(
-                    resource_upper_bound, room_budget, protected_reserve, list(state["quests"].values())
-                )
+                if self.room_budget is None or self.protected_reserve is None:
+                    raise ValueError("HOST_RESOURCE_POLICY_UNCONFIGURED_HOLD")
+                resource = validate_resource_admission(resource_upper_bound, self.room_budget, self.protected_reserve, list(state["quests"].values()))
             except ValueError as exc:
                 return {"return": {"status": "RESOURCE_ADMISSION_HOLD", "detail": str(exc)}}
             active_ids = [row["agent_id"] for row in self.board._active()] + [agent_id]
@@ -532,11 +564,12 @@ class OrganismRoomRuntime:
             state["quests"][work_key] = quest
             result = {"status": "WORK_CLAIMED" if signed_in_upgrade else "ENTERED", "session": session, "session_token": _token(next_session_id, next_fence), "allocation": allocation, "waves": list(WAVES), "next": "execute the material delta; heartbeat before lease expiry"}
             self._remember(state, agent_id, idempotency_key, command, result)
-            event_rel, event = self.board._event("WORK", agent_id, {"session_id": next_session_id, "fence": next_fence, "claim_id": claim_id, "quest_id": work_key, "role": session["role"], "wave": session["wave"]})
-            files = {STATE_PATH: _json_text(state), self.board._presence_path(agent_id): _json_text(presence), event_rel: _json_text(event)}
+            files = {STATE_PATH: _json_text(state), self.board._presence_path(agent_id): _json_text(presence)}
             if not signed_in_upgrade:
                 signin_rel, signin_event = self.board._event("SIGNIN", agent_id, {"session_id": next_session_id, "fence": next_fence, "role": session["role"], "wave": session["wave"], "composed_with_work": True})
                 files[signin_rel] = _json_text(signin_event)
+            event_rel, event = self.board._event("WORK", agent_id, {"session_id": next_session_id, "fence": next_fence, "claim_id": claim_id, "quest_id": work_key, "role": session["role"], "wave": session["wave"]})
+            files[event_rel] = _json_text(event)
             return {"files": files, "message": f"organism room work {agent_id}", "result": result}
 
         return self.board._mutate(agent_id=agent_id, remote=remote, build_files=build)
@@ -645,13 +678,16 @@ class OrganismRoomRuntime:
                 return {"return": replay}
             now = _utcnow()
             session = self._authenticate(state, agent_id, session_id, fence, session_token, now, require_presence=False)
+            current_presence = self.board._read_json(self.board._root() / self.board._presence_path(agent_id)) or {}
+            if current_presence.get("status") == "ACTIVE" and any(current_presence.get(k) != session.get(k) for k in ("session_id", "fence", "claim_id")):
+                raise ValueError("ROOM_PRESENCE_LINEAGE_HOLD")
             quest = state["quests"].get(session["quest_id"])
             if quest and quest.get("status") == "ACTIVE" and not force:
                 return {"return": {"status": "OPEN_CLAIM_HOLD", "next": "complete, hand off, or force sign-out"}}
             if quest and quest.get("status") == "ACTIVE":
                 quest.update({"status": "READY", "session_id": None, "fence": None, "claim_id": None, "abandoned_by": session_id})
             session.update({"status": "RELEASED", "released_at": _iso(now), "handoff_to": handoff_to})
-            presence = self.board._read_json(self.board._root() / self.board._presence_path(agent_id)) or {}
+            presence = current_presence
             presence.update({"status": "RELEASED", "release_status": "HANDOFF" if handoff_to else ("ABANDONED" if force else "DONE"), "released_at": session["released_at"], "handoff_to": handoff_to})
             state["version"] += 1
             state["logical_time"] += 1

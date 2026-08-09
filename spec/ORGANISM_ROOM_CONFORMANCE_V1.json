@@ -8,11 +8,12 @@
   "prompt_runtime": {
     "accepted": ["ATHENA.PROMPT.RUNTIME.V1", "ATHENA.PROMPT.RUNTIME.V2"],
     "v2_overlay_law": "every active overlay path binds exactly one ACTIVE_SCOPED state path",
-    "digest_binds": ["manifest", "active state", "policy", "enabled and mandatory modules", "overlay text", "overlay state", "room registry", "allocator", "harness genotype"]
+    "digest_binds": ["manifest", "active state", "policy", "enabled and mandatory modules", "overlay text", "overlay state", "all manifest-declared room dependency paths", "room registry", "allocator", "harness genotype", "liminal coordinate registry/tool", "JSPACE12 registry"]
   },
   "resource_dimensions": ["tool_calls", "api_calls", "tokens", "wall_seconds", "storage_writes", "external_mutations"],
   "resource_laws": [
     "UNKNOWN_RESOURCE != ZERO",
+    "PUBLIC CALLER CANNOT SET HOST BUDGET OR PROTECTED RESERVE",
     "LIVE_RESERVATIONS + REQUEST + PROTECTED_RESERVE <= HOST_BUDGET",
     "SHARED_SINK_COLLISION => HOLD",
     "VERIFIED_OR_REQUEUED_CLAIM_RELEASES_RESERVATION"
@@ -23,5 +24,7 @@
     "STALE_PROMPT_SESSION_CANNOT_COMPLETE",
     "MESSAGE_BOARD_PRESENCE_MUST_MATCH_SESSION_FENCE_AND_CLAIM"
   ],
+  "replay_laws": ["IDEMPOTENT REPLAY NEVER RECONSTRUCTS A BEARER TOKEN", "AUTHENTICATE SIGNED-IN UPGRADE BEFORE REPLAY"],
+  "remaining_activation_holds": ["CANONICAL REV6 AID ENCODING", "CONTACT/COORD_ACK/COORD_RELEASE HANDSHAKE", "ISSUE 555 NONAUTHORITATIVE MIRROR", "QUALIFIED READY QUEST BEFORE WORK", "LEGACY MESSAGE BOARD MUTATOR ROUTING"],
   "evidence_ceiling": "STRUCTURAL_AND_SAME_HARNESS_ONLY; FIELD_EFFECT_UNKNOWN; PROVIDER_MEMBERSHIP_NOT_PROVEN_BY_LOCAL_BYTES"
 }

@@ -112,7 +112,10 @@ class PromptRuntimeV2Tests(unittest.TestCase):
         self.assertTrue(all(isinstance(value, str) for value in active["active_scoped_overlays"]))
         self.assertTrue(all(isinstance(value, str) for value in active["active_scoped_state"]))
         self.assertIn(activated["overlay"]["path"], active["active_scoped_overlays"])
-        self.assertEqual(len(self.runtime.compile()["selected_overlays"]), 2)
+        compiled = self.runtime.compile()
+        self.assertEqual(len(compiled["selected_overlays"]), 2)
+        activated_ancestry = next(row for row in compiled["ancestry"]["overlays"] if row["path"] == activated["overlay"]["path"])
+        self.assertEqual(activated_ancestry["module_id"], "core")
         promoted = self.runtime.promote(
             proposed["candidate_ref"], self.runtime.git.head(), [tested["experiment_ref"]],
             ["test://prompt-v2"], {"regression_status": "PASS", "adversarial_status": "PASS", "replay_status": "PASS"}, actor="tester",

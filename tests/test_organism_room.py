@@ -59,11 +59,11 @@ def _fixture(base: Path, clone_names=("b",)):
     _run(local, "init", "-b", "master")
     _run(local, "config", "user.name", "local")
     _run(local, "config", "user.email", "local@example.invalid")
-    _write(local, "prompts/PROMPT.manifest.json", '{"artifact":"ATHENA.PROMPT.RUNTIME.V2","active_state":"prompts/state/ACTIVE.json","bootstrap":"prompts/BOOTSTRAP.md","core":"prompts/ORCHESTRATION_CORE.md","policy":"policies/PROMPT_RUNTIME.md","default_profile":"MAXDEV","profiles":{"MAXDEV":["core","git"]},"modules":{"core":{"path":"prompts/ORCHESTRATION_CORE.md","mandatory":true},"git":{"path":"prompts/modules/GIT_ORGANISM.md","mandatory":true}},"room":{"repo":"demeet2k/Athena","issue":555,"registry":"registry/organism_room_v1.json","harness_genotype":"registry/harness_genotype_v1.json","allocator":"scripts/organism_homeostasis_v1.py"}}\n')
+    _write(local, "prompts/PROMPT.manifest.json", '{"artifact":"ATHENA.PROMPT.RUNTIME.V2","active_state":"prompts/state/ACTIVE.json","bootstrap":"prompts/BOOTSTRAP.md","core":"prompts/ORCHESTRATION_CORE.md","policy":"policies/PROMPT_RUNTIME.md","default_profile":"MAXDEV","profiles":{"MAXDEV":["core","git"]},"modules":{"core":{"path":"prompts/ORCHESTRATION_CORE.md","mandatory":true},"git":{"path":"prompts/modules/GIT_ORGANISM.md","mandatory":true}},"room":{"repo":"demeet2k/Athena","issue":555,"registry":"registry/organism_room_v1.json","harness_genotype":"registry/harness_genotype_v1.json","allocator":"scripts/organism_homeostasis_v1.py","liminal_agent_coordinate":"registry/liminal_agent_coordinate_v1.json","liminal_tool":"scripts/liminal_agent_coordinate_v1.py","jspace12":"registry/jspace12_scarlet_geometry_v1.json"}}\n')
     _write(local, "prompts/state/ACTIVE.json", '{"artifact":"ATHENA.PROMPT.STATE.ACTIVE.V2","prompt_runtime":"ATHENA.PROMPT.RUNTIME.V2","status":"ACTIVE","profile":"MAXDEV","enabled_modules":["core","git"],"active_scoped_overlays":["prompts/overlays/ACTIVE.md"],"active_scoped_state":["prompts/state/ACTIVE_OVERLAY.json"],"harness_genotype":"registry/harness_genotype_v1.json"}\n')
     _write(local, "prompts/state/ACTIVE_OVERLAY.json", '{"artifact":"ATHENA.PROMPT.OVERLAY.STATE.TEST.V1","status":"ACTIVE_SCOPED","overlay":"prompts/overlays/ACTIVE.md"}\n')
-    _write(local, "registry/organism_room_v1.json", '{"artifact":"ATHENA.ORGANISM.ROOM.V1","status":"ACTIVE","waves":{"W0":0.5,"W1":0.3,"W2":0.2},"job_families":["GIT","MATH","MYTH","NAV","TOOLS","CORPUS","ALCHEMY","META","INTEGRATION"]}\n')
-    for rel in ("prompts/BOOTSTRAP.md", "prompts/ORCHESTRATION_CORE.md", "prompts/modules/GIT_ORGANISM.md", "prompts/overlays/ACTIVE.md", "policies/PROMPT_RUNTIME.md", "registry/harness_genotype_v1.json", "scripts/organism_homeostasis_v1.py"):
+    _write(local, "registry/organism_room_v1.json", '{"artifact":"ATHENA.ORGANISM.ROOM.V1","status":"ACTIVE","transport":{"repo":"demeet2k/Athena","issue":555},"waves":{"W0":0.5,"W1":0.3,"W2":0.2},"domains":{"GIT":0.2,"MATH":0.15,"NAV":0.15,"CORPUS":0.15,"TOOLS":0.1,"ALCHEMY":0.1,"MYTH":0.05,"META":0.1},"events":["SIGNIN","WORK","HEARTBEAT","DELTA","NEED","OFFER","QUEST_CREATE","QUEST_RETIRE","PLAN","HARNESS_MUTATION","HARNESS_REVERT","SIGNOUT","CONTACT","COORD_ACK","COORD_RELEASE"],"job_families":["GIT","MATH","MYTH","NAV","TOOLS","CORPUS","ALCHEMY","META","INTEGRATION"]}\n')
+    for rel in ("prompts/BOOTSTRAP.md", "prompts/ORCHESTRATION_CORE.md", "prompts/modules/GIT_ORGANISM.md", "prompts/overlays/ACTIVE.md", "policies/PROMPT_RUNTIME.md", "registry/harness_genotype_v1.json", "scripts/organism_homeostasis_v1.py", "registry/liminal_agent_coordinate_v1.json", "scripts/liminal_agent_coordinate_v1.py", "registry/jspace12_scarlet_geometry_v1.json"):
         _write(local, rel, f"fixture:{rel}\n")
     _run(local, "add", ".")
     _run(local, "commit", "-m", "seed")
@@ -117,6 +117,10 @@ class HomeostasisTests(unittest.TestCase):
 
 
 class ResourceAdmissionTests(unittest.TestCase):
+    def test_unknown_extension_dimension_holds(self):
+        with self.assertRaisesRegex(ValueError, "UNSUPPORTED_DIMENSION_HOLD:gpu_seconds"):
+            validate_resource_admission(_request(gpu_seconds=1), _resources(), _reserve(), [])
+
     def test_unknown_dimension_and_reserve_overrun_hold(self):
         unknown = _request()
         del unknown["api_calls"]
@@ -163,6 +167,12 @@ class PromptBindingTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "overlay_state_status"):
             _prompt_digest(root)
 
+    def test_rev6_room_dependencies_are_content_bound(self):
+        root = self._root()
+        before = _prompt_digest(root)
+        _write(root, "registry/liminal_agent_coordinate_v1.json", "changed coordinate law\n")
+        self.assertNotEqual(_prompt_digest(root), before)
+
     def test_wrong_room_coordinate_and_ambiguous_state_fail_closed(self):
         root = self._root()
         manifest_path = root / "prompts/PROMPT.manifest.json"
@@ -207,7 +217,7 @@ class RoomE2ETests(unittest.TestCase):
         self.addCleanup(td.cleanup)
         local, clones = _fixture(Path(td.name))
         roots = [local, *clones]
-        return [OrganismRoomRuntime(MessageBoardRuntime(GitBackend(root)), authority_keys={"host": b"h" * 32}) for root in roots], roots
+        return [OrganismRoomRuntime(MessageBoardRuntime(GitBackend(root)), authority_keys={"host": b"h" * 32}, room_budget=_resources(), protected_reserve=_reserve()) for root in roots], roots
 
     @staticmethod
     def _enter(room, root, agent, work, key=None):
@@ -220,6 +230,12 @@ class RoomE2ETests(unittest.TestCase):
         entered = self._enter(rooms[0], roots[0], "a", "x")
         self.assertEqual(entered["status"], "ENTERED")
         self.assertEqual(rooms[1].read()["board"]["active"][0]["agent_id"], "a")
+
+    def test_composed_enter_emits_signin_before_work(self):
+        rooms, roots = self._rooms()
+        self._enter(rooms[0], roots[0], "ordered", "ordered-work")
+        kinds = [row["kind"] for row in rooms[0].read()["board"]["recent_events"] if row.get("agent_id") == "ordered"]
+        self.assertLess(kinds.index("SIGNIN"), kinds.index("WORK"))
 
     def test_signin_precedes_work_and_idle_signout_is_legal(self):
         rooms, roots = self._rooms()
@@ -243,6 +259,17 @@ class RoomE2ETests(unittest.TestCase):
         other = room.sign_in(agent_id="observer", ack_head=_run(root, "rev-parse", "HEAD"), ack_prompt_digest=_prompt_digest(root), idempotency_key="signin-observer-001")
         out = room.sign_out(agent_id="observer", session_id=other["session"]["session_id"], fence=other["session"]["fence"], session_token=other["session_token"], idempotency_key="signout-observer-01")
         self.assertEqual(out["status"], "SIGNED_OUT")
+
+    def test_signin_upgrade_replay_without_token_is_not_token_oracle(self):
+        rooms, roots = self._rooms()
+        room, root = rooms[0], roots[0]
+        signed = room.sign_in(agent_id="oracle", ack_head=_run(root, "rev-parse", "HEAD"), ack_prompt_digest=_prompt_digest(root), idempotency_key="signin-oracle-00001")
+        args = dict(agent_id="oracle", task="Build q", work_key="oracle-q", targets=["q.py"], ack_head=_run(root, "rev-parse", "HEAD"), ack_prompt_digest=_prompt_digest(root), idempotency_key="claim-oracle-00001", resource_upper_bound=_request(), session_id=signed["session"]["session_id"], fence=signed["session"]["fence"], session_token=signed["session_token"])
+        claimed = room.enter(**args)
+        self.assertEqual(claimed["status"], "WORK_CLAIMED")
+        replay = room.enter(**{**args, "session_token": None})
+        self.assertEqual(replay["status"], "SIGNED_IN_SESSION_AUTH_REQUIRED_HOLD")
+        self.assertNotIn("session_token", replay)
 
     def test_duplicate_work_holds_and_clean_signout_requires_closed_claim(self):
         rooms, roots = self._rooms()
@@ -300,7 +327,7 @@ class RoomE2ETests(unittest.TestCase):
         first = room.enter(**args)
         replay = room.enter(**args)
         self.assertEqual(replay["session"]["session_id"], first["session"]["session_id"])
-        self.assertEqual(replay["session_token"], first["session_token"])
+        self.assertNotIn("session_token", replay)
         stored = room.read()["room"]["idempotency"]
         self.assertTrue(stored)
         self.assertTrue(all("enter-a" not in slot for slot in stored))
@@ -392,6 +419,22 @@ class RoomE2ETests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "FENCED_SESSION_HOLD"):
             room.heartbeat(agent_id="reclaim", session_id=first["session"]["session_id"], fence=first["session"]["fence"], session_token=first["session_token"], idempotency_key="old-reclaim-heart-01")
 
+    def test_expired_foreign_claim_releases_resource_capacity_on_admission(self):
+        rooms, roots = self._rooms()
+        first = rooms[0].enter(agent_id="capacity-a", task="large", work_key="large", targets=["large.py"], ack_head=_run(roots[0], "rev-parse", "HEAD"), ack_prompt_digest=_prompt_digest(roots[0]), idempotency_key="capacity-a-enter-01", resource_upper_bound=_request(tokens=89000))
+        self.assertEqual(first["status"], "ENTERED")
+        state_path = roots[0] / "runtime/message_board/v1/organism/state.json"
+        presence_path = roots[0] / "runtime/message_board/v1/agents/capacity-a.json"
+        state = json.loads(state_path.read_text()); presence = json.loads(presence_path.read_text())
+        expired = (datetime.now(timezone.utc) - timedelta(seconds=1)).isoformat()
+        state["sessions"]["capacity-a"]["lease_until"] = expired; presence["expires_at"] = expired
+        _write(roots[0], str(state_path.relative_to(roots[0])), json.dumps(state)); _write(roots[0], str(presence_path.relative_to(roots[0])), json.dumps(presence))
+        _run(roots[0], "add", "runtime/message_board/v1"); _run(roots[0], "commit", "-m", "expire capacity claim"); _run(roots[0], "push", "origin", "master")
+        rooms[1].board.read()
+        second = self._enter(rooms[1], roots[1], "capacity-b", "small")
+        self.assertEqual(second["status"], "ENTERED", second)
+        self.assertEqual(rooms[1].read()["room"]["quests"]["large"]["status"], "READY")
+
     def test_existing_corrupt_state_never_resets_fence(self):
         rooms, roots = self._rooms()
         room, root = rooms[0], roots[0]
@@ -411,6 +454,16 @@ class RoomE2ETests(unittest.TestCase):
         session = entered["session"]
         with self.assertRaisesRegex(ValueError, "ROOM_PRESENCE_LINEAGE_HOLD"):
             room.heartbeat(agent_id="lineage", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], idempotency_key="lineage-heart-0001")
+
+    def test_old_signout_cannot_release_newer_legacy_presence(self):
+        rooms, roots = self._rooms()
+        room = rooms[0]
+        entered = self._enter(room, roots[0], "replace", "old-work")
+        session = entered["session"]
+        room.board.release(agent_id="replace", release_status="PAUSED", outcome="replace")
+        room.board.present(agent_id="replace", task="new legacy work", work_key="new-work", targets=["new.py"])
+        with self.assertRaisesRegex(ValueError, "ROOM_PRESENCE_LINEAGE_HOLD"):
+            room.sign_out(agent_id="replace", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], idempotency_key="old-signout-replace")
 
 
 if __name__ == "__main__":
