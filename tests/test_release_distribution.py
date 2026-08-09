@@ -32,6 +32,11 @@ class ReleaseDistributionTests(unittest.TestCase):
         p=self.manifest['source_policy'];self.assertEqual(p['repository'],'demeet2k/athena-mcp-server');self.assertEqual(p['branch'],'master')
         self.assertTrue(p['publication_requires_exact_current_master']);self.assertTrue(p['publication_requires_clean_checkout']);self.assertTrue(p['publication_requires_five_stage_qualification']);self.assertTrue(p['exact_commit_is_bound_in_release_attestation'])
         self.assertTrue(p['critical_test_selectors_must_resolve_to_real_files'])
+        self.assertTrue(p['validation_runs_on_master_push'])
+        self.assertTrue(p['validation_runs_on_every_master_push'])
+        self.assertTrue(p['master_push_validation_is_nonpublishing'])
+        self.assertTrue(p['publication_requires_manual_workflow_dispatch'])
+        self.assertTrue(p['non_pr_validation_requires_exact_current_master_at_package_readiness'])
         self.assertEqual(p['qualification_checks'],['syntax','unit','critical-invariants','smoke','promotion-qualification'])
 
     def test_required_assets_match_current_distribution(self):
@@ -50,11 +55,35 @@ class ReleaseDistributionTests(unittest.TestCase):
         for phrase in ('duplicate-pooled','stage-2 tmle','a1 dynamic policy uses baseline only','unknown gaussian coefficient','radius-eligible local certificate','null local certificate','rectangular tv-dro'):
             self.assertIn(phrase,contracts)
 
-    def test_release_workflow_is_pr_testable_but_publish_is_manual_master_only(self):
+    def test_release_validation_runs_on_master_push_but_publish_remains_manual(self):
         w=self.workflow
-        for fragment in ('pull_request:','workflow_dispatch:','package-readiness:','promotion-qualification:',"if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master'",'RELEASE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}','git rev-parse origin/master','scripts/qualify_github_head.py','actions/download-artifact@v5','actions/upload-artifact@v4','release-candidate-v3.4.0-${{ env.RELEASE_HEAD }}','promotion-receipt-${{ env.RELEASE_HEAD }}','python -m pip wheel --no-deps . -w dist','athena_mcp.server','ATHENA.RUNTIME.UNIFIED.11','COLLECTIVE_CALIBRATED_V15','V15 calibrated continuous control and authority boundaries','Deployment V2 composition and authority boundaries','gh release create','--verify-tag','refs/tags/$TAG','TAG_TARGET','(cd dist && sha256sum -c SHA256SUMS)','release-attestation.json','trusted_promotion'):
+        for fragment in (
+            'pull_request:','push:','branches: [master]','workflow_dispatch:','package-readiness:','promotion-qualification:',
+            "if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master'",
+            'RELEASE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}','git rev-parse origin/master',
+            'scripts/qualify_github_head.py','actions/download-artifact@v5','actions/upload-artifact@v4',
+            'release-candidate-v3.4.0-${{ env.RELEASE_HEAD }}','promotion-receipt-${{ env.RELEASE_HEAD }}',
+            'python -m pip wheel --no-deps . -w dist','athena_mcp.server','ATHENA.RUNTIME.UNIFIED.11','COLLECTIVE_CALIBRATED_V15',
+            'V15 calibrated continuous control and authority boundaries','Deployment V2 composition and authority boundaries',
+            'gh release create','--verify-tag','refs/tags/$TAG','TAG_TARGET','(cd dist && sha256sum -c SHA256SUMS)',
+            'release-attestation.json','trusted_promotion',"if [ \"${{ github.event_name }}\" != \"pull_request\" ]; then",
+            "'publication_performed':False",
+        ):
             self.assertIn(fragment,w)
-        self.assertNotRegex(w,re.compile(r'(?m)^\s*push:\s*$'));self.assertNotRegex(w,re.compile(r'continue-on-error:\s*true'))
+        self.assertNotRegex(w,re.compile(r'continue-on-error:\s*true'))
+        publish=w[w.index('\n  publish:'):]
+        self.assertIn("if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master'",publish)
+        self.assertNotIn('github.event_name == \'push\'',publish)
+
+    def test_every_master_push_is_validation_scoped_and_self_triggering(self):
+        w=self.workflow
+        trigger=w[:w.index('\npermissions:')]
+        self.assertIn('push:\n    branches: [master]',trigger)
+        self.assertNotIn('paths:',trigger)
+        self.assertNotIn('paths-ignore:',trigger)
+        package=w[w.index('\n  package-readiness:'):w.index('\n  publish:')]
+        self.assertIn('git fetch origin master --no-tags',package)
+        self.assertIn('test "$(git rev-parse origin/master)" = "$RELEASE_HEAD"',package)
 
     def test_critical_test_patterns_select_real_nonempty_witnesses(self):
         critical=self.workflow[self.workflow.index('\n  critical-invariants:'):self.workflow.index('\n  smoke:')]
@@ -77,7 +106,7 @@ class ReleaseDistributionTests(unittest.TestCase):
         w=self.workflow;package=w[w.index('\n  package-readiness:'):w.index('\n  publish:')]
         ignored={line.strip() for line in self.gitignore.splitlines() if line.strip() and not line.lstrip().startswith('#')}
         self.assertIn('promotion-input/',ignored);self.assertIn('path: promotion-input',package);self.assertIn('test -z "$(git status --porcelain)"',package)
-        for fragment in ('test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"',"assert promotion['git_head']==os.environ['RELEASE_HEAD']","assert promotion['promotion']['status']=='QUALIFIED'","'release_commit':os.environ['RELEASE_HEAD']","'promrun':promotion['promotion']['run_id']","'verification_ref':promotion['verification_ref']","'receipt_sha256':sha(promo)",'athena_structural_reliability_calibrate','athena_deployment_manifest',"assert manifest['artifact']=='ATHENA.RUNTIME.UNIFIED.11'",'test "$TAG_TARGET" = "$RELEASE_HEAD"'):
+        for fragment in ('test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"',"assert promotion['git_head']==os.environ['RELEASE_HEAD']","assert promotion['promotion']['status']=='QUALIFIED'","'release_commit':os.environ['RELEASE_HEAD']","'promrun':promotion['promotion']['run_id']","'verification_ref':promotion['verification_ref']","'receipt_sha256':sha(promo)",'athena_structural_reliability_calibrate','athena_deployment_manifest',"assert manifest['artifact']=='ATHENA.RUNTIME.UNIFIED.11'","assert manifest['collective_calibrated']['radius_empty_behavior']=='null local certificate; global envelope remains separate and nonlocal'",'test "$TAG_TARGET" = "$RELEASE_HEAD"'):
             self.assertIn(fragment,w)
 
     def test_release_workflow_uses_least_privilege_until_manual_publish(self):
@@ -88,30 +117,19 @@ class ReleaseDistributionTests(unittest.TestCase):
         n=self.notes
         for phrase in (
             'ATHENA 3.4.0','Collective Calibrated V15','UNIFIED.11','Deployment.2','GITHUB_PROMOTION_VERIFIER.1',
-            'OUT_OF_FOLD_ISOTONIC_RELIABILITY != CAUSAL_GRAPH_POSTERIOR',
-            'IDENTICAL_CALIBRATION_COORDINATE != MULTIPLE_FITTED_VALUES',
-            'CROSS_FITTED_TWO_TIMEPOINT_TMLE != GENERAL_LONGITUDINAL_TMLE_THEOREM',
-            'STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION',
-            'CROSS_FITTED_SEQUENTIAL_DR != GENERAL_OFF_POLICY_CAUSAL_VALUE',
-            'DECISION_TIME_HISTORY != FULL_ROW_STATE',
-            'LINEAR_GAUSSIAN_UPDATE != GENERAL_CONTINUOUS_JOINT_BAYES',
-            'UNKNOWN_COEFFICIENT != ZERO_COEFFICIENT',
-            'NONFINITE_NUMERIC_STATE != MODEL_COORDINATE',
-            'DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH',
-            'GEOMETRIC_NEAREST_WITNESS != TIGHTEST_ERROR_ENVELOPE_WITNESS',
-            'GLOBAL_ENVELOPE != RADIUS_ELIGIBLE_LOCAL_CERTIFICATE',
-            'NO_RADIUS_ELIGIBLE_WITNESS != GLOBAL_FALLBACK_CERTIFICATE',
-            'RECTANGULAR_TV_ROBUST_MDP != GENERAL_MULTISTAGE_DRO',
-            'UNKNOWN_STATE_COORDINATE != UNUSED_METADATA',
-            'NONFINITE_TRANSITION != PROBABILITY_MODEL',
-            'ZERO_TEST_SELECTION != PROOF',
-            'one coherent trusted Actions suite',
+            'OUT_OF_FOLD_ISOTONIC_RELIABILITY != CAUSAL_GRAPH_POSTERIOR','IDENTICAL_CALIBRATION_COORDINATE != MULTIPLE_FITTED_VALUES',
+            'CROSS_FITTED_TWO_TIMEPOINT_TMLE != GENERAL_LONGITUDINAL_TMLE_THEOREM','STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION',
+            'CROSS_FITTED_SEQUENTIAL_DR != GENERAL_OFF_POLICY_CAUSAL_VALUE','DECISION_TIME_HISTORY != FULL_ROW_STATE',
+            'LINEAR_GAUSSIAN_UPDATE != GENERAL_CONTINUOUS_JOINT_BAYES','UNKNOWN_COEFFICIENT != ZERO_COEFFICIENT','NONFINITE_NUMERIC_STATE != MODEL_COORDINATE',
+            'DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH','GEOMETRIC_NEAREST_WITNESS != TIGHTEST_ERROR_ENVELOPE_WITNESS','GLOBAL_ENVELOPE != RADIUS_ELIGIBLE_LOCAL_CERTIFICATE','NO_RADIUS_ELIGIBLE_WITNESS != GLOBAL_FALLBACK_CERTIFICATE',
+            'RECTANGULAR_TV_ROBUST_MDP != GENERAL_MULTISTAGE_DRO','UNKNOWN_STATE_COORDINATE != UNUSED_METADATA','NONFINITE_TRANSITION != PROBABILITY_MODEL',
+            'ZERO_TEST_SELECTION != PROOF','AUTOMATIC_VALIDATION != AUTOMATIC_PUBLICATION','Every push to `master`','one coherent trusted Actions suite',
             'This release certifies repository/package/distribution state. It is not a production deployment',
         ):self.assertIn(phrase,n)
 
     def test_authority_boundaries_do_not_collapse_distribution_into_truth_admin_or_deployment(self):
         boundaries=' '.join(self.manifest['authority_boundaries']).lower()
-        for phrase in ('not deployment','not empirical truth','do not become y1 authority','does not prove causal identification','are rejected','missing local certificate','not github administrative hardening','does not authorize treatment execution','external-control planning','v3.3.0 release attestation is not evidence for v3.4.0 bytes'):
+        for phrase in ('not deployment','not empirical truth','do not become y1 authority','does not prove causal identification','are rejected','missing local certificate','master-push validation does not publish','not github administrative hardening','does not authorize treatment execution','external-control planning','v3.3.0 release attestation is not evidence for v3.4.0 bytes'):
             self.assertIn(phrase,boundaries)
 
 
