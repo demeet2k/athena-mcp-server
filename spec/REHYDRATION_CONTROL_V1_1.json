@@ -1,0 +1,54 @@
+{
+  "artifact": "ATHENA.REHYDRATION.CONTROL.V1_1",
+  "coordinate": "ATHENA.KC144::GITΩ::REHYDRATION-CONTROL::V1.1",
+  "purpose": "Coordinate long explicit Git rehydration chains through Message Board ownership, deterministic successor derivation, and local cycle verification gates.",
+  "authorities": {
+    "claim_and_lease": "MessageBoardRuntime",
+    "prompt_receipt_chain": "RehydrationLoopRuntime",
+    "promotion_and_merge": "external promotion/release governance"
+  },
+  "tools": [
+    "athena_rehydration_claim",
+    "athena_rehydration_advance_claimed",
+    "athena_rehydration_handoff",
+    "athena_rehydration_resume_controlled"
+  ],
+  "work_key": "rehydration:<loop_id>",
+  "successor_precedence": [
+    "completion.next_task",
+    "completion.residuals",
+    "frontier.selected",
+    "frontier.residuals",
+    "current task"
+  ],
+  "cycle_gate_states": [
+    "VERIFIED_CYCLE",
+    "WORK_COMMITTED",
+    "OBSERVED_CYCLE",
+    "HOLD_CYCLE"
+  ],
+  "verified_cycle_requires": [
+    "completion.status == SUCCEEDED",
+    "material Git work outside prompts/rehydration and runtime/message_board/v1",
+    "at least one evidence_ref",
+    "at least one recorded test",
+    "all recorded tests == PASS"
+  ],
+  "invariants": [
+    "Message Board is the sole claim authority",
+    "a controlled advance requires an active PRIMARY claim for rehydration:<loop_id>",
+    "Message Board-only commits are not substantive work",
+    "successor derivation updates the next bounded prompt but grants no authority",
+    "cycle verification never sets promotion_qualified=true",
+    "handoff routes work but does not prove target consumption",
+    "raw V1 replay remains the causal integrity verifier"
+  ],
+  "laws": [
+    "MESSAGE_BOARD_IS_SOLE_CLAIM_AUTHORITY",
+    "SELF_PROMPT != CLAIM_AUTHORITY",
+    "SUCCESSOR_DERIVATION != PROMOTION_AUTHORITY",
+    "MESSAGE_BOARD_ONLY_CHANGE != SUBSTANTIVE_WORK",
+    "HANDOFF_ROUTE != HANDOFF_CONSUMPTION",
+    "CYCLE_VERIFIED != PROMOTION_QUALIFIED != MERGE_AUTHORIZED"
+  ]
+}
