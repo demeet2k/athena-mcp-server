@@ -79,6 +79,24 @@ class LiminalBeaconEffectV11ReplayTests(unittest.TestCase):
             self.result["standing"],
         )
 
+    def test_repeated_replay_preserves_decision_packet_not_ephemeral_ids(self):
+        second = MODULE.run_replay(parent_ci_green=True)
+        for field in (
+            "historical_fixture_digest",
+            "replay_fixture_digest",
+            "treatment_delta_digest",
+            "parent_candidate_head",
+            "parent_runtime_base",
+            "standing",
+            "status",
+        ):
+            self.assertEqual(self.result[field], second[field])
+        self.assertEqual(self.result["metrics"], second["metrics"])
+        self.assertEqual(self.result["criteria"], second["criteria"])
+        self.assertEqual(self.result["historical_v1_challenger"], second["historical_v1_challenger"])
+        # Raw packet IDs and session epochs are intentionally not compared:
+        # implicit process-local sender epochs rotate across runtime instances.
+
     def test_missing_parent_ci_witness_prevents_full_pass(self):
         result = MODULE.run_replay(parent_ci_green=False)
         self.assertEqual("UNKNOWN", result["metrics"]["existing_tool_regression_count"])
