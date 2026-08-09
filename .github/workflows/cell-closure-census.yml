@@ -1,0 +1,43 @@
+name: KC144 Cell Closure Census
+
+on:
+  pull_request:
+    branches:
+      - 'agent/h6-execution-cut05-integrated-v1'
+    paths:
+      - 'athena_mcp/inner_constitution.py'
+      - 'athena_mcp/cell_closure.py'
+      - 'tests/test_cell_closure.py'
+      - 'scripts/cell_closure_census.py'
+      - 'spec/CELL_CLOSURE_COMPILER_V1.json'
+      - '.github/workflows/cell-closure-census.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  census:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile CellClosure implementation
+        run: python -m compileall -q athena_mcp/inner_constitution.py athena_mcp/cell_closure.py tests/test_cell_closure.py scripts/cell_closure_census.py
+      - name: Run CellClosure tests
+        env:
+          PYTHONPATH: .
+        run: python -m unittest -v tests.test_cell_closure
+      - name: Emit first 144-seat structural census
+        env:
+          PYTHONPATH: .
+        run: python scripts/cell_closure_census.py
+      - name: Upload structural gap matrix
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kc144-gap-matrix-v1
+          path: kc144_gap_matrix_v1.json
+          if-no-files-found: error
