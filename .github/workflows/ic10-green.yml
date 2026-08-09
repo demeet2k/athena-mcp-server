@@ -1,0 +1,31 @@
+name: IC10 Ordered Gate Chain Qualification
+
+on:
+  pull_request:
+    branches:
+      - 'agent/h6-execution-cut05-integrated-v1'
+    paths:
+      - 'athena_mcp/ic10_runtime.py'
+      - 'tests/test_ic10_runtime.py'
+      - 'tests/test_ic10_invariant_empty_semantics.py'
+      - 'spec/IC10_COMPILER_V1.json'
+      - '.github/workflows/ic10-green.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ic10:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile IC10 compiler and regressions
+        run: python -m compileall -q athena_mcp/ic10_runtime.py tests/test_ic10_runtime.py tests/test_ic10_invariant_empty_semantics.py
+      - name: Run ordered IC10 gate tests and empty-set regression
+        env:
+          PYTHONPATH: .
+        run: python -m unittest -v tests.test_ic10_runtime tests.test_ic10_invariant_empty_semantics

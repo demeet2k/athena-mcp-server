@@ -1,0 +1,32 @@
+{
+  "artifact": "ATHENA.IC10.COMPILER.V1",
+  "role": "pure ordered constitutional view over H6 decisions, observed gate witnesses and the existing PROMOTION.2 authority plane",
+  "parent": "7e09c83a6e93ba0a604c19b8c5a195293a7112c8",
+  "new_stores": 0,
+  "provider_calls": 0,
+  "promotion_persistence": false,
+  "promotion_authority": false,
+  "gate_order": [
+    "I01_IDENTITY_PROVENANCE",
+    "I02_SYNTAX_NORMALIZATION_DEPENDENCIES",
+    "I03_TYPE_UNIT_CARRIER",
+    "I04_SCOPE_CORRIDOR_EVIDENCE_ALIGNMENT",
+    "I05_INVARIANT_PRESERVATION",
+    "I06_EVIDENCE_SUFFICIENCY_INDEPENDENCE",
+    "I07_DEPENDENCY_CLOSURE_REPLAY_PREREQUISITES",
+    "I08_BRIDGE_GLUING_RETURN_DEFECT",
+    "I09_AUDIT_REPLAY_COMPLETENESS",
+    "I10_EXISTING_PROMOTION_QUALIFICATION"
+  ],
+  "i10_law": "I10 can pass only by consuming an already QUALIFIED exact-head PROMOTION.2 certificate with trusted external verification after I01-I09 pass",
+  "decision_states": ["IC10_CHAIN_SATISFIED", "IC10_HOLD"],
+  "firewalls": [
+    "I01_THROUGH_I09_NON_SKIPPABLE",
+    "PROMOTION2_QUALIFIED != FULL_IC10_GATE_VECTOR",
+    "IC10_CHAIN_SATISFIED != CLAIM_TRUTH",
+    "IC10_COMPILER != SECOND_PROMOTION_LEDGER",
+    "I10_CONSUMES_EXISTING_PROMOTION_AUTHORITY_ONLY",
+    "REPLAY_MATCH != EXTERNAL_REVERIFICATION"
+  ],
+  "evidence_ceiling": "MECHANISM_ONLY_UNTIL_EXACT_HEAD_PROVIDER_QUALIFICATION_AND_REAL_GATE_WITNESSES"
+}
