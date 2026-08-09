@@ -81,6 +81,18 @@ def _token(session_id: str, fence: int) -> str:
     return hmac.new(_secret("ATHENA_ROOM_SESSION_SECRET"), body, hashlib.sha256).hexdigest()
 
 
+def _idempotency_key(value: str) -> str:
+    value = _require_id(value, "idempotency_key")
+    if len(value) < 16:
+        raise ValueError("idempotency_key must contain at least 16 characters")
+    return value
+
+
+def _idempotency_slot(actor: str, key: str) -> str:
+    body = f"idempotency:{actor}:{key}".encode("utf-8")
+    return hmac.new(_secret("ATHENA_ROOM_SESSION_SECRET"), body, hashlib.sha256).hexdigest()
+
+
 def make_authority_receipt(claims: dict, authority_id: str, key: bytes) -> dict:
     """Host/evaluator helper. Claimants must not possess authority keys."""
     authority_id = _require_id(authority_id, "authority_id")
@@ -235,11 +247,11 @@ class OrganismRoomRuntime:
         # Capability tokens are derivable only inside the host from the session
         # secret. Persisting a bearer token in Git would destroy fencing.
         persisted.pop("session_token", None)
-        state["idempotency"][f"{actor}:{key}"] = {"command_digest": _digest(command), "result": persisted}
+        state["idempotency"][_idempotency_slot(actor, key)] = {"command_digest": _digest(command), "result": persisted}
 
     @staticmethod
     def _replay(state: dict, actor: str, key: str, command: dict) -> dict | None:
-        seen = state.get("idempotency", {}).get(f"{actor}:{key}")
+        seen = state.get("idempotency", {}).get(_idempotency_slot(actor, key))
         if not seen:
             return None
         if seen.get("command_digest") != _digest(command):
@@ -268,7 +280,7 @@ class OrganismRoomRuntime:
 
     def enter(self, *, agent_id: str, task: str, work_key: str, targets: list[str], ack_head: str, ack_prompt_digest: str, idempotency_key: str, lease_seconds: int = 1800, remote: str = "origin") -> dict:
         agent_id = _require_id(agent_id, "agent_id")
-        idempotency_key = _require_id(idempotency_key, "idempotency_key")
+        idempotency_key = _idempotency_key(idempotency_key)
         task = str(task or "").strip()
         work_key = str(work_key or "").strip()
         if not task or not work_key:
@@ -319,7 +331,7 @@ class OrganismRoomRuntime:
 
     def heartbeat(self, *, agent_id: str, session_id: str, fence: int, session_token: str, idempotency_key: str, lease_seconds: int = 1800, remote: str = "origin") -> dict:
         agent_id = _require_id(agent_id, "agent_id")
-        key = _require_id(idempotency_key, "idempotency_key")
+        key = _idempotency_key(idempotency_key)
         lease = self.board._lease_seconds(lease_seconds)
         command = {"action": "heartbeat", "session_id": session_id, "fence": fence, "lease_seconds": lease}
 
@@ -371,7 +383,7 @@ class OrganismRoomRuntime:
 
     def complete(self, *, agent_id: str, session_id: str, fence: int, session_token: str, artifact_digests: list[str], result: str, receipt: dict, idempotency_key: str, residual: str | None = None, terminal_reason: str | None = None, remote: str = "origin") -> dict:
         agent_id = _require_id(agent_id, "agent_id")
-        key = _require_id(idempotency_key, "idempotency_key")
+        key = _idempotency_key(idempotency_key)
         artifacts = sorted({str(value) for value in artifact_digests if str(value)})
         if not artifacts:
             raise ValueError("COMPLETION_ARTIFACT_DIGEST_HOLD")
@@ -409,7 +421,7 @@ class OrganismRoomRuntime:
 
     def sign_out(self, *, agent_id: str, session_id: str, fence: int, session_token: str, idempotency_key: str, force: bool = False, handoff_to: str | None = None, remote: str = "origin") -> dict:
         agent_id = _require_id(agent_id, "agent_id")
-        key = _require_id(idempotency_key, "idempotency_key")
+        key = _idempotency_key(idempotency_key)
         command = {"action": "sign_out", "session_id": session_id, "fence": fence, "force": force, "handoff_to": handoff_to}
 
         def build(base: str) -> dict:
@@ -465,7 +477,7 @@ ORGANISM_ROOM_TOOLS = [{
             "agent_id": {"type": ["string", "null"]}, "task": {"type": ["string", "null"]}, "work_key": {"type": ["string", "null"]},
             "targets": {"type": "array", "items": {"type": "string"}}, "ack_head": {"type": ["string", "null"]}, "ack_prompt_digest": {"type": ["string", "null"]},
             "session_id": {"type": ["string", "null"]}, "fence": {"type": ["integer", "null"]}, "session_token": {"type": ["string", "null"]},
-            "idempotency_key": {"type": ["string", "null"]}, "lease_seconds": {"type": ["integer", "null"], "minimum": 60, "maximum": 86400},
+            "idempotency_key": {"type": ["string", "null"], "minLength": 16, "maxLength": 128}, "lease_seconds": {"type": ["integer", "null"], "minimum": 60, "maximum": 86400},
             "artifact_digests": {"type": "array", "items": {"type": "string"}}, "result": {"type": ["string", "null"]}, "receipt": {"type": ["object", "null"]},
             "residual": {"type": ["string", "null"]}, "terminal_reason": {"type": ["string", "null"], "enum": ["NO_RESIDUAL", "EXTERNAL_WAIT", "AUTHORITY_BOUND", None]},
             "force": {"type": "boolean"}, "handoff_to": {"type": ["string", "null"]}, "remote": {"type": "string"}
