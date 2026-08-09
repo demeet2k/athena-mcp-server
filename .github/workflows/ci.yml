@@ -6,6 +6,13 @@ on:
   pull_request:
     branches: [master]
 
+# Exact-head qualification is intentionally latest-head scoped. A newer commit on
+# the same PR/ref supersedes an older queued/running CI witness for current
+# integration purposes. Unrelated PRs retain independent groups.
+concurrency:
+  group: athena-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   actions: read
