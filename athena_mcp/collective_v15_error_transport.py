@@ -62,7 +62,12 @@ def approx_error_transport(
         raise ValueError("declared lipschitz_bound is contradicted by supplied witnesses")
 
     transported=[]
+    ids=[]
     for qi,query in enumerate(queries):
+        qid=str(query.get("id",f"Q{qi}"))
+        if not qid:
+            raise ValueError("approximation query ids must be non-empty")
+        ids.append(qid)
         features=query.get("features") or {}
         if any(name not in features for name in order):
             raise ValueError("every approximation query requires every feature")
@@ -79,8 +84,9 @@ def approx_error_transport(
         nearest=min(candidates,key=lambda row:(row["distance"],row["index"]))
         global_best=min(candidates,key=lambda row:(row["upper"],row["distance"],row["index"]))
         eligible=candidates if radius is None else [row for row in candidates if row["distance"]<=radius+1e-15]
-        within=bool(eligible)
-        selected=min(eligible,key=lambda row:(row["upper"],row["distance"],row["index"])) if eligible else global_best
+        local_best=min(eligible,key=lambda row:(row["upper"],row["distance"],row["index"])) if eligible else None
+        within=local_best is not None
+        selected=global_best if radius is None else local_best
 
         decision_margin=query.get("decision_margin")
         preserving=None
@@ -88,24 +94,28 @@ def approx_error_transport(
             margin=_finite(decision_margin,"decision_margin")
             if margin<0:
                 raise ValueError("decision_margin must be non-negative")
-            preserving=bool(within and selected["upper"]<=safety*margin+1e-15)
+            preserving=bool(selected is not None and selected["upper"]<=safety*margin+1e-15)
         else:
             margin=None
 
         transported.append({
-            "id":str(query.get("id",f"Q{qi}")),
-            "transported_error_upper_bound":round(selected["upper"],10),
+            "id":qid,
+            "transported_error_upper_bound":None if selected is None else round(selected["upper"],10),
             "global_envelope_upper_bound":round(global_best["upper"],10),
             "nearest_witness_distance":round(nearest["distance"],10),
             "nearest_witness_index":nearest["index"],
-            "transport_witness_distance":round(selected["distance"],10),
-            "transport_witness_index":selected["index"],
+            "transport_witness_distance":None if selected is None else round(selected["distance"],10),
+            "transport_witness_index":None if selected is None else selected["index"],
             "global_envelope_witness_distance":round(global_best["distance"],10),
             "global_envelope_witness_index":global_best["index"],
             "within_transport_radius":within,
+            "local_certificate_available":within,
             "decision_margin":None if margin is None else round(margin,10),
             "decision_preserving_under_bound":preserving,
         })
+
+    if len(set(ids))!=len(ids):
+        raise ValueError("approximation query ids must be unique")
 
     return {
         "status":"DECLARED_LIPSCHITZ_APPROXIMATION_ERROR_TRANSPORT",
@@ -114,7 +124,7 @@ def approx_error_transport(
         "empirical_minimum_lipschitz":round(empirical,10),
         "max_transport_radius":radius,
         "margin_safety":safety,
-        "radius_semantics":"IF A RADIUS IS DECLARED, THE CERTIFIED UPPER BOUND USES THE TIGHTEST WITNESS INSIDE THAT RADIUS; GLOBAL ENVELOPE IS REPORTED SEPARATELY",
+        "radius_semantics":"IF A RADIUS IS DECLARED, THE CERTIFIED UPPER BOUND USES THE TIGHTEST WITNESS INSIDE THAT RADIUS; IF NONE IS ELIGIBLE THE LOCAL CERTIFICATE IS NULL WHILE THE GLOBAL ENVELOPE REMAINS VISIBLE SEPARATELY",
         "queries":transported,
-        "law":"geometric proximity, tightest global Lipschitz envelope, and radius-eligible transport support are distinct coordinates; transported error remains conditional on the declared regularity assumption and supplied witnesses, not empirical global approximation truth",
+        "law":"geometric proximity, tightest global Lipschitz envelope, and radius-eligible transport support are distinct coordinates; absence of radius-eligible support remains an explicit missing local certificate rather than falling back to a global witness; transported error remains conditional on the declared regularity assumption and supplied witnesses, not empirical global approximation truth",
     }
