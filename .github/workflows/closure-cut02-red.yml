@@ -13,6 +13,9 @@ on:
 permissions:
   contents: read
 
+env:
+  PYTHONPATH: .
+
 jobs:
   red-witness:
     runs-on: ubuntu-latest
