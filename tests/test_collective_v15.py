@@ -47,6 +47,7 @@ class CollectiveRuntimeV15Tests(unittest.TestCase):
         })
         self.assertEqual(out['status'],'CROSS_FITTED_TWO_TIMEPOINT_SEQUENTIAL_LOGISTIC_TMLE_UNDER_ASSUMPTIONS')
         self.assertTrue(out['cross_fitted']);self.assertEqual(out['folds'],3)
+        self.assertEqual(out['history_invariant'],'STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION')
         by_id={x['id']:x for x in out['regimes']}
         self.assertGreater(by_id['11']['estimated_risk'],by_id['00']['estimated_risk'])
 
