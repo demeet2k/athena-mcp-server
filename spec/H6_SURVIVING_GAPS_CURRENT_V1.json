@@ -1,0 +1,51 @@
+{
+  "artifact": "ATHENA.H6.SURVIVING.GAPS.CURRENT.V1",
+  "audit_parent": "429a480a80eeefb9e2bff1ea3015adf571d76b0e",
+  "gaps": [
+    {
+      "gap_id": "H6G01_IDENTITY_DECISION",
+      "station": "H01",
+      "kind": "CONTRACT_ADAPTER",
+      "need": "Canonical IdentityDecision over existing CID/OID/VID/MID/EID primitives with alias/referent/lineage ambiguity and conflict states.",
+      "must_not": "create a second object/version store"
+    },
+    {
+      "gap_id": "H6G02_PROJECTION_AUTHORITY",
+      "station": "H02",
+      "kind": "CONTRACT_ADAPTER",
+      "need": "Explicit frozen-seat/projection/alias/epoch decision contract separating constitutional seating from hash/index projection helpers.",
+      "must_not": "re-seat KC144 or mint new GIDs"
+    },
+    {
+      "gap_id": "H6G03_ROUTE_NAVRUN_ABI",
+      "station": "H03",
+      "kind": "NORMALIZATION_FACADE",
+      "need": "One RouteProposal/NAVRUN ABI over existing route/frontier/retrieval implementations, including hard-gate status, exact identities, cost/gain vectors, and replay receipt.",
+      "must_not": "replace current route/search engines"
+    },
+    {
+      "gap_id": "H6G04_BRIDGE_ADMISSION",
+      "station": "H04",
+      "kind": "ADMISSION_PROJECTION",
+      "need": "BridgeDecision over existing transforms with preserved/lost invariants, validity corridor, evidence/authority prerequisites, inverse/compensation, counterexamples, residuals, and status.",
+      "must_not": "create another transform DSL or transform ledger"
+    },
+    {
+      "gap_id": "H6G05_EVIDENCE_GRAPH",
+      "station": "H05",
+      "kind": "READ_ONLY_NORMALIZATION_PROJECTION",
+      "need": "Source->Evidence->Claim projection with source revisions, independence groups, freshness, counterevidence, evidence floors, and authority ceilings over current specialized evidence ledgers.",
+      "must_not": "replace promotion, provider verification, Cohesion evidence guard, or Party provenance"
+    },
+    {
+      "gap_id": "H6G06_QUERYBUNDLE_ROOT_FACADE",
+      "station": "H06",
+      "kind": "COMPILER_FACADE",
+      "need": "QueryBundle/H6Root contract binding H01-H05 references plus semantic/Git/topology/prompt frontiers, completion/stop predicates, return target, replay, reseed and quiescence.",
+      "must_not": "create another rehydration/continuation scheduler"
+    }
+  ],
+  "count": 6,
+  "global_shape": "SIX_THIN_CONTRACT_GAPS_OVER_EXISTING_ORGANS",
+  "treatment_authorized": false
+}
