@@ -126,6 +126,8 @@ class CampaignV3BindingTests(unittest.TestCase):
         self.assertEqual(result["artifact"], ARTIFACT)
         self.assertEqual(result["status"], "BOUND")
         self.assertEqual(result["standing"], "BOUND_LOOP_NOT_WORK_EXECUTED")
+        self.assertEqual(result["pulse_digest"], _pulse()["pulse_digest"])
+        self.assertIn("BOUND_RECEIPT_RETAINS_VERIFIED_PULSE_DIGEST", result["laws"])
         self.assertEqual(
             [result["pre_lease_head"], result["post_lease_head"], result["post_loop_start_head"], result["post_bind_head"]],
             ["H0", "H1", "H2", "H3"],
