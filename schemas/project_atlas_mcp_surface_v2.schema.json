@@ -11,6 +11,7 @@
     "integration",
     "surface",
     "frontier",
+    "query_index",
     "snapshot",
     "planes",
     "list_sources",
@@ -42,7 +43,7 @@
         "branch": {"const": "agent/kc144-project-atlas-mcp-surface-v2"},
         "child_pull_request": {"const": 310},
         "qualification_only_pull_request": {"const": 311},
-        "head_binding": {"type": "string"},
+        "head_binding": {"type": "string", "minLength": 1},
         "law": {"const": "QUALIFICATION_PR != INTEGRATION_PR"}
       },
       "additionalProperties": false
@@ -53,10 +54,12 @@
       "properties": {
         "tools": {
           "type": "array",
-          "minItems": 4,
-          "maxItems": 4,
-          "uniqueItems": true,
-          "items": {"type": "string"}
+          "const": [
+            "athena_project_atlas_summary",
+            "athena_project_resolve",
+            "athena_project_list",
+            "athena_project_route"
+          ]
         },
         "resource": {"const": "athena://project-atlas"},
         "max_page": {"const": 100},
@@ -68,36 +71,109 @@
     },
     "frontier": {
       "type": "object",
-      "required": ["factorization", "configured_git_source", "runtime_source_priority", "runtime_head_attestation_without_tree", "unknown_runtime_tree_law", "cache_key", "bounded_retry"]
+      "required": ["factorization", "configured_git_source", "runtime_source_priority", "runtime_head_attestation_without_tree", "unknown_runtime_tree_law", "cache_key", "bounded_retry"],
+      "properties": {
+        "factorization": {"const": ["CONFIGURED_GIT_HEAD", "RUNTIME_SOURCE_FRONTIER", "LIVE_MCP_SURFACE_SIGNATURE"]},
+        "configured_git_source": {"const": "ATHENA_GIT_ROOT"},
+        "runtime_source_priority": {"const": ["ATHENA_RUNTIME_GIT_ROOT", "PACKAGE_SOURCE_CHECKOUT", "ATHENA_RUNTIME_REPOSITORY+ATHENA_RUNTIME_GIT_HEAD", "HOLD_RUNTIME_PROVENANCE"]},
+        "runtime_head_attestation_without_tree": {"const": "PARTIAL_RUNTIME_TREE_UNAVAILABLE"},
+        "unknown_runtime_tree_law": {"const": "UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE"},
+        "cache_key": {"const": "<configured_git_head,runtime_source_frontier,live_mcp_surface_signature>"},
+        "bounded_retry": {"const": 1}
+      },
+      "additionalProperties": false
+    },
+    "query_index": {
+      "type": "object",
+      "required": ["version", "maps", "digest_in_snapshot", "order_invariant", "duplicate_invariant", "law"],
+      "properties": {
+        "version": {"const": "ATHENA.PROJECT_ATLAS.QUERY_INDEX.V2"},
+        "maps": {
+          "const": [
+            "by_source",
+            "by_poid",
+            "by_address",
+            "by_return",
+            "by_path",
+            "by_raw_mcp_name",
+            "by_typed_mcp",
+            "by_project_gid",
+            "by_reference_gid",
+            "by_directory",
+            "by_blob"
+          ]
+        },
+        "digest_in_snapshot": {"const": true},
+        "order_invariant": {"const": true},
+        "duplicate_invariant": {"const": true},
+        "law": {"const": "QUERY_INDEX != SEMANTIC_IDENTITY"}
+      },
+      "additionalProperties": false
     },
     "snapshot": {
       "type": "object",
       "required": ["prefix", "basis", "authority", "law"],
       "properties": {
         "prefix": {"const": "PATLASV2."},
+        "basis": {
+          "const": [
+            "configured_repo_head_tree_atlas_digest",
+            "runtime_provenance",
+            "runtime_git_head_tree_atlas_digest_if_available",
+            "mcp_repo_head_surface_digest",
+            "live_mcp_surface_signature",
+            "query_index_digest",
+            "federation_digest"
+          ]
+        },
         "authority": {"const": "NONE"},
         "law": {"const": "PROJECT_ATLAS_SNAPSHOT_ID != PROMOTION_RECEIPT"}
-      }
+      },
+      "additionalProperties": false
     },
-    "planes": {
-      "type": "array",
-      "const": ["configured_git", "runtime_git", "mcp"]
+    "planes": {"const": ["configured_git", "runtime_git", "mcp"]},
+    "list_sources": {"const": ["all", "git", "configured_git", "runtime_git", "mcp"]},
+    "resolve": {
+      "type": "object",
+      "required": ["exact_identifiers", "open_world_identifiers", "typed_mcp_prefixes", "ambiguous", "not_found_complete_universe", "not_found_runtime_provenance_unknown", "not_found_runtime_tree_unknown"],
+      "properties": {
+        "ambiguous": {"const": "HOLD_AMBIGUOUS"},
+        "not_found_complete_universe": {"const": "HOLD_NOT_FOUND"},
+        "not_found_runtime_provenance_unknown": {"const": "HOLD_RUNTIME_PROVENANCE"},
+        "not_found_runtime_tree_unknown": {"const": "HOLD_RUNTIME_TREE_UNAVAILABLE"}
+      },
+      "additionalProperties": true
     },
-    "list_sources": {
-      "type": "array",
-      "const": ["all", "git", "configured_git", "runtime_git", "mcp"]
+    "route": {
+      "type": "object",
+      "required": ["normal", "toroidal", "cross_frontier_receipt", "native_return_both_endpoints", "law"],
+      "properties": {
+        "normal": {"const": "PROJECT_KC144_ROW_THEN_COLUMN"},
+        "toroidal": {"const": "PROJECT_KC144_12x12_WRAP"},
+        "cross_frontier_receipt": {"const": true},
+        "native_return_both_endpoints": {"const": true},
+        "law": {"const": "PROJECT_ROUTE != SEMANTIC_EQUIVALENCE"}
+      },
+      "additionalProperties": false
     },
-    "resolve": {"type": "object"},
-    "route": {"type": "object"},
     "hold_statuses": {
       "type": "array",
-      "minItems": 10,
-      "uniqueItems": true,
-      "items": {"type": "string"}
+      "const": [
+        "HOLD_GIT_UNAVAILABLE",
+        "HOLD_STALE_CONFIGURED_HEAD",
+        "HOLD_STALE_RUNTIME_HEAD",
+        "HOLD_RUNTIME_PROVENANCE",
+        "HOLD_RUNTIME_TREE_UNAVAILABLE",
+        "HOLD_VOLATILE_FRONTIER",
+        "HOLD_NOT_FOUND",
+        "HOLD_AMBIGUOUS",
+        "HOLD_ROUTE_SOURCE",
+        "HOLD_ROUTE_DESTINATION"
+      ]
     },
     "laws": {
       "type": "array",
-      "minItems": 20,
+      "minItems": 25,
       "uniqueItems": true,
       "items": {"type": "string"}
     },
@@ -109,8 +185,10 @@
         "package_version_change_in_child": {"const": false},
         "canonical_rpc_promotion": {"const": false},
         "publication": {"const": false},
-        "deployment": {"const": false}
-      }
+        "deployment": {"const": false},
+        "requirements": {"type": "array", "minItems": 7, "uniqueItems": true, "items": {"type": "string"}}
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false
