@@ -154,7 +154,9 @@ def validate_activation_plan_for_hold(plan: Mapping[str, Any]) -> dict[str, Any]
         "token_secret_ref": bool(_text(data.get("token_secret_ref"))),
         "release_attestation_ref": bool(_text(data.get("release_attestation_ref"))),
         "sbom_ref": bool(_text(data.get("sbom_ref"))),
-        "single_writer": data.get("replicas") == 1,
+        "single_writer": isinstance(data.get("replicas"), int)
+        and not isinstance(data.get("replicas"), bool)
+        and data.get("replicas") == 1,
         "cas_current_image": current_image is not None
         and cas.get("expected_current_image_ref") == current_image,
         "cas_snapshot_ref": snapshot_ref is not None
@@ -231,17 +233,18 @@ def validate_canary_witness(
                 "release_run_id",
                 "oci_run_id",
                 "workflow_run_id",
-                "workflow_head",
                 "observed_at",
             )
-        ),
+        )
+        and _git_sha(data.get("workflow_head")) is not None,
         "assessment_version": assessment.get("version") == CANARY_ASSESSMENT_VERSION,
         "assessment_digest": assessment_digest_match,
         "assessment_promote": assessment.get("decision") == "PROMOTE"
         and assessment.get("status") == "PASS"
         and assessment.get("failed_gates") == [],
         "assessment_gates": _REQUIRED_CANARY_GATES <= gates.keys()
-        and all(gates.get(name) == "PASS" for name in _REQUIRED_CANARY_GATES),
+        and all(gates.get(name) == "PASS" for name in _REQUIRED_CANARY_GATES)
+        and all(value == "PASS" for value in gates.values()),
         "sample_count": isinstance(sample_count, int)
         and not isinstance(sample_count, bool)
         and sample_count >= 30,
