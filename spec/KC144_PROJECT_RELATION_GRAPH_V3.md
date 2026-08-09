@@ -156,7 +156,7 @@ If the caller supplies an explicit `runtime_root`, that is used. Otherwise V3 de
 
 The configured checkout root remains an explicit adapter input because V1/V2 deliberately exclude local checkout location from durable committed-frontier identity.
 
-## 4. Graph object
+## 4. Graph object and two-stage replay identity
 
 For one exact V2 snapshot `s`:
 
@@ -172,16 +172,61 @@ where:
 - every edge endpoint must be in `V_s`;
 - every edge carries the same `PATLASV2.*` snapshot witness.
 
-Graph identity:
+V3 deliberately separates **what graph was emitted** from **what the observation process was capable of emitting**.
+
+### 4.1 Base graph identity
+
+The kernel first computes a base graph identity from the exact snapshot, exact vertices, and emitted typed edges:
 
 ```text
-PATLASG3.<digest(
+BASE_PATLASG3 = digest(
   graph_schema,
   exact_snapshot_id,
   sorted_exact_PVTX_receipts,
   sorted_typed_edge_receipts
-)>
+)
 ```
+
+This answers: *given this supplied record set and these emitted edges, what exact V/E graph exists?*
+
+### 4.2 Adapted graph identity
+
+When the graph is compiled from a V2 runtime snapshot, CAS uses an adapted identity with schema:
+
+`ATHENA.PROJECT_ATLAS.RELATION_GRAPH.V3.ADAPTED_IDENTITY.v1`.
+
+```text
+PATLASG3 = digest(
+  adapter_schema/version,
+  BASE_PATLASG3,
+  exact_PATLASV2_snapshot_id,
+  snapshot_status,
+  runtime_provenance_status,
+  runtime_tree_available,
+  runtime_git_is_configured,
+  content_reader_planes,
+  required_content_planes,
+  missing_content_reader_planes,
+  exact_extraction_option_profile
+)
+```
+
+This distinction is necessary because equal visible edge sets do **not** imply equal observations. For example, a relation class can be absent because:
+
+1. the extractor ran and found no relation;
+2. the extractor was disabled by policy;
+3. the extractor was enabled but the relevant blob plane was unreadable.
+
+Those three states have different epistemic meaning. If they shared one graph ID, a stale-graph CAS check could silently erase the difference between observed absence and unobserved possibility.
+
+Therefore:
+
+- `GRAPH_ID_BINDS_EXTRACTION_PROFILE_AND_COVERAGE`
+- `SAME_VISIBLE_EDGES_WITH_DIFFERENT_OBSERVABILITY != SAME_GRAPH_RECEIPT`
+- `BASE_GRAPH_ID != ADAPTED_GRAPH_ID` as a namespace role distinction, even when both use `PATLASG3.*` formatting
+- V2-adapted graph queries use the **adapted** graph ID for `expected_graph_id` CAS.
+
+The adapter receipt exposes both `base_graph_id` and `adapted_graph_id`, plus `identity_basis_digest`, extraction profile, and coverage receipt, so replay can reconstruct why the graph CAS identity has that value.
 
 Graph identity is replay identity, not authority:
 
@@ -284,8 +329,8 @@ Thus the same graph engine can traverse the KC144 overlay without pretending geo
 
 Required invariants:
 
-1. Reversing input record order does not change graph identity.
-2. Changing the witnessed edge set changes graph identity.
+1. Reversing input record order does not change the base graph identity.
+2. Changing the witnessed edge set changes the base graph identity.
 3. Same blob does not collapse distinct project objects.
 4. Same POID in two planes/heads produces two PVTX manifestations.
 5. Bare-POID lookup with multiple PVTX manifestations fails closed.
@@ -294,6 +339,9 @@ Required invariants:
 8. MCP virtual objects are not interpreted as Git blobs.
 9. Missing blob readers produce partial-content receipts rather than false negative edges.
 10. Extraction failure remains HOLD/unknown rather than absence-as-proof.
+11. Equal visible V/E under different extraction profiles produces different adapted graph IDs.
+12. Equal visible V/E under different reader coverage produces different adapted graph IDs.
+13. Recompiling the same exact V2 snapshot with the same extraction profile and coverage reproduces the same adapted graph ID.
 
 ## 9. Navigation calculus
 
@@ -316,7 +364,8 @@ unknown locator        -> HOLD_UNKNOWN_VERTEX
 - edge kinds are explicit;
 - page limit is bounded at 100;
 - stale snapshot/graph CAS fails closed;
-- ambiguous or unknown locator fails closed.
+- ambiguous or unknown locator fails closed;
+- `expected_graph_id` compares against the adapted graph ID when using the V2 adapter.
 
 ### 9.3 BFS
 
