@@ -1,0 +1,48 @@
+name: ATHENA Closure CUT-02 RED Witness
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - 'scripts/closure_cut02_red_witness.py'
+      - 'tests/red/test_closure_cut02_red.py'
+      - 'spec/CLOSURE_CUT02_RED_V1.json'
+      - '.github/workflows/closure-cut02-red.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  red-witness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile RED witness
+        run: python -m py_compile scripts/closure_cut02_red_witness.py tests/red/test_closure_cut02_red.py
+      - name: Confirm exact pre-treatment surface gap
+        run: python scripts/closure_cut02_red_witness.py
+      - name: Exercise intentionally failing RED unittest surface
+        shell: bash
+        run: |
+          set +e
+          python -m unittest -v tests.red.test_closure_cut02_red > red-unittest.txt 2>&1
+          STATUS=$?
+          cat red-unittest.txt
+          test "$STATUS" -ne 0
+          grep -F 'test_red_00_existing_cohesion_and_evidence_guard_are_present' red-unittest.txt
+          grep -F 'test_red_01_consume_surface_is_missing' red-unittest.txt
+          grep -F 'test_red_02_dependency_cone_surface_is_missing' red-unittest.txt
+          grep -F 'test_red_03_outcome_credit_surface_is_missing' red-unittest.txt
+          grep -F 'test_red_04_collective_pulse_surface_is_missing' red-unittest.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: closure-cut02-red-${{ github.sha }}
+          path: |
+            closure-cut02-red-witness.json
+            red-unittest.txt
+          if-no-files-found: error
