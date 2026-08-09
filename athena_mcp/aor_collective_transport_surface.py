@@ -4,7 +4,7 @@ from typing import Any,Dict
 
 from .aor_collective_transport import TransportRuntime,TRANSPORT_VERSION
 from .aor_collective_transport_protocol import TRANSPORT_RESOURCE,TRANSPORT_TOOLS,TRANSPORT_TOOL_NAMES
-from .party_coordination_v3 import PartyCoordinationRuntimeV3
+from .party_coordination_v3_1 import PartyCoordinationRuntimeV31
 from .party_coordination_protocol import (
     PARTY_COORDINATION_RESOURCE,
     PARTY_COORDINATION_TOOLS,
@@ -49,7 +49,7 @@ class AorCollectiveTransportSurface:
     def __init__(self,server):
         self.server=server
         self.runtime=TransportRuntime(server)
-        self.party=PartyCoordinationRuntimeV3(server)
+        self.party=PartyCoordinationRuntimeV31(server)
         self.godboard=ImpossibleGodboardRuntime(server)
         self.cohesion=CohesionEvidenceGuardRuntime(server)
 
@@ -203,6 +203,7 @@ class AorCollectiveTransportSurface:
                 'AOR chooses WHAT is developmentally eligible; Collective chooses HOW capacity is assigned',
                 'observed RGO != automatic DeltaJ/evidence; same outcome must not be double counted',
                 'AOR bridge score != Collective bridge economics',
+                'antibody match != Collective bridge economics',
                 'antibody match != verified repair success; repair remains an UNMEASURED candidate until tested',
             ],
         }
