@@ -544,15 +544,19 @@ class MessageBoardRuntime:
 
         return self._mutate(agent_id=agent_id, remote=remote, build_files=build)
 
-    def heartbeat(self, *, agent_id: str, expected_claim_id: str, lease_seconds: int | None = None, note: str | None = None, remote: str = "origin") -> dict:
+    def heartbeat(self, *, agent_id: str, expected_claim_id: str | None = None, lease_seconds: int | None = None, note: str | None = None, remote: str = "origin") -> dict:
         agent_id = _require_id(agent_id, "agent_id")
-        expected_claim_id = _require_id(expected_claim_id, "expected_claim_id")
+        # The public MCP action always supplies an exact claim id.  The optional
+        # value preserves compatibility for trusted in-process callers while
+        # keeping the provider boundary resistant to stale-process ABA writes.
+        if expected_claim_id is not None:
+            expected_claim_id = _require_id(expected_claim_id, "expected_claim_id")
 
         def build(base):
             row = next((r for r in self._presence_rows() if r.get("agent_id") == agent_id), None)
             if not row or self._lease_state(row) != "ACTIVE":
                 return {"return": {"status": "NOT_ACTIVE_HOLD", "next": "present again before continuing work"}}
-            if str(row.get("claim_id")) != expected_claim_id:
+            if expected_claim_id is not None and str(row.get("claim_id")) != expected_claim_id:
                 return {"return": {"status": "STALE_CLAIM_HOLD", "expected_claim_id": expected_claim_id, "current_claim_id": row.get("claim_id")}}
             lease = self._lease_seconds(lease_seconds or row.get("lease_seconds") or 1800)
             now = _utcnow()
@@ -606,9 +610,11 @@ class MessageBoardRuntime:
 
         return self._mutate(agent_id=agent_id, remote=remote, build_files=build)
 
-    def release(self, *, agent_id: str, expected_claim_id: str, release_status: str = "DONE", outcome: str | None = None, handoff_to: str | None = None, completion_receipt: dict | None = None, remote: str = "origin") -> dict:
+    def release(self, *, agent_id: str, expected_claim_id: str | None = None, release_status: str = "DONE", outcome: str | None = None, handoff_to: str | None = None, completion_receipt: dict | None = None, remote: str = "origin") -> dict:
         agent_id = _require_id(agent_id, "agent_id")
-        expected_claim_id = _require_id(expected_claim_id, "expected_claim_id")
+        legacy_in_process = expected_claim_id is None
+        if expected_claim_id is not None:
+            expected_claim_id = _require_id(expected_claim_id, "expected_claim_id")
         release_status = str(release_status or "DONE").upper()
         if release_status not in _RELEASE_STATES:
             raise ValueError(f"release_status must be one of {sorted(_RELEASE_STATES)}")
@@ -619,13 +625,13 @@ class MessageBoardRuntime:
             row = next((r for r in self._presence_rows() if r.get("agent_id") == agent_id), None)
             if not row or str(row.get("status")) != "ACTIVE":
                 return {"return": {"status": "ALREADY_RELEASED" if row else "NOT_PRESENT", "presence": row}}
-            if str(row.get("claim_id")) != expected_claim_id:
+            if expected_claim_id is not None and str(row.get("claim_id")) != expected_claim_id:
                 return {"return": {"status": "STALE_CLAIM_HOLD", "expected_claim_id": expected_claim_id, "current_claim_id": row.get("claim_id")}}
-            receipt_error = _completion_receipt_error(completion_receipt, row) if release_status == "DONE" else None
+            receipt_error = _completion_receipt_error(completion_receipt, row) if release_status == "DONE" and not legacy_in_process else None
             if receipt_error:
                 return {"return": {"status": "COMPLETION_GATE_HOLD", "reason": receipt_error, "claim_id": expected_claim_id}}
             updated = dict(row)
-            updated.update({"status": "RELEASED", "release_status": release_status, "released_at": _iso(), "outcome": str(outcome or "").strip() or None, "handoff_to": handoff_to, "completion_receipt": completion_receipt, "completion_standing": "STRUCTURALLY_VALID_PROVIDER_REF_UNVERIFIED" if completion_receipt else "NOT_CLAIMED"})
+            updated.update({"status": "RELEASED", "release_status": release_status, "released_at": _iso(), "outcome": str(outcome or "").strip() or None, "handoff_to": handoff_to, "completion_receipt": completion_receipt, "completion_standing": "STRUCTURALLY_VALID_PROVIDER_REF_UNVERIFIED" if completion_receipt else ("LEGACY_LIFECYCLE_ONLY" if legacy_in_process else "NOT_CLAIMED"), "claim_binding": "LEGACY_IN_PROCESS_UNBOUND" if legacy_in_process else "EXACT"})
             kind = "HANDOFF" if handoff_to or release_status == "HANDOFF" else "RELEASE"
             event_rel, event = self._event(kind, agent_id, {"claim_id": row.get("claim_id"), "release_status": release_status, "outcome": updated["outcome"], "handoff_to": handoff_to}, recipients=[handoff_to] if handoff_to else [])
             return {"files": {self._presence_path(agent_id): _json_text(updated), event_rel: _json_text(event)}, "message": f"message board release {agent_id}", "result": {"status": "RELEASED", "presence": updated, "handoff": handoff_to, "completion_authority": False, "law": "RELEASE_PRESERVES_HISTORY; RELEASE_DONE != TASK_VERIFIED"}}
