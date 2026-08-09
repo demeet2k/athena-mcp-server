@@ -1,0 +1,107 @@
+{
+  "artifact": "ATHENA.AGENT.BOOT.COHESION.TREATMENT.V1",
+  "coordinate": "ATHENA.KC144::AGENT-BOOT::COHESION::C3-TREATMENT",
+  "issue": "demeet2k/athena-mcp-server#211",
+  "parents": [
+    "ATHENA.AGENT.BOOT.MESSAGE_BOARD.V1",
+    "ATHENA.COHESION.DUPLICATE.GUARD.V1",
+    "demeet2k/athena-mcp-server#147",
+    "demeet2k/Athena#233"
+  ],
+  "purpose": "Attach read-only Cohesion C3-11 treatment options to deterministic BOOT-MB claimed-lane holds without executing or overriding any treatment or claim decision.",
+  "activation": {
+    "projectable_holds": ["DUPLICATE_WORK_HOLD", "AGENT_ALREADY_PRESENT_HOLD"],
+    "requires": ["coordination.pre_dispatch=HOLD", "Message Board runtime exists"],
+    "excluded": [
+      "ALLOW",
+      "READ_ONLY observer",
+      "DISABLED coordination",
+      "generic shared-frontier failure without deterministic fresh conflict"
+    ]
+  },
+  "authority": {
+    "message_board": "sole presence/claim/message authority",
+    "cohesion_guard": "read-only treatment projection",
+    "claim_mutation": false,
+    "assignment": false,
+    "auto_join": false,
+    "hold_override": false,
+    "execution": false,
+    "mata_semantic_authority": false
+  },
+  "ordering": [
+    "BOOT-MB mechanism evaluates shared-current claim state",
+    "BOOT-MB activation establishes final pre_dispatch standing",
+    "if deterministic claimed-lane hold, call C3-11 through the already-instantiated Message Board runtime",
+    "attach treatment_projection to coordination packet",
+    "preserve original BOOT-MB HOLD/status/holds unchanged"
+  ],
+  "projection": {
+    "source": "COHESION.DUPLICATE.GUARD.1",
+    "fields": [
+      "classification",
+      "standing",
+      "hard_hold",
+      "conflicts",
+      "self_relation",
+      "partition",
+      "treatments",
+      "decision_digest",
+      "mata",
+      "shared_frontier_verified",
+      "board_write_performed"
+    ],
+    "authority_fields_forced_false": ["assignment_authority", "claim_authority", "execution_authority", "hold_override"]
+  },
+  "refresh": {
+    "path": "existing refresh reconstructs through self.bootstrap and therefore receives the same projection wrapper",
+    "stable_decision": "identical active conflict set + candidate identity => stable C3 decision_digest",
+    "anti_churn": "projection does not write Message Board; already-fresh repeated held refresh leaves Git head and board bytes unchanged",
+    "routing": "BOOT-MB routing digest remains the coordination change detector; treatment projection is a deterministic explanation of that held state"
+  },
+  "replica": {
+    "explicit_allowed_replica": "Message Board may return ALLOW; no hold projection is attached",
+    "option_only_on_primary_conflict": "REPLICA treatment is only a non-authoritative future option until a lawful Message Board REPLICA claim is made",
+    "law": "REPLICA_OPTION != REPLICA_CLAIM"
+  },
+  "mata": {
+    "runtime_available": false,
+    "semantic_relation": "UNAVAILABLE_NOT_IN_RUNTIME",
+    "law": "MATA_UNAVAILABLE != INFERRED_FROM_PROSE"
+  },
+  "compatibility": {
+    "observer_vs_worker": "unchanged",
+    "direct_python_default": "unchanged non-mutating DISABLED path",
+    "task_only_mcp_observer": "unchanged READ_ONLY path",
+    "healthy_claim": "unchanged ALLOW/no projection",
+    "message_board_storage": "unchanged",
+    "c3_classifier": "unchanged",
+    "aor_transport_surface": "untouched by this extension"
+  },
+  "laws": [
+    "BOOT_HOLD != TREATMENT_EXECUTION",
+    "TREATMENT_PROJECTION != CLAIM_MUTATION",
+    "TREATMENT_PROJECTION != ASSIGNMENT",
+    "TREATMENT_PROJECTION != AUTO_JOIN",
+    "TREATMENT_PROJECTION != HOLD_OVERRIDE",
+    "MESSAGE_BOARD = SOLE_PRESENCE_CLAIM_MESSAGE_AUTHORITY",
+    "COHESION_GUARD = READ_ONLY_STEERING",
+    "JOIN_OPTION != JOIN_EXECUTED",
+    "PARTITION_OPTION != PARTITION_COMMITTED",
+    "REPLICA_OPTION != REPLICA_CLAIM",
+    "MATA_UNAVAILABLE != INFERRED_FROM_PROSE"
+  ],
+  "acceptance": [
+    "exact duplicate BOOT-MB hold carries C3 exact-duplicate treatment projection",
+    "self active incompatible hold carries self-conflict treatment projection",
+    "treatment options have no execution authority",
+    "projection creates no candidate presence or board event",
+    "ALLOW, READ_ONLY and DISABLED paths have no projection",
+    "generic shared-frontier hold has no fabricated deterministic C3 projection",
+    "explicit allowed REPLICA remains governed by Message Board and unprojected",
+    "repeated identical held refresh has stable decision digest and no board write",
+    "package extension is installed without adding a second RPC/tool namespace",
+    "full BOOT-MB/C3/Message Board/Party/Cohesion/cold-continuation/repository CI passes"
+  ],
+  "successor": "Rehydrate Cohesion P0 and current claims; if unowned, choose the next C3 steering residual rather than assuming tool 12 remains free"
+}

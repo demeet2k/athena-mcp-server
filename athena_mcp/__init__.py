@@ -47,3 +47,12 @@ from .agent_bootstrap_message_board_activation import (
 
 install_agent_bootstrap_message_board(AgentBootstrapRuntime)
 install_agent_bootstrap_message_board_activation(AgentBootstrapRuntime)
+
+# BOOT-C3-001: deterministic BOOT-MB holds receive a read-only Cohesion C3-11
+# treatment projection. Install after BOOT-MB activation so this wrapper can
+# observe final pre-dispatch standing without changing claim authority.
+from .agent_bootstrap_cohesion_treatment import (
+    install_agent_bootstrap_cohesion_treatment,
+)
+
+install_agent_bootstrap_cohesion_treatment(AgentBootstrapRuntime)
