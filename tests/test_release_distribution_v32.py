@@ -1,6 +1,4 @@
 import json
-import re
-import tomllib
 import unittest
 from pathlib import Path
 
@@ -14,15 +12,14 @@ class ReleaseDistributionV32Tests(unittest.TestCase):
         cls.root=Path(__file__).resolve().parents[1]
         cls.manifest=json.loads((cls.root/'release'/'v3.2.0.json').read_text(encoding='utf-8'))
         cls.notes=(cls.root/'release'/'v3.2.0.md').read_text(encoding='utf-8')
-        cls.workflow=(cls.root/'.github'/'workflows'/'release.yml').read_text(encoding='utf-8')
-        cls.gitignore=(cls.root/'.gitignore').read_text(encoding='utf-8')
 
-    def test_historical_release_identity_is_self_contained(self):
+    def test_historical_release_identity_is_frozen(self):
         m=self.manifest
         self.assertEqual(m['schema'],'ATHENA.RELEASE.DISTRIBUTION.2')
         self.assertEqual(m['version'],'3.2.0')
         self.assertEqual(m['tag'],'v3.2.0')
         self.assertEqual(m['package']['name'],'athena-canonical-mcp')
+        self.assertEqual(m['package']['wheel'],'athena_canonical_mcp-3.2.0-py3-none-any.whl')
         self.assertEqual(m['package']['entrypoint'],'athena_mcp.server:main')
         self.assertEqual(m['runtime']['manifest'],'ATHENA.RUNTIME.UNIFIED.9')
         self.assertEqual(m['runtime']['collective_frontier'],'COLLECTIVE_ROBUST_V13')
@@ -30,7 +27,7 @@ class ReleaseDistributionV32Tests(unittest.TestCase):
         self.assertEqual(PROMOTION_VERSION,'ATHENA.PROMOTION.2')
         self.assertEqual(m['runtime']['trusted_verifier'],GITHUB_PROMOTION_VERIFIER_VERSION)
 
-    def test_source_policy_requires_exact_master_and_all_five_gates(self):
+    def test_source_policy_records_the_five_gates_used_by_v32(self):
         p=self.manifest['source_policy']
         self.assertEqual(p['repository'],'demeet2k/athena-mcp-server')
         self.assertEqual(p['branch'],'master')
@@ -40,11 +37,6 @@ class ReleaseDistributionV32Tests(unittest.TestCase):
         self.assertTrue(p['exact_commit_is_bound_in_release_attestation'])
         self.assertEqual(p['qualification_checks'],['syntax','unit','critical-invariants','smoke','promotion-qualification'])
 
-    def test_required_assets_match_v32_distribution(self):
-        assets=set(self.manifest['release']['required_assets'])
-        self.assertEqual(assets,{'athena_canonical_mcp-3.2.0-py3-none-any.whl','promotion-receipt.json','release-manifest.json','release-attestation.json','SHA256SUMS'})
-        self.assertNotIn('kc144-core-registries.tar.xz',' '.join(sorted(assets)))
-
     def test_historical_v13_surface_is_explicit(self):
         tools=set(self.manifest['runtime']['required_tools'])
         for name in ('athena_gp_hyperqmc','athena_gp_fitc_predict','athena_gp_joint_design','athena_fci_lite_discover','athena_longitudinal_tmle','athena_dynamic_policy_value','athena_dro_resource_select','athena_promotion_evaluate','athena_promotion_verify_github'):
@@ -52,19 +44,14 @@ class ReleaseDistributionV32Tests(unittest.TestCase):
         resources=set(self.manifest['runtime']['required_resources'])
         for uri in ('athena://manifest','athena://runtime/unified-manifest','athena://promotion','athena://collective/v13'):
             self.assertIn(uri,resources)
+        self.assertNotIn('athena://collective/v14',resources)
 
-    def test_historical_workflow_is_self_contained_and_manual_publish_only(self):
-        w=self.workflow
-        for fragment in (
-            'pull_request:', 'workflow_dispatch:', 'package-readiness:', 'promotion-qualification:',
-            "if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master'",
-            'release/v3.2.0.json','release/v3.2.0.md','tests/test_release_distribution_v32.py',
-            'release-candidate-v3.2.0-${{ env.RELEASE_HEAD }}','ATHENA.RUNTIME.UNIFIED.9','COLLECTIVE_ROBUST_V13',
-            'scripts/qualify_github_head.py','gh release create','--verify-tag','TAG_TARGET',
-        ):self.assertIn(fragment,w)
-        self.assertNotIn("tests/test_release_distribution.py' -v",w)
-        self.assertNotRegex(w,re.compile(r'(?m)^\s*push:\s*$'))
-        self.assertNotRegex(w,re.compile(r'continue-on-error:\s*true'))
+    def test_required_assets_and_authority_boundaries_are_frozen(self):
+        assets=set(self.manifest['release']['required_assets'])
+        self.assertEqual(assets,{'athena_canonical_mcp-3.2.0-py3-none-any.whl','promotion-receipt.json','release-manifest.json','release-attestation.json','SHA256SUMS'})
+        boundaries=' '.join(self.manifest['authority_boundaries']).lower()
+        for phrase in ('not deployment','not empirical truth','do not become y1 authority','not github administrative hardening','does not authorize production','not evidence for v3.2.0 bytes'):
+            self.assertIn(phrase,boundaries)
 
     def test_historical_notes_preserve_v13_claim_ceilings(self):
         n=self.notes
@@ -78,10 +65,12 @@ class ReleaseDistributionV32Tests(unittest.TestCase):
             'This release certifies repository/package/distribution state. It is not a production deployment',
         ):self.assertIn(phrase,n)
 
-    def test_authority_boundaries_remain_historical_and_scoped(self):
-        boundaries=' '.join(self.manifest['authority_boundaries']).lower()
-        for phrase in ('not deployment','not empirical truth','do not become y1 authority','not github administrative hardening','does not authorize production','not evidence for v3.2.0 bytes'):
-            self.assertIn(phrase,boundaries)
+    def test_v32_recipe_is_historical_not_current_executable_workflow(self):
+        self.assertFalse((self.root/'.github'/'workflows'/'release.yml').exists())
+        current=(self.root/'.github'/'workflows'/'release-v3.3.yml').read_text(encoding='utf-8')
+        self.assertIn('Release Distribution V3.3',current)
+        self.assertIn('release/v3.3.0.json',current)
+        self.assertNotIn('release/v3.2.0.json',current)
 
 
 if __name__=='__main__':unittest.main()
