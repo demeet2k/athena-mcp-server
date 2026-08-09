@@ -4,13 +4,14 @@ from typing import Any,Dict
 
 from .aor_collective_transport import TransportRuntime,TRANSPORT_VERSION
 from .aor_collective_transport_protocol import TRANSPORT_RESOURCE,TRANSPORT_TOOLS,TRANSPORT_TOOL_NAMES
-from .party_coordination_v2 import PartyCoordinationRuntimeV2
+from .party_coordination_v3 import PartyCoordinationRuntimeV3
 from .party_coordination_protocol import (
     PARTY_COORDINATION_RESOURCE,
     PARTY_COORDINATION_TOOLS,
     PARTY_COORDINATION_TOOL_NAMES,
 )
 from .party_coordination_v2_protocol import PARTY_CHANNEL_TOOLS,PARTY_CHANNEL_TOOL_NAMES
+from .party_coordination_v3_protocol import PARTY_REWARD_TOOLS,PARTY_REWARD_TOOL_NAMES
 from .impossible_godboard import ImpossibleGodboardRuntime
 from .impossible_godboard_protocol import (
     IMPOSSIBLE_GODBOARD_RESOURCE,
@@ -28,14 +29,16 @@ from .cohesion_duplicate_guard_protocol import DUPLICATE_GUARD_TOOLS,DUPLICATE_G
 
 AOR_COLLECTIVE_TRANSPORT_TOOLS=(
     list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(PARTY_CHANNEL_TOOLS)+
-    list(IMPOSSIBLE_GODBOARD_TOOLS)+list(COHESION_MESH_TOOLS)+list(DUPLICATE_GUARD_TOOLS)
+    list(PARTY_REWARD_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)+list(COHESION_MESH_TOOLS)+
+    list(DUPLICATE_GUARD_TOOLS)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCES=[
     TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE,COHESION_MESH_RESOURCE
 ]
 AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=(
     set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(PARTY_CHANNEL_TOOL_NAMES)|
-    set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)|set(COHESION_MESH_TOOL_NAMES)|set(DUPLICATE_GUARD_TOOL_NAMES)
+    set(PARTY_REWARD_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)|set(COHESION_MESH_TOOL_NAMES)|
+    set(DUPLICATE_GUARD_TOOL_NAMES)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={
     TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri'],
@@ -46,7 +49,7 @@ class AorCollectiveTransportSurface:
     def __init__(self,server):
         self.server=server
         self.runtime=TransportRuntime(server)
-        self.party=PartyCoordinationRuntimeV2(server)
+        self.party=PartyCoordinationRuntimeV3(server)
         self.godboard=ImpossibleGodboardRuntime(server)
         self.cohesion=CohesionMatchmakingRuntime(server)
 
@@ -138,6 +141,12 @@ class AorCollectiveTransportSurface:
                 return True,g.hall(
                     args.get('limit',100),args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED')
                 )
+        if name in PARTY_REWARD_TOOL_NAMES:
+            p=self.party
+            return True,p.result(
+                args['party_id'],args['sender'],args['recipients'],args['goal_id'],args['result_ref'],
+                args['witness_ref'],args.get('evidence_kind','RESULT'),args.get('remote','origin')
+            )
         if name in PARTY_CHANNEL_TOOL_NAMES:
             p=self.party
             return True,p.message(
@@ -164,7 +173,8 @@ class AorCollectiveTransportSurface:
             if name=='athena_party_observe':
                 return True,p.observe(
                     args['observation_id'],args['party_id'],args['observer'],args['base_xp'],
-                    args['results'],args['witness_ref'],args.get('remote','origin')
+                    args['results'],args['witness_ref'],args.get('source_xp_ref'),
+                    args.get('source_xp_witness_ref'),args.get('remote','origin')
                 )
         r=self.runtime
         if name=='athena_transport_pheromone_attention':return True,r.pheromone_attention(args['route_keys'],args.get('actor','agent'),args.get('persist',True))
