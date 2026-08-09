@@ -1,0 +1,73 @@
+{
+  "artifact": "ATHENA.F37.HONESTY.SOURCE.ADMISSION.V1",
+  "role": "claim-scoped primary-source admission contract for the four F37 honesty-ledger evidence holds",
+  "parent_evidence_matrix_head": "d1d27b3f87d5d05e0a3bfe7c6ae1237f4430c746",
+  "source_manifest": "spec/F37_LIBRARY_SOURCE_POPULATION_V1.json",
+  "cells": {
+    "73": {
+      "carrier": "F30",
+      "current_hold": "GRADED_MEMORY_PARTIAL_EXACTIFICATION",
+      "required_source_witnesses": [
+        "PRIMARY_GRADED_REPRESENTATION_OR_MOONSHINE_SOURCE",
+        "EXACT_THEOREM_OR_CONSTRUCTION_LOCUS",
+        "PROJECT_MAPPING_FROM_SOURCE_OBJECT_TO_F30_CLAIM"
+      ],
+      "mechanism_witness_is_not_sufficient": true
+    },
+    "77": {
+      "carrier": "F34",
+      "current_hold": "MOTIVIC_COMPARISON_DEBT",
+      "required_source_witnesses": [
+        "PRIMARY_MOTIVIC_REALIZATION_SOURCE",
+        "PRIMARY_COMPARISON_MAP_SOURCE",
+        "EXACT_THEOREM_OR_CONSTRUCTION_LOCUS",
+        "PROJECT_MAPPING_FROM_SOURCE_OBJECT_TO_F34_CLAIM"
+      ],
+      "mechanism_witness_is_not_sufficient": true
+    },
+    "78": {
+      "carrier": "F35",
+      "current_hold": "HIGHER_COHERENCE_COMPOSITION_WITNESS",
+      "required_source_witnesses": [
+        "F34_ADMITTED_SOURCE_PACKET",
+        "F36_ADMITTED_RETURN_PACKET",
+        "PROJECT_SPECIFIC_F35_COMPOSITION_COHERENCE_WITNESS"
+      ],
+      "generic_coherence_witness_is_not_sufficient": true
+    },
+    "79": {
+      "carrier": "F36",
+      "current_hold": "DERIVED_SINGULARITY_AND_EMPIRICAL_CLOSURE",
+      "required_source_witnesses": [
+        "PRIMARY_DERIVED_OR_SINGULARITY_SOURCE",
+        "EXACT_THEOREM_OR_CONSTRUCTION_LOCUS",
+        "PROJECT_MAPPING_FROM_SOURCE_OBJECT_TO_F36_CLAIM",
+        "EXTERNAL_EMPIRICAL_CLOSURE_OBSERVATION_IF_EMPIRICAL_CLAIM_RETAINED"
+      ],
+      "formal_replay_witness_is_not_sufficient": true
+    }
+  },
+  "source_record_schema": {
+    "source_id": "stable source identity",
+    "source_class": "PRIMARY_PAPER|PRIMARY_MONOGRAPH|FORMAL_ARTIFACT|EXTERNAL_OBSERVATION",
+    "locator": "DOI/arXiv/repository/provider locator",
+    "revision": "version/date/hash",
+    "claim_scope": "exact bounded proposition supported",
+    "theorem_or_construction_locus": "section/theorem/definition/proposition/figure/data locus",
+    "independence_group": "witness lineage group",
+    "supports_obligation": "one required_source_witnesses token",
+    "project_mapping": "explicit map from source object/claim into F30/F34/F35/F36 packet semantics",
+    "authority_ceiling": "what this source cannot establish"
+  },
+  "admission_law": "A hold may be discharged only when every required source-witness slot for that bounded claim has an admitted record; generic fixture success never fills a primary-source slot automatically.",
+  "firewalls": [
+    "INTERNAL_LIBRARY_SOURCE != INDEPENDENT_PRIMARY_THEOREM_SOURCE",
+    "GENERIC_FORMAL_FIXTURE != PROJECT_SPECIFIC_MATHEMATICAL_WITNESS",
+    "PRIMARY_THEOREM_SOURCE != PROJECT_MAPPING_PROOF",
+    "PROJECT_MAPPING != EMPIRICAL_OBSERVATION",
+    "EMPIRICAL_CLAIM_REQUIRES_EXTERNAL_OBSERVATION",
+    "MISSING_PRIMARY_SOURCE_SLOT != ZERO_EVIDENCE",
+    "SOURCE_ADMISSION_PASS != CLAIM_TRUTH_BEYOND_DECLARED_SCOPE",
+    "HONESTY_LEDGER_HOLD_IS_PRESERVED_UNTIL_ALL_REQUIRED_SLOTS_CLOSE"
+  ]
+}
