@@ -121,6 +121,19 @@ class H6RootAdversarialTests(unittest.TestCase):
         self.assertEqual(d["status"], "EVIDENCE_INSUFFICIENT")
         self.assertIn("stale_evidence", d["defects"])
 
+    def test_h05_counterevidence_prevents_unqualified_sufficiency(self):
+        d = self.h6.evidence_decide(
+            {"claim_id": "CLAIM.CONFLICT", "evidence_floor": {"minimum_independent": 2}},
+            [
+                {"evidence_id": "E1", "source_id": "S1", "source_revision": "R1", "independence_group": "G1", "support_direction": "SUPPORT"},
+                {"evidence_id": "E2", "source_id": "S2", "source_revision": "R1", "independence_group": "G2", "support_direction": "CONTRADICT"},
+            ],
+        )
+        self.assertEqual(d["status"], "EVIDENCE_INSUFFICIENT")
+        self.assertIn("counterevidence_present", d["defects"])
+        self.assertEqual(len(d["counterevidence"]), 1)
+        self.assertFalse(d["promotion_authority"])
+
     def test_h06_unresolved_identity_makes_compile_conditional(self):
         r = self.h6.compile_query(
             request="compile unknown target",
