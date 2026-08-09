@@ -1,0 +1,66 @@
+{
+  "artifact": "ATHENA.CAMPAIGN.V3.LIFE.EXECUTION.PROVENANCE.SPEC.V1",
+  "status": "CANDIDATE_FAIL_CLOSED_PROVENANCE_MEMBRANE_R2",
+  "runtime_issue": 149,
+  "defect": "CAMPAIGN_LIFE.EXECUTION_EVENT_PROVENANCE.001",
+  "base_head": "fcf55f7f45a0d6d03e5a912126e7aea664b3d101",
+  "evidence_classes": {
+    "SUPPLIED_UNPROVEN": "caller/runtime-supplied execution-event identity with no recognized executor attestation",
+    "PROVENANCE_HOLD": "receipt/identity mismatch, malformed receipt, or unrecognized executor claim",
+    "HOST_ATTESTED": "reserved for a future explicitly recognized executor profile with validated receipt"
+  },
+  "recognized_executor_profiles_v1": [],
+  "promotion_law": {
+    "plain_execution_event_id_can_prove_execution": false,
+    "request_receipt_can_prove_execution": false,
+    "transport_receipt_can_prove_execution": false,
+    "campaign_ledger_event_can_prove_execution": false,
+    "self_asserted_host_receipt_can_prove_execution": false,
+    "digest_correctness_alone_can_prove_execution": false,
+    "recognized_executor_profile_required": true,
+    "recognized_profile_addition_requires_code_review_and_tests": true
+  },
+  "current_reachability": {
+    "canonical_mcp_campaign_life_executor_registered": false,
+    "campaign_life_stack_role": "QUALIFIED_LIBRARY_COMPILER_IDENTITY_TRANSLATION_SUBSTRATE",
+    "bridge_attempt_identity_status": "PRESERVED_OUT_OF_BAND",
+    "semantic_execution_proven_by_current_stack": false
+  },
+  "canonical_runtime_substrates": {
+    "campaign_life_dispatch_bridge_head": "4e58b51233c610fd03af8ffbcc1ee920ed38b5d5",
+    "semantic_replay_provenance_alignment_head": "fcf55f7f45a0d6d03e5a912126e7aea664b3d101",
+    "semantic_replay_extension": "Athena PR #315 candidate; not canonical promotion"
+  },
+  "authority_firewall": {
+    "module_executes_work": false,
+    "execution_authority": false,
+    "reward_authority": false,
+    "reseed_authority": false,
+    "platform_counter_reset_claimed": false
+  },
+  "future_executor_receipt_minimum": [
+    "artifact",
+    "executor_id",
+    "execution_event_id",
+    "evidence_ref",
+    "work_executed=true",
+    "observed_execution=true",
+    "receipt_digest",
+    "recognized executor profile"
+  ],
+  "firewalls": [
+    "SUPPLIED_EXECUTION_EVENT_ID != PROVEN_SEMANTIC_EXECUTION_ID",
+    "REQUEST_RECEIPT != EXECUTION_RECEIPT",
+    "TRANSPORT_RECEIPT != EXECUTION_EVIDENCE",
+    "LEDGERED_EVENT != EXECUTION_EVIDENCE",
+    "SELF_ASSERTED_HOST_ATTESTATION != RECOGNIZED_EXECUTOR_ATTESTATION",
+    "EXECUTION_RECEIPT != EXECUTION_AUTHORITY",
+    "RETRY_DELIVERY != NEW_PLAY"
+  ],
+  "evidence_ceiling": {
+    "host_attested_execution_available": false,
+    "performance_effect": "UNKNOWN",
+    "independent_witness": false,
+    "canonical_promotion": false
+  }
+}
