@@ -36,7 +36,7 @@ where Q2 becomes the new focus and Q4 enters the far end of the pipeline.
 
 ## Canonical ownership
 
-- Rehydration Successor owns **WHAT NEXT** and produces `ATHENA.REHYDRATION.SUCCESSOR.BATON.V1`.
+- Rehydration Successor owns **WHAT NEXT / far-end reseed candidate generation** and produces `ATHENA.REHYDRATION.SUCCESSOR.BATON.V1`.
 - Rehydration Campaign owns bounded branch graphs and campaign-level parallel work.
 - Freshness Train owns moving-master classification.
 - Message Board remains coordination/claim authority where installed.
@@ -44,20 +44,46 @@ where Q2 becomes the new focus and Q4 enters the far end of the pipeline.
 
 Do not duplicate those authorities inside this skill.
 
-## Workflow
+## Preferred composite NEXT operation
+
+When Q1 is backed by a Rehydration Loop, prefer `athena_next_pipeline_advance_focus`.
+
+It performs one explicit composite transition:
+
+```text
+observe Q1 completion
+→ verify Q1 == loop current task
+→ prove substantive Git delta outside orchestration bookkeeping
+→ compile Q4 from residual/candidate evidence using canonical SuccessorCompiler
+   (staged Q2 is intentionally omitted from Q4 candidate generation)
+→ advance RehydrationLoop with self_steer=false and next_task=Q2
+→ rotate pipeline Q1→history, Q2→focus, Q3→stage, Q4→far-end
+→ return loop + pipeline receipts
+```
+
+The central law is:
+
+```text
+Q4_RESEED != Q2_FOCUS
+```
+
+A fresh successor must never steal the immediate focus position from the already staged Q2.
+
+## Manual workflow
 
 1. Start with exactly three distinct quests using `athena_next_pipeline_start`.
 2. Work only Q1 as the main focus. Q2/Q3 are staged context, not background execution.
-3. When Q1 is actually completed, obtain/retain the canonical Rehydration Successor baton from the observed completion.
-4. Call `athena_next_pipeline_rotate` with exact state/checkpoint coordinates.
+3. When Q1 is actually completed, obtain/retain the canonical Rehydration Successor baton from observed completion residuals/candidates.
+4. Call `athena_next_pipeline_rotate` with exact state/checkpoint coordinates, or use the preferred composite bridge above.
 5. The pipeline removes Q1 to completed history, shifts Q2→Q1 and Q3→Q2, then appends Q4 from the successor baton.
 6. Continue on the newly returned Q1.
 7. If the successor baton is ambiguous, preserve the tie as `RESEED_HOLD`. Resolve it explicitly with `athena_next_pipeline_resolve_reseed`; never use a hidden lexical/random tie-break.
-8. Run `athena_next_pipeline_verify` when handing off or before relying on a long chain.
+8. Resolve any pending reseed hold before completing another focus quest so the three-quest planning horizon does not silently collapse.
+9. Run `athena_next_pipeline_verify` when handing off or before relying on a long chain.
 
 ## Long engagement behavior
 
-The pipeline is intended to keep a useful horizon visible while attention stays narrow:
+The pipeline keeps a useful horizon visible while attention stays narrow:
 
 ```text
 focus depth = 1
@@ -86,7 +112,24 @@ A Q4 candidate must:
 - contain a concrete task;
 - not duplicate an active quest;
 - not silently repeat completed work unless `allow_revisit=true` is explicitly chosen;
-- preserve ambiguity when several tied candidates remain lawful.
+- preserve ambiguity when several tied candidates remain lawful;
+- never replace an inadmissible canonical SELECTED successor with a lower-ranked candidate. Inadmissible SELECTED => typed reseed hold.
+
+## Substantive work guard
+
+The composite NEXT bridge does not count changes confined to these namespaces as quest progress:
+
+```text
+prompts/rehydration/<loop_id>/
+prompts/next_quest_pipelines/<pipeline_id>/
+prompts/message_board/
+```
+
+So:
+
+```text
+BOOKKEEPING_COMMIT != SUBSTANTIVE_QUEST_PROGRESS
+```
 
 ## Mass orchestration versus parallel execution
 
