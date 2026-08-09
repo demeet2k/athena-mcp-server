@@ -124,8 +124,10 @@ def validate_campaign_v3_life_condition_identity(value: Mapping[str, Any]) -> li
     for key in ("packet_digest", "quest_id", "quest_version", "identity_ref"):
         if not isinstance(value.get(key), str) or not value.get(key):
             errors.append(key)
+
     conditions = value.get("conditions")
     ids_seen: set[str] = set()
+    normalized_conditions: list[dict[str, str]] = []
     if not isinstance(conditions, list) or not conditions:
         errors.append("conditions")
     else:
@@ -135,14 +137,27 @@ def validate_campaign_v3_life_condition_identity(value: Mapping[str, Any]) -> li
                 continue
             criterion_id = row.get("id")
             definition = row.get("definition")
-            if not isinstance(criterion_id, str) or not criterion_id:
+            valid_id = isinstance(criterion_id, str) and bool(criterion_id)
+            valid_definition = isinstance(definition, str) and bool(definition)
+            if not valid_id:
                 errors.append("condition_id")
             elif criterion_id in ids_seen:
                 errors.append("condition_id_duplicate")
             else:
                 ids_seen.add(criterion_id)
-            if not isinstance(definition, str) or not definition:
+            if not valid_definition:
                 errors.append("condition_definition")
+            if valid_id and valid_definition:
+                normalized_conditions.append(
+                    {"id": str(criterion_id), "definition": str(definition)}
+                )
+        if len(normalized_conditions) == len(conditions):
+            canonical_conditions = sorted(
+                normalized_conditions, key=lambda row: row["id"]
+            )
+            if normalized_conditions != canonical_conditions:
+                errors.append("conditions_not_canonical_order")
+
     basis = {
         "packet_digest": value.get("packet_digest"),
         "quest_id": value.get("quest_id"),
