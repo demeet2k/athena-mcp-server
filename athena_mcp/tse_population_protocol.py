@@ -83,12 +83,17 @@ TSE_POPULATION_CLAIM_STATE_TOOL={
 TSE_POPULATION_RETURN_CHECK_TOOL={
     'name':'athena_tse_population_return_check',
     'description':(
-        'Verify that a TSE child Return is bound to the exact Hatch, population route, matched agent, observed Message Board claim, '
-        'positive verified delta and public witnesses. It returns a consumption-ready envelope only; it does not apply the Return.'
+        'Re-verify the matched-agent claim on the current shared Message Board, then verify that a TSE child Return is bound to the exact '
+        'Hatch, population route, matched agent, claim, positive verified delta and public witnesses. Returns a consumption-ready envelope only.'
     ),
     'inputSchema':{
         'type':'object','required':['route','child_return'],
-        'properties':{'route':{'type':'object'},'child_return':{'type':'object'}},
+        'properties':{
+            'route':{'type':'object'},
+            'child_return':{'type':'object'},
+            'remote':{'type':'string'},
+            'shared_remote_mode':{'type':'string','enum':['REQUIRED','BEST_EFFORT','DISABLED']},
+        },
         'additionalProperties':False,
     },
 }

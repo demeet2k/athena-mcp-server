@@ -16,6 +16,7 @@ _ALLOWED_MATCH_TREATMENTS = {"NO_EXACT_COLLISION", "JOIN_OR_PARTITION_REQUIRED"}
 _PUBLISH_OK = {"COHESION_NEED_PUBLISHED", "COHESION_REQUEST_ALREADY_PUBLISHED"}
 _PRIVATE_KEYS = {"chain_of_thought", "private_chain_of_thought", "hidden_reasoning", "scratchpad"}
 _RESET_TOKENS = {"token", "context", "quota", "usage", "platform", "counter", "runtime", "provider", "model"}
+_ALLOWED_RESET_STATUS_KEY = "platform_counter_reset_claimed"
 
 
 def _canonical(value: Any) -> str:
@@ -38,26 +39,28 @@ def _finite_nonnegative(value: Any) -> bool:
     return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(float(value)) and float(value) >= 0
 
 
-def _walk_keys(value: Any):
+def _walk_items(value: Any):
     if isinstance(value, Mapping):
         for key, item in value.items():
-            yield str(key)
-            yield from _walk_keys(item)
+            yield str(key), item
+            yield from _walk_items(item)
     elif isinstance(value, list):
         for item in value:
-            yield from _walk_keys(item)
+            yield from _walk_items(item)
 
 
 def _public_errors(value: Any) -> list[str]:
     errors: list[str] = []
-    for key in _walk_keys(value):
+    for key, item in _walk_items(value):
         normalized = key.lower().replace("-", "_")
         if normalized in _PRIVATE_KEYS:
             errors.append(f"forbidden_private_key:{key}")
-        if normalized != "platform_counter_reset_claimed" and "reset" in normalized and any(token in normalized for token in _RESET_TOKENS):
+        if normalized == _ALLOWED_RESET_STATUS_KEY:
+            if item not in (None, False):
+                errors.append("platform_counter_reset_claimed_must_be_false")
+            continue
+        if "reset" in normalized and any(token in normalized for token in _RESET_TOKENS):
             errors.append(f"forbidden_reset_key:{key}")
-    if isinstance(value, Mapping) and value.get("platform_counter_reset_claimed") not in (None, False):
-        errors.append("platform_counter_reset_claimed_must_be_false")
     return sorted(set(errors))
 
 
@@ -79,13 +82,42 @@ def _validate_hatch(hatch: Any) -> list[str]:
     if not isinstance(checkpoint, Mapping):
         errors.append("parent_checkpoint")
     else:
-        if checkpoint.get("checkpoint_digest") != hatch.get("parent_checkpoint_digest"):
+        checkpoint_digest = checkpoint.get("checkpoint_digest")
+        if checkpoint_digest != hatch.get("parent_checkpoint_digest"):
             errors.append("parent_checkpoint_digest_mismatch")
+        if checkpoint_digest:
+            checkpoint_body = {key: value for key, value in checkpoint.items() if key != "checkpoint_digest"}
+            if _digest(checkpoint_body) != checkpoint_digest:
+                errors.append("parent_checkpoint_digest_invalid")
         if not checkpoint.get("residual"):
             errors.append("parent_residual_required")
         if not checkpoint.get("acceptance"):
             errors.append("parent_acceptance_required")
+    if hatch.get("hatch_digest"):
+        hatch_body = {key: value for key, value in hatch.items() if key != "hatch_digest"}
+        if _digest(hatch_body) != hatch.get("hatch_digest"):
+            errors.append("hatch_digest_invalid")
     return sorted(set(errors))
+
+
+def _route_basis(route: Mapping[str, Any]) -> Dict[str, Any]:
+    need = route.get("need_args") if isinstance(route.get("need_args"), Mapping) else {}
+    return {
+        "version": TSE_POPULATION_VERSION,
+        "hatch_id": route.get("hatch_id"),
+        "hatch_digest": route.get("hatch_digest"),
+        "parent_checkpoint_digest": route.get("parent_checkpoint_digest"),
+        "parent_agent_id": route.get("parent_agent_id"),
+        "child_quest": copy.deepcopy(route.get("child_quest")),
+        "capabilities": _names(need.get("capabilities")),
+        "targets": _names(need.get("targets")),
+        "dependencies": _names(need.get("dependencies")),
+        "role": str(need.get("role") or "").strip() or None,
+        "needed_units": need.get("needed_units"),
+        "constraints": _names(need.get("constraints")),
+        "life_policy": str(need.get("life_policy")).strip() if need.get("life_policy") else None,
+        "clear_condition_digest": str(need.get("clear_condition_digest")).strip() if need.get("clear_condition_digest") else None,
+    }
 
 
 def _validate_route(route: Any) -> list[str]:
@@ -100,6 +132,34 @@ def _validate_route(route: Any) -> list[str]:
     ):
         if not route.get(key):
             errors.append(f"route_missing:{key}")
+    if errors:
+        return sorted(set(errors))
+    basis = _route_basis(route)
+    expected_route_id = f"TSE.ROUTE.{_short(basis)}"
+    if route.get("route_digest") != _digest(basis):
+        errors.append("route_digest_invalid")
+    if route.get("route_id") != expected_route_id:
+        errors.append("route_id_invalid")
+    child = route.get("child_quest") or {}
+    expected_request_id = f"TSE.NEED.{_short({**basis, 'route_id': expected_route_id})}"
+    expected_child_work_key = f"TSE.CHILD.{_short({'route_id': expected_route_id, 'child': child})}"
+    expected_goal_ref = f"TSE-HATCH:{route.get('hatch_id')}:{child.get('id')}@{child.get('version')}"
+    need = route.get("need_args") or {}
+    checks = {
+        "request_id": expected_request_id,
+        "agent_id": route.get("parent_agent_id"),
+        "kind": "NEED",
+        "goal_ref": expected_goal_ref,
+        "work_key": expected_child_work_key,
+        "quest_ref": f"{child.get('id')}@{child.get('version')}",
+    }
+    for key, expected in checks.items():
+        if need.get(key) != expected:
+            errors.append(f"need_args_{key}_invalid")
+    if route.get("child_work_key") != expected_child_work_key:
+        errors.append("child_work_key_invalid")
+    if _names(route.get("acceptance")) != _names(need.get("acceptance_criteria")):
+        errors.append("acceptance_contract_mismatch")
     return sorted(set(errors))
 
 
@@ -112,9 +172,10 @@ def _position_errors(position: Any) -> list[str]:
 class TsePopulationRuntime:
     """Operational projection over Cohesion + Message Board authority.
 
-    Route packets are caller-carried deterministic state. This runtime creates no
-    second claim universe and never calls Message Board present/join for a
-    matched agent. Cohesion remains advisory; Message Board remains claim truth.
+    Route packets are caller-carried deterministic state, but their immutable
+    semantic coordinates are digest-verified on every hop. No second claim
+    universe is created. This runtime never presents/joins on behalf of a
+    matched agent. Cohesion stays advisory; Message Board stays claim truth.
     """
 
     def __init__(self, cohesion_runtime):
@@ -403,13 +464,46 @@ class TsePopulationRuntime:
         out["status"] = "SUBTASK_CLAIMED"
         return {"status": "TSE_POPULATION_SUBTASK_CLAIMED", "route": out, "message_board": snapshot, "execution_authority": False, "law": "CLAIM_IS_OBSERVED_NOT_MINTED_BY_TSE"}
 
-    @staticmethod
-    def return_check(route: Mapping[str, Any], child_return: Mapping[str, Any]) -> Dict[str, Any]:
+    def return_check(
+        self,
+        route: Mapping[str, Any],
+        child_return: Mapping[str, Any],
+        remote: str = "origin",
+        shared_remote_mode: str = "REQUIRED",
+    ) -> Dict[str, Any]:
         errors = _validate_route(route) + _public_errors(child_return)
         if errors:
             return {"status": "TSE_POPULATION_RETURN_HOLD", "hold": "EVIDENCE_HOLD", "errors": errors}
         if route.get("status") != "SUBTASK_CLAIMED" or not route.get("child_claim"):
             return {"status": "TSE_POPULATION_RETURN_HOLD", "hold": "AUTHORITY_HOLD", "reason": "compatible_matched_agent_claim_required"}
+
+        # Re-read the authoritative shared board at Return time. A caller-carried
+        # route cannot self-assert that the matched claim still exists.
+        board = self.cohesion._board()
+        snapshot = board.read(remote=remote, shared_remote_mode=shared_remote_mode, limit=50)
+        if not snapshot.get("shared_frontier_verified"):
+            return {"status": "TSE_POPULATION_RETURN_HOLD", "hold": "STALE_STATE_HOLD", "reason": "shared_frontier_unverified_at_return", "message_board": snapshot}
+        claim = route["child_claim"]
+        active = [
+            row for row in (snapshot.get("active") or [])
+            if str(row.get("agent_id")) == str(claim.get("agent_id"))
+            and str(row.get("claim_id")) == str(claim.get("claim_id"))
+        ]
+        if len(active) != 1:
+            return {
+                "status": "TSE_POPULATION_RETURN_HOLD", "hold": "AUTHORITY_HOLD",
+                "reason": "matched_agent_claim_not_current_at_return", "message_board": snapshot,
+            }
+        current_claim = active[0]
+        if claim.get("binding") == "EXACT_CHILD_WORK_KEY":
+            if str(current_claim.get("work_key") or "") != str(route.get("child_work_key") or ""):
+                return {"status": "TSE_POPULATION_RETURN_HOLD", "hold": "AUTHORITY_HOLD", "reason": "child_work_key_claim_drift"}
+        elif claim.get("binding") == "COLLABORATOR_JOIN_OF_PARENT":
+            if str(current_claim.get("mode") or "") != "COLLABORATOR" or str(current_claim.get("join_of") or "") != str(route.get("parent_board_claim_id") or ""):
+                return {"status": "TSE_POPULATION_RETURN_HOLD", "hold": "AUTHORITY_HOLD", "reason": "collaborator_claim_drift"}
+        else:
+            return {"status": "TSE_POPULATION_RETURN_HOLD", "hold": "AUTHORITY_HOLD", "reason": "unknown_claim_binding"}
+
         if child_return.get("schema_version") != TSE_RETURN_VERSION:
             return {"status": "TSE_POPULATION_RETURN_HOLD", "hold": "EVIDENCE_HOLD", "reason": "return_schema_version"}
         for key, expected in (
@@ -422,7 +516,8 @@ class TsePopulationRuntime:
             ("child_claim_id", route["child_claim"]["claim_id"]),
         ):
             if child_return.get(key) != expected:
-                return {"status": "TSE_POPULATION_RETURN_HOLD", "hold": "EVIDENCE_HOLD" if "claim" not in key and "agent" not in key else "AUTHORITY_HOLD", "reason": f"{key}_mismatch"}
+                hold = "AUTHORITY_HOLD" if key in {"child_agent_id", "child_claim_id"} else "EVIDENCE_HOLD"
+                return {"status": "TSE_POPULATION_RETURN_HOLD", "hold": hold, "reason": f"{key}_mismatch"}
         if not child_return.get("return_receipt_id"):
             return {"status": "TSE_POPULATION_RETURN_HOLD", "hold": "EVIDENCE_HOLD", "reason": "return_receipt_id"}
         if child_return.get("verified") is not True or not isinstance(child_return.get("witnesses"), list) or not child_return.get("witnesses"):
@@ -437,6 +532,7 @@ class TsePopulationRuntime:
             "return_payload": copy.deepcopy(child_return),
             "return_applied": False,
             "execution_authority": False,
+            "message_board_claim_reverified": True,
             "law": "RETURN_READY != RETURN_APPLIED; TSE_CORE_REMAINS_RETURN_APPLICATION_AUTHORITY",
         }
 
@@ -457,6 +553,8 @@ class TsePopulationRuntime:
                 "PARENT_CANNOT_CLAIM_FOR_MATCHED_AGENT",
                 "COHESION_SIGNAL != EXECUTION_AUTHORITY",
                 "MESSAGE_BOARD_CLAIM_REMAINS_AUTHORITATIVE",
+                "CALLER_CARRIED_ROUTE_REQUIRES_DIGEST_VALIDATION",
+                "RETURN_REQUIRES_CURRENT_SHARED_CLAIM_REVERIFICATION",
                 "RETURN_READY != RETURN_APPLIED",
                 "RESEED != PLATFORM_TOKEN_CONTEXT_QUOTA_USAGE_RESET",
             ],

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import subprocess
 import tempfile
 import unittest
@@ -7,6 +8,7 @@ from pathlib import Path
 
 from athena_mcp.message_board import MessageBoardRuntime
 from athena_mcp.server import Server
+from athena_mcp.tse_population import _digest
 
 
 def _run(root: Path, *args: str) -> str:
@@ -44,20 +46,21 @@ def _fixture(base: Path):
 
 def hatch():
     checkpoint = {
-        "checkpoint_digest": "sha256:checkpoint",
         "residual": ["implement bounded TSE subtask"],
         "acceptance": ["matched agent claim visible", "verified return"],
     }
-    return {
+    checkpoint["checkpoint_digest"] = _digest(checkpoint)
+    value = {
         "schema_version": "ATHENA.TSE.HATCH.V2",
         "hatch_id": "HATCH.RUNTIME.1",
-        "hatch_digest": "sha256:hatch",
         "parent_checkpoint_digest": checkpoint["checkpoint_digest"],
         "parent_checkpoint": checkpoint,
         "child_quest": {"id": "Q-TSE-RUNTIME-CHILD", "version": "1"},
         "status": "CHILD_ACTIVE",
         "platform_counter_reset_claimed": False,
     }
+    value["hatch_digest"] = _digest(value)
+    return value
 
 
 class TsePopulationRuntimeTests(unittest.TestCase):
@@ -91,12 +94,12 @@ class TsePopulationRuntimeTests(unittest.TestCase):
         self.assertEqual("PRESENT", out["status"], out)
         return out
 
-    def plan(self, server=None):
+    def plan(self, server=None, hatch_value=None):
         return self.tool(
             server or self.a,
             "athena_tse_population_plan",
             {
-                "hatch": hatch(),
+                "hatch": hatch_value or hatch(),
                 "parent_agent_id": "alpha",
                 "capabilities": ["code", "tests"],
                 "targets": ["child.py"],
@@ -216,10 +219,25 @@ class TsePopulationRuntimeTests(unittest.TestCase):
         self.assertFalse(one["assignment_authority"])
         self.assertFalse(one["claim_authority"])
 
+    def test_tampered_hatch_digest_fails_closed(self):
+        value = hatch()
+        value["child_quest"]["version"] = "2"
+        held = self.plan(self.a, hatch_value=value)
+        self.assertEqual("EVIDENCE_HOLD", held["hold"])
+        self.assertIn("hatch_digest_invalid", held["errors"])
+
     def test_publish_requires_parent_message_board_presence(self):
         planned = self.plan(self.a)
         held = self.tool(self.a, "athena_tse_population_publish", {"route": planned["route"]})
         self.assertEqual("TSE_POPULATION_PUBLISH_HOLD", held["status"])
+
+    def test_tampered_route_semantics_fail_closed(self):
+        planned = self.plan(self.a)
+        route = copy.deepcopy(planned["route"])
+        route["child_work_key"] = "TSE.CHILD.TAMPERED"
+        held = self.tool(self.a, "athena_tse_population_publish", {"route": route})
+        self.assertEqual("EVIDENCE_HOLD", held["hold"])
+        self.assertIn("child_work_key_invalid", held["errors"])
 
     def test_match_is_advisory_and_preserves_offer_claim(self):
         route = self.setup_parent_and_need()
@@ -253,7 +271,7 @@ class TsePopulationRuntimeTests(unittest.TestCase):
         self.assertEqual("SUBTASK_CLAIMED", route["status"])
         self.assertEqual("beta", route["child_claim"]["agent_id"])
 
-    def test_return_check_binds_exact_hatch_route_agent_and_claim(self):
+    def test_return_check_binds_exact_hatch_route_agent_and_current_claim(self):
         route = self.claimed_route()
         ready = self.tool(
             self.a,
@@ -261,8 +279,21 @@ class TsePopulationRuntimeTests(unittest.TestCase):
             {"route": route, "child_return": self.valid_return(route)},
         )
         self.assertEqual("TSE_POPULATION_RETURN_CONSUMPTION_READY", ready["status"])
+        self.assertTrue(ready["message_board_claim_reverified"])
         self.assertFalse(ready["return_applied"])
         self.assertFalse(ready["execution_authority"])
+
+    def test_return_requires_claim_to_still_be_current(self):
+        route = self.claimed_route()
+        released = self.board_b.release(agent_id="beta", release_status="DONE", outcome="claim ended before return")
+        self.assertEqual("RELEASED", released["status"])
+        held = self.tool(
+            self.a,
+            "athena_tse_population_return_check",
+            {"route": route, "child_return": self.valid_return(route)},
+        )
+        self.assertEqual("AUTHORITY_HOLD", held["hold"])
+        self.assertEqual("matched_agent_claim_not_current_at_return", held["reason"])
 
     def test_wrong_child_claim_fails_authority(self):
         route = self.claimed_route()
@@ -275,6 +306,13 @@ class TsePopulationRuntimeTests(unittest.TestCase):
         route = self.claimed_route()
         returned = self.valid_return(route)
         returned["platform_counter_reset_claimed"] = True
+        held = self.tool(self.a, "athena_tse_population_return_check", {"route": route, "child_return": returned})
+        self.assertEqual("EVIDENCE_HOLD", held["hold"])
+
+    def test_nested_platform_reset_claim_fails_closed(self):
+        route = self.claimed_route()
+        returned = self.valid_return(route)
+        returned["nested"] = {"platform_counter_reset_claimed": True}
         held = self.tool(self.a, "athena_tse_population_return_check", {"route": route, "child_return": returned})
         self.assertEqual("EVIDENCE_HOLD", held["hold"])
 

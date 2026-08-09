@@ -80,7 +80,10 @@ class AorCollectiveTransportSurface:
                     args['route'],args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED')
                 )
             if name=='athena_tse_population_return_check':
-                return True,t.return_check(args['route'],args['child_return'])
+                return True,t.return_check(
+                    args['route'],args['child_return'],args.get('remote','origin'),
+                    args.get('shared_remote_mode','REQUIRED')
+                )
         if name in DUPLICATE_GUARD_TOOL_NAMES:
             return True,duplicate_guard(
                 self.cohesion,
