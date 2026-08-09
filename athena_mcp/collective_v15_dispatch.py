@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .collective_v15_longitudinal import longitudinal_tmle_crossfit
+
 
 def call(calibrated, name, a):
     if name == 'athena_structural_reliability_calibrate':
@@ -7,8 +9,8 @@ def call(calibrated, name, a):
             a['calibration_examples'], a.get('supports'), a.get('folds', 5), a.get('seed', 0),
         )
     if name == 'athena_longitudinal_tmle_crossfit':
-        return calibrated.longitudinal_tmle_crossfit(
-            a['samples'], a['treatment1'], a['intermediate'], a['treatment2'], a['outcome'],
+        return longitudinal_tmle_crossfit(
+            calibrated, a['samples'], a['treatment1'], a['intermediate'], a['treatment2'], a['outcome'],
             a.get('baseline'), a.get('regimes'), a.get('assumptions'), a.get('propensity_clip', .05),
             a.get('folds', 2), a.get('seed', 0),
         )
