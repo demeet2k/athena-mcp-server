@@ -7,14 +7,20 @@ on:
       - athena_mcp/deployment.py
       - athena_mcp/deployment_protocol.py
       - athena_mcp/deployment_extension.py
+      - athena_mcp/deployment_cutover.py
+      - athena_mcp/deployment_cutover_protocol.py
+      - athena_mcp/deployment_cutover_extension.py
       - athena_mcp/http_host.py
       - athena_mcp/__init__.py
       - deploy/**
+      - spec/DEPLOYMENT_CUTOVER_HOLD_V1.md
+      - tests/fixtures/deployment/canary-witness.v3.3.0.json
       - Dockerfile
       - .dockerignore
       - compose.yaml
       - tests/test_deployment_contract_v2.py
       - tests/test_deployment_integration_v2.py
+      - tests/test_deployment_cutover_hold_v1.py
       - tests/test_http_host_v2.py
       - .github/workflows/deployment-v2.yml
   pull_request:
@@ -23,14 +29,20 @@ on:
       - athena_mcp/deployment.py
       - athena_mcp/deployment_protocol.py
       - athena_mcp/deployment_extension.py
+      - athena_mcp/deployment_cutover.py
+      - athena_mcp/deployment_cutover_protocol.py
+      - athena_mcp/deployment_cutover_extension.py
       - athena_mcp/http_host.py
       - athena_mcp/__init__.py
       - deploy/**
+      - spec/DEPLOYMENT_CUTOVER_HOLD_V1.md
+      - tests/fixtures/deployment/canary-witness.v3.3.0.json
       - Dockerfile
       - .dockerignore
       - compose.yaml
       - tests/test_deployment_contract_v2.py
       - tests/test_deployment_integration_v2.py
+      - tests/test_deployment_cutover_hold_v1.py
       - tests/test_http_host_v2.py
       - .github/workflows/deployment-v2.yml
   workflow_dispatch:
@@ -76,8 +88,18 @@ jobs:
                   names={item['name'] for item in server.handle(
                       {'jsonrpc':'2.0','id':1,'method':'tools/list'}
                   )['result']['tools']}
-                  assert 'athena_deployment_manifest' in names
-                  assert 'athena_deployment_verify_receipt' in names
+                  for required in {
+                      'athena_deployment_manifest',
+                      'athena_deployment_verify_receipt',
+                      'athena_deployment_assess_quiescence',
+                      'athena_deployment_cutover_hold',
+                      'athena_deployment_verify_cutover_hold',
+                  }:
+                      assert required in names, required
+                  resources={item['uri'] for item in server.handle(
+                      {'jsonrpc':'2.0','id':2,'method':'resources/list'}
+                  )['result']['resources']}
+                  assert 'athena://deployment/cutover-hold' in resources
               finally:
                   server.store.close()
           print('CLEAN PACKAGE DEPLOYMENT PASS', athena_mcp.__version__)
