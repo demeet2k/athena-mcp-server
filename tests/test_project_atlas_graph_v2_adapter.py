@@ -8,6 +8,7 @@ from pathlib import Path
 from athena_mcp.project_atlas import compile_git_atlas, mcp_surface_atlas
 from athena_mcp.project_atlas_graph import GraphBuildOptions
 from athena_mcp.project_atlas_graph_v2_adapter import (
+    ADAPTED_GRAPH_IDENTITY_SCHEMA,
     ADAPTER_LAWS,
     V2_SNAPSHOT_SCHEMA,
     compile_v2_snapshot_relation_graph,
@@ -88,6 +89,11 @@ class ProjectAtlasGraphV2AdapterTests(unittest.TestCase):
         self.assertEqual(summary["coverage_standing"], "EXACT_V2_SNAPSHOT")
         planes = {rec.get("source") for rec in graph.vertices.values()}
         self.assertEqual(planes, {"configured_git", "runtime_git", "mcp"})
+        receipt = summary["v2_adapter"]
+        self.assertEqual(receipt["identity_schema"], ADAPTED_GRAPH_IDENTITY_SCHEMA)
+        self.assertEqual(receipt["adapted_graph_id"], graph.graph_id)
+        self.assertNotEqual(receipt["base_graph_id"], receipt["adapted_graph_id"])
+        self.assertTrue(receipt["identity_basis_digest"])
 
     def test_runtime_content_root_derives_from_v2_provenance(self):
         root, atlas, mcp = self.fixture()
@@ -120,6 +126,45 @@ class ProjectAtlasGraphV2AdapterTests(unittest.TestCase):
         ]
         self.assertTrue(runtime_import_holds)
         self.assertIn("EXACT_V2_SNAPSHOT != COMPLETE_CONTENT_EXTRACTION_IF_BLOB_READERS_MISSING", ADAPTER_LAWS)
+
+    def test_observability_coverage_changes_adapted_graph_id_even_when_snapshot_is_same(self):
+        root, atlas, mcp = self.fixture()
+        snapshot = self.snapshot(atlas, mcp, duplicate_runtime=True)
+        full = compile_v2_snapshot_relation_graph(snapshot, configured_root=root, runtime_root=root)
+        partial = compile_v2_snapshot_relation_graph(snapshot, configured_root=root)
+        self.assertEqual(full.snapshot_id, partial.snapshot_id)
+        self.assertNotEqual(full.graph_id, partial.graph_id)
+        self.assertNotEqual(
+            full.v2_adapter["coverage"]["missing_content_reader_planes"],
+            partial.v2_adapter["coverage"]["missing_content_reader_planes"],
+        )
+        self.assertIn("GRAPH_ID_BINDS_EXTRACTION_PROFILE_AND_COVERAGE", ADAPTER_LAWS)
+
+    def test_same_visible_edges_under_different_extraction_profiles_get_different_graph_ids(self):
+        root, atlas, mcp = self.fixture()
+        snapshot = self.snapshot(atlas, mcp, duplicate_runtime=False)
+        # This fixture has no duplicate Git blobs. With content-derived extractors disabled,
+        # toggling the blob-alias extractor therefore leaves the visible V/E set unchanged.
+        no_alias = GraphBuildOptions(
+            include_python_imports=False,
+            include_exact_path_references=False,
+            include_blob_aliases=False,
+        )
+        alias_enabled = GraphBuildOptions(
+            include_python_imports=False,
+            include_exact_path_references=False,
+            include_blob_aliases=True,
+        )
+        first = compile_v2_snapshot_relation_graph(snapshot, options=no_alias)
+        second = compile_v2_snapshot_relation_graph(snapshot, options=alias_enabled)
+        self.assertEqual(
+            [(e["edge_id"], e["kind"]) for e in first.edges],
+            [(e["edge_id"], e["kind"]) for e in second.edges],
+        )
+        self.assertEqual(first.v2_adapter["base_graph_id"], second.v2_adapter["base_graph_id"])
+        self.assertNotEqual(first.graph_id, second.graph_id)
+        self.assertNotEqual(first.v2_adapter["extraction_profile"], second.v2_adapter["extraction_profile"])
+        self.assertIn("SAME_VISIBLE_EDGES_WITH_DIFFERENT_OBSERVABILITY != SAME_GRAPH_RECEIPT", ADAPTER_LAWS)
 
     def test_content_extractors_disabled_need_no_blob_reader(self):
         root, atlas, mcp = self.fixture()
