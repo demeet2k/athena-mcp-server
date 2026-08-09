@@ -2,9 +2,14 @@ from __future__ import annotations
 
 from typing import Any, Mapping, Sequence
 
-from .collective_calibrated import _binary, _fold_assignment, _std_error
+from .collective_calibrated import _fold_assignment, _std_error
 from .collective_probabilistic import _fit_logistic, _mean, _predict_logistic
-from .collective_v15_history import policy_action_from_history, validate_longitudinal_baseline
+from .collective_v15_history import (
+    policy_action_from_history,
+    validate_longitudinal_baseline,
+    validate_longitudinal_sample_values,
+    validate_propensity_clip,
+)
 
 
 def sequential_dr_policy_crossfit(
@@ -35,17 +40,24 @@ def sequential_dr_policy_crossfit(
         }
 
     base=validate_longitudinal_baseline(baseline,treatment1,intermediate,treatment2,outcome)
+    validate_longitudinal_sample_values(samples,base)
     _,rows=runtime._longitudinal_rows(samples,treatment1,intermediate,treatment2,outcome,base)
-    clip=max(0.01,min(0.25,float(propensity_clip)))
+    clip=validate_propensity_clip(propensity_clip)
     assignment=_fold_assignment(len(rows),folds,seed)
     k=max(assignment)+1
     out=[]
 
     stage1_history=list(base)
     stage2_history=list(base)+["A1","L1"]
+    policy_ids=[]
 
     for pi,policy in enumerate(policies):
+        if not isinstance(policy,Mapping):
+            raise ValueError("each dynamic policy must be an object")
         pid=str(policy.get("id",f"P{pi}"))
+        if not pid:
+            raise ValueError("policy ids must be non-empty")
+        policy_ids.append(pid)
         if "a1" not in policy or "a2" not in policy:
             raise ValueError("each dynamic policy requires a1 and a2")
 
@@ -55,7 +67,7 @@ def sequential_dr_policy_crossfit(
         policy_action_from_history(policy["a1"],rows[0],"a1",stage1_history)
         policy_action_from_history(policy["a2"],rows[0],"a2",stage2_history)
 
-        psi_all:[float|None]=[None]*len(rows)
+        psi_all: list[float | None]=[None]*len(rows)
         for fold in range(k):
             train=[rows[i] for i in range(len(rows)) if assignment[i]!=fold]
             test_idx=[i for i in range(len(rows)) if assignment[i]==fold]
@@ -105,6 +117,8 @@ def sequential_dr_policy_crossfit(
             "interval95":[round(estimate-1.96*se,10),round(estimate+1.96*se,10)],
         })
 
+    if len(set(policy_ids))!=len(policy_ids):
+        raise ValueError("policy ids must be unique")
     out.sort(key=lambda row:(row["estimated_value"],row["id"]),reverse=True)
     return {
         "status":"CROSS_FITTED_TWO_TIMEPOINT_SEQUENTIAL_AIPW_POLICY_VALUE_UNDER_ASSUMPTIONS",
@@ -123,5 +137,5 @@ def sequential_dr_policy_crossfit(
         "assumptions":assumptions,
         "propensity_clip":clip,
         "history_invariant":"A1_POLICY_USES_BASELINE_ONLY__A2_POLICY_USES_BASELINE_A1_L1_ONLY",
-        "law":"out-of-fold nuisance predictions feed a bounded two-timepoint sequential AIPW score; policy actions are projected onto information available before each treatment, so cross-fitting cannot be bypassed by future/outcome look-ahead; sequential exchangeability, positivity, consistency/interference and general off-policy identification remain separate assumptions",
+        "law":"out-of-fold nuisance predictions feed a bounded two-timepoint sequential AIPW score; policy actions are projected onto finite information available before each treatment, so cross-fitting cannot be bypassed by future/outcome look-ahead; sequential exchangeability, positivity, consistency/interference and general off-policy identification remain separate assumptions",
     }
