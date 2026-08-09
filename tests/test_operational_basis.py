@@ -22,6 +22,7 @@ def _control_names():
         "athena_message_board",
         "athena_party_",
         "athena_cohesion_",
+        "athena_omega29_",
     )
     result = set()
     for tool in protocol.TOOLS:
@@ -57,6 +58,25 @@ class OperationalBasisV1Tests(unittest.TestCase):
         self.assertEqual(rows["athena_prompt_sync"]["effect"], "BOUNDED_GIT_SYNC")
         self.assertFalse(rows["athena_prompt_sync"]["auto_select"])
         self.assertEqual(rows["athena_prompt_publish"]["effect"], "BOUNDED_PROVIDER_WRITE")
+
+    def test_omega29_operate_boundary_is_read_only_but_never_auto_selected(self):
+        rows = {row["operation"]: row for row in build_operational_basis()["descriptors"]}
+        row = rows["athena_omega29_operate"]
+        self.assertEqual(row["capability_class"], "OPERATE_BOUNDARY")
+        self.assertEqual(row["component"], "omega29_operate_boundary")
+        self.assertEqual(row["effect"], "READ_ONLY")
+        self.assertEqual(row["authority_class"], "OBSERVATION_ONLY")
+        self.assertFalse(row["auto_select"])
+        self.assertTrue(row["replayability"])
+        self.assertEqual(
+            row["freshness_dependencies"],
+            ["athena_git_head", "runtime_git_head", "prompt_stack_digest", "source_binding_digest",
+             "runtime_context_digest", "source_observation_ids", "clock_observation_id"],
+        )
+        self.assertIn(
+            "reducer output must not be used as proof of source currentness, admission, promotion, or execution authority",
+            row["preconditions"],
+        )
 
     def test_tool_is_routable_through_prompt_runtime_without_git_authority(self):
         value = PromptRuntime(GitBackend(None)).call_tool(TOOL_NAME, {})
