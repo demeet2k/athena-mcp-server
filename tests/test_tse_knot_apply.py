@@ -267,7 +267,7 @@ class TseSelfTighteningKnotApplyTests(unittest.TestCase):
 
     def test_wrong_parent_and_reset_claim_fail_closed(self):
         applied = self.merge_child_and_push()
-        wrong_parent = self.observe(self.packet(applied, apply_id="APPLY.WRONG.PARENT", parent_head=self.child_head))
+        wrong_parent = self.observe(self.packet(applied, apply_id="APPLY.WRONG.PARENT", parent_head=applied))
         self.assertEqual("parent_head_mismatch", wrong_parent["reason"])
 
         reset_packet = self.packet(applied, apply_id="APPLY.RESET")
