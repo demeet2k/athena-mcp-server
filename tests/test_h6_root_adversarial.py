@@ -27,10 +27,7 @@ class H6RootAdversarialTests(unittest.TestCase):
     def test_h01_multiple_candidates_hold_ambiguity(self):
         a = self.register("A")
         b = self.register("B")
-        d = self.h6.identity_decide(
-            "UNRESOLVED.H6.ALIAS",
-            candidate_oids=[a["object"]["oid"], b["object"]["oid"]],
-        )
+        d = self.h6.identity_decide("UNRESOLVED.H6.ALIAS", candidate_oids=[a["object"]["oid"], b["object"]["oid"]])
         self.assertEqual(d["decision"], "AMBIG_HOLD")
         self.assertIsNone(d["selected_oid"])
         self.assertEqual(len(d["candidate_oids"]), 2)
@@ -45,11 +42,7 @@ class H6RootAdversarialTests(unittest.TestCase):
     def test_h03_unreachable_route_holds(self):
         a = self.register("ROUTE_A")
         b = self.register("ROUTE_B")
-        d = self.h6.route_propose(
-            a["object"]["oid"],
-            b["object"]["oid"],
-            query_id="Q.H6.NO_PATH",
-        )
+        d = self.h6.route_propose(a["object"]["oid"], b["object"]["oid"], query_id="Q.H6.NO_PATH")
         self.assertEqual(d["hard_gate_status"], "HOLD")
         self.assertEqual(d["route_status"], "HOLD")
         self.assertEqual(d["gain_vector"]["reachability"], 0.0)
@@ -58,24 +51,19 @@ class H6RootAdversarialTests(unittest.TestCase):
     def test_h04_complete_isomorphism_contract_can_be_admitted(self):
         forward = self.crystal.register_transform(
             "KC144", "JSPACE", status="TESTED", mode="ISOMORPHISM",
-            program={"op": "identity"}, metric={"type": "EXACT"},
-        )
+            program={"op": "identity"}, metric={"type": "EXACT"})
         reverse = self.crystal.register_transform(
             "JSPACE", "KC144", status="TESTED", mode="ISOMORPHISM",
-            program={"op": "identity"}, metric={"type": "EXACT"},
-        )
-        d = self.h6.bridge_decide(
-            forward["transform_id"],
-            {
-                "preserved_invariants": ["IDENTITY", "VALUE"],
-                "lost_invariants": [],
-                "validity_corridor": {"type": "ALL_FIXTURE_VALUES"},
-                "evidence_refs": ["TEST.H6.BRIDGE.ROUNDTRIP"],
-                "required_authority": ["READ_ONLY_TRANSFORM"],
-                "reverse_transform_id": reverse["transform_id"],
-                "counterexamples": ["OUTSIDE_DECLARED_FIXTURE_DOMAIN"],
-            },
-        )
+            program={"op": "identity"}, metric={"type": "EXACT"})
+        d = self.h6.bridge_decide(forward["transform_id"], {
+            "preserved_invariants": ["IDENTITY", "VALUE"],
+            "lost_invariants": [],
+            "validity_corridor": {"type": "ALL_FIXTURE_VALUES"},
+            "evidence_refs": ["TEST.H6.BRIDGE.ROUNDTRIP"],
+            "required_authority": ["READ_ONLY_TRANSFORM"],
+            "reverse_transform_id": reverse["transform_id"],
+            "counterexamples": ["OUTSIDE_DECLARED_FIXTURE_DOMAIN"],
+        })
         self.assertEqual(d["decision"], "ADMITTED")
         self.assertEqual(d["missing_obligations"], [])
         self.assertEqual(d["defects"], [])
@@ -83,19 +71,15 @@ class H6RootAdversarialTests(unittest.TestCase):
     def test_h04_fake_reverse_transform_does_not_admit(self):
         forward = self.crystal.register_transform(
             "KC144", "JSPACE", status="TESTED", mode="ISOMORPHISM",
-            program={"op": "identity"}, metric={"type": "EXACT"},
-        )
-        d = self.h6.bridge_decide(
-            forward["transform_id"],
-            {
-                "preserved_invariants": ["IDENTITY"],
-                "lost_invariants": [],
-                "validity_corridor": {"type": "ALL_FIXTURE_VALUES"},
-                "evidence_refs": ["TEST.H6.BRIDGE"],
-                "reverse_transform_id": "TRANSFORM.NOT.REAL",
-                "counterexamples": ["OUTSIDE_DOMAIN"],
-            },
-        )
+            program={"op": "identity"}, metric={"type": "EXACT"})
+        d = self.h6.bridge_decide(forward["transform_id"], {
+            "preserved_invariants": ["IDENTITY"],
+            "lost_invariants": [],
+            "validity_corridor": {"type": "ALL_FIXTURE_VALUES"},
+            "evidence_refs": ["TEST.H6.BRIDGE"],
+            "reverse_transform_id": "TRANSFORM.NOT.REAL",
+            "counterexamples": ["OUTSIDE_DOMAIN"],
+        })
         self.assertNotEqual(d["decision"], "ADMITTED")
         self.assertIn("REVERSE_TRANSFORM_UNKNOWN", d["defects"])
 
@@ -105,8 +89,7 @@ class H6RootAdversarialTests(unittest.TestCase):
             [
                 {"evidence_id": "E1", "source_id": "S1", "source_revision": "R1", "independence_group": "G1", "support_direction": "SUPPORT"},
                 {"evidence_id": "E2", "source_id": "S2", "source_revision": "R1", "independence_group": "G2", "support_direction": "SUPPORT"},
-            ],
-        )
+            ])
         self.assertEqual(d["status"], "EVIDENCE_SUFFICIENT")
         self.assertEqual(d["independent_count"], 2)
         self.assertFalse(d["promotion_authority"])
@@ -114,10 +97,7 @@ class H6RootAdversarialTests(unittest.TestCase):
     def test_h05_stale_evidence_fails_closed(self):
         d = self.h6.evidence_decide(
             {"claim_id": "CLAIM.STALE", "evidence_floor": {"minimum_independent": 1}},
-            [
-                {"evidence_id": "E1", "source_id": "S1", "source_revision": "R1", "independence_group": "G1", "freshness": "STALE"},
-            ],
-        )
+            [{"evidence_id": "E1", "source_id": "S1", "source_revision": "R1", "independence_group": "G1", "freshness": "STALE"}])
         self.assertEqual(d["status"], "EVIDENCE_INSUFFICIENT")
         self.assertIn("stale_evidence", d["defects"])
 
@@ -127,8 +107,7 @@ class H6RootAdversarialTests(unittest.TestCase):
             [
                 {"evidence_id": "E1", "source_id": "S1", "source_revision": "R1", "independence_group": "G1", "support_direction": "SUPPORT"},
                 {"evidence_id": "E2", "source_id": "S2", "source_revision": "R1", "independence_group": "G2", "support_direction": "CONTRADICT"},
-            ],
-        )
+            ])
         self.assertEqual(d["status"], "EVIDENCE_INSUFFICIENT")
         self.assertIn("counterevidence_present", d["defects"])
         self.assertEqual(len(d["counterevidence"]), 1)
@@ -136,22 +115,33 @@ class H6RootAdversarialTests(unittest.TestCase):
 
     def test_h06_unresolved_identity_makes_compile_conditional(self):
         r = self.h6.compile_query(
-            request="compile unknown target",
-            goal="hold unresolved identity",
-            identity_targets=["OID.UNKNOWN.H6"],
-            semantic_vids=[],
-            git_head="HEAD.TEST",
-            topology_version="KC144.EPOCH-B-EIGHT-BLOCK",
-            prompt_digest="PROMPT.TEST",
-            evidence_floor="E1",
-            authority_envelope={"mode": "READ_ONLY"},
+            request="compile unknown target", goal="hold unresolved identity",
+            identity_targets=["OID.UNKNOWN.H6"], semantic_vids=[], git_head="HEAD.TEST",
+            topology_version="KC144.EPOCH-B-EIGHT-BLOCK", prompt_digest="PROMPT.TEST",
+            evidence_floor="E1", authority_envelope={"mode": "READ_ONLY"},
             completion_predicate={"type": "EXPLICIT", "value": "COMPILED"},
-            stop_predicate={"type": "NO_POSITIVE_LAWFUL_FRONTIER"},
-            return_target="H01_PRIME",
-        )
+            stop_predicate={"type": "NO_POSITIVE_LAWFUL_FRONTIER"}, return_target="H01_PRIME")
         self.assertEqual(r["admission"], "CONDITIONAL")
         self.assertTrue(any(h["type"] == "IDENTITY_HOLD" for h in r["holds"]))
         self.assertFalse(r["active_subcrystal_candidate"]["execution_authority"])
+
+    def test_h06_stale_semantic_vid_is_explicit_hold(self):
+        target = self.register("VID_TARGET")
+        oid = target["object"]["oid"]
+        current_vid = target["version"]["vid"]
+        r = self.h6.compile_query(
+            request="compile stale semantic target", goal="surface semantic CAS mismatch",
+            identity_targets=[oid], semantic_vids=["VID.STALE.H6"], git_head="HEAD.TEST",
+            topology_version="KC144.EPOCH-B-EIGHT-BLOCK", prompt_digest="PROMPT.TEST",
+            evidence_floor="E1", authority_envelope={"mode": "READ_ONLY"},
+            completion_predicate={"type": "EXPLICIT", "value": "COMPILED"},
+            stop_predicate={"type": "NO_POSITIVE_LAWFUL_FRONTIER"}, return_target="H01_PRIME")
+        self.assertEqual(r["admission"], "CONDITIONAL")
+        holds = [h for h in r["holds"] if h["type"] == "SEMANTIC_VID_HOLD"]
+        self.assertEqual(len(holds), 1)
+        self.assertEqual(holds[0]["oid"], oid)
+        self.assertEqual(holds[0]["current_vid"], current_vid)
+        self.assertIn("VID.STALE.H6", holds[0]["supplied_semantic_vids"])
 
 
 if __name__ == "__main__":
