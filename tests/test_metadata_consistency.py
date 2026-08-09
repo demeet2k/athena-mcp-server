@@ -21,7 +21,7 @@ class MetadataConsistencyTests(unittest.TestCase):
         for phrase in ('joint posterior scientific control','sequential doubly robust policy value','decision-relative model resolution','finite two-stage recourse'):
             self.assertIn(phrase,description)
 
-    def test_v5_v14_claim_and_omega29_namespaces_are_exposed_without_collision(self):
+    def test_v5_v14_claim_omega29_and_q008_namespaces_are_exposed_without_collision(self):
         with tempfile.NamedTemporaryFile(suffix='.db') as f:
             srv=Server(f.name)
             init=srv.handle({'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-11-25'}})['result']
@@ -41,7 +41,7 @@ class MetadataConsistencyTests(unittest.TestCase):
                 'athena_joint_factor_belief','athena_structural_bootstrap_ensemble','athena_joint_science_evi','athena_sequential_dr_policy_value','athena_joint_policy_robust','athena_gp_resolution_route','athena_two_stage_resource_plan',
                 'athena_discovery_claim_register','athena_discovery_claim_witness','athena_discovery_claim_state',
                 'athena_claim_register','athena_claim_state','athena_claim_promote','athena_promotion_verify_github',
-                'athena_omega29_operate',
+                'athena_omega29_operate','athena_omega29_q008_bridge','athena_q008_identity_compile',
             ):
                 self.assertIn(name,names)
             by_name={x['name']:x for x in tools}
@@ -51,6 +51,12 @@ class MetadataConsistencyTests(unittest.TestCase):
             omega29=by_name['athena_omega29_operate']['inputSchema']
             self.assertEqual(omega29['required'],['packet','source_binding','runtime_context'])
             self.assertFalse(omega29['additionalProperties'])
+            q008_bridge=by_name['athena_omega29_q008_bridge']['inputSchema']
+            self.assertEqual(q008_bridge['required'],['omega_packet','source_binding','runtime_context','omega_decision','q008_terminal','terminal_attempt','cursor','run_id','invocation_id'])
+            self.assertFalse(q008_bridge['additionalProperties'])
+            q008_identity=by_name['athena_q008_identity_compile']['inputSchema']
+            self.assertEqual(q008_identity['required'],['bridge','consumer_invocation_id','move','event_index','event_type','payload_digest','decision'])
+            self.assertFalse(q008_identity['additionalProperties'])
 
             uris={x['uri'] for x in srv.handle({'jsonrpc':'2.0','id':3,'method':'resources/list'})['result']['resources']}
             for uri in ('athena://collective/v4','athena://collective/v5','athena://collective/v6','athena://collective/v7','athena://collective/v8','athena://collective/v9','athena://collective/v10','athena://collective/v11','athena://collective/v12','athena://collective/v13','athena://collective/v14','athena://authority'):
