@@ -38,11 +38,7 @@ SEMANTIC_RESULT_PROJECTION_BASIS = (
     "classification, reason, initial/final public semantics, residue, residue_zero"
 )
 
-HISTORICAL_MAPPING = {
-    "status": HISTORICAL_MAPPING_STATUS,
-    "edges": [],
-}
-
+HISTORICAL_MAPPING = {"status": HISTORICAL_MAPPING_STATUS, "edges": []}
 EMPTY_IMPLEMENTATION_BINDING = {
     "standing": IMPLEMENTATION_STANDING,
     "repository": None,
@@ -55,90 +51,37 @@ EMPTY_IMPLEMENTATION_BINDING = {
 
 _RESERVED_CALLER_TRUST_KEYS = frozenset(
     {
-        "ci_status",
-        "ci_pass",
-        "ci_run_id",
-        "ci_run_number",
-        "qualified",
-        "qualification",
-        "authority",
-        "authority_delta",
-        "source_verified",
-        "source_evidence",
-        "implementation_verified",
-        "repository_witness",
-        "independent_witness",
-        "git_head",
-        "repository",
-        "promotion",
-        "promoted",
-        "expected_class",
-        "expected",
-        "expected_label",
-        "answer_key",
-        "oracle",
-        "oracle_label",
-        "benchmark_label",
-        "game_score",
-        "reward",
-        "rarity",
+        "ci_status", "ci_pass", "ci_run_id", "ci_run_number", "qualified",
+        "qualification", "authority", "authority_delta", "source_verified",
+        "source_evidence", "implementation_verified", "repository_witness",
+        "independent_witness", "git_head", "repository", "promotion", "promoted",
+        "expected_class", "expected", "expected_label", "answer_key", "oracle",
+        "oracle_label", "benchmark_label", "game_score", "reward", "rarity",
     }
 )
 
 _REQUIRED_RECEIPT_KEYS = frozenset(
     {
-        "artifact",
-        "version",
-        "status",
-        "receipt_id",
-        "receipt_standing",
-        "evidence_standing",
-        "source_evidence",
-        "historical_mapping",
-        "independent_witness",
-        "authority_delta",
-        "ci_qualification",
-        "implementation_binding",
-        "semantic_control_artifact",
-        "packet_compiler_revision",
-        "packet_semantic_digest",
-        "operator_registry_digest",
-        "initial_state",
-        "edge_path",
-        "evaluation_input_digest",
-        "raw_result",
-        "raw_result_digest",
-        "semantic_result",
-        "semantic_result_digest",
-        "semantic_result_projection_basis",
-        "receipt_digest",
+        "artifact", "version", "status", "receipt_id", "receipt_standing",
+        "evidence_standing", "source_evidence", "historical_mapping",
+        "independent_witness", "authority_delta", "ci_qualification",
+        "implementation_binding", "semantic_control_artifact",
+        "packet_compiler_revision", "packet_semantic_digest",
+        "operator_registry_digest", "initial_state", "edge_path",
+        "evaluation_input_digest", "raw_result", "raw_result_digest",
+        "semantic_result", "semantic_result_digest",
+        "semantic_result_projection_basis", "receipt_digest",
     }
 )
 
 _RAW_RESULT_KEYS = frozenset(
     {
-        "artifact",
-        "standing",
-        "classification",
-        "reason",
-        "initial_state",
-        "final_state",
-        "residue",
-        "residue_zero",
-        "executed_edges",
-        "audit",
+        "artifact", "standing", "classification", "reason", "initial_state",
+        "final_state", "residue", "residue_zero", "executed_edges", "audit",
     }
 )
-
 _RAW_STATE_KEYS = frozenset(
-    {
-        "coordinate",
-        "feature_basis",
-        "values",
-        "irreversible_loss",
-        "standing",
-        "provenance",
-    }
+    {"coordinate", "feature_basis", "values", "irreversible_loss", "standing", "provenance"}
 )
 
 
@@ -165,8 +108,9 @@ def _canonical_json(value: Any) -> str:
 
 
 def _domain_digest(domain: str, value: Any) -> str:
-    payload = {"digest_domain": domain, "value": value}
-    return hashlib.sha256(_canonical_json(payload).encode("utf-8")).hexdigest()
+    return hashlib.sha256(
+        _canonical_json({"digest_domain": domain, "value": value}).encode("utf-8")
+    ).hexdigest()
 
 
 def _contains_reserved_caller_key(value: Any) -> str | None:
@@ -187,11 +131,7 @@ def _contains_reserved_caller_key(value: Any) -> str | None:
     return None
 
 
-def _hold(
-    reason: str,
-    *,
-    packet_validation: Mapping[str, Any] | None = None,
-) -> dict[str, Any]:
+def _hold(reason: str, *, packet_validation: Mapping[str, Any] | None = None) -> dict[str, Any]:
     return {
         "artifact": ARTIFACT,
         "version": VERSION,
@@ -211,8 +151,11 @@ def _hold(
     }
 
 
-def _normalize_path(edge_path: Sequence[str]) -> list[str]:
-    if isinstance(edge_path, (str, bytes)):
+def _normalize_path(edge_path: Any) -> list[str]:
+    if (
+        isinstance(edge_path, (str, bytes, Mapping))
+        or not isinstance(edge_path, Sequence)
+    ):
         raise ValueError("edge_path must be a sequence of edge IDs")
     path: list[str] = []
     for index, edge_id in enumerate(edge_path):
@@ -224,18 +167,85 @@ def _normalize_path(edge_path: Sequence[str]) -> list[str]:
     return path
 
 
+def _normalize_audit_state(
+    value: Any,
+    *,
+    expected_basis: Sequence[str] | None = None,
+) -> dict[str, Any]:
+    if not isinstance(value, Mapping) or set(value) != set(_RAW_STATE_KEYS):
+        raise ValueError("RECEIPT_INITIAL_STATE_SCHEMA_DRIFT")
+    coordinate = value.get("coordinate")
+    if not isinstance(coordinate, str) or not coordinate:
+        raise ValueError("RECEIPT_INITIAL_COORDINATE_INVALID")
+
+    basis_raw = value.get("feature_basis")
+    if (
+        isinstance(basis_raw, (str, bytes, Mapping))
+        or not isinstance(basis_raw, Sequence)
+        or not basis_raw
+    ):
+        raise ValueError("RECEIPT_INITIAL_FEATURE_BASIS_INVALID")
+    basis = list(basis_raw)
+    if any(not isinstance(item, str) or not item for item in basis):
+        raise ValueError("RECEIPT_INITIAL_FEATURE_BASIS_INVALID")
+    if len(basis) != len(set(basis)):
+        raise ValueError("DUPLICATE_RECEIPT_INITIAL_FEATURE_BASIS")
+    if expected_basis is not None and basis != list(expected_basis):
+        raise ValueError("RECEIPT_INITIAL_FEATURE_BASIS_MISMATCH")
+
+    values = value.get("values")
+    if not isinstance(values, Mapping):
+        raise ValueError("RECEIPT_INITIAL_VALUES_INVALID")
+    if any(not isinstance(key, str) or not key for key in values):
+        raise ValueError("RECEIPT_INITIAL_VALUES_INVALID_KEY")
+    if set(values) != set(basis):
+        raise ValueError("RECEIPT_INITIAL_VALUES_BASIS_MISMATCH")
+
+    loss_raw = value.get("irreversible_loss")
+    if (
+        isinstance(loss_raw, (str, bytes, Mapping))
+        or not isinstance(loss_raw, Sequence)
+    ):
+        raise ValueError("RECEIPT_INITIAL_IRREVERSIBLE_LOSS_INVALID")
+    loss = list(loss_raw)
+    if any(not isinstance(item, str) or not item for item in loss):
+        raise ValueError("RECEIPT_INITIAL_IRREVERSIBLE_LOSS_INVALID")
+    if len(loss) != len(set(loss)):
+        raise ValueError("DUPLICATE_RECEIPT_INITIAL_IRREVERSIBLE_LOSS")
+    if not set(loss).issubset(set(basis)):
+        raise ValueError("RECEIPT_INITIAL_LOSS_OUTSIDE_BASIS")
+
+    if value.get("standing") != SEMANTIC_STATE_STANDING:
+        raise ValueError("RECEIPT_INITIAL_STATE_STANDING_MISMATCH")
+
+    provenance_raw = value.get("provenance")
+    if (
+        isinstance(provenance_raw, (str, bytes, Mapping))
+        or not isinstance(provenance_raw, Sequence)
+    ):
+        raise ValueError("RECEIPT_INITIAL_PROVENANCE_INVALID")
+    provenance = list(provenance_raw)
+    if any(not isinstance(item, str) for item in provenance):
+        raise ValueError("RECEIPT_INITIAL_PROVENANCE_INVALID")
+
+    return _strict_copy(
+        {
+            "coordinate": coordinate,
+            "feature_basis": basis,
+            "values": dict(values),
+            "irreversible_loss": loss,
+            "standing": SEMANTIC_STATE_STANDING,
+            "provenance": provenance,
+        }
+    )
+
+
 def _project_state(value: Any) -> Any:
     if value is None:
         return None
-    if not isinstance(value, Mapping) or set(value) != set(_RAW_STATE_KEYS):
-        raise ValueError("RUNTIME_STATE_SCHEMA_DRIFT")
-    return {
-        "coordinate": value["coordinate"],
-        "feature_basis": _strict_copy(value["feature_basis"]),
-        "values": _strict_copy(value["values"]),
-        "irreversible_loss": _strict_copy(value["irreversible_loss"]),
-        "standing": value["standing"],
-    }
+    state = _normalize_audit_state(value)
+    state.pop("provenance")
+    return state
 
 
 def _semantic_result_projection(raw_result: Any) -> dict[str, Any]:
@@ -249,6 +259,10 @@ def _semantic_result_projection(raw_result: Any) -> dict[str, Any]:
     residue_zero = raw_result.get("residue_zero")
     if residue_zero is not None and not isinstance(residue_zero, bool):
         raise ValueError("RUNTIME_RESULT_RESIDUE_ZERO_SHAPE")
+    if not isinstance(raw_result.get("executed_edges"), list):
+        raise ValueError("RUNTIME_EXECUTED_EDGES_SHAPE")
+    if not isinstance(raw_result.get("audit"), Mapping):
+        raise ValueError("RUNTIME_AUDIT_SHAPE")
     return {
         "artifact": raw_result["artifact"],
         "standing": raw_result["standing"],
@@ -308,32 +322,35 @@ def build_evaluation_receipt(
     *,
     caller_claims: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Execute one packet-defined path and freeze a deterministic synthetic receipt.
-
-    The receipt can prove replay identity only. External Git/CI/source/authority
-    evidence must be bound in a later artifact and cannot be self-minted here.
-    """
+    """Execute one packet-defined path and freeze a deterministic synthetic receipt."""
 
     if caller_claims:
         reserved = _contains_reserved_caller_key(caller_claims)
         if reserved is not None:
             return _hold(f"CALLER_TRUST_CLAIM_FORBIDDEN:{reserved}")
         return _hold("CALLER_CONTEXT_NOT_ADMITTED_V1")
-
     if not isinstance(initial_state, SemanticState):
         return _hold("INITIAL_STATE_MUST_BE_SEMANTIC_STATE")
     if initial_state.standing != SEMANTIC_STATE_STANDING:
         return _hold("INITIAL_STATE_STANDING_MUST_BE_SYNTHETIC_CONTROL")
 
-    try:
-        path = _normalize_path(edge_path)
-        initial_audit = _strict_copy(initial_state.audit_view())
-    except (TypeError, ValueError) as exc:
-        return _hold(f"INVALID_EVALUATION_INPUT:{type(exc).__name__}:{exc}")
-
     packet_validation, compiled = compile_connection_packet(packet)
     if compiled is None or packet_validation.get("status") != "VALID":
         return _hold("PACKET_VALIDATION_HOLD", packet_validation=packet_validation)
+    if packet_validation.get("compiler_revision") != PACKET_COMPILER_REVISION:
+        return _hold(
+            "PACKET_COMPILER_REVISION_DRIFT",
+            packet_validation=packet_validation,
+        )
+
+    try:
+        path = _normalize_path(edge_path)
+        initial_audit = _normalize_audit_state(
+            initial_state.audit_view(),
+            expected_basis=packet_validation["canonical_semantics"]["feature_basis"],
+        )
+    except (KeyError, TypeError, ValueError) as exc:
+        return _hold(f"INVALID_EVALUATION_INPUT:{type(exc).__name__}:{exc}")
 
     input_payload = _evaluation_input_payload(
         packet_semantic_digest=packet_validation["packet_semantic_digest"],
@@ -350,9 +367,7 @@ def build_evaluation_receipt(
         return _hold(f"RUNTIME_RESULT_NORMALIZATION_HOLD:{type(exc).__name__}:{exc}")
 
     raw_result_digest = _domain_digest(RAW_RESULT_DIGEST_DOMAIN, raw_result)
-    semantic_result_digest = _domain_digest(
-        SEMANTIC_RESULT_DIGEST_DOMAIN, semantic_result
-    )
+    semantic_result_digest = _domain_digest(SEMANTIC_RESULT_DIGEST_DOMAIN, semantic_result)
 
     receipt: dict[str, Any] = {
         "artifact": ARTIFACT,
@@ -381,9 +396,7 @@ def build_evaluation_receipt(
         "semantic_result_projection_basis": SEMANTIC_RESULT_PROJECTION_BASIS,
         "receipt_digest": "",
     }
-    receipt_digest = _domain_digest(
-        RECEIPT_DIGEST_DOMAIN, _receipt_identity_payload(receipt)
-    )
+    receipt_digest = _domain_digest(RECEIPT_DIGEST_DOMAIN, _receipt_identity_payload(receipt))
     receipt["receipt_digest"] = receipt_digest
     receipt["receipt_id"] = f"MCK-EVAL-{receipt_digest[:24]}"
     return _strict_copy(receipt)
@@ -427,36 +440,40 @@ def validate_evaluation_receipt(receipt: Any) -> dict[str, Any]:
             raise ValueError("SEMANTIC_RESULT_PROJECTION_BASIS_MISMATCH")
 
         normalized_path = _normalize_path(strict["edge_path"])
+        normalized_initial = _normalize_audit_state(strict["initial_state"])
+        if strict["initial_state"] != normalized_initial:
+            raise ValueError("RECEIPT_INITIAL_STATE_CANONICAL_MISMATCH")
+
         input_payload = _evaluation_input_payload(
             packet_semantic_digest=strict["packet_semantic_digest"],
             operator_registry_digest=strict["operator_registry_digest"],
-            initial_state=strict["initial_state"],
+            initial_state=normalized_initial,
             edge_path=normalized_path,
         )
-        expected_input_digest = _domain_digest(INPUT_DIGEST_DOMAIN, input_payload)
-        if strict["evaluation_input_digest"] != expected_input_digest:
+        if strict["evaluation_input_digest"] != _domain_digest(INPUT_DIGEST_DOMAIN, input_payload):
             raise ValueError("EVALUATION_INPUT_DIGEST_MISMATCH")
 
-        expected_raw_digest = _domain_digest(
-            RAW_RESULT_DIGEST_DOMAIN, strict["raw_result"]
-        )
+        expected_raw_digest = _domain_digest(RAW_RESULT_DIGEST_DOMAIN, strict["raw_result"])
         if strict["raw_result_digest"] != expected_raw_digest:
             raise ValueError("RAW_RESULT_DIGEST_MISMATCH")
 
-        expected_semantic = _strict_copy(
-            _semantic_result_projection(strict["raw_result"])
-        )
+        if not isinstance(strict["raw_result"], Mapping):
+            raise ValueError("RAW_RESULT_NOT_OBJECT")
+        raw_initial = _normalize_audit_state(strict["raw_result"].get("initial_state"))
+        if raw_initial != normalized_initial:
+            raise ValueError("RECEIPT_INITIAL_STATE_RAW_RESULT_MISMATCH")
+        raw_audit = strict["raw_result"].get("audit")
+        if not isinstance(raw_audit, Mapping) or raw_audit.get("route") != normalized_path:
+            raise ValueError("RECEIPT_PATH_RAW_RESULT_MISMATCH")
+
+        expected_semantic = _strict_copy(_semantic_result_projection(strict["raw_result"]))
         if strict["semantic_result"] != expected_semantic:
             raise ValueError("SEMANTIC_RESULT_PROJECTION_MISMATCH")
-        expected_semantic_digest = _domain_digest(
-            SEMANTIC_RESULT_DIGEST_DOMAIN, expected_semantic
-        )
+        expected_semantic_digest = _domain_digest(SEMANTIC_RESULT_DIGEST_DOMAIN, expected_semantic)
         if strict["semantic_result_digest"] != expected_semantic_digest:
             raise ValueError("SEMANTIC_RESULT_DIGEST_MISMATCH")
 
-        expected_receipt_digest = _domain_digest(
-            RECEIPT_DIGEST_DOMAIN, _receipt_identity_payload(strict)
-        )
+        expected_receipt_digest = _domain_digest(RECEIPT_DIGEST_DOMAIN, _receipt_identity_payload(strict))
         if strict["receipt_digest"] != expected_receipt_digest:
             raise ValueError("RECEIPT_DIGEST_MISMATCH")
         if strict["receipt_id"] != f"MCK-EVAL-{expected_receipt_digest[:24]}":
