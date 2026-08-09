@@ -8,6 +8,11 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTRACT = json.loads((ROOT / "spec" / "KC15_INTERPRETATION_REVIEW_V1.json").read_text(encoding="utf-8"))
 OUTPUT = Path("kc15_interpretation_review_v1.json")
 
+SAFE_STRUCTURAL_RUNTIME_PATHS = {
+    "athena_mcp/inner_constitution.py": "ACTIVE_EPOCH_CONSTITUTION_DECLARATION",
+    "athena_mcp/kc144.py": "KC144_BAND_RANGE_DECLARATION",
+}
+
 
 def head() -> str:
     return subprocess.check_output(["git", "-C", str(ROOT), "rev-parse", "HEAD"], text=True).strip()
@@ -28,19 +33,40 @@ def grep_kc15() -> list[dict]:
     return rows
 
 
+def structural_review(row: dict) -> dict:
+    path=row["path"]
+    classification=SAFE_STRUCTURAL_RUNTIME_PATHS.get(path)
+    safe=False
+    reason=None
+    if path == "athena_mcp/inner_constitution.py":
+        safe = "KC15" in row["text"] and any(token in row["text"] for token in ("KC15_MASKS", "91", "105"))
+        reason = "defines active constitutional KC15 masks/block membership; does not derive truth/evidence/probability/authority"
+    elif path == "athena_mcp/kc144.py":
+        safe = "('KC15',91,105)" in row["text"].replace(" ", "")
+        reason = "declares only KC144 band range GID091-105; no mask support semantics or decision authority"
+    return {**row,"classification":classification,"safe":safe,"reason":reason}
+
+
 def main() -> int:
     rows=grep_kc15()
     runtime_rows=[r for r in rows if r["path"].startswith("athena_mcp/")]
-    constitution_rows=[r for r in runtime_rows if r["path"] == "athena_mcp/inner_constitution.py"]
-    executable_consumers=[r for r in runtime_rows if r["path"] != "athena_mcp/inner_constitution.py"]
+    structural_rows=[]
+    unreviewed_consumers=[]
+    for row in runtime_rows:
+        if row["path"] in SAFE_STRUCTURAL_RUNTIME_PATHS:
+            reviewed=structural_review(row)
+            structural_rows.append(reviewed)
+            if not reviewed["safe"]:
+                unreviewed_consumers.append(reviewed)
+        else:
+            unreviewed_consumers.append({**row,"classification":"UNREVIEWED_EXECUTABLE_REFERENCE","safe":False})
 
-    # This cut is intentionally narrow: no current executable consumer means no current
-    # semantic cast exists to audit. If a consumer appears, fail closed and require a
-    # consumer-specific review rather than guessing from token proximity.
     checks={
         "kc15_references_enumerated": bool(rows),
-        "constitution_reference_present": bool(constitution_rows),
-        "no_unreviewed_executable_runtime_consumer": len(executable_consumers) == 0,
+        "constitution_reference_present": any(r["path"] == "athena_mcp/inner_constitution.py" for r in runtime_rows),
+        "band_topology_reference_present": any(r["path"] == "athena_mcp/kc144.py" for r in runtime_rows),
+        "all_structural_runtime_references_reviewed_safe": bool(structural_rows) and all(r["safe"] for r in structural_rows),
+        "no_unreviewed_executable_runtime_consumer": len(unreviewed_consumers) == 0,
         "execution_not_upgraded": CONTRACT["expected_runtime_state"]["execution"] == "PARTIAL",
         "evidence_stays_hold_until_ic10": CONTRACT["expected_runtime_state"]["evidence"] == "HOLD_UNTIL_IC10_ADMISSION",
         "promotion_authority_false": CONTRACT["expected_runtime_state"]["promotion_authority"] is False,
@@ -53,15 +79,16 @@ def main() -> int:
         "checks":checks,
         "all_kc15_references":rows,
         "runtime_references":runtime_rows,
-        "executable_runtime_consumers":executable_consumers,
-        "interpretation_standing":"NO_RUNTIME_SEMANTIC_CAST_OBSERVED" if ok else "CONSUMER_SPECIFIC_REVIEW_REQUIRED",
+        "safe_structural_runtime_references":structural_rows,
+        "unreviewed_executable_runtime_consumers":unreviewed_consumers,
+        "interpretation_standing":"NO_FORBIDDEN_RUNTIME_SEMANTIC_CAST_OBSERVED" if ok else "CONSUMER_SPECIFIC_REVIEW_REQUIRED",
         "execution":"PARTIAL",
         "evidence":"HOLD",
         "admission_authority":"HOLD",
         "promotion_authority":False,
         "next_obligation":"KC15_IC10_ADMISSION_AUTHORITY" if ok else "REVIEW_KC15_RUNTIME_CONSUMERS",
         "evidence_ceiling":[
-            "NO_CURRENT_RUNTIME_CONSUMER != KC15_EXECUTION_QUALIFIED",
+            "SAFE_TOPOLOGY_DECLARATION != KC15_EXECUTION_QUALIFIED",
             "NO_FORBIDDEN_CAST_OBSERVED != UNIVERSAL_FUTURE_SAFETY",
             "INTERPRETATION_REVIEW != CLAIM_TRUTH",
             "INTERPRETATION_REVIEW != IC10_ADMISSION",
