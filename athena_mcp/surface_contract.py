@@ -32,6 +32,7 @@ from .startup_health_protocol import STARTUP_HEALTH_RESOURCE,STARTUP_HEALTH_TOOL
 from .unified_manifest_protocol import UNIFIED_MANIFEST_RESOURCES,UNIFIED_MANIFEST_TOOLS
 from .surface_protocol import SURFACE_RESOURCE,SURFACE_TOOLS
 from .promotion_protocol import PROMOTION_RESOURCE,PROMOTION_TOOLS
+from .project_atlas_protocol import PROJECT_ATLAS_RESOURCE,PROJECT_ATLAS_TOOLS
 
 SURFACE_VERSION='ATHENA.SURFACE.2'
 
@@ -54,7 +55,7 @@ REQUIRED_TOOLS={
  'equivalence':_names(EQUIVALENCE_TOOLS),'extraction':_names(EXTRACTION_TOOLS),'retrieval':_names(RETRIEVAL_TOOLS),'hug':_names(HUG_TOOLS),'gap':_names(GAP_TOOLS),
  'field':_names(FIELD_TOOLS),'transport':_names(TRANSPORT_TOOLS),'cycle':_names(CYCLE_TOOLS),'state_foundation':_names(STATE_FOUNDATION_TOOLS),
  'self_test':_names(SELF_TEST_TOOLS),'startup':_names(STARTUP_HEALTH_TOOLS),'manifest':_names(UNIFIED_MANIFEST_TOOLS),
- 'surface':_names(SURFACE_TOOLS),'promotion':_names(PROMOTION_TOOLS),
+ 'surface':_names(SURFACE_TOOLS),'promotion':_names(PROMOTION_TOOLS),'project_atlas':_names(PROJECT_ATLAS_TOOLS),
 }
 
 REQUIRED_RESOURCES={
@@ -67,6 +68,7 @@ REQUIRED_RESOURCES={
  'self_test':{SELF_TEST_RESOURCE['uri']},'startup':{STARTUP_HEALTH_RESOURCE['uri']},
  'manifest':{resource['uri'] for resource in UNIFIED_MANIFEST_RESOURCES},
  'surface':{SURFACE_RESOURCE['uri']},'promotion':{PROMOTION_RESOURCE['uri']},
+ 'project_atlas':{PROJECT_ATLAS_RESOURCE['uri']},
 }
 
 
@@ -81,7 +83,7 @@ def contract_manifest()->Dict[str,Any]:
         'version':SURFACE_VERSION,'required_tools':{k:sorted(v) for k,v in REQUIRED_TOOLS.items()},
         'required_resources':{k:sorted(v) for k,v in REQUIRED_RESOURCES.items()},
         'tool_count':len(_flatten(REQUIRED_TOOLS)),'resource_count':len(_flatten(REQUIRED_RESOURCES)),
-        'law':'promoted unified runtime must preserve every mature base + Collective V1-V13 + AOR + FIELD/transport/CYCLE + state-foundation + startup/self-test + live-manifest + governance surface unless explicit versioned supersession/migration changes this contract',
+        'law':'promoted unified runtime must preserve every mature base + Collective V1-V13 + AOR + FIELD/transport/CYCLE + state-foundation + startup/self-test + live-manifest + governance + read-only Project Atlas surface unless explicit versioned supersession/migration changes this contract',
     }
 
 
