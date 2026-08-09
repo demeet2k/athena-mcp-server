@@ -4,23 +4,18 @@ import json
 from collections.abc import Mapping
 
 from .tse_helix import TseHelixRuntime
+from .tse_knot_apply import TseKnotApplyRuntime
 from .tse_population import TSE_HANDOFF_ARTIFACT, _validate_route
 
-
-INTEGRITY_VERSION = "TSE.HELICAL.HANDOFF.INTEGRITY.1"
+INTEGRITY_VERSION = "TSE.HELICAL.HANDOFF.INTEGRITY.2"
 
 
 class TseHelixIntegrityRuntime(TseHelixRuntime):
-    """TSE Helix with strict handoff-envelope integrity before ACK consumption.
+    """Strict TSE handoff integrity plus observation-only shared Git apply."""
 
-    The parent runtime already checks message identity, sender, recipient,
-    Message Board kind and matched-agent ACK. This membrane additionally proves
-    that the immutable TSE envelope carried by that exact Message Board event is
-    bound to the validated route before the ACK may become HANDOFF_CONSUMED.
-
-    It creates no claim or execution authority; a valid ACK remains only a
-    consumption observation.
-    """
+    def __init__(self, server, population_runtime, telemetry_runtime, cohesion_runtime):
+        super().__init__(server, population_runtime, telemetry_runtime, cohesion_runtime)
+        self.knot_apply = TseKnotApplyRuntime(server, telemetry_runtime)
 
     @staticmethod
     def _expected_handoff(route: Mapping[str, object]) -> dict:
@@ -149,6 +144,70 @@ class TseHelixIntegrityRuntime(TseHelixRuntime):
             "authority": "INTEGRITY_ONLY",
             "law": "HANDOFF_ENVELOPE_BINDING != CONSUMPTION != CLAIM",
         }
+
+    def advance(
+        self,
+        *,
+        mission_id: str,
+        operation: str,
+        route: Mapping[str, object],
+        parent_event_id: str,
+        actor_id: str,
+        witnesses,
+        cost: Mapping[str, object],
+        child_return: Mapping[str, object] | None = None,
+        min_score: float = 0.0,
+        limit: int = 10,
+        remote: str = "origin",
+        shared_remote_mode: str = "REQUIRED",
+    ) -> dict:
+        operation = str(operation or "").upper()
+        if operation == "APPLY":
+            if not isinstance(child_return, Mapping):
+                return {
+                    "status": "TSE_KNOT_APPLY_HOLD",
+                    "hold": "EVIDENCE_HOLD",
+                    "reason": "apply_packet_required_in_child_return_field",
+                    "return_applied": False,
+                    "merge_authority": False,
+                    "execution_authority": False,
+                }
+            hatch = child_return.get("hatch")
+            apply_receipt = child_return.get("apply_receipt")
+            if not isinstance(hatch, Mapping) or not isinstance(apply_receipt, Mapping):
+                return {
+                    "status": "TSE_KNOT_APPLY_HOLD",
+                    "hold": "EVIDENCE_HOLD",
+                    "reason": "apply_packet_requires_hatch_and_apply_receipt",
+                    "return_applied": False,
+                    "merge_authority": False,
+                    "execution_authority": False,
+                }
+            return self.knot_apply.observe_apply(
+                mission_id=mission_id,
+                route=route,
+                hatch=hatch,
+                child_return_event_id=parent_event_id,
+                apply_receipt=apply_receipt,
+                actor_id=actor_id,
+                witnesses=witnesses,
+                cost=cost,
+                remote=remote,
+            )
+        return super().advance(
+            mission_id=mission_id,
+            operation=operation,
+            route=route,
+            parent_event_id=parent_event_id,
+            actor_id=actor_id,
+            witnesses=witnesses,
+            cost=cost,
+            child_return=child_return,
+            min_score=min_score,
+            limit=limit,
+            remote=remote,
+            shared_remote_mode=shared_remote_mode,
+        )
 
     def observe_consumption(
         self,
