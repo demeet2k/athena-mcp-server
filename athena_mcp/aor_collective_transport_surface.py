@@ -56,8 +56,9 @@ class AorCollectiveTransportSurface:
                 return True,life.resolve(args['world'],args['agent_id'],args['attempt'])
             if name=='athena_campaign_life_bind':
                 return True,life.campaign_bind(
-                    args['bound_receipt'],args['quest_id'],args['quest_version'],args['clear_condition_digest'],
-                    args['reseed_anchor'],args['extra_life_reward_eligibility']
+                    args['bound_receipt'],args['pulse'],args['agent_coordinate_name'],args['quest_id'],
+                    args['quest_version'],args['clear_conditions'],args['reseed_anchor'],
+                    args.get('extra_life_reward_candidate')
                 )
         if name in IMPOSSIBLE_GODBOARD_TOOL_NAMES:
             g=self.godboard
