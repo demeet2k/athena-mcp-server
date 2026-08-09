@@ -1,0 +1,40 @@
+{
+  "resource_id": "athena://meta-ml-game/v2",
+  "title": "Athena Meta Machine Learning Game v2",
+  "status": "ACTIVE_SANDBOX",
+  "authority": "demeet2k/Athena:agent/meta-ml-game-v2",
+  "goal_count": 144,
+  "canary_count": 12,
+  "first_quest": "MLG-G005",
+  "resources": [
+    "athena://meta-ml-game/v2/activation",
+    "athena://meta-ml-game/v2/goals",
+    "athena://meta-ml-game/v2/canaries",
+    "athena://meta-ml-game/v2/reward-audit"
+  ],
+  "tools": [
+    {
+      "name": "meta_ml_v2_next_quest",
+      "side_effect": "none",
+      "returns": "highest-priority lawful sandbox quest"
+    },
+    {
+      "name": "meta_ml_v2_reward_audit",
+      "side_effect": "none",
+      "returns": "reward defects and corrective recommendations"
+    },
+    {
+      "name": "meta_ml_v2_propose_canary",
+      "side_effect": "proposal receipt only",
+      "requires": ["preregistered hypothesis", "held-out contract", "rollback plan"]
+    }
+  ],
+  "forbidden": [
+    "synthetic penalty quotas",
+    "fabricated offenses",
+    "source truth mutation",
+    "foundation-model weight claims",
+    "private raw corpus exposure",
+    "self-certification"
+  ]
+}
