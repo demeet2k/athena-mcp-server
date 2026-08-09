@@ -26,23 +26,39 @@ from .cohesion_mesh_protocol import (
 )
 from .cohesion_duplicate_guard import augment_cohesion_resource,duplicate_guard
 from .cohesion_duplicate_guard_protocol import DUPLICATE_GUARD_TOOLS,DUPLICATE_GUARD_TOOL_NAMES
+from .tse_population import TsePopulationRuntime
+from .tse_population_protocol import TSE_POPULATION_RESOURCE,TSE_POPULATION_TOOLS,TSE_POPULATION_TOOL_NAMES
+from .tse_telemetry_proxy import TseHelixTelemetryProxy
+from .tse_telemetry_protocol import TSE_TELEMETRY_RESOURCE,TSE_TELEMETRY_TOOLS,TSE_TELEMETRY_TOOL_NAMES
+from .tse_helix import TseHelixRuntime
+from .tse_helix_protocol import TSE_HELIX_RESOURCE,TSE_HELIX_TOOLS,TSE_HELIX_TOOL_NAMES
+from .tse_route_window import TseRouteWindowRuntime
+from .tse_route_window_protocol import (
+    TSE_ROUTE_WINDOW_RESOURCE,
+    TSE_ROUTE_WINDOW_TOOLS,
+    TSE_ROUTE_WINDOW_TOOL_NAMES,
+)
 
 AOR_COLLECTIVE_TRANSPORT_TOOLS=(
     list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(PARTY_CHANNEL_TOOLS)+
     list(PARTY_REWARD_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)+list(COHESION_MESH_TOOLS)+
-    list(DUPLICATE_GUARD_TOOLS)
+    list(DUPLICATE_GUARD_TOOLS)+list(TSE_POPULATION_TOOLS)+list(TSE_TELEMETRY_TOOLS)+
+    list(TSE_HELIX_TOOLS)+list(TSE_ROUTE_WINDOW_TOOLS)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCES=[
-    TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE,COHESION_MESH_RESOURCE
+    TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE,COHESION_MESH_RESOURCE,
+    TSE_POPULATION_RESOURCE,TSE_TELEMETRY_RESOURCE,TSE_HELIX_RESOURCE,TSE_ROUTE_WINDOW_RESOURCE
 ]
 AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=(
     set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(PARTY_CHANNEL_TOOL_NAMES)|
     set(PARTY_REWARD_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)|set(COHESION_MESH_TOOL_NAMES)|
-    set(DUPLICATE_GUARD_TOOL_NAMES)
+    set(DUPLICATE_GUARD_TOOL_NAMES)|set(TSE_POPULATION_TOOL_NAMES)|set(TSE_TELEMETRY_TOOL_NAMES)|
+    set(TSE_HELIX_TOOL_NAMES)|set(TSE_ROUTE_WINDOW_TOOL_NAMES)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={
     TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri'],
-    COHESION_MESH_RESOURCE['uri']
+    COHESION_MESH_RESOURCE['uri'],TSE_POPULATION_RESOURCE['uri'],TSE_TELEMETRY_RESOURCE['uri'],
+    TSE_HELIX_RESOURCE['uri'],TSE_ROUTE_WINDOW_RESOURCE['uri']
 }
 
 class AorCollectiveTransportSurface:
@@ -52,130 +68,167 @@ class AorCollectiveTransportSurface:
         self.party=PartyCoordinationRuntimeV32(server)
         self.godboard=ImpossibleGodboardRuntime(server)
         self.cohesion=CohesionEvidenceGuardRuntime(server)
+        self.tse_population=TsePopulationRuntime(self.cohesion)
+        self.tse_telemetry=TseHelixTelemetryProxy(server)
+        self.tse_helix=TseHelixRuntime(server,self.tse_population,self.tse_telemetry,self.cohesion)
+        self.tse_route_window=TseRouteWindowRuntime(server,self.tse_telemetry)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        if name in TSE_ROUTE_WINDOW_TOOL_NAMES:
+            w=self.tse_route_window
+            if name=='athena_tse_route_window_open':
+                return True,w.open(
+                    window_id=args['window_id'],mission_id=args['mission_id'],actor_id=args['actor_id'],
+                    route_ids=args.get('route_ids'),source_refs=args.get('source_refs'),remote=args.get('remote','origin')
+                )
+            if name=='athena_tse_route_window_close':
+                return True,w.close(
+                    window_id=args['window_id'],mission_id=args['mission_id'],actor_id=args['actor_id'],
+                    complete_seams=args['complete_seams'],resolved_routes=args.get('resolved_routes'),
+                    route_ids=args.get('route_ids'),source_refs=args.get('source_refs'),remote=args.get('remote','origin')
+                )
+            if name=='athena_tse_route_window_state':
+                return True,w.state(
+                    window_id=args['window_id'],remote=args.get('remote','origin'),
+                    shared_remote_mode=args.get('shared_remote_mode','REQUIRED')
+                )
+            if name=='athena_tse_route_window_report':
+                return True,w.report(
+                    window_id=args['window_id'],remote=args.get('remote','origin'),
+                    shared_remote_mode=args.get('shared_remote_mode','REQUIRED')
+                )
+        if name in TSE_HELIX_TOOL_NAMES:
+            h=self.tse_helix
+            if name=='athena_tse_helix_open':
+                return True,h.open(
+                    mission_id=args['mission_id'],hatch=args['hatch'],parent_agent_id=args['parent_agent_id'],
+                    capabilities=args['capabilities'],actor_id=args['actor_id'],witnesses=args['witnesses'],cost=args['cost'],
+                    targets=args.get('targets'),dependencies=args.get('dependencies'),role=args.get('role',''),
+                    needed_units=args.get('needed_units',1),constraints=args.get('constraints'),life_policy=args.get('life_policy'),
+                    clear_condition_digest=args.get('clear_condition_digest'),remote=args.get('remote','origin')
+                )
+            if name=='athena_tse_helix_advance':
+                return True,h.advance(
+                    mission_id=args['mission_id'],operation=args['operation'],route=args['route'],
+                    parent_event_id=args['parent_event_id'],actor_id=args['actor_id'],witnesses=args['witnesses'],cost=args['cost'],
+                    child_return=args.get('child_return'),min_score=args.get('min_score',0.0),limit=args.get('limit',10),
+                    remote=args.get('remote','origin'),shared_remote_mode=args.get('shared_remote_mode','REQUIRED')
+                )
+            if name=='athena_tse_helix_observe_consumption':
+                return True,h.observe_consumption(
+                    mission_id=args['mission_id'],route=args['route'],parent_event_id=args['parent_event_id'],
+                    actor_id=args['actor_id'],witnesses=args['witnesses'],cost=args['cost'],remote=args.get('remote','origin'),
+                    shared_remote_mode=args.get('shared_remote_mode','REQUIRED')
+                )
+            if name=='athena_tse_helix_reconcile':
+                return True,h.reconcile(
+                    mission_id=args['mission_id'],operation=args['operation'],route=args['route'],
+                    parent_event_id=args['parent_event_id'],actor_id=args['actor_id'],witnesses=args['witnesses'],cost=args['cost'],
+                    child_return=args.get('child_return'),min_score=args.get('min_score',0.0),limit=args.get('limit',10),
+                    remote=args.get('remote','origin'),shared_remote_mode=args.get('shared_remote_mode','REQUIRED')
+                )
+        if name in TSE_TELEMETRY_TOOL_NAMES:
+            t=self.tse_telemetry
+            if name=='athena_tse_telemetry_record':
+                return True,t.record(
+                    mission_id=args['mission_id'],route_id=args['route_id'],hatch_id=args['hatch_id'],
+                    transition=args['transition'],actor_id=args['actor_id'],witnesses=args['witnesses'],cost=args['cost'],
+                    parent_event_id=args.get('parent_event_id'),child_agent_id=args.get('child_agent_id'),
+                    child_claim_id=args.get('child_claim_id'),verified_delta=args.get('verified_delta'),
+                    hold_class=args.get('hold_class'),seam=args.get('seam'),attempt_ref=args.get('attempt_ref'),
+                    remote=args.get('remote','origin')
+                )
+            if name=='athena_tse_telemetry_report':
+                return True,t.report(
+                    mission_id=args['mission_id'],remote=args.get('remote','origin'),
+                    shared_remote_mode=args.get('shared_remote_mode','REQUIRED')
+                )
+        if name in TSE_POPULATION_TOOL_NAMES:
+            t=self.tse_population
+            if name=='athena_tse_population_plan':
+                return True,t.plan(
+                    args['hatch'],args['parent_agent_id'],args['capabilities'],args.get('targets'),
+                    args.get('dependencies'),args.get('role',''),args.get('needed_units',1),
+                    args.get('constraints'),args.get('life_policy'),args.get('clear_condition_digest')
+                )
+            if name=='athena_tse_population_publish':
+                return True,t.publish(args['route'],args.get('remote','origin'))
+            if name=='athena_tse_population_match':
+                return True,t.match(
+                    args['route'],args.get('min_score',0.0),args.get('limit',10),args.get('remote','origin'),
+                    args.get('shared_remote_mode','REQUIRED')
+                )
+            if name=='athena_tse_population_handoff':
+                return True,t.handoff(args['route'],args.get('remote','origin'))
+            if name=='athena_tse_population_claim_state':
+                return True,t.claim_state(
+                    args['route'],args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED')
+                )
+            if name=='athena_tse_population_return_check':
+                return True,t.return_check(
+                    args['route'],args['child_return'],args.get('remote','origin'),
+                    args.get('shared_remote_mode','REQUIRED')
+                )
         if name in DUPLICATE_GUARD_TOOL_NAMES:
             return True,duplicate_guard(
                 self.cohesion,
-                agent_id=args['agent_id'],
-                task=args['task'],
-                work_key=args.get('work_key'),
-                targets=args.get('targets'),
-                intended_mode=args.get('intended_mode','PRIMARY'),
-                replication_reason=args.get('replication_reason'),
-                join_agent_id=args.get('join_agent_id'),
-                partition_proof=args.get('partition_proof'),
-                remote=args.get('remote','origin'),
-                shared_remote_mode=args.get('shared_remote_mode','REQUIRED'),
+                agent_id=args['agent_id'],task=args['task'],work_key=args.get('work_key'),targets=args.get('targets'),
+                intended_mode=args.get('intended_mode','PRIMARY'),replication_reason=args.get('replication_reason'),
+                join_agent_id=args.get('join_agent_id'),partition_proof=args.get('partition_proof'),remote=args.get('remote','origin'),
+                shared_remote_mode=args.get('shared_remote_mode','REQUIRED')
             )
         if name in COHESION_MESH_TOOL_NAMES:
             c=self.cohesion
             if name=='athena_cohesion_request_offer':
                 return True,c.request_offer(
                     args['request_id'],args['agent_id'],args['kind'],args['capabilities'],args['goal_ref'],
-                    args.get('role',''),args.get('work_key'),args.get('targets'),args.get('dependencies'),
-                    args.get('provides'),args.get('capacity_units',1),args.get('needed_units',1),
-                    args.get('constraints'),args.get('acceptance_criteria'),args.get('party_id'),
-                    args.get('quest_ref'),args.get('life_policy'),args.get('clear_condition_digest'),
+                    args.get('role',''),args.get('work_key'),args.get('targets'),args.get('dependencies'),args.get('provides'),
+                    args.get('capacity_units',1),args.get('needed_units',1),args.get('constraints'),args.get('acceptance_criteria'),
+                    args.get('party_id'),args.get('quest_ref'),args.get('life_policy'),args.get('clear_condition_digest'),
                     args.get('allow_collaboration',False),args.get('expires_at'),args.get('remote','origin')
                 )
             if name=='athena_cohesion_matchmake':
-                return True,c.matchmake(
-                    args['need_id'],args.get('limit',10),args.get('remote','origin'),
-                    args.get('shared_remote_mode','REQUIRED')
-                )
+                return True,c.matchmake(args['need_id'],args.get('limit',10),args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED'))
             if name=='athena_cohesion_coalition':
-                return True,c.coalition(
-                    args['campaign_id'],args['proposer_id'],args['need_ids'],args.get('max_participants',8),
-                    args.get('exit_criteria'),args.get('rendezvous_refs'),args.get('remote','origin')
-                )
+                return True,c.coalition(args['campaign_id'],args['proposer_id'],args['need_ids'],args.get('max_participants',8),args.get('exit_criteria'),args.get('rendezvous_refs'),args.get('remote','origin'))
             if name=='athena_cohesion_solo_party_compare':
-                return True,c.solo_party_compare(
-                    args['comparison_id'],args['observer_id'],args['solo_samples'],args['party_samples'],
-                    args['decision_rule'],args.get('remote','origin')
-                )
+                return True,c.solo_party_compare(args['comparison_id'],args['observer_id'],args['solo_samples'],args['party_samples'],args['decision_rule'],args.get('remote','origin'))
         if name in IMPOSSIBLE_GODBOARD_TOOL_NAMES:
             g=self.godboard
             if name=='athena_impossible_open':
-                return True,g.open(
-                    args['quest_id'],args['opener_id'],args['title'],args['barrier'],
-                    args['success_conditions'],args['search_scope'],args.get('safety_scope'),
-                    args.get('remote','origin')
-                )
+                return True,g.open(args['quest_id'],args['opener_id'],args['title'],args['barrier'],args['success_conditions'],args['search_scope'],args.get('safety_scope'),args.get('remote','origin'))
             if name=='athena_impossible_complete':
                 if args.get('party_id') or args.get('contributors'):
-                    fresh=g._board().read(
-                        remote=args.get('remote','origin'),shared_remote_mode='REQUIRED',limit=1
-                    )
+                    fresh=g._board().read(remote=args.get('remote','origin'),shared_remote_mode='REQUIRED',limit=1)
                     if not fresh.get('shared_frontier_verified'):
-                        return True,{
-                            'status':'GODBOARD_SHARED_FRONTIER_HOLD',
-                            'remote_sync':fresh.get('remote_sync'),
-                            'durable_return':False,
-                            'law':'PARTY_ATTRIBUTION_REQUIRES_SHARED_CURRENT_MESSAGE_BOARD_FRONTIER',
-                        }
-                return True,g.complete(
-                    args['completion_id'],args['quest_id'],args['agent_id'],args['agent_coordinate'],
-                    args['baseline'],args['transformation_class'],args['decisive_move'],args['invariant'],
-                    args['result'],args['witness_refs'],args['cleanup_status'],args['unknown_residue'],
-                    args['proof_tier'],args['score_dimensions'],args.get('multipliers'),
-                    args.get('failed_approaches'),args.get('known_limits'),args.get('party_id'),
-                    args.get('contributors'),args.get('remote','origin')
-                )
+                        return True,{'status':'GODBOARD_SHARED_FRONTIER_HOLD','remote_sync':fresh.get('remote_sync'),'durable_return':False,'law':'PARTY_ATTRIBUTION_REQUIRES_SHARED_CURRENT_MESSAGE_BOARD_FRONTIER'}
+                return True,g.complete(args['completion_id'],args['quest_id'],args['agent_id'],args['agent_coordinate'],args['baseline'],args['transformation_class'],args['decisive_move'],args['invariant'],args['result'],args['witness_refs'],args['cleanup_status'],args['unknown_residue'],args['proof_tier'],args['score_dimensions'],args.get('multipliers'),args.get('failed_approaches'),args.get('known_limits'),args.get('party_id'),args.get('contributors'),args.get('remote','origin'))
             if name=='athena_impossible_verify':
-                return True,g.verify(
-                    args['verification_id'],args['completion_id'],args['verifier_id'],
-                    args['verifier_coordinate'],args['target_proof_tier'],args['witness_refs'],
-                    args.get('attack_refs'),args.get('generalization_ref'),args.get('downstream_reuse_refs'),
-                    args.get('immortal_title'),args.get('party_immortal_title'),args.get('remote','origin')
-                )
+                return True,g.verify(args['verification_id'],args['completion_id'],args['verifier_id'],args['verifier_coordinate'],args['target_proof_tier'],args['witness_refs'],args.get('attack_refs'),args.get('generalization_ref'),args.get('downstream_reuse_refs'),args.get('immortal_title'),args.get('party_immortal_title'),args.get('remote','origin'))
             if name=='athena_impossible_state':
-                return True,g.state(
-                    args['quest_id'],args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED')
-                )
+                return True,g.state(args['quest_id'],args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED'))
             if name=='athena_godboard':
-                return True,g.godboard(
-                    args.get('limit',50),args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED')
-                )
+                return True,g.godboard(args.get('limit',50),args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED'))
             if name=='athena_hall_of_immortals':
-                return True,g.hall(
-                    args.get('limit',100),args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED')
-                )
+                return True,g.hall(args.get('limit',100),args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED'))
         if name in PARTY_REWARD_TOOL_NAMES:
             p=self.party
-            return True,p.result(
-                args['party_id'],args['sender'],args['recipients'],args['goal_id'],args['result_ref'],
-                args['witness_ref'],args.get('evidence_kind','RESULT'),args.get('remote','origin')
-            )
+            return True,p.result(args['party_id'],args['sender'],args['recipients'],args['goal_id'],args['result_ref'],args['witness_ref'],args.get('evidence_kind','RESULT'),args.get('remote','origin'))
         if name in PARTY_CHANNEL_TOOL_NAMES:
             p=self.party
-            return True,p.message(
-                args['party_id'],args['sender'],args['recipients'],args['goal_refs'],args['message'],
-                args.get('message_kind','INFO'),args.get('reply_to'),args.get('remote','origin')
-            )
+            return True,p.message(args['party_id'],args['sender'],args['recipients'],args['goal_refs'],args['message'],args.get('message_kind','INFO'),args.get('reply_to'),args.get('remote','origin'))
         if name in PARTY_COORDINATION_TOOL_NAMES:
             p=self.party
             if name=='athena_party_form':
-                return True,p.form(
-                    args['party_id'],args['leader'],args['goals'],args['leader_goal_refs'],
-                    args.get('purpose',''),args.get('role','LEAD'),args.get('capabilities'),
-                    args.get('capacity',4),args.get('remote','origin')
-                )
+                return True,p.form(args['party_id'],args['leader'],args['goals'],args['leader_goal_refs'],args.get('purpose',''),args.get('role','LEAD'),args.get('capabilities'),args.get('capacity',4),args.get('remote','origin'))
             if name=='athena_party_join':
-                return True,p.join(
-                    args['party_id'],args['agent'],args['goal_refs'],args['task_relation'],
-                    args.get('role','MEMBER'),args.get('capabilities'),args.get('remote','origin')
-                )
+                return True,p.join(args['party_id'],args['agent'],args['goal_refs'],args['task_relation'],args.get('role','MEMBER'),args.get('capabilities'),args.get('remote','origin'))
             if name=='athena_party_state':
                 return True,p.state(args['party_id'],args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED'))
             if name=='athena_party_list':
                 return True,p.list(args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED'),args.get('limit',50))
             if name=='athena_party_observe':
-                return True,p.observe(
-                    args['observation_id'],args['party_id'],args['observer'],args['base_xp'],
-                    args['results'],args['witness_ref'],args.get('source_xp_ref'),
-                    args.get('source_xp_witness_ref'),args.get('remote','origin')
-                )
+                return True,p.observe(args['observation_id'],args['party_id'],args['observer'],args['base_xp'],args['results'],args['witness_ref'],args.get('source_xp_ref'),args.get('source_xp_witness_ref'),args.get('remote','origin'))
         r=self.runtime
         if name=='athena_transport_pheromone_attention':return True,r.pheromone_attention(args['route_keys'],args.get('actor','agent'),args.get('persist',True))
         if name=='athena_transport_alarm_to_gap':return True,r.alarm_to_gap(args['alarm_ref'],args['alarm_nodes'],args.get('actor','agent'),args.get('persist',True))
@@ -189,6 +242,10 @@ class AorCollectiveTransportSurface:
         return False,None
 
     def read_resource(self,uri:str):
+        if uri==TSE_ROUTE_WINDOW_RESOURCE['uri']:return self.tse_route_window.resource()
+        if uri==TSE_HELIX_RESOURCE['uri']:return self.tse_helix.resource()
+        if uri==TSE_TELEMETRY_RESOURCE['uri']:return self.tse_telemetry.resource()
+        if uri==TSE_POPULATION_RESOURCE['uri']:return self.tse_population.resource()
         if uri==COHESION_MESH_RESOURCE['uri']:return augment_cohesion_resource(self.cohesion.resource())
         if uri==IMPOSSIBLE_GODBOARD_RESOURCE['uri']:return self.godboard.resource()
         if uri==PARTY_COORDINATION_RESOURCE['uri']:return self.party.resource()
