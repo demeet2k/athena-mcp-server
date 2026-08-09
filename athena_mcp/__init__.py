@@ -56,10 +56,11 @@ from .collective_v15_install import install_release_v15 as _install_release_v15
 _install_release_v15(globals())
 del _install_release_v15
 
-# NEXT V1→V8 composes additively after the current Collective V15 / v3.4
-# registration spine. V7 observes delayed outcomes; V8 adds exact-matched
-# observational contrasts and benefit-prior candidates while preserving a hard
-# membrane against automatic economy mutation or causal-proof claims.
+# NEXT V1→V9 composes additively after Collective V15 / v3.4. V7 observes
+# delayed outcomes, V8 creates matched observational effect candidates, and V9
+# freezes disjoint discovery/validation cohorts before it may nominate a
+# reversible benefit-prior promotion candidate. None of these layers mutates the
+# live economy or inherits promotion/merge/release authority.
 from .next_quest_pipeline import install_next_pipeline_extension
 from .next_quest_pipeline_hardening import install_next_pipeline_successor_authority_hardening
 from .next_quest_pipeline_bridge import install_next_pipeline_bridge
@@ -73,6 +74,7 @@ from .next_scout_calibrated_economy import install_next_scout_calibrated_economy
 from .next_scout_outcome_value import install_next_scout_outcome_value_extension
 from .next_scout_outcome_value_hardening import install_next_scout_outcome_value_completion_ledger_hardening
 from .next_scout_counterfactual_credit import install_next_scout_counterfactual_credit_extension
+from .next_scout_causal_promotion import install_next_scout_causal_promotion_extension
 
 install_next_pipeline_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 install_next_pipeline_successor_authority_hardening()
@@ -87,6 +89,7 @@ install_next_scout_calibrated_economy_extension(PromptRuntime, PROMPT_RUNTIME_TO
 install_next_scout_outcome_value_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 install_next_scout_outcome_value_completion_ledger_hardening()
 install_next_scout_counterfactual_credit_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
+install_next_scout_causal_promotion_extension(PromptRuntime, PROMPT_RUNTIME_TOOLS, PROMPT_RUNTIME_TOOL_NAMES)
 
 for _tool in PROMPT_RUNTIME_TOOLS:
     if not any(existing["name"] == _tool["name"] for existing in _protocol.TOOLS):
