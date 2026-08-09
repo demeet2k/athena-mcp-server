@@ -30,24 +30,26 @@ from .tse_population import TsePopulationRuntime
 from .tse_population_protocol import TSE_POPULATION_RESOURCE,TSE_POPULATION_TOOLS,TSE_POPULATION_TOOL_NAMES
 from .tse_telemetry import TseHelixTelemetryRuntime
 from .tse_telemetry_protocol import TSE_TELEMETRY_RESOURCE,TSE_TELEMETRY_TOOLS,TSE_TELEMETRY_TOOL_NAMES
+from .tse_helix import TseHelixRuntime
+from .tse_helix_protocol import TSE_HELIX_RESOURCE,TSE_HELIX_TOOLS,TSE_HELIX_TOOL_NAMES
 
 AOR_COLLECTIVE_TRANSPORT_TOOLS=(
     list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(PARTY_CHANNEL_TOOLS)+
     list(PARTY_REWARD_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)+list(COHESION_MESH_TOOLS)+
-    list(DUPLICATE_GUARD_TOOLS)+list(TSE_POPULATION_TOOLS)+list(TSE_TELEMETRY_TOOLS)
+    list(DUPLICATE_GUARD_TOOLS)+list(TSE_POPULATION_TOOLS)+list(TSE_TELEMETRY_TOOLS)+list(TSE_HELIX_TOOLS)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCES=[
     TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE,COHESION_MESH_RESOURCE,
-    TSE_POPULATION_RESOURCE,TSE_TELEMETRY_RESOURCE
+    TSE_POPULATION_RESOURCE,TSE_TELEMETRY_RESOURCE,TSE_HELIX_RESOURCE
 ]
 AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=(
     set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(PARTY_CHANNEL_TOOL_NAMES)|
     set(PARTY_REWARD_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)|set(COHESION_MESH_TOOL_NAMES)|
-    set(DUPLICATE_GUARD_TOOL_NAMES)|set(TSE_POPULATION_TOOL_NAMES)|set(TSE_TELEMETRY_TOOL_NAMES)
+    set(DUPLICATE_GUARD_TOOL_NAMES)|set(TSE_POPULATION_TOOL_NAMES)|set(TSE_TELEMETRY_TOOL_NAMES)|set(TSE_HELIX_TOOL_NAMES)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={
     TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri'],
-    COHESION_MESH_RESOURCE['uri'],TSE_POPULATION_RESOURCE['uri'],TSE_TELEMETRY_RESOURCE['uri']
+    COHESION_MESH_RESOURCE['uri'],TSE_POPULATION_RESOURCE['uri'],TSE_TELEMETRY_RESOURCE['uri'],TSE_HELIX_RESOURCE['uri']
 }
 
 class AorCollectiveTransportSurface:
@@ -59,8 +61,39 @@ class AorCollectiveTransportSurface:
         self.cohesion=CohesionEvidenceGuardRuntime(server)
         self.tse_population=TsePopulationRuntime(self.cohesion)
         self.tse_telemetry=TseHelixTelemetryRuntime(server)
+        self.tse_helix=TseHelixRuntime(server,self.tse_population,self.tse_telemetry,self.cohesion)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        if name in TSE_HELIX_TOOL_NAMES:
+            h=self.tse_helix
+            if name=='athena_tse_helix_open':
+                return True,h.open(
+                    mission_id=args['mission_id'],hatch=args['hatch'],parent_agent_id=args['parent_agent_id'],
+                    capabilities=args['capabilities'],actor_id=args['actor_id'],witnesses=args['witnesses'],cost=args['cost'],
+                    targets=args.get('targets'),dependencies=args.get('dependencies'),role=args.get('role',''),
+                    needed_units=args.get('needed_units',1),constraints=args.get('constraints'),life_policy=args.get('life_policy'),
+                    clear_condition_digest=args.get('clear_condition_digest'),remote=args.get('remote','origin')
+                )
+            if name=='athena_tse_helix_advance':
+                return True,h.advance(
+                    mission_id=args['mission_id'],operation=args['operation'],route=args['route'],
+                    parent_event_id=args['parent_event_id'],actor_id=args['actor_id'],witnesses=args['witnesses'],cost=args['cost'],
+                    child_return=args.get('child_return'),min_score=args.get('min_score',0.0),limit=args.get('limit',10),
+                    remote=args.get('remote','origin'),shared_remote_mode=args.get('shared_remote_mode','REQUIRED')
+                )
+            if name=='athena_tse_helix_observe_consumption':
+                return True,h.observe_consumption(
+                    mission_id=args['mission_id'],route=args['route'],parent_event_id=args['parent_event_id'],
+                    actor_id=args['actor_id'],witnesses=args['witnesses'],cost=args['cost'],remote=args.get('remote','origin'),
+                    shared_remote_mode=args.get('shared_remote_mode','REQUIRED')
+                )
+            if name=='athena_tse_helix_reconcile':
+                return True,h.reconcile(
+                    mission_id=args['mission_id'],operation=args['operation'],route=args['route'],
+                    parent_event_id=args['parent_event_id'],actor_id=args['actor_id'],witnesses=args['witnesses'],cost=args['cost'],
+                    child_return=args.get('child_return'),min_score=args.get('min_score',0.0),limit=args.get('limit',10),
+                    remote=args.get('remote','origin'),shared_remote_mode=args.get('shared_remote_mode','REQUIRED')
+                )
         if name in TSE_TELEMETRY_TOOL_NAMES:
             t=self.tse_telemetry
             if name=='athena_tse_telemetry_record':
@@ -238,6 +271,7 @@ class AorCollectiveTransportSurface:
         return False,None
 
     def read_resource(self,uri:str):
+        if uri==TSE_HELIX_RESOURCE['uri']:return self.tse_helix.resource()
         if uri==TSE_TELEMETRY_RESOURCE['uri']:return self.tse_telemetry.resource()
         if uri==TSE_POPULATION_RESOURCE['uri']:return self.tse_population.resource()
         if uri==COHESION_MESH_RESOURCE['uri']:return augment_cohesion_resource(self.cohesion.resource())
