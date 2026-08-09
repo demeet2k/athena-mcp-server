@@ -65,7 +65,11 @@ V14 remains historical/currently callable science substrate; V15 does not silent
 
 ### SR — externally witnessed structural reliability
 
-`athena_structural_reliability_calibrate` fits a monotone isotonic mapping from bootstrap structural support to externally labelled correctness. Diagnostic predictions are out-of-fold.
+`athena_structural_reliability_calibrate` fits a weighted monotone isotonic mapping from bootstrap structural support to externally labelled correctness. Diagnostic predictions are out-of-fold.
+
+Identical support coordinates are aggregated before PAV; the final mapping uses an explicit right-continuous monotone step convention with endpoint extension.
+
+`IDENTICAL_CALIBRATION_COORDINATE != MULTIPLE_FITTED_VALUES`.
 
 `OUT_OF_FOLD_ISOTONIC_RELIABILITY != CAUSAL_GRAPH_POSTERIOR`.
 
@@ -73,9 +77,15 @@ V14 remains historical/currently callable science substrate; V15 does not silent
 
 Calibration never writes JSPACE.
 
-### XT — cross-fitted sequential TMLE
+### XT — history-safe cross-fitted sequential TMLE
 
 `athena_longitudinal_tmle_crossfit` is bounded to binary two-timepoint histories `X → A1 → L1 → A2 → Y`. Nuisance and targeting models are trained without each held-out evaluation fold.
+
+The stage-2 pseudo-outcome preserves each row's observed `A1,L1` while intervening only on `A2`; stage-1 intervention/evaluation occurs later.
+
+`STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION`.
+
+Named treatment/intermediate/outcome fields cannot be smuggled into baseline covariates, and baseline values must be finite.
 
 `CROSS_FITTED_TWO_TIMEPOINT_TMLE != GENERAL_LONGITUDINAL_TMLE_THEOREM`.
 
@@ -83,17 +93,35 @@ Calibration never writes JSPACE.
 
 Declared latent confounding fails closed.
 
-### XD — cross-fitted sequential DR policy value
+### XD — history-safe cross-fitted sequential DR policy value
 
-`athena_sequential_dr_policy_crossfit` evaluates deterministic two-timepoint policies with out-of-fold sequential AIPW scores while preserving observed `A1,L1` at stage 2 before stage-1 policy action.
+`athena_sequential_dr_policy_crossfit` evaluates deterministic two-timepoint policies with out-of-fold sequential AIPW scores.
+
+Decision-time information sets are explicit:
+
+`A1_POLICY_FEATURES = baseline`
+
+`A2_POLICY_FEATURES = baseline + {A1,L1}`.
+
+A stage-1 policy therefore cannot read `L1`, `A2`, or `Y`; a stage-2 policy cannot read `A2` or `Y`.
+
+`DECISION_TIME_HISTORY != FULL_ROW_STATE`.
+
+`A1_POLICY_USES_BASELINE_ONLY__A2_POLICY_USES_BASELINE_A1_L1_ONLY`.
 
 `CROSS_FITTED_SEQUENTIAL_DR != GENERAL_OFF_POLICY_CAUSAL_VALUE`.
 
 Policy value remains PLAN_ONLY.
 
-### CJ — continuous Gaussian joint belief/control
+### CJ — strict continuous Gaussian joint belief/control
 
 `athena_joint_gaussian_update` implements the exact finite-dimensional update for `X~N(mu,Sigma)` and a declared linear Gaussian observation `y=h^T X+epsilon`.
+
+Unknown observation/action coefficient keys are rejected rather than silently projected to zero; means, covariances and control parameters must be finite.
+
+`UNKNOWN_COEFFICIENT != ZERO_COEFFICIENT`.
+
+`NONFINITE_NUMERIC_STATE != MODEL_COORDINATE`.
 
 `LINEAR_GAUSSIAN_UPDATE != GENERAL_CONTINUOUS_JOINT_BAYES`.
 
@@ -101,21 +129,41 @@ Policy value remains PLAN_ONLY.
 
 `GAUSSIAN_LINEAR_CONTROL != GENERAL_BELIEF_MDP`.
 
-### AT — approximation-error transport
+### AT — local/global approximation-error transport
 
-`athena_approx_error_transport` validates a caller-declared Lipschitz error envelope against supplied witness pairs and transports the conditional bound to explicit query coordinates:
+`athena_approx_error_transport` validates a caller-declared Lipschitz error envelope against supplied witness pairs.
 
-`e(x) <= min_i [e_i + L ||x-x_i||]`.
+The unrestricted mathematical envelope remains:
+
+`e_global(x) <= min_i [e_i + L ||x-x_i||]`.
+
+But V15 keeps three coordinates distinct:
+
+- geometrically nearest witness;
+- tightest global envelope witness;
+- tightest radius-eligible local transport witness when a radius is declared.
+
+A local radius certificate uses only eligible witnesses; the unrestricted global envelope is reported separately.
+
+`GEOMETRIC_NEAREST_WITNESS != TIGHTEST_ERROR_ENVELOPE_WITNESS`.
+
+`GLOBAL_ENVELOPE != RADIUS_ELIGIBLE_LOCAL_CERTIFICATE`.
 
 `DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH`.
 
 `TRANSPORT_CERTIFICATE_CONDITIONAL_ON_LIPSCHITZ_BOUND`.
 
-### MD — finite-horizon rectangular TV-DRO
+### MD — strict finite-horizon rectangular TV-DRO
 
 `athena_multistage_tv_dro_plan` solves exact backward induction for supplied finite states/actions and state-action rectangular total-variation ambiguity:
 
 `V_t(s)=max_a[r(s,a)+gamma min_{q:TV(q,p_sa)<=rho} q^T V_{t+1}]`.
+
+State/action identities, rewards and transitions must be finite and declared. Unknown successor/state coordinates fail closed instead of being ignored.
+
+`UNKNOWN_STATE_COORDINATE != UNUSED_METADATA`.
+
+`NONFINITE_TRANSITION != PROBABILITY_MODEL`.
 
 Certificate:
 
@@ -126,6 +174,24 @@ Certificate:
 Resource: `athena://collective/v15`.
 
 Specs: `spec/COLLECTIVE_RUNTIME_V15.md`, `spec/ATHENA_UNIFIED_V15.md`, `spec/ARCHITECTURE_V15.md`, `spec/MIGRATION_V15.md`.
+
+## V15 release-overlay holonomy
+
+Ω15 discovered that one semantic runtime coordinate can exist as multiple import-time Python projections: module attributes, values/functions imported by value, copied resource lists, and derived URI sets.
+
+The V15 overlay therefore synchronizes initialize/HTTP server identity, manifest builders, MAXDEV fallback, integrity resources, and final AOR development resources explicitly.
+
+`RELEASE_ATTRIBUTE_UPDATE != IMPORTED_VALUE_SNAPSHOT_UPDATE`.
+
+`MODULE_ATTRIBUTE_ADVANCE != IMPORTED_FUNCTION_SNAPSHOT_ADVANCE`.
+
+`SOURCE_RESOURCE_ADVANCE != COPIED_RESOURCE_REGISTRY_ADVANCE`.
+
+Tool manifest, `athena://runtime/unified-manifest`, and `athena://manifest` are regression-tested as one current release coordinate.
+
+Release critical selectors are also checked against real repository test files:
+
+`ZERO_TEST_SELECTION != PROOF`.
 
 ## Deployment.2 braid
 
@@ -155,13 +221,13 @@ V3.2 and V3.3 manifests/notes/frozen regressions remain historical evidence for 
 
 `OLD_RELEASE_RECEIPT != NEW_RELEASE_EVIDENCE`.
 
-`HISTORICAL_RELEASE_RECIPE != CURRENT_EXECUTABLE_PUBLISHER`.
+`HISTORICAL_PUBLICATION_AUTHORITY != CURRENT_RELEASE_IDENTITY`.
 
 Release qualification:
 
 `syntax ∧ unit ∧ critical-invariants ∧ smoke → promotion-qualification → package-readiness`.
 
-A distribution receipt certifies exact repository/package/distribution state. It is not empirical truth, causal proof, treatment authorization, production deployment, Y1 authority or GitHub administrative hardening.
+The V3.4 critical lane explicitly executes hardened V15 calibration geometry, adversarial input/temporal/numeric membranes, surface holonomy, Deployment.2 composition and trust boundaries. A distribution receipt certifies exact repository/package/distribution state. It is not empirical truth, causal proof, treatment authorization, production deployment, Y1 authority or GitHub administrative hardening.
 
 ## Historical architecture
 
