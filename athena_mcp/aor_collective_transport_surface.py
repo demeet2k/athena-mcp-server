@@ -26,23 +26,26 @@ from .cohesion_mesh_protocol import (
 )
 from .cohesion_duplicate_guard import augment_cohesion_resource,duplicate_guard
 from .cohesion_duplicate_guard_protocol import DUPLICATE_GUARD_TOOLS,DUPLICATE_GUARD_TOOL_NAMES
+from .tse_population import TsePopulationRuntime
+from .tse_population_protocol import TSE_POPULATION_RESOURCE,TSE_POPULATION_TOOLS,TSE_POPULATION_TOOL_NAMES
 
 AOR_COLLECTIVE_TRANSPORT_TOOLS=(
     list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(PARTY_CHANNEL_TOOLS)+
     list(PARTY_REWARD_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)+list(COHESION_MESH_TOOLS)+
-    list(DUPLICATE_GUARD_TOOLS)
+    list(DUPLICATE_GUARD_TOOLS)+list(TSE_POPULATION_TOOLS)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCES=[
-    TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE,COHESION_MESH_RESOURCE
+    TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE,COHESION_MESH_RESOURCE,
+    TSE_POPULATION_RESOURCE
 ]
 AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=(
     set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(PARTY_CHANNEL_TOOL_NAMES)|
     set(PARTY_REWARD_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)|set(COHESION_MESH_TOOL_NAMES)|
-    set(DUPLICATE_GUARD_TOOL_NAMES)
+    set(DUPLICATE_GUARD_TOOL_NAMES)|set(TSE_POPULATION_TOOL_NAMES)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={
     TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri'],
-    COHESION_MESH_RESOURCE['uri']
+    COHESION_MESH_RESOURCE['uri'],TSE_POPULATION_RESOURCE['uri']
 }
 
 class AorCollectiveTransportSurface:
@@ -52,8 +55,35 @@ class AorCollectiveTransportSurface:
         self.party=PartyCoordinationRuntimeV32(server)
         self.godboard=ImpossibleGodboardRuntime(server)
         self.cohesion=CohesionEvidenceGuardRuntime(server)
+        self.tse_population=TsePopulationRuntime(self.cohesion)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        if name in TSE_POPULATION_TOOL_NAMES:
+            t=self.tse_population
+            if name=='athena_tse_population_plan':
+                return True,t.plan(
+                    args['hatch'],args['parent_agent_id'],args['capabilities'],args.get('targets'),
+                    args.get('dependencies'),args.get('role',''),args.get('needed_units',1),
+                    args.get('constraints'),args.get('life_policy'),args.get('clear_condition_digest')
+                )
+            if name=='athena_tse_population_publish':
+                return True,t.publish(args['route'],args.get('remote','origin'))
+            if name=='athena_tse_population_match':
+                return True,t.match(
+                    args['route'],args.get('min_score',0.0),args.get('limit',10),args.get('remote','origin'),
+                    args.get('shared_remote_mode','REQUIRED')
+                )
+            if name=='athena_tse_population_handoff':
+                return True,t.handoff(args['route'],args.get('remote','origin'))
+            if name=='athena_tse_population_claim_state':
+                return True,t.claim_state(
+                    args['route'],args.get('remote','origin'),args.get('shared_remote_mode','REQUIRED')
+                )
+            if name=='athena_tse_population_return_check':
+                return True,t.return_check(
+                    args['route'],args['child_return'],args.get('remote','origin'),
+                    args.get('shared_remote_mode','REQUIRED')
+                )
         if name in DUPLICATE_GUARD_TOOL_NAMES:
             return True,duplicate_guard(
                 self.cohesion,
@@ -189,6 +219,7 @@ class AorCollectiveTransportSurface:
         return False,None
 
     def read_resource(self,uri:str):
+        if uri==TSE_POPULATION_RESOURCE['uri']:return self.tse_population.resource()
         if uri==COHESION_MESH_RESOURCE['uri']:return augment_cohesion_resource(self.cohesion.resource())
         if uri==IMPOSSIBLE_GODBOARD_RESOURCE['uri']:return self.godboard.resource()
         if uri==PARTY_COORDINATION_RESOURCE['uri']:return self.party.resource()
