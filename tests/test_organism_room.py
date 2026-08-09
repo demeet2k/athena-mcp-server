@@ -149,6 +149,14 @@ class RoomE2ETests(unittest.TestCase):
         signed_out = room.sign_out(agent_id="a", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], idempotency_key="out-a-01234567890")
         self.assertEqual(signed_out["status"], "SIGNED_OUT")
         self.assertEqual(room.read()["board"]["active"], [])
+        successor_id = completed["successor"]["quest_id"]
+        consumed = self._enter(room, roots[0], "b", successor_id)
+        self.assertEqual(consumed["status"], "ENTERED")
+        observed = room.read()
+        self.assertEqual(observed["metrics"]["successors_created"], 1)
+        self.assertEqual(observed["metrics"]["successors_consumed"], 1)
+        self.assertEqual(observed["metrics"]["successor_consumption_rate"], 1.0)
+        self.assertEqual(observed["metrics"]["standing"], "OBSERVATIONAL_PROJECTION_NOT_CAUSAL_EFFECT")
 
     def test_claimant_self_hash_is_not_completion_authority(self):
         rooms, roots = self._rooms()
