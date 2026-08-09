@@ -203,7 +203,6 @@ class AorCollectiveTransportSurface:
                 'AOR chooses WHAT is developmentally eligible; Collective chooses HOW capacity is assigned',
                 'observed RGO != automatic DeltaJ/evidence; same outcome must not be double counted',
                 'AOR bridge score != Collective bridge economics',
-                'antibody match != Collective bridge economics',
                 'antibody match != verified repair success; repair remains an UNMEASURED candidate until tested',
             ],
         }
