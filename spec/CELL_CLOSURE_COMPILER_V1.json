@@ -1,0 +1,58 @@
+{
+  "artifact": "ATHENA.CELL.CLOSURE.COMPILER.V1",
+  "parent_h6_candidate": "7e09c83a6e93ba0a604c19b8c5a195293a7112c8",
+  "role": "read-only evidence-conservative compiler from frozen KC144 seats plus explicit witnesses to per-seat closure packets",
+  "active_epoch": "EPOCH-B-EIGHT-BLOCK",
+  "seat_count": 144,
+  "closure_dimensions": [
+    "CONSTITUTION",
+    "REGISTRY",
+    "POPULATION",
+    "EXECUTION",
+    "EVIDENCE",
+    "RETURN"
+  ],
+  "population_admission": {
+    "required_authority": "CONSTITUTIONAL_SEAT",
+    "evidence_refs_required": true,
+    "projection_only_is_population": false,
+    "hash_kc144_gid_is_population": false
+  },
+  "packet_states": [
+    "CLOSED",
+    "HOLD",
+    "OPEN_TYPED",
+    "DORMANT_TYPED",
+    "SUPERSEDED",
+    "NOT_APPLICABLE"
+  ],
+  "first_census": {
+    "mode": "STRUCTURAL_EMPTY_STORE",
+    "purpose": "prove constitution/registry coverage and anti-filler behavior before global source population",
+    "expected": {
+      "constitution_closed": 144,
+      "registry_closed": 144,
+      "population_unknown": 144,
+      "execution_unknown": 144,
+      "return_unknown": 144,
+      "known_f37_evidence_holds": 4,
+      "false_closed_seats": 0
+    },
+    "ceiling": "EMPTY_RUNTIME_DB != GLOBAL_PROJECT_SEARCH"
+  },
+  "known_constitutional_obligations": {
+    "GID073_F30": "GRADED_MEMORY_PARTIAL_EXACTIFICATION",
+    "GID077_F34": "MOTIVIC_COMPARISON_DEBT",
+    "GID078_F35": "HIGHER_COHERENCE_COMPOSITION_WITNESS",
+    "GID079_F36": "DERIVED_SINGULARITY_AND_EMPIRICAL_CLOSURE"
+  },
+  "firewalls": [
+    "PROJECTION_ONLY != CONSTITUTIONAL_POPULATION",
+    "CONSTITUTION_CLOSED != POPULATION_CLOSED",
+    "UNKNOWN_POPULATION != MISSING_POPULATION",
+    "MECHANISM_EVIDENCE != BEHAVIORAL_OR_EMPIRICAL_CERTIFICATION",
+    "ONE_CLOSED_SEAT != NEIGHBOR_CLOSURE",
+    "ZERO_UNTYPED_EMPTY_SEATS",
+    "EVERY_OPEN_SEAT_HAS_NEXT_REQUIRED_WITNESS"
+  ]
+}
