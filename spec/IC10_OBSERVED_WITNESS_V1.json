@@ -1,0 +1,44 @@
+{
+  "artifact": "ATHENA.IC10.OBSERVED.WITNESS.V1",
+  "role": "provider-executed observed I01-I09 witness cartridge over real repository/runtime primitives, leaving I10 explicitly unbound to external promotion authority",
+  "parent_ic10_head": "c790f34e22da3eabe8196588e0132c2505e144f3",
+  "new_stores": 0,
+  "provider_calls_from_cartridge": 0,
+  "promotion_persistence": false,
+  "promotion_authority": false,
+  "target": {
+    "spec_path": "spec/IC10_COMPILER_V1.json",
+    "runtime_path": "athena_mcp/ic10_runtime.py",
+    "h6_path": "athena_mcp/h6_root.py"
+  },
+  "observed_gate_sources": {
+    "I01": "H6RootRuntime.identity_decide over a crystallized exact repository target",
+    "I02": "actual JSON parse/canonicalization + exact required repository dependency refs",
+    "I03": "actual Python AST parse + target carrier/type classification; units explicitly NOT_APPLICABLE",
+    "I04": "actual H6 bridge admission + H6 evidence sufficiency under the declared mechanism scope/corridor",
+    "I05": "actual H6 BridgeDecision preserved-invariant vector with no observed violations",
+    "I06": "actual H6 EvidenceDecision with explicit evidence floor and non-promoting authority",
+    "I07": "exact Git HEAD/blob refs + existence/import closure + deterministic H6 QueryBundle replay prerequisites",
+    "I08": "actual H6 BridgeDecision with reverse transform and zero missing obligations/defects",
+    "I09": "two deterministic H6 compile_query executions from frozen inputs + no IC10 event mutation",
+    "I10": "INTENTIONALLY_UNBOUND; must remain the first HOLD until an independently existing exact-head PROMOTION.2 certificate is supplied"
+  },
+  "success_condition": {
+    "I01_through_I09": "PASS",
+    "I10": "HOLD",
+    "decision": "IC10_HOLD",
+    "first_hold": "I10_EXISTING_PROMOTION_QUALIFICATION",
+    "promotion_authority": false,
+    "mutation": false
+  },
+  "firewalls": [
+    "OBSERVED_I01_I09 != FULL_IC10_PROMOTION",
+    "PROVIDER_EXECUTED_CARTRIDGE != TRUSTED_PROMOTION_VERIFIER",
+    "I10_MUST_CONSUME_EXISTING_PROMOTION_AUTHORITY_ONLY",
+    "REPOSITORY_SOURCE_REF != INDEPENDENT_EMPIRICAL_EVIDENCE",
+    "H6_QUERY_REPLAY_MATCH != EXTERNAL_REVERIFICATION",
+    "BRIDGE_ADMISSION != CLAIM_TRUTH",
+    "EVIDENCE_SUFFICIENT_FOR_MECHANISM_SCOPE != GLOBAL_TRUTH",
+    "IC10_OBSERVED_WITNESS != CANONICAL_EMISSION_AUTHORITY"
+  ]
+}
