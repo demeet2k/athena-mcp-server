@@ -17,19 +17,19 @@
     "SIGN_OUT"
   ],
   "waves": {
-    "IMMEDIATE": 60,
+    "IMMEDIATE": 50,
     "MIDDLE": 30,
-    "RECURSIVE_META": 10
+    "RECURSIVE_META": 20
   },
   "population_targets": {
-    "BUILD_GIT": 60,
+    "BUILD_GIT": 20,
     "INTEGRATE_META": 10,
-    "NAVIGATION": 5,
-    "TOOLS_ALCHEMY": 5,
-    "DRIVE_DISTILL": 5,
-    "MATH_MINE": 5,
+    "NAVIGATION": 15,
+    "TOOL_LIMITS": 10,
+    "ALCHEMY": 10,
+    "DRIVE_DISTILL": 15,
+    "MATH_MINE": 15,
     "MYTH_MINE": 5,
-    "PHYSICAL_LIMITS": 5,
     "small_population_rule": "N<=3 uses builder-generalists that time-slice all three waves",
     "empty_queue_rule": "idle lanes lend capacity; quotas never manufacture busywork"
   },
@@ -39,6 +39,7 @@
     "OLD_SESSION_TOKEN_CANNOT_MUTATE_RECLAIMED_WORK",
     "SERVER_TIME_ALONE_AUTHORIZES_LEASES",
     "SAME_IDEMPOTENCY_KEY_DIFFERENT_COMMAND_IS_CONFLICT",
+    "BEARER_SESSION_TOKEN_IS_NEVER_PERSISTED_IN_GIT",
     "CLAIMANT_SELF_HASH_IS_NOT_VERIFICATION",
     "RECEIPT_BINDS_QUEST_ATTEMPT_SESSION_FENCE_HEAD_PROMPT_ARTIFACTS_AND_RESULT",
     "CLEAN_SIGN_OUT_REQUIRES_CLOSED_CLAIM",
