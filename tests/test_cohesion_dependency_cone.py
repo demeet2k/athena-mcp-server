@@ -97,19 +97,21 @@ class CohesionDependencyConeTests(unittest.TestCase):
         row=result["transitively_affected"][0]; self.assertIn("DEPENDENCY_REF:dep:artifact",row["reason_codes"]); self.assertIn("RECHECK_DEPENDENCY",row["required_actions"])
 
     def test_provider_change_propagates_only_through_explicit_provides_consumes_edge(self):
-        self.present("provider","provide artifact",work_key="WK:PROVIDER"); self.present("consumer","consume artifact",work_key="WK:CONSUMER"); self.present("unrelated","other work",work_key="WK:OTHER")
-        self.offer("offer-1","provider","dep:artifact"); self.need("need-1","consumer","dep:artifact"); result=self.cone({"kind":"CLAIM","agent_id":"provider"})
+        provider=self.present("provider","provide artifact",work_key="WK:PROVIDER"); self.present("consumer","consume artifact",work_key="WK:CONSUMER"); self.present("unrelated","other work",work_key="WK:OTHER")
+        self.offer("offer-1","provider","dep:artifact"); self.need("need-1","consumer","dep:artifact")
+        result=self.cone({"kind":"CLAIM","claim_id":provider["presence"]["claim_id"],"agent_id":"provider"})
         self.assertEqual(self.affected_ids(result),{"provider","consumer"},result); consumer=next(row for row in result["transitively_affected"] if row["agent_id"]=="consumer")
         flattened=[rel for path in consumer["propagation_paths"] for rel in path["relations"]]; self.assertIn("PROVIDES_REF",flattened); self.assertIn("DEPENDENCY_REF",flattened)
         self.assertIn("unrelated",{row["agent_id"] for row in result["unaffected_observed_lanes"]})
 
     def _form_party(self):
-        self.present("leader","lead work",work_key="WK:LEAD"); self.present("member","member work",work_key="WK:MEMBER")
+        leader=self.present("leader","lead work",work_key="WK:LEAD"); self.present("member","member work",work_key="WK:MEMBER")
         formed=self.party.form("party-1","leader",[{"goal_id":"goal:lead","required_capabilities":[]},{"goal_id":"goal:member","required_capabilities":[]}],["goal:lead"],purpose="test party"); self.assertTrue(formed.get("durable_return"),formed)
         joined=self.party.join("party-1","member",["goal:member"],"INDEPENDENT"); self.assertTrue(joined.get("durable_return"),joined)
+        return leader
 
     def test_party_membership_alone_does_not_fan_out_but_explicit_goal_does(self):
-        self._form_party(); claim_change=self.cone({"kind":"CLAIM","agent_id":"leader"}); self.assertEqual(self.affected_ids(claim_change),{"leader"},claim_change)
+        leader=self._form_party(); claim_change=self.cone({"kind":"CLAIM","claim_id":leader["presence"]["claim_id"],"agent_id":"leader"}); self.assertEqual(self.affected_ids(claim_change),{"leader"},claim_change)
         self.assertFalse(claim_change["parties"][0]["other_members_auto_invalidated"])
         goal_change=self.cone({"kind":"COHESION_ENTRY","goal_ref":"goal:member"}); self.assertEqual(self.affected_ids(goal_change),{"member"},goal_change)
         member=goal_change["directly_affected"][0]; self.assertIn("PARTY_GOAL_REF",member["reason_codes"]); self.assertIn("RECHECK_PARTY",member["required_actions"])
