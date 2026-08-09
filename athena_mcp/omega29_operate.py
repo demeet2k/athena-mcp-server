@@ -50,6 +50,10 @@ def _bool(value: Any, name: str) -> bool:
     if type(value) is not bool: raise OperateRejected(f"{name} must be a boolean")
     return value
 
+def _zero(value: Any, name: str) -> int:
+    if type(value) is not int or value != 0: raise OperateRejected(f"{name} must be exact integer zero")
+    return value
+
 def _sha(value: Any, name: str) -> str:
     value = _str(value, name)
     if not SHA256.fullmatch(value): raise OperateRejected(f"{name} must be a lowercase SHA-256")
@@ -86,7 +90,8 @@ def validate_source_binding(value: Any) -> dict[str, Any]:
     runtime = _source(body["runtime"], "source_binding.runtime", "demeet2k/athena-mcp-server", "master")
     _sha(body["prompt_stack_digest"], "source_binding.prompt_stack_digest"); _sha(body["source_snapshot_digest"], "source_binding.source_snapshot_digest")
     if body["standing"] != "EXACT_EXTERNAL_READBACK_INPUT_UNVERIFIED_BY_REDUCER": raise OperateRejected("source binding standing changed")
-    if (body["authority"],body["admission"],body["promotion"],body["external_effects"]) != ("NONE","UNADMITTED","HOLD",0): raise OperateRejected("source binding expanded claim standing")
+    if (body["authority"],body["admission"],body["promotion"]) != ("NONE","UNADMITTED","HOLD"): raise OperateRejected("source binding expanded claim standing")
+    _zero(body["external_effects"], "source_binding.external_effects")
     if binding["binding_digest"] != digest(body): raise OperateRejected("source binding digest mismatch")
     return {**body, "athena": athena, "runtime": runtime, "binding_digest": binding["binding_digest"]}
 
@@ -99,7 +104,8 @@ def validate_runtime_context(value: Any, *, source_binding: dict[str, Any]) -> d
     if body["clock_domain"] != "UTC_UNIX_SECONDS": raise OperateRejected("runtime context clock domain is unsupported")
     if body["source_binding_digest"] != source_binding["binding_digest"]: raise OperateRejected("runtime context source binding mismatch")
     if body["standing"] != "CALLER_SUPPLIED_RUNTIME_OBSERVATION_UNVERIFIED_BY_REDUCER": raise OperateRejected("runtime context standing changed")
-    if (body["authority"],body["admission"],body["promotion"],body["external_effects"]) != ("NONE","UNADMITTED","HOLD",0): raise OperateRejected("runtime context expanded claim standing")
+    if (body["authority"],body["admission"],body["promotion"]) != ("NONE","UNADMITTED","HOLD"): raise OperateRejected("runtime context expanded claim standing")
+    _zero(body["external_effects"], "runtime_context.external_effects")
     if context["context_digest"] != digest(body): raise OperateRejected("runtime context digest mismatch")
     return {**body, "context_digest": context["context_digest"]}
 
