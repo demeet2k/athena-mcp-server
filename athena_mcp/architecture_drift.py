@@ -1,0 +1,135 @@
+from __future__ import annotations
+
+from typing import Any, Iterable, Mapping, Sequence
+
+ORGAN_INVENTORY_VERSION = "ATHENA.ORGAN.INVENTORY.1"
+ARCHITECTURE_DRIFT_VERSION = "ATHENA.ARCHITECTURE.DRIFT.1"
+
+# Explicit mature-organ registry. Maturity is never inferred from file existence.
+# Helpers, experiments and historical compatibility modules remain outside the
+# promotion contract until an explicit descriptor is added here.
+MATURE_ORGANS: tuple[dict[str, Any], ...] = (
+    {
+        "id":"MESSAGE_BOARD_V1","version":"ATHENA.MESSAGE.BOARD.V1",
+        "integration_class":"PROMPT_RUNTIME_PUBLIC","authority_plane":"COORDINATION_PRESENCE_CLAIM_MESSAGE",
+        "manifest_layer":"MESSAGE_BOARD_V1","omega_key":"coordination",
+        "tools":["athena_message_board"],"resources":[],
+        "critical_tests":["tests/test_message_board.py","tests/test_message_board_registration.py","tests/test_agent_bootstrap_message_board.py"],
+        "spec_refs":["spec/AGENT_BOOT_MESSAGE_BOARD_V1.json"],
+        "source_refs":["athena_mcp/message_board.py","athena_mcp/agent_bootstrap_message_board.py","athena_mcp/agent_bootstrap_message_board_activation.py"],
+        "laws":["MESSAGE_BOARD = SOLE_PRESENCE_CLAIM_MESSAGE_AUTHORITY","MESSAGE_BOARD != Y1_CANONICAL_SEMANTIC_AUTHORITY","BOARD_STATE != EXECUTION_AUTHORITY != WORLD_TRUTH"],
+    },
+    {
+        "id":"COHESION_MESH_V1","version":"COHESION.MESH.MATCHMAKING.1",
+        "integration_class":"PUBLIC_GIT_BACKED_LAZY","authority_plane":"ADVISORY_COORDINATION",
+        "manifest_layer":"COHESION_MESH_V1","omega_key":"coordination",
+        "tools":["athena_cohesion_request_offer","athena_cohesion_matchmake","athena_cohesion_coalition","athena_cohesion_solo_party_compare"],
+        "resources":["athena://cohesion/v1"],"critical_tests":["tests/test_cohesion_matchmaking.py"],"spec_refs":[],
+        "source_refs":["athena_mcp/cohesion_mesh.py","athena_mcp/cohesion_matchmaking.py","athena_mcp/cohesion_mesh_protocol.py"],
+        "laws":["COHESION != CLAIM_AUTHORITY","COHESION != ASSIGNMENT_AUTHORITY","COHESION != EXECUTION_AUTHORITY"],
+    },
+    {
+        "id":"COHESION_DUPLICATE_GUARD_V1","version":"COHESION.DUPLICATE.GUARD.1",
+        "integration_class":"PUBLIC_READ_ONLY_MEMBRANE","authority_plane":"READ_ONLY_STEERING",
+        "manifest_layer":"COHESION_DUPLICATE_GUARD_V1","omega_key":"coordination",
+        "tools":["athena_cohesion_duplicate_guard"],"resources":[],"critical_tests":["tests/test_cohesion_duplicate_guard.py"],
+        "spec_refs":["spec/COHESION_DUPLICATE_GUARD_V1.json"],"source_refs":["athena_mcp/cohesion_duplicate_guard.py","athena_mcp/cohesion_duplicate_guard_protocol.py"],
+        "laws":["DUPLICATE_GUARD != CLAIM_MUTATION","FUZZY_SIMILARITY != DUPLICATE_PROOF","TREATMENT_OPTION != TREATMENT_EXECUTION"],
+    },
+    {
+        "id":"COHESION_EVIDENCE_GUARD_V1","version":"ATHENA.COHESION.EVIDENCE.GUARD.V1",
+        "integration_class":"INTERNAL_FAIL_CLOSED_MEMBRANE","authority_plane":"EVIDENCE_COVERAGE_ONLY",
+        "manifest_layer":"COHESION_EVIDENCE_GUARD_V1","omega_key":"coordination",
+        "tools":[],"resources":[],"critical_tests":["tests/test_cohesion_evidence_guard.py"],"spec_refs":[],
+        "source_refs":["athena_mcp/cohesion_evidence_guard.py"],
+        "laws":["PARTIAL_MATCHED_SUBSET_OR_REUSED_EVIDENCE != SUFFICIENT_COMPARATIVE_EVIDENCE","CAUSAL_EFFECT = UNKNOWN","PROMOTION_AUTHORITY = FALSE"],
+    },
+    {
+        "id":"AGENT_BOOT_COHESION_TREATMENT_V1","version":"ATHENA.AGENT.BOOT.COHESION.TREATMENT.V1",
+        "integration_class":"BOOTSTRAP_ONLY_READ_ONLY_PROJECTION","authority_plane":"BOOTSTRAP_STEERING",
+        "manifest_layer":"AGENT_BOOT_COHESION_TREATMENT_V1","omega_key":"coordination",
+        "tools":[],"resources":[],"critical_tests":["tests/test_agent_bootstrap_cohesion_treatment.py"],
+        "spec_refs":["spec/AGENT_BOOT_COHESION_TREATMENT_V1.json"],"source_refs":["athena_mcp/agent_bootstrap_cohesion_treatment.py"],
+        "laws":["BOOT_HOLD != TREATMENT_EXECUTION","TREATMENT_PROJECTION != CLAIM_MUTATION","COHESION_GUARD = READ_ONLY_STEERING"],
+    },
+    {
+        "id":"PARTY_COORDINATION_V1","version":"ATHENA.PARTY.COORDINATION.V1",
+        "integration_class":"PUBLIC_GIT_BACKED_COORDINATION","authority_plane":"PARTY_STATE_AND_REWARD_CANDIDATE",
+        "manifest_layer":"PARTY_COORDINATION_V1","omega_key":"coordination",
+        "tools":["athena_party_form","athena_party_join","athena_party_state","athena_party_list","athena_party_observe"],
+        "resources":["athena://party-coordination/v1"],"critical_tests":["tests/test_party_coordination.py"],"spec_refs":[],
+        "source_refs":["athena_mcp/party_coordination.py","athena_mcp/party_coordination_protocol.py"],
+        "laws":["PARTY_COORDINATION != GLOBAL_XP_AUTHORITY","PARTY_OBSERVATION != RESULT_TRUTH","PARTY_STATE_USES_MESSAGE_BOARD_FRONTIER"],
+    },
+    {
+        "id":"PARTY_CHANNEL_V2","version":"ATHENA.PARTY.CHANNEL.V2",
+        "integration_class":"PUBLIC_MESSAGE_BOARD_TRANSPORT","authority_plane":"PARTY_SCOPED_COMMUNICATION",
+        "manifest_layer":"PARTY_CHANNEL_V2","omega_key":"coordination",
+        "tools":["athena_party_message"],"resources":[],"critical_tests":["tests/test_party_coordination.py"],"spec_refs":[],
+        "source_refs":["athena_mcp/party_coordination_v2.py","athena_mcp/party_coordination_v2_protocol.py"],
+        "laws":["PARTY_CHANNEL_TRANSPORT = MESSAGE_BOARD_V1","MESSAGE_POST != XP_AWARD","ACK != RESULT_TRUTH"],
+    },
+    {
+        "id":"PARTY_REWARD_PROVENANCE_V3","version":"PARTY.REWARD.PROVENANCE.3",
+        "integration_class":"PUBLIC_PROVENANCE_MEMBRANE","authority_plane":"PARTY_REWARD_PROVENANCE_ONLY",
+        "manifest_layer":"PARTY_REWARD_PROVENANCE_V3","omega_key":"coordination",
+        "tools":["athena_party_result"],"resources":[],"critical_tests":["tests/test_party_reward_provenance.py"],"spec_refs":[],
+        "source_refs":["athena_mcp/party_coordination_v3.py","athena_mcp/party_coordination_v3_protocol.py"],
+        "laws":["PARTY_RESULT != RESULT_TRUTH","PARTY_RESULT != GLOBAL_XP_AUTHORITY","SOURCE_XP_REUSE != NEW_REWARD","ROOT_WORK_DIVERSITY_REQUIRED"],
+    },
+)
+
+
+def _set(values: Iterable[str] | None) -> set[str]:
+    return {str(value) for value in (values or []) if str(value)}
+
+
+def inventory_manifest() -> dict[str, Any]:
+    return {
+        "version": ORGAN_INVENTORY_VERSION,
+        "organs": [dict(organ) for organ in MATURE_ORGANS],
+        "law":"maturity is explicit, never inferred from file existence; each mature organ declares runtime class, authority plane, public surfaces, manifest coordinate, OMEGA coordinate and critical witnesses",
+    }
+
+
+def audit_architecture(
+    *,observed_tools:Iterable[str],observed_resources:Iterable[str],manifest_layers:Iterable[str],
+    surface_required_tools:Iterable[str],surface_required_resources:Iterable[str],omega_components:Iterable[str],
+    ci_text:str="",available_paths:Iterable[str]|None=None,organs:Sequence[Mapping[str,Any]]=MATURE_ORGANS,
+    classified_tool_baseline:Iterable[str]|None=None,classified_resource_baseline:Iterable[str]|None=None,
+)->dict[str,Any]:
+    tools=_set(observed_tools);resources=_set(observed_resources);layers=_set(manifest_layers)
+    surface_tools=_set(surface_required_tools);surface_resources=_set(surface_required_resources);omega=_set(omega_components)
+    paths=_set(available_paths);ci=str(ci_text or "");rows=[];defects=[]
+    declared_tools=set();declared_resources=set()
+    for raw in organs:
+        organ=dict(raw);oid=str(organ["id"]);required_tools=_set(organ.get("tools"));required_resources=_set(organ.get("resources"))
+        declared_tools|=required_tools;declared_resources|=required_resources
+        required_tests=[str(path) for path in organ.get("critical_tests") or []]
+        required_paths=[str(path) for path in (organ.get("source_refs") or [])+(organ.get("spec_refs") or [])]
+        organ_defects=[]
+        checks=(
+            ("RUNTIME_TOOL_MISSING",sorted(required_tools-tools)),("RUNTIME_RESOURCE_MISSING",sorted(required_resources-resources)),
+            ("SURFACE_TOOL_MISSING",sorted(required_tools-surface_tools)),("SURFACE_RESOURCE_MISSING",sorted(required_resources-surface_resources)),
+            ("CRITICAL_WITNESS_MISSING",sorted(path for path in required_tests if ci and path not in ci)),
+            ("SOURCE_OR_SPEC_MISSING",sorted(path for path in required_paths if paths and path not in paths)),
+        )
+        for kind,values in checks:
+            if values:organ_defects.append({"kind":kind,"values":values})
+        if str(organ.get("manifest_layer")) not in layers:organ_defects.append({"kind":"MANIFEST_LAYER_MISSING","values":[organ.get("manifest_layer")]})
+        if str(organ.get("omega_key")) not in omega:organ_defects.append({"kind":"OMEGA_COORDINATE_MISSING","values":[organ.get("omega_key")]})
+        status="PASS" if not organ_defects else "DRIFT"
+        rows.append({"id":oid,"version":organ.get("version"),"integration_class":organ.get("integration_class"),"authority_plane":organ.get("authority_plane"),"status":status,"defects":organ_defects,"laws":list(organ.get("laws") or [])})
+        defects.extend({"organ_id":oid,**defect} for defect in organ_defects)
+    baseline_tools=_set(classified_tool_baseline) or surface_tools
+    baseline_resources=_set(classified_resource_baseline) or surface_resources
+    unclassified_tools=sorted(tools-baseline_tools-declared_tools)
+    unclassified_resources=sorted(resources-baseline_resources-declared_resources)
+    return {
+        "version":ARCHITECTURE_DRIFT_VERSION,"status":"PASS" if not defects else "ARCHITECTURE_DRIFT",
+        "organ_inventory_version":ORGAN_INVENTORY_VERSION,"organ_count":len(rows),"drift_count":sum(1 for row in rows if row["status"]!="PASS"),
+        "organs":rows,"defects":defects,
+        "unclassified_surface":{"tools":unclassified_tools,"resources":unclassified_resources,"count":len(unclassified_tools)+len(unclassified_resources),"status":"OBSERVE_EXPANSION_FRONTIER" if unclassified_tools or unclassified_resources else "EMPTY"},
+        "law":"a mature organ is not integrated merely because code, tools or unit tests exist; runtime discovery, SURFACE, manifest, OMEGA and critical witnesses must agree according to the declared organ class",
+        "boundary":"unclassified extras are surfaced as expansion pressure but do not fail promotion until maturity is explicitly declared; helper/experimental modules never become canonical by file existence alone",
+    }

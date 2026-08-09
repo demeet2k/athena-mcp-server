@@ -77,6 +77,18 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_release_distribution.py' -v
       - name: GitHub trusted promotion verifier
         run: python -m unittest discover -s tests -p 'test_github_promotion_verifier.py' -v
+      - name: Coordination organ inventory and architecture drift
+        run: |
+          python -m unittest discover -s tests -p 'test_architecture_drift.py' -v
+          python -m unittest discover -s tests -p 'test_message_board.py' -v
+          python -m unittest discover -s tests -p 'test_message_board_registration.py' -v
+          python -m unittest discover -s tests -p 'test_agent_bootstrap_message_board.py' -v
+          python -m unittest discover -s tests -p 'test_cohesion_matchmaking.py' -v
+          python -m unittest discover -s tests -p 'test_cohesion_duplicate_guard.py' -v
+          python -m unittest discover -s tests -p 'test_cohesion_evidence_guard.py' -v
+          python -m unittest discover -s tests -p 'test_agent_bootstrap_cohesion_treatment.py' -v
+          python -m unittest discover -s tests -p 'test_party_coordination.py' -v
+          python -m unittest discover -s tests -p 'test_party_reward_provenance.py' -v
       - name: V6 upstream scientific diagnostics and unified Y1 firewall
         run: |
           python -m unittest discover -s tests -p 'test_00_collective_v6_diagnostics.py' -v
