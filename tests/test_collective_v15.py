@@ -21,13 +21,15 @@ class CollectiveRuntimeV15Tests(unittest.TestCase):
         for support,correct_count in ((.2,2),(.5,8),(.8,15),(.95,19)):
             examples.extend({'support':support,'correct':1 if i<correct_count else 0} for i in range(20))
         out=self.tool('athena_structural_reliability_calibrate',{'calibration_examples':examples,'supports':[.2,.5,.8,.95],'folds':4,'seed':7})
-        self.assertEqual(out['status'],'OUT_OF_FOLD_ISOTONIC_STRUCTURAL_RELIABILITY')
+        self.assertEqual(out['status'],'OUT_OF_FOLD_WEIGHTED_ISOTONIC_STRUCTURAL_RELIABILITY')
         self.assertTrue(out['curve'])
+        self.assertEqual(out['unique_support_coordinates'],4)
         probs=[row['calibrated_reliability'] for row in out['curve']]
         self.assertEqual(probs,sorted(probs))
         targets=[row['calibrated_reliability'] for row in out['calibrated_supports']]
         self.assertEqual(targets,sorted(targets))
         self.assertGreaterEqual(out['brier_oof_calibrated'],0)
+        self.assertEqual(out['interpolation'],'RIGHT_CONTINUOUS_MONOTONE_STEP_WITH_ENDPOINT_EXTENSION')
 
     def _longitudinal_rows(self,n=360):
         rng=random.Random(17);rows=[]
@@ -59,9 +61,11 @@ class CollectiveRuntimeV15Tests(unittest.TestCase):
         })
         self.assertEqual(out['status'],'CROSS_FITTED_TWO_TIMEPOINT_SEQUENTIAL_AIPW_POLICY_VALUE_UNDER_ASSUMPTIONS')
         self.assertTrue(out['cross_fitted'])
+        self.assertEqual(out['history_invariant'],'A1_POLICY_USES_BASELINE_ONLY__A2_POLICY_USES_BASELINE_A1_L1_ONLY')
+        self.assertEqual(out['policy_history_firewall']['a1_available_features'],['X'])
+        self.assertEqual(out['policy_history_firewall']['a2_available_features'],['X','A1','L1'])
         by_id={x['id']:x for x in out['policies']}
         self.assertGreater(by_id['both']['estimated_value'],by_id['none']['estimated_value'])
-        self.assertIn('OBSERVED_A1_L1',out['history_invariant'])
 
     def test_joint_gaussian_update_and_control(self):
         update=self.tool('athena_joint_gaussian_update',{
@@ -90,6 +94,23 @@ class CollectiveRuntimeV15Tests(unittest.TestCase):
         self.assertEqual(out['status'],'DECLARED_LIPSCHITZ_APPROXIMATION_ERROR_TRANSPORT')
         self.assertTrue(out['queries'][0]['decision_preserving_under_bound'])
         self.assertLessEqual(out['empirical_minimum_lipschitz'],out['declared_lipschitz_bound'])
+        self.assertEqual(out['queries'][0]['nearest_witness_distance'],.5)
+        self.assertTrue(out['queries'][0]['within_transport_radius'])
+
+    def test_approximation_radius_uses_best_eligible_witness_not_global_envelope_witness(self):
+        out=self.tool('athena_approx_error_transport',{
+            'feature_order':['x'],
+            'witnesses':[{'features':{'x':0},'absolute_error':10},{'features':{'x':1},'absolute_error':0}],
+            'queries':[{'id':'local','features':{'x':.1},'decision_margin':30}],
+            'lipschitz_bound':10,'max_transport_radius':.2,'margin_safety':.5,
+        })
+        row=out['queries'][0]
+        self.assertEqual(row['nearest_witness_index'],0)
+        self.assertEqual(row['transport_witness_index'],0)
+        self.assertEqual(row['global_envelope_witness_index'],1)
+        self.assertTrue(row['within_transport_radius'])
+        self.assertTrue(row['decision_preserving_under_bound'])
+        self.assertGreater(row['transported_error_upper_bound'],row['global_envelope_upper_bound'])
 
     def test_multistage_tv_dro_dynamic_program(self):
         out=self.tool('athena_multistage_tv_dro_plan',{
