@@ -1,0 +1,15 @@
+.git
+.github
+.athena_patch
+__pycache__
+*.py[cod]
+*.db
+*.sqlite*
+.coverage
+.pytest_cache
+.mypy_cache
+dist
+build
+*.egg-info
+runtime
+state

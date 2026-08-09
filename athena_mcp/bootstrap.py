@@ -1,3 +1,4 @@
+from . import protocol as _protocol
 from .operational_basis import install as install_operational_basis
 from .frontier_claim import (
     FRONTIER_CLAIM_TOOLS,
@@ -29,6 +30,12 @@ for _tool in FRONTIER_CLAIM_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
         PROMPT_RUNTIME_TOOLS.append(_tool)
         PROMPT_RUNTIME_TOOL_NAMES.add(_tool["name"])
+    # Some additive package extensions import dispatch before canonical server
+    # bootstrap. Mutate the shared protocol registry directly so late bootstrap
+    # organs remain discoverable even when dispatch's module-level union has
+    # already executed. Dispatch keeps references to these mutable registries.
+    if not any(existing.get("name") == _tool["name"] for existing in _protocol.TOOLS):
+        _protocol.TOOLS.append(_tool)
 
 GENESIS=[
 ('TOOL','IDENTITY','RESOLVE','CAPABILITY','CANONICAL_SIGNATURE',{'need':'functional signature'},{'oid':'string','cid':'string','canonical_name':'string'}),
