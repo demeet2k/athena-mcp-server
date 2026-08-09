@@ -22,6 +22,8 @@ HISTORICAL_MAPPING_STATUS = "HOLD_EMPTY_V1_PROPOSAL"
 PACKET_LOSS_STANDING = "SCHEMA_TYPED_CONTROL_DECLARATION"
 SOURCE_EVIDENCE = "NONE_SYNTHETIC_CONTROL"
 IMPLEMENTATION_WITNESS = "EXTERNAL_BINDING_REQUIRED"
+PACKET_DIGEST_DOMAIN = "MCK.CONNECTION.PACKET.SEMANTIC.V1"
+REGISTRY_DIGEST_DOMAIN = "MCK.CONNECTION.OPERATOR.REGISTRY.V1"
 
 ALLOWED_TRANSFORMS = frozenset({"IDENTITY", "SET", "ADD", "MUL"})
 RESERVED_ORACLE_KEYS = frozenset(
@@ -228,10 +230,7 @@ def _canonical_semantics(packet: Mapping[str, Any]) -> Dict[str, Any]:
     _require(isinstance(historical, Mapping), "INVALID_HISTORICAL_MAPPING")
     _require(set(historical) == {"status", "edges"}, "INVALID_HISTORICAL_MAPPING_SHAPE")
     _require(historical.get("status") == HISTORICAL_MAPPING_STATUS, "HISTORICAL_MAPPING_STATUS_INVALID")
-    _require(
-        _is_sequence(historical.get("edges")) and len(historical.get("edges")) == 0,
-        "HISTORICAL_MAPPING_MUST_BE_EMPTY",
-    )
+    _require(_is_sequence(historical.get("edges")) and len(historical.get("edges")) == 0, "HISTORICAL_MAPPING_MUST_BE_EMPTY")
 
     firewalls = _unique_strings(packet.get("firewalls"), "FIREWALL", "$.firewalls")
     _require(MANDATORY_FIREWALLS.issubset(set(firewalls)), "MANDATORY_FIREWALL_MISSING")
@@ -247,15 +246,27 @@ def _canonical_semantics(packet: Mapping[str, Any]) -> Dict[str, Any]:
     }
 
 
-def semantic_digest(semantic_packet: Mapping[str, Any]) -> str:
+def _domain_digest(domain: str, semantic_value: Mapping[str, Any]) -> str:
     payload = json.dumps(
-        semantic_packet,
+        {"digest_domain": domain, "semantic_value": semantic_value},
         sort_keys=True,
         separators=(",", ":"),
         ensure_ascii=False,
         allow_nan=False,
     ).encode("utf-8")
     return hashlib.sha256(payload).hexdigest()
+
+
+def semantic_digest(semantic_packet: Mapping[str, Any]) -> str:
+    return _domain_digest(PACKET_DIGEST_DOMAIN, semantic_packet)
+
+
+def operator_registry_digest(semantic_packet: Mapping[str, Any]) -> str:
+    registry = {
+        "feature_basis": semantic_packet["feature_basis"],
+        "operators": semantic_packet["operators"],
+    }
+    return _domain_digest(REGISTRY_DIGEST_DOMAIN, registry)
 
 
 def validate_connection_packet(packet: Any) -> Dict[str, Any]:
@@ -277,6 +288,7 @@ def validate_connection_packet(packet: Any) -> Dict[str, Any]:
             "historical_mapping",
             "firewalls",
             "packet_semantic_digest",
+            "operator_registry_digest",
         }
         extra_packet_keys = set(packet) - allowed_packet_keys
         _require(
@@ -291,12 +303,20 @@ def validate_connection_packet(packet: Any) -> Dict[str, Any]:
 
         semantic = _canonical_semantics(packet)
         digest = semantic_digest(semantic)
+        registry_digest = operator_registry_digest(semantic)
         supplied = packet.get("packet_semantic_digest")
         if supplied is not None:
             _require(
                 isinstance(supplied, str) and supplied == digest,
                 "PACKET_SEMANTIC_DIGEST_MISMATCH",
                 str(supplied),
+            )
+        supplied_registry = packet.get("operator_registry_digest")
+        if supplied_registry is not None:
+            _require(
+                isinstance(supplied_registry, str) and supplied_registry == registry_digest,
+                "OPERATOR_REGISTRY_DIGEST_MISMATCH",
+                str(supplied_registry),
             )
 
         return {
@@ -305,6 +325,7 @@ def validate_connection_packet(packet: Any) -> Dict[str, Any]:
             "version": PACKET_VERSION,
             "standing": PACKET_STANDING,
             "packet_semantic_digest": digest,
+            "operator_registry_digest": registry_digest,
             "canonical_semantics": semantic,
             "historical_mapping": {"status": HISTORICAL_MAPPING_STATUS, "edges": []},
             "source_evidence": SOURCE_EVIDENCE,
@@ -318,6 +339,7 @@ def validate_connection_packet(packet: Any) -> Dict[str, Any]:
             "version": PACKET_VERSION,
             "standing": PACKET_STANDING,
             "packet_semantic_digest": None,
+            "operator_registry_digest": None,
             "canonical_semantics": None,
             "historical_mapping": {"status": HISTORICAL_MAPPING_STATUS, "edges": []},
             "source_evidence": SOURCE_EVIDENCE,
