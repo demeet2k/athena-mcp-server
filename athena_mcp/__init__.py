@@ -117,12 +117,11 @@ from .agent_bootstrap_cohesion_treatment import (
 
 install_agent_bootstrap_cohesion_treatment(AgentBootstrapRuntime)
 
-# ROOM-HOMEOSTASIS-001: every material boot must enter the shared room before
-# execution returns. Install after Message Board/Cohesion so any exact work
-# claim is bound to the same boot session rather than becoming a second bus.
-from .agent_bootstrap_organism_room import install_agent_bootstrap_organism_room
-
-install_agent_bootstrap_organism_room(AgentBootstrapRuntime)
+# ROOM-HOMEOSTASIS-001 is exposed as an explicit provider tool above. It is not
+# installed around the low-level bootstrap primitive: direct/read-only hydration
+# must remain non-mutating, and a Git commit during hydration would invalidate
+# the exact address the bootstrap just proved. Material spawn controllers call
+# ENTER before dispatch and LEAVE at teardown.
 
 # Collective V14 preserves the historical registration body and installs the
 # joint scientific-control frontier inherited by V15.
