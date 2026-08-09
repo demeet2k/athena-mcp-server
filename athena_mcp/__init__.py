@@ -36,32 +36,60 @@ if not getattr(PromptRuntime, "_athena_message_board_v1_registered", False):
     PromptRuntime.call_tool = _prompt_call_with_message_board
     PromptRuntime._athena_message_board_v1_registered = True
 
+# BOOT-MB-001: Message Board is the sole coordination authority. Install the
+# mechanism first, then the activation policy that distinguishes observing a
+# boot context from actually starting a mutable work lane.
 from .agent_bootstrap_message_board import install_agent_bootstrap_message_board
-from .agent_bootstrap_message_board_activation import install_agent_bootstrap_message_board_activation
+from .agent_bootstrap_message_board_activation import (
+    install_agent_bootstrap_message_board_activation,
+)
+
 install_agent_bootstrap_message_board(AgentBootstrapRuntime)
 install_agent_bootstrap_message_board_activation(AgentBootstrapRuntime)
 
-from .agent_bootstrap_cohesion_treatment import install_agent_bootstrap_cohesion_treatment
+# BOOT-C3-001: deterministic BOOT-MB holds receive a read-only Cohesion C3-11
+# treatment projection. Install after BOOT-MB activation so this wrapper can
+# observe final pre-dispatch standing without changing claim authority.
+from .agent_bootstrap_cohesion_treatment import (
+    install_agent_bootstrap_cohesion_treatment,
+)
+
 install_agent_bootstrap_cohesion_treatment(AgentBootstrapRuntime)
 
+# Collective V14 preserves the historical registration body and installs the
+# joint scientific-control frontier inherited by V15.
 from .collective_v14_install import install_release_v14 as _install_release_v14
+
 _install_release_v14(globals())
 del _install_release_v14
 
+# DEPLOYMENT-002 is a separately typed operational/hosting organ inherited from
+# live master. It composes after V14 and before V15 so its prompt/AOR/dispatch
+# seams are retained while V15 remains the final current release identity.
 from .deployment_extension import install_deployment_extension
+
 install_deployment_extension()
 
-# Collective V15 is the current release identity inherited from live master.
+# CUTOVER-HOLD-001 binds the deployment plan, isolated-canary witness, supplied
+# single-writer quiescence observation, CAS base, snapshot, and opaque authority
+# reference into a replayable non-effectful packet. It deliberately stops before
+# any writer, state, secret, cluster, or traffic transition.
+from .deployment_cutover_extension import install_deployment_cutover_extension
+
+install_deployment_cutover_extension()
+
+# Collective V15 advances only the current release identity and calibrated
+# successor frontier. Deployment, Message Board, cohesion, party and prompt
+# organs remain separately typed and intact.
 from .collective_v15_install import install_release_v15 as _install_release_v15
+
 _install_release_v15(globals())
 del _install_release_v15
 
-# NEXT V1→V10 composes additively after Collective V15 / v3.4. V7 observes
-# delayed outcomes, V8 creates matched observational effect candidates, V9
-# freezes disjoint discovery/validation cohorts, and V10 may apply only a
-# bounded reversible routing canary over V6 calibrated costs. The canonical V5
-# benefit table, Message Board claim authority, promotion, merge, release and
-# deployment authority remain outside the NEXT canary membrane.
+# NEXT V1→V10 composes additively after the current V15 + deployment/cutover
+# spine. V10 is a bounded reversible routing canary only: it cannot mutate the
+# canonical V5 benefit table or inherit Message Board, promotion, merge, release,
+# deployment, state-transition, traffic, or cutover authority.
 from .next_quest_pipeline import install_next_pipeline_extension
 from .next_quest_pipeline_hardening import install_next_pipeline_successor_authority_hardening
 from .next_quest_pipeline_bridge import install_next_pipeline_bridge
