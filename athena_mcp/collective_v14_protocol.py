@@ -107,3 +107,6 @@ COLLECTIVE_V14_TOOLS=[
         },
     ),
 ]
+
+from .collective_v15_protocol import COLLECTIVE_V15_TOOLS
+COLLECTIVE_V14_TOOLS.extend(t for t in COLLECTIVE_V15_TOOLS if t['name'] not in {x['name'] for x in COLLECTIVE_V14_TOOLS})
