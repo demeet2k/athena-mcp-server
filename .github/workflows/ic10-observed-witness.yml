@@ -1,0 +1,38 @@
+name: IC10 Observed I01-I09 Witness
+
+on:
+  pull_request:
+    branches:
+      - 'agent/ic10-execution-cut02-green-v1'
+    paths:
+      - 'spec/IC10_OBSERVED_WITNESS_V1.json'
+      - 'scripts/ic10_observed_witness.py'
+      - '.github/workflows/ic10-observed-witness.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  observe-i01-i09:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile observed witness cartridge
+        run: python -m compileall -q scripts/ic10_observed_witness.py
+      - name: Execute real I01-I09 observations with I10 held external
+        env:
+          PYTHONPATH: .
+        run: python scripts/ic10_observed_witness.py
+      - name: Upload observed IC10 witness
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ic10-observed-witness-v1
+          path: ic10_observed_witness_v1.json
+          if-no-files-found: error
