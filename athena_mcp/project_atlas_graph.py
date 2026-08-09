@@ -16,6 +16,7 @@ from .project_atlas import _git
 GRAPH_SCHEMA = "ATHENA.KC144.PROJECT_RELATION_GRAPH.v3"
 GRAPH_VERSION = "ATHENA.PROJECT_ATLAS.RELATION_GRAPH.V3"
 GRAPH_ID_PREFIX = "PATLASG3."
+VERTEX_ID_PREFIX = "PVTX."
 MAX_QUERY_LIMIT = 100
 MAX_EXPANSIONS = 10000
 MAX_DEPTH = 128
@@ -35,9 +36,11 @@ GRAPH_LAWS = [
     "EDGE != CLAIM_OF_SEMANTIC_EQUIVALENCE",
     "KC144_GRID_ADJACENT != DEPENDS_ON",
     "SAME_BLOB_ALIAS != SAME_OBJECT",
+    "POID != FEDERATED_VERTEX_ID",
     "IMPORT_STRING != RESOLVED_LOCAL_IMPORT",
     "UNRESOLVED_IMPORT -> CONSERVE_UNKNOWN",
     "AMBIGUOUS_EDGE_TARGET -> HOLD_EDGE",
+    "AMBIGUOUS_POID_ACROSS_FRONTIERS -> HOLD_AMBIGUOUS_VERTEX",
     "GRAPH_DIGEST_REQUIRES_EXACT_SNAPSHOT",
     "GRAPH_QUERY != PROMOTION_AUTHORITY",
     "PATH_COST != TRUTH",
@@ -55,9 +58,18 @@ def _frontier(record: dict, default_plane: str) -> tuple[str, str, str]:
     return _plane(record, default_plane), native["repo"], native["head"]
 
 
+def vertex_id(record: dict, default_plane: str = "configured_git") -> str:
+    """Exact graph manifestation identity; POID alone is intentionally insufficient."""
+    plane, repo, head = _frontier(record, default_plane)
+    return VERTEX_ID_PREFIX + digest(
+        {"plane": plane, "repo": repo, "head": head, "poid": record["poid"]}, 24
+    )
+
+
 def _vertex_receipt(record: dict, default_plane: str) -> dict:
     native = record["native"]
     return {
+        "vertex_id": vertex_id(record, default_plane),
         "poid": record["poid"],
         "plane": _plane(record, default_plane),
         "repo": native["repo"],
@@ -93,8 +105,8 @@ def _edge(
         "schema": GRAPH_SCHEMA,
         "snapshot_id": snapshot_id,
         "kind": kind,
-        "src_poid": src_v["poid"],
-        "dst_poid": dst_v["poid"],
+        "src_vertex_id": src_v["vertex_id"],
+        "dst_vertex_id": dst_v["vertex_id"],
         "plane": plane,
         "extractor": extractor,
         "evidence": evidence,
@@ -103,6 +115,8 @@ def _edge(
     return {
         "edge_id": "PEDGE." + digest(basis, 24),
         "kind": kind,
+        "src_vertex_id": src_v["vertex_id"],
+        "dst_vertex_id": dst_v["vertex_id"],
         "src_poid": src_v["poid"],
         "dst_poid": dst_v["poid"],
         "plane": plane,
@@ -148,30 +162,27 @@ def _relative_base(package: str, level: int, module: str | None) -> str | None:
     return ".".join(kept)
 
 
-def _choose_local_module(module_index: dict[str, list[dict]], names: Iterable[str]) -> tuple[dict | None, list[str]]:
+def _choose_local_module(
+    module_index: dict[str, list[dict]], names: Iterable[str]
+) -> tuple[dict | None, list[str], bool]:
+    """Return target, attempted modules, ambiguous flag."""
     attempted: list[str] = []
     for name in names:
         if not name:
             continue
-        attempted.append(name)
-        candidates = module_index.get(name, [])
-        if len(candidates) == 1:
-            return candidates[0], attempted
-        if len(candidates) > 1:
-            return None, attempted
-        # `import a.b.c` may be locally represented only by a or a.b.
+        candidates_to_try = [name]
         parts = name.split(".")
-        for cut in range(len(parts) - 1, 0, -1):
-            parent = ".".join(parts[:cut])
-            if parent in attempted:
+        candidates_to_try += [".".join(parts[:cut]) for cut in range(len(parts) - 1, 0, -1)]
+        for candidate in candidates_to_try:
+            if not candidate or candidate in attempted:
                 continue
-            attempted.append(parent)
-            candidates = module_index.get(parent, [])
-            if len(candidates) == 1:
-                return candidates[0], attempted
-            if len(candidates) > 1:
-                return None, attempted
-    return None, attempted
+            attempted.append(candidate)
+            matches = module_index.get(candidate, [])
+            if len(matches) == 1:
+                return matches[0], attempted, False
+            if len(matches) > 1:
+                return None, attempted, True
+    return None, attempted, False
 
 
 def _scalar_strings(value) -> Iterable[str]:
@@ -197,12 +208,10 @@ def _exact_reference_strings(path: str, text: str) -> list[tuple[str, str]]:
                 if isinstance(node, ast.Constant) and isinstance(node.value, str):
                     out.append((node.value, f"python_ast_constant:{getattr(node, 'lineno', 0)}"))
         elif suffix == ".json":
-            value = json.loads(text)
-            out.extend((s, "json_scalar") for s in _scalar_strings(value))
+            out.extend((s, "json_scalar") for s in _scalar_strings(json.loads(text)))
         elif suffix == ".toml":
-            value = tomllib.loads(text)
-            out.extend((s, "toml_scalar") for s in _scalar_strings(value))
-    except (SyntaxError, ValueError, json.JSONDecodeError, tomllib.TOMLDecodeError):
+            out.extend((s, "toml_scalar") for s in _scalar_strings(tomllib.loads(text)))
+    except (SyntaxError, ValueError):
         return []
     return out
 
@@ -244,10 +253,10 @@ def compile_project_relation_graph(
         raise ValueError("Project Relation Graph V3 requires an exact PATLASV2 snapshot_id")
     options = options or GraphBuildOptions()
     records = list(atlas.get("records") or [])
-    records.sort(key=lambda r: (r["poid"], _plane(r, options.default_plane)))
-    by_poid = {r["poid"]: r for r in records}
-    if len(by_poid) != len(records):
-        raise ValueError("Project Relation Graph requires unique POIDs")
+    records.sort(key=lambda r: vertex_id(r, options.default_plane))
+    exact_vertices = {vertex_id(r, options.default_plane): r for r in records}
+    if len(exact_vertices) != len(records):
+        raise ValueError("duplicate exact <plane,repo,head,POID> vertex in Project Relation Graph")
     reader = blob_reader or (git_blob_reader(root) if root is not None else None)
 
     edges: list[dict] = []
@@ -257,7 +266,15 @@ def compile_project_relation_graph(
     def add(**kwargs):
         edges.append(_edge(snapshot_id=snapshot_id, default_plane=options.default_plane, **kwargs))
 
-    # Exact Git tree hierarchy.  No synthetic root object is invented.
+    def subject(rec: dict) -> dict:
+        return {
+            "vertex_id": vertex_id(rec, options.default_plane),
+            "poid": rec["poid"],
+            "path": rec["native"]["path"],
+            "frontier": _frontier(rec, options.default_plane),
+        }
+
+    # Exact Git tree hierarchy. No synthetic root object is invented.
     if options.include_hierarchy:
         by_frontier_path_type: dict[tuple[str, str, str, str, str], dict] = {}
         for rec in records:
@@ -275,16 +292,21 @@ def compile_project_relation_graph(
                 holds.append({
                     "status": "HOLD_EDGE",
                     "kind": "DIR_CONTAINS",
-                    "src_poid": child["poid"],
+                    "subject": subject(child),
                     "reason": "exact parent tree record unavailable",
                     "parent_path": parent_path,
                 })
                 continue
-            witness = {"repo": repo, "head": head, "parent_path": parent_path, "child_path": path}
+            witness = {
+                "repo": repo,
+                "head": head,
+                "parent_path": parent_path,
+                "child_path": path,
+            }
             add(kind="DIR_CONTAINS", src=parent, dst=child, extractor="git_tree_hierarchy_v1", evidence="EXACT_GIT_TREE", witness=witness)
             add(kind="DIR_PARENT_OF", src=child, dst=parent, extractor="git_tree_hierarchy_v1", evidence="EXACT_GIT_TREE", witness=witness)
 
-    # Content aliases are explicit aliases, never object collapse.
+    # Content aliases are explicit aliases, never identity collapse.
     if options.include_blob_aliases:
         groups: dict[tuple[str, str, str, str], list[dict]] = defaultdict(list)
         for rec in records:
@@ -293,14 +315,28 @@ def compile_project_relation_graph(
                 plane, repo, head = _frontier(rec, options.default_plane)
                 groups[(plane, repo, head, native["object_sha"])].append(rec)
         for (plane, repo, head, object_sha), group in sorted(groups.items()):
-            group.sort(key=lambda r: r["poid"])
+            group.sort(key=lambda r: vertex_id(r, options.default_plane))
             if len(group) < 2:
                 continue
             anchor = group[0]
             for other in group[1:]:
-                witness = {"repo": repo, "head": head, "object_sha": object_sha, "paths": sorted([anchor["native"]["path"], other["native"]["path"]])}
+                witness = {
+                    "repo": repo,
+                    "head": head,
+                    "object_sha": object_sha,
+                    "paths": sorted([anchor["native"]["path"], other["native"]["path"]]),
+                }
                 for src, dst in ((anchor, other), (other, anchor)):
-                    add(kind="SAME_BLOB_ALIAS", src=src, dst=dst, extractor="git_object_alias_v1", evidence="EXACT_GIT_OBJECT_SHA", witness=witness, authority="CONTENT_IDENTITY_ONLY", loss="DISTINCT_PATH_OBJECTS_PRESERVED")
+                    add(
+                        kind="SAME_BLOB_ALIAS",
+                        src=src,
+                        dst=dst,
+                        extractor="git_object_alias_v1",
+                        evidence="EXACT_GIT_OBJECT_SHA",
+                        witness=witness,
+                        authority="CONTENT_IDENTITY_ONLY",
+                        loss="DISTINCT_PATH_OBJECTS_PRESERVED",
+                    )
 
     # Exact local Python imports are AST parsed and frontier-scoped.
     if options.include_python_imports:
@@ -317,13 +353,13 @@ def compile_project_relation_graph(
             if rec["native"]["git_type"] != "blob" or not path.endswith(".py"):
                 continue
             if reader is None:
-                holds.append({"status": "HOLD_EDGE", "kind": "PY_IMPORTS", "src_poid": rec["poid"], "reason": "exact blob reader unavailable"})
+                holds.append({"status": "HOLD_EDGE", "kind": "PY_IMPORTS", "subject": subject(rec), "reason": "exact blob reader unavailable"})
                 continue
             try:
                 text = reader(rec)
                 tree = ast.parse(text, filename=path)
             except (UnicodeDecodeError, SyntaxError, ValueError, RuntimeError) as exc:
-                holds.append({"status": "HOLD_EDGE", "kind": "PY_IMPORTS", "src_poid": rec["poid"], "reason": f"source unavailable or unparsable: {type(exc).__name__}"})
+                holds.append({"status": "HOLD_EDGE", "kind": "PY_IMPORTS", "subject": subject(rec), "reason": f"source unavailable or unparsable: {type(exc).__name__}"})
                 continue
             frontier = _frontier(rec, options.default_plane)
             module_index = module_indexes[frontier]
@@ -345,18 +381,23 @@ def compile_project_relation_graph(
                             names = [base] if alias.name == "*" else [f"{base}.{alias.name}" if base else alias.name, base]
                             requests.append((f"{base}:{alias.name}", names, "PY_IMPORTS"))
                 for request, names, kind in requests:
-                    target, attempted = _choose_local_module(module_index, names)
+                    target, attempted, ambiguous = _choose_local_module(module_index, names)
                     if target is None:
-                        unresolved_imports.append({
+                        row = {
+                            "src_vertex_id": vertex_id(rec, options.default_plane),
                             "src_poid": rec["poid"],
                             "path": path,
                             "request": request,
                             "attempted_local_modules": attempted,
                             "line": getattr(node, "lineno", None),
-                            "standing": "UNRESOLVED_EXTERNAL_OR_LOCAL_UNKNOWN",
-                        })
+                            "standing": "HOLD_AMBIGUOUS_EDGE_TARGET" if ambiguous else "UNRESOLVED_EXTERNAL_OR_LOCAL_UNKNOWN",
+                        }
+                        if ambiguous:
+                            holds.append({"status": "HOLD_EDGE", "kind": kind, "subject": subject(rec), "reason": "ambiguous local module target", "request": request, "attempted_local_modules": attempted})
+                        else:
+                            unresolved_imports.append(row)
                         continue
-                    if target["poid"] == rec["poid"]:
+                    if vertex_id(target, options.default_plane) == vertex_id(rec, options.default_plane):
                         continue
                     witness = {
                         "source_path": path,
@@ -387,12 +428,20 @@ def compile_project_relation_graph(
                 while value.startswith("./"):
                     value = value[2:]
                 candidates = paths_by_frontier[_frontier(rec, options.default_plane)].get(value, [])
+                if len(candidates) > 1:
+                    holds.append({
+                        "status": "HOLD_EDGE",
+                        "kind": "EXACT_PATH_REFERENCE",
+                        "subject": subject(rec),
+                        "reason": "ambiguous exact path target",
+                        "value": value,
+                        "candidate_vertex_ids": sorted(vertex_id(c, options.default_plane) for c in candidates),
+                    })
+                    continue
                 if len(candidates) != 1:
-                    if len(candidates) > 1:
-                        holds.append({"status": "HOLD_EDGE", "kind": "EXACT_PATH_REFERENCE", "src_poid": rec["poid"], "reason": "ambiguous exact path target", "value": value, "candidate_poids": sorted(c["poid"] for c in candidates)})
                     continue
                 target = candidates[0]
-                if target["poid"] == rec["poid"]:
+                if vertex_id(target, options.default_plane) == vertex_id(rec, options.default_plane):
                     continue
                 add(
                     kind="EXACT_PATH_REFERENCE",
@@ -405,7 +454,7 @@ def compile_project_relation_graph(
                     loss="REFERENCE_DOES_NOT_IMPLY_RUNTIME_DEPENDENCY",
                 )
 
-    # Optional coordinate overlay.  It is deliberately a separate, explicitly geometric edge class.
+    # Optional coordinate overlay. It is deliberately a separate geometric edge class.
     if options.include_geometric:
         by_station: dict[tuple[str, str, str, int], list[dict]] = defaultdict(list)
         for rec in records:
@@ -416,8 +465,8 @@ def compile_project_relation_graph(
             for direction, dst_gid in sorted((rec.get("grid_neighbors") or {}).items()):
                 if dst_gid is None:
                     continue
-                for target in sorted(by_station.get((plane, repo, head, dst_gid), []), key=lambda r: r["poid"]):
-                    if target["poid"] == rec["poid"]:
+                for target in sorted(by_station.get((plane, repo, head, dst_gid), []), key=lambda r: vertex_id(r, options.default_plane)):
+                    if vertex_id(target, options.default_plane) == vertex_id(rec, options.default_plane):
                         continue
                     add(
                         kind="KC144_GRID_ADJACENT",
@@ -432,7 +481,7 @@ def compile_project_relation_graph(
 
     # Canonical deduplication makes enumeration order irrelevant.
     unique_edges = {edge["edge_id"]: edge for edge in edges}
-    edges = sorted(unique_edges.values(), key=lambda e: (e["kind"], e["src_poid"], e["dst_poid"], e["edge_id"]))
+    edges = sorted(unique_edges.values(), key=lambda e: (e["kind"], e["src_vertex_id"], e["dst_vertex_id"], e["edge_id"]))
     holds.sort(key=lambda h: json.dumps(h, sort_keys=True, separators=(",", ":")))
     unresolved_imports.sort(key=lambda h: json.dumps(h, sort_keys=True, separators=(",", ":")))
     return ProjectRelationGraph(
@@ -461,32 +510,62 @@ class ProjectRelationGraph:
         self.snapshot_id = snapshot_id
         self.default_plane = default_plane
         self.options = options or GraphBuildOptions(default_plane=default_plane)
-        self.records = sorted(records, key=lambda r: (r["poid"], _plane(r, default_plane)))
-        self.vertices = {r["poid"]: r for r in self.records}
+        self.records = sorted(records, key=lambda r: vertex_id(r, default_plane))
+        self.vertices = {vertex_id(r, default_plane): r for r in self.records}
         if len(self.vertices) != len(self.records):
-            raise ValueError("duplicate POID in Project Relation Graph")
-        self.edges = sorted(edges, key=lambda e: (e["kind"], e["src_poid"], e["dst_poid"], e["edge_id"]))
+            raise ValueError("duplicate exact vertex in Project Relation Graph")
+        self.by_poid: dict[str, list[str]] = defaultdict(list)
+        for vid, rec in self.vertices.items():
+            self.by_poid[rec["poid"]].append(vid)
+        for poid in self.by_poid:
+            self.by_poid[poid].sort()
+        self.edges = sorted(edges, key=lambda e: (e["kind"], e["src_vertex_id"], e["dst_vertex_id"], e["edge_id"]))
         self.holds = list(holds or [])
         self.unresolved_imports = list(unresolved_imports or [])
         for edge in self.edges:
-            if edge["src_poid"] not in self.vertices or edge["dst_poid"] not in self.vertices:
+            if edge["src_vertex_id"] not in self.vertices or edge["dst_vertex_id"] not in self.vertices:
                 raise ValueError(f"edge endpoint missing from graph: {edge['edge_id']}")
             if edge["snapshot_id"] != snapshot_id:
                 raise ValueError(f"edge snapshot mismatch: {edge['edge_id']}")
         self.out_edges: dict[str, list[dict]] = defaultdict(list)
         self.in_edges: dict[str, list[dict]] = defaultdict(list)
         for edge in self.edges:
-            self.out_edges[edge["src_poid"]].append(edge)
-            self.in_edges[edge["dst_poid"]].append(edge)
+            self.out_edges[edge["src_vertex_id"]].append(edge)
+            self.in_edges[edge["dst_vertex_id"]].append(edge)
         for index in (self.out_edges, self.in_edges):
-            for poid in index:
-                index[poid].sort(key=lambda e: (e["kind"], e["src_poid"], e["dst_poid"], e["edge_id"]))
+            for vid in index:
+                index[vid].sort(key=lambda e: (e["kind"], e["src_vertex_id"], e["dst_vertex_id"], e["edge_id"]))
         vertex_basis = [_vertex_receipt(r, default_plane) for r in self.records]
         edge_basis = [
-            {k: e[k] for k in ("edge_id", "kind", "src_poid", "dst_poid", "plane", "extractor", "evidence", "witness", "authority", "loss")}
+            {k: e[k] for k in (
+                "edge_id", "kind", "src_vertex_id", "dst_vertex_id", "src_poid", "dst_poid",
+                "plane", "extractor", "evidence", "witness", "authority", "loss"
+            )}
             for e in self.edges
         ]
-        self.graph_id = GRAPH_ID_PREFIX + digest({"schema": GRAPH_SCHEMA, "snapshot_id": snapshot_id, "vertices": vertex_basis, "edges": edge_basis}, 32)
+        self.graph_id = GRAPH_ID_PREFIX + digest(
+            {"schema": GRAPH_SCHEMA, "snapshot_id": snapshot_id, "vertices": vertex_basis, "edges": edge_basis}, 32
+        )
+
+    def vertex_ids_for_poid(self, poid: str) -> list[str]:
+        return list(self.by_poid.get(poid, []))
+
+    def _resolve_vertex(self, locator: str) -> tuple[str | None, dict | None]:
+        if locator in self.vertices:
+            return locator, None
+        matches = self.by_poid.get(locator, [])
+        if len(matches) == 1:
+            return matches[0], None
+        if len(matches) > 1:
+            return None, {
+                "status": "HOLD_AMBIGUOUS_VERTEX",
+                "locator": locator,
+                "candidate_vertex_ids": list(matches),
+                "law": "POID != FEDERATED_VERTEX_ID",
+                "snapshot_id": self.snapshot_id,
+                "graph_id": self.graph_id,
+            }
+        return None, {"status": "HOLD_UNKNOWN_VERTEX", "locator": locator, "snapshot_id": self.snapshot_id, "graph_id": self.graph_id}
 
     def _cas(self, expected_snapshot_id: str | None = None, expected_graph_id: str | None = None) -> dict | None:
         if expected_snapshot_id is not None and expected_snapshot_id != self.snapshot_id:
@@ -501,9 +580,12 @@ class ProjectRelationGraph:
             return hold
         by_kind: dict[str, int] = defaultdict(int)
         by_plane: dict[str, int] = defaultdict(int)
+        ambiguous_poids = 0
         for edge in self.edges:
             by_kind[edge["kind"]] += 1
             by_plane[edge["plane"]] += 1
+        for vids in self.by_poid.values():
+            ambiguous_poids += int(len(vids) > 1)
         return {
             "status": "PASS",
             "schema": GRAPH_SCHEMA,
@@ -511,6 +593,8 @@ class ProjectRelationGraph:
             "snapshot_id": self.snapshot_id,
             "graph_id": self.graph_id,
             "vertices": len(self.vertices),
+            "poids": len(self.by_poid),
+            "multi_frontier_poids": ambiguous_poids,
             "edges": len(self.edges),
             "edge_counts": dict(sorted(by_kind.items())),
             "plane_counts": dict(sorted(by_plane.items())),
@@ -523,7 +607,7 @@ class ProjectRelationGraph:
 
     def neighbors(
         self,
-        poid: str,
+        locator: str,
         *,
         direction: str = "both",
         kinds: Iterable[str] | None = None,
@@ -535,11 +619,13 @@ class ProjectRelationGraph:
         hold = self._cas(expected_snapshot_id, expected_graph_id)
         if hold:
             return hold
-        if poid not in self.vertices:
-            return {"status": "HOLD_UNKNOWN_VERTEX", "poid": poid, "graph_id": self.graph_id}
+        vid, resolution_hold = self._resolve_vertex(locator)
+        if resolution_hold:
+            return resolution_hold
+        assert vid is not None
         if direction not in {"out", "in", "both"}:
             raise ValueError("direction must be one of out,in,both")
-        if not (0 <= offset) or not (1 <= limit <= MAX_QUERY_LIMIT):
+        if offset < 0 or not (1 <= limit <= MAX_QUERY_LIMIT):
             raise ValueError(f"offset must be >=0 and limit must be 1..{MAX_QUERY_LIMIT}")
         kind_set = set(kinds or EDGE_KINDS)
         unknown = kind_set - EDGE_KINDS
@@ -547,15 +633,17 @@ class ProjectRelationGraph:
             raise ValueError(f"unknown edge kinds: {sorted(unknown)}")
         rows: list[dict] = []
         if direction in {"out", "both"}:
-            rows.extend({"direction": "out", "edge": e, "neighbor_poid": e["dst_poid"]} for e in self.out_edges.get(poid, []) if e["kind"] in kind_set)
+            rows.extend({"direction": "out", "edge": e, "neighbor_vertex_id": e["dst_vertex_id"], "neighbor_poid": e["dst_poid"]} for e in self.out_edges.get(vid, []) if e["kind"] in kind_set)
         if direction in {"in", "both"}:
-            rows.extend({"direction": "in", "edge": e, "neighbor_poid": e["src_poid"]} for e in self.in_edges.get(poid, []) if e["kind"] in kind_set)
-        rows.sort(key=lambda r: (r["edge"]["kind"], r["neighbor_poid"], r["direction"], r["edge"]["edge_id"]))
+            rows.extend({"direction": "in", "edge": e, "neighbor_vertex_id": e["src_vertex_id"], "neighbor_poid": e["src_poid"]} for e in self.in_edges.get(vid, []) if e["kind"] in kind_set)
+        rows.sort(key=lambda r: (r["edge"]["kind"], r["neighbor_vertex_id"], r["direction"], r["edge"]["edge_id"]))
         total = len(rows)
         items = rows[offset : offset + limit]
         return {
             "status": "PASS",
-            "poid": poid,
+            "locator": locator,
+            "vertex_id": vid,
+            "poid": self.vertices[vid]["poid"],
             "snapshot_id": self.snapshot_id,
             "graph_id": self.graph_id,
             "total": total,
@@ -565,13 +653,13 @@ class ProjectRelationGraph:
             "items": items,
         }
 
-    def _candidate_edges(self, poid: str, kind_set: set[str]) -> list[dict]:
-        return [edge for edge in self.out_edges.get(poid, []) if edge["kind"] in kind_set]
+    def _candidate_edges(self, vid: str, kind_set: set[str]) -> list[dict]:
+        return [edge for edge in self.out_edges.get(vid, []) if edge["kind"] in kind_set]
 
     def shortest_path(
         self,
-        src_poid: str,
-        dst_poid: str,
+        src_locator: str,
+        dst_locator: str,
         *,
         kinds: Iterable[str] | None = None,
         algorithm: str = "bfs",
@@ -584,19 +672,23 @@ class ProjectRelationGraph:
         hold = self._cas(expected_snapshot_id, expected_graph_id)
         if hold:
             return hold
-        if src_poid not in self.vertices or dst_poid not in self.vertices:
-            missing = [p for p in (src_poid, dst_poid) if p not in self.vertices]
-            return {"status": "HOLD_UNKNOWN_VERTEX", "missing": missing, "graph_id": self.graph_id}
+        src, src_hold = self._resolve_vertex(src_locator)
+        if src_hold:
+            return {**src_hold, "role": "source"}
+        dst, dst_hold = self._resolve_vertex(dst_locator)
+        if dst_hold:
+            return {**dst_hold, "role": "destination"}
+        assert src is not None and dst is not None
         if not (1 <= max_depth <= MAX_DEPTH) or not (1 <= max_expansions <= MAX_EXPANSIONS):
             raise ValueError(f"max_depth must be 1..{MAX_DEPTH}; max_expansions must be 1..{MAX_EXPANSIONS}")
         kind_set = set(kinds or STRUCTURAL_EDGE_KINDS)
         unknown = kind_set - EDGE_KINDS
         if unknown:
             raise ValueError(f"unknown edge kinds: {sorted(unknown)}")
-        if src_poid == dst_poid:
-            return self._path_receipt(src_poid, dst_poid, [], algorithm, weights or {}, 0)
+        if src == dst:
+            return self._path_receipt(src, dst, [], algorithm, weights or {}, 0)
         if algorithm == "bfs":
-            return self._bfs(src_poid, dst_poid, kind_set, max_depth, max_expansions)
+            return self._bfs(src, dst, kind_set, max_depth, max_expansions)
         if algorithm == "dijkstra":
             if weights is None:
                 raise ValueError("dijkstra requires explicit edge-kind weights; hidden scalarization is forbidden")
@@ -608,7 +700,7 @@ class ProjectRelationGraph:
                 if not math.isfinite(value) or value < 0:
                     raise ValueError("dijkstra weights must be finite and non-negative")
                 normalized[kind] = value
-            return self._dijkstra(src_poid, dst_poid, kind_set, normalized, max_depth, max_expansions)
+            return self._dijkstra(src, dst, kind_set, normalized, max_depth, max_expansions)
         raise ValueError("algorithm must be bfs or dijkstra")
 
     def _bfs(self, src: str, dst: str, kinds: set[str], max_depth: int, max_expansions: int) -> dict:
@@ -623,9 +715,9 @@ class ProjectRelationGraph:
                 continue
             expansions += 1
             if expansions > max_expansions:
-                return {"status": "HOLD_EXPANSION_LIMIT", "src_poid": src, "dst_poid": dst, "expansions": expansions - 1, "max_expansions": max_expansions, "snapshot_id": self.snapshot_id, "graph_id": self.graph_id}
+                return {"status": "HOLD_EXPANSION_LIMIT", "src_vertex_id": src, "dst_vertex_id": dst, "expansions": expansions - 1, "max_expansions": max_expansions, "snapshot_id": self.snapshot_id, "graph_id": self.graph_id}
             for edge in self._candidate_edges(node, kinds):
-                nxt = edge["dst_poid"]
+                nxt = edge["dst_vertex_id"]
                 new_path = path + [edge]
                 if nxt == dst:
                     return self._path_receipt(src, dst, new_path, "bfs", {}, expansions)
@@ -633,7 +725,7 @@ class ProjectRelationGraph:
                     seen.add(nxt)
                     q.append((nxt, new_path))
         status = "HOLD_DEPTH_LIMIT" if depth_limited else "HOLD_NO_PATH"
-        return {"status": status, "src_poid": src, "dst_poid": dst, "expansions": expansions, "max_depth": max_depth, "snapshot_id": self.snapshot_id, "graph_id": self.graph_id}
+        return {"status": status, "src_vertex_id": src, "dst_vertex_id": dst, "expansions": expansions, "max_depth": max_depth, "snapshot_id": self.snapshot_id, "graph_id": self.graph_id}
 
     def _dijkstra(self, src: str, dst: str, kinds: set[str], weights: dict[str, float], max_depth: int, max_expansions: int) -> dict:
         heap: list[tuple[float, int, str, tuple[str, ...], list[dict]]] = [(0.0, 0, src, (), [])]
@@ -649,9 +741,9 @@ class ProjectRelationGraph:
                 continue
             expansions += 1
             if expansions > max_expansions:
-                return {"status": "HOLD_EXPANSION_LIMIT", "src_poid": src, "dst_poid": dst, "expansions": expansions - 1, "max_expansions": max_expansions, "snapshot_id": self.snapshot_id, "graph_id": self.graph_id}
+                return {"status": "HOLD_EXPANSION_LIMIT", "src_vertex_id": src, "dst_vertex_id": dst, "expansions": expansions - 1, "max_expansions": max_expansions, "snapshot_id": self.snapshot_id, "graph_id": self.graph_id}
             for edge in self._candidate_edges(node, kinds):
-                nxt, nd = edge["dst_poid"], depth + 1
+                nxt, nd = edge["dst_vertex_id"], depth + 1
                 nc = cost + weights[edge["kind"]]
                 key = (nxt, nd)
                 if nc >= best.get(key, float("inf")):
@@ -660,23 +752,34 @@ class ProjectRelationGraph:
                 signature = tuple(e["edge_id"] for e in path) + (edge["edge_id"],)
                 heapq.heappush(heap, (nc, nd, nxt, signature, path + [edge]))
         status = "HOLD_DEPTH_LIMIT" if depth_limited else "HOLD_NO_PATH"
-        return {"status": status, "src_poid": src, "dst_poid": dst, "expansions": expansions, "max_depth": max_depth, "snapshot_id": self.snapshot_id, "graph_id": self.graph_id}
+        return {"status": status, "src_vertex_id": src, "dst_vertex_id": dst, "expansions": expansions, "max_depth": max_depth, "snapshot_id": self.snapshot_id, "graph_id": self.graph_id}
 
-    def _path_receipt(self, src: str, dst: str, path: list[dict], algorithm: str, weights: dict[str, float], expansions: int, scalar_cost: float | None = None) -> dict:
+    def _path_receipt(
+        self,
+        src: str,
+        dst: str,
+        path: list[dict],
+        algorithm: str,
+        weights: dict[str, float],
+        expansions: int,
+        scalar_cost: float | None = None,
+    ) -> dict:
         plane_crossings = 0
         coordinate_hops = 0
         structural_hops = 0
         last_plane = _plane(self.vertices[src], self.default_plane)
         for edge in path:
-            next_plane = _plane(self.vertices[edge["dst_poid"]], self.default_plane)
+            next_plane = _plane(self.vertices[edge["dst_vertex_id"]], self.default_plane)
             plane_crossings += int(next_plane != last_plane)
             coordinate_hops += int(edge["kind"] in GEOMETRIC_EDGE_KINDS)
             structural_hops += int(edge["kind"] in STRUCTURAL_EDGE_KINDS)
             last_plane = next_plane
         result = {
             "status": "ROUTED",
-            "src_poid": src,
-            "dst_poid": dst,
+            "src_vertex_id": src,
+            "dst_vertex_id": dst,
+            "src_poid": self.vertices[src]["poid"],
+            "dst_poid": self.vertices[dst]["poid"],
             "algorithm": algorithm,
             "snapshot_id": self.snapshot_id,
             "graph_id": self.graph_id,
