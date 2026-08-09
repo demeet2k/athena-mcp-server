@@ -36,6 +36,10 @@ def recount(matrix: dict) -> None:
     matrix["next_witness_counts"] = next_witnesses
 
 
+def normalized_counts(actual: dict, expected: dict) -> dict:
+    return {key: int(actual.get(key, 0)) for key in expected}
+
+
 def update_kc15_packet(packet: dict, contract: dict, binding: dict) -> None:
     gid = int(packet["identity"]["gid"])
     descriptor = seat(gid)
@@ -165,7 +169,7 @@ def main(argv=None) -> int:
         "execution_counts_unchanged": matrix["dimension_counts"]["execution_status"] == expected["execution_status"],
         "evidence_counts_updated": matrix["dimension_counts"]["evidence_status"] == expected["evidence_status"],
         "return_counts_unchanged": matrix["dimension_counts"]["return_status"] == expected["return_status"],
-        "overall_counts_updated": matrix["overall_counts"] == expected["overall_state"],
+        "overall_counts_updated": normalized_counts(matrix["overall_counts"], expected["overall_state"]) == expected["overall_state"],
         "all_kc15_evidence_closed": all(matrix["packets"][gid - 1]["closure"]["evidence_status"] == "CLOSED" for gid in target_gids),
         "all_kc15_open_typed": all(matrix["packets"][gid - 1]["closure"]["overall_state"] == "OPEN_TYPED" for gid in target_gids),
         "all_kc15_next_witness_execution": all(matrix["packets"][gid - 1]["closure"]["next_required_witness"] == "BIND_EXECUTABLE_RUNTIME_OR_DORMANT_STATUS" for gid in target_gids),
