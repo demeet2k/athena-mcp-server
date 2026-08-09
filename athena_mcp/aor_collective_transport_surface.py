@@ -32,24 +32,33 @@ from .tse_telemetry import TseHelixTelemetryRuntime
 from .tse_telemetry_protocol import TSE_TELEMETRY_RESOURCE,TSE_TELEMETRY_TOOLS,TSE_TELEMETRY_TOOL_NAMES
 from .tse_helix import TseHelixRuntime
 from .tse_helix_protocol import TSE_HELIX_RESOURCE,TSE_HELIX_TOOLS,TSE_HELIX_TOOL_NAMES
+from .tse_route_window import TseRouteWindowRuntime
+from .tse_route_window_protocol import (
+    TSE_ROUTE_WINDOW_RESOURCE,
+    TSE_ROUTE_WINDOW_TOOLS,
+    TSE_ROUTE_WINDOW_TOOL_NAMES,
+)
 
 AOR_COLLECTIVE_TRANSPORT_TOOLS=(
     list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(PARTY_CHANNEL_TOOLS)+
     list(PARTY_REWARD_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)+list(COHESION_MESH_TOOLS)+
-    list(DUPLICATE_GUARD_TOOLS)+list(TSE_POPULATION_TOOLS)+list(TSE_TELEMETRY_TOOLS)+list(TSE_HELIX_TOOLS)
+    list(DUPLICATE_GUARD_TOOLS)+list(TSE_POPULATION_TOOLS)+list(TSE_TELEMETRY_TOOLS)+
+    list(TSE_HELIX_TOOLS)+list(TSE_ROUTE_WINDOW_TOOLS)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCES=[
     TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE,COHESION_MESH_RESOURCE,
-    TSE_POPULATION_RESOURCE,TSE_TELEMETRY_RESOURCE,TSE_HELIX_RESOURCE
+    TSE_POPULATION_RESOURCE,TSE_TELEMETRY_RESOURCE,TSE_HELIX_RESOURCE,TSE_ROUTE_WINDOW_RESOURCE
 ]
 AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=(
     set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(PARTY_CHANNEL_TOOL_NAMES)|
     set(PARTY_REWARD_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)|set(COHESION_MESH_TOOL_NAMES)|
-    set(DUPLICATE_GUARD_TOOL_NAMES)|set(TSE_POPULATION_TOOL_NAMES)|set(TSE_TELEMETRY_TOOL_NAMES)|set(TSE_HELIX_TOOL_NAMES)
+    set(DUPLICATE_GUARD_TOOL_NAMES)|set(TSE_POPULATION_TOOL_NAMES)|set(TSE_TELEMETRY_TOOL_NAMES)|
+    set(TSE_HELIX_TOOL_NAMES)|set(TSE_ROUTE_WINDOW_TOOL_NAMES)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={
     TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri'],
-    COHESION_MESH_RESOURCE['uri'],TSE_POPULATION_RESOURCE['uri'],TSE_TELEMETRY_RESOURCE['uri'],TSE_HELIX_RESOURCE['uri']
+    COHESION_MESH_RESOURCE['uri'],TSE_POPULATION_RESOURCE['uri'],TSE_TELEMETRY_RESOURCE['uri'],
+    TSE_HELIX_RESOURCE['uri'],TSE_ROUTE_WINDOW_RESOURCE['uri']
 }
 
 class AorCollectiveTransportSurface:
@@ -62,8 +71,32 @@ class AorCollectiveTransportSurface:
         self.tse_population=TsePopulationRuntime(self.cohesion)
         self.tse_telemetry=TseHelixTelemetryRuntime(server)
         self.tse_helix=TseHelixRuntime(server,self.tse_population,self.tse_telemetry,self.cohesion)
+        self.tse_route_window=TseRouteWindowRuntime(server,self.tse_telemetry)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        if name in TSE_ROUTE_WINDOW_TOOL_NAMES:
+            w=self.tse_route_window
+            if name=='athena_tse_route_window_open':
+                return True,w.open(
+                    window_id=args['window_id'],mission_id=args['mission_id'],actor_id=args['actor_id'],
+                    route_ids=args.get('route_ids'),source_refs=args.get('source_refs'),remote=args.get('remote','origin')
+                )
+            if name=='athena_tse_route_window_close':
+                return True,w.close(
+                    window_id=args['window_id'],mission_id=args['mission_id'],actor_id=args['actor_id'],
+                    complete_seams=args['complete_seams'],resolved_routes=args.get('resolved_routes'),
+                    route_ids=args.get('route_ids'),source_refs=args.get('source_refs'),remote=args.get('remote','origin')
+                )
+            if name=='athena_tse_route_window_state':
+                return True,w.state(
+                    window_id=args['window_id'],remote=args.get('remote','origin'),
+                    shared_remote_mode=args.get('shared_remote_mode','REQUIRED')
+                )
+            if name=='athena_tse_route_window_report':
+                return True,w.report(
+                    window_id=args['window_id'],remote=args.get('remote','origin'),
+                    shared_remote_mode=args.get('shared_remote_mode','REQUIRED')
+                )
         if name in TSE_HELIX_TOOL_NAMES:
             h=self.tse_helix
             if name=='athena_tse_helix_open':
@@ -271,6 +304,7 @@ class AorCollectiveTransportSurface:
         return False,None
 
     def read_resource(self,uri:str):
+        if uri==TSE_ROUTE_WINDOW_RESOURCE['uri']:return self.tse_route_window.resource()
         if uri==TSE_HELIX_RESOURCE['uri']:return self.tse_helix.resource()
         if uri==TSE_TELEMETRY_RESOURCE['uri']:return self.tse_telemetry.resource()
         if uri==TSE_POPULATION_RESOURCE['uri']:return self.tse_population.resource()
