@@ -6,6 +6,11 @@ from .composition_integrity import composition_certificate
 from .github_promotion_verifier import GITHUB_PROMOTION_VERIFIER_VERSION,GithubPromotionVerifier
 from .promotion import PromotionLedger
 from .promotion_protocol import PROMOTION_RESOURCE,PROMOTION_TOOLS,PROMOTION_TOOL_NAMES
+from .rehydration_promotion_observation import (
+    REHYDRATION_PROMOTION_OBSERVATION_TOOLS,
+    REHYDRATION_PROMOTION_OBSERVATION_TOOL_NAMES,
+    RehydrationPromotionObserver,
+)
 from .self_test import SelfTestRuntime
 from .self_test_protocol import SELF_TEST_RESOURCE,SELF_TEST_TOOLS,SELF_TEST_TOOL_NAMES
 from .startup_health import StartupHealth
@@ -18,7 +23,7 @@ from .unified_manifest import UNIFIED_MANIFEST_VERSION,build_unified_manifest,ma
 from .unified_manifest_protocol import UNIFIED_MANIFEST_RESOURCES,UNIFIED_MANIFEST_RESOURCE_URIS,UNIFIED_MANIFEST_TOOLS,UNIFIED_MANIFEST_TOOL_NAMES
 
 INTEGRITY_TOOLS=(
-    list(SURFACE_TOOLS)+list(PROMOTION_TOOLS)+list(STATE_FOUNDATION_TOOLS)+
+    list(SURFACE_TOOLS)+list(PROMOTION_TOOLS)+list(REHYDRATION_PROMOTION_OBSERVATION_TOOLS)+list(STATE_FOUNDATION_TOOLS)+
     list(SELF_TEST_TOOLS)+list(STARTUP_HEALTH_TOOLS)+list(UNIFIED_MANIFEST_TOOLS)
 )
 INTEGRITY_RESOURCES=(
@@ -26,7 +31,7 @@ INTEGRITY_RESOURCES=(
     [SELF_TEST_RESOURCE,STARTUP_HEALTH_RESOURCE]+list(UNIFIED_MANIFEST_RESOURCES)
 )
 INTEGRITY_TOOL_NAMES=(
-    set(SURFACE_TOOL_NAMES)|set(PROMOTION_TOOL_NAMES)|set(STATE_FOUNDATION_TOOL_NAMES)|
+    set(SURFACE_TOOL_NAMES)|set(PROMOTION_TOOL_NAMES)|set(REHYDRATION_PROMOTION_OBSERVATION_TOOL_NAMES)|set(STATE_FOUNDATION_TOOL_NAMES)|
     set(SELF_TEST_TOOL_NAMES)|set(STARTUP_HEALTH_TOOL_NAMES)|set(UNIFIED_MANIFEST_TOOL_NAMES)
 )
 INTEGRITY_RESOURCE_URIS={resource['uri'] for resource in INTEGRITY_RESOURCES}
@@ -39,6 +44,7 @@ class RuntimeIntegritySurface:
         self.server=server;self.development=development
         self.promotion=PromotionLedger(server.core)
         self.github_promotion_verifier=GithubPromotionVerifier()
+        self._rehydration_promotion_observer_v1_2=None
         self.state_foundation=StateFoundationSurface(server,development)
         self.self_test=SelfTestRuntime(server,self)
         self.startup=StartupHealth(server,self)
@@ -48,6 +54,22 @@ class RuntimeIntegritySurface:
         resources_response=self.server.handle({'jsonrpc':'2.0','id':'surface:resources','method':'resources/list'})
         tools=tools_response['result']['tools'];resources=resources_response['result']['resources']
         return [tool['name'] for tool in tools],[resource['uri'] for resource in resources]
+
+    def _rehydration_promotion_observer(self):
+        # Server.git is initialized after AorDevelopmentSurface/RuntimeIntegritySurface,
+        # so construct this read-only bridge lazily at first observation call.
+        if self._rehydration_promotion_observer_v1_2 is None:
+            from .prompt_runtime import PromptRuntime
+            from .rehydration_loop import RehydrationLoopRuntime
+            prompt=PromptRuntime(self.server.git)
+            loop=RehydrationLoopRuntime(self.server.git,prompt)
+            self._rehydration_promotion_observer_v1_2=RehydrationPromotionObserver(
+                git=self.server.git,
+                loop=loop,
+                promotion=self.promotion,
+                verifier=self.github_promotion_verifier,
+            )
+        return self._rehydration_promotion_observer_v1_2
 
     def surface_audit(self,run_probes=True):
         tool_names,resource_uris=self._observed_surface()
@@ -67,6 +89,8 @@ class RuntimeIntegritySurface:
         handled,value=self.state_foundation.call_tool(name,args)
         if handled:return True,value
 
+        if name in REHYDRATION_PROMOTION_OBSERVATION_TOOL_NAMES:
+            return self._rehydration_promotion_observer().call_tool(name,args)
         if name=='athena_surface_audit':return True,self.surface_audit(args.get('run_probes',True))
         if name=='athena_promotion_evaluate':
             surface=self.surface_audit(True);local_git=self.server.git.status()
@@ -100,6 +124,12 @@ class RuntimeIntegritySurface:
             return {
                 'version':'ATHENA.PROMOTION.2','compat':['ATHENA.PROMOTION.1'],'benchmark':self.promotion.benchmark(),'recent':self.promotion.recent(50),
                 'github_verifier':self.github_promotion_verifier.describe(),
+                'rehydration_observer':{
+                    'artifact':'ATHENA.REHYDRATION.PROMOTION.OBSERVATION.V1_2',
+                    'tool':'athena_rehydration_promotion_observe',
+                    'authority':'OBSERVATION_ONLY',
+                    'law':'rehydration may observe persisted exact-head promotion and host GitHub checks but cannot evaluate/persist qualification, merge, release, or deploy',
+                },
                 'law':'ATTESTED_READY iff unified Server + SURFACE.2 + COMPOSITION.2 + configured local Git gate + caller-bound CI/smoke packets all PASS on the same exact head; QUALIFIED additionally requires an internal trusted verifier receipt. GITHUB_PROMOTION_VERIFIER.1 can independently derive that receipt from one coherent host-bound GitHub Actions run/check-suite.',
                 'boundary':'MCP caller witness packets never mint PROMOTION.2 QUALIFIED. athena_promotion_verify_github accepts only the target head; trusted repository/API/run identity and required checks come from host configuration, and failed GitHub verification creates no PROMRUN.',
             }
@@ -109,4 +139,5 @@ class RuntimeIntegritySurface:
         result={};result.update(self.promotion.benchmark());result.update(self.state_foundation.benchmark())
         result['self_test_version']='ATHENA.SELFTEST.1';result['startup_health_version']='ATHENA.STARTUP.1';result['unified_manifest_version']=UNIFIED_MANIFEST_VERSION;result['promotion_version']='ATHENA.PROMOTION.2'
         result['github_promotion_verifier_version']=GITHUB_PROMOTION_VERIFIER_VERSION;result['github_promotion_verifier_configured']=self.github_promotion_verifier.describe()['configured']
+        result['rehydration_promotion_observation_version']='ATHENA.REHYDRATION.PROMOTION.OBSERVATION.V1_2'
         return result

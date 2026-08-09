@@ -1,0 +1,72 @@
+{
+  "artifact": "ATHENA.REHYDRATION.PROMOTION.OBSERVATION.V1_2",
+  "coordinate": "ATHENA.KC144::GITΩ::REHYDRATION-PROMOTION-OBSERVATION::V1.2",
+  "harness_id": "HARNESS/ORCHESTRATION/OBSERVE/EXACT_HEAD_PROMOTION/V1_2",
+  "authority_ceiling": "read-only observation below PromotionLedger.evaluate, merge, release, deployment, host, system, developer and user authority",
+  "purpose": "Bind one persisted rehydration loop to an explicit Git-head promotion observation without allowing the loop to mint qualification.",
+  "inputs": [
+    "loop_id",
+    "target_head_mode=CURRENT_GIT|CYCLE_WORK|LOOP_CHECKPOINT|EXPLICIT",
+    "optional explicit_head",
+    "optional host GitHub verifier check",
+    "persisted PROMOTION.2 ledger"
+  ],
+  "outputs": [
+    "loop causal-integrity state",
+    "current/cycle/checkpoint target coordinates",
+    "exact-head persisted PROMRUNs and deterministic replay standing",
+    "host-bound GitHub check-suite observation",
+    "observation-only authority packet"
+  ],
+  "status_lattice": [
+    "LOOP_INTEGRITY_HOLD",
+    "PROMOTION_CONTESTED",
+    "PROMOTION_REPLAY_HOLD",
+    "PROMOTION_BLOCKED_OBSERVED",
+    "PROMOTION_UNOBSERVED",
+    "CHECKS_VERIFIED_PROMOTION_UNQUALIFIED",
+    "ATTESTED_READY_OBSERVED",
+    "PERSISTED_QUALIFIED_OBSERVED"
+  ],
+  "exact_head_law": {
+    "CURRENT_GIT": "configured Git checkout head",
+    "CYCLE_WORK": "latest receipt work_head",
+    "LOOP_CHECKPOINT": "commit that last wrote loop state.json",
+    "EXPLICIT": "caller-supplied head; required when selected"
+  },
+  "promotion_authority": {
+    "may_read_promruns": true,
+    "may_replay_promruns": true,
+    "may_call_host_verifier": true,
+    "may_evaluate_promotion": false,
+    "may_persist_promrun": false,
+    "may_merge": false,
+    "may_release": false,
+    "may_deploy": false
+  },
+  "compatibility": {
+    "rehydration_loop_v1": "required",
+    "rehydration_control_v1_1": "optional; cycle_gate is observed from frozen receipt if present",
+    "rehydration_successor_v1": "optional; successor baton is observed from frozen receipt if present",
+    "promotion_2": "required for persisted standing",
+    "github_promotion_verifier_1": "optional host observation; unavailable verifier remains non-authoritative"
+  },
+  "invariants": [
+    "observer contains no PromotionLedger.evaluate call path",
+    "GitHub check verification alone never produces PERSISTED_QUALIFIED_OBSERVED",
+    "only exact target-head PROMRUNs are considered",
+    "every persisted run is replayed before contributing to standing",
+    "disagreeing replay-valid statuses produce CONTESTED",
+    "replay verifies frozen predicate determinism and is not external provider reverification",
+    "cycle-local VERIFIED_CYCLE never upgrades promotion authority"
+  ],
+  "laws": [
+    "REHYDRATION_MAY_OBSERVE_PROMOTION_BUT_MAY_NOT_GRANT_PROMOTION",
+    "CHECKS_VERIFIED != PROMOTION_QUALIFIED",
+    "PROMOTION_RUN != MERGE_AUTHORITY",
+    "EXACT_HEAD_IDENTITY_IS_EXPLICIT_NOT_INFERRED",
+    "CONTESTED_PROMRUNS_REMAIN_CONTESTED",
+    "REPLAY_MATCH != EXTERNAL_REVERIFICATION"
+  ],
+  "tool": "athena_rehydration_promotion_observe"
+}
