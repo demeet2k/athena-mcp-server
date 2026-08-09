@@ -1,0 +1,39 @@
+name: F36 Derived Replay Witness
+
+on:
+  pull_request:
+    branches:
+      - 'agent/cell-closure-evidence-kc15-v1'
+    paths:
+      - 'spec/F36_DERIVED_REPLAY_WITNESS_V1.json'
+      - 'scripts/f36_derived_replay_witness.py'
+      - '.github/workflows/f36-derived-replay-witness.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  f36-derived-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile bounded F36 witness
+        run: python -m compileall -q scripts/f36_derived_replay_witness.py
+      - name: Execute finite derived-residue and replay witness
+        env:
+          PYTHONPATH: .
+        run: python scripts/f36_derived_replay_witness.py
+      - name: Upload F36 replay receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f36-derived-replay-witness-v1
+          path: f36_derived_replay_witness_v1.json
+          if-no-files-found: error
