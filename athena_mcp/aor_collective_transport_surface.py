@@ -17,7 +17,7 @@ from .impossible_godboard_protocol import (
     IMPOSSIBLE_GODBOARD_TOOLS,
     IMPOSSIBLE_GODBOARD_TOOL_NAMES,
 )
-from .cohesion_matchmaking import CohesionMatchmakingRuntime
+from .cohesion_evidence_guard import CohesionEvidenceGuardRuntime
 from .cohesion_mesh_protocol import (
     COHESION_MESH_RESOURCE,
     COHESION_MESH_TOOLS,
@@ -46,7 +46,7 @@ class AorCollectiveTransportSurface:
         self.runtime=TransportRuntime(server)
         self.party=PartyCoordinationRuntimeV2(server)
         self.godboard=ImpossibleGodboardRuntime(server)
-        self.cohesion=CohesionMatchmakingRuntime(server)
+        self.cohesion=CohesionEvidenceGuardRuntime(server)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
         if name in COHESION_MESH_TOOL_NAMES:
