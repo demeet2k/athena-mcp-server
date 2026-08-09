@@ -1,0 +1,36 @@
+name: IC10 CUT-01 Ordered Gate Chain RED
+
+on:
+  pull_request:
+    branches:
+      - 'agent/h6-execution-cut05-integrated-v1'
+    paths:
+      - 'tests/red/test_ic10_gate_chain_red.py'
+      - 'scripts/ic10_cut01_red_witness.py'
+      - '.github/workflows/ic10-cut01-red.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  red-witness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile IC10 RED witness
+        run: python -m compileall -q tests/red/test_ic10_gate_chain_red.py scripts/ic10_cut01_red_witness.py
+      - name: Observe ordered IC10 gap
+        env:
+          PYTHONPATH: .
+        run: python scripts/ic10_cut01_red_witness.py
+      - name: Upload IC10 RED receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ic10-cut01-red-receipt
+          path: ic10_cut01_red_receipt.json
+          if-no-files-found: error
