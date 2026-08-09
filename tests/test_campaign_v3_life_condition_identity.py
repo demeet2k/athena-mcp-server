@@ -241,11 +241,13 @@ class CampaignV3LifeConditionIdentityTests(unittest.TestCase):
         )
         self.assertEqual("HOLD_CONDITION_IDENTITY", out["status"])
 
-    def test_identity_envelope_contains_no_outcome_vector_or_reward(self):
+    def test_identity_envelope_contains_no_outcome_or_reward_settlement_payload(self):
         identity = _identity()
         serialized = json.dumps(identity, sort_keys=True)
         self.assertNotIn("satisfied", serialized)
-        self.assertNotIn("reward", serialized.casefold())
+        self.assertNotIn("extra_life_reward", identity)
+        self.assertNotIn("reward_receipt", serialized.casefold())
+        self.assertFalse(identity["reward_issuance_authority"])
         self.assertFalse(identity["outcomes_observed"])
 
     def test_identity_ref_is_frozen_but_not_claimed_as_authority(self):
