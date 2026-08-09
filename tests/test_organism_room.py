@@ -114,11 +114,11 @@ class RoomE2ETests(unittest.TestCase):
 
     @staticmethod
     def _enter(room, root, agent, work, key=None):
-        return room.enter(agent_id=agent, task=f"Build {work}", work_key=work, targets=[f"{work}.py"], ack_head=_run(root, "rev-parse", "HEAD"), ack_prompt_digest=_prompt_digest(root), idempotency_key=key or f"enter-{agent}", lease_seconds=600)
+        return room.enter(agent_id=agent, task=f"Build {work}", work_key=work, targets=[f"{work}.py"], ack_head=_run(root, "rev-parse", "HEAD"), ack_prompt_digest=_prompt_digest(root), idempotency_key=key or f"enter-{agent}-0123456789", lease_seconds=600)
 
     def test_enter_requires_exact_head_and_prompt_ack(self):
         rooms, roots = self._rooms()
-        hold = rooms[0].enter(agent_id="a", task="Build x", work_key="x", targets=["x.py"], ack_head="stale", ack_prompt_digest="wrong", idempotency_key="enter-a")
+        hold = rooms[0].enter(agent_id="a", task="Build x", work_key="x", targets=["x.py"], ack_head="stale", ack_prompt_digest="wrong", idempotency_key="enter-a-0123456789")
         self.assertEqual(hold["status"], "REHYDRATE_HOLD")
         entered = self._enter(rooms[0], roots[0], "a", "x")
         self.assertEqual(entered["status"], "ENTERED")
@@ -131,7 +131,7 @@ class RoomE2ETests(unittest.TestCase):
         duplicate = self._enter(rooms[1], roots[1], "b", "x")
         self.assertEqual(duplicate["status"], "DUPLICATE_WORK_HOLD")
         session = entered["session"]
-        hold = rooms[0].sign_out(agent_id="a", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], idempotency_key="out-a")
+        hold = rooms[0].sign_out(agent_id="a", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], idempotency_key="out-a-01234567890")
         self.assertEqual(hold["status"], "OPEN_CLAIM_HOLD")
 
     def test_verified_completion_creates_successor_then_signs_out(self):
@@ -142,11 +142,11 @@ class RoomE2ETests(unittest.TestCase):
         artifacts = ["sha256:artifact"]
         claims = {"quest_id": "x", "attempt": 1, "session_id": session["session_id"], "fence": session["fence"], "input_head": session["head"], "prompt_digest": session["prompt_digest"], "artifact_digests": artifacts, "result": "PASS"}
         receipt = make_authority_receipt(claims, "host", b"h" * 32)
-        completed = room.complete(agent_id="a", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], artifact_digests=artifacts, result="PASS", receipt=receipt, residual="Integrate x into the caller", idempotency_key="complete-a")
+        completed = room.complete(agent_id="a", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], artifact_digests=artifacts, result="PASS", receipt=receipt, residual="Integrate x into the caller", idempotency_key="complete-a-0123456")
         self.assertEqual(completed["status"], "VERIFIED_COMPLETION")
         self.assertFalse(completed["campaign_terminal"])
         self.assertEqual(completed["successor"]["status"], "READY")
-        signed_out = room.sign_out(agent_id="a", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], idempotency_key="out-a")
+        signed_out = room.sign_out(agent_id="a", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], idempotency_key="out-a-01234567890")
         self.assertEqual(signed_out["status"], "SIGNED_OUT")
         self.assertEqual(room.read()["board"]["active"], [])
 
@@ -156,24 +156,27 @@ class RoomE2ETests(unittest.TestCase):
         session = entered["session"]
         fake = {"artifact": "ATHENA.ORGANISM.ROOM.RECEIPT.V1", "authority_id": "claimant", "claims": {}, "mac": "self-hash"}
         with self.assertRaisesRegex(ValueError, "AUTHORITY_NOT_CONFIGURED"):
-            rooms[0].complete(agent_id="a", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], artifact_digests=["a"], result="PASS", receipt=fake, terminal_reason="NO_RESIDUAL", idempotency_key="complete-a")
+            rooms[0].complete(agent_id="a", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], artifact_digests=["a"], result="PASS", receipt=fake, terminal_reason="NO_RESIDUAL", idempotency_key="complete-a-0123456")
 
     def test_context_guard_forces_release_on_exception(self):
         rooms, roots = self._rooms()
         with self.assertRaisesRegex(RuntimeError, "boom"):
-            with rooms[0].epoch(agent_id="a", task="Build x", work_key="x", targets=["x.py"], ack_head=_run(roots[0], "rev-parse", "HEAD"), ack_prompt_digest=_prompt_digest(roots[0]), idempotency_key="enter-a", lease_seconds=600):
+            with rooms[0].epoch(agent_id="a", task="Build x", work_key="x", targets=["x.py"], ack_head=_run(roots[0], "rev-parse", "HEAD"), ack_prompt_digest=_prompt_digest(roots[0]), idempotency_key="enter-a-0123456789", lease_seconds=600):
                 raise RuntimeError("boom")
         self.assertEqual(rooms[0].read()["board"]["active"], [])
 
     def test_idempotency_replay_and_conflict(self):
         rooms, roots = self._rooms()
         room = rooms[0]
-        args = dict(agent_id="a", task="Build x", work_key="x", targets=["x.py"], ack_head=_run(roots[0], "rev-parse", "HEAD"), ack_prompt_digest=_prompt_digest(roots[0]), idempotency_key="enter-a", lease_seconds=600)
+        args = dict(agent_id="a", task="Build x", work_key="x", targets=["x.py"], ack_head=_run(roots[0], "rev-parse", "HEAD"), ack_prompt_digest=_prompt_digest(roots[0]), idempotency_key="enter-a-0123456789", lease_seconds=600)
         first = room.enter(**args)
         replay = room.enter(**args)
         self.assertEqual(replay["session"]["session_id"], first["session"]["session_id"])
         self.assertEqual(replay["session_token"], first["session_token"])
-        self.assertNotIn("session_token", room.read()["room"]["idempotency"]["a:enter-a"]["result"])
+        stored = room.read()["room"]["idempotency"]
+        self.assertTrue(stored)
+        self.assertTrue(all("enter-a" not in slot for slot in stored))
+        self.assertNotIn("session_token", next(iter(stored.values()))["result"])
         with self.assertRaisesRegex(ValueError, "IDEMPOTENCY_KEY_REUSE_CONFLICT"):
             room.enter(**{**args, "task": "Build y"})
 
@@ -182,12 +185,12 @@ class RoomE2ETests(unittest.TestCase):
         room = rooms[0]
         first = self._enter(room, roots[0], "a", "x")
         old = first["session"]
-        room.sign_out(agent_id="a", session_id=old["session_id"], fence=old["fence"], session_token=first["session_token"], idempotency_key="out-old", force=True)
-        second = self._enter(room, roots[0], "a", "x", key="enter-a-again")
+        room.sign_out(agent_id="a", session_id=old["session_id"], fence=old["fence"], session_token=first["session_token"], idempotency_key="out-old-012345678", force=True)
+        second = self._enter(room, roots[0], "a", "x", key="enter-a-again-0123")
         self.assertGreater(second["session"]["fence"], old["fence"])
         self.assertNotEqual(second["session"]["session_id"], old["session_id"])
         with self.assertRaisesRegex(ValueError, "FENCED_SESSION_HOLD"):
-            room.heartbeat(agent_id="a", session_id=old["session_id"], fence=old["fence"], session_token=first["session_token"], idempotency_key="late-heartbeat")
+            room.heartbeat(agent_id="a", session_id=old["session_id"], fence=old["fence"], session_token=first["session_token"], idempotency_key="late-heartbeat-0123")
 
     def test_prompt_change_stales_session(self):
         rooms, roots = self._rooms()
@@ -198,7 +201,7 @@ class RoomE2ETests(unittest.TestCase):
         _run(root, "commit", "-m", "change prompt")
         _run(root, "push", "origin", "master")
         session = entered["session"]
-        result = room.heartbeat(agent_id="a", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], idempotency_key="heartbeat-a")
+        result = room.heartbeat(agent_id="a", session_id=session["session_id"], fence=session["fence"], session_token=entered["session_token"], idempotency_key="heartbeat-a-012345")
         self.assertEqual(result["status"], "REHYDRATE_HOLD")
 
     def test_two_concurrent_enters_same_identity_only_one_session_wins(self):
@@ -211,12 +214,12 @@ class RoomE2ETests(unittest.TestCase):
         def racing_publish(expected_git_head, remote="origin"):
             if not injected["done"]:
                 injected["done"] = True
-                won = self._enter(winner, winner_root, "same", "winner-work", key="enter-same-winner")
+                won = self._enter(winner, winner_root, "same", "winner-work", key="enter-same-winner-01")
                 self.assertEqual(won["status"], "ENTERED")
             return original_publish(expected_git_head, remote)
 
         loser.board.remote_sync.publish = racing_publish
-        result = self._enter(loser, loser_root, "same", "loser-work", key="enter-same-loser")
+        result = self._enter(loser, loser_root, "same", "loser-work", key="enter-same-loser-012")
         self.assertIn(result["status"], {"AGENT_ALREADY_PRESENT_HOLD", "REHYDRATE_HOLD"})
         self.assertEqual(loser.read()["room"]["sessions"]["same"]["quest_id"], "winner-work")
 
