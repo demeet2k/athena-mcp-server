@@ -1,0 +1,126 @@
+{
+  "schema": "ATHENA.KC144.PROJECT_RELATION_GRAPH.CONTRACT.v3",
+  "status": "CANDIDATE_CHILD_OF_UNMERGED_V2",
+  "version": "ATHENA.PROJECT_ATLAS.RELATION_GRAPH.V3",
+  "private_work_order": {
+    "repository": "demeet2k/Athena",
+    "issue": 508
+  },
+  "parent_v2": {
+    "repository": "demeet2k/athena-mcp-server",
+    "pull_request": 310,
+    "head_at_branch_creation": "c7445bcd70a354e5deb912add6716d7e5191e02c",
+    "branch": "agent/kc144-project-atlas-mcp-surface-v2"
+  },
+  "integration": {
+    "branch": "agent/kc144-project-atlas-graph-v3",
+    "head_binding": "the Git commit containing this manifest",
+    "law": "V3_CHILD_HEAD != ACCEPTED_V2_ANCESTRY"
+  },
+  "identity": {
+    "snapshot_prefix": "PATLASV2.",
+    "graph_prefix": "PATLASG3.",
+    "edge_prefix": "PEDGE.",
+    "vertex_identity": "Project Atlas POID",
+    "edge_identity": "content-derived typed relation digest",
+    "authority": "NONE"
+  },
+  "edge_kinds": {
+    "structural_default": [
+      "DIR_CONTAINS",
+      "DIR_PARENT_OF",
+      "PY_IMPORTS",
+      "PY_RELATIVE_IMPORTS",
+      "SAME_BLOB_ALIAS",
+      "EXACT_PATH_REFERENCE"
+    ],
+    "geometric_optional": [
+      "KC144_GRID_ADJACENT"
+    ]
+  },
+  "extractors": {
+    "DIR_CONTAINS": "git_tree_hierarchy_v1",
+    "DIR_PARENT_OF": "git_tree_hierarchy_v1",
+    "PY_IMPORTS": "python_ast_import_resolver_v1",
+    "PY_RELATIVE_IMPORTS": "python_ast_import_resolver_v1",
+    "SAME_BLOB_ALIAS": "git_object_alias_v1",
+    "EXACT_PATH_REFERENCE": "exact_scalar_path_reference_v1",
+    "KC144_GRID_ADJACENT": "project_kc144_grid_v1"
+  },
+  "evidence_classes": {
+    "DIR_CONTAINS": "EXACT_GIT_TREE",
+    "DIR_PARENT_OF": "EXACT_GIT_TREE",
+    "PY_IMPORTS": "PYTHON_AST+EXACT_LOCAL_MODULE_INDEX",
+    "PY_RELATIVE_IMPORTS": "PYTHON_AST+EXACT_LOCAL_MODULE_INDEX",
+    "SAME_BLOB_ALIAS": "EXACT_GIT_OBJECT_SHA",
+    "EXACT_PATH_REFERENCE": "EXACT_SCALAR_PATH+UNIQUE_FRONTIER_TARGET",
+    "KC144_GRID_ADJACENT": "KC144_GEOMETRIC_PROJECTION"
+  },
+  "frontier": {
+    "vertex_scope": "<plane,repo,head,POID>",
+    "edge_snapshot_binding": "exact PATLASV2 snapshot equality",
+    "graph_digest_basis": [
+      "graph schema",
+      "exact PATLASV2 snapshot_id",
+      "sorted exact vertex receipts",
+      "sorted typed edge receipts"
+    ],
+    "enumeration_order_invariant": true,
+    "unknown_is_zero": false
+  },
+  "queries": {
+    "mcp_rpc_promoted": false,
+    "internal": [
+      "summary",
+      "neighbors",
+      "shortest_path:bfs",
+      "shortest_path:dijkstra"
+    ],
+    "max_page": 100,
+    "max_depth": 128,
+    "max_expansions": 10000,
+    "dijkstra_requires_explicit_weights": true,
+    "default_route_edge_domain": "structural_default"
+  },
+  "hold_statuses": [
+    "HOLD_EDGE",
+    "HOLD_STALE_SNAPSHOT",
+    "HOLD_STALE_GRAPH",
+    "HOLD_UNKNOWN_VERTEX",
+    "HOLD_EXPANSION_LIMIT",
+    "HOLD_DEPTH_LIMIT",
+    "HOLD_NO_PATH"
+  ],
+  "laws": [
+    "EDGE != CLAIM_OF_SEMANTIC_EQUIVALENCE",
+    "KC144_GRID_ADJACENT != DEPENDS_ON",
+    "SAME_BLOB_ALIAS != SAME_OBJECT",
+    "IMPORT_STRING != RESOLVED_LOCAL_IMPORT",
+    "UNRESOLVED_IMPORT -> CONSERVE_UNKNOWN",
+    "AMBIGUOUS_EDGE_TARGET -> HOLD_EDGE",
+    "GRAPH_DIGEST_REQUIRES_EXACT_SNAPSHOT",
+    "GRAPH_QUERY != PROMOTION_AUTHORITY",
+    "PATH_COST != TRUTH",
+    "ROUTE != EXECUTION",
+    "EDGE_CLASS_CHANGE_REQUIRES_GRAPH_SCHEMA_BUMP",
+    "STRUCTURAL_GRAPH_ROUTE != KC144_GEOMETRIC_ROUTE != EXECUTION",
+    "V3_CHILD_HEAD != ACCEPTED_V2_ANCESTRY"
+  ],
+  "promotion": {
+    "standing": "HOLD_PENDING_V2_ACCEPTANCE_REBASE_AND_V3_QUALIFICATION",
+    "canonical_rpc_promotion": false,
+    "package_version_change_in_child": false,
+    "publication": false,
+    "deployment": false,
+    "requirements": [
+      "accepted V1/V2 ancestry",
+      "exact rebased V3 candidate",
+      "full current CI qualification",
+      "current V3.4 release qualification",
+      "separate ABI/package version decision before graph RPC exposure",
+      "private brain integration review",
+      "separate publication authority",
+      "separate deployment authority"
+    ]
+  }
+}
