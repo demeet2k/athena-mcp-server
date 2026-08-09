@@ -28,6 +28,8 @@ CI_QUALIFICATION = "NOT_INFERRED_BY_RECEIPT"
 IMPLEMENTATION_STANDING = "EXTERNAL_BINDING_REQUIRED"
 SEMANTIC_STATE_STANDING = "SYNTHETIC_CONTROL"
 
+STATE_DIGEST_DOMAIN = "MCK.EVALUATION.STATE.V1"
+PATH_DIGEST_DOMAIN = "MCK.EVALUATION.PATH.V1"
 INPUT_DIGEST_DOMAIN = "MCK.EVALUATION.INPUT.V1"
 RAW_RESULT_DIGEST_DOMAIN = "MCK.EVALUATION.RAW_RESULT.V1"
 SEMANTIC_RESULT_DIGEST_DOMAIN = "MCK.EVALUATION.SEMANTIC_RESULT.V1"
@@ -67,10 +69,11 @@ _REQUIRED_RECEIPT_KEYS = frozenset(
         "independent_witness", "authority_delta", "ci_qualification",
         "implementation_binding", "semantic_control_artifact",
         "packet_compiler_revision", "packet_semantic_digest",
-        "operator_registry_digest", "initial_state", "edge_path",
-        "evaluation_input_digest", "raw_result", "raw_result_digest",
-        "semantic_result", "semantic_result_digest",
-        "semantic_result_projection_basis", "receipt_digest",
+        "operator_registry_digest", "initial_state", "initial_state_digest",
+        "edge_path", "ordered_path_digest", "evaluation_input_digest",
+        "raw_result", "raw_result_digest", "semantic_result",
+        "semantic_result_digest", "semantic_result_projection_basis",
+        "receipt_digest",
     }
 )
 
@@ -246,6 +249,18 @@ def _normalize_audit_state(
     )
 
 
+def _semantic_state_from_audit(value: Any) -> SemanticState:
+    normalized = _normalize_audit_state(value)
+    return SemanticState(
+        normalized["coordinate"],
+        normalized["values"],
+        feature_basis=tuple(normalized["feature_basis"]),
+        provenance=tuple(normalized["provenance"]),
+        irreversible_loss=frozenset(normalized["irreversible_loss"]),
+        standing=normalized["standing"],
+    )
+
+
 def _project_state(value: Any) -> Any:
     if value is None:
         return None
@@ -314,6 +329,8 @@ def _receipt_identity_payload(receipt: Mapping[str, Any]) -> dict[str, Any]:
         "packet_compiler_revision": receipt["packet_compiler_revision"],
         "packet_semantic_digest": receipt["packet_semantic_digest"],
         "operator_registry_digest": receipt["operator_registry_digest"],
+        "initial_state_digest": receipt["initial_state_digest"],
+        "ordered_path_digest": receipt["ordered_path_digest"],
         "evaluation_input_digest": receipt["evaluation_input_digest"],
         "raw_result_digest": receipt["raw_result_digest"],
         "semantic_result_digest": receipt["semantic_result_digest"],
@@ -344,7 +361,10 @@ def build_evaluation_receipt(
     if compiled is None or packet_validation.get("status") != "VALID":
         return _hold("PACKET_VALIDATION_HOLD", packet_validation=packet_validation)
     if packet_validation.get("compiler_revision") != PACKET_COMPILER_REVISION:
-        return _hold("PACKET_COMPILER_REVISION_DRIFT", packet_validation=packet_validation)
+        return _hold(
+            "PACKET_COMPILER_REVISION_DRIFT",
+            packet_validation=packet_validation,
+        )
 
     try:
         path = _normalize_path(edge_path)
@@ -363,6 +383,8 @@ def build_evaluation_receipt(
     except (KeyError, TypeError, ValueError) as exc:
         return _hold(f"INVALID_EVALUATION_INPUT:{type(exc).__name__}:{exc}")
 
+    initial_state_digest = _domain_digest(STATE_DIGEST_DOMAIN, initial_audit)
+    ordered_path_digest = _domain_digest(PATH_DIGEST_DOMAIN, path)
     input_payload = _evaluation_input_payload(
         packet_semantic_digest=packet_validation["packet_semantic_digest"],
         operator_registry_digest=packet_validation["operator_registry_digest"],
@@ -398,7 +420,9 @@ def build_evaluation_receipt(
         "packet_semantic_digest": packet_validation["packet_semantic_digest"],
         "operator_registry_digest": packet_validation["operator_registry_digest"],
         "initial_state": input_payload["initial_state"],
+        "initial_state_digest": initial_state_digest,
         "edge_path": path,
+        "ordered_path_digest": ordered_path_digest,
         "evaluation_input_digest": evaluation_input_digest,
         "raw_result": raw_result,
         "raw_result_digest": raw_result_digest,
@@ -455,6 +479,13 @@ def validate_evaluation_receipt(receipt: Any) -> dict[str, Any]:
         if strict["initial_state"] != normalized_initial:
             raise ValueError("RECEIPT_INITIAL_STATE_CANONICAL_MISMATCH")
 
+        expected_state_digest = _domain_digest(STATE_DIGEST_DOMAIN, normalized_initial)
+        if strict["initial_state_digest"] != expected_state_digest:
+            raise ValueError("INITIAL_STATE_DIGEST_MISMATCH")
+        expected_path_digest = _domain_digest(PATH_DIGEST_DOMAIN, normalized_path)
+        if strict["ordered_path_digest"] != expected_path_digest:
+            raise ValueError("ORDERED_PATH_DIGEST_MISMATCH")
+
         input_payload = _evaluation_input_payload(
             packet_semantic_digest=strict["packet_semantic_digest"],
             operator_registry_digest=strict["operator_registry_digest"],
@@ -496,6 +527,8 @@ def validate_evaluation_receipt(receipt: Any) -> dict[str, Any]:
             "status": "VALID",
             "receipt_id": strict["receipt_id"],
             "receipt_digest": strict["receipt_digest"],
+            "initial_state_digest": strict["initial_state_digest"],
+            "ordered_path_digest": strict["ordered_path_digest"],
             "errors": [],
         }
     except (KeyError, TypeError, ValueError) as exc:
@@ -542,6 +575,8 @@ def replay_evaluation_receipt(
         "operator_registry_digest",
         "semantic_control_artifact",
         "packet_compiler_revision",
+        "initial_state_digest",
+        "ordered_path_digest",
         "evaluation_input_digest",
         "raw_result_digest",
         "semantic_result_digest",
@@ -569,3 +604,38 @@ def replay_evaluation_receipt(
         "independent_witness": False,
         "authority_delta": AUTHORITY_DELTA,
     }
+
+
+def replay_stored_evaluation_receipt(
+    stored_receipt: Mapping[str, Any],
+    packet: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Re-execute from the receipt's own validated frozen state and path."""
+
+    stored_validation = validate_evaluation_receipt(stored_receipt)
+    if stored_validation["status"] != "VALID":
+        return {
+            "artifact": REPLAY_ARTIFACT,
+            "version": REPLAY_VERSION,
+            "status": "HOLD",
+            "reason": "STORED_RECEIPT_INVALID",
+            "stored_validation": stored_validation,
+            "mismatches": [],
+        }
+    try:
+        initial_state = _semantic_state_from_audit(stored_receipt["initial_state"])
+        edge_path = _normalize_path(stored_receipt["edge_path"])
+    except (KeyError, TypeError, ValueError) as exc:
+        return {
+            "artifact": REPLAY_ARTIFACT,
+            "version": REPLAY_VERSION,
+            "status": "HOLD",
+            "reason": f"STORED_REPLAY_INPUT_INVALID:{type(exc).__name__}:{exc}",
+            "mismatches": [],
+        }
+    return replay_evaluation_receipt(
+        stored_receipt,
+        packet,
+        initial_state,
+        edge_path,
+    )
