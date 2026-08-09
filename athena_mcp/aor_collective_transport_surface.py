@@ -38,27 +38,34 @@ from .tse_route_window_protocol import (
     TSE_ROUTE_WINDOW_TOOLS,
     TSE_ROUTE_WINDOW_TOOL_NAMES,
 )
+from .tse_circulation import TseCirculationRuntime
+from .tse_circulation_protocol import (
+    TSE_CIRCULATION_RESOURCE,
+    TSE_CIRCULATION_TOOLS,
+    TSE_CIRCULATION_TOOL_NAMES,
+)
 
 AOR_COLLECTIVE_TRANSPORT_TOOLS=(
     list(TRANSPORT_TOOLS)+list(PARTY_COORDINATION_TOOLS)+list(PARTY_CHANNEL_TOOLS)+
     list(PARTY_REWARD_TOOLS)+list(IMPOSSIBLE_GODBOARD_TOOLS)+list(COHESION_MESH_TOOLS)+
     list(DUPLICATE_GUARD_TOOLS)+list(TSE_POPULATION_TOOLS)+list(TSE_TELEMETRY_TOOLS)+
-    list(TSE_HELIX_TOOLS)+list(TSE_ROUTE_WINDOW_TOOLS)
+    list(TSE_HELIX_TOOLS)+list(TSE_ROUTE_WINDOW_TOOLS)+list(TSE_CIRCULATION_TOOLS)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCES=[
     TRANSPORT_RESOURCE,PARTY_COORDINATION_RESOURCE,IMPOSSIBLE_GODBOARD_RESOURCE,COHESION_MESH_RESOURCE,
-    TSE_POPULATION_RESOURCE,TSE_TELEMETRY_RESOURCE,TSE_HELIX_RESOURCE,TSE_ROUTE_WINDOW_RESOURCE
+    TSE_POPULATION_RESOURCE,TSE_TELEMETRY_RESOURCE,TSE_HELIX_RESOURCE,TSE_ROUTE_WINDOW_RESOURCE,
+    TSE_CIRCULATION_RESOURCE
 ]
 AOR_COLLECTIVE_TRANSPORT_TOOL_NAMES=(
     set(TRANSPORT_TOOL_NAMES)|set(PARTY_COORDINATION_TOOL_NAMES)|set(PARTY_CHANNEL_TOOL_NAMES)|
     set(PARTY_REWARD_TOOL_NAMES)|set(IMPOSSIBLE_GODBOARD_TOOL_NAMES)|set(COHESION_MESH_TOOL_NAMES)|
     set(DUPLICATE_GUARD_TOOL_NAMES)|set(TSE_POPULATION_TOOL_NAMES)|set(TSE_TELEMETRY_TOOL_NAMES)|
-    set(TSE_HELIX_TOOL_NAMES)|set(TSE_ROUTE_WINDOW_TOOL_NAMES)
+    set(TSE_HELIX_TOOL_NAMES)|set(TSE_ROUTE_WINDOW_TOOL_NAMES)|set(TSE_CIRCULATION_TOOL_NAMES)
 )
 AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS={
     TRANSPORT_RESOURCE['uri'],PARTY_COORDINATION_RESOURCE['uri'],IMPOSSIBLE_GODBOARD_RESOURCE['uri'],
     COHESION_MESH_RESOURCE['uri'],TSE_POPULATION_RESOURCE['uri'],TSE_TELEMETRY_RESOURCE['uri'],
-    TSE_HELIX_RESOURCE['uri'],TSE_ROUTE_WINDOW_RESOURCE['uri']
+    TSE_HELIX_RESOURCE['uri'],TSE_ROUTE_WINDOW_RESOURCE['uri'],TSE_CIRCULATION_RESOURCE['uri']
 }
 
 class AorCollectiveTransportSurface:
@@ -72,8 +79,26 @@ class AorCollectiveTransportSurface:
         self.tse_telemetry=TseHelixTelemetryProxy(server)
         self.tse_helix=TseHelixIntegrityRuntime(server,self.tse_population,self.tse_telemetry,self.cohesion)
         self.tse_route_window=TseRouteWindowRuntime(server,self.tse_telemetry)
+        self.tse_circulation=TseCirculationRuntime(server,self.tse_telemetry,self.tse_helix.reentry)
 
     def call_tool(self,name:str,args:Dict[str,Any]):
+        if name in TSE_CIRCULATION_TOOL_NAMES:
+            c=self.tse_circulation
+            if name=='athena_tse_circulation_observe':
+                return True,c.observe(
+                    cycle_id=args['cycle_id'],mission_id=args['mission_id'],
+                    origin_route=args['origin_route'],origin_hatch=args['origin_hatch'],
+                    origin_return_applied_event_id=args['origin_return_applied_event_id'],
+                    reentry_id=args['reentry_id'],rehydration_loop_id=args['rehydration_loop_id'],
+                    next_route=args['next_route'],next_hatch=args['next_hatch'],
+                    next_return_applied_event_id=args['next_return_applied_event_id'],
+                    actor_id=args['actor_id'],witnesses=args['witnesses'],remote=args.get('remote','origin')
+                )
+            if name=='athena_tse_circulation_report':
+                return True,c.report(
+                    mission_id=args.get('mission_id'),remote=args.get('remote','origin'),
+                    shared_remote_mode=args.get('shared_remote_mode','REQUIRED')
+                )
         if name in TSE_ROUTE_WINDOW_TOOL_NAMES:
             w=self.tse_route_window
             if name=='athena_tse_route_window_open':
@@ -242,6 +267,7 @@ class AorCollectiveTransportSurface:
         return False,None
 
     def read_resource(self,uri:str):
+        if uri==TSE_CIRCULATION_RESOURCE['uri']:return self.tse_circulation.resource()
         if uri==TSE_ROUTE_WINDOW_RESOURCE['uri']:return self.tse_route_window.resource()
         if uri==TSE_HELIX_RESOURCE['uri']:return self.tse_helix.resource()
         if uri==TSE_TELEMETRY_RESOURCE['uri']:return self.tse_telemetry.resource()
