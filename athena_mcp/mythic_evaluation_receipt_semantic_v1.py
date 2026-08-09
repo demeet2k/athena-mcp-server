@@ -249,6 +249,60 @@ def _normalize_path(value: Any) -> list[str]:
     return path
 
 
+def _normalize_replay_initial_state(
+    value: Any,
+    feature_basis: Sequence[str],
+) -> Dict[str, Any]:
+    """Validate the persisted receipt state before any replay dereference.
+
+    Receipt replay is an adversarial verifier boundary. A caller may recompute the
+    outer self-digest after changing fields, so self-consistency alone is not shape
+    validity. The stored state must be the canonical state that E itself would emit.
+    """
+
+    _require(isinstance(value, Mapping), "RECEIPT_INITIAL_STATE_NOT_OBJECT")
+    _require(
+        set(value) == _RAW_STATE_KEYS,
+        "RECEIPT_INITIAL_STATE_SCHEMA_DRIFT",
+        ",".join(sorted(set(value) ^ _RAW_STATE_KEYS)),
+    )
+    expected_basis = [str(item) for item in feature_basis]
+    stored_basis = _normalize_string_list(
+        value.get("feature_basis"),
+        "RECEIPT_INITIAL_FEATURE_BASIS",
+        "$.receipt.initial_state.feature_basis",
+        unique=True,
+    )
+    _require(
+        stored_basis == expected_basis,
+        "RECEIPT_INITIAL_FEATURE_BASIS_MISMATCH",
+    )
+    standing = _nonempty(
+        value.get("standing"),
+        "RECEIPT_INITIAL_STATE_STANDING",
+        "$.receipt.initial_state.standing",
+    )
+    _require(
+        standing == SEMANTIC_STATE_STANDING,
+        "RECEIPT_INITIAL_STATE_STANDING_MISMATCH",
+        standing,
+    )
+    normalized = _normalize_initial_state(
+        {
+            "coordinate": value.get("coordinate"),
+            "values": value.get("values"),
+            "irreversible_loss": value.get("irreversible_loss"),
+            "provenance": value.get("provenance"),
+        },
+        expected_basis,
+    )
+    _require(
+        normalized == _clone_json(dict(value)),
+        "RECEIPT_INITIAL_STATE_CANONICAL_MISMATCH",
+    )
+    return normalized
+
+
 def _semantic_state_projection(value: Any, path: str) -> Any:
     if value is None:
         return None
@@ -327,7 +381,10 @@ def _semantic_result_projection(raw_result: Any) -> Dict[str, Any]:
         residue_zero is None or isinstance(residue_zero, bool),
         "RUNTIME_RESULT_RESIDUE_ZERO_SHAPE",
     )
-    _require(isinstance(raw_result.get("executed_edges"), list), "RUNTIME_EXECUTED_EDGES_SHAPE")
+    _require(
+        isinstance(raw_result.get("executed_edges"), list),
+        "RUNTIME_EXECUTED_EDGES_SHAPE",
+    )
     _require(isinstance(raw_result.get("audit"), Mapping), "RUNTIME_AUDIT_SHAPE")
     _finite_json(raw_result, "$.raw_result")
 
@@ -402,6 +459,11 @@ def create_evaluation_receipt(
             "INVALID_CONNECTION_PACKET",
             packet_errors=list(validation.get("errors") or []),
         )
+    if validation.get("compiler_revision") != COMPILER_REVISION:
+        return _hold(
+            "PACKET_COMPILER_REVISION_DRIFT",
+            str(validation.get("compiler_revision")),
+        )
 
     try:
         semantic = validation["canonical_semantics"]
@@ -474,11 +536,6 @@ def create_evaluation_receipt(
         "expected_class_used": False,
         "laws": list(LAWS),
     }
-    _require(
-        receipt["packet_compiler_revision"] == COMPILER_REVISION,
-        "PACKET_COMPILER_REVISION_DRIFT",
-        str(receipt["packet_compiler_revision"]),
-    )
     receipt["evaluation_receipt_digest"] = _domain_digest(
         RECEIPT_DIGEST_DOMAIN,
         receipt,
@@ -556,24 +613,43 @@ def replay_evaluation_receipt(packet: Any, receipt: Any) -> Dict[str, Any]:
             "REPLAY_PACKET_INVALID",
             packet_errors=list(validation.get("errors") or []),
         )
+    if validation.get("compiler_revision") != COMPILER_REVISION:
+        return _hold(
+            "REPLAY_PACKET_COMPILER_REVISION_DRIFT",
+            str(validation.get("compiler_revision")),
+        )
     if receipt.get("packet_semantic_digest") != validation.get("packet_semantic_digest"):
         return _hold("REPLAY_PACKET_SEMANTIC_DIGEST_MISMATCH")
     if receipt.get("operator_registry_digest") != validation.get("operator_registry_digest"):
         return _hold("REPLAY_OPERATOR_REGISTRY_DIGEST_MISMATCH")
 
+    try:
+        stored_state = _normalize_replay_initial_state(
+            receipt.get("initial_state"),
+            validation["canonical_semantics"]["feature_basis"],
+        )
+        stored_path = _normalize_path(receipt.get("ordered_path"))
+        stored_state_digest = _domain_digest(STATE_DIGEST_DOMAIN, stored_state)
+        stored_path_digest = _domain_digest(PATH_DIGEST_DOMAIN, stored_path)
+    except EvaluationReceiptError as exc:
+        return _hold(exc.code, exc.detail)
+    except (TypeError, ValueError, KeyError) as exc:
+        return _hold("RECEIPT_REPLAY_INPUT_NORMALIZATION_ERROR", str(exc))
+
+    if receipt.get("initial_state_digest") != stored_state_digest:
+        return _hold("RECEIPT_INITIAL_STATE_DIGEST_MISMATCH")
+    if receipt.get("ordered_path_digest") != stored_path_digest:
+        return _hold("RECEIPT_ORDERED_PATH_DIGEST_MISMATCH")
+
     regenerated = create_evaluation_receipt(
         packet,
         {
-            "coordinate": receipt.get("initial_state", {}).get("coordinate"),
-            "values": copy.deepcopy(receipt.get("initial_state", {}).get("values")),
-            "irreversible_loss": copy.deepcopy(
-                receipt.get("initial_state", {}).get("irreversible_loss")
-            ),
-            "provenance": copy.deepcopy(
-                receipt.get("initial_state", {}).get("provenance")
-            ),
+            "coordinate": stored_state["coordinate"],
+            "values": copy.deepcopy(stored_state["values"]),
+            "irreversible_loss": copy.deepcopy(stored_state["irreversible_loss"]),
+            "provenance": copy.deepcopy(stored_state["provenance"]),
         },
-        copy.deepcopy(receipt.get("ordered_path")),
+        copy.deepcopy(stored_path),
     )
     if regenerated.get("status") != "EVALUATED":
         return _hold(
