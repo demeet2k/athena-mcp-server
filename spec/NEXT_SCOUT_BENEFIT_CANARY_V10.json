@@ -1,0 +1,73 @@
+{
+  "artifact": "ATHENA.NEXT.SCOUT.BENEFIT.CANARY.10",
+  "coordinate": "ATHENA.KC144::GITΩ::NEXT::SCOUT-BENEFIT-CANARY::V10",
+  "purpose": "Apply a V9 held-out benefit-prior promotion candidate only through a bounded, reversible routing canary while preserving the canonical V5 benefit table and normal Message Board claim authority.",
+  "tools": [
+    "athena_next_scout_canary_start",
+    "athena_next_scout_canary_preview",
+    "athena_next_scout_canary_apply",
+    "athena_next_scout_canary_rollback",
+    "athena_next_scout_canary_state"
+  ],
+  "lanes": {
+    "control": "V6 calibrated costs plus unchanged V5 benefit priors",
+    "canary": "same cost model and feasibility constraints plus one bounded uniform benefit multiplier for exactly the V9-validated prep kind"
+  },
+  "transform": "V_canary(k,j) = V_control(k,j) * (1 + lambda * validated_effect_index)",
+  "bounds": {
+    "lambda_min": 0.01,
+    "lambda_max": 0.25,
+    "max_cycles_min": 1,
+    "max_cycles_max": 20,
+    "default_max_cycles": 6,
+    "default_max_changed_plan_ids": 2,
+    "effect_index_range": [0.0, 1.0],
+    "maximum_benefit_multiplier": 1.25
+  },
+  "admission": {
+    "requires_v9_standing": "BENEFIT_PRIOR_PROMOTION_CANDIDATE",
+    "requires_positive_held_out_validation_effect": true,
+    "freezes_v9_evaluation_digest": true,
+    "freezes_canonical_v5_benefit_table_digest": true
+  },
+  "rollback": {
+    "automatic_structural_triggers": [
+      "V9_EVALUATION_DRIFT",
+      "CANONICAL_V5_BENEFIT_TABLE_DRIFT",
+      "PLAN_SET_DIVERGENCE_LIMIT",
+      "CYCLE_BUDGET_EXHAUSTION"
+    ],
+    "performance_rollback": "NOT_CLAIMED_BY_V10",
+    "manual_rollback": true,
+    "fallback_lane": "CONTROL"
+  },
+  "effects": {
+    "routing_analysis": "CANARY_LANE_ONLY",
+    "decision_receipt": "PERSISTED_ON_APPLY",
+    "scout_claim": "NONE",
+    "scout_execution": "NONE",
+    "canonical_v5_benefit_prior_mutation": "NONE",
+    "promotion": "NONE",
+    "merge": "NONE",
+    "release": "NONE"
+  },
+  "standing": {
+    "start": "BOUNDED_ROUTING_CANARY",
+    "preview": "CANARY_PREVIEW_READY_OR_CONTROL_HOLD",
+    "apply": "CANARY_APPLIED",
+    "rollback": "ROLLED_BACK_TO_CONTROL",
+    "authority": "ROUTING_CANARY_ONLY"
+  },
+  "laws": [
+    "V9_PROMOTION_CANDIDATE != GLOBAL_BENEFIT_PRIOR",
+    "CONTROL_LANE_RETAINS_V5_V6_BENEFIT_PRIORS",
+    "CANARY_MULTIPLIER != DIMENSIONAL_CAUSAL_MAPPING",
+    "CANARY_ROUTING != MESSAGE_BOARD_CLAIM",
+    "APPLIED_CANARY_DECISION != SCOUT_EXECUTION",
+    "BASELINE_DRIFT_OR_V9_DRIFT => ROLLBACK",
+    "DIVERGENCE_BOUND_EXCEEDED => ROLLBACK",
+    "V10_STRUCTURAL_ROLLBACK != PERFORMANCE_VALIDATION",
+    "V10_CANARY != GLOBAL_REWARD_FUNCTION_REWRITE",
+    "MESSAGE_BOARD_REMAINS_CLAIM_AUTHORITY"
+  ]
+}
