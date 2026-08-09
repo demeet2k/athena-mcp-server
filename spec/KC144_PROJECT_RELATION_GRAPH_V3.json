@@ -44,12 +44,16 @@
     ],
     "mcp_rule": "MCP virtual records become exact PVTX vertices but never pass through Git hierarchy/import/path extractors",
     "partial_snapshot_rule": "non-GENERATED V2 snapshot -> PARTIAL_V2_SNAPSHOT coverage receipt, never full coverage",
+    "content_coverage_rule": "GENERATED V2 snapshot with missing required Git blob readers -> EXACT_V2_SNAPSHOT_PARTIAL_CONTENT",
+    "runtime_content_root_rule": "explicit runtime_root wins; otherwise exact RESOLVED V2 runtime_provenance.root is used; otherwise runtime content remains unavailable",
     "laws": [
       "V2_SNAPSHOT_PLANES != FLAT_V1_ATLAS",
       "CONFIGURED_GIT_VERTEX != RUNTIME_GIT_VERTEX_UNLESS_V2_COLLAPSES_RUNTIME_TO_CONFIGURED",
       "MCP_VIRTUAL_VERTEX != GIT_BLOB_VERTEX",
       "UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE",
-      "PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT"
+      "PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT",
+      "EXACT_V2_SNAPSHOT != COMPLETE_CONTENT_EXTRACTION_IF_BLOB_READERS_MISSING",
+      "RUNTIME_CONTENT_ROOT_DEFAULTS_TO_EXACT_V2_RUNTIME_PROVENANCE_ROOT"
     ]
   },
   "edge_kinds": {
@@ -139,7 +143,9 @@
     "QUALIFICATION_PR != INTEGRATION_PR != PROMOTION",
     "V2_SNAPSHOT_PLANES != FLAT_V1_ATLAS",
     "MCP_VIRTUAL_VERTEX != GIT_BLOB_VERTEX",
-    "PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT"
+    "PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT",
+    "EXACT_V2_SNAPSHOT != COMPLETE_CONTENT_EXTRACTION_IF_BLOB_READERS_MISSING",
+    "RUNTIME_CONTENT_ROOT_DEFAULTS_TO_EXACT_V2_RUNTIME_PROVENANCE_ROOT"
   ],
   "promotion": {
     "standing": "HOLD_PENDING_V2_ACCEPTANCE_REBASE_AND_V3_QUALIFICATION",
