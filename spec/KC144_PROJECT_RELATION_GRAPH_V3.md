@@ -4,44 +4,57 @@ Status: **candidate child of unmerged Project Atlas MCP Surface V2; not canonica
 
 Private work order: `demeet2k/Athena#508`.
 
-Exact parent at branch creation:
+Exact ancestry at V3 branch creation:
 
 - repository: `demeet2k/athena-mcp-server`
-- V2 PR: `#310`
-- parent head: `c7445bcd70a354e5deb912add6716d7e5191e02c`
+- V2 integration PR: `#310`
+- exact V2 parent head: `c7445bcd70a354e5deb912add6716d7e5191e02c`
 - V3 integration PR: `#335`
-- qualification-only PR: `#336`
-- V2 parent snapshot namespace: `PATLASV2.*`
+- V3 qualification-only PR: `#336`
+- V2 snapshot namespace: `PATLASV2.*`
 
-## 1. Why V3 exists
+`QUALIFICATION_PR != INTEGRATION_PR != PROMOTION`.
 
-V1 made project objects exactly addressable. V2 made those addresses queryable and routable across configured Git, runtime Git and MCP planes. V2 `athena_project_route` is deliberately a **KC144 station route**. It answers how two exact objects are positioned on the project chart; it does not assert that one object imports, contains, references, tests, supports or semantically equals the other.
+## 1. Purpose: add a second navigation geometry
 
-V3 adds a second geometry: a typed relation graph over exact Project Atlas manifestations.
+Project Atlas V1 makes tracked project objects exactly addressable. V2 makes those addresses queryable across configured Git, runtime Git, and live MCP planes and supplies a KC144 station route. That station route is geometric. It does not prove that one project object imports, contains, references, tests, supports, or semantically equals another.
+
+V3 adds a **typed, witnessed project-relation graph** while preserving the V1/V2 coordinate system:
 
 ```text
-GEOMETRIC NAVIGATION: PROJECT_KC144 station -> station
-STRUCTURAL NAVIGATION: PVTX --typed witnessed edge--> PVTX
-NATIVE RETURN:         each endpoint -> exact head-qualified Git/MCP witness
+NATIVE IDENTITY
+    |
+    v
+POID stable path identity
+    |
+    v
+PVTX exact federated manifestation
+    |
+    +------> PROJECT_KC144 / KC144_REFERENCE
+    |                    |
+    |                    +--> V2 geometric station route
+    |
+    +------> V3 typed relation graph
+                         |
+                         v
+                       RETURN
 ```
 
-The distinction is constitutional:
+Constitutional distinction:
 
 `COORDINATE_ADJACENCY != STRUCTURAL_EDGE != SEMANTIC_EQUIVALENCE`.
 
-## 2. POID is not a federated vertex
+## 2. Exact V3 vertex identity: POID is not enough
 
-A critical V3 invariant follows directly from V2's configured/runtime clocks.
-
-Project Atlas POID is intentionally stable over path identity:
+V1 POID is intentionally stable over project path identity:
 
 ```text
 POID = f(repo, path, git_type)
 ```
 
-Therefore the same repository path may have the **same POID** in both configured and runtime planes, or at two exact Git heads. That stability is useful, but it means bare POID is not sufficient to identify one node in a federated V2 snapshot.
+That means the same POID can legitimately occur in both V2 `configured_git` and `runtime_git` planes, or at different exact heads. A federated graph therefore cannot use POID alone as its node key.
 
-V3 introduces an exact manifestation coordinate:
+V3 introduces the exact manifestation coordinate:
 
 ```text
 PVTX = digest(<plane, repo, head, POID>)
@@ -49,45 +62,134 @@ PVTX = digest(<plane, repo, head, POID>)
 
 Namespace: `PVTX.*`.
 
-The laws are:
+Laws:
 
-`POID != FEDERATED_VERTEX_ID`.
+- `POID != FEDERATED_VERTEX_ID`
+- `SAME_POID_ACROSS_FRONTIERS != SAME_MANIFESTATION`
+- `AMBIGUOUS_POID_ACROSS_FRONTIERS -> HOLD_AMBIGUOUS_VERTEX`
 
-`SAME_POID_ACROSS_FRONTIERS != SAME_MANIFESTATION`.
+A graph query should use exact PVTX. Bare POID is accepted only when exactly one PVTX manifestation carries that POID in the current exact snapshot. If multiple manifestations exist, V3 returns the candidate PVTX coordinates and refuses to choose silently.
 
-`AMBIGUOUS_POID_ACROSS_FRONTIERS -> HOLD_AMBIGUOUS_VERTEX`.
+## 3. Exact V2 snapshot adapter
 
-A query may use bare POID only when exactly one PVTX carrying that POID exists in the current exact snapshot. Otherwise the graph returns all candidate PVTX IDs and refuses to choose silently.
-
-This gives a clean factorization:
+V2 does not expose a single flat V1 atlas. Its exact runtime snapshot is:
 
 ```text
-stable project identity       exact graph manifestation
-POID -----------------------> PVTX(<plane,repo,head,POID>)
+ATHENA.KC144.FEDERATED_RUNTIME_PROJECT_ATLAS.V2
+
+<
+  configured_git,
+  runtime_git,
+  runtime_git_is_configured,
+  runtime_provenance,
+  runtime_tree_available,
+  mcp_surface,
+  federation,
+  live_surface_signature,
+  query_index,
+  PATLASV2 snapshot_id
+>
 ```
 
-## 3. Graph object
+V3 therefore uses an explicit adapter:
+
+`ATHENA.PROJECT_ATLAS.V2_TO_RELATION_GRAPH.V3.ADAPTER.v1`.
+
+Its plane rules are exact:
+
+1. Every configured record is tagged `source=configured_git`.
+2. A distinct runtime atlas is tagged `source=runtime_git`.
+3. If `runtime_git_is_configured=true`, V2 has already proven that runtime and configured trees are the same runtime manifestation, so V3 does **not** manufacture a duplicate runtime plane.
+4. MCP surface records are tagged `source=mcp` and become exact PVTX vertices.
+5. MCP virtual records never pass through Git hierarchy/import/path extractors.
+6. Optional MCP geometric edges may be compiled only as `KC144_GRID_ADJACENT` with `COORDINATE_ONLY` authority.
+
+Laws:
+
+- `V2_SNAPSHOT_PLANES != FLAT_V1_ATLAS`
+- `CONFIGURED_GIT_VERTEX != RUNTIME_GIT_VERTEX_UNLESS_V2_COLLAPSES_RUNTIME_TO_CONFIGURED`
+- `MCP_VIRTUAL_VERTEX != GIT_BLOB_VERTEX`
+- `UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE`
+
+### 3.1 Snapshot completeness is not content-extractor completeness
+
+The V2 snapshot can know an exact Git tree without embedding every blob body in the durable snapshot. Content-derived V3 extractors such as Python imports and exact scalar path references therefore require an exact Git object reader for each Git plane they inspect.
+
+V3 records three independent coverage dimensions:
+
+```text
+SNAPSHOT STATUS
+  = is the PATLASV2 federation itself GENERATED or partial?
+
+TREE COVERAGE
+  = which configured/runtime Git trees are actually enumerated?
+
+CONTENT-READER COVERAGE
+  = for which Git planes can V3 read the exact blob object bodies?
+```
+
+The states are deliberately distinct:
+
+```text
+GENERATED snapshot + all required blob readers
+    -> EXACT_V2_SNAPSHOT
+
+GENERATED snapshot + missing required blob reader(s)
+    -> EXACT_V2_SNAPSHOT_PARTIAL_CONTENT
+
+non-GENERATED / provenance-hold snapshot
+    -> PARTIAL_V2_SNAPSHOT
+```
+
+Laws:
+
+- `PARTIAL_V2_SNAPSHOT -> PARTIAL_GRAPH_COVERAGE_RECEIPT`
+- `EXACT_V2_SNAPSHOT != COMPLETE_CONTENT_EXTRACTION_IF_BLOB_READERS_MISSING`
+
+This prevents absence of an import/reference edge from being mistaken for evidence that the relation does not exist when the relevant blob body was never observed.
+
+### 3.2 Runtime content root
+
+If the caller supplies an explicit `runtime_root`, that is used. Otherwise V3 derives the runtime content root from exact `RESOLVED` V2 `runtime_provenance.root` when present.
+
+`RUNTIME_CONTENT_ROOT_DEFAULTS_TO_EXACT_V2_RUNTIME_PROVENANCE_ROOT`.
+
+The configured checkout root remains an explicit adapter input because V1/V2 deliberately exclude local checkout location from durable committed-frontier identity.
+
+## 4. Graph object
 
 For one exact V2 snapshot `s`:
 
-`G_s = (V_s, E_s)`
+```text
+G_s = (V_s, E_s)
+```
 
 where:
 
-- `V_s` is the exact PVTX manifestation set available in the supplied atlas;
-- each PVTX retains its source POID plus plane/repo/head/path/object witness;
+- `V_s` is the exact PVTX manifestation set available through the adapter;
+- every PVTX retains its source POID plus plane/repo/head/path/object witness;
 - `E_s` is the deterministically extracted typed relation set;
-- every edge endpoint must be a member of `V_s`;
-- every edge carries the same `PATLASV2.*` snapshot witness;
-- graph identity is `PATLASG3.<digest>` over exact sorted PVTX receipts + typed edge receipts + snapshot coordinate.
+- every edge endpoint must be in `V_s`;
+- every edge carries the same `PATLASV2.*` snapshot witness.
 
-Graph identity is not a promotion receipt:
+Graph identity:
 
-`PATLASG3 != RELEASE_RECEIPT != DEPLOYMENT_RECEIPT`.
+```text
+PATLASG3.<digest(
+  graph_schema,
+  exact_snapshot_id,
+  sorted_exact_PVTX_receipts,
+  sorted_typed_edge_receipts
+)>
+```
 
-## 4. Edge contract
+Graph identity is replay identity, not authority:
 
-A V3 relation is represented as:
+`PATLASG3 != PROMOTION_RECEIPT != RELEASE_RECEIPT != DEPLOYMENT_RECEIPT`.
+
+## 5. Edge contract
+
+A V3 relation is:
 
 ```text
 E = <
@@ -109,122 +211,130 @@ E = <
 >
 ```
 
-`edge_id = PEDGE.<digest>` is derived from the relation as stated and its **exact PVTX endpoints**, not from list position. Edge enumeration therefore cannot change identity.
+`edge_id` uses the `PEDGE.*` namespace and is content-derived from the relation as stated and the **exact PVTX endpoints**, never from list position.
 
-The POID fields remain visible for stable project-level navigation; PVTX fields prevent frontier collapse.
+Stable POIDs remain visible for project-level identity while exact PVTX endpoints prevent frontier collapse.
 
-### 4.1 Exact Git hierarchy
+## 6. Native structural edge classes
+
+### 6.1 Git hierarchy
 
 `DIR_CONTAINS(parent_tree, child_entry)` and inverse `DIR_PARENT_OF(child_entry, parent_tree)` are emitted only when the exact parent tree record exists in the same `<plane,repo,head>` frontier.
 
 Extractor: `git_tree_hierarchy_v1`.
 
-Evidence: exact Git tree paths under one head.
+Evidence: `EXACT_GIT_TREE`.
 
-A missing parent tree record yields `HOLD_EDGE`; V3 never invents a synthetic root POID/PVTX.
+No synthetic root object is invented. Missing parent tree data yields a witnessed `HOLD_EDGE`.
 
-### 4.2 Python import relations
+### 6.2 Python imports
 
-Python imports are parsed with the Python AST. Local module candidates are indexed only inside the same exact `<plane,repo,head>` frontier.
+Python imports are parsed with the Python AST and resolved only against the local-module index of the same exact `<plane,repo,head>` frontier.
+
+Kinds:
 
 - `PY_IMPORTS`
 - `PY_RELATIVE_IMPORTS`
 
-A local edge is emitted only after unique module resolution. Relative import resolution respects package level. External or otherwise unresolved imports are retained in `unresolved_imports` with standing `UNRESOLVED_EXTERNAL_OR_LOCAL_UNKNOWN`.
+Relative import resolution respects package level. A local edge is emitted only after unique resolution.
 
-Ambiguous local module resolution is not downgraded to unknown-external; it produces a witnessed `HOLD_EDGE`.
+External or otherwise unresolved imports are conserved as:
 
-`IMPORT_STRING != RESOLVED_LOCAL_IMPORT`.
+`UNRESOLVED_EXTERNAL_OR_LOCAL_UNKNOWN`.
 
-`UNRESOLVED_IMPORT -> CONSERVE_UNKNOWN`.
+Ambiguous local module resolution yields `HOLD_EDGE`; it is not downgraded to unknown-external.
 
-### 4.3 Same-blob alias
+Laws:
 
-Records sharing the same Git object SHA at the same frontier receive symmetric `SAME_BLOB_ALIAS` edges. They retain distinct POIDs and distinct PVTX IDs.
+- `IMPORT_STRING != RESOLVED_LOCAL_IMPORT`
+- `UNRESOLVED_IMPORT -> CONSERVE_UNKNOWN`
+- `AMBIGUOUS_EDGE_TARGET -> HOLD_EDGE`
+
+### 6.3 Same-blob alias
+
+Records sharing one exact Git object SHA in the same frontier receive symmetric `SAME_BLOB_ALIAS` edges while retaining distinct POIDs and PVTX identities.
 
 `SAME_BLOB_ALIAS != SAME_OBJECT`.
 
-The extractor uses a deterministic star over a sorted PVTX group rather than materializing every pair. This preserves connectivity while bounding edge growth.
+The implementation uses a deterministic star over the sorted alias group instead of an unbounded all-pairs expansion. Connectivity is retained while edge growth stays bounded.
 
-### 4.4 Exact path reference
+### 6.4 Exact path reference
 
-`EXACT_PATH_REFERENCE` is intentionally narrow. V3 currently extracts scalar strings from parseable Python, JSON and TOML carriers and emits an edge only when the normalized scalar equals one exact repository-relative path in the same frontier.
+`EXACT_PATH_REFERENCE` is intentionally conservative. V3 currently extracts scalar strings from parseable Python, JSON, and TOML and emits an edge only when the normalized scalar equals exactly one repository-relative path in the same frontier.
 
-No substring, embedding, filename similarity or narrative inference is used.
+No substring, filename-similarity, embeddings, or narrative inference are used.
 
-`REFERENCE != RUNTIME_DEPENDENCY`.
+Authority: `REFERENCE_OBSERVATION`.
 
-### 4.5 Optional KC144 coordinate overlay
+Loss law: `REFERENCE_DOES_NOT_IMPLY_RUNTIME_DEPENDENCY`.
 
-`KC144_GRID_ADJACENT` is optional and disabled by default. When enabled, it connects exact PVTX manifestations whose PROJECT_KC144 stations are cardinal neighbors on the non-wrapped 12x12 chart **inside the same exact frontier**.
+## 7. Optional KC144 geometric overlay
 
-These edges have authority `COORDINATE_ONLY` and loss witness:
+`KC144_GRID_ADJACENT` is disabled by default. When explicitly enabled, it links exact PVTX manifestations whose PROJECT_KC144 stations are cardinal neighbors inside one exact frontier.
+
+Authority: `COORDINATE_ONLY`.
+
+Loss witness:
 
 `GEOMETRIC_ADJACENCY_HAS_NO_DEPENDENCY_OR_SEMANTIC_EQUIVALENCE CLAIM`.
 
-This permits the same graph engine to traverse an explicit geometric overlay without contaminating the default structural graph.
+Thus the same graph engine can traverse the KC144 overlay without pretending geometry is dependency.
 
-## 5. Determinism and replay
-
-The graph compiler sorts vertices by PVTX and canonicalizes edges by content-derived edge ID. Duplicate emitted edges collapse only by exact edge identity.
+## 8. Determinism and replay invariants
 
 Required invariants:
 
-1. reversing input record order leaves graph ID unchanged;
-2. changing the witnessed edge set changes graph ID;
-3. same blob does not collapse path objects;
-4. same POID in two planes/heads produces two PVTX manifestations;
-5. bare POID lookup with multiple PVTX manifestations fails closed;
-6. every edge PVTX endpoint is resolvable in the exact vertex set;
-7. every edge snapshot equals the graph snapshot;
-8. extraction failure is recorded as HOLD/unknown, not converted to absence-as-proof.
+1. Reversing input record order does not change graph identity.
+2. Changing the witnessed edge set changes graph identity.
+3. Same blob does not collapse distinct project objects.
+4. Same POID in two planes/heads produces two PVTX manifestations.
+5. Bare-POID lookup with multiple PVTX manifestations fails closed.
+6. Every edge PVTX endpoint resolves in the exact vertex set.
+7. Every edge snapshot equals the graph snapshot.
+8. MCP virtual objects are not interpreted as Git blobs.
+9. Missing blob readers produce partial-content receipts rather than false negative edges.
+10. Extraction failure remains HOLD/unknown rather than absence-as-proof.
 
-## 6. Navigation algorithms
+## 9. Navigation calculus
 
-V3 currently supplies internal bounded query primitives; it does **not** silently add a new canonical MCP ABI.
+V3 currently provides internal bounded graph primitives. It intentionally does **not** add canonical MCP graph RPC names yet.
 
-### 6.1 Locator resolution
-
-Preferred locator: exact `PVTX.*`.
-
-Convenience locator: `POID.*` only when exactly one matching PVTX exists in the current graph snapshot.
-
-Possible outcomes:
+### 9.1 Locator resolution
 
 ```text
-PVTX exact                    -> RESOLVED
-POID with one PVTX            -> RESOLVED
-POID with >1 PVTX             -> HOLD_AMBIGUOUS_VERTEX
-unknown PVTX/POID             -> HOLD_UNKNOWN_VERTEX
+exact PVTX             -> RESOLVED
+POID with one PVTX     -> RESOLVED
+POID with >1 PVTX      -> HOLD_AMBIGUOUS_VERTEX
+unknown locator        -> HOLD_UNKNOWN_VERTEX
 ```
 
-### 6.2 Neighbors
+### 9.2 Neighbors
 
 `neighbors(locator, direction, kinds, offset, limit, expected_snapshot_id, expected_graph_id)`
 
-- directions: `out`, `in`, `both`;
+- `direction ∈ {out,in,both}`;
 - edge kinds are explicit;
-- `limit <= 100`;
+- page limit is bounded at 100;
 - stale snapshot/graph CAS fails closed;
-- ambiguous/unknown locator fails closed.
+- ambiguous or unknown locator fails closed.
 
-### 6.3 BFS
+### 9.3 BFS
 
-BFS provides deterministic minimum-edge traversal over an explicit edge-kind set.
+BFS returns deterministic minimum-edge traversal over an explicit edge-kind set.
 
-Default kinds are structural only. Geometric edges are excluded unless explicitly selected.
+Default route domain is structural only. Geometric edges are excluded unless selected.
 
-### 6.4 Dijkstra
+### 9.4 Dijkstra
 
-Dijkstra exists only with caller-supplied non-negative finite weights for **every selected edge kind**. There is no hidden project-value scalarization.
+Dijkstra exists only with explicit caller-supplied finite non-negative weights for **every selected edge kind**.
 
-Returned receipt contains the exact weights and scalar cost.
+There is no hidden project-value scalarization.
 
 `PATH_COST_WEIGHTS_ARE_EXPLICIT_INPUT_NOT_HIDDEN_TRUTH`.
 
-### 6.5 Cost vector
+### 9.5 Route cost vector
 
-Every successful route also returns a non-scalar diagnostic vector:
+Every successful route returns a descriptive vector:
 
 ```text
 C(route) = <
@@ -236,11 +346,13 @@ C(route) = <
 >
 ```
 
-This vector is descriptive. It is not a truth score.
+This vector is not a truth score.
 
-## 7. Hold lattice
+`PATH_COST != TRUTH`.
 
-V3 query/build operations preserve explicit non-success states, including:
+## 10. Hold lattice
+
+V3 preserves explicit non-success states including:
 
 - `HOLD_EDGE`
 - `HOLD_STALE_SNAPSHOT`
@@ -251,54 +363,55 @@ V3 query/build operations preserve explicit non-success states, including:
 - `HOLD_DEPTH_LIMIT`
 - `HOLD_NO_PATH`
 
-Unknown is never silently coerced to zero edges or zero cost.
+Unknown is never silently converted to zero edges, zero cost, or negative evidence.
 
-## 8. Navigation layers
+## 11. Authority and semantic boundary
 
-The Project Atlas stack now separates five objects that are easy to conflate:
+V3 is a **structural observation graph**, not a semantic claim graph.
 
-```text
-STABLE PROJECT PATH IDENTITY (POID)
-        |
-        v
-EXACT FEDERATED MANIFESTATION (PVTX = plane+repo+head+POID)
-        |
-        +--> PROJECT_KC144 / KC144_REFERENCE projections
-        |            |
-        |            +--> V2 GEOMETRIC ROUTE (station path)
-        |
-        +--> V3 RELATION GRAPH (typed witnessed PVTX edges)
-                         |
-                         v
-                  NATIVE RETURN
-```
+It does not infer from adjacency that one object:
 
-A future semantic/claim graph can be layered above V3, but only with its own evidence and authority classes. V3 does not infer `supports`, `contradicts`, `causes`, or `is equivalent to` from source-code adjacency.
+- supports another claim;
+- contradicts another claim;
+- causes another state;
+- is equivalent to another object;
+- is approved for execution;
+- is canonical.
 
-## 9. Qualification membrane
+Those relations require separate evidence/authority contracts.
 
-The repository's CI workflows trigger only for PRs targeting `master`. V3 therefore uses two PRs with different semantics:
+Core laws:
 
-- `#335`: integration ancestry into the V2 branch;
-- `#336`: qualification-only PR to `master` so existing CI/release workflows execute.
+- `EDGE != CLAIM_OF_SEMANTIC_EQUIVALENCE`
+- `KC144_GRID_ADJACENT != DEPENDS_ON`
+- `GRAPH_QUERY != PROMOTION_AUTHORITY`
+- `ROUTE != EXECUTION`
+- `STRUCTURAL_GRAPH_ROUTE != KC144_GEOMETRIC_ROUTE != EXECUTION`
+- `EDGE_CLASS_CHANGE_REQUIRES_GRAPH_SCHEMA_BUMP`
+
+## 12. Qualification membrane
+
+Repository PR workflows qualify changes only when a PR targets `master`, while the intended V3 ancestry is V3 -> V2 -> V1. Therefore V3 uses two PRs with distinct meanings:
+
+- `#335`: **integration ancestry**, targeting the unmerged V2 branch;
+- `#336`: **qualification only**, targeting `master` so current CI/release workflows execute on the exact V3 head.
+
+A green #336 is an execution witness for the candidate head, not authority to merge #336.
 
 `QUALIFICATION_PR != INTEGRATION_PR != PROMOTION`.
 
-A green qualification-only PR is an execution witness for the exact candidate head. It does not change the intended ancestry and must not be treated as merge authority.
+## 13. Promotion boundary
 
-## 10. Promotion boundary
-
-V3 is a child experiment of an unmerged V2 lineage. Green tests prove only the tested candidate head.
-
-Before any canonical MCP graph RPC promotion, separately require:
+V3 remains a child experiment of unmerged V2. Before any canonical MCP graph RPC promotion, separately require:
 
 1. accepted V1/V2 ancestry;
-2. exact rebased V3 head;
-3. full current CI and V3.4 release qualification;
-4. protocol/package version decision;
-5. clean installed-wheel surface witness if RPCs are added;
-6. private brain integration/review;
-7. separate publication authority;
-8. separate deployment authority.
+2. exact rebased V3 candidate;
+3. full current CI success on that exact candidate head;
+4. current V3.4 release-distribution qualification on the same head;
+5. explicit protocol/package version decision before exposing graph RPC names;
+6. clean installed-wheel surface witness if RPCs are added;
+7. private Athena brain integration/review;
+8. separate publication authority;
+9. separate deployment authority.
 
-No V3 code path grants itself publication, deployment or promotion authority.
+No V3 code path grants itself publication, deployment, merge, or promotion authority.
