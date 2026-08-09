@@ -1,0 +1,39 @@
+name: Organism Room
+
+on:
+  pull_request:
+    paths:
+      - "athena_mcp/organism_room.py"
+      - "spec/ORGANISM_ROOM_V1.json"
+      - "tests/test_organism_room.py"
+      - ".github/workflows/organism-room.yml"
+  push:
+    branches: [master]
+    paths:
+      - "athena_mcp/organism_room.py"
+      - "spec/ORGANISM_ROOM_V1.json"
+      - "tests/test_organism_room.py"
+
+permissions:
+  contents: read
+
+jobs:
+  offline-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile
+        run: python -m py_compile athena_mcp/organism_room.py
+      - name: Contract tests
+        run: python -m unittest discover -s tests -p 'test_organism_room*.py' -v
+      - name: Claim ceiling
+        run: |
+          python - <<'PY'
+          import json
+          spec = json.load(open("spec/ORGANISM_ROOM_V1.json", encoding="utf-8"))
+          assert spec["claim_ceiling"]["room"] == "NO_EXECUTION_EVIDENCE_OR_AUTHORITY_CREATED"
+          print("offline reducer/wrapper verified; live room and host execution NOT OBSERVED")
+          PY
