@@ -1,0 +1,62 @@
+{
+  "schema": "ATHENA.LIMINAL.BEACON.EFFECT.EXPERIMENT.V1",
+  "status": "FROZEN_BEFORE_RESULTS",
+  "parent_candidate_head": "87b5f3b34271e68f5c2d6e712ea8efeab49740df",
+  "parent_runtime_base": "114790cf5173ca5ab78d1b505849708b209f81a0",
+  "agents": ["A", "B", "C"],
+  "objects": {"producer": "object:X", "initial_receiver": "object:Y", "receiver_after": "object:Z"},
+  "times": {
+    "initial_presence": 0,
+    "discovery": 10,
+    "receiver_enters_object": 20,
+    "duplicate_decision": 25,
+    "receiver_leaves_object": 30,
+    "correction": 35,
+    "receiver_next_crossing": 36,
+    "baseline_poll": 40,
+    "low_salience_delta": 50,
+    "critical_blocker": 51,
+    "direct_low_salience": 52,
+    "guild_scope_probe": 55,
+    "restart_probe": 60
+  },
+  "receiver_policy": {
+    "ordinary_threshold": 0.35,
+    "overloaded_threshold": 0.95,
+    "context_budget": 4096,
+    "scout_quota_primary": 1,
+    "scout_quota_adversarial": 0
+  },
+  "baseline": {
+    "coordination": "MANUAL_MESSAGE_BOARD_SURROGATE",
+    "poll_times": [40],
+    "durable_write_per_message": 1
+  },
+  "challenger": {
+    "coordination": "LIMINAL_AUTOHOOK_V1",
+    "autohook_enabled": true,
+    "manual_semantic_emit_for_primary_discovery": false,
+    "manual_semantic_emit_for_primary_correction": false,
+    "explicit_receipts_allowed": true
+  },
+  "decision_rule": {
+    "require_missed_delta_non_regression": true,
+    "require_duplicate_non_regression": true,
+    "require_scripted_correction_reach": 1.0,
+    "max_stale_or_scope_invalid_presentations": 0,
+    "max_existing_tool_regressions": 0,
+    "max_routine_fast_plane_git_writes": 0,
+    "max_context_ratio_vs_baseline": 1.5,
+    "require_at_least_one_strict_primary_improvement": true,
+    "unknown_required_metric_prevents_full_pass": true
+  },
+  "firewalls": [
+    "SIMULATED_AGENT_INSTANCE != INDEPENDENT_REAL_AGENT",
+    "MATCHED_FIXTURE_DIFFERENCE != GENERAL_CAUSAL_EFFECT",
+    "AUTOHOOK_ENABLED_IN_TEST != DEFAULT_RUNTIME_ACTIVATION",
+    "PRESENTED != CONSUMED",
+    "CONSUMED != OUTCOME_IMPROVED",
+    "UNKNOWN != ZERO",
+    "EXPERIMENT_PASS != CANONICAL_PROMOTION"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "ATHENA.LIMINAL.BEACON.EFFECT.REPLAY.V1_1",
+  "status": "FROZEN_BEFORE_RESULTS",
+  "historical_v1_fixture_sha": "eecf354ea10471b2e55d3f5a7ff0d97c9daeaf91",
+  "historical_v1_experiment_issue": 289,
+  "historical_v1_ci_run": 31306636702,
+  "repair_issue": 297,
+  "replay_issue": 301,
+  "parent_candidate_head": "7b58380c6ec81f8e47bae6ad38c042a492a5f20a",
+  "parent_runtime_base": "429a480a80eeefb9e2bff1ea3015adf571d76b0e",
+  "treatment_delta": {
+    "typed_correction_envelope": true,
+    "generic_blocker_uses_critical_reserve": true,
+    "critical_quota": 1,
+    "hard_context_budget": true
+  },
+  "historical_v1_challenger": {
+    "missed_material_delta_rate": 0.0,
+    "accidental_duplicate_action_count": 0,
+    "time_to_first_useful_sibling_discovery": 10.0,
+    "correction_reach": 0.0,
+    "critical_blocker_presented": false,
+    "comparison_status": "FAIL"
+  },
+  "success_rule": {
+    "missed_material_delta_rate": 0.0,
+    "accidental_duplicate_action_count": 0,
+    "max_discovery_latency": 10.0,
+    "correction_reach": 1.0,
+    "require_reverse_correction_route": true,
+    "require_critical_blocker_presented": true,
+    "max_critical_reserve_used_per_probe": 1,
+    "require_low_salience_filtered": true,
+    "require_direct_low_salience_filtered": true,
+    "require_guild_scope_isolated": true,
+    "require_restart_epoch_rotated": true,
+    "max_stale_or_scope_invalid_presentations": 0,
+    "max_existing_tool_regressions": 0,
+    "max_routine_fast_plane_git_writes": 0,
+    "require_hard_context_budget": true,
+    "require_no_full_result_broadcast": true,
+    "semantic_evidence_ceiling": "RUNTIME_METADATA_ONLY"
+  },
+  "firewalls": [
+    "V1_1_REPLAY != V1_RESCORE",
+    "STRUCTURED_CORRECTION != CORRECTION_ACCEPTED",
+    "REVERSE_ROUTE != CONSUMED",
+    "CRITICAL_RESERVE != UNBOUNDED_BYPASS",
+    "BLOCKER_LABEL != AUTHORITY",
+    "MATCHED_REPLAY_PASS != GENERAL_CAUSAL_EFFECT",
+    "SIMULATED_AGENT_INSTANCE != INDEPENDENT_REAL_AGENT",
+    "REPLAY_PASS != DEFAULT_ACTIVATION",
+    "REPLAY_PASS != CANONICAL_PROMOTION"
+  ]
+}
