@@ -78,9 +78,17 @@ from .deployment_cutover_extension import install_deployment_cutover_extension
 
 install_deployment_cutover_extension()
 
+# SHSO-READONLY-001 exposes only the reconciled SHSO organism-pressure seam.
+# It is a read/compute/advice extension: no scheduler, dispatch, execution,
+# morphology, prompt or Git authority is introduced, and no private V2a/V2b/V2c
+# reducer family is wholesale copied into this public runtime lane.
+from .shso_readonly_extension import install_shso_readonly_extension
+
+install_shso_readonly_extension()
+
 # Collective V15 advances only the current release identity and calibrated
-# successor frontier. Deployment, Message Board, cohesion, party and prompt
-# organs remain separately typed and intact.
+# successor frontier. Deployment, SHSO read-only, Message Board, cohesion,
+# party and prompt organs remain separately typed and intact.
 from .collective_v15_install import install_release_v15 as _install_release_v15
 
 _install_release_v15(globals())
