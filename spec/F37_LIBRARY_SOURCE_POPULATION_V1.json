@@ -1,0 +1,71 @@
+{
+  "artifact": "ATHENA.KC144.F37.LIBRARY.SOURCE.POPULATION.V1",
+  "role": "content-addressed source-root binding for F37 GID044-080",
+  "parent_x16_br21_population": "f658645076ce7c7ff4cdc7204f287dad1242c410",
+  "canonical_installation": false,
+  "source_observation_boundary": "SOURCE_ROOTS_OBSERVED_THROUGH_CONNECTED_USER_LIBRARY_AND_CONTENT_HASHED_IN_THE_AUDIT_SESSION; GITHUB_PROVIDER_CI_CAN_VERIFY_THIS_MANIFEST_AND_POPULATION_CALCULUS_BUT_CANNOT_INDEPENDENTLY_REFETCH_CHATGPT_LIBRARY_BYTES",
+  "source_roots": {
+    "F37_SYMMETRY_LEDGER": {
+      "library_file_id": "file_00000000687481f7b5d2d07f50d9521a",
+      "version_id": "1",
+      "name": "f01_f37_symmetries.txt",
+      "mime_type": "text/plain",
+      "size_bytes": 585120,
+      "sha256": "80ce12eaffe541138ba3206077f9c854e5c9c9cdef010c97705eb59d16809d8c",
+      "coverage": "F01-F37 carrier/witness/bridge-in/bridge-out/failure-mask/return-test/status ledger"
+    },
+    "F37_MATH_LEDGER": {
+      "library_file_id": "file_00000000f8dc81f7ac3f8d6bc4cc473b",
+      "version_id": "1",
+      "name": "f01_f37_math.txt",
+      "mime_type": "text/plain",
+      "size_bytes": 918217,
+      "sha256": "71ef8e97a38adeda9c521e68238e4c8349f9b3e62dc412284f5f4d009921d4d5",
+      "coverage": "F01-F37 mathematical carrier packets, exactification corridors, native roles and source-level status"
+    },
+    "KC144_ATLAS_LEDGER": {
+      "library_file_id": "file_0000000053cc81fd8d1a56b9ce4d3600",
+      "version_id": "1",
+      "name": "ATLAS_FORGE_KC144_HYPERCRYSTAL_FULL.md",
+      "mime_type": "text/markdown",
+      "size_bytes": 63146,
+      "sha256": "966e797a3569d0ffd4461f46d15569cf0b0a4a7159179bbf1d044c26b365a3aa",
+      "coverage": "KC144 GID044-080 F37 canonical seat names and native-carrier obligations"
+    }
+  },
+  "source_status_partition": {
+    "EXACT_SOURCE_SEATED": [
+      "F01","F02","F03","F04","F05","F06","F07","F08","F09","F10","F11","F12",
+      "F14",
+      "F19","F20","F21","F22","F23","F24","F25","F26","F27","F28","F29",
+      "F31","F32","F33","F37"
+    ],
+    "HUB_STABLE_SOURCE_SEATED": ["F13","F15","F16","F17","F18"],
+    "HONESTY_LEDGER_HOLD": ["F30","F34","F35","F36"]
+  },
+  "known_hold_by_gid": {
+    "73": "GRADED_MEMORY_PARTIAL_EXACTIFICATION",
+    "77": "MOTIVIC_COMPARISON_DEBT",
+    "78": "HIGHER_COHERENCE_COMPOSITION_WITNESS",
+    "79": "DERIVED_SINGULARITY_AND_EMPIRICAL_CLOSURE"
+  },
+  "population_projection": {
+    "all_f37_gids": "POPULATION_CLOSED_FROM_CONTENT_ADDRESSED_SOURCE_ROOTS",
+    "execution": "PARTIAL_SOURCE_FORMALISM_PRESENT_NOT_STATION_RUNTIME_QUALIFIED",
+    "evidence_exact_or_hub_stable": "PARTIAL_INTERNAL_CORPUS_STANDING_NOT_INDEPENDENT_CERTIFICATION",
+    "evidence_honesty_ledger": "HOLD_PRESERVE_CONSTITUTIONAL_OBLIGATION",
+    "return": "PARTIAL_RETURN_TEST_SOURCE_PRESENT_NOT_STATION_RETURN_CERTIFIED",
+    "overall": "OPEN_TYPED_OR_HOLD"
+  },
+  "firewalls": [
+    "LIBRARY_SOURCE_OBSERVED != GITHUB_PROVIDER_REVERIFIED_SOURCE",
+    "CONTENT_DIGEST_IDENTITY != CLAIM_TRUTH",
+    "SOURCE_STATUS_EXACT != CELL_EVIDENCE_CLOSED",
+    "HUB_STABLE != EXECUTION_QUALIFIED",
+    "HONESTY_LEDGER != FAILURE_AND_MUST_REMAIN_HOLD",
+    "RETURN_TEST_DESCRIBED != RETURN_TEST_EXECUTED",
+    "F37_SOURCE_POPULATED != F37_MATHEMATICALLY_PROVED",
+    "F37_SOURCE_POPULATED != WHOLE_KC144_POPULATED",
+    "SHARED_WHOLE_BAND_SOURCE_ROOT != 37_INDEPENDENT_EVIDENCE_ITEMS"
+  ]
+}
