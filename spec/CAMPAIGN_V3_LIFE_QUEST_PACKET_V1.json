@@ -1,8 +1,8 @@
 {
   "artifact": "ATHENA.CAMPAIGN.V3.LIFE.QUEST.PACKET.SPEC.V1",
-  "status": "CANDIDATE_RUNTIME_CONTRACT",
+  "status": "RUNTIME_CONTRACT_ANCHOR_ABI_REPAIR_CANDIDATE",
   "runtime_issue": 149,
-  "runtime_base_head": "e1e8d595b4f05f41dcbeafbc6964f1496adae599",
+  "runtime_base_head": "8b3bad6945ccdc40ca15bca70e3983c88f649154",
   "semantic_source": {
     "repo": "demeet2k/Athena",
     "pull_request": 284,
@@ -18,11 +18,24 @@
     "github_actions_ci": false,
     "independent_witness": false
   },
+  "semantic_dispatch_interop": {
+    "repo": "demeet2k/Athena",
+    "main_head_observed": "9aeddf08bf3d73e35ba0a67107e4c420e83aa416",
+    "quest_life_dispatch_script_blob": "08624386100fd56178dc99ee2ede27009427cca7",
+    "reseed_anchor_schema_blob": "6d9f2da5bd900239dcce01d455123675202f3b09",
+    "reseed_anchor_schema_closed_world": true,
+    "dispatch_forwards_reseed_anchor_by_value": true,
+    "law": "RUNTIME_PACKET_MAY_WRAP_OR_HASH_RESEED_ANCHOR_BUT_MUST_NOT_MUTATE_ITS_SCHEMA_SURFACE"
+  },
   "required_packet_fields": [
     "CLEAR_CONDITION_DIGEST",
     "LIFE_POLICY",
     "RESEED_ANCHOR",
     "EXTRA_LIFE_REWARD_ELIGIBILITY"
+  ],
+  "integrity_fields": [
+    "RESEED_ANCHOR_DIGEST",
+    "packet_digest"
   ],
   "clear_condition_contract": {
     "form": "ordered non-empty public condition-definition strings",
@@ -49,6 +62,7 @@
   },
   "reseed_anchor_binding": {
     "schema": "ATHENA.RESEED_ANCHOR.V1",
+    "canonical_schema_additional_properties": false,
     "required_target_versions": [
       "campaign_v3.pulse_digest",
       "campaign_v3.campaign_id",
@@ -56,7 +70,10 @@
     ],
     "agent_coordinate_name_must_match_packet": true,
     "anchor_embedded_by_value": true,
-    "anchor_digest_required": true,
+    "anchor_must_equal_validated_input": true,
+    "runtime_fields_inside_anchor_forbidden": true,
+    "anchor_digest_packet_field": "RESEED_ANCHOR_DIGEST",
+    "anchor_digest_basis": "exact embedded RESEED_ANCHOR object",
     "freshness_rechecked_at_play": true,
     "consumption_deferred_to_life_loop": true
   },
@@ -75,15 +92,16 @@
     "PACKET_COMPILE != LIFE_CONSUMPTION",
     "EXTRA_LIFE_REWARD_ELIGIBILITY != EXTRA_LIFE_ISSUED",
     "CLEAR_CONDITION_DIGEST != CLEAR_WITNESS",
+    "RESEED_ANCHOR_DIGEST != RESEED_ANCHOR_FIELD",
     "RESEED_ANCHOR != PLATFORM_COUNTER_RESET",
     "LIFE_POLICY != CANONICAL_PROMOTION"
   ],
   "verification_ceiling": {
-    "private_draft_smoke": "syntax + pure compiler invariant smoke only",
-    "github_actions_ci_required": true,
+    "github_actions_ci_required_for_repair": true,
     "canonical_promotion": false,
     "treatment_effect_claim": false,
-    "semantic_exact_source_local_tests": "16/16 PASS"
+    "semantic_exact_source_local_tests": "16/16 PASS",
+    "semantic_dispatch_exact_source_local_tests": "39/39 PASS as reported by semantic merge receipt; no GitHub Actions/independent performance claim"
   },
-  "successor": "After mechanism CI/readback, wire compiler into Campaign V3 branch->loop dispatch and run matched Life Loop ON/OFF missions under GTC metrics."
+  "successor": "After repair CI/readback, requalify packet interoperability against semantic Quest Life Dispatch, then continue attempt-settlement compatibility work without adding a runtime Life state machine."
 }
