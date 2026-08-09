@@ -1,0 +1,13 @@
+{
+  "artifact": "ATHENA.H6.CUT01.SOURCE.AUDIT.PLAN.V1",
+  "runtime_base": "114790cf5173ca5ab78d1b505849708b209f81a0",
+  "read_sets": {
+    "H01": ["athena_mcp/identity.py", "athena_mcp/core.py", "athena_mcp/store.py", "athena_mcp/crystal_compile.py"],
+    "H02": ["athena_mcp/kc144.py", "athena_mcp/polycoord.py", "athena_mcp/crystal_schema.py", "athena_mcp/state_projection.py"],
+    "H03": ["athena_mcp/crystal_graph.py", "athena_mcp/frontier_runtime.py", "athena_mcp/orchestration_graph.py", "athena_mcp/orchestration_metric.py", "athena_mcp/orchestration_retrieval/select.py"],
+    "H04": ["athena_mcp/crystal_schema.py", "athena_mcp/transform_dsl.py", "spec/EXECUTABLE_TRANSFORMS.md"],
+    "H05": ["athena_mcp/store.py", "athena_mcp/promotion.py", "athena_mcp/github_promotion_verifier.py", "athena_mcp/cohesion_evidence_guard.py", "athena_mcp/party_coordination_v3.py"],
+    "H06": ["athena_mcp/state_foundation_surface.py", "athena_mcp/reconstruction.py", "athena_mcp/frontier_runtime.py", "athena_mcp/rehydration_loop.py", "athena_mcp/rehydration_terminal.py", "athena_mcp/rehydration_successor.py", "athena_mcp/successor_baton.py"]
+  },
+  "classification_fields": ["obligation","implementation_refs","status","reason","surviving_gap","red_witness"]
+}
