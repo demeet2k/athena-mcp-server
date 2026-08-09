@@ -16,6 +16,14 @@ class CollectiveV15UnifiedTests(unittest.TestCase):
         result=self.rpc('tools/call',{'name':name,'arguments':args or {}})['result'];self.assertFalse(result.get('isError'),result);return result['structuredContent']
     def resource(self,uri):return json.loads(self.rpc('resources/read',{'uri':uri})['result']['contents'][0]['text'])
 
+    @staticmethod
+    def longitudinal_rows(n=200):
+        rows=[]
+        for i in range(n):
+            x=(i%20)/10-1;a1=i%2;l1=(i//2)%2;a2=(i//3)%2;y=1 if a2 or (a1 and l1) else 0
+            rows.append({'X':x,'A1':a1,'L1':l1,'A2':a2,'Y':y})
+        return rows
+
     def test_v15_resource_surface_coordinate_and_surface_audit(self):
         names={x['name'] for x in self.rpc('tools/list')['result']['tools']};uris={x['uri'] for x in self.rpc('resources/list')['result']['resources']}
         v15={
@@ -30,13 +38,23 @@ class CollectiveV15UnifiedTests(unittest.TestCase):
         audit=self.tool('athena_surface_audit',{'run_probes':True})
         self.assertEqual(audit['groups']['collective_v15']['status'],'PASS')
 
-    def test_v15_calibration_model_and_plans_do_not_mutate_y1(self):
+    def test_v15_calibration_causal_models_and_plans_do_not_mutate_y1(self):
         self.tool('athena_claim_register',{'claim_id':'C.V15.UNIFIED','source_ref':'test://v15'})
         before=self.tool('athena_claim_state',{'claim_id':'C.V15.UNIFIED'})
         examples=[]
         for support,correct in ((.2,0),(.4,0),(.6,1),(.8,1)):
             examples.extend({'support':support,'correct':correct} for _ in range(12))
         self.tool('athena_structural_reliability_calibrate',{'calibration_examples':examples,'supports':[.5,.7]})
+        rows=self.longitudinal_rows()
+        tmle=self.tool('athena_longitudinal_tmle_crossfit',{
+            'samples':rows,'treatment1':'A1','intermediate':'L1','treatment2':'A2','outcome':'Y','baseline':['X'],'folds':2,'seed':11,
+        })
+        self.assertEqual(tmle['history_invariant'],'STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION')
+        dr=self.tool('athena_sequential_dr_policy_crossfit',{
+            'samples':rows,'treatment1':'A1','intermediate':'L1','treatment2':'A2','outcome':'Y','baseline':['X'],'folds':2,'seed':12,
+            'policies':[{'id':'none','a1':0,'a2':0},{'id':'both','a1':1,'a2':1}],
+        })
+        self.assertEqual(dr['history_invariant'],'A1_POLICY_USES_BASELINE_ONLY__A2_POLICY_USES_BASELINE_A1_L1_ONLY')
         update=self.tool('athena_joint_gaussian_update',{
             'variables':['x','y'],'mean':[0,0],'covariance':[[1,.2],[.2,1]],
             'observation':{'coefficients':{'x':1},'value':.5,'noise_variance':.2},
