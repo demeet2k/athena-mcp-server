@@ -128,11 +128,42 @@ class PartyCoordinationTests(unittest.TestCase):
         self.assertEqual(acked['status'],'ACKED')
         return message_id
 
+    def provenance_results(self, suffix=''):
+        rows=[]
+        for server,ack_board,sender,recipient,goal in [
+            (self.a,self.board_b,'alpha','beta','goal.analysis'),
+            (self.b,self.board_a,'beta','alpha','goal.code'),
+        ]:
+            witness=f'result://{sender}{suffix}'
+            posted=self.tool(server,'athena_party_result',{
+                'party_id':'PARTY.TEST','sender':sender,'recipients':[recipient],
+                'goal_id':goal,'result_ref':f'artifact://{sender}{suffix}',
+                'witness_ref':witness,'evidence_kind':'RESULT',
+            })
+            self.assertEqual(posted['status'],'POSTED')
+            self.assertEqual(posted['xp_bonus'],0)
+            event_id=posted['message_event']['event_id']
+            self.assertEqual(ack_board.ack(agent_id=recipient,message_id=event_id)['status'],'ACKED')
+            rows.append({
+                'goal_id':goal,'agent_id':sender,'witness_ref':witness,
+                'result_event_ref':event_id,
+            })
+        return rows
+
+    def observe_v3(self, observation_id, results, witness_ref, source_suffix):
+        return self.tool(self.a,'athena_party_observe',{
+            'observation_id':observation_id,'party_id':'PARTY.TEST','observer':'meta','base_xp':100,
+            'source_xp_ref':f'xp://party-test/{source_suffix}',
+            'source_xp_witness_ref':f'xp-witness://party-test/{source_suffix}',
+            'results':results,'witness_ref':witness_ref,
+        })
+
     def test_tools_and_resource_register_without_displacing_message_board(self):
         tools={row['name'] for row in self.rpc(self.a,'tools/list')['result']['tools']}
         for name in [
             'athena_message_board','athena_party_form','athena_party_join','athena_party_message',
-            'athena_party_state','athena_party_list','athena_party_observe','athena_transport_aor_to_collective'
+            'athena_party_result','athena_party_state','athena_party_list','athena_party_observe',
+            'athena_transport_aor_to_collective'
         ]:
             self.assertIn(name,tools)
         resources={row['uri'] for row in self.rpc(self.a,'resources/list')['result']['resources']}
@@ -191,10 +222,8 @@ class PartyCoordinationTests(unittest.TestCase):
         self.assertEqual(early['coordination_bonus_xp'],0)
 
         self.party_message()
-        award=self.tool(self.a,'athena_party_observe',{
-            'observation_id':'OBS.SUCCESS','party_id':'PARTY.TEST','observer':'meta','base_xp':100,
-            'results':self.results('-v2'),'witness_ref':'outcome://success',
-        })
+        results=self.provenance_results('-v3')
+        award=self.observe_v3('OBS.SUCCESS',results,'outcome://success','success')
         self.assertEqual(award['status'],'AWARDED')
         self.assertGreater(award['coordination_bonus_xp'],0)
         self.assertLessEqual(award['coordination_bonus_rate'],0.05)
@@ -209,15 +238,16 @@ class PartyCoordinationTests(unittest.TestCase):
 
         replay=self.tool(self.b,'athena_party_observe',{
             'observation_id':'OBS.SUCCESS','party_id':'PARTY.TEST','observer':'meta','base_xp':100,
-            'results':self.results('-v2'),'witness_ref':'outcome://success',
+            'source_xp_ref':'xp://party-test/success',
+            'source_xp_witness_ref':'xp-witness://party-test/success',
+            'results':results,'witness_ref':'outcome://success',
         })
         self.assertTrue(replay['idempotent'])
         self.assertEqual(replay['receipt_digest'],award['receipt_digest'])
 
-        duplicate=self.tool(self.a,'athena_party_observe',{
-            'observation_id':'OBS.REUSE','party_id':'PARTY.TEST','observer':'meta','base_xp':100,
-            'results':self.results('-v3'),'witness_ref':'outcome://success',
-        })
+        self.party_message('-duplicate-witness')
+        duplicate_results=self.provenance_results('-duplicate-witness')
+        duplicate=self.observe_v3('OBS.REUSE',duplicate_results,'outcome://success','reuse')
         self.assertEqual(duplicate['status'],'HOLD')
         self.assertIn('WITNESS_ALREADY_REWARDED',duplicate['hold_reasons'])
         self.assertEqual(duplicate['coordination_bonus_xp'],0)
@@ -225,16 +255,12 @@ class PartyCoordinationTests(unittest.TestCase):
     def test_successful_award_resets_communication_reward_window(self):
         self.seed_party()
         first_message=self.party_message('-first')
-        first=self.tool(self.a,'athena_party_observe',{
-            'observation_id':'OBS.FIRST','party_id':'PARTY.TEST','observer':'meta','base_xp':100,
-            'results':self.results('-first'),'witness_ref':'outcome://first',
-        })
+        first_results=self.provenance_results('-first')
+        first=self.observe_v3('OBS.FIRST',first_results,'outcome://first','first')
         self.assertEqual(first['status'],'AWARDED')
 
-        held=self.tool(self.a,'athena_party_observe',{
-            'observation_id':'OBS.SECOND.HELD','party_id':'PARTY.TEST','observer':'meta','base_xp':100,
-            'results':self.results('-second-held'),'witness_ref':'outcome://second-held',
-        })
+        second_held_results=self.provenance_results('-second-held')
+        held=self.observe_v3('OBS.SECOND.HELD',second_held_results,'outcome://second-held','second-held')
         self.assertEqual(held['status'],'HOLD')
         self.assertIn('NEED_ACKNOWLEDGED_PARTY_COMMUNICATION',held['hold_reasons'])
         self.assertEqual(held['communication']['message_count'],0)
@@ -243,10 +269,8 @@ class PartyCoordinationTests(unittest.TestCase):
 
         second_message=self.party_message('-second')
         self.assertNotEqual(first_message,second_message)
-        second=self.tool(self.a,'athena_party_observe',{
-            'observation_id':'OBS.SECOND','party_id':'PARTY.TEST','observer':'meta','base_xp':100,
-            'results':self.results('-second'),'witness_ref':'outcome://second',
-        })
+        second_results=self.provenance_results('-second')
+        second=self.observe_v3('OBS.SECOND',second_results,'outcome://second','second')
         self.assertEqual(second['status'],'AWARDED')
         self.assertGreater(second['coordination_bonus_xp'],0)
         self.assertEqual(second['communication']['acknowledged_message_count'],1)
