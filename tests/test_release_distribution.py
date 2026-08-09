@@ -17,6 +17,7 @@ class ReleaseDistributionTests(unittest.TestCase):
         cls.notes=(cls.root/'release'/'v3.2.0.md').read_text(encoding='utf-8')
         cls.project=tomllib.loads((cls.root/'pyproject.toml').read_text(encoding='utf-8'))['project']
         cls.workflow=(cls.root/'.github'/'workflows'/'release.yml').read_text(encoding='utf-8')
+        cls.gitignore=(cls.root/'.gitignore').read_text(encoding='utf-8')
 
     def test_release_identity_matches_current_package_and_runtime(self):
         m=self.manifest
@@ -101,6 +102,14 @@ class ReleaseDistributionTests(unittest.TestCase):
             'ATHENA_PROMOTION_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}',
             self.workflow,
         )
+
+    def test_package_readiness_transient_promotion_input_preserves_clean_checkout_gate(self):
+        w=self.workflow
+        package=w[w.index('\n  package-readiness:'):w.index('\n  publish:')]
+        ignored={line.strip() for line in self.gitignore.splitlines() if line.strip() and not line.lstrip().startswith('#')}
+        self.assertIn('promotion-input/',ignored)
+        self.assertIn('path: promotion-input',package)
+        self.assertIn('test -z "$(git status --porcelain)"',package)
 
     def test_release_workflow_uses_least_privilege_until_manual_publish(self):
         w=self.workflow
