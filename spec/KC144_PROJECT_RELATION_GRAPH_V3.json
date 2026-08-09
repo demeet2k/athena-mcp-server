@@ -14,15 +14,19 @@
   },
   "integration": {
     "branch": "agent/kc144-project-atlas-graph-v3",
+    "integration_pull_request": 335,
+    "qualification_only_pull_request": 336,
     "head_binding": "the Git commit containing this manifest",
-    "law": "V3_CHILD_HEAD != ACCEPTED_V2_ANCESTRY"
+    "law": "QUALIFICATION_PR != INTEGRATION_PR != PROMOTION"
   },
   "identity": {
     "snapshot_prefix": "PATLASV2.",
     "graph_prefix": "PATLASG3.",
+    "vertex_prefix": "PVTX.",
     "edge_prefix": "PEDGE.",
-    "vertex_identity": "Project Atlas POID",
-    "edge_identity": "content-derived typed relation digest",
+    "poid_identity": "stable project path/kind identity within a repository",
+    "vertex_identity": "PVTX(<plane,repo,head,POID>) exact federated manifestation",
+    "edge_identity": "content-derived typed relation digest over exact vertex endpoints",
     "authority": "NONE"
   },
   "edge_kinds": {
@@ -58,12 +62,13 @@
   },
   "frontier": {
     "vertex_scope": "<plane,repo,head,POID>",
+    "bare_poid_resolution": "allowed only when exactly one PVTX exists in the snapshot; otherwise HOLD_AMBIGUOUS_VERTEX",
     "edge_snapshot_binding": "exact PATLASV2 snapshot equality",
     "graph_digest_basis": [
       "graph schema",
       "exact PATLASV2 snapshot_id",
-      "sorted exact vertex receipts",
-      "sorted typed edge receipts"
+      "sorted exact PVTX vertex receipts",
+      "sorted typed edge receipts with exact PVTX endpoints"
     ],
     "enumeration_order_invariant": true,
     "unknown_is_zero": false
@@ -76,6 +81,7 @@
       "shortest_path:bfs",
       "shortest_path:dijkstra"
     ],
+    "locator": "exact PVTX preferred; bare POID accepted only when unique",
     "max_page": 100,
     "max_depth": 128,
     "max_expansions": 10000,
@@ -87,6 +93,7 @@
     "HOLD_STALE_SNAPSHOT",
     "HOLD_STALE_GRAPH",
     "HOLD_UNKNOWN_VERTEX",
+    "HOLD_AMBIGUOUS_VERTEX",
     "HOLD_EXPANSION_LIMIT",
     "HOLD_DEPTH_LIMIT",
     "HOLD_NO_PATH"
@@ -95,16 +102,18 @@
     "EDGE != CLAIM_OF_SEMANTIC_EQUIVALENCE",
     "KC144_GRID_ADJACENT != DEPENDS_ON",
     "SAME_BLOB_ALIAS != SAME_OBJECT",
+    "POID != FEDERATED_VERTEX_ID",
     "IMPORT_STRING != RESOLVED_LOCAL_IMPORT",
     "UNRESOLVED_IMPORT -> CONSERVE_UNKNOWN",
     "AMBIGUOUS_EDGE_TARGET -> HOLD_EDGE",
+    "AMBIGUOUS_POID_ACROSS_FRONTIERS -> HOLD_AMBIGUOUS_VERTEX",
     "GRAPH_DIGEST_REQUIRES_EXACT_SNAPSHOT",
     "GRAPH_QUERY != PROMOTION_AUTHORITY",
     "PATH_COST != TRUTH",
     "ROUTE != EXECUTION",
     "EDGE_CLASS_CHANGE_REQUIRES_GRAPH_SCHEMA_BUMP",
     "STRUCTURAL_GRAPH_ROUTE != KC144_GEOMETRIC_ROUTE != EXECUTION",
-    "V3_CHILD_HEAD != ACCEPTED_V2_ANCESTRY"
+    "QUALIFICATION_PR != INTEGRATION_PR != PROMOTION"
   ],
   "promotion": {
     "standing": "HOLD_PENDING_V2_ACCEPTANCE_REBASE_AND_V3_QUALIFICATION",
