@@ -10,6 +10,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 from athena_mcp.campaign_v3_life_attempt_identity import (
     ATTEMPT_REPLAY_EXTENSION,
     IDENTITY_POLICY,
+    REQUIRED_REPLAY_BLOCKERS,
     SEMANTIC_BASE,
     bind_campaign_v3_life_attempt_identity,
     derive_attempt_id,
@@ -45,6 +46,8 @@ class CampaignV3LifeOwnershipFirewallTests(unittest.TestCase):
         self.assertNotEqual(first["envelope_digest"], second["envelope_digest"])
         self.assertEqual([], validate_campaign_v3_life_attempt_identity(first))
         self.assertEqual([], validate_campaign_v3_life_attempt_identity(second))
+        self.assertEqual("INTEGRATION_HOLD", first["attempt_replay_extension"]["status"])
+        self.assertFalse(first["attempt_replay_extension"]["semantic_replay_compatibility"])
 
     @patch(
         "athena_mcp.campaign_v3_life_attempt_identity.validate_campaign_v3_life_quest_packet",
@@ -114,17 +117,51 @@ class CampaignV3LifeOwnershipFirewallTests(unittest.TestCase):
         self.assertIn("execution_authority_must_be_false", errors)
         self.assertIn("envelope_digest", errors)
 
-    def test_semantic_source_standing_is_explicit_and_candidate_extension_is_not_promoted(self):
+    @patch(
+        "athena_mcp.campaign_v3_life_attempt_identity.validate_campaign_v3_life_quest_packet",
+        return_value=[],
+    )
+    def test_semantic_replay_hold_cannot_be_rewritten_as_pass(self, _validate):
+        envelope = bind_campaign_v3_life_attempt_identity(
+            packet=self._packet(),
+            execution_event_id="HOST-EVENT-REPLAY-HOLD",
+        )
+        tampered = copy.deepcopy(envelope)
+        tampered["attempt_replay_extension"]["status"] = "PASS"
+        tampered["attempt_replay_extension"]["semantic_replay_compatibility"] = True
+        tampered["attempt_replay_extension"]["blockers"] = []
+        errors = validate_campaign_v3_life_attempt_identity(tampered)
+        self.assertIn("semantic_replay_compatibility_hold", errors)
+        self.assertIn("semantic_replay_compatibility_must_be_false", errors)
+        self.assertIn("semantic_replay_blockers", errors)
+
+    def test_semantic_source_and_live_replay_hold_are_explicit(self):
         self.assertEqual(
             "60a7bc798412088977d7ab9adf16a0e7dca3a1c9",
             SEMANTIC_BASE["commit"],
         )
+        self.assertEqual("MERGED_HARDENED_LIFE_LOOP_BASE", SEMANTIC_BASE["standing"])
         self.assertEqual(16, int(SEMANTIC_BASE["exact_source_local_tests"].split("/")[0]))
         self.assertEqual(291, ATTEMPT_REPLAY_EXTENSION["pull_request"])
+        self.assertEqual("f0d2efb9a0bdc999ae7aef93041cf8e69f4eb51e", ATTEMPT_REPLAY_EXTENSION["observed_head"])
+        self.assertEqual(
+            "9aeddf08bf3d73e35ba0a67107e4c420e83aa416",
+            ATTEMPT_REPLAY_EXTENSION["observed_against_athena_main"],
+        )
+        self.assertEqual("INTEGRATION_HOLD", ATTEMPT_REPLAY_EXTENSION["status"])
+        self.assertEqual(
+            "SEMANTIC_REPLAY_COMPATIBILITY_NOT_ESTABLISHED",
+            ATTEMPT_REPLAY_EXTENSION["standing"],
+        )
         self.assertFalse(ATTEMPT_REPLAY_EXTENSION["canonical_promotion"])
-        self.assertFalse(ATTEMPT_REPLAY_EXTENSION["github_actions_ci"])
+        self.assertFalse(ATTEMPT_REPLAY_EXTENSION["semantic_replay_compatibility"])
+        self.assertTrue(REQUIRED_REPLAY_BLOCKERS.issubset(set(ATTEMPT_REPLAY_EXTENSION["blockers"])))
         self.assertTrue(IDENTITY_POLICY["stable_across_transport_retry"])
         self.assertFalse(IDENTITY_POLICY["delivery_id_participates_in_attempt_identity"])
+        self.assertFalse(IDENTITY_POLICY["host_event_identity_is_canonical_semantic_execution_identity"])
+        self.assertFalse(IDENTITY_POLICY["semantic_alias_replay_safety_established"])
+        self.assertFalse(IDENTITY_POLICY["continuation_retry_settlement_established"])
+        self.assertFalse(IDENTITY_POLICY["quest_dispatch_attempt_id_abi_established"])
 
     def test_runtime_package_does_not_own_a_second_life_state_machine(self):
         forbidden_paths = [
