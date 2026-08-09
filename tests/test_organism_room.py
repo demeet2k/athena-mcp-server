@@ -25,7 +25,6 @@ from athena_mcp.organism_room import (
     allocate_homeostasis,
     normalize_target,
 )
-from athena_mcp.agent_bootstrap_organism_room import install_agent_bootstrap_organism_room
 
 
 def _run(root: Path, *args: str) -> str:
@@ -194,39 +193,9 @@ class OrganismRoomLifecycleTests(unittest.TestCase):
         self.assertEqual([x["agent_id"] for x in snap["active"]], ["a", "b"])
         self.assertTrue(snap["remote_sync"]["shared_frontier_verified"])
 
-    def test_boot_installer_mandatorily_enters_and_reuses_room_session(self):
-        rooms, roots = self._runtimes(count=1)
-
-        class FakeBoot:
-            def __init__(self, git):
-                self.git = git
-                self.seq = 0
-
-            def bootstrap(self, *, agent_id, task, remote="origin", **kwargs):
-                self.seq += 1
-                return {
-                    "status": "BOOTSTRAPPED",
-                    "agent_id": agent_id,
-                    "session_id": f"boot-{self.seq}",
-                    "task": task,
-                    "prompt": {"prompt_stack_digest": "p" * 64},
-                    "execution_surface": {"frontier_tools": ["git"], "standing": "OBSERVED"},
-                    "coordination": {"presence": None},
-                    "holds": [],
-                    "laws": [],
-                }
-
-        install_agent_bootstrap_organism_room(FakeBoot)
-        runtime = FakeBoot(rooms[0].git)
-        first = runtime.bootstrap(agent_id="alpha", task="observe")
-        second = runtime.bootstrap(agent_id="alpha", task="observe again")
-        self.assertEqual(first["organism_room"]["pre_dispatch"], "ALLOW")
-        self.assertEqual(second["organism_room"]["entry"]["status"], "ALREADY_ENTERED")
-        self.assertEqual(
-            first["witnesses"]["organism_room"]["room_session_id"],
-            second["witnesses"]["organism_room"]["room_session_id"],
-        )
-        self.assertTrue(second["return_contract"]["organism_room_signout_required"])
+    def test_room_lifecycle_does_not_wrap_low_level_bootstrap(self):
+        init_text = (ROOT / "athena_mcp" / "__init__.py").read_text(encoding="utf-8")
+        self.assertNotIn("install_agent_bootstrap_organism_room(AgentBootstrapRuntime)", init_text)
 
 
 class HomeostasisAllocationTests(unittest.TestCase):
