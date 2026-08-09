@@ -1,0 +1,80 @@
+{
+  "artifact": "ATHENA.F35.HIGHER.COHERENCE.WITNESS.V1",
+  "role": "bounded formal witness for the generic higher-coherence mechanism required by F35/GID078",
+  "parent_evidence_matrix_head": "d1d27b3f87d5d05e0a3bfe7c6ae1237f4430c746",
+  "gid": 78,
+  "carrier": "F35",
+  "constitutional_obligation": "HIGHER_COHERENCE_COMPOSITION_WITNESS",
+  "source_roots": {
+    "math": {
+      "name": "f01_f37_math.txt",
+      "sha256": "71ef8e97a38adeda9c521e68238e4c8349f9b3e62dc412284f5f4d009921d4d5"
+    },
+    "symmetry": {
+      "name": "f01_f37_symmetries.txt",
+      "sha256": "80ce12eaffe541138ba3206077f9c854e5c9c9cdef010c97705eb59d16809d8c"
+    }
+  },
+  "source_w35_obligation": {
+    "objects": true,
+    "one_morphisms": true,
+    "two_morphisms": true,
+    "coherence_laws": true,
+    "collapse_to_invariant_packet": true,
+    "typed_failures": [
+      "COHERENCE_FAILURE",
+      "NONADMISSIBLE_2_MORPHISM",
+      "BROKEN_HIGHER_TRANSPORT"
+    ]
+  },
+  "formal_fixture": {
+    "objects": ["A","B","C","D"],
+    "one_morphisms": {
+      "f": {"src":"A","dst":"B","affine":[1,1]},
+      "g": {"src":"B","dst":"C","affine":[2,0]},
+      "h": {"src":"C","dst":"D","affine":[1,-3]},
+      "u": {"src":"A","dst":"C","affine":[2,2]},
+      "v": {"src":"B","dst":"D","affine":[2,-3]},
+      "w": {"src":"A","dst":"D","affine":[2,-1]}
+    },
+    "two_morphisms": {
+      "alpha": {"source":["f","g"],"target":["u"]},
+      "beta": {"source":["g","h"],"target":["v"]},
+      "gamma": {"source":["u","h"],"target":["w"]},
+      "delta": {"source":["f","v"],"target":["w"]}
+    },
+    "coherence_diamond": {
+      "start": ["f","g","h"],
+      "route_left": ["alpha","gamma"],
+      "route_right": ["beta","delta"],
+      "canonical_target": ["w"]
+    }
+  },
+  "success_condition": {
+    "all_objects_exist": true,
+    "all_one_morphisms_typecheck": true,
+    "all_two_morphisms_parallel_and_semantically_equal": true,
+    "identity_laws": true,
+    "one_morphism_associativity": true,
+    "coherence_diamond_commutes": true,
+    "collapse_packet_equal": true,
+    "nonadmissible_two_morphism_rejected": true,
+    "broken_higher_transport_detected": true
+  },
+  "standing_after_pass": {
+    "generic_higher_coherence_mechanism": "PASS",
+    "evidence": "HOLD",
+    "constitutional_obligation": "PARTIALLY_DISCHARGED",
+    "remaining_obligation": "CORPUS_SPECIFIC_F33_F34_TO_F35_TO_F36_MAPPING_WITNESS",
+    "truth_claim": "NOT_ESTABLISHED",
+    "promotion_authority": false
+  },
+  "firewalls": [
+    "FINITE_STRICT_2CATEGORY_WITNESS != GENERAL_HIGHER_CATEGORY_THEOREM",
+    "GENERIC_COHERENCE_MECHANISM != CORPUS_SPECIFIC_F35_EXACTIFICATION",
+    "COHERENCE_DIAMOND_PASS != F34_MOTIVIC_WITNESS",
+    "COHERENCE_DIAMOND_PASS != F36_DERIVED_REPLAY_WITNESS",
+    "FORMAL_MECHANISM_PASS != EMPIRICAL_TRUTH",
+    "F35_EVIDENCE_REMAINS_HOLD_UNTIL_PROJECT_SPECIFIC_MAPPING_IS_WITNESSED"
+  ]
+}
