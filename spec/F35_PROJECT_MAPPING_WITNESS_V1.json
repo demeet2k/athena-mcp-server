@@ -1,0 +1,98 @@
+{
+  "artifact": "ATHENA.F35.PROJECT.MAPPING.WITNESS.V1",
+  "role": "source-bound conditional witness for the project-specific F33/F34 -> F35 -> F36 packet transport required after the generic F35 coherence kernel",
+  "parent_generic_head": "8f4c4d45e4ffa6bc4f09dca25ede966377c3e8f4",
+  "gid": 78,
+  "carrier": "F35",
+  "source_roots": {
+    "math": {
+      "name": "f01_f37_math.txt",
+      "sha256": "71ef8e97a38adeda9c521e68238e4c8349f9b3e62dc412284f5f4d009921d4d5"
+    },
+    "symmetry": {
+      "name": "f01_f37_symmetries.txt",
+      "sha256": "80ce12eaffe541138ba3206077f9c854e5c9c9cdef010c97705eb59d16809d8c"
+    }
+  },
+  "source_tail_contract": {
+    "F33": "rigid fusion/index/Merkle replay packet entering the tail",
+    "F34": "motivic-envelope carrier M=(M,h^bullet,r) with multiple realization channels collapsing to one envelope",
+    "F35": "higher-coherence carrier H=(C2,Obj,Mor1,Mor2), native composition+coherence",
+    "F36": "derived singular-replay carrier D=(D,Sigma,Ext,Sing), receiving higher coherence as replayable derived residue",
+    "transport": "K_tail -> K34 -> K35 -> K36",
+    "law": "same seed != same math",
+    "typed_defects_must_remain_separate": ["partial_34","partial_35","partial_36"]
+  },
+  "fixture": {
+    "K33_tail": {
+      "packet_id": "KTAIL.F33.V1",
+      "fusion_index": [2,3,5],
+      "merkle_words": ["F33","F34","F35","F36"],
+      "invariants": {"rank":3,"parity":0,"weight":10}
+    },
+    "F34_conditional_envelope": {
+      "standing": "ASSUMED_FIXTURE_NOT_W34_PROOF",
+      "realizations": {
+        "R_vector": {"kind":"VECTOR","value":[2,3,5]},
+        "R_polynomial": {"kind":"POLYNOMIAL_COEFFICIENTS","value":{"x2":2,"x1":3,"x0":5}},
+        "R_multiset": {"kind":"SORTED_MULTISET","value":[2,3,5]}
+      },
+      "collapse_target": {"rank":3,"parity":0,"weight":10}
+    },
+    "F35_objects": ["K33","R_vector","R_polynomial","R_multiset","M34","H35","D36"],
+    "F35_one_morphisms": [
+      "encode_vector:K33->R_vector",
+      "encode_polynomial:K33->R_polynomial",
+      "encode_multiset:K33->R_multiset",
+      "collapse_vector:R_vector->M34",
+      "collapse_polynomial:R_polynomial->M34",
+      "collapse_multiset:R_multiset->M34",
+      "lift:M34->H35",
+      "export:H35->D36"
+    ],
+    "F35_two_morphisms": [
+      "eta_vp:collapse_vector∘encode_vector => collapse_polynomial∘encode_polynomial",
+      "eta_pm:collapse_polynomial∘encode_polynomial => collapse_multiset∘encode_multiset",
+      "eta_vm:collapse_vector∘encode_vector => collapse_multiset∘encode_multiset"
+    ],
+    "F36_facing_packet": {
+      "standing": "F36_FACING_FIXTURE_NOT_W36_PROOF",
+      "Sigma": 0,
+      "Ext": {"comparison_residuals":[0,0,0]},
+      "Sing": [],
+      "replay_target": "KTAIL.F33.V1"
+    }
+  },
+  "success_condition": {
+    "source_manifest_preserves_F35_hold": true,
+    "all_F34_fixture_realizations_collapse_to_same_invariants": true,
+    "F35_comparison_2cells_are_parallel": true,
+    "F35_comparison_triangle_commutes": true,
+    "F35_lift_preserves_packet_invariants": true,
+    "F36_facing_export_is_typed_and_replayable_on_fixture": true,
+    "tampered_F34_realization_fails_before_F35_admission": true,
+    "tampered_F36_replay_memory_is_detected": true,
+    "typed_defects_remain_separate": true
+  },
+  "standing_after_pass": {
+    "generic_higher_coherence_mechanism": "PASS_FROM_CUT01",
+    "project_specific_mapping_mechanism": "PASS_CONDITIONAL_ON_F34_AND_F36_FIXTURES",
+    "evidence": "HOLD",
+    "remaining_obligations": [
+      "F34_W34_MOTIVIC_ENVELOPE_WITNESS",
+      "F36_W36_DERIVED_REPLAY_WITNESS"
+    ],
+    "truth_claim": "NOT_ESTABLISHED",
+    "promotion_authority": false
+  },
+  "firewalls": [
+    "F34_CONDITIONAL_ENVELOPE_FIXTURE != F34_MOTIVIC_ENVELOPE_WITNESS",
+    "F36_FACING_REPLAY_FIXTURE != F36_DERIVED_REPLAY_WITNESS",
+    "PROJECT_MAPPING_PASS != F35_EVIDENCE_CLOSED",
+    "PROJECT_MAPPING_PASS != MOTIVIC_THEOREM",
+    "PROJECT_MAPPING_PASS != GENERAL_HIGHER_CATEGORY_THEOREM",
+    "PROJECT_MAPPING_PASS != DERIVED_CATEGORY_THEOREM",
+    "TYPED_DEFECT_34 != TYPED_DEFECT_35 != TYPED_DEFECT_36",
+    "F35_EVIDENCE_REMAINS_HOLD_UNTIL_F34_AND_F36_PREREQUISITES_ARE_WITNESSED"
+  ]
+}
