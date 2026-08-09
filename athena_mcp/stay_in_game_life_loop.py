@@ -10,11 +10,18 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
-from typing import Any, Dict, List, Mapping, MutableMapping, Tuple
+from typing import Any, Dict, List, Mapping, MutableMapping, Sequence, Tuple
 
+from .campaign_v3_binding import ARTIFACT as CAMPAIGN_BINDING_ARTIFACT
+from .campaign_v3_life_binding import (
+    ARTIFACT as LIFE_QUEST_PACKET_ARTIFACT,
+    compile_campaign_v3_life_quest_packet,
+    validate_campaign_v3_life_quest_packet,
+)
 from .campaign_v3_reseed_anchor import POSITIVE_CLASSES, validate_campaign_v3_reseed_anchor
 
 SCHEMA_VERSION = "ATHENA.STAY_IN_GAME.LIFE_LOOP.V1"
+CAMPAIGN_LIFE_ARTIFACT = "ATHENA.CAMPAIGN.V3.LIFE.BINDING.V1"
 SEMANTIC_SOURCE_REPO = "demeet2k/Athena"
 SEMANTIC_SOURCE_COMMIT = "60a7bc798412088977d7ab9adf16a0e7dca3a1c9"
 SEMANTIC_SOURCE_SCRIPT_BLOB = "c6f35cf39d9f25333ee0c748b5e4bacedbb544a1"
@@ -369,8 +376,148 @@ def resolve_attempt(world: Mapping[str, Any], agent_id: str, attempt: Mapping[st
     }
 
 
+def _campaign_life_hold(failures: Sequence[str], **extra: Any) -> Dict[str, Any]:
+    return {
+        "artifact": CAMPAIGN_LIFE_ARTIFACT,
+        "status": "HOLD_INVALID_CAMPAIGN_LIFE_BINDING",
+        "failures": list(failures),
+        "execution_authority_granted": False,
+        "scheduler_ready": False,
+        "provider_authority": False,
+        "work_executed": False,
+        "life_consumption_authority": False,
+        "reward_issuance_authority": False,
+        "platform_counter_reset_claimed": False,
+        **extra,
+    }
+
+
+def bind_campaign_life_packet(
+    *,
+    bound_receipt: Mapping[str, Any],
+    pulse: Mapping[str, Any],
+    agent_coordinate_name: str,
+    quest_id: str,
+    quest_version: str,
+    clear_conditions: Sequence[Any],
+    reseed_anchor: Mapping[str, Any],
+    extra_life_reward_candidate: Mapping[str, Any] | None = None,
+) -> Dict[str, Any]:
+    """Bind a validated Life quest packet to the exact Campaign V3 BOUND receipt.
+
+    Binding compiles metadata only. It grants no execution, scheduler, life,
+    reward, reseed-anchor-consumption, provider, or platform-counter authority.
+    """
+    failures: List[str] = []
+    if not isinstance(bound_receipt, Mapping):
+        return _campaign_life_hold(["BOUND_RECEIPT_REQUIRED"])
+    if bound_receipt.get("artifact") != CAMPAIGN_BINDING_ARTIFACT:
+        failures.append("CAMPAIGN_BINDING_ARTIFACT_INVALID")
+    if bound_receipt.get("status") != "BOUND":
+        failures.append("CAMPAIGN_NOT_BOUND")
+    if bound_receipt.get("standing") != "BOUND_LOOP_NOT_WORK_EXECUTED":
+        failures.append("CAMPAIGN_BINDING_STANDING_INVALID")
+    if bound_receipt.get("execution_authority_granted") is not False:
+        failures.append("CAMPAIGN_BINDING_AUTHORITY_FIREWALL_MISSING")
+    if bound_receipt.get("work_executed") is not False:
+        failures.append("CAMPAIGN_BINDING_ALREADY_EXECUTED_OR_INVALID")
+    for key, failure in (
+        ("campaign_id", "CAMPAIGN_ID_REQUIRED"),
+        ("branch_id", "BRANCH_ID_REQUIRED"),
+        ("loop_id", "LOOP_ID_REQUIRED"),
+        ("loop_state_digest", "LOOP_STATE_DIGEST_REQUIRED"),
+        ("campaign_state_digest", "CAMPAIGN_STATE_DIGEST_REQUIRED"),
+        ("pulse_digest", "BOUND_PULSE_DIGEST_REQUIRED"),
+        ("pre_lease_head", "PRE_LEASE_HEAD_REQUIRED"),
+        ("post_bind_head", "POST_BIND_HEAD_REQUIRED"),
+    ):
+        if not str(bound_receipt.get(key) or "").strip():
+            failures.append(failure)
+    try:
+        residual_step = int(bound_receipt.get("residual_step"))
+        if residual_step <= 0:
+            raise ValueError
+    except (TypeError, ValueError):
+        residual_step = 0
+        failures.append("RESIDUAL_STEP_INVALID")
+    if failures:
+        return _campaign_life_hold(failures)
+
+    packet = compile_campaign_v3_life_quest_packet(
+        pulse=pulse,
+        residual_step=residual_step,
+        campaign_id=str(bound_receipt["campaign_id"]),
+        branch_id=str(bound_receipt["branch_id"]),
+        agent_coordinate_name=agent_coordinate_name,
+        quest_id=quest_id,
+        quest_version=quest_version,
+        clear_conditions=clear_conditions,
+        reseed_anchor=reseed_anchor,
+        extra_life_reward_candidate=extra_life_reward_candidate,
+    )
+    if packet.get("artifact") != LIFE_QUEST_PACKET_ARTIFACT or packet.get("status") != "COMPILED":
+        return _campaign_life_hold(
+            [f"LIFE_PACKET:{failure}" for failure in packet.get("failures") or ["COMPILE_HOLD"]],
+            life_packet_status=packet.get("status"),
+        )
+    packet_errors = validate_campaign_v3_life_quest_packet(packet)
+    if packet_errors:
+        return _campaign_life_hold([f"LIFE_PACKET_INVALID:{error}" for error in packet_errors])
+
+    pulse_binding = packet["pulse_binding"]
+    quest = packet["quest"]
+    if str(bound_receipt.get("pulse_digest")) != str(pulse_binding.get("pulse_digest")):
+        failures.append("BOUND_PULSE_DIGEST_MISMATCH")
+    if str(bound_receipt.get("pre_lease_head")) != str(pulse_binding.get("git_head")):
+        failures.append("BOUND_PRE_LEASE_HEAD_MISMATCH")
+    if str(bound_receipt.get("task") or "") != str(quest.get("historical_action_text") or ""):
+        failures.append("BOUND_TASK_MISMATCH")
+    if failures:
+        return _campaign_life_hold(failures, life_packet_digest=packet.get("packet_digest"))
+
+    return {
+        "artifact": CAMPAIGN_LIFE_ARTIFACT,
+        "status": "BOUND",
+        "standing": "LIFE_PACKET_BOUND_LOOP_NOT_WORK_EXECUTED",
+        "campaign_id": str(bound_receipt["campaign_id"]),
+        "branch_id": str(bound_receipt["branch_id"]),
+        "residual_step": residual_step,
+        "loop_id": str(bound_receipt["loop_id"]),
+        "loop_state_digest": str(bound_receipt["loop_state_digest"]),
+        "campaign_state_digest": str(bound_receipt["campaign_state_digest"]),
+        "pulse_digest": str(bound_receipt["pulse_digest"]),
+        "LIFE_QUEST_PACKET_DIGEST": str(packet["packet_digest"]),
+        "LIFE_QUEST_PACKET": copy.deepcopy(packet),
+        "CLEAR_CONDITION_DIGEST": str(packet["CLEAR_CONDITION_DIGEST"]),
+        "LIFE_POLICY": copy.deepcopy(packet["LIFE_POLICY"]),
+        "RESEED_ANCHOR": copy.deepcopy(packet["RESEED_ANCHOR"]),
+        "RESEED_ANCHOR_DIGEST": str(packet["RESEED_ANCHOR_DIGEST"]),
+        "EXTRA_LIFE_REWARD_ELIGIBILITY": copy.deepcopy(packet["EXTRA_LIFE_REWARD_ELIGIBILITY"]),
+        "execution_authority_granted": False,
+        "scheduler_ready": False,
+        "provider_authority": False,
+        "work_executed": False,
+        "life_consumption_authority": False,
+        "reseed_anchor_consumption_authority": False,
+        "reward_issuance_authority": False,
+        "platform_counter_reset_claimed": False,
+        "next": "RESUME_EXPLICIT_LOOP_AND_RESOLVE_PUBLIC_ATTEMPT",
+        "laws": [
+            "CAMPAIGN_BOUND_RECEIPT_PULSE_DIGEST == LIFE_PACKET_PULSE_DIGEST",
+            "CAMPAIGN_PRE_LEASE_HEAD == LIFE_PACKET_PULSE_GIT_HEAD",
+            "CAMPAIGN_BOUND_TASK == LIFE_PACKET_RESIDUAL_ACTION",
+            "LIFE_PACKET_BINDING != WORK_EXECUTION",
+            "LIFE_PACKET_BINDING != LIFE_OR_ANCHOR_CONSUMPTION",
+            "EXTRA_LIFE_REWARD_ELIGIBILITY != EXTRA_LIFE_ISSUED",
+            "TYPED_HOLD != FAILED_PLAY",
+            "FAIL_CLEAR_CONSUMES_EXACTLY_ONE_LIFE",
+            "LOGICAL_GAME_AGE_RESET != PLATFORM_COUNTER_RESET",
+        ],
+    }
+
+
 class StayInGameLifeLoopRuntime:
-    """Thin stateless MCP adapter over the public hardened Life Loop reducer."""
+    """Thin stateless MCP adapter over the hardened Life Loop reducer."""
 
     def __init__(self, server: Any):
         self.server = server
@@ -391,9 +538,33 @@ class StayInGameLifeLoopRuntime:
     def resolve(self, world: Mapping[str, Any], agent_id: str, attempt: Mapping[str, Any]) -> Dict[str, Any]:
         return resolve_attempt(world, agent_id, attempt)
 
+    def campaign_bind(
+        self,
+        bound_receipt: Mapping[str, Any],
+        pulse: Mapping[str, Any],
+        agent_coordinate_name: str,
+        quest_id: str,
+        quest_version: str,
+        clear_conditions: Sequence[Any],
+        reseed_anchor: Mapping[str, Any],
+        extra_life_reward_candidate: Mapping[str, Any] | None = None,
+    ) -> Dict[str, Any]:
+        return bind_campaign_life_packet(
+            bound_receipt=bound_receipt,
+            pulse=pulse,
+            agent_coordinate_name=agent_coordinate_name,
+            quest_id=quest_id,
+            quest_version=quest_version,
+            clear_conditions=clear_conditions,
+            reseed_anchor=reseed_anchor,
+            extra_life_reward_candidate=extra_life_reward_candidate,
+        )
+
     def resource(self) -> Dict[str, Any]:
         return {
             "schema_version": SCHEMA_VERSION,
+            "campaign_binding_artifact": CAMPAIGN_LIFE_ARTIFACT,
+            "life_quest_packet_artifact": LIFE_QUEST_PACKET_ARTIFACT,
             "semantic_source": {
                 "repo": SEMANTIC_SOURCE_REPO,
                 "commit": SEMANTIC_SOURCE_COMMIT,
@@ -417,6 +588,7 @@ class StayInGameLifeLoopRuntime:
                 "SUCCESSFUL_RESEED_CONSUMES_UNIQUE_ANCHOR_DIGEST",
                 "RESEED_ANCHOR_BINDS_AGENT_AND_QUEST",
                 "RESEED_ANCHOR_GIT_POSITIONS_MUST_MATCH_CURRENT_PUBLIC_OBSERVATION",
+                "CAMPAIGN_LIFE_BINDING_REQUIRES_VALIDATED_PACKET_AND_EXACT_PULSE_IDENTITY",
                 "GLOBAL_RESEED_RESETS_ONLY_PUBLIC_ATHENA_LOGICAL_GAME_AGE",
                 "NO_PROVIDER_MODEL_PRODUCT_CONTEXT_TOKEN_QUOTA_RESET_AUTHORITY",
             ],
@@ -433,6 +605,7 @@ class StayInGameLifeLoopRuntime:
                 "anchor_replay_guard": True,
                 "anchor_subject_binding": True,
                 "play_time_git_freshness": True,
+                "campaign_packet_compiler_binding": True,
                 "public_state_only": True,
                 "platform_counter_reset_claimed": False,
             }
