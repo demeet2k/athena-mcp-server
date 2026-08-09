@@ -1,0 +1,62 @@
+{
+  "artifact": "ATHENA.KC15.IC10.ADMISSION.V1",
+  "role": "bounded IC10 admission of the provider-witnessed Epoch-B KC15 structural support-lattice claim",
+  "ic10_parent_head": "f301204cd3825ff202d8688e080d90fd419733b0",
+  "constitution_source_blob": "eb0628d278a4162526f860c1c7d478d152b59c63",
+  "evidence_sources": {
+    "population": {
+      "run_id": 31336281325,
+      "artifact_id": 9044425755,
+      "artifact_name": "kc144-final-source-population-v1",
+      "digest": "sha256:dcaa35097cce6130f470843a99c815320b7651a503b371f96aaf3c1b014d16af"
+    },
+    "independent_structural": {
+      "run_id": 31336970525,
+      "artifact_id": 9044621914,
+      "artifact_name": "kc15-independent-structural-witness-v1",
+      "digest": "sha256:e0101c7b8b9a4fbd17a7e938d4c7de614597c5bc7e3023f0befd26da44dac8f4",
+      "independence_group": "KC15.PROVIDER.COMBINATORIAL.WITNESS.V1"
+    },
+    "interpretation_review": {
+      "run_id": 31337197769,
+      "artifact_id": 9044686444,
+      "artifact_name": "kc15-interpretation-review-v1",
+      "digest": "sha256:d65e0a5da8469a3803101df5389b520b824bbc09308e9be603b4e0b24f630dd1",
+      "independence_group": "KC15.PROVIDER.RUNTIME.INTERPRETATION.REVIEW.V1"
+    }
+  },
+  "claim": {
+    "claim_id": "CLAIM.KC15.EPOCH_B.STRUCTURAL_SUPPORT_LATTICE.V1",
+    "scope": "EPOCH-B KC15 GID091-105 structural support lattice only",
+    "proposition": "The active KC15 band consists of exactly the 15 nonempty subsets of ordered poles [11,10,00,01], mapped to GID091-105 by the frozen Epoch-B constitution; current reviewed runtime references do not cast KC15 support into truth, evidence, probability, semantic identity, execution authority, or promotion authority.",
+    "explicit_nonclaims": [
+      "KC15 support is true evidence",
+      "KC15 support is probability",
+      "KC15 masks are semantic object identity",
+      "KC15 is execution-qualified",
+      "KC15 has causal or empirical validity beyond the bounded structural claim"
+    ]
+  },
+  "success_condition": {
+    "observed_I01_I09": "PASS",
+    "trusted_I10": "PASS",
+    "decision": "IC10_CHAIN_SATISFIED",
+    "first_hold": null,
+    "claim_scope": "STRUCTURAL_ONLY",
+    "kc15_evidence_dimension_after_admission": "CLOSED_FOR_BOUNDED_STRUCTURAL_CLAIM",
+    "kc15_execution": "PARTIAL",
+    "kc15_return": "PARTIAL",
+    "truth_claim": "NOT_ESTABLISHED",
+    "promotion_authority": false
+  },
+  "firewalls": [
+    "KC15_IC10_ADMISSION != KC15_TRUTH",
+    "KC15_IC10_ADMISSION != KC15_EXECUTION_QUALIFIED",
+    "KC15_IC10_ADMISSION != EMPIRICAL_VALIDATION",
+    "STRUCTURAL_EVIDENCE_CLOSED != UNIVERSAL_EVIDENCE_CLOSED",
+    "IC10_CHAIN_SATISFIED != MERGE_AUTHORITY",
+    "IC10_CHAIN_SATISFIED != CANONICAL_INSTALLATION",
+    "PROVIDER_ARTIFACT_COORDINATE != INDEPENDENT_SOURCE_TRUTH",
+    "KC15_SUPPORT_SEMANTICS_REMAIN_SUPPORT_ONLY"
+  ]
+}
