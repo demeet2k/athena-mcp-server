@@ -5,22 +5,6 @@ on:
     branches: [master]
   push:
     branches: [master]
-    paths:
-      - '.github/workflows/release-v3.4.yml'
-      - 'release/v3.4.0.json'
-      - 'release/v3.4.0.md'
-      - 'tests/test_release_distribution.py'
-      - 'tests/test_metadata_consistency.py'
-      - 'tests/test_documentation_consistency.py'
-      - 'tests/test_unified_manifest.py'
-      - 'tests/test_collective_v15.py'
-      - 'tests/test_collective_v15_adversarial.py'
-      - 'tests/test_collective_v15_calibration_geometry.py'
-      - 'tests/test_collective_v15_unified.py'
-      - 'athena_mcp/**'
-      - 'smoke.py'
-      - 'scripts/qualify_github_head.py'
-      - 'pyproject.toml'
   workflow_dispatch:
 
 permissions:
