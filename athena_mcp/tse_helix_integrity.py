@@ -6,16 +6,18 @@ from collections.abc import Mapping
 from .tse_helix import TseHelixRuntime
 from .tse_knot_apply import TseKnotApplyRuntime
 from .tse_population import TSE_HANDOFF_ARTIFACT, _validate_route
+from .tse_reentry import REENTRY_PACKET_VERSION, TseReentryRuntime
 
-INTEGRITY_VERSION = "TSE.HELICAL.HANDOFF.INTEGRITY.2"
+INTEGRITY_VERSION = "TSE.HELICAL.HANDOFF.INTEGRITY.3"
 
 
 class TseHelixIntegrityRuntime(TseHelixRuntime):
-    """Strict TSE handoff integrity plus observation-only shared Git apply."""
+    """Strict handoff integrity, shared-Git apply, and explicit re-entry."""
 
     def __init__(self, server, population_runtime, telemetry_runtime, cohesion_runtime):
         super().__init__(server, population_runtime, telemetry_runtime, cohesion_runtime)
         self.knot_apply = TseKnotApplyRuntime(server, telemetry_runtime)
+        self.reentry = TseReentryRuntime(server, telemetry_runtime)
 
     @staticmethod
     def _expected_handoff(route: Mapping[str, object]) -> dict:
@@ -145,6 +147,48 @@ class TseHelixIntegrityRuntime(TseHelixRuntime):
             "law": "HANDOFF_ENVELOPE_BINDING != CONSUMPTION != CLAIM",
         }
 
+    @staticmethod
+    def _reentry_packet(child_return: Mapping[str, object] | None) -> tuple[Mapping[str, object] | None, Mapping[str, object] | None, dict | None]:
+        if not isinstance(child_return, Mapping):
+            return None, None, {
+                "status": "TSE_REENTRY_HOLD",
+                "hold": "EVIDENCE_HOLD",
+                "reason": "reentry_packet_required_in_child_return_field",
+                "reentry_started": False,
+                "background_execution": False,
+                "execution_authority": False,
+            }
+        hatch = child_return.get("hatch")
+        packet = child_return.get("reentry")
+        if not isinstance(hatch, Mapping) or not isinstance(packet, Mapping):
+            return None, None, {
+                "status": "TSE_REENTRY_HOLD",
+                "hold": "EVIDENCE_HOLD",
+                "reason": "reentry_packet_requires_hatch_and_reentry",
+                "reentry_started": False,
+                "background_execution": False,
+                "execution_authority": False,
+            }
+        if packet.get("schema_version") != REENTRY_PACKET_VERSION:
+            return None, None, {
+                "status": "TSE_REENTRY_HOLD",
+                "hold": "EVIDENCE_HOLD",
+                "reason": "reentry_packet_schema",
+                "reentry_started": False,
+                "background_execution": False,
+                "execution_authority": False,
+            }
+        if packet.get("platform_counter_reset_claimed") is not False:
+            return None, None, {
+                "status": "TSE_REENTRY_HOLD",
+                "hold": "EVIDENCE_HOLD",
+                "reason": "platform_counter_reset_claimed_must_be_false",
+                "reentry_started": False,
+                "background_execution": False,
+                "execution_authority": False,
+            }
+        return hatch, packet, None
+
     def advance(
         self,
         *,
@@ -193,6 +237,50 @@ class TseHelixIntegrityRuntime(TseHelixRuntime):
                 witnesses=witnesses,
                 cost=cost,
                 remote=remote,
+            )
+        if operation in {"REENTRY_PREVIEW", "REENTRY_START"}:
+            if str(shared_remote_mode or "REQUIRED").upper() != "REQUIRED":
+                return {
+                    "status": "TSE_REENTRY_HOLD",
+                    "hold": "STALE_STATE_HOLD",
+                    "reason": "reentry_requires_shared_remote_mode_required",
+                    "reentry_started": False,
+                    "background_execution": False,
+                    "execution_authority": False,
+                }
+            hatch, packet, error = self._reentry_packet(child_return)
+            if error:
+                return error
+            common = dict(
+                mission_id=mission_id,
+                route=route,
+                hatch=hatch,
+                return_applied_event_id=parent_event_id,
+                reentry_id=packet.get("reentry_id"),
+                goal=packet.get("goal", ""),
+                successor_candidates=packet.get("successor_candidates"),
+                successor_policy=packet.get("successor_policy"),
+                profile=packet.get("profile"),
+                source_ref=packet.get("source_ref", "athena-runtime-v3-candidate"),
+                use_frontier=packet.get("use_frontier", True),
+                fetch=packet.get("fetch", True),
+                allow_parent_residual_fallback=packet.get("allow_parent_residual_fallback", False),
+                terminal_request=packet.get("terminal_request", False),
+                terminal_witnesses=packet.get("terminal_witnesses"),
+                remote=remote,
+            )
+            if operation == "REENTRY_PREVIEW":
+                return self.reentry.preview(**common)
+            return self.reentry.start(
+                **common,
+                actor_id=actor_id,
+                allow_ambiguity_resolution=packet.get("allow_ambiguity_resolution", False),
+                max_steps=packet.get("max_steps", 64),
+                max_no_progress=packet.get("max_no_progress", 3),
+                max_prompt_chars=packet.get("max_prompt_chars", 32000),
+                depth_mode=packet.get("depth_mode", "deep"),
+                required_passes=packet.get("required_passes"),
+                stop_conditions=packet.get("stop_conditions"),
             )
         return super().advance(
             mission_id=mission_id,
