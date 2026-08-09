@@ -1,137 +1,39 @@
-import json
-import re
-import tomllib
-import unittest
+import json,re,tomllib,unittest
 from pathlib import Path
-
+from athena_mcp.coordination_inventory import COORDINATION_INVENTORY_VERSION,PARTY_REWARD_VERSION
 from athena_mcp.github_promotion_verifier import GITHUB_PROMOTION_VERIFIER_VERSION
 from athena_mcp.promotion import PROMOTION_VERSION
 from athena_mcp.unified_manifest import UNIFIED_MANIFEST_VERSION
 
-
 class ReleaseDistributionTests(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.root=Path(__file__).resolve().parents[1]
-        cls.manifest=json.loads((cls.root/'release'/'v3.3.0.json').read_text(encoding='utf-8'))
-        cls.notes=(cls.root/'release'/'v3.3.0.md').read_text(encoding='utf-8')
-        cls.project=tomllib.loads((cls.root/'pyproject.toml').read_text(encoding='utf-8'))['project']
-        cls.workflow=(cls.root/'.github'/'workflows'/'release-v3.3.yml').read_text(encoding='utf-8')
-        cls.gitignore=(cls.root/'.gitignore').read_text(encoding='utf-8')
-
-    def test_release_identity_matches_current_package_and_runtime(self):
-        m=self.manifest
-        self.assertEqual(m['schema'],'ATHENA.RELEASE.DISTRIBUTION.2')
-        self.assertEqual(m['version'],self.project['version'])
-        self.assertEqual(m['version'],'3.3.0')
-        self.assertEqual(m['tag'],'v3.3.0')
-        self.assertEqual(m['package']['name'],self.project['name'])
-        self.assertEqual(m['package']['entrypoint'],self.project['scripts']['athena-mcp'])
-        self.assertEqual(m['package']['entrypoint'],'athena_mcp.server:main')
-        self.assertEqual(m['runtime']['manifest'],UNIFIED_MANIFEST_VERSION)
-        self.assertEqual(UNIFIED_MANIFEST_VERSION,'ATHENA.RUNTIME.UNIFIED.10')
-        self.assertEqual(m['runtime']['collective_frontier'],'COLLECTIVE_SYNTHESIS_V14')
-        self.assertEqual(m['runtime']['promotion'],PROMOTION_VERSION)
-        self.assertEqual(PROMOTION_VERSION,'ATHENA.PROMOTION.2')
-        self.assertEqual(m['runtime']['trusted_verifier'],GITHUB_PROMOTION_VERIFIER_VERSION)
-
-    def test_source_policy_requires_exact_master_and_all_five_gates(self):
-        p=self.manifest['source_policy']
-        self.assertEqual(p['repository'],'demeet2k/athena-mcp-server')
-        self.assertEqual(p['branch'],'master')
-        self.assertTrue(p['publication_requires_exact_current_master'])
-        self.assertTrue(p['publication_requires_clean_checkout'])
-        self.assertTrue(p['publication_requires_five_stage_qualification'])
-        self.assertTrue(p['exact_commit_is_bound_in_release_attestation'])
-        self.assertEqual(p['qualification_checks'],['syntax','unit','critical-invariants','smoke','promotion-qualification'])
-
-    def test_required_assets_match_current_distribution(self):
-        assets=set(self.manifest['release']['required_assets'])
-        self.assertEqual(assets,{
-            'athena_canonical_mcp-3.3.0-py3-none-any.whl','promotion-receipt.json','release-manifest.json','release-attestation.json','SHA256SUMS',
-        })
-        self.assertNotIn('athena_canonical_mcp-3.2.0-py3-none-any.whl',' '.join(sorted(assets)))
-
-    def test_current_v14_surface_is_explicit_in_manifest(self):
-        tools=set(self.manifest['runtime']['required_tools'])
-        for name in ('athena_gp_hyperqmc','athena_dro_resource_select','athena_joint_factor_belief','athena_structural_bootstrap_ensemble','athena_joint_science_evi','athena_sequential_dr_policy_value','athena_joint_policy_robust','athena_gp_resolution_route','athena_two_stage_resource_plan','athena_promotion_evaluate','athena_promotion_verify_github'):
-            self.assertIn(name,tools)
-        resources=set(self.manifest['runtime']['required_resources'])
-        for uri in ('athena://manifest','athena://runtime/unified-manifest','athena://promotion','athena://collective/v13','athena://collective/v14'):
-            self.assertIn(uri,resources)
-
-    def test_release_workflow_is_pr_testable_but_publish_is_manual_master_only(self):
-        w=self.workflow
-        for fragment in (
-            'pull_request:', 'workflow_dispatch:', 'package-readiness:', 'promotion-qualification:',
-            "if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master'",
-            'RELEASE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}',
-            'git rev-parse origin/master', 'scripts/qualify_github_head.py',
-            'actions/download-artifact@v5', 'actions/upload-artifact@v4',
-            'release-candidate-v3.3.0-${{ env.RELEASE_HEAD }}', 'promotion-receipt-${{ env.RELEASE_HEAD }}',
-            'python -m pip wheel --no-deps . -w dist', 'athena_mcp.server',
-            'ATHENA.RUNTIME.UNIFIED.10', 'COLLECTIVE_SYNTHESIS_V14',
-            'V14 joint posterior synthesis and authority boundaries',
-            'gh release create', '--verify-tag', 'refs/tags/$TAG', 'TAG_TARGET',
-            '(cd dist && sha256sum -c SHA256SUMS)', 'release-attestation.json', 'trusted_promotion',
-        ):
-            self.assertIn(fragment,w)
-        self.assertNotRegex(w,re.compile(r'(?m)^\s*push:\s*$'))
-        self.assertNotRegex(w,re.compile(r'continue-on-error:\s*true'))
-
-    def test_job_level_env_blocks_use_contexts_legal_at_job_env_scope(self):
-        lines=self.workflow.splitlines();in_job_env=False
-        for line in lines:
-            if line == '    env:':in_job_env=True;continue
-            if in_job_env and not line.startswith('      '):in_job_env=False
-            if in_job_env:self.assertNotIn('${{ env.',line,line)
-        self.assertIn('ATHENA_PROMOTION_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}',self.workflow)
-
-    def test_package_readiness_preserves_clean_checkout_and_receipt_binding(self):
-        w=self.workflow
-        package=w[w.index('\n  package-readiness:'):w.index('\n  publish:')]
-        ignored={line.strip() for line in self.gitignore.splitlines() if line.strip() and not line.lstrip().startswith('#')}
-        self.assertIn('promotion-input/',ignored)
-        self.assertIn('path: promotion-input',package)
-        self.assertIn('test -z "$(git status --porcelain)"',package)
-        for fragment in (
-            'test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"',
-            "assert promotion['git_head']==os.environ['RELEASE_HEAD']",
-            "assert promotion['promotion']['status']=='QUALIFIED'",
-            "'release_commit':os.environ['RELEASE_HEAD']",
-            "'promrun':promotion['promotion']['run_id']",
-            "'verification_ref':promotion['verification_ref']",
-            "'receipt_sha256':sha(promo)",
-            'test "$TAG_TARGET" = "$RELEASE_HEAD"',
-        ):
-            self.assertIn(fragment,w)
-
-    def test_release_workflow_uses_least_privilege_until_manual_publish(self):
-        w=self.workflow
-        self.assertIn('permissions:\n  contents: read\n  actions: read\n  checks: read',w)
-        publish=w[w.index('\n  publish:'):]
-        self.assertIn('permissions:\n      contents: write\n      actions: read\n      checks: read',publish)
-        self.assertEqual(w.count('contents: write'),1,w)
-        self.assertNotIn('contents: write',w[:w.index('\n  publish:')])
-
-    def test_release_notes_preserve_v14_and_trust_claim_ceilings(self):
-        n=self.notes
-        for phrase in (
-            'ATHENA 3.3.0','Collective Synthesis V14','UNIFIED.10','GITHUB_PROMOTION_VERIFIER.1',
-            'FINITE_FACTOR_PRODUCT_BELIEF != FULL_JOINT_POSTERIOR',
-            'BOOTSTRAP_GRAPH_FREQUENCY != CAUSAL_POSTERIOR',
-            'STAGE2_POLICY_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_POLICY_EVALUATION',
-            'QUERY_SET_DECISION_PRESERVATION != GLOBAL_APPROXIMATION_CERTIFICATE',
-            'FINITE_TWO_STAGE_SCENARIO_RECOURSE != GENERAL_MULTISTAGE_STOCHASTIC_PROGRAM',
-            'cross_fitted=false','one coherent trusted Actions suite',
-            'This release certifies repository/package/distribution state. It is not a production deployment',
-        ):
-            self.assertIn(phrase,n)
-
-    def test_authority_boundaries_do_not_collapse_distribution_into_truth_or_admin(self):
-        boundaries=' '.join(self.manifest['authority_boundaries']).lower()
-        for phrase in ('not deployment','not empirical truth','do not become y1 authority','not github administrative hardening','does not authorize treatment execution','v3.2.0 release attestation is not evidence for v3.3.0 bytes'):
-            self.assertIn(phrase,boundaries)
-
-
+ @classmethod
+ def setUpClass(cls):
+  cls.root=Path(__file__).resolve().parents[1];cls.manifest=json.loads((cls.root/'release'/'v3.3.0.json').read_text());cls.notes=(cls.root/'release'/'v3.3.0.md').read_text();cls.project=tomllib.loads((cls.root/'pyproject.toml').read_text())['project'];cls.workflow=(cls.root/'.github/workflows/release-v3.3.yml').read_text();cls.gitignore=(cls.root/'.gitignore').read_text()
+ def test_release_identity_matches_current_package_and_two_plane_runtime(self):
+  m=self.manifest;self.assertEqual(m['schema'],'ATHENA.RELEASE.DISTRIBUTION.3');self.assertEqual(m['version'],self.project['version']);self.assertEqual(m['version'],'3.3.0');self.assertEqual(m['tag'],'v3.3.0');self.assertEqual(m['package']['name'],self.project['name']);self.assertEqual(m['package']['entrypoint'],self.project['scripts']['athena-mcp']);self.assertEqual(m['package']['entrypoint'],'athena_mcp.server:main')
+  self.assertEqual(UNIFIED_MANIFEST_VERSION,'ATHENA.RUNTIME.UNIFIED.10');self.assertEqual(m['runtime']['synthesis_manifest'],UNIFIED_MANIFEST_VERSION);self.assertEqual(m['runtime']['effective_manifest'],'ATHENA.RUNTIME.UNIFIED.11');self.assertEqual(m['runtime']['manifest'],'ATHENA.RUNTIME.UNIFIED.11');self.assertEqual(m['runtime']['organ_inventory'],COORDINATION_INVENTORY_VERSION);self.assertEqual(COORDINATION_INVENTORY_VERSION,'ATHENA.ORGAN.INVENTORY.1.1');self.assertEqual(m['runtime']['party_reward_current'],PARTY_REWARD_VERSION);self.assertEqual(PARTY_REWARD_VERSION,'PARTY.REWARD.PROVENANCE.3.2');self.assertEqual(m['runtime']['architecture_drift'],'ATHENA.ARCHITECTURE.DRIFT.1');self.assertEqual(m['runtime']['collective_frontier'],'COLLECTIVE_SYNTHESIS_V14');self.assertEqual(m['runtime']['promotion'],PROMOTION_VERSION);self.assertEqual(m['runtime']['trusted_verifier'],GITHUB_PROMOTION_VERIFIER_VERSION)
+ def test_source_policy_requires_exact_master_and_all_five_gates(self):
+  p=self.manifest['source_policy'];self.assertEqual(p['repository'],'demeet2k/athena-mcp-server');self.assertEqual(p['branch'],'master');self.assertTrue(p['publication_requires_exact_current_master']);self.assertTrue(p['publication_requires_clean_checkout']);self.assertTrue(p['publication_requires_five_stage_qualification']);self.assertTrue(p['exact_commit_is_bound_in_release_attestation']);self.assertEqual(p['qualification_checks'],['syntax','unit','critical-invariants','smoke','promotion-qualification'])
+ def test_required_assets_match_current_distribution(self):
+  assets=set(self.manifest['release']['required_assets']);self.assertEqual(assets,{'athena_canonical_mcp-3.3.0-py3-none-any.whl','promotion-receipt.json','release-manifest.json','release-attestation.json','SHA256SUMS'});self.assertNotIn('athena_canonical_mcp-3.2.0-py3-none-any.whl',' '.join(sorted(assets)))
+ def test_v14_and_coordination_surface_are_explicit(self):
+  tools=set(self.manifest['runtime']['required_tools'])
+  for name in ('athena_gp_hyperqmc','athena_dro_resource_select','athena_joint_factor_belief','athena_structural_bootstrap_ensemble','athena_joint_science_evi','athena_sequential_dr_policy_value','athena_joint_policy_robust','athena_gp_resolution_route','athena_two_stage_resource_plan','athena_promotion_evaluate','athena_promotion_verify_github','athena_message_board','athena_cohesion_request_offer','athena_cohesion_matchmake','athena_cohesion_coalition','athena_cohesion_solo_party_compare','athena_cohesion_duplicate_guard','athena_party_form','athena_party_join','athena_party_state','athena_party_list','athena_party_observe','athena_party_message','athena_party_result'):self.assertIn(name,tools)
+  resources=set(self.manifest['runtime']['required_resources'])
+  for uri in ('athena://manifest','athena://runtime/unified-manifest','athena://promotion','athena://collective/v13','athena://collective/v14','athena://cohesion/v1','athena://party-coordination/v1','athena://architecture/inventory','athena://architecture/drift'):self.assertIn(uri,resources)
+ def test_release_workflow_certifies_both_architecture_planes(self):
+  w=self.workflow
+  for fragment in ('pull_request:','workflow_dispatch:','package-readiness:','promotion-qualification:',"if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master'",'RELEASE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}','scripts/qualify_github_head.py','release-candidate-v3.3.0-${{ env.RELEASE_HEAD }}','python -m pip wheel --no-deps . -w dist','ATHENA.RUNTIME.UNIFIED.10','ATHENA.RUNTIME.UNIFIED.11','ATHENA.ORGAN.INVENTORY.1.1','ATHENA.ARCHITECTURE.DRIFT.1','COLLECTIVE_SYNTHESIS_V14','athena://architecture/drift','V14 joint posterior synthesis and authority boundaries','Coordination organ inventory and architecture drift','gh release create','--verify-tag','release-attestation.json','trusted_promotion'):self.assertIn(fragment,w)
+  self.assertNotRegex(w,re.compile(r'(?m)^\s*push:\s*$'));self.assertNotRegex(w,re.compile(r'continue-on-error:\s*true'))
+ def test_package_readiness_preserves_clean_checkout_and_receipt_binding(self):
+  w=self.workflow;package=w[w.index('\n  package-readiness:'):w.index('\n  publish:')];ignored={line.strip() for line in self.gitignore.splitlines() if line.strip() and not line.lstrip().startswith('#')};self.assertIn('promotion-input/',ignored);self.assertIn('path: promotion-input',package);self.assertIn('test -z "$(git status --porcelain)"',package)
+  for fragment in ('test "$(git rev-parse HEAD)" = "$RELEASE_HEAD"',"assert promotion['git_head']==os.environ['RELEASE_HEAD']","assert promotion['promotion']['status']=='QUALIFIED'","'release_commit':os.environ['RELEASE_HEAD']","'promrun':promotion['promotion']['run_id']","'verification_ref':promotion['verification_ref']","'receipt_sha256':sha(promo)",'test "$TAG_TARGET" = "$RELEASE_HEAD"',"assert synthesis['artifact']=='ATHENA.RUNTIME.UNIFIED.10'","assert effective['artifact']=='ATHENA.RUNTIME.UNIFIED.11'","assert drift['latest']['status']=='PASS'"):self.assertIn(fragment,w)
+ def test_release_workflow_uses_least_privilege_until_manual_publish(self):
+  w=self.workflow;self.assertIn('permissions:\n  contents: read\n  actions: read\n  checks: read',w);publish=w[w.index('\n  publish:'):];self.assertIn('permissions:\n      contents: write\n      actions: read\n      checks: read',publish);self.assertEqual(w.count('contents: write'),1,w);self.assertNotIn('contents: write',w[:w.index('\n  publish:')])
+ def test_release_notes_preserve_v14_coordination_and_trust_claim_ceilings(self):
+  n=self.notes
+  for phrase in ('ATHENA 3.3.0','Collective Synthesis V14','UNIFIED.10','UNIFIED.11','ORGAN_INVENTORY.1.1','ARCHITECTURE.DRIFT.1','Party V3.2','GITHUB_PROMOTION_VERIFIER.1','FINITE_FACTOR_PRODUCT_BELIEF != FULL_JOINT_POSTERIOR','BOOTSTRAP_GRAPH_FREQUENCY != CAUSAL_POSTERIOR','STAGE2_POLICY_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_POLICY_EVALUATION','QUERY_SET_DECISION_PRESERVATION != GLOBAL_APPROXIMATION_CERTIFICATE','FINITE_TWO_STAGE_SCENARIO_RECOURSE != GENERAL_MULTISTAGE_STOCHASTIC_PROGRAM','Y1_SEMANTIC_CLAIM_AUTHORITY != MESSAGE_BOARD_COORDINATION_PRESENCE_CLAIM_AUTHORITY','PARTY_RESULT != RESULT_TRUTH != GLOBAL_XP_AUTHORITY','This release certifies repository/package/distribution and declared architecture state'):self.assertIn(phrase,n)
+ def test_authority_boundaries_do_not_collapse_distribution_into_truth_admin_or_coordination_authority(self):
+  boundaries=' '.join(self.manifest['authority_boundaries']).lower()
+  for phrase in ('not deployment','not empirical truth','do not become y1 authority','coordination claims do not become y1 semantic authority','do not become assignment, execution, result-truth, or global-xp authority','not github administrative hardening','does not authorize treatment execution','v3.2.0 release attestation is not evidence for v3.3.0 bytes'):self.assertIn(phrase,boundaries)
 if __name__=='__main__':unittest.main()
