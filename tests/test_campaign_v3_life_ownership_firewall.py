@@ -114,17 +114,64 @@ class CampaignV3LifeOwnershipFirewallTests(unittest.TestCase):
         self.assertIn("execution_authority_must_be_false", errors)
         self.assertIn("envelope_digest", errors)
 
+    @patch(
+        "athena_mcp.campaign_v3_life_attempt_identity.validate_campaign_v3_life_quest_packet",
+        return_value=[],
+    )
+    def test_stale_semantic_extension_metadata_fails_validation(self, _validate):
+        envelope = bind_campaign_v3_life_attempt_identity(
+            packet=self._packet(),
+            execution_event_id="HOST-EVENT-1",
+        )
+        stale = copy.deepcopy(envelope)
+        stale["attempt_replay_extension"]["pull_request"] = 291
+        errors = validate_campaign_v3_life_attempt_identity(stale)
+        self.assertIn("semantic_replay_extension_stale_pr", errors)
+        self.assertIn("envelope_digest", errors)
+
+        promoted = copy.deepcopy(envelope)
+        promoted["attempt_replay_extension"]["canonical_promotion"] = True
+        errors = validate_campaign_v3_life_attempt_identity(promoted)
+        self.assertIn("candidate_extension_promotion_firewall", errors)
+        self.assertIn("envelope_digest", errors)
+
+    @patch(
+        "athena_mcp.campaign_v3_life_attempt_identity.validate_campaign_v3_life_quest_packet",
+        return_value=[],
+    )
+    def test_runtime_cannot_claim_semantic_replay_ownership(self, _validate):
+        envelope = bind_campaign_v3_life_attempt_identity(
+            packet=self._packet(),
+            execution_event_id="HOST-EVENT-1",
+        )
+        tampered = copy.deepcopy(envelope)
+        tampered["identity_policy"]["semantic_replay_decision_owned_by_runtime"] = True
+        errors = validate_campaign_v3_life_attempt_identity(tampered)
+        self.assertIn("semantic_replay_ownership_firewall", errors)
+        self.assertIn("envelope_digest", errors)
+
     def test_semantic_source_standing_is_explicit_and_candidate_extension_is_not_promoted(self):
         self.assertEqual(
             "60a7bc798412088977d7ab9adf16a0e7dca3a1c9",
             SEMANTIC_BASE["commit"],
         )
         self.assertEqual(16, int(SEMANTIC_BASE["exact_source_local_tests"].split("/")[0]))
-        self.assertEqual(291, ATTEMPT_REPLAY_EXTENSION["pull_request"])
+        self.assertEqual("SEMANTIC_EXECUTION_REPLAY_V2", ATTEMPT_REPLAY_EXTENSION["kind"])
+        self.assertEqual(315, ATTEMPT_REPLAY_EXTENSION["pull_request"])
+        self.assertEqual(291, ATTEMPT_REPLAY_EXTENSION["supersedes_pull_request"])
+        self.assertEqual(
+            "97ebac3d47b607a43eb31fda372afbe10a0ddfdc",
+            ATTEMPT_REPLAY_EXTENSION["branch_head_at_binding"],
+        )
+        self.assertEqual("46/46 PASS", ATTEMPT_REPLAY_EXTENSION["combined_exact_source_local_tests"])
         self.assertFalse(ATTEMPT_REPLAY_EXTENSION["canonical_promotion"])
         self.assertFalse(ATTEMPT_REPLAY_EXTENSION["github_actions_ci"])
+        self.assertTrue(ATTEMPT_REPLAY_EXTENSION["semantic_base_commit_remains_canonical"])
         self.assertTrue(IDENTITY_POLICY["stable_across_transport_retry"])
         self.assertFalse(IDENTITY_POLICY["delivery_id_participates_in_attempt_identity"])
+        self.assertTrue(IDENTITY_POLICY["execution_event_id_forwarded_unchanged_to_semantic_reducer"])
+        self.assertTrue(IDENTITY_POLICY["attempt_id_is_settlement_identity"])
+        self.assertFalse(IDENTITY_POLICY["semantic_replay_decision_owned_by_runtime"])
 
     def test_runtime_package_does_not_own_a_second_life_state_machine(self):
         forbidden_paths = [

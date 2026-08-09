@@ -18,16 +18,18 @@
     "reason": "library bootstrap historically composes a read snapshot; an implicit Python method call must not become a shared Git mutation",
     "tool_call_default": "AUTO handshake request",
     "tool_call_no_explicit_work_identity": "resolve to READ_ONLY_NO_EXPLICIT_WORK_ID",
-    "tool_call_with_work_key_targets_or_claim_mode": "resolve to AUTO claim intent"
+    "tool_call_with_work_key_targets_or_claim_mode": "resolve to AUTO claim intent",
+    "refresh_internal_reconstruction": "inherit the persisted session coordination mode through the private Message Board refresh override"
   },
   "base_runtime_issue": "demeet2k/athena-mcp-server#161",
   "compatibility": {
     "base_agent_boot": "extended additively",
-    "cohesion_mesh": "not implemented here",
+    "cohesion_mesh": "not implemented here; may consume Message Board standing as a higher projection",
     "message_board_v1": "unchanged authority and storage",
     "party_coordination": "unchanged projection over Message Board",
     "programmatic_boot": "non-mutating by default",
-    "rehydration_observers": "task-only MCP boots observe the board but do not create competing PRIMARY claims"
+    "rehydration_observers": "task-only MCP boots observe the board but do not create competing PRIMARY claims",
+    "claimed_refresh": "preserves the established session claim intent instead of demoting nested reconstruction to DISABLED"
   },
   "coordinate": "ATHENA.KC144::GITΩ::AGENT-BOOT::MESSAGE-BOARD::V1",
   "extends": "ATHENA.AGENT.BOOT.V1",
@@ -64,6 +66,7 @@
     "IMPLICIT_TASK_ONLY_BOOT != PRIMARY_CLAIM",
     "EXPLICIT_WORK_ID_OR_EXPLICIT_AUTO => CLAIM_INTENT",
     "DIRECT_PYTHON_BOOT != IMPLICIT_SHARED_MUTATION",
+    "REFRESH_INHERITS_SESSION_COORDINATION",
     "MESSAGE_BOARD = SOLE_PRESENCE_CLAIM_MESSAGE_AUTHORITY",
     "READ_BOARD_BEFORE_EXPENSIVE_SHARED_WORK",
     "PRESENT_BEFORE_WORK",
@@ -105,6 +108,7 @@
     "for MCP tool boot, perform Message Board handshake",
     "only explicit start-work intent may establish/reuse/renew presence",
     "compose canonical AGENT_BOOT_V1 world/continuation packet on the resulting Git head",
+    "during refresh, preserve the session coordination mode across nested bootstrap reconstruction",
     "attach coordination projection and hard hold when explicit claimed work collides"
   ],
   "packet_extension": {
@@ -142,11 +146,19 @@
     ],
     "law": "routine lease reuse must not manufacture a coordination change"
   },
-  "observed_regression_repair": {
-    "ci_run": 1964,
-    "failing_head": "bbdab074deddb3f36ceceac25403e6c2e8904a34",
-    "observation": "four legacy/continuation tests failed because implicit boot was treated as work-start and wrote Message Board claims",
-    "repair": "split activation policy from mechanism; implicit task-only tool boot becomes READ_ONLY, direct Python boot becomes DISABLED by default, explicit work identity or explicit AUTO still claims",
-    "standing": "observed CI failure informed this policy; repaired head requires fresh exact-head CI"
-  }
+  "observed_regression_history": [
+    {
+      "ci_run": 1964,
+      "failing_head": "bbdab074deddb3f36ceceac25403e6c2e8904a34",
+      "observation": "four legacy/continuation tests failed because implicit boot was treated as work-start and wrote Message Board claims",
+      "repair": "split activation policy from mechanism; implicit task-only tool boot becomes READ_ONLY, direct Python boot becomes DISABLED by default, explicit work identity or explicit AUTO still claims"
+    },
+    {
+      "ci_run": 1978,
+      "failing_head": "815794201fdfe296ad7a8bbc3e16360a69e497fa",
+      "observation": "652/653 unit tests passed; the only failure was the new claimed-refresh test because nested refresh reconstruction was demoted to DISABLED",
+      "repair": "when the Message Board refresh mechanism supplies its private persisted-session override, bootstrap activation inherits that coordination mode; ordinary direct Python boot without this internal override remains DISABLED"
+    }
+  ],
+  "standing": "observed CI failures remain historical evidence; every repaired head requires fresh exact-head CI before promotion"
 }

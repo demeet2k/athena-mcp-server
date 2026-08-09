@@ -9,6 +9,7 @@ _LAWS = [
     "IMPLICIT_TASK_ONLY_BOOT != PRIMARY_CLAIM",
     "EXPLICIT_WORK_ID_OR_EXPLICIT_AUTO => CLAIM_INTENT",
     "DIRECT_PYTHON_BOOT != IMPLICIT_SHARED_MUTATION",
+    "REFRESH_INHERITS_SESSION_COORDINATION",
 ]
 
 
@@ -44,7 +45,8 @@ def install_agent_bootstrap_message_board_activation(runtime_cls) -> None:
     performs an automatic handshake: task-only observation is READ_ONLY, while an
     explicit work identity means the caller is crossing the start-work boundary and
     AUTO may establish/reuse/renew Message Board presence. Explicit
-    coordination_mode always wins.
+    coordination_mode always wins. Internal refresh reconstruction inherits the
+    already-recorded session coordination mode instead of being demoted to DISABLED.
     """
 
     if getattr(runtime_cls, "_athena_boot_message_board_activation_v1_registered", False):
@@ -56,10 +58,17 @@ def install_agent_bootstrap_message_board_activation(runtime_cls) -> None:
     def bootstrap_activation(self, *args, coordination_mode=None, **kwargs):
         # Python callers historically used bootstrap as a pure composite read. Keep
         # that API side-effect free unless they explicitly opt into coordination.
-        resolved = coordination_mode if coordination_mode is not None else "DISABLED"
-        return inner_bootstrap(
-            self, *args, coordination_mode=resolved, **kwargs
-        )
+        # The Message Board mechanism sets this private override only while refresh
+        # reconstructs an existing session; that path must preserve the session's
+        # prior coordination intent rather than silently resetting it to DISABLED.
+        inherited = getattr(self, "_agent_boot_message_board_override", None)
+        if coordination_mode is not None:
+            resolved = coordination_mode
+        elif isinstance(inherited, dict) and inherited.get("coordination_mode") is not None:
+            resolved = inherited.get("coordination_mode")
+        else:
+            resolved = "DISABLED"
+        return inner_bootstrap(self, *args, coordination_mode=resolved, **kwargs)
 
     def call_tool_activation(self, name: str, arguments: dict):
         if name not in {"athena_agent_bootstrap", "athena_agent_refresh"}:
