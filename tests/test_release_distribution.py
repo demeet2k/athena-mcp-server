@@ -31,6 +31,7 @@ class ReleaseDistributionTests(unittest.TestCase):
     def test_source_policy_requires_exact_master_and_all_five_gates(self):
         p=self.manifest['source_policy'];self.assertEqual(p['repository'],'demeet2k/athena-mcp-server');self.assertEqual(p['branch'],'master')
         self.assertTrue(p['publication_requires_exact_current_master']);self.assertTrue(p['publication_requires_clean_checkout']);self.assertTrue(p['publication_requires_five_stage_qualification']);self.assertTrue(p['exact_commit_is_bound_in_release_attestation'])
+        self.assertTrue(p['critical_test_selectors_must_resolve_to_real_files'])
         self.assertEqual(p['qualification_checks'],['syntax','unit','critical-invariants','smoke','promotion-qualification'])
 
     def test_required_assets_match_current_distribution(self):
@@ -45,6 +46,9 @@ class ReleaseDistributionTests(unittest.TestCase):
         resources=set(self.manifest['runtime']['required_resources'])
         for uri in ('athena://manifest','athena://runtime/unified-manifest','athena://promotion','athena://collective/v14','athena://collective/v15','athena://deployment','athena://deployment/security','athena://deployment/rollout','athena://deployment/evidence'):
             self.assertIn(uri,resources)
+        contracts=' '.join(self.manifest['runtime']['v15_contracts']).lower()
+        for phrase in ('duplicate-pooled','stage-2 tmle','a1 dynamic policy uses baseline only','unknown gaussian coefficient','radius-eligible local certificate','rectangular tv-dro'):
+            self.assertIn(phrase,contracts)
 
     def test_release_workflow_is_pr_testable_but_publish_is_manual_master_only(self):
         w=self.workflow
@@ -82,12 +86,31 @@ class ReleaseDistributionTests(unittest.TestCase):
 
     def test_release_notes_preserve_v15_deployment_and_trust_claim_ceilings(self):
         n=self.notes
-        for phrase in ('ATHENA 3.4.0','Collective Calibrated V15','UNIFIED.11','Deployment.2','GITHUB_PROMOTION_VERIFIER.1','OUT_OF_FOLD_ISOTONIC_RELIABILITY != CAUSAL_GRAPH_POSTERIOR','CROSS_FITTED_TWO_TIMEPOINT_TMLE != GENERAL_LONGITUDINAL_TMLE_THEOREM','CROSS_FITTED_SEQUENTIAL_DR != GENERAL_OFF_POLICY_CAUSAL_VALUE','LINEAR_GAUSSIAN_UPDATE != GENERAL_CONTINUOUS_JOINT_BAYES','DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH','RECTANGULAR_TV_ROBUST_MDP != GENERAL_MULTISTAGE_DRO','one coherent trusted Actions suite','This release certifies repository/package/distribution state. It is not a production deployment'):
-            self.assertIn(phrase,n)
+        for phrase in (
+            'ATHENA 3.4.0','Collective Calibrated V15','UNIFIED.11','Deployment.2','GITHUB_PROMOTION_VERIFIER.1',
+            'OUT_OF_FOLD_ISOTONIC_RELIABILITY != CAUSAL_GRAPH_POSTERIOR',
+            'IDENTICAL_CALIBRATION_COORDINATE != MULTIPLE_FITTED_VALUES',
+            'CROSS_FITTED_TWO_TIMEPOINT_TMLE != GENERAL_LONGITUDINAL_TMLE_THEOREM',
+            'STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION',
+            'CROSS_FITTED_SEQUENTIAL_DR != GENERAL_OFF_POLICY_CAUSAL_VALUE',
+            'DECISION_TIME_HISTORY != FULL_ROW_STATE',
+            'LINEAR_GAUSSIAN_UPDATE != GENERAL_CONTINUOUS_JOINT_BAYES',
+            'UNKNOWN_COEFFICIENT != ZERO_COEFFICIENT',
+            'NONFINITE_NUMERIC_STATE != MODEL_COORDINATE',
+            'DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH',
+            'GEOMETRIC_NEAREST_WITNESS != TIGHTEST_ERROR_ENVELOPE_WITNESS',
+            'GLOBAL_ENVELOPE != RADIUS_ELIGIBLE_LOCAL_CERTIFICATE',
+            'RECTANGULAR_TV_ROBUST_MDP != GENERAL_MULTISTAGE_DRO',
+            'UNKNOWN_STATE_COORDINATE != UNUSED_METADATA',
+            'NONFINITE_TRANSITION != PROBABILITY_MODEL',
+            'ZERO_TEST_SELECTION != PROOF',
+            'one coherent trusted Actions suite',
+            'This release certifies repository/package/distribution state. It is not a production deployment',
+        ):self.assertIn(phrase,n)
 
     def test_authority_boundaries_do_not_collapse_distribution_into_truth_admin_or_deployment(self):
         boundaries=' '.join(self.manifest['authority_boundaries']).lower()
-        for phrase in ('not deployment','not empirical truth','do not become y1 authority','not github administrative hardening','does not authorize treatment execution','external-control planning','v3.3.0 release attestation is not evidence for v3.4.0 bytes'):
+        for phrase in ('not deployment','not empirical truth','do not become y1 authority','does not prove causal identification','are rejected','not github administrative hardening','does not authorize treatment execution','external-control planning','v3.3.0 release attestation is not evidence for v3.4.0 bytes'):
             self.assertIn(phrase,boundaries)
 
 
