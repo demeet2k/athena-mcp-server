@@ -1,0 +1,191 @@
+{
+  "schema": "ATHENA.KC144.PROJECT_ATLAS.MCP_SURFACE.CONTRACT.v2",
+  "status": "CANDIDATE_CHILD_OF_UNMERGED_V1",
+  "surface_version": "ATHENA.PROJECT_ATLAS.MCP_SURFACE.V2",
+  "base_v1": {
+    "repository": "demeet2k/athena-mcp-server",
+    "pull_request": 295,
+    "head": "74f5ec07c2ac2ce41b661d19ea37e238ea219495",
+    "branch": "agent/kc144-project-atlas-v1"
+  },
+  "integration": {
+    "branch": "agent/kc144-project-atlas-mcp-surface-v2",
+    "child_pull_request": 310,
+    "qualification_only_pull_request": 311,
+    "head_binding": "the Git commit containing this manifest",
+    "law": "QUALIFICATION_PR != INTEGRATION_PR"
+  },
+  "surface": {
+    "tools": [
+      "athena_project_atlas_summary",
+      "athena_project_resolve",
+      "athena_project_list",
+      "athena_project_route"
+    ],
+    "resource": "athena://project-atlas",
+    "max_page": 100,
+    "default_page": 50,
+    "read_only": true,
+    "self_metering": false,
+    "full_snapshot_cas": true
+  },
+  "frontier": {
+    "factorization": [
+      "CONFIGURED_GIT_HEAD",
+      "RUNTIME_SOURCE_FRONTIER",
+      "LIVE_MCP_SURFACE_SIGNATURE"
+    ],
+    "configured_git_source": "ATHENA_GIT_ROOT",
+    "runtime_source_priority": [
+      "ATHENA_RUNTIME_GIT_ROOT",
+      "PACKAGE_SOURCE_CHECKOUT",
+      "ATHENA_RUNTIME_REPOSITORY+ATHENA_RUNTIME_GIT_HEAD",
+      "HOLD_RUNTIME_PROVENANCE"
+    ],
+    "runtime_head_attestation_without_tree": "PARTIAL_RUNTIME_TREE_UNAVAILABLE",
+    "unknown_runtime_tree_law": "UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE",
+    "cache_key": "<configured_git_head,runtime_source_frontier,live_mcp_surface_signature>",
+    "snapshot_cas_input": "expected_snapshot_id",
+    "snapshot_cas_pattern": "^PATLASV2\\.[0-9A-F]{32}$",
+    "bounded_retry": 1
+  },
+  "query_index": {
+    "version": "ATHENA.PROJECT_ATLAS.QUERY_INDEX.V2",
+    "maps": [
+      "by_source",
+      "by_poid",
+      "by_address",
+      "by_return",
+      "by_path",
+      "by_raw_mcp_name",
+      "by_typed_mcp",
+      "by_project_gid",
+      "by_reference_gid",
+      "by_directory",
+      "by_blob"
+    ],
+    "digest_in_snapshot": true,
+    "order_invariant": true,
+    "duplicate_invariant": true,
+    "law": "QUERY_INDEX != SEMANTIC_IDENTITY"
+  },
+  "snapshot": {
+    "prefix": "PATLASV2.",
+    "basis": [
+      "configured_repo_head_tree_atlas_digest",
+      "runtime_provenance",
+      "runtime_git_head_tree_atlas_digest_if_available",
+      "mcp_repo_head_surface_digest",
+      "live_mcp_surface_signature",
+      "query_index_digest",
+      "federation_digest"
+    ],
+    "authority": "NONE",
+    "cas": "exact equality against expected_snapshot_id after stable snapshot construction",
+    "law": "PROJECT_ATLAS_SNAPSHOT_ID != PROMOTION_RECEIPT"
+  },
+  "planes": [
+    "configured_git",
+    "runtime_git",
+    "mcp"
+  ],
+  "list_sources": [
+    "all",
+    "git",
+    "configured_git",
+    "runtime_git",
+    "mcp"
+  ],
+  "resolve": {
+    "exact_identifiers": [
+      "POID",
+      "PROJECT_ADDRESS",
+      "ATHENA_GIT_RETURN_URI",
+      "ATHENA_MCP_RETURN_URI",
+      "TYPED_MCP_TOOL",
+      "TYPED_MCP_PROMPT"
+    ],
+    "open_world_identifiers": [
+      "raw_git_path",
+      "raw_mcp_name",
+      "mcp_virtual_path"
+    ],
+    "typed_mcp_prefixes": [
+      "tool:",
+      "prompt:",
+      "mcp:tool:",
+      "mcp:prompt:"
+    ],
+    "ambiguous": "HOLD_AMBIGUOUS",
+    "not_found_complete_universe": "HOLD_NOT_FOUND",
+    "not_found_runtime_provenance_unknown": "HOLD_RUNTIME_PROVENANCE",
+    "not_found_runtime_tree_unknown": "HOLD_RUNTIME_TREE_UNAVAILABLE"
+  },
+  "route": {
+    "normal": "PROJECT_KC144_ROW_THEN_COLUMN",
+    "toroidal": "PROJECT_KC144_12x12_WRAP",
+    "cross_frontier_receipt": true,
+    "native_return_both_endpoints": true,
+    "snapshot_cas_before_endpoint_resolution": true,
+    "law": "PROJECT_ROUTE != SEMANTIC_EQUIVALENCE"
+  },
+  "hold_statuses": [
+    "HOLD_GIT_UNAVAILABLE",
+    "HOLD_STALE_CONFIGURED_HEAD",
+    "HOLD_STALE_RUNTIME_HEAD",
+    "HOLD_STALE_SNAPSHOT",
+    "HOLD_RUNTIME_PROVENANCE",
+    "HOLD_RUNTIME_TREE_UNAVAILABLE",
+    "HOLD_VOLATILE_FRONTIER",
+    "HOLD_NOT_FOUND",
+    "HOLD_AMBIGUOUS",
+    "HOLD_ROUTE_SOURCE",
+    "HOLD_ROUTE_DESTINATION"
+  ],
+  "laws": [
+    "V2_DEPENDS_ON_V1",
+    "KC144_STATION != OBJECT_IDENTITY",
+    "POID != OID != MID != VID",
+    "CONFIGURED_GIT_HEAD != RUNTIME_GIT_HEAD",
+    "PACKAGE_VERSION != RUNTIME_SOURCE_HEAD",
+    "MCP_VIRTUAL_OBJECT != GIT_BLOB",
+    "MCP_DEFINITION_COORDINATE_REQUIRES_RUNTIME_SOURCE_HEAD",
+    "UNKNOWN_RUNTIME_TREE != EMPTY_RUNTIME_TREE",
+    "QUERY_INDEX != SEMANTIC_IDENTITY",
+    "PROJECT_ATLAS_SNAPSHOT_ID != PROMOTION_RECEIPT",
+    "PROJECT_QUERY != PROMOTION_AUTHORITY",
+    "PROJECT_QUERY != PERSISTENT_STATE_MUTATION",
+    "PROJECT_ROUTE != SEMANTIC_EQUIVALENCE",
+    "AMBIGUOUS_RESOLVE -> HOLD",
+    "HEAD_CHANGE -> RECOMPILE_BEFORE_CONSEQUENTIAL_ROUTE",
+    "RUNTIME_HEAD_CHANGE -> RECOMPILE_BEFORE_QUERY",
+    "MCP_SURFACE_CHANGE -> RECOMPILE_BEFORE_QUERY",
+    "STALE_SNAPSHOT -> HOLD",
+    "CROSS_REPO_ROUTE_REQUIRES_EXACT_REPO_HEAD",
+    "STALE_CONFIGURED_HEAD -> HOLD",
+    "STALE_RUNTIME_HEAD -> HOLD",
+    "CONFIGURED_HEAD_CHANGE -> RECOMPILE",
+    "RUNTIME_HEAD_CHANGE -> RECOMPILE",
+    "MCP_SURFACE_CHANGE -> RECOMPILE",
+    "MOVING_PROJECT_FRONTIER -> BOUNDED_RETRY -> HOLD",
+    "RPC_SURFACE_EXISTENCE != CANONICAL_RPC_PROMOTION",
+    "GREEN_CHILD_HEAD != ACCEPTED_ANCESTRY",
+    "QUALIFICATION_PR != INTEGRATION_PR"
+  ],
+  "promotion": {
+    "standing": "HOLD_PENDING_V1_ACCEPTANCE_REBASE_AND_NEW_ABI_QUALIFICATION",
+    "package_version_change_in_child": false,
+    "canonical_rpc_promotion": false,
+    "publication": false,
+    "deployment": false,
+    "requirements": [
+      "accepted V1 ancestry",
+      "exact rebased V2 qualification",
+      "new canonical package/protocol/release coordinate",
+      "clean wheel installed-surface witness",
+      "exact runtime-source provenance configuration",
+      "separate publication authority",
+      "separate deployment authority"
+    ]
+  }
+}
