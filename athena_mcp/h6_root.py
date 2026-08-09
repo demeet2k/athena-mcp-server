@@ -14,7 +14,7 @@ class H6RootRuntime:
     """Read-only constitutional facade over existing ATHENA root primitives.
 
     H6 does not create a second object store, coordinate store, transform store,
-    evidence ledger, scheduler, execution engine, or promotion authority.  It
+    evidence ledger, scheduler, execution engine, or promotion authority. It
     normalizes current primitives into the six H01-H06 constitutional decisions.
     """
 
@@ -67,7 +67,9 @@ class H6RootRuntime:
             "selected_oid": selected,
             "decision": decision,
             "type_compatibility": {oid: "UNKNOWN" for oid in ordered},
-            "referent_compatibility": {oid: "ALIAS_OBSERVED" if oid in alias_targets else "UNKNOWN" for oid in ordered},
+            "referent_compatibility": {
+                oid: "ALIAS_OBSERVED" if oid in alias_targets else "UNKNOWN" for oid in ordered
+            },
             "lineage_compatibility": {oid: "OBSERVED_OBJECT" for oid in ordered},
             "context_compatibility": {oid: "UNKNOWN" for oid in ordered},
             "contradictions": [],
@@ -101,19 +103,14 @@ class H6RootRuntime:
         }
         status = status_map.get(raw_status, "UNMAPPED")
         value = coord.get("value") if coord else None
-        # Existing KC144 coordinates generated from stable_gid are deterministic
-        # projections.  They are not, by themselves, constitutional semantic
-        # seating authority.
-        authority = "PROJECTION_ONLY"
-        constitutional_gid = None
         return {
             "artifact": "ATHENA.H02.PROJECTION.DECISION.V1",
             "oid": oid,
             "chart": chart,
             "epoch": epoch,
-            "authority": authority,
+            "authority": "PROJECTION_ONLY",
             "status": status,
-            "constitutional_gid": constitutional_gid,
+            "constitutional_gid": None,
             "projection_address": value,
             "projection_gid": value.get("gid") if isinstance(value, dict) else None,
             "source_eid": coord.get("source_eid") if coord else None,
@@ -132,7 +129,12 @@ class H6RootRuntime:
         relations: Iterable[str] | None = None,
         max_depth: int = 12,
     ) -> dict[str, Any]:
-        path = self.crystal.graph_path(source_oid, target, relations=list(relations or []), max_depth=max_depth)
+        path = self.crystal.graph_path(
+            source_oid,
+            target,
+            relations=list(relations or []),
+            max_depth=max_depth,
+        )
         nav = self.core.navigate(source_oid)
         source_vid = (nav.get("head") or {}).get("vid") if nav.get("found") else None
         found = bool(path.get("found"))
@@ -203,7 +205,7 @@ class H6RootRuntime:
             if isinstance(loss_model, dict) and isinstance(loss_model.get("h6_bridge"), dict):
                 contract = dict(loss_model["h6_bridge"])
 
-        missing = []
+        missing: list[str] = []
         if not contract.get("preserved_invariants"):
             missing.append("preserved_invariants")
         if "lost_invariants" not in contract:
@@ -214,19 +216,28 @@ class H6RootRuntime:
             missing.append("evidence_refs")
         if not contract.get("counterexamples"):
             missing.append("counterexamples")
-        reverse_ok = bool(
-            contract.get("reverse_transform_id")
-            or contract.get("compensation")
-            or contract.get("irreversible_reason")
-        )
+
+        reverse_id = contract.get("reverse_transform_id")
+        reverse_ok = bool(reverse_id or contract.get("compensation") or contract.get("irreversible_reason"))
         if not reverse_ok:
             missing.append("reverse_or_compensation")
 
-        defects = []
+        defects: list[str] = []
         transform_class = str(row.get("mode") or "LOOKUP").upper()
         lost = contract.get("lost_invariants") or []
         if transform_class == "ISOMORPHISM" and lost:
             defects.append("ISOMORPHISM_DECLARES_LOST_INVARIANTS")
+        if transform_class == "ISOMORPHISM" and not reverse_id:
+            defects.append("ISOMORPHISM_REVERSE_REQUIRED")
+        if reverse_id:
+            reverse_row = self.s.one(
+                "SELECT src_chart,dst_chart FROM transforms WHERE transform_id=?",
+                (reverse_id,),
+            )
+            if not reverse_row:
+                defects.append("REVERSE_TRANSFORM_UNKNOWN")
+            elif reverse_row["src_chart"] != row["dst_chart"] or reverse_row["dst_chart"] != row["src_chart"]:
+                defects.append("REVERSE_DIRECTION_MISMATCH")
 
         decision = "ADMITTED" if not missing and not defects else "HOLD"
         return {
@@ -242,7 +253,7 @@ class H6RootRuntime:
             "validity_corridor": contract.get("validity_corridor"),
             "evidence_refs": contract.get("evidence_refs", []),
             "required_authority": contract.get("required_authority", []),
-            "reverse_transform_id": contract.get("reverse_transform_id"),
+            "reverse_transform_id": reverse_id,
             "compensation": contract.get("compensation"),
             "irreversible_reason": contract.get("irreversible_reason"),
             "counterexamples": contract.get("counterexamples", []),
@@ -288,6 +299,11 @@ class H6RootRuntime:
         if independent_count < minimum_independent:
             defects.append("independence_floor_unmet")
 
+        counterevidence = [
+            x
+            for x in items
+            if str(x.get("support_direction", "")).upper() in {"CONTRADICT", "COUNTER"}
+        ]
         status = "EVIDENCE_SUFFICIENT" if not defects else "EVIDENCE_INSUFFICIENT"
         return {
             "artifact": "ATHENA.H05.EVIDENCE.DECISION.V1",
@@ -298,7 +314,7 @@ class H6RootRuntime:
             "minimum_independent": minimum_independent,
             "independence_groups": sorted(groups),
             "defects": defects,
-            "counterevidence": [x for x in items if str(x.get("support_direction", "")).upper() in {"CONTRADICT", "COUNTER"}],
+            "counterevidence": counterevidence,
             "promotion_authority": False,
             "authority": "EVIDENCE_ASSESSMENT_ONLY",
         }
@@ -346,13 +362,21 @@ class H6RootRuntime:
 
         identities = [self.identity_decide(oid, candidate_oids=[oid]) for oid in targets]
         projections = [self.projection_decide(oid, "KC144", epoch=ACTIVE_EPOCH) for oid in targets]
-        holds = []
-        for d in identities:
-            if d["decision"] not in {"RESOLVED_EXISTING"}:
-                holds.append({"type": "IDENTITY_HOLD", "input_ref": d["input_ref"], "decision": d["decision"]})
-        for d in projections:
-            if d["status"] in {"CONFLICT"}:
-                holds.append({"type": "PROJECTION_HOLD", "oid": d["oid"], "status": d["status"]})
+        holds: list[dict[str, Any]] = []
+        for decision in identities:
+            if decision["decision"] != "RESOLVED_EXISTING":
+                holds.append(
+                    {
+                        "type": "IDENTITY_HOLD",
+                        "input_ref": decision["input_ref"],
+                        "decision": decision["decision"],
+                    }
+                )
+        for decision in projections:
+            if decision["status"] == "CONFLICT":
+                holds.append(
+                    {"type": "PROJECTION_HOLD", "oid": decision["oid"], "status": decision["status"]}
+                )
 
         admission = "ADMITTED" if not holds else "CONDITIONAL"
         active_candidate = {
