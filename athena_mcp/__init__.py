@@ -56,10 +56,17 @@ from .agent_bootstrap_cohesion_treatment import (
 
 install_agent_bootstrap_cohesion_treatment(AgentBootstrapRuntime)
 
-# Collective V14 advances only current release identity and the lazy scientific
-# frontier; it leaves the preserved v3.2 registration body and later operational
-# organs intact.
+# Collective V14 preserves the historical registration body and installs the
+# joint scientific-control frontier inherited by V15.
 from .collective_v14_install import install_release_v14 as _install_release_v14
 
 _install_release_v14(globals())
 del _install_release_v14
+
+# Collective V15 advances only the current release identity and calibrated
+# successor frontier. Operational Message Board/cohesion/party/prompt organs
+# remain separately typed and intact.
+from .collective_v15_install import install_release_v15 as _install_release_v15
+
+_install_release_v15(globals())
+del _install_release_v15
