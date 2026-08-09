@@ -1,0 +1,39 @@
+name: H6 CUT-01 RED Contract
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'spec/H6_*'
+      - 'tests/red/test_h6_cut01_red_contract.py'
+      - 'scripts/h6_cut01_red_witness.py'
+      - 'developments/2026-08-09_H6_EXECUTION_CUT01_RED_V1.md'
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen pre-treatment contract
+        run: PYTHONPATH=. python scripts/h6_cut01_red_witness.py
+      - name: Capture intentional RED obligations
+        run: |
+          set +e
+          PYTHONPATH=. python -m unittest tests.red.test_h6_cut01_red_contract -v > h6-cut01-intentional-red.txt 2>&1
+          code=$?
+          cat h6-cut01-intentional-red.txt
+          if [ "$code" -eq 0 ]; then
+            echo 'Intentional RED cartridge unexpectedly passed.'
+            exit 1
+          fi
+          exit 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: h6-cut01-intentional-red
+          path: h6-cut01-intentional-red.txt
