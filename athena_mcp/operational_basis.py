@@ -52,13 +52,33 @@ _CLAIM_EXECUTION_OPERATIONS = {
     "athena_frontier_claim",
     "athena_frontier_claim_reconcile",
 }
+
 _OPERATE_BOUNDARY_OPERATIONS = {"athena_omega29_operate"}
-_Q008_IDENTITY_BOUNDARY_OPERATIONS = {"athena_omega29_q008_bridge", "athena_q008_identity_compile"}
+_Q008_IDENTITY_BOUNDARY_OPERATIONS = {
+    "athena_omega29_q008_bridge",
+    "athena_q008_identity_compile",
+}
+
 _MESSAGE_BOARD_OPERATIONS = {"athena_message_board"}
-_PARTY_READ_SYNC_OPERATIONS = {"athena_party_state", "athena_party_list"}
-_PARTY_WRITE_OPERATIONS = {"athena_party_form", "athena_party_join", "athena_party_observe", "athena_party_message"}
-_COHESION_READ_SYNC_OPERATIONS = {"athena_cohesion_matchmake", "athena_cohesion_duplicate_guard"}
-_COHESION_WRITE_OPERATIONS = {"athena_cohesion_request_offer", "athena_cohesion_coalition", "athena_cohesion_solo_party_compare"}
+_PARTY_READ_SYNC_OPERATIONS = {
+    "athena_party_state",
+    "athena_party_list",
+}
+_PARTY_WRITE_OPERATIONS = {
+    "athena_party_form",
+    "athena_party_join",
+    "athena_party_observe",
+    "athena_party_message",
+}
+_COHESION_READ_SYNC_OPERATIONS = {
+    "athena_cohesion_matchmake",
+    "athena_cohesion_duplicate_guard",
+}
+_COHESION_WRITE_OPERATIONS = {
+    "athena_cohesion_request_offer",
+    "athena_cohesion_coalition",
+    "athena_cohesion_solo_party_compare",
+}
 
 
 def _canonical(value: Any) -> bytes:
@@ -66,9 +86,12 @@ def _canonical(value: Any) -> bytes:
 
 
 def _sha(value: Any) -> str:
-    if isinstance(value, bytes): raw = value
-    elif isinstance(value, str): raw = value.encode("utf-8")
-    else: raw = _canonical(value)
+    if isinstance(value, bytes):
+        raw = value
+    elif isinstance(value, str):
+        raw = value.encode("utf-8")
+    else:
+        raw = _canonical(value)
     return hashlib.sha256(raw).hexdigest()
 
 
@@ -85,60 +108,93 @@ def _is_control_operation(name: str) -> bool:
 
 
 def _capability_class(name: str) -> str:
-    if name in _Q008_IDENTITY_BOUNDARY_OPERATIONS: return "Q008_IDENTITY_BOUNDARY"
-    if name in _OPERATE_BOUNDARY_OPERATIONS: return "OPERATE_BOUNDARY"
-    if name == TOOL_NAME or name.startswith("athena_agent_"): return "BOOTSTRAP_REFRESH"
-    if name.startswith("athena_prompt_"): return "PROMPT"
+    if name in _Q008_IDENTITY_BOUNDARY_OPERATIONS:
+        return "Q008_IDENTITY_BOUNDARY"
+    if name in _OPERATE_BOUNDARY_OPERATIONS:
+        return "OPERATE_BOUNDARY"
+    if name == TOOL_NAME or name.startswith("athena_agent_"):
+        return "BOOTSTRAP_REFRESH"
+    if name.startswith("athena_prompt_"):
+        return "PROMPT"
     if name.startswith("athena_frontier_"):
-        if name in _CLAIM_EXECUTION_OPERATIONS or "claim" in name: return "CLAIM_EXECUTION"
+        if name in _CLAIM_EXECUTION_OPERATIONS or "claim" in name:
+            return "CLAIM_EXECUTION"
         return "FRONTIER_READ_SELECT"
     if name.startswith("athena_rehydration_"):
-        if "handoff" in name: return "HANDOFF"
-        if "successor" in name or "route" in name: return "SUCCESSOR"
-        if "verify" in name or "index" in name: return "VERIFY_REPLAY_INDEX"
+        if "handoff" in name:
+            return "HANDOFF"
+        if "successor" in name or "route" in name:
+            return "SUCCESSOR"
+        if "verify" in name or "index" in name:
+            return "VERIFY_REPLAY_INDEX"
         return "REHYDRATION_LOOP"
-    if name.startswith("athena_message_board"): return "MESSAGE_BOARD_COORDINATION"
-    if name.startswith("athena_party_"): return "PARTY_COORDINATION"
-    if name.startswith("athena_cohesion_"): return "COHESION_COORDINATION"
-    if "campaign" in name: return "CAMPAIGN"
-    if "epoch" in name or "rollover" in name: return "EPOCH_ROLLOVER"
+    if name.startswith("athena_message_board"):
+        return "MESSAGE_BOARD_COORDINATION"
+    if name.startswith("athena_party_"):
+        return "PARTY_COORDINATION"
+    if name.startswith("athena_cohesion_"):
+        return "COHESION_COORDINATION"
+    if "campaign" in name:
+        return "CAMPAIGN"
+    if "epoch" in name or "rollover" in name:
+        return "EPOCH_ROLLOVER"
     return "UNCLASSIFIED"
 
 
 def _effect(name: str, capability_class: str) -> str:
-    if capability_class in {"OPERATE_BOUNDARY", "Q008_IDENTITY_BOUNDARY"}: return "READ_ONLY"
-    if name in {TOOL_NAME, "athena_agent_bootstrap", "athena_agent_refresh"}: return "READ_ONLY"
+    if capability_class in {"OPERATE_BOUNDARY", "Q008_IDENTITY_BOUNDARY"}:
+        return "READ_ONLY"
+    if name in {TOOL_NAME, "athena_agent_bootstrap", "athena_agent_refresh"}:
+        return "READ_ONLY"
     if capability_class == "PROMPT":
         suffix = name.removeprefix("athena_prompt_")
-        if suffix in {"hydrate", "compile", "freshness", "remote_status"}: return "READ_ONLY"
-        if suffix == "sync": return "BOUNDED_GIT_SYNC"
-        if suffix == "publish": return "BOUNDED_PROVIDER_WRITE"
-        if suffix in {"propose", "experiment"}: return "REPOSITORY_CANDIDATE_WRITE"
-        if suffix == "activate": return "SCOPED_RUNTIME_WRITE"
-        if suffix == "promote": return "CANONICAL_PROMOTION_GATED_WRITE"
+        if suffix in {"hydrate", "compile", "freshness", "remote_status"}:
+            return "READ_ONLY"
+        if suffix == "sync":
+            return "BOUNDED_GIT_SYNC"
+        if suffix == "publish":
+            return "BOUNDED_PROVIDER_WRITE"
+        if suffix in {"propose", "experiment"}:
+            return "REPOSITORY_CANDIDATE_WRITE"
+        if suffix == "activate":
+            return "SCOPED_RUNTIME_WRITE"
+        if suffix == "promote":
+            return "CANONICAL_PROMOTION_GATED_WRITE"
         return "UNKNOWN"
-    if capability_class == "FRONTIER_READ_SELECT": return "READ_ONLY"
+    if capability_class == "FRONTIER_READ_SELECT":
+        return "READ_ONLY"
     if capability_class == "CLAIM_EXECUTION":
-        if name.endswith("_prepare") or name.endswith("_status"): return "READ_ONLY"
+        if name.endswith("_prepare") or name.endswith("_status"):
+            return "READ_ONLY"
         return "BOUNDED_PROVIDER_WRITE"
     if capability_class == "REHYDRATION_LOOP":
-        if name.endswith("_start") or name.endswith("_advance"): return "BOUNDED_RUNTIME_WRITE"
+        if name.endswith("_start") or name.endswith("_advance"):
+            return "BOUNDED_RUNTIME_WRITE"
         return "READ_ONLY"
-    if capability_class in {"SUCCESSOR", "VERIFY_REPLAY_INDEX"}: return "READ_ONLY"
+    if capability_class in {"SUCCESSOR", "VERIFY_REPLAY_INDEX"}:
+        return "READ_ONLY"
     if capability_class == "HANDOFF":
-        if name.endswith("_prepare") or name.endswith("_inspect") or name.endswith("_verify"): return "READ_ONLY"
+        if name.endswith("_prepare") or name.endswith("_inspect") or name.endswith("_verify"):
+            return "READ_ONLY"
         return "BOUNDED_RUNTIME_WRITE"
     if capability_class == "MESSAGE_BOARD_COORDINATION":
-        return "BOUNDED_PROVIDER_WRITE" if name in _MESSAGE_BOARD_OPERATIONS else "UNKNOWN"
+        if name in _MESSAGE_BOARD_OPERATIONS:
+            return "BOUNDED_PROVIDER_WRITE"
+        return "UNKNOWN"
     if capability_class == "PARTY_COORDINATION":
-        if name in _PARTY_READ_SYNC_OPERATIONS: return "BOUNDED_GIT_SYNC"
-        if name in _PARTY_WRITE_OPERATIONS: return "BOUNDED_PROVIDER_WRITE"
+        if name in _PARTY_READ_SYNC_OPERATIONS:
+            return "BOUNDED_GIT_SYNC"
+        if name in _PARTY_WRITE_OPERATIONS:
+            return "BOUNDED_PROVIDER_WRITE"
         return "UNKNOWN"
     if capability_class == "COHESION_COORDINATION":
-        if name in _COHESION_READ_SYNC_OPERATIONS: return "BOUNDED_GIT_SYNC"
-        if name in _COHESION_WRITE_OPERATIONS: return "BOUNDED_PROVIDER_WRITE"
+        if name in _COHESION_READ_SYNC_OPERATIONS:
+            return "BOUNDED_GIT_SYNC"
+        if name in _COHESION_WRITE_OPERATIONS:
+            return "BOUNDED_PROVIDER_WRITE"
         return "UNKNOWN"
-    if capability_class in {"CAMPAIGN", "EPOCH_ROLLOVER"}: return "BOUNDED_RUNTIME_WRITE"
+    if capability_class in {"CAMPAIGN", "EPOCH_ROLLOVER"}:
+        return "BOUNDED_RUNTIME_WRITE"
     return "UNKNOWN"
 
 
@@ -175,33 +231,61 @@ def _component(capability_class: str) -> str:
 
 
 def _freshness_dependencies(capability_class: str, name: str) -> list[str]:
-    if name == TOOL_NAME: return ["registered_runtime_surface"]
+    if name == TOOL_NAME:
+        return ["registered_runtime_surface"]
     if capability_class == "OPERATE_BOUNDARY":
-        return ["athena_git_head", "runtime_git_head", "prompt_stack_digest", "source_binding_digest", "runtime_context_digest", "source_observation_ids", "clock_observation_id"]
+        return [
+            "athena_git_head", "runtime_git_head", "prompt_stack_digest",
+            "source_binding_digest", "runtime_context_digest",
+            "source_observation_ids", "clock_observation_id",
+        ]
     if capability_class == "Q008_IDENTITY_BOUNDARY":
         if name == "athena_omega29_q008_bridge":
-            return ["athena_git_head", "runtime_git_head", "source_binding_digest", "runtime_context_digest", "omega_decision_digest", "run_id", "source_invocation_id"]
-        return ["source_bridge_digest", "run_id", "source_invocation_id", "consumer_invocation_id", "source_cursor_digest"]
+            return [
+                "athena_git_head", "runtime_git_head", "source_binding_digest",
+                "runtime_context_digest", "omega_decision_digest", "run_id",
+                "source_invocation_id",
+            ]
+        return [
+            "source_bridge_digest", "run_id", "source_invocation_id",
+            "consumer_invocation_id", "source_cursor_digest",
+        ]
     if capability_class == "BOOTSTRAP_REFRESH":
-        return ["git_head", "prompt_stack_digest", "frontier_source_head", "frontier_digest", "sched_contract_digest", "issue_pressure_digest", "operational_basis_digest"]
+        return [
+            "git_head", "prompt_stack_digest", "frontier_source_head", "frontier_digest",
+            "sched_contract_digest", "issue_pressure_digest", "operational_basis_digest",
+        ]
     if capability_class == "PROMPT":
         deps = ["git_head", "prompt_stack_digest"]
-        if name in {"athena_prompt_remote_status", "athena_prompt_sync", "athena_prompt_publish"}: deps.append("shared_remote_witness")
+        if name in {"athena_prompt_remote_status", "athena_prompt_sync", "athena_prompt_publish"}:
+            deps.append("shared_remote_witness")
         return deps
-    if capability_class == "FRONTIER_READ_SELECT": return ["frontier_source_head", "frontier_digest", "sched_contract_digest"]
-    if capability_class == "CLAIM_EXECUTION": return ["git_head", "prompt_stack_digest", "frontier_source_head", "frontier_digest", "sched_contract_digest", "provider_witness"]
-    if capability_class in {"REHYDRATION_LOOP", "SUCCESSOR", "HANDOFF", "VERIFY_REPLAY_INDEX"}: return ["git_head", "prompt_stack_digest"]
-    if capability_class == "MESSAGE_BOARD_COORDINATION": return ["git_head", "shared_remote_witness", "message_board_frontier"]
-    if capability_class == "PARTY_COORDINATION": return ["git_head", "shared_remote_witness", "message_board_frontier", "party_state"]
-    if capability_class == "COHESION_COORDINATION": return ["git_head", "shared_remote_witness", "message_board_frontier", "cohesion_request_state"]
-    if capability_class in {"CAMPAIGN", "EPOCH_ROLLOVER"}: return ["git_head", "prompt_stack_digest", "frontier_digest", "sched_contract_digest"]
+    if capability_class == "FRONTIER_READ_SELECT":
+        return ["frontier_source_head", "frontier_digest", "sched_contract_digest"]
+    if capability_class == "CLAIM_EXECUTION":
+        return [
+            "git_head", "prompt_stack_digest", "frontier_source_head", "frontier_digest",
+            "sched_contract_digest", "provider_witness",
+        ]
+    if capability_class in {"REHYDRATION_LOOP", "SUCCESSOR", "HANDOFF", "VERIFY_REPLAY_INDEX"}:
+        return ["git_head", "prompt_stack_digest"]
+    if capability_class == "MESSAGE_BOARD_COORDINATION":
+        return ["git_head", "shared_remote_witness", "message_board_frontier"]
+    if capability_class == "PARTY_COORDINATION":
+        return ["git_head", "shared_remote_witness", "message_board_frontier", "party_state"]
+    if capability_class == "COHESION_COORDINATION":
+        return ["git_head", "shared_remote_witness", "message_board_frontier", "cohesion_request_state"]
+    if capability_class in {"CAMPAIGN", "EPOCH_ROLLOVER"}:
+        return ["git_head", "prompt_stack_digest", "frontier_digest", "sched_contract_digest"]
     return ["registered_runtime_surface"]
 
 
 def _preconditions(capability_class: str, effect: str) -> list[str]:
     result = ["operation is currently registered"]
-    if capability_class == "UNCLASSIFIED" or effect == "UNKNOWN": result.append("semantic classification required before automatic selection")
-    if effect != "READ_ONLY": result.append("caller authority and operation-specific freshness/preconditions must pass")
+    if capability_class == "UNCLASSIFIED" or effect == "UNKNOWN":
+        result.append("semantic classification required before automatic selection")
+    if effect != "READ_ONLY":
+        result.append("caller authority and operation-specific freshness/preconditions must pass")
     if capability_class == "OPERATE_BOUNDARY":
         result.extend([
             "caller supplies a validated content-addressed source binding",
@@ -215,10 +299,16 @@ def _preconditions(capability_class: str, effect: str) -> list[str]:
             "cursor, event, receipt, abort-set, and provider-observation receipt must share one consumer run/invocation/operation identity",
             "identity closure must not be used as proof of Q008 execution, provider effect, admission, promotion, or canonical completion",
         ])
-    if capability_class == "CLAIM_EXECUTION" and effect != "READ_ONLY": result.append("provider-bounded create-if-absent claim semantics must be available")
-    if capability_class in {"MESSAGE_BOARD_COORDINATION", "PARTY_COORDINATION", "COHESION_COORDINATION"}: result.append("shared Message Board frontier must satisfy the operation-specific freshness policy")
-    if capability_class in {"PARTY_COORDINATION", "COHESION_COORDINATION"} and effect == "BOUNDED_PROVIDER_WRITE": result.append("Message Board presence/claim and coordination-specific gates must pass when required")
-    if effect == "CANONICAL_PROMOTION_GATED_WRITE": result.append("promotion evidence, ancestry, tests, and rollback gate must pass")
+    if capability_class == "CLAIM_EXECUTION" and effect != "READ_ONLY":
+        result.append("provider-bounded create-if-absent claim semantics must be available")
+    if capability_class in {
+        "MESSAGE_BOARD_COORDINATION", "PARTY_COORDINATION", "COHESION_COORDINATION"
+    }:
+        result.append("shared Message Board frontier must satisfy the operation-specific freshness policy")
+    if capability_class in {"PARTY_COORDINATION", "COHESION_COORDINATION"} and effect == "BOUNDED_PROVIDER_WRITE":
+        result.append("Message Board presence/claim and coordination-specific gates must pass when required")
+    if effect == "CANONICAL_PROMOTION_GATED_WRITE":
+        result.append("promotion evidence, ancestry, tests, and rollback gate must pass")
     return result
 
 
@@ -235,16 +325,32 @@ def _rollback(effect: str) -> str:
 
 
 def _effect_modes(name: str) -> dict[str, str] | None:
-    if name != "athena_message_board": return None
-    return {"read": "BOUNDED_GIT_SYNC", "present": "BOUNDED_PROVIDER_WRITE", "join": "BOUNDED_PROVIDER_WRITE", "heartbeat": "BOUNDED_PROVIDER_WRITE", "post": "BOUNDED_PROVIDER_WRITE", "ack": "BOUNDED_PROVIDER_WRITE", "release": "BOUNDED_PROVIDER_WRITE"}
+    if name != "athena_message_board":
+        return None
+    return {
+        "read": "BOUNDED_GIT_SYNC",
+        "present": "BOUNDED_PROVIDER_WRITE",
+        "join": "BOUNDED_PROVIDER_WRITE",
+        "heartbeat": "BOUNDED_PROVIDER_WRITE",
+        "post": "BOUNDED_PROVIDER_WRITE",
+        "ack": "BOUNDED_PROVIDER_WRITE",
+        "release": "BOUNDED_PROVIDER_WRITE",
+    }
 
 
 def _descriptor(tool: dict) -> dict:
     name = str(tool.get("name") or "")
     capability_class = _capability_class(name)
     effect = _effect(name, capability_class)
-    schema_basis = {"name": name, "description": tool.get("description"), "inputSchema": tool.get("inputSchema")}
-    auto_select = capability_class not in {"UNCLASSIFIED", "OPERATE_BOUNDARY", "Q008_IDENTITY_BOUNDARY"} and effect == "READ_ONLY"
+    schema_basis = {
+        "name": name,
+        "description": tool.get("description"),
+        "inputSchema": tool.get("inputSchema"),
+    }
+    auto_select = (
+        capability_class not in {"UNCLASSIFIED", "OPERATE_BOUNDARY", "Q008_IDENTITY_BOUNDARY"}
+        and effect == "READ_ONLY"
+    )
     row = {
         "operation": name,
         "capability_class": capability_class,
@@ -257,54 +363,95 @@ def _descriptor(tool: dict) -> dict:
         "rollback_or_compensation": _rollback(effect),
         "current_exposure": True,
         "auto_select": auto_select,
-        "source_witness": {"surface": "PROTOCOL_TOOLS_CONTROL_FILTER", "tool_schema_digest": _sha(schema_basis)},
+        "source_witness": {
+            "surface": "PROTOCOL_TOOLS_CONTROL_FILTER",
+            "tool_schema_digest": _sha(schema_basis),
+        },
     }
     modes = _effect_modes(name)
     if modes is not None:
-        row["effect_modes"] = modes; row["mixed_effect"] = True
+        row["effect_modes"] = modes
+        row["mixed_effect"] = True
     return row
 
 
 def _registered_control_tools() -> dict[str, dict]:
     by_name: dict[str, dict] = {}
     for tool in _protocol.TOOLS:
-        if not isinstance(tool, dict): continue
+        if not isinstance(tool, dict):
+            continue
         name = str(tool.get("name") or "")
-        if name and _is_control_operation(name): by_name[name] = tool
+        if name and _is_control_operation(name):
+            by_name[name] = tool
     return by_name
 
 
 def build_operational_basis() -> dict:
     by_name = _registered_control_tools()
     descriptors = [_descriptor(by_name[name]) for name in sorted(by_name)]
-    unclassified = [{"operation": row["operation"], "effect": row["effect"], "authority_class": row["authority_class"], "auto_select": False} for row in descriptors if row["capability_class"] == "UNCLASSIFIED" or row["effect"] == "UNKNOWN"]
-    runtime_identity = {"name": _protocol.SERVER_INFO.get("name"), "version": _protocol.SERVER_INFO.get("version")}
+    unclassified = [
+        {
+            "operation": row["operation"],
+            "effect": row["effect"],
+            "authority_class": row["authority_class"],
+            "auto_select": False,
+        }
+        for row in descriptors
+        if row["capability_class"] == "UNCLASSIFIED" or row["effect"] == "UNKNOWN"
+    ]
+    runtime_identity = {
+        "name": _protocol.SERVER_INFO.get("name"),
+        "version": _protocol.SERVER_INFO.get("version"),
+    }
     source_witness = {
         "surface": "PROTOCOL_TOOLS_CONTROL_FILTER",
         "registered_count": len(descriptors),
         "registered_names_digest": _sha([row["operation"] for row in descriptors]),
-        "registered_schema_digest": _sha([{"operation": row["operation"], "tool_schema_digest": row["source_witness"]["tool_schema_digest"]} for row in descriptors]),
+        "registered_schema_digest": _sha([
+            {
+                "operation": row["operation"],
+                "tool_schema_digest": row["source_witness"]["tool_schema_digest"],
+            }
+            for row in descriptors
+        ]),
     }
-    digest_basis = {"artifact": ARTIFACT, "runtime_identity": runtime_identity, "descriptors": descriptors, "unclassified": unclassified, "laws": LAWS, "source_witness": source_witness}
-    return {**digest_basis, "status": "OPERATIONAL_BASIS_HOLD" if unclassified else "OPERATIONAL_BASIS_READY", "basis_digest": _sha(digest_basis)}
+    digest_basis = {
+        "artifact": ARTIFACT,
+        "runtime_identity": runtime_identity,
+        "descriptors": descriptors,
+        "unclassified": unclassified,
+        "laws": LAWS,
+        "source_witness": source_witness,
+    }
+    return {
+        **digest_basis,
+        "status": "OPERATIONAL_BASIS_HOLD" if unclassified else "OPERATIONAL_BASIS_READY",
+        "basis_digest": _sha(digest_basis),
+    }
 
 
 def install() -> None:
     if TOOL_NAME not in AGENT_BOOT_TOOL_NAMES:
-        AGENT_BOOT_TOOLS.append(dict(OPERATIONAL_BASIS_TOOL)); AGENT_BOOT_TOOL_NAMES.add(TOOL_NAME)
+        AGENT_BOOT_TOOLS.append(dict(OPERATIONAL_BASIS_TOOL))
+        AGENT_BOOT_TOOL_NAMES.add(TOOL_NAME)
     if TOOL_NAME not in PROMPT_RUNTIME_TOOL_NAMES:
-        PROMPT_RUNTIME_TOOLS.append(dict(OPERATIONAL_BASIS_TOOL)); PROMPT_RUNTIME_TOOL_NAMES.add(TOOL_NAME)
-    if not any(tool.get("name") == TOOL_NAME for tool in _protocol.TOOLS): _protocol.TOOLS.append(dict(OPERATIONAL_BASIS_TOOL))
+        PROMPT_RUNTIME_TOOLS.append(dict(OPERATIONAL_BASIS_TOOL))
+        PROMPT_RUNTIME_TOOL_NAMES.add(TOOL_NAME)
+    if not any(tool.get("name") == TOOL_NAME for tool in _protocol.TOOLS):
+        _protocol.TOOLS.append(dict(OPERATIONAL_BASIS_TOOL))
 
     flag = "_athena_operational_basis_v1_registered"
-    if getattr(AgentBootstrapRuntime, flag, False): return
+    if getattr(AgentBootstrapRuntime, flag, False):
+        return
+
     original_address = AgentBootstrapRuntime._address
     original_changed = AgentBootstrapRuntime._changed
     original_refresh = AgentBootstrapRuntime.refresh
     original_call_tool = AgentBootstrapRuntime.call_tool
 
     def address_with_basis(packet: dict) -> dict:
-        basis = build_operational_basis(); execution = packet.setdefault("execution_surface", {})
+        basis = build_operational_basis()
+        execution = packet.setdefault("execution_surface", {})
         execution["operational_basis_digest"] = basis["basis_digest"]
         execution["capability_descriptors"] = basis["descriptors"]
         execution["unclassified"] = basis["unclassified"]
@@ -313,24 +460,33 @@ def install() -> None:
         packet.setdefault("witnesses", {})["operational_basis"] = basis["source_witness"]
         packet.setdefault("laws", [])
         law = "OPERATIONAL_BASIS != EXECUTION_AUTHORITY"
-        if law not in packet["laws"]: packet["laws"].append(law)
-        address = original_address(packet); address["operational_basis_digest"] = basis["basis_digest"]; return address
+        if law not in packet["laws"]:
+            packet["laws"].append(law)
+        address = original_address(packet)
+        address["operational_basis_digest"] = basis["basis_digest"]
+        return address
 
     def changed_with_basis(prior: dict, current: dict) -> dict:
         changed = original_changed(prior, current)
-        changed["operational_basis_digest"] = prior.get("operational_basis_digest") != current.get("operational_basis_digest")
+        changed["operational_basis_digest"] = (
+            prior.get("operational_basis_digest") != current.get("operational_basis_digest")
+        )
         return changed
 
     def refresh_with_basis(self, *args, **kwargs):
-        packet = original_refresh(self, *args, **kwargs); refresh = packet.get("refresh") or {}; changed = refresh.get("changed") or {}
+        packet = original_refresh(self, *args, **kwargs)
+        refresh = packet.get("refresh") or {}
+        changed = refresh.get("changed") or {}
         if changed.get("operational_basis_digest"):
             cone = refresh.setdefault("affected_dependency_cone", [])
-            if "runtime_capability_basis" not in cone: cone.append("runtime_capability_basis")
+            if "runtime_capability_basis" not in cone:
+                cone.append("runtime_capability_basis")
             refresh["requires_replan"] = True
         return packet
 
     def call_tool_with_basis(self, name: str, arguments: dict):
-        if name == TOOL_NAME: return build_operational_basis()
+        if name == TOOL_NAME:
+            return build_operational_basis()
         return original_call_tool(self, name, arguments)
 
     AgentBootstrapRuntime._address = staticmethod(address_with_basis)
