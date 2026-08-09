@@ -1,22 +1,28 @@
 from __future__ import annotations
 
+from .collective_v15_calibration import structural_reliability_calibrate
+from .collective_v15_history import validate_longitudinal_baseline
 from .collective_v15_longitudinal import longitudinal_tmle_crossfit
+from .collective_v15_policy import sequential_dr_policy_crossfit
 
 
 def call(calibrated, name, a):
     if name == 'athena_structural_reliability_calibrate':
-        return calibrated.structural_reliability_calibrate(
+        return structural_reliability_calibrate(
             a['calibration_examples'], a.get('supports'), a.get('folds', 5), a.get('seed', 0),
         )
     if name == 'athena_longitudinal_tmle_crossfit':
+        baseline=validate_longitudinal_baseline(
+            a.get('baseline'), a['treatment1'], a['intermediate'], a['treatment2'], a['outcome'],
+        )
         return longitudinal_tmle_crossfit(
             calibrated, a['samples'], a['treatment1'], a['intermediate'], a['treatment2'], a['outcome'],
-            a.get('baseline'), a.get('regimes'), a.get('assumptions'), a.get('propensity_clip', .05),
+            baseline, a.get('regimes'), a.get('assumptions'), a.get('propensity_clip', .05),
             a.get('folds', 2), a.get('seed', 0),
         )
     if name == 'athena_sequential_dr_policy_crossfit':
-        return calibrated.sequential_dr_policy_crossfit(
-            a['samples'], a['treatment1'], a['intermediate'], a['treatment2'], a['outcome'], a['policies'],
+        return sequential_dr_policy_crossfit(
+            calibrated, a['samples'], a['treatment1'], a['intermediate'], a['treatment2'], a['outcome'], a['policies'],
             a.get('baseline'), a.get('assumptions'), a.get('propensity_clip', .05),
             a.get('folds', 2), a.get('seed', 0),
         )
