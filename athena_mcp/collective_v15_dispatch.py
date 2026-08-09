@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from .collective_v15_calibration import structural_reliability_calibrate
+from .collective_v15_error_transport import approx_error_transport
 from .collective_v15_history import validate_longitudinal_baseline
 from .collective_v15_longitudinal import longitudinal_tmle_crossfit
 from .collective_v15_policy import sequential_dr_policy_crossfit
@@ -34,7 +35,7 @@ def call(calibrated, name, a):
             a.get('risk_weight', 1.0), a.get('cost_weight', 1.0),
         )
     if name == 'athena_approx_error_transport':
-        return calibrated.approx_error_transport(
+        return approx_error_transport(
             a['feature_order'], a['witnesses'], a['queries'], a['lipschitz_bound'],
             a.get('max_transport_radius'), a.get('margin_safety', .5),
         )
