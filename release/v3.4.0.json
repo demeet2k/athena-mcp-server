@@ -50,6 +50,7 @@
       "A1 dynamic policy uses baseline only; A2 dynamic policy uses baseline plus A1 and L1 only",
       "unknown Gaussian coefficient coordinates and non-finite numeric model state fail closed",
       "geometric nearest, global error envelope, and radius-eligible local certificate are distinct",
+      "no radius-eligible witness yields a null local certificate rather than an unrestricted global fallback",
       "rectangular TV-DRO validates finite complete state/action/transition coordinates"
     ]
   },
@@ -86,6 +87,7 @@
     "decision-time longitudinal history leakage regression",
     "strict unknown/non-finite Gaussian coordinate regression",
     "local-vs-global approximation-error transport geometry regression",
+    "no radius-eligible witness returns no local certificate regression",
     "strict finite TV-DRO coordinate regression",
     "subprocess smoke",
     "host-bound coherent-suite promotion qualification",
@@ -109,6 +111,7 @@
     "Calibration reliability, cross-fitted estimates, Gaussian belief state, approximation envelopes, robust plans and deployment plans do not become Y1 authority by publication.",
     "Decision-time history validation prevents future/outcome look-ahead but does not prove causal identification assumptions.",
     "Unknown or non-finite model coordinates are rejected; validation does not prove that supplied finite coordinates are empirically correct.",
+    "A missing radius-eligible approximation witness remains a missing local certificate; an unrestricted global envelope cannot silently satisfy a declared locality constraint.",
     "Trusted PROMOTION.2 qualification is not GitHub administrative hardening.",
     "A tag or release does not authorize treatment execution, production secrets, infrastructure mutation or external package-index publication.",
     "Deployment.2 is external-control planning and receipt verification, not proof that production infrastructure was changed.",
