@@ -32,10 +32,11 @@ from .startup_health_protocol import STARTUP_HEALTH_RESOURCE,STARTUP_HEALTH_TOOL
 from .unified_manifest_protocol import UNIFIED_MANIFEST_RESOURCES,UNIFIED_MANIFEST_TOOLS
 from .surface_protocol import SURFACE_RESOURCE,SURFACE_TOOLS
 from .promotion_protocol import PROMOTION_RESOURCE,PROMOTION_TOOLS
-from .architecture_drift import MATURE_ORGANS
+from .coordination_inventory import mature_organs
 from .architecture_drift_protocol import ARCHITECTURE_DRIFT_RESOURCES,ARCHITECTURE_DRIFT_TOOLS
 
 SURFACE_VERSION='ATHENA.SURFACE.2'
+EFFECTIVE_MATURE_ORGANS=mature_organs()
 
 BASE_REQUIRED={
  'athena_register','athena_resolve','athena_search','athena_commit_delta','athena_ingest_text','athena_add_edge','athena_emit_agent_event',
@@ -49,12 +50,12 @@ def _names(tools):return {tool['name'] for tool in tools}
 
 def _organ_tools():
     out=set()
-    for organ in MATURE_ORGANS:out.update(str(name) for name in organ.get('tools') or [])
+    for organ in EFFECTIVE_MATURE_ORGANS:out.update(str(name) for name in organ.get('tools') or [])
     return out
 
 def _organ_resources():
     out=set()
-    for organ in MATURE_ORGANS:out.update(str(uri) for uri in organ.get('resources') or [])
+    for organ in EFFECTIVE_MATURE_ORGANS:out.update(str(uri) for uri in organ.get('resources') or [])
     return out
 
 REQUIRED_TOOLS={
@@ -95,7 +96,8 @@ def contract_manifest()->Dict[str,Any]:
         'version':SURFACE_VERSION,'required_tools':{k:sorted(v) for k,v in REQUIRED_TOOLS.items()},
         'required_resources':{k:sorted(v) for k,v in REQUIRED_RESOURCES.items()},
         'tool_count':len(_flatten(REQUIRED_TOOLS)),'resource_count':len(_flatten(REQUIRED_RESOURCES)),
-        'coordination_inventory_count':len(MATURE_ORGANS),
+        'coordination_inventory_count':len(EFFECTIVE_MATURE_ORGANS),
+        'coordination_party_reward_version':next(row['version'] for row in EFFECTIVE_MATURE_ORGANS if row['id']=='PARTY_REWARD_PROVENANCE_V3_2'),
         'law':'promoted unified runtime must preserve every mature base + Collective V1-V13 + AOR + FIELD/transport/CYCLE + state-foundation + startup/self-test + live-manifest + governance + explicitly inventoried coordination surface unless explicit versioned supersession/migration changes this contract',
     }
 
