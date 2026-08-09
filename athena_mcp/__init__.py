@@ -70,6 +70,14 @@ from .deployment_extension import install_deployment_extension
 
 install_deployment_extension()
 
+# CUTOVER-HOLD-001 binds the deployment plan, isolated-canary witness, supplied
+# single-writer quiescence observation, CAS base, snapshot, and opaque authority
+# reference into a replayable non-effectful packet. It deliberately stops before
+# any writer, state, secret, cluster, or traffic transition.
+from .deployment_cutover_extension import install_deployment_cutover_extension
+
+install_deployment_cutover_extension()
+
 # Collective V15 advances only the current release identity and calibrated
 # successor frontier. Deployment, Message Board, cohesion, party and prompt
 # organs remain separately typed and intact.
