@@ -71,6 +71,18 @@ def _tokens(path: str) -> set[str]:
     return {x for x in re.split(r"[^a-z0-9]+", p) if x}
 
 
+def _normalize_git_path(path: str) -> str:
+    """Normalize caller convenience prefixes without altering legal Git dot-paths."""
+    p = path.replace("\\", "/")
+    while p.startswith("./"):
+        p = p[2:]
+    if p.startswith("/"):
+        raise ValueError("Git project path must be repository-relative")
+    if p in {"", ".", ".."} or any(part == ".." for part in PurePosixPath(p).parts):
+        raise ValueError("Git project path must be a non-empty normalized repository-relative path")
+    return p
+
+
 def classify_row(path: str, kind: str = "blob") -> int:
     p = path.lower().replace("\\", "/")
     name = PurePosixPath(p).name
@@ -173,24 +185,28 @@ def _prefix_route(repo_key: str, path: str, kind: str) -> list[dict]:
 
 def _grid_neighbors(gid: int, wrap: bool) -> dict[str, int | None]:
     st = station(gid)
+
     def at(row: int, col: int):
         if wrap:
             row, col = ((row - 1) % 12) + 1, ((col - 1) % 12) + 1
         elif not (1 <= row <= 12 and 1 <= col <= 12):
             return None
         return 12 * (row - 1) + col
+
     return {"N": at(st.row - 1, st.col), "E": at(st.row, st.col + 1), "S": at(st.row + 1, st.col), "W": at(st.row, st.col - 1)}
 
 
 def _station_path(src_gid: int, dst_gid: int, wrap: bool = False) -> list[int]:
     src, dst = station(src_gid), station(dst_gid)
     r, c, out = src.row, src.col, [src_gid]
+
     def steps(a: int, b: int):
         direct = b - a
         if not wrap:
             return [1 if direct > 0 else -1] * abs(direct)
         forward, backward = direct % 12, (-direct) % 12
         return [1] * forward if forward <= backward else [-1] * backward
+
     for dr in steps(r, dst.row):
         r = ((r - 1 + dr) % 12) + 1 if wrap else r + dr
         out.append(12 * (r - 1) + c)
@@ -214,7 +230,7 @@ class NativeGitCoordinate:
 
 def project_coordinate(*, repo_key: str, ref: str, head: str, tree: str, path: str,
                        object_sha: str, git_type: str = "blob", mode: str = "100644") -> dict:
-    path = path.replace("\\", "/").lstrip("./")
+    path = _normalize_git_path(path)
     native = NativeGitCoordinate(repo_key, ref, head, tree, path, object_sha, git_type, mode)
     semantic, reference = semantic_station(path, git_type), reference_station(f"{repo_key}:{git_type}:{path}")
     fiber = _fiber(repo_key, path, git_type)
@@ -297,12 +313,13 @@ def compile_git_atlas(root: str | Path, ref: str = "HEAD", include_trees: bool =
         rec["navigation"]["station_population"] = len(by_station[sg])
         offsets[sg] += 1
 
+    repository = {
+        "repo_key": repo_key, "root_name": root.name, "ref": ref, "branch": branch,
+        "head": head, "tree": tree, "dirty": bool(_git(root, "status", "--porcelain").strip()),
+    }
     atlas = {
         "schema": SCHEMA, "status": "GENERATED",
-        "repository": {
-            "repo_key": repo_key, "root_name": root.name, "ref": ref, "branch": branch,
-            "head": head, "tree": tree, "dirty": bool(_git(root, "status", "--porcelain").strip()),
-        },
+        "repository": repository,
         "coordinate_system": {
             "host": "KC144 12x12 immutable station geometry",
             "project_chart": "PROJECT_KC144 = lifecycle_row x carrier_column",
@@ -330,8 +347,10 @@ def compile_git_atlas(root: str | Path, ref: str = "HEAD", include_trees: bool =
             "HEAD_CHANGE_INVALIDATES_VERSION_FIBER_UNTIL_RECOMPILE", "RETURN_MUST_END_AT_NATIVE_GIT_WITNESS",
         ],
     }
+    digest_repository = {k: repository[k] for k in ("repo_key", "ref", "head", "tree")}
+    atlas["atlas_digest_basis"] = "repo_key+ref+head+tree+native/project record identity; excludes checkout root, branch label and dirty worktree state"
     atlas["atlas_digest"] = digest({
-        "repository": atlas["repository"],
+        "repository": digest_repository,
         "records": [{"poid": r["poid"], "native": r["native"], "project_kc144": r["project_kc144"], "fiber": r["fiber"]} for r in records],
     }, 32)
     validate_atlas(atlas)
@@ -348,6 +367,12 @@ def mcp_surface_atlas(*, repo_key: str, head: str, server_name: str, tools: list
             rec = project_coordinate(repo_key=repo_key, ref="MCP_SURFACE", head=head, tree="VIRTUAL", path=path,
                                      object_sha=object_sha, git_type=f"mcp_{kind}", mode="virtual")
             rec["mcp"] = {"server": server_name, "kind": kind, "name": name, "definition_digest": object_sha}
+            rec["return"] = {
+                "uri": f"athena+mcp://{quote(server_name, safe='-._~')}/{kind}/{quote(name, safe='-._~')}?head={head}&definition={object_sha}",
+                "runtime_head": head,
+                "definition_digest": object_sha,
+                "law": "RETURN resolves to the head-qualified MCP surface definition; MCP virtual object is not a Git blob.",
+            }
             items.append(rec)
     items.sort(key=lambda r: (r["mcp"]["kind"], r["mcp"]["name"]))
     return {
