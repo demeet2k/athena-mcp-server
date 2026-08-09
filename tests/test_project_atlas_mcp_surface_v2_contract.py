@@ -25,7 +25,7 @@ class ProjectAtlasMcpSurfaceV2ContractTests(unittest.TestCase):
         self.assertEqual(c["schema"],"ATHENA.KC144.PROJECT_ATLAS.MCP_SURFACE.CONTRACT.v2")
         self.assertEqual(c["surface_version"],PROJECT_ATLAS_SURFACE_VERSION)
         self.assertEqual(c["status"],"CANDIDATE_CHILD_OF_UNMERGED_V1")
-        self.assertEqual(c["base_v1"]["head"],"fc376ffa76864f173049164db9206295b96ec85b")
+        self.assertEqual(c["base_v1"]["head"],"74f5ec07c2ac2ce41b661d19ea37e238ea219495")
         self.assertEqual(c["base_v1"]["pull_request"],295)
         self.assertEqual(c["integration"]["child_pull_request"],310)
         self.assertEqual(c["integration"]["qualification_only_pull_request"],311)
