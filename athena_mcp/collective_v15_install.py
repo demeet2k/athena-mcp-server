@@ -19,6 +19,16 @@ V15_LAWS=[
     'GAUSSIAN_LINEAR_CONTROL != GENERAL_BELIEF_MDP',
     'DECLARED_LIPSCHITZ_ERROR_ENVELOPE != EMPIRICAL_GLOBAL_ERROR_TRUTH',
     'RECTANGULAR_TV_ROBUST_MDP != GENERAL_MULTISTAGE_DRO',
+    'IDENTICAL_CALIBRATION_COORDINATE != MULTIPLE_FITTED_VALUES',
+    'DECISION_TIME_HISTORY != FULL_ROW_STATE',
+    'UNKNOWN_COEFFICIENT != ZERO_COEFFICIENT',
+    'NONFINITE_NUMERIC_STATE != MODEL_COORDINATE',
+    'GEOMETRIC_NEAREST_WITNESS != TIGHTEST_ERROR_ENVELOPE_WITNESS',
+    'GLOBAL_ENVELOPE != RADIUS_ELIGIBLE_LOCAL_CERTIFICATE',
+    'UNKNOWN_STATE_COORDINATE != UNUSED_METADATA',
+    'NONFINITE_TRANSITION != PROBABILITY_MODEL',
+    'STAGE2_PSEUDO_OUTCOME_PRESERVES_OBSERVED_A1_L1_BEFORE_STAGE1_INTERVENTION',
+    'ZERO_TEST_SELECTION != PROOF',
 ]
 
 
@@ -37,7 +47,7 @@ def install_release_v15(namespace: dict[str, Any]) -> None:
     server_info={
         'name':'athena-canonical-mcp',
         'version':V15_PACKAGE_VERSION,
-        'description':'Canonical KC144/JSPACE/SCALE developmental control with calibrated structural reliability, cross-fitted longitudinal causal estimation, continuous Gaussian joint belief, approximation-error transport, and bounded multistage robust control',
+        'description':'Canonical KC144/JSPACE/SCALE developmental control with calibrated structural reliability, history-safe cross-fitted longitudinal causal estimation, strict continuous Gaussian joint belief, approximation-error transport, and bounded multistage robust control',
     }
     namespace['SERVER_INFO']=server_info
     protocol.SERVER_INFO=dict(server_info)
@@ -73,7 +83,15 @@ def install_release_v15(namespace: dict[str, Any]) -> None:
                 layers.insert(insert_at,V15_LAYER)
             payload['layers']=layers
             organs=dict(payload.get('organs') or {})
-            organs['collective_v15']=_calibrated(server).describe()
+            organ=_calibrated(server).describe()
+            organ['audit_laws']=[law for law in V15_LAWS if law not in organ.get('laws',[])]
+            organ['history_membrane']={
+                'a1':'baseline only',
+                'a2':'baseline + A1 + L1 only',
+                'forbidden_future':['A2','Y'],
+            }
+            organ['numerical_membrane']='unknown coordinates and non-finite numeric state fail closed'
+            organs['collective_v15']=organ
             payload['organs']=organs
             cycle=str(payload.get('cycle','')).replace('COLLECTIVE(V1-V14)','COLLECTIVE(V1-V15)').replace('Collective(V1-V14)','Collective(V1-V15)')
             payload['cycle']=cycle
@@ -89,19 +107,27 @@ def install_release_v15(namespace: dict[str, Any]) -> None:
             for law in V15_LAWS:
                 if law not in invariants:invariants.append(law)
             payload['invariants']=invariants
-            payload['collective_calibrated']={'version':'COLLECTIVE_RUNTIME_V15','coordinate':V15_COORDINATE,'authority':'CALIBRATION_SCIENCE_TWIN_AND_PLAN_ONLY','laws':list(V15_LAWS)}
+            payload['collective_calibrated']={
+                'version':'COLLECTIVE_RUNTIME_V15',
+                'coordinate':V15_COORDINATE,
+                'authority':'CALIBRATION_SCIENCE_TWIN_AND_PLAN_ONLY',
+                'laws':list(V15_LAWS),
+                'decision_time_history':{'A1':'baseline','A2':'baseline+A1+L1'},
+                'error_transport_coordinates':['geometric_nearest','global_envelope','radius_eligible_local_certificate'],
+                'numeric_policy':'reject unknown or non-finite model coordinates',
+            }
             for unresolved in payload.get('unresolved') or []:
                 uid=unresolved.get('id')
-                if uid=='GENERAL_BELIEF_CONTROL':unresolved['v15_boundary']='exact finite-dimensional linear-Gaussian belief update plus linear-Gaussian action control; non-Gaussian/general continuous belief-MDP remains unresolved'
-                elif uid=='FORMAL_CAUSAL_DISCOVERY':unresolved['v15_boundary']='out-of-fold isotonic reliability calibration from externally labelled structural examples; calibrated causal graph posterior/full FCI-RFCI remains unresolved'
-                elif uid=='LONGITUDINAL_CAUSAL_POLICY':unresolved['v15_boundary']='cross-fitted bounded two-timepoint sequential logistic TMLE and sequential AIPW dynamic-policy value; arbitrary-horizon/general longitudinal theory remains unresolved'
-                elif uid=='STOCHASTIC_RESOURCE_CONTROL':unresolved['v15_boundary']='finite-horizon rectangular total-variation robust dynamic program; non-rectangular/general multistage stochastic-DRO control remains unresolved'
+                if uid=='GENERAL_BELIEF_CONTROL':unresolved['v15_boundary']='exact finite-dimensional linear-Gaussian belief update plus linear-Gaussian action control with strict declared-coordinate validation; non-Gaussian/general continuous belief-MDP remains unresolved'
+                elif uid=='FORMAL_CAUSAL_DISCOVERY':unresolved['v15_boundary']='weighted out-of-fold isotonic reliability calibration from externally labelled structural examples with duplicate-support pooling; calibrated causal graph posterior/full FCI-RFCI remains unresolved'
+                elif uid=='LONGITUDINAL_CAUSAL_POLICY':unresolved['v15_boundary']='history-safe cross-fitted bounded two-timepoint sequential logistic TMLE and sequential AIPW dynamic-policy value; arbitrary-horizon/general longitudinal theory remains unresolved'
+                elif uid=='STOCHASTIC_RESOURCE_CONTROL':unresolved['v15_boundary']='finite-horizon rectangular total-variation robust dynamic program with strict finite state/action/transition coordinates; non-rectangular/general multistage stochastic-DRO control remains unresolved'
             payload['braid_law']=str(payload.get('braid_law','')).replace('V1-V14','V1-V15')
             return payload
 
         def maxdev_law_v15():
             base=original_maxdev().replace('COLLECTIVE(V1-V14)','COLLECTIVE(V1-V15)').replace('Collective(V1-V14)','Collective(V1-V15)')
-            return base + '''\n\nV15 CALIBRATION LAW:\n- calibrate structural bootstrap support only against externally labelled correctness with out-of-fold reliability; calibrated reliability != causal graph posterior;\n- cross-fit two-timepoint sequential TMLE/AIPW nuisance and evaluation folds while preserving explicit causal assumptions and observed history ordering;\n- use exact multivariate-Gaussian conditioning only for declared linear-Gaussian observation models; Gaussian joint belief != general continuous Bayes;\n- rank linear actions under Gaussian moments/CVaR as PLAN_ONLY; action value != execution authority;\n- transport approximation error only through a declared Lipschitz envelope that is consistent with supplied witnesses; transport certificate remains assumption/domain scoped;\n- solve finite-horizon robust dynamic programs exactly only under supplied state-action rectangular total-variation ambiguity; rectangular TV-DRO != general multistage DRO;\n- never promote calibration curves, cross-fitted estimates, Gaussian posterior state, transported error bounds, or robust policies into observation/Y1/JSPACE/execution/trust state without a separately witnessed transition.\n'''
+            return base + '''\n\nV15 CALIBRATION LAW:\n- pool identical structural-support coordinates before weighted PAV; one semantic calibration coordinate cannot carry order-dependent duplicate fitted values;\n- calibrate structural bootstrap support only against externally labelled correctness with out-of-fold reliability; calibrated reliability != causal graph posterior;\n- cross-fit two-timepoint sequential TMLE/AIPW nuisance and evaluation folds while preserving explicit causal assumptions and observed history ordering; stage-1 policies may use baseline only and stage-2 policies may use baseline+A1+L1 only;\n- reject unknown Gaussian/state/action coordinates and non-finite model numbers instead of silently mapping them to zero or valid state;\n- use exact multivariate-Gaussian conditioning only for declared linear-Gaussian observation models; Gaussian joint belief != general continuous Bayes;\n- rank linear actions under Gaussian moments/CVaR as PLAN_ONLY; action value != execution authority;\n- keep geometric nearest witness, tightest global error envelope, and radius-eligible local transport certificate distinct;\n- transport approximation error only through a declared Lipschitz envelope that is consistent with supplied witnesses; transport certificate remains assumption/domain scoped;\n- solve finite-horizon robust dynamic programs exactly only under supplied state-action rectangular total-variation ambiguity with finite complete coordinate validation; rectangular TV-DRO != general multistage DRO;\n- zero selected tests are not proof even when a test command exits successfully;\n- never promote calibration curves, cross-fitted estimates, Gaussian posterior state, transported error bounds, or robust policies into observation/Y1/JSPACE/execution/trust state without a separately witnessed transition.\n'''
         um.build_unified_manifest=build_unified_manifest_v15
         um.maxdev_law=maxdev_law_v15
         um._athena_collective_v15_installed=True
@@ -149,7 +175,16 @@ def install_release_v15(namespace: dict[str, Any]) -> None:
         def read_resource_v15(self,uri):
             if uri==V15_RESOURCE['uri']:
                 from .collective_v6_protocol import CLAIM_NAMESPACE_LAW
-                return {'runtime':_calibrated(self.server).describe(),'claim_namespace':CLAIM_NAMESPACE_LAW,'boundary':'V15 reliability calibration, cross-fitted longitudinal estimates, Gaussian joint beliefs/actions, approximation-error transport and rectangular-TV robust plans are calibration/model/science/control state. They do not mutate Y1 authority, canonical JSPACE, empirical observations, execution history, or trusted promotion state by adjacency.'}
+                runtime=_calibrated(self.server).describe()
+                runtime['audit_laws']=[law for law in V15_LAWS if law not in runtime.get('laws',[])]
+                return {
+                    'runtime':runtime,
+                    'claim_namespace':CLAIM_NAMESPACE_LAW,
+                    'decision_time_history':{'A1':'baseline only','A2':'baseline + A1 + L1 only'},
+                    'error_transport_coordinates':['geometric_nearest','global_envelope','radius_eligible_local_certificate'],
+                    'numeric_policy':'unknown coordinates and non-finite model numbers fail closed',
+                    'boundary':'V15 reliability calibration, history-safe cross-fitted longitudinal estimates, strict Gaussian joint beliefs/actions, approximation-error transport and rectangular-TV robust plans are calibration/model/science/control state. They do not mutate Y1 authority, canonical JSPACE, empirical observations, execution history, or trusted promotion state by adjacency.'
+                }
             return original_read(self,uri)
         ris.RuntimeIntegritySurface.read_resource=read_resource_v15
         ris.RuntimeIntegritySurface._athena_collective_v15_installed=True
