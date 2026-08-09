@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import math
-import random
 from typing import Any, Mapping, Sequence
 
 from .collective_calibrated import _binary, _fold_assignment
@@ -60,17 +59,24 @@ def _isotonic_blocks_aggregated(examples: Sequence[Mapping[str, Any]]) -> list[d
 
 
 def _isotonic_step_predict(blocks: Sequence[Mapping[str, Any]], support: float) -> float:
-    """Right-continuous monotone step prediction with endpoint extension."""
+    """Right-continuous monotone step prediction with endpoint extension.
+
+    At an observed knot x_i the fitted value at x_i is used. Between successive
+    knots/blocks [x_i, x_{i+1}) the value from the most recent block is carried
+    forward. Values below/above the observed support use the first/last block.
+    """
     x = float(support)
     if not math.isfinite(x) or not 0.0 <= x <= 1.0:
         raise ValueError("supports to calibrate must be finite and lie in [0,1]")
     if not blocks:
         raise ValueError("calibration curve is empty")
-    selected = blocks[-1]
+    selected = blocks[0]
+    if x < float(selected["x_min"]) - 1e-15:
+        return max(0.0, min(1.0, float(selected["probability"])))
     for block in blocks:
-        selected = block
-        if x <= float(block["x_max"]) + 1e-15:
+        if x < float(block["x_min"]) - 1e-15:
             break
+        selected = block
     return max(0.0, min(1.0, float(selected["probability"])))
 
 
@@ -139,5 +145,5 @@ def structural_reliability_calibrate(
             "weight": round(float(block["weight"]), 10),
         } for block in final_curve],
         "calibrated_supports": targets,
-        "law": "identical support coordinates are pooled before weighted PAV, out-of-fold diagnostics use the same declared weights, and the final mapping is an explicit right-continuous monotone step function; empirical reliability calibration remains distinct from a causal graph posterior or JSPACE authority",
+        "law": "identical support coordinates are pooled before weighted PAV, out-of-fold diagnostics use the same declared weights, and the final mapping is an explicit right-continuous monotone step function carrying each fitted block forward until the next support knot; empirical reliability calibration remains distinct from a causal graph posterior or JSPACE authority",
     }
