@@ -1,18 +1,13 @@
 {
   "artifact": "ATHENA.NEXT.SCOUT.METABOLISM.6",
   "coordinate": "ATHENA.KC144::GITΩ::NEXT::SCOUT-METABOLISM::V6",
-  "purpose": "Bind completed staged-scout preparation results to immutable observed-cost receipts and calibrate future resource-cost priors from observed measurements only.",
+  "purpose": "Bind completed staged-scout preparation results to immutable observed-cost receipts, calibrate resource-cost priors from observations only, and feed those cost priors into a read-only calibrated economy without self-training benefit value.",
   "tools": [
     "athena_next_scout_receipt_record",
-    "athena_next_scout_calibrate"
+    "athena_next_scout_calibrate",
+    "athena_next_scout_calibrated_economy"
   ],
-  "measurement_coordinates": [
-    "tokens",
-    "minutes",
-    "tool_calls",
-    "coordination",
-    "git_risk"
-  ],
+  "measurement_coordinates": ["tokens", "minutes", "tool_calls", "coordination", "git_risk"],
   "receipt_preconditions": [
     "exact current pipeline state digest",
     "prep plan exists",
@@ -26,9 +21,18 @@
     "missing_measurement": "retain V5 prior",
     "benefit_prior_update": "FORBIDDEN_IN_V6"
   },
+  "closed_loop": {
+    "operator": "athena_next_scout_calibrated_economy",
+    "cost_profile": "V6 calibrated cost priors",
+    "benefit_profile": "unchanged V5 priors",
+    "allocation": "protected-budget Pareto routing only",
+    "mutation": false,
+    "claim": false
+  },
   "authority": {
     "receipt": "COST_CALIBRATION_ONLY",
     "calibration": "ROUTING_CALIBRATION_ONLY",
+    "calibrated_economy": "ROUTING_ONLY",
     "claim": false,
     "execution": false,
     "quest_completion": false,
@@ -43,6 +47,6 @@
     "OBSERVED_COST != TASK_VALUE",
     "COST_CALIBRATION != BENEFIT_CALIBRATION",
     "SCOUT_RECEIPT != EVIDENCE_PROMOTION",
-    "CALIBRATION != CLAIM_OR_EXECUTION_AUTHORITY"
+    "CALIBRATED_ECONOMY != CLAIM_OR_EXECUTION_AUTHORITY"
   ]
 }
