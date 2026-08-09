@@ -1,0 +1,70 @@
+{
+  "artifact": "ATHENA.F36.DERIVED.REPLAY.WITNESS.V1",
+  "role": "bounded formal witness for F36/GID079 typed derived-residue and replay-memory mechanics while preserving empirical-closure HOLD",
+  "parent_evidence_matrix_head": "d1d27b3f87d5d05e0a3bfe7c6ae1237f4430c746",
+  "gid": 79,
+  "carrier": "F36",
+  "constitutional_obligation": "DERIVED_SINGULARITY_AND_EMPIRICAL_CLOSURE",
+  "source_roots": {
+    "math": {"name":"f01_f37_math.txt","sha256":"71ef8e97a38adeda9c521e68238e4c8349f9b3e62dc412284f5f4d009921d4d5"},
+    "symmetry": {"name":"f01_f37_symmetries.txt","sha256":"80ce12eaffe541138ba3206077f9c854e5c9c9cdef010c97705eb59d16809d8c"}
+  },
+  "source_w36_shape": {
+    "carrier_tuple": ["D","Sigma","Ext","Sing"],
+    "required_mechanisms": [
+      "typed derived consistency check",
+      "singularity/failure residue",
+      "replay memory",
+      "reconstruction comparison"
+    ],
+    "empirical_closure": "REQUIRES_EXTERNAL_OBSERVATION_AND_IS_NOT_DISCHARGED_BY_THIS_FORMAL_WITNESS"
+  },
+  "formal_fixture": {
+    "packet_id": "F36.KTAIL.REPLAY.V1",
+    "state": [2,3,5],
+    "lineage": ["F33","F34","F35","F36"],
+    "chain_complex": {
+      "C2_dim": 1,
+      "C1_dim": 2,
+      "C0_dim": 1,
+      "d2": [[1],[-1]],
+      "d1": [[1,1]]
+    },
+    "expected": {
+      "chain_condition_zero": true,
+      "rank_d2": 1,
+      "rank_d1": 1,
+      "homology_dimensions": {"H2":0,"H1":0,"H0":0}
+    }
+  },
+  "success_condition": {
+    "source_manifest_preserves_F36_hold": true,
+    "chain_condition_verified": true,
+    "derived_dimensions_verified": true,
+    "typed_residue_packet_emitted": true,
+    "replay_memory_reconstructs_original_packet": true,
+    "broken_chain_condition_detected_as_singularity": true,
+    "replay_memory_corruption_detected": true,
+    "formal_ext_like_residuals_do_not_claim_Ext_theorem": true,
+    "empirical_closure_remains_hold": true
+  },
+  "standing_after_pass": {
+    "generic_derived_replay_mechanism": "PASS",
+    "evidence": "HOLD",
+    "constitutional_obligation": "PARTIALLY_DISCHARGED",
+    "remaining_obligations": [
+      "SOURCE_BOUND_DERIVED_CATEGORY_OR_SINGULARITY_WITNESS",
+      "EXTERNAL_EMPIRICAL_CLOSURE_WITNESS"
+    ],
+    "truth_claim": "NOT_ESTABLISHED",
+    "promotion_authority": false
+  },
+  "firewalls": [
+    "FINITE_CHAIN_COMPLEX_FIXTURE != GENERAL_DERIVED_CATEGORY_THEOREM",
+    "FORMAL_EXT_LIKE_RESIDUAL != EXT_FUNCTOR_COMPUTATION",
+    "SINGULARITY_FLAG != GEOMETRIC_SINGULARITY_THEOREM",
+    "REPLAY_MATCH != EMPIRICAL_CLOSURE",
+    "FORMAL_MECHANISM_PASS != EXTERNAL_OBSERVATION",
+    "F36_EVIDENCE_REMAINS_HOLD_UNTIL_SOURCE_BOUND_DERIVED_AND_EMPIRICAL_WITNESSES_EXIST"
+  ]
+}
