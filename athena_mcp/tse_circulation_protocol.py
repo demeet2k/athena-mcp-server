@@ -57,3 +57,24 @@ TSE_CIRCULATION_RESOURCE={
     'name':'ATHENA TSE Closed Helix Circulation V1',
     'mimeType':'application/json',
 }
+
+# COST-367: carry the existing scalar cost contract through the already-qualified
+# Re-Entry/Rehydration/Circulation path. The extension mutates no scheduler or
+# execution authority and keeps host/provider resource truth explicitly UNKNOWN.
+from .tse_cost_carrier import install_tse_cost_carrier_extension
+
+install_tse_cost_carrier_extension(TSE_CIRCULATION_TOOLS)
+
+# Harden the additive carrier after its wrappers are installed: storage markers
+# remain persisted but are not presented as semantic stop conditions, and report
+# aggregation refuses top-level mirrors that disagree with the digested basis.
+from .tse_cost_carrier_hardening import install_tse_cost_carrier_hardening
+
+install_tse_cost_carrier_hardening()
+
+# Runtime introspection is part of the current operational ABI. Cost wrappers
+# must preserve the exact underlying transaction signatures rather than expose
+# generic *args/**kwargs surfaces.
+from .tse_cost_carrier_signature_compat import install_tse_cost_carrier_signature_compat
+
+install_tse_cost_carrier_signature_compat()
