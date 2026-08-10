@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import inspect
 from pathlib import Path
 
+from athena_mcp.rehydration_loop import RehydrationLoopRuntime
 from athena_mcp.tse_cost_carrier import COST_CARRIER_VERSION, REENTRY_COST_MARKER, _normalize_cost
 from tests.test_tse_circulation import TseCirculationTests, _run, _write
 
@@ -26,6 +28,22 @@ class TseCostCarrierNormalizationTests(TseCirculationTests.__bases__[0]):
             with self.subTest(value=value):
                 with self.assertRaises(ValueError):
                     _normalize_cost(value)
+
+    def test_cost_wrapper_preserves_exact_rehydration_transaction_signatures(self):
+        start = inspect.signature(RehydrationLoopRuntime.start).parameters
+        for name in ("expected_git_head", "goal", "task", "stop_conditions"):
+            self.assertIn(name, start)
+        advance = inspect.signature(RehydrationLoopRuntime.advance).parameters
+        for name in (
+            "loop_id",
+            "expected_checkpoint_head",
+            "expected_state_digest",
+            "expected_prompt_digest",
+            "completion",
+        ):
+            self.assertIn(name, advance)
+        self.assertNotIn("args", start)
+        self.assertNotIn("kwargs", start)
 
 
 class TseCostCarrierCompleteTests(TseCirculationTests):
