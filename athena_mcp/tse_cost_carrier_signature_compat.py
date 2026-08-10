@@ -8,7 +8,7 @@ from .tse_circulation import TseCirculationRuntime
 from .tse_helix_integrity import TseHelixIntegrityRuntime
 from .tse_reentry import TseReentryRuntime
 
-SIGNATURE_COMPAT_VERSION = "TSE.COST.CARRIER.SIGNATURE.COMPAT.2"
+SIGNATURE_COMPAT_VERSION = "TSE.COST.CARRIER.SIGNATURE.COMPAT.3"
 
 
 def _explicit_signature(fn: Callable):
@@ -37,23 +37,13 @@ def _closure_callables(fn: Callable):
         except ValueError:
             continue
         if callable(value):
-            # Prefer transaction lineage cells over helpers when traversing a
-            # wrapper graph, but preserve deterministic fallback order.
             priority = 0 if "original" in name or "advance" in name or "start" in name else 1
             rows.append((priority, name, value))
     return [value for _, _, value in sorted(rows, key=lambda row: (row[0], row[1]))]
 
 
 def _find_explicit_transaction(fn: Callable, seen: set[int] | None = None):
-    """Walk a wrapper/closure graph until a real transaction signature is found.
-
-    ATHENA's older continuation extensions predate functools.wraps and therefore
-    form several nested generic *args/**kwargs membranes. A one-hop __wrapped__
-    assignment is insufficient for `advance`: the captured callable can itself
-    be generic. This walker follows both explicit __wrapped__ links and callable
-    closure cells, with cycle protection, until it reaches the underlying typed
-    transaction function.
-    """
+    """Walk wrapper and closure membranes to find an explicit transaction ABI."""
     seen = seen or set()
     identity = id(fn)
     if identity in seen:
@@ -77,22 +67,62 @@ def _find_explicit_transaction(fn: Callable, seen: set[int] | None = None):
     return None
 
 
-def _restore_signature(fn: Callable) -> bool:
+def _rehydration_advance_contract(
+    self,
+    *,
+    loop_id: str,
+    expected_checkpoint_head: str,
+    expected_state_digest: str,
+    expected_prompt_digest: str,
+    completion: dict,
+    actor: str = "agent",
+    allow_no_git_change: bool = False,
+    shared_remote_mode: str = "REQUIRED",
+    remote: str | None = None,
+) -> dict:
+    """Pinned ABI witness for the qualified RehydrationLoop V1 advance contract.
+
+    Older successor/terminal wrappers erased Python introspection metadata before
+    Cost Carrier existed, even though they continued to delegate this exact
+    keyword transaction contract. This function is never executed; it supplies
+    an explicit introspection coordinate when no surviving pre-extension wrapper
+    retains a recoverable signature.
+    """
+    raise RuntimeError("signature contract is introspection-only")
+
+
+PINNED_FALLBACK_SIGNATURES = {
+    (RehydrationLoopRuntime, "advance"): inspect.signature(
+        _rehydration_advance_contract, follow_wrapped=False
+    ),
+}
+
+
+def _restore_signature(cls, method_name: str) -> bool:
+    fn = getattr(cls, method_name)
     found = _find_explicit_transaction(fn)
-    if found is None:
+    if found is not None:
+        target, sig = found
+        fn.__signature__ = sig
+        fn.__wrapped__ = target
+        fn.__tse_signature_source__ = (
+            f"RECOVERED:{target.__module__}.{getattr(target, '__qualname__', target.__name__)}"
+        )
+        return True
+
+    fallback = PINNED_FALLBACK_SIGNATURES.get((cls, method_name))
+    if fallback is None:
         return False
-    target, sig = found
-    # __signature__ is an introspection coordinate only; runtime execution stays
-    # on the additive Cost Carrier wrapper. Preserve the deepest explicit source
-    # callable as provenance without routing calls around the wrapper.
-    fn.__signature__ = sig
-    fn.__wrapped__ = target
-    fn.__tse_signature_source__ = f"{target.__module__}.{getattr(target, '__qualname__', target.__name__)}"
+    # Introspection-only fallback: runtime calls still enter the current additive
+    # wrapper. The pinned signature is copied from the qualified RehydrationLoop
+    # V1 transaction contract and is regression-tested against the MCP surface.
+    fn.__signature__ = fallback
+    fn.__tse_signature_source__ = "PINNED:ATHENA.REHYDRATION.LOOP.V1.advance"
     return True
 
 
 def install_tse_cost_carrier_signature_compat() -> None:
-    if getattr(RehydrationLoopRuntime, "_athena_tse_cost_carrier_signature_compat_v2_registered", False):
+    if getattr(RehydrationLoopRuntime, "_athena_tse_cost_carrier_signature_compat_v3_registered", False):
         return
 
     targets = (
@@ -106,8 +136,7 @@ def install_tse_cost_carrier_signature_compat() -> None:
     )
     failures = []
     for cls, method_name in targets:
-        fn = getattr(cls, method_name)
-        if not _restore_signature(fn):
+        if not _restore_signature(cls, method_name):
             failures.append(f"{cls.__name__}.{method_name}")
 
     if failures:
@@ -115,3 +144,4 @@ def install_tse_cost_carrier_signature_compat() -> None:
 
     RehydrationLoopRuntime._athena_tse_cost_carrier_signature_compat_v1_registered = True
     RehydrationLoopRuntime._athena_tse_cost_carrier_signature_compat_v2_registered = True
+    RehydrationLoopRuntime._athena_tse_cost_carrier_signature_compat_v3_registered = True
