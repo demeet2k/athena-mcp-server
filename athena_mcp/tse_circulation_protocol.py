@@ -57,3 +57,10 @@ TSE_CIRCULATION_RESOURCE={
     'name':'ATHENA TSE Closed Helix Circulation V1',
     'mimeType':'application/json',
 }
+
+# COST-367: carry the existing scalar cost contract through the already-qualified
+# Re-Entry/Rehydration/Circulation path. The extension mutates no scheduler or
+# execution authority and keeps host/provider resource truth explicitly UNKNOWN.
+from .tse_cost_carrier import install_tse_cost_carrier_extension
+
+install_tse_cost_carrier_extension(TSE_CIRCULATION_TOOLS)
