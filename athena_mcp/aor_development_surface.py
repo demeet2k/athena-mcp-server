@@ -21,16 +21,18 @@ from .cycle import CYCLE_VERSION
 from .cycle_protocol import CYCLE_RESOURCE,CYCLE_TOOLS
 from .qhug_pareto_kernel_surface import QhugParetoKernelSurface,QHUG_PARETO_KERNEL_RESOURCE,QHUG_PARETO_KERNEL_TOOLS,QHUG_PARETO_KERNEL_TOOL_NAMES
 from .bionanomachine_surface import BionanomachineSurface,BIONANOMACHINE_RESOURCES,BIONANOMACHINE_TOOLS
+from .project_atlas_surface import ProjectAtlasSurface
+from .project_atlas_protocol import PROJECT_ATLAS_RESOURCE,PROJECT_ATLAS_TOOLS
 
 AOR_DEVELOPMENT_TOOLS=(
     list(EQUIVALENCE_TOOLS)+list(EXTRACTION_TOOLS)+list(RETRIEVAL_TOOLS)+list(HUG_TOOLS)+list(GAP_TOOLS)+
     list(FIELD_TOOLS)+list(AOR_COLLECTIVE_TRANSPORT_TOOLS)+list(INTEGRITY_TOOLS)+list(CYCLE_TOOLS)+list(QHUG_PARETO_KERNEL_TOOLS)+
-    list(BIONANOMACHINE_TOOLS)
+    list(BIONANOMACHINE_TOOLS)+list(PROJECT_ATLAS_TOOLS)
 )
 AOR_DEVELOPMENT_RESOURCES=(
     [EQUIVALENCE_RESOURCE,EXTRACTION_RESOURCE,RETRIEVAL_RESOURCE,HUG_RESOURCE,GAP_RESOURCE,FIELD_RESOURCE]+
     list(AOR_COLLECTIVE_TRANSPORT_RESOURCES)+list(INTEGRITY_RESOURCES)+[CYCLE_RESOURCE,QHUG_PARETO_KERNEL_RESOURCE]+
-    list(BIONANOMACHINE_RESOURCES)
+    list(BIONANOMACHINE_RESOURCES)+[PROJECT_ATLAS_RESOURCE]
 )
 AOR_DEVELOPMENT_TOOL_NAMES={tool['name'] for tool in AOR_DEVELOPMENT_TOOLS}
 AOR_DEVELOPMENT_RESOURCE_URIS={resource['uri'] for resource in AOR_DEVELOPMENT_RESOURCES}
@@ -42,7 +44,7 @@ class AorDevelopmentSurface:
     Constructor order is intentional:
       pure developmental ledgers -> FIELD -> typed AOR/Collective transport ->
       runtime integrity/state foundation -> resumable CYCLE -> QHUG Pareto kernel ->
-      bounded BNMK biological-mechanism operator library.
+      bounded BNMK biological-mechanism operator library -> read-only Project Atlas.
     RuntimeIntegritySurface receives this development surface explicitly, so it
     never depends on server.aor_development being assigned during construction.
     """
@@ -60,6 +62,7 @@ class AorDevelopmentSurface:
         self.cycle=OmegaCycleRuntime(server,self)
         self.qhug_pareto_kernel=QhugParetoKernelSurface()
         self.bionanomachine=BionanomachineSurface()
+        self.project_atlas=ProjectAtlasSurface(server)
 
     def _retrieval_eq_snapshot(self,args):
         if args.get('eq_snapshot') is not None:return dict(args['eq_snapshot'])
@@ -73,6 +76,8 @@ class AorDevelopmentSurface:
         if name=='athena_cycle_state':return True,self.cycle.get(args['cycle_id'])
         if name=='athena_cycle_replay':return True,self.cycle.replay(args['cycle_id'])
         if name=='athena_cycle_recent':return True,self.cycle.recent(args.get('limit',50))
+        handled,value=self.project_atlas.call_tool(name,args)
+        if handled:return True,value
         handled,value=self.bionanomachine.call_tool(name,args)
         if handled:return True,value
         handled,value=self.qhug_pareto_kernel.call_tool(name,args)
@@ -117,6 +122,7 @@ class AorDevelopmentSurface:
         return False,None
 
     def read_resource(self,uri:str):
+        if uri==PROJECT_ATLAS_RESOURCE['uri']:return self.project_atlas.read_resource(uri)
         if uri==CYCLE_RESOURCE['uri']:
             return {'version':CYCLE_VERSION,'benchmark':self.cycle.benchmark(),'phases':['HYDRATE','RECONSTRUCT','MEMORY','EXTRACT','RETRIEVE','HUG','GAP','FIELD','MEASURE','AOR','COLLECTIVE','EXECUTE','VERIFY','LEARN','SUCCESSOR','COMPLETE'],'law':'RECONSTRUCT uses canonical RECONRUN/OMEGA; semantic execution, missing measurement/authority/workers/tests and unresolved HUG semantics halt in typed WAITING_* states instead of being simulated','replay_boundary':'cycle replay verifies stored state plus deterministic child receipts; external execution/test truth is preserved as witness input, not re-simulated'}
         if uri in {resource['uri'] for resource in BIONANOMACHINE_RESOURCES}:return self.bionanomachine.read_resource(uri)
@@ -133,4 +139,4 @@ class AorDevelopmentSurface:
         raise KeyError(uri)
 
     def benchmark(self):
-        result={};result.update(self.equivalence.benchmark());result.update(self.extraction.benchmark());result.update(self.retrieval.benchmark());result.update(self.hug.benchmark());result.update(self.gap.benchmark());result.update(self.field.benchmark());result.update(self.transport.benchmark());result.update(self.integrity.benchmark());result.update(self.cycle.benchmark());result.update(self.qhug_pareto_kernel.benchmark());result.update(self.bionanomachine.benchmark());return result
+        result={};result.update(self.equivalence.benchmark());result.update(self.extraction.benchmark());result.update(self.retrieval.benchmark());result.update(self.hug.benchmark());result.update(self.gap.benchmark());result.update(self.field.benchmark());result.update(self.transport.benchmark());result.update(self.integrity.benchmark());result.update(self.cycle.benchmark());result.update(self.qhug_pareto_kernel.benchmark());result.update(self.bionanomachine.benchmark());result.update(self.project_atlas.benchmark());return result

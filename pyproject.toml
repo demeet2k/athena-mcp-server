@@ -11,6 +11,7 @@ dependencies = []
 
 [project.scripts]
 athena-mcp = "athena_mcp.server:main"
+athena-project-atlas = "athena_mcp.project_atlas:_main"
 
 [tool.setuptools.packages.find]
 include = ["athena_mcp*"]
