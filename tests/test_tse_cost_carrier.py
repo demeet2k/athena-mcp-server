@@ -1,9 +1,8 @@
 from __future__ import annotations
 
-import math
 from pathlib import Path
 
-from athena_mcp.tse_cost_carrier import COST_CARRIER_VERSION, _normalize_cost
+from athena_mcp.tse_cost_carrier import COST_CARRIER_VERSION, REENTRY_COST_MARKER, _normalize_cost
 from tests.test_tse_circulation import TseCirculationTests, _run, _write
 
 
@@ -71,6 +70,18 @@ class TseCostCarrierCompleteTests(TseCirculationTests):
         self.assertEqual("ACTIVE", result["status"], result)
         self.assertEqual(0, result["no_progress_count"])
         return result
+
+    def test_reentry_cost_is_persisted_but_not_presented_as_stop_semantics(self):
+        self.assertEqual({"known": True, "total": 0.2}, self.reentry_started["reentry_cost_carrier"])
+        prompt = self.reentry_started["rehydration"]["compiled_self_prompt"]
+        self.assertNotIn(REENTRY_COST_MARKER, prompt)
+        loop = self.server.aor_development.transport.tse_helix.reentry._loop_runtime()
+        state, _ = loop._read_state(self.loop_id)
+        markers = [
+            value for value in state.get("stop_conditions") or []
+            if isinstance(value, str) and value.startswith(REENTRY_COST_MARKER)
+        ]
+        self.assertEqual(1, len(markers))
 
     def test_complete_cost_sidecar_closes_structural_denominator(self):
         self.assertEqual({"known": True, "total": 0.2}, self.reentry_started["reentry_cost_carrier"])
