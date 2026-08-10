@@ -71,3 +71,10 @@ install_tse_cost_carrier_extension(TSE_CIRCULATION_TOOLS)
 from .tse_cost_carrier_hardening import install_tse_cost_carrier_hardening
 
 install_tse_cost_carrier_hardening()
+
+# Runtime introspection is part of the current operational ABI. Cost wrappers
+# must preserve the exact underlying transaction signatures rather than expose
+# generic *args/**kwargs surfaces.
+from .tse_cost_carrier_signature_compat import install_tse_cost_carrier_signature_compat
+
+install_tse_cost_carrier_signature_compat()
