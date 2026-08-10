@@ -53,6 +53,17 @@ class EphemeralCoordinationTests(unittest.TestCase):
         self.assertFalse(snapshot["product_exposure_proven"])
         self.assertEqual(snapshot["need_offer_index"][0]["aid"], "a")
 
+    def test_snapshot_consumes_cursor_without_turning_state_into_authority(self):
+        runtime, _ = self._runtime()
+        present = self._present(runtime, "a")
+        first = runtime.snapshot({"scope": "global", "cursor": 0, "freshness_bound_ms": 60000})
+        self.assertEqual(first["next_cursor"], present["cursor"])
+        self.assertTrue(first["changed_since_cursor"])
+        second = runtime.snapshot({"scope": "global", "cursor": first["next_cursor"], "freshness_bound_ms": 60000})
+        self.assertFalse(second["changed_since_cursor"])
+        self.assertFalse(second["replay_truncated"])
+        self.assertEqual(second["authority"], "NONE")
+
     def test_post_is_targeted_deduped_and_poll_is_cursor_bounded(self):
         runtime, _ = self._runtime()
         self._present(runtime, "a")
