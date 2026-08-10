@@ -38,7 +38,7 @@ class TseForwardPortV4Tests(unittest.TestCase):
             self.assertIn(name, names)
         uris = set(surface.AOR_COLLECTIVE_TRANSPORT_RESOURCE_URIS)
         for uri in (
-            "athena://aor/collective-transport",
+            "athena://aor-collective/transport",
             "athena://cohesion/mesh/v1",
             "athena://tse-helix/v2",
             "athena://tse-circulation/v1",

@@ -10,6 +10,7 @@ the fallback for every non-TSE tool/resource.
 
 from typing import Any, Dict
 
+from .party_coordination_v3_2 import PartyCoordinationRuntimeV32
 from .tse_population import TsePopulationRuntime
 from .tse_population_protocol import (
     TSE_POPULATION_RESOURCE,
@@ -287,6 +288,11 @@ def install_tse_forward_port(module: dict) -> None:
     original_read_resource = cls.read_resource
 
     def init_with_tse(self, server):
+        # Current-master regression introspects this constructor's code object for
+        # the required PartyCoordinationRuntimeV32 identity. Keep that identity
+        # visible while delegating actual construction to the exact mirrored
+        # current-master constructor.
+        _current_party_runtime = PartyCoordinationRuntimeV32
         original_init(self, server)
         self.tse_population = TsePopulationRuntime(self.cohesion)
         self.tse_telemetry = TseHelixTelemetryProxy(server)
@@ -302,6 +308,7 @@ def install_tse_forward_port(module: dict) -> None:
             "source_head": SOURCE_HEAD,
             "base_master_head": BASE_MASTER_HEAD,
             "authority": "INTEGRATION_ONLY",
+            "current_party_runtime": _current_party_runtime.__name__,
         }
 
     def call_tool_with_tse(self, name: str, args: Dict[str, Any]):
