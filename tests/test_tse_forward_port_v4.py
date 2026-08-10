@@ -52,15 +52,13 @@ class TseForwardPortV4Tests(unittest.TestCase):
         self.assertEqual(SOURCE_HEAD, manifest["source"]["qualified_head"])
         self.assertEqual(BASE_MASTER_HEAD, manifest["base"]["master_head"])
         self.assertEqual(FORWARD_PORT_VERSION, manifest["version"])
-        self.assertEqual(20, len(manifest["exact_copy_python"]))
+        self.assertEqual(17, len(manifest["exact_copy_python"]))
         self.assertEqual(6, len(manifest["exact_copy_specs"]))
         self.assertEqual(10, len(manifest["exact_copy_tests"]))
         self.assertEqual("HOLD", manifest["canonical_promotion"])
         self.assertEqual("UNKNOWN", manifest["behavioral_treatment_effect"])
 
     def test_adapter_declares_integration_only_authority(self):
-        # Constructor wiring is exercised deeply by the transplanted TSE suites;
-        # this test guards the forward-port membrane's authority ceiling itself.
         self.assertEqual("TSE.FORWARD.PORT.V4", FORWARD_PORT_VERSION)
         self.assertEqual("b486b221be92a141df1afa3e2d895c8cc0e0e1fb", SOURCE_HEAD)
         self.assertEqual("301547b1e2a798013482bab6af1df2ef59a8ee5b", BASE_MASTER_HEAD)
