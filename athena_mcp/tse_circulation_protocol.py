@@ -64,3 +64,10 @@ TSE_CIRCULATION_RESOURCE={
 from .tse_cost_carrier import install_tse_cost_carrier_extension
 
 install_tse_cost_carrier_extension(TSE_CIRCULATION_TOOLS)
+
+# Harden the additive carrier after its wrappers are installed: storage markers
+# remain persisted but are not presented as semantic stop conditions, and report
+# aggregation refuses top-level mirrors that disagree with the digested basis.
+from .tse_cost_carrier_hardening import install_tse_cost_carrier_hardening
+
+install_tse_cost_carrier_hardening()
