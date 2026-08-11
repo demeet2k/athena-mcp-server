@@ -1,0 +1,36 @@
+name: H6 CUT-02 Executable RED Witness
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - 'tests/red/test_h6_cut02_executable_red.py'
+      - 'scripts/h6_cut02_red_witness.py'
+      - 'spec/H6_CUT02_EXECUTABLE_RED_V1.json'
+      - '.github/workflows/h6-cut02-red.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  red-witness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile RED cartridge
+        run: python -m compileall -q tests/red/test_h6_cut02_executable_red.py scripts/h6_cut02_red_witness.py
+      - name: Observe six intended parent REDs
+        env:
+          PYTHONPATH: .
+        run: python scripts/h6_cut02_red_witness.py
+      - name: Upload RED receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: h6-cut02-red-receipt
+          path: h6_cut02_red_receipt.json
+          if-no-files-found: error
