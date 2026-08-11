@@ -1,0 +1,61 @@
+{
+  "artifact": "ATHENA.ORGANISM.ROOM.SPEC.V1",
+  "runtime_tool": "athena_organism_room",
+  "canonical_transport": "ATHENA.MESSAGE.BOARD.V1",
+  "canonical_root": "runtime/message_board/v1",
+  "issue_mirror": {
+    "repository": "demeet2k/Athena",
+    "issue": 555,
+    "standing": "ADVISORY_ONLY",
+    "law": "MIRROR_FAILURE_MUST_NOT_ROLL_BACK_CANONICAL_BOARD_EVENT"
+  },
+  "lifecycle": [
+    "FULL_PROMPT_HYDRATION",
+    "READ_ROOM",
+    "ENTER",
+    "WORK",
+    "HEARTBEAT_OR_DELTA",
+    "REOBSERVE_AND_REALLOCATE",
+    "SIGNOUT"
+  ],
+  "actions": ["read", "allocate", "enter", "work", "heartbeat", "delta", "need", "offer", "signout"],
+  "waves": {
+    "W0": {"name": "IMMEDIATE_DELIVERY", "prior": 0.5},
+    "W1": {"name": "MIDDLE_ENGINEERING", "prior": 0.3},
+    "W2": {"name": "RECURSIVE_META_OBSERVATION", "prior": 0.2}
+  },
+  "domains": {
+    "GIT": 0.2,
+    "MATH": 0.15,
+    "NAV": 0.15,
+    "CORPUS": 0.15,
+    "TOOLS": 0.1,
+    "ALCHEMY": 0.1,
+    "MYTH": 0.05,
+    "META": 0.1
+  },
+  "small_population": {
+    "1": "ROOT_GENERALIST_TIME_SLICES_W0_W1_W2",
+    "2": "ADD_MATH_NAV_LIMITS_EXPLORER",
+    "3": "ADD_CORPUS_MYTH_DISTILLER",
+    "4": "ADD_TOOLFORGE_ALCHEMIST",
+    "5": "ADD_HOMEOSTASIS_ADVERSARIAL_SCOUT",
+    "6+": "PRESSURE_REWEIGHTED_LARGEST_REMAINDER_WITH_POSITIVE_VALUE_GATE"
+  },
+  "lease": {
+    "minimum_seconds": 60,
+    "maximum_seconds": 86400,
+    "runtime_clock_owned": true,
+    "expiry_means": "STALE_NOT_COMPLETE",
+    "session_and_claim_fencing_required": true
+  },
+  "census": ["N_declared", "N_present", "N_execution_observed"],
+  "stop_classes": ["COMPLETED", "BLOCKED", "AUTHORITY_BOUNDARY", "CAPABILITY_BOUNDARY", "RESOURCE_BOUNDARY", "NO_POSITIVE_FRONTIER", "ABANDONED"],
+  "claim_ceiling": {
+    "presence": "LEASE_BACKED_COORDINATION_PRESENCE_ONLY",
+    "heartbeat": "LEASE_RENEWAL_NOT_PROGRESS_PROOF",
+    "delta": "ASSERTED_RESULT_UNTIL_READBACK",
+    "signout": "SESSION_TERMINAL_NOT_RESULT_PROOF",
+    "room": "NO_EXECUTION_EVIDENCE_OR_AUTHORITY_CREATED"
+  }
+}
