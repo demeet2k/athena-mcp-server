@@ -1,0 +1,45 @@
+{
+  "artifact": "ATHENA.H6.ROOT.RUNTIME.V1",
+  "role": "read-only constitutional facade over existing H01-H06 substrate",
+  "runtime_parent": "429a480a80eeefb9e2bff1ea3015adf571d76b0e",
+  "semantic_head": "f32eb817d48de73a0c591b0f7fb3561e4f08e7da",
+  "active_epoch": "EPOCH-B-EIGHT-BLOCK",
+  "new_stores": 0,
+  "new_scheduler": false,
+  "execution_authority": false,
+  "promotion_authority": false,
+  "operations": {
+    "H01": "identity_decide",
+    "H02": "projection_decide",
+    "H03": "route_propose",
+    "H04": "bridge_decide",
+    "H05": "evidence_decide",
+    "H06": "compile_query"
+  },
+  "firewalls": [
+    "COORDINATE != IDENTITY",
+    "HASH_PROJECTION != CONSTITUTIONAL_SEATING",
+    "ROUTE_PROPOSAL != EXECUTION_AUTHORITY",
+    "TRANSFORM_REGISTRATION != BRIDGE_ADMISSION",
+    "EVIDENCE_SUFFICIENCY != PROMOTION_AUTHORITY",
+    "H6_ADMISSION != EXECUTION_AUTHORITY",
+    "SEMANTIC_VID != GIT_HEAD != TOPOLOGY_VERSION != PROMPT_DIGEST",
+    "COUNTEREVIDENCE != SUPPORT",
+    "UNKNOWN != ZERO"
+  ],
+  "evidence_ceiling": {
+    "focused_tests": "MECHANISM_ONLY",
+    "repository_ci": "EXACT_HEAD_MECHANISM_QUALIFICATION_ONLY",
+    "cold_boot": "REQUIRED_BEFORE_H6_ROOT_CLOSED",
+    "behavioral_gain": "UNKNOWN",
+    "whole_crystal_completion": false
+  },
+  "successor_gates": [
+    "focused_green",
+    "full_repository_ci",
+    "current_master_comparison",
+    "integrated_h6_cold_boot",
+    "h6_root_closure_receipt",
+    "cell_closure_packet_compiler_handoff"
+  ]
+}
