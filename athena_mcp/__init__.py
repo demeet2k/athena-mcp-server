@@ -36,6 +36,40 @@ if not getattr(PromptRuntime, "_athena_message_board_v1_registered", False):
     PromptRuntime.call_tool = _prompt_call_with_message_board
     PromptRuntime._athena_message_board_v1_registered = True
 
+# ROOM-001: one fenced orchestration lifecycle over the existing Message Board.
+# This is deliberately not a second presence or claim transport.
+from .organism_room import (
+    ORGANISM_ROOM_TOOLS,
+    ORGANISM_ROOM_TOOL_NAMES,
+    OrganismRoomRuntime,
+)
+
+for _tool in ORGANISM_ROOM_TOOLS:
+    if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
+        PROMPT_RUNTIME_TOOLS.append(_tool)
+        PROMPT_RUNTIME_TOOL_NAMES.add(_tool["name"])
+    if not any(existing["name"] == _tool["name"] for existing in _protocol.TOOLS):
+        _protocol.TOOLS.append(_tool)
+
+if not getattr(PromptRuntime, "_athena_organism_room_v1_registered", False):
+    _prompt_call_without_organism_room = PromptRuntime.call_tool
+
+    def _prompt_call_with_organism_room(self, name, arguments):
+        if name in ORGANISM_ROOM_TOOL_NAMES:
+            runtime = getattr(self, "_organism_room_runtime_v1", None)
+            if runtime is None:
+                board = getattr(self, "_message_board_runtime_v1", None)
+                if board is None:
+                    board = MessageBoardRuntime(self.git)
+                    self._message_board_runtime_v1 = board
+                runtime = OrganismRoomRuntime(board)
+                self._organism_room_runtime_v1 = runtime
+            return runtime.call_tool(name, arguments)
+        return _prompt_call_without_organism_room(self, name, arguments)
+
+    PromptRuntime.call_tool = _prompt_call_with_organism_room
+    PromptRuntime._athena_organism_room_v1_registered = True
+
 # OBS-CONT-001: join existing Git-backed rehydration and coordination metabolism
 # into one read-only raw trace. Classification remains a downstream semantic act.
 from .continuation_raw_observer import (

@@ -1,0 +1,68 @@
+{
+  "artifact": "ATHENA.ORGANISM.ROOM.SPEC.V1",
+  "status": "EXECUTABLE_CANDIDATE",
+  "transport": {
+    "authority": "ATHENA.MESSAGE.BOARD.V1",
+    "root": "runtime/message_board/v1",
+    "second_presence_transport_forbidden": true
+  },
+  "lifecycle": [
+    "READ_CURRENT_HEAD_AND_PROMPT",
+    "ENTER_AND_SIGN_IN",
+    "CLAIM_EXACT_QUEST_ATTEMPT",
+    "HEARTBEAT",
+    "BUILD_EXECUTE_REPAIR_INTEGRATE",
+    "EXTERNAL_VERIFY",
+    "CONSUME_OR_CREATE_SUCCESSOR",
+    "SIGN_OUT"
+  ],
+  "waves": {
+    "IMMEDIATE": 50,
+    "MIDDLE": 30,
+    "RECURSIVE_META": 20
+  },
+  "population_targets": {
+    "BUILD_GIT": 20,
+    "INTEGRATE_META": 10,
+    "NAVIGATION": 15,
+    "TOOL_LIMITS": 10,
+    "ALCHEMY": 10,
+    "DRIVE_DISTILL": 15,
+    "MATH_MINE": 15,
+    "MYTH_MINE": 5,
+    "small_population_rule": "N<=3 uses builder-generalists that time-slice all three waves",
+    "empty_queue_rule": "idle lanes lend capacity; quotas never manufacture busywork"
+  },
+  "authority_invariants": [
+    "ONE_LIVE_SESSION_PER_AGENT_ID",
+    "EVERY_REENTRY_INCREMENTS_FENCE",
+    "OLD_SESSION_TOKEN_CANNOT_MUTATE_RECLAIMED_WORK",
+    "SERVER_TIME_ALONE_AUTHORIZES_LEASES",
+    "SAME_IDEMPOTENCY_KEY_DIFFERENT_COMMAND_IS_CONFLICT",
+    "IDEMPOTENCY_KEYS_ARE_HIGH_ENTROPY_AND_STORED_ONLY_AS_HOST_HMAC_SLOTS",
+    "BEARER_SESSION_TOKEN_IS_NEVER_PERSISTED_IN_GIT",
+    "CLAIMANT_SELF_HASH_IS_NOT_VERIFICATION",
+    "RECEIPT_BINDS_QUEST_ATTEMPT_SESSION_FENCE_HEAD_PROMPT_ACCEPTANCE_ARTIFACTS_EVALUATOR_OBSERVED_TIME_AND_RESULT",
+    "CLEAN_SIGN_OUT_REQUIRES_CLOSED_CLAIM",
+    "FORCED_SIGN_OUT_REQUEUES_OPEN_CLAIM",
+    "VERIFIED_RESIDUAL_ATOMICALLY_CREATES_SUCCESSOR",
+    "UNCONSUMED_SUCCESSOR_KEEPS_CAMPAIGN_NONTERMINAL"
+  ],
+  "fitness": {
+    "primary": "accepted useful state transitions / total work plus coordination cost",
+    "release_metrics": [
+      "durable_artifacts",
+      "successor_consumption_rate",
+      "builder_utilization",
+      "control_plane_to_work_ratio",
+      "human_interventions",
+      "recovery_latency"
+    ],
+    "test_count_is_not_utility": true
+  },
+  "authority_ceiling": {
+    "scheduler_ready": false,
+    "production_activation_requires_exact_head_ci_and_athena_pin_advance": true,
+    "external_receipt_keys_must_be_host_owned": true
+  }
+}
