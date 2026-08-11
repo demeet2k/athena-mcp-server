@@ -108,9 +108,17 @@ from .deployment_cutover_extension import install_deployment_cutover_extension
 
 install_deployment_cutover_extension()
 
+# SHSO-READONLY-001 exposes only the reconciled organism-pressure seam. The
+# current continuation raw observer above is preserved intact. This extension
+# can read/compute/advise only; it creates no scheduler, dispatch, execution,
+# morphology, prompt, Git, evidence-truth, or behavioral-gain authority.
+from .shso_readonly_extension import install_shso_readonly_extension
+
+install_shso_readonly_extension()
+
 # Collective V15 advances only the current release identity and calibrated
-# successor frontier. Deployment, Message Board, cohesion, party and prompt
-# organs remain separately typed and intact.
+# successor frontier. Deployment, SHSO read-only, continuation observer,
+# Message Board, cohesion, party and prompt organs remain separately typed.
 from .collective_v15_install import install_release_v15 as _install_release_v15
 
 _install_release_v15(globals())
