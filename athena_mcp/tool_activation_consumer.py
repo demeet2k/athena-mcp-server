@@ -18,9 +18,9 @@ class CanonicalToolActivationConsumer:
     """Execute one cycle-selected MCP tool and bind its observed result back into CYCLE.1.
 
     The consumer deliberately reuses the public JSON-RPC ``tools/call`` path instead of
-    calling implementation objects directly.  Therefore ordinary schema validation,
-    server dispatch and runtime-usage metering stay on the same canonical path as an
-    external MCP caller.
+    calling implementation objects directly. Therefore ordinary schema validation,
+    server dispatch and the dispatch layer's tool-specific metering policy stay on the
+    same canonical path as an external MCP caller.
 
     This module does not grant scheduler, promotion or external-attestation authority.
     Its witnesses mean only that this process observed the call/result/test sequence.
@@ -206,6 +206,7 @@ class CanonicalToolActivationConsumer:
 
         usage = self.server.collective_learning.budget_summary(scope="global", limit=500)
         usage_observed = tool_name in usage.get("tool_wall_time_s", {})
+        replay_reused = bool(replay_safe and replay_digest == result_digest)
         lifecycle = {
             "REGISTERED": True,
             "INSTALLED": True,
@@ -215,7 +216,7 @@ class CanonicalToolActivationConsumer:
             "RESULT_BOUND": at_test["state"]["artifacts"]["execution_receipt"].get("result_digest") == result_digest,
             "CONSUMED": at_test.get("phase") == "VERIFY",
             "WITNESSED": bool(done and done.get("status") == "COMPLETE"),
-            "REUSED": bool(replay_safe and replay_digest == result_digest and usage_observed),
+            "REUSED": replay_reused,
         }
         return {
             "version": "ATHENA.TOOL-ACTIVATION-CONSUMER.1",
@@ -232,6 +233,12 @@ class CanonicalToolActivationConsumer:
             "verification": verification,
             "replay_result_digest": replay_digest,
             "runtime_usage_observed": usage_observed,
+            "reuse_evidence": {
+                "requested": bool(replay_safe),
+                "stable_result_digest": replay_reused,
+                "runtime_usage_observed": usage_observed,
+                "law": "REPLAY_REUSE != RUNTIME_METERING; deterministic reuse is witnessed by result identity, while metering follows the dispatch layer's independent tool-specific policy",
+            },
             "lifecycle": lifecycle,
             "boundary": "local MCP execution/result/test/replay evidence only; no claim of external CI, hosted deployment, causal gain or promotion authority",
         }
