@@ -116,6 +116,12 @@ class ToolActivationConsumerTests(unittest.TestCase):
             replay_safe=replay_safe,
         )
 
+    def assert_witnessed_without_reuse(self, out):
+        for stage, reached in out["lifecycle"].items():
+            if stage != "REUSED":
+                self.assertTrue(reached, (stage, out["lifecycle"]))
+        self.assertFalse(out["lifecycle"]["REUSED"])
+
     def test_selected_qhug_tool_reaches_complete_lifecycle_and_safe_reuse(self):
         out = self.activate(
             TOOL_NAME,
@@ -150,10 +156,7 @@ class ToolActivationConsumerTests(unittest.TestCase):
                 "observation": "schema migration reached v2 and its built-in required table/column verification passed",
             },
         )
-        for stage, reached in migration["lifecycle"].items():
-            if stage != "REUSED":
-                self.assertTrue(reached, (stage, migration["lifecycle"]))
-        self.assertFalse(migration["lifecycle"]["REUSED"])
+        self.assert_witnessed_without_reuse(migration)
 
         schema_verify = self.activate(
             "athena_schema_verify",
@@ -187,16 +190,146 @@ class ToolActivationConsumerTests(unittest.TestCase):
                 "observation": "organism self-test passed surface/composition/schema/omega/replay gates and replayed the prior activation cycles",
             },
         )
-        for stage, reached in self_test["lifecycle"].items():
-            if stage != "REUSED":
-                self.assertTrue(reached, (stage, self_test["lifecycle"]))
-        self.assertFalse(self_test["lifecycle"]["REUSED"])
+        self.assert_witnessed_without_reuse(self_test)
         self.assertEqual(self_test["result"]["status"], "PASS")
         self.assertEqual(self_test["result"]["replay_failures"], [])
         self.assertGreaterEqual(self_test["result"]["replay_samples"]["cycle"]["checked"], 3)
         self.assertTrue(migration["runtime_usage_observed"])
         self.assertFalse(schema_verify["runtime_usage_observed"])
         self.assertFalse(self_test["runtime_usage_observed"])
+
+    def test_public_polycoordinate_derivation_chain_is_selected_consumed_and_reused(self):
+        semantic = {
+            "kind": "ARTIFACT",
+            "domain": "TOOL_ACTIVATION",
+            "verb": "WITNESS",
+            "object_name": "CANONICAL_TRANSFORM_CHAIN",
+            "method": "POLYCOORDINATE_CRYSTAL",
+            "input_contract": {"source": "object"},
+            "output_contract": {"coordinate": "object"},
+        }
+        crystal = self.activate(
+            "athena_crystallize_output",
+            {
+                "semantic": semantic,
+                "text": "Canonical transform activation witness.",
+                "native_locator": "task://tool-activation/coordinate-derivation",
+                "agent": "ACTIVATOR",
+                "task": "activate declared coordinate transforms",
+                "seq": 1,
+                "coordinates": {"ACTIVATION_COPY": {"status": "UNKNOWN", "family": "TEST"}},
+            },
+            task_ref="task://tool-activation/crystallize-transform-subject",
+            purpose="materialize a real crystal subject for the existing polycoordinate transform tools",
+            verify_result=lambda result: {
+                "passed": str(result.get("crystal_id", "")).startswith("CRYS.")
+                and result.get("manifest", {}).get("coordinates", {}).get("KC144", {}).get("status") == "RESOLVED",
+                "observation": "crystallization created an addressable subject with a resolved KC144 coordinate",
+            },
+        )
+        self.assert_witnessed_without_reuse(crystal)
+        oid = crystal["result"]["manifest"]["identity"]["OID"]
+
+        forward = self.activate(
+            "athena_register_transform",
+            {
+                "src_chart": "KC144",
+                "dst_chart": "ACTIVATION_COPY",
+                "status": "TESTED",
+                "mode": "ISOMORPHISM",
+                "program": {"op": "identity"},
+                "metric": {"type": "EXACT"},
+                "actor": "canonical-tool-activation-consumer",
+            },
+            task_ref="task://tool-activation/register-forward-transform",
+            purpose="register an already-supported safe declarative identity derivation from KC144 into the activation chart",
+            verify_result=lambda result: {
+                "passed": result.get("status") == "TESTED"
+                and result.get("mode") == "ISOMORPHISM"
+                and result.get("src_chart") == "KC144"
+                and result.get("dst_chart") == "ACTIVATION_COPY",
+                "observation": "forward transform is TESTED, derivational and bound to the intended chart pair",
+            },
+        )
+        self.assert_witnessed_without_reuse(forward)
+
+        derived = self.activate(
+            "athena_apply_transform",
+            {
+                "subject_id": oid,
+                "src_chart": "KC144",
+                "dst_chart": "ACTIVATION_COPY",
+                "persist": True,
+                "actor": "canonical-tool-activation-consumer",
+            },
+            task_ref="task://tool-activation/apply-forward-transform",
+            purpose="execute the declared transform over the crystal and persist its derived target coordinate",
+            verify_result=lambda result: {
+                "passed": result.get("status") == "DERIVED_NO_TARGET"
+                and result.get("comparison", {}).get("status") == "NO_RESOLVED_TARGET"
+                and result.get("result") is not None,
+                "observation": "the runtime derived a target value instead of substituting a lookup result",
+            },
+        )
+        self.assert_witnessed_without_reuse(derived)
+
+        inverse = self.activate(
+            "athena_register_transform",
+            {
+                "src_chart": "ACTIVATION_COPY",
+                "dst_chart": "KC144",
+                "status": "TESTED",
+                "mode": "ISOMORPHISM",
+                "program": {"op": "identity"},
+                "metric": {"type": "EXACT"},
+                "actor": "canonical-tool-activation-consumer",
+            },
+            task_ref="task://tool-activation/register-inverse-transform",
+            purpose="register the declared inverse derivation needed for a closed executable coordinate route",
+            verify_result=lambda result: {
+                "passed": result.get("status") == "TESTED"
+                and result.get("mode") == "ISOMORPHISM"
+                and result.get("src_chart") == "ACTIVATION_COPY"
+                and result.get("dst_chart") == "KC144",
+                "observation": "inverse transform is TESTED, derivational and bound to the intended chart pair",
+            },
+        )
+        self.assert_witnessed_without_reuse(inverse)
+
+        route = self.activate(
+            "athena_apply_transform_route",
+            {
+                "subject_id": oid,
+                "route": ["KC144", "ACTIVATION_COPY", "KC144"],
+                "actor": "canonical-tool-activation-consumer",
+            },
+            task_ref="task://tool-activation/execute-closed-transform-route",
+            purpose="execute the closed derivational route and measure rather than assume its holonomy defect",
+            verify_result=lambda result: {
+                "passed": result.get("all_derivational") is True
+                and result.get("holonomy", {}).get("metric") == 0.0
+                and all(step.get("mode") == "ISOMORPHISM" for step in result.get("steps", [])),
+                "observation": "closed route executed only derivational edges and measured zero holonomy defect",
+            },
+        )
+        self.assert_witnessed_without_reuse(route)
+
+        matrix = self.activate(
+            "athena_coordinate_matrix",
+            {"subject_id": oid},
+            task_ref="task://tool-activation/consume-transform-matrix",
+            purpose="consume the persisted derivations, execution history and holonomy through the public coordinate matrix",
+            verify_result=lambda result: {
+                "passed": result.get("derivation_coverage", 0) > 0
+                and any(obs.get("metric") == 0.0 for obs in result.get("holonomy_observations", []))
+                and len(result.get("recent_executions", [])) >= 2,
+                "observation": "coordinate matrix consumed nonzero derivation coverage, zero-defect holonomy and recorded executions",
+            },
+            replay_safe=True,
+        )
+        self.assertTrue(all(matrix["lifecycle"].values()), matrix["lifecycle"])
+        self.assertEqual(matrix["result_digest"], matrix["replay_result_digest"])
+        self.assertTrue(matrix["reuse_evidence"]["stable_result_digest"])
 
     def test_candidate_binding_mismatch_fails_before_execution(self):
         with self.assertRaises(ToolActivationError):
