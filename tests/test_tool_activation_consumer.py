@@ -128,6 +128,7 @@ class ToolActivationConsumerTests(unittest.TestCase):
         self.assertEqual(out["final_cycle"]["status"], "COMPLETE")
         self.assertTrue(all(out["lifecycle"].values()), out["lifecycle"])
         self.assertTrue(out["runtime_usage_observed"])
+        self.assertTrue(out["reuse_evidence"]["stable_result_digest"])
         self.assertEqual(out["result_digest"], out["replay_result_digest"])
         receipt = out["at_test"]["state"]["artifacts"]["execution_receipt"]
         self.assertEqual(receipt["tool_name"], TOOL_NAME)
@@ -169,6 +170,7 @@ class ToolActivationConsumerTests(unittest.TestCase):
             replay_safe=True,
         )
         self.assertTrue(all(schema_verify["lifecycle"].values()), schema_verify["lifecycle"])
+        self.assertTrue(schema_verify["reuse_evidence"]["stable_result_digest"])
         self.assertEqual(schema_verify["result_digest"], schema_verify["replay_result_digest"])
 
         self_test = self.activate(
@@ -193,8 +195,8 @@ class ToolActivationConsumerTests(unittest.TestCase):
         self.assertEqual(self_test["result"]["replay_failures"], [])
         self.assertGreaterEqual(self_test["result"]["replay_samples"]["cycle"]["checked"], 3)
         self.assertTrue(migration["runtime_usage_observed"])
-        self.assertTrue(schema_verify["runtime_usage_observed"])
-        self.assertTrue(self_test["runtime_usage_observed"])
+        self.assertFalse(schema_verify["runtime_usage_observed"])
+        self.assertFalse(self_test["runtime_usage_observed"])
 
     def test_candidate_binding_mismatch_fails_before_execution(self):
         with self.assertRaises(ToolActivationError):
