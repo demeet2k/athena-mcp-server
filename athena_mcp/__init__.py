@@ -149,3 +149,9 @@ install_liminal_beacon_mesh()
 from .liminal_beacon_shadow_extension import install_liminal_beacon_shadow
 
 install_liminal_beacon_shadow()
+
+# NEXUS-4D installs the durable bidirectional obligation/pressure control organ
+# after the current runtime extensions so it can audit the complete composed surface.
+from .nexus4d_extension import install_nexus4d_extension
+
+install_nexus4d_extension()
