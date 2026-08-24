@@ -1,12 +1,13 @@
 from __future__ import annotations
 
+import json
 import subprocess
 import tempfile
 import unittest
 from pathlib import Path
 
 from athena_mcp.git_backend import GitBackend
-from athena_mcp.message_board import MESSAGE_BOARD_TOOLS, MessageBoardRuntime
+from athena_mcp.message_board import AGENT_ROOT, MESSAGE_BOARD_TOOLS, MessageBoardRuntime
 from athena_mcp.message_board_endpoint_identity import (
     IDENTITY_ARTIFACT,
     endpoint_identity_digest,
@@ -198,6 +199,60 @@ class MessageBoardEndpointIdentityTests(unittest.TestCase):
         self.assertEqual(
             ack["ack_event"]["payload"]["message_id"],
             post["message_event"]["event_id"],
+        )
+
+    def test_stale_presence_contract_cannot_be_projected_as_current_binding(self):
+        a, b, _ = self._fixture()
+        runtime_a = self._runtime(a)
+        runtime_b = self._runtime(b)
+        source_identity = _identity("coord.synapse", "OID:coord.synapse")
+        target_identity = _identity("transport.mcp", "OID:transport.mcp")
+        self.assertEqual(
+            runtime_a.present(
+                agent_id="synapse-agent",
+                task="route typed synapse packet",
+                endpoint_identity=source_identity,
+            )["status"],
+            "PRESENT",
+        )
+        self.assertEqual(
+            runtime_b.present(
+                agent_id="mcp-agent",
+                task="consume typed synapse packet",
+                endpoint_identity=target_identity,
+            )["status"],
+            "PRESENT",
+        )
+
+        presence_path = b / AGENT_ROOT / "mcp-agent.json"
+        value = json.loads(presence_path.read_text(encoding="utf-8"))
+        value["synapse_contract_digest"] = "sha256:" + "0" * 64
+        presence_path.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        _run(b, "add", str(Path(AGENT_ROOT) / "mcp-agent.json"))
+        _run(b, "commit", "-m", "test stale endpoint contract")
+        _run(b, "push", "origin", "master")
+
+        post = runtime_a.post(
+            agent_id="synapse-agent",
+            message="typed-envelope",
+            message_kind="HANDOFF",
+            recipients=["mcp-agent"],
+        )
+        self.assertEqual(post["status"], "POSTED", post)
+        payload = post["message_event"]["payload"]
+        self.assertEqual(payload["recipient_endpoint_identity_digests"], {})
+        self.assertEqual(payload["stale_endpoint_contract_recipients"], ["mcp-agent"])
+        self.assertEqual(payload["synapse_contract_digest"], SYNAPSE_MCP_CONTRACT_DIGEST)
+
+        ack = runtime_b.ack(
+            agent_id="mcp-agent",
+            message_id=post["message_event"]["event_id"],
+        )
+        self.assertEqual(ack["status"], "ACKED", ack)
+        self.assertNotIn("actor_endpoint_identity_digest", ack["ack_event"]["payload"])
+        self.assertEqual(
+            ack["ack_event"]["payload"]["synapse_contract_digest"],
+            SYNAPSE_MCP_CONTRACT_DIGEST,
         )
 
     def test_existing_presence_cannot_silently_change_endpoint_identity(self):
