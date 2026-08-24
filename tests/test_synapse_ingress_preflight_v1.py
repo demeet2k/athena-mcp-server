@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import json
 from pathlib import Path
+import threading
 import unittest
 
 from athena_mcp.liminal_beacon_mesh import LiminalBeaconMeshRuntime
@@ -59,6 +60,66 @@ class SynapseIngressPreflightTests(unittest.TestCase):
         self.assertEqual("EXACT_SOURCE_CORRELATION", second["preflight"]["status"])
         self.assertEqual("EXACT_CORRELATION_REPLAY", second["source_correlation"]["status"])
         self.assertEqual("EXISTING_EPHEMERAL_COORDINATION_SIGNAL_REUSED_PROCESS_LOCAL", second["standing"])
+
+    def test_concurrent_exact_ingress_serializes_preflight_emit_record_to_one_packet(self):
+        server, mesh, runtime = self.runtime()
+        source = self.vector()
+        original_emit = mesh.emit
+        first_emit_entered = threading.Event()
+        release_first_emit = threading.Event()
+        delay_guard = threading.Lock()
+        delay_used = {"value": False}
+
+        def delayed_emit(**kwargs):
+            with delay_guard:
+                should_delay = not delay_used["value"]
+                if should_delay:
+                    delay_used["value"] = True
+            if should_delay:
+                first_emit_entered.set()
+                self.assertTrue(release_first_emit.wait(timeout=2.0))
+            return original_emit(**kwargs)
+
+        mesh.emit = delayed_emit
+        results = []
+        failures = []
+
+        def run_ingest():
+            try:
+                results.append(self.ingest(runtime, source))
+            except BaseException as exc:  # preserve worker assertion/timeout details
+                failures.append(exc)
+
+        first = threading.Thread(target=run_ingest, daemon=True)
+        second = threading.Thread(target=run_ingest, daemon=True)
+        first.start()
+        self.assertTrue(first_emit_entered.wait(timeout=2.0))
+        second.start()
+
+        # The second call must block on the mesh transaction lock before it can
+        # preflight or emit. No packet exists until the deliberately delayed
+        # first native emit is released.
+        second.join(timeout=0.05)
+        self.assertTrue(second.is_alive())
+        self.assertEqual(0, mesh.state()["packet_count"])
+
+        release_first_emit.set()
+        first.join(timeout=2.0)
+        second.join(timeout=2.0)
+        self.assertFalse(first.is_alive())
+        self.assertFalse(second.is_alive())
+        self.assertEqual([], failures)
+        self.assertEqual(2, len(results))
+        self.assertEqual(1, mesh.state()["packet_count"])
+
+        packet_ids = {row["emitted"]["packet"]["packet_id"] for row in results}
+        self.assertEqual(1, len(packet_ids))
+        statuses = sorted(row["emitted"]["status"] for row in results)
+        self.assertEqual(["ALREADY_EMITTED", "EMITTED"], statuses)
+        preflights = sorted(row["preflight"]["status"] for row in results)
+        self.assertEqual(["EXACT_SOURCE_CORRELATION", "UNOBSERVED_SOURCE_OCCURRENCE"], preflights)
+        self.assertEqual(1, sum(row["source_correlation"]["status"] == "EXACT_CORRELATION_REPLAY" for row in results))
+        self.assertEqual(1, sum(row["source_correlation"]["status"] == "CORRELATED_PROCESS_LOCAL" for row in results))
 
     def test_same_source_event_changed_body_holds_before_local_emit(self):
         server, mesh, runtime = self.runtime()
