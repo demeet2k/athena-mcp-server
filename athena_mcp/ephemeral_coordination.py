@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS ephemeral_receipts(packet_id TEXT NOT NULL,aid TEXT N
 CREATE TABLE IF NOT EXISTS ephemeral_events(cursor INTEGER PRIMARY KEY AUTOINCREMENT,event_type TEXT NOT NULL,subject_id TEXT NOT NULL,aid TEXT NOT NULL,payload_json TEXT NOT NULL,created_at REAL NOT NULL);
 '''
 
-def _strict(v,p="$\"):
+def _strict(v,p="$:"):
     if v is None or isinstance(v,(str,bool,int)):return v
     if isinstance(v,float):
         if not math.isfinite(v):raise ValueError(f"non-finite JSON number at {p}")
