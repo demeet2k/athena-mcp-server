@@ -128,8 +128,9 @@ del _install_continuation_raw_observer_manifest
 
 # LBM-001/1.1 is an additive candidate communication organ after the current
 # V15 + V3.4 + CUTOVER_HOLD + continuation-raw frontier. Automatic tool-crossing
-# sharing remains opt-in. Imported Beacon blobs are byte-identical to the
-# previously qualified V1.1 candidate.
+# sharing remains opt-in. The core Liminal Beacon routing engine is inherited;
+# this branch advances its identity treatment below, so it is no longer valid to
+# describe the entire imported Beacon stack as byte-identical to V1.1.
 from .liminal_beacon_mesh import LiminalBeaconMeshRuntime
 from .liminal_beacon_mesh_identity import install_liminal_beacon_identity
 from .liminal_beacon_mesh_backpressure_v11 import install_liminal_beacon_backpressure_v11
@@ -165,9 +166,9 @@ from .synapse_observer_extension import install_synapse_observer_extension
 install_synapse_observer()
 install_synapse_observer_extension()
 
-# LSH-001 remains a separately opt-in no-injection observer. It executes V1.1
-# only on disposable projections and returns telemetry on a separate read-only
-# surface; domain tool results remain unchanged.
+# LSH-001 remains a separately opt-in no-injection observer. It executes the
+# inherited liminal behavior only on disposable projections and returns telemetry
+# on a separate read-only surface; domain tool results remain unchanged.
 from .liminal_beacon_shadow_extension import install_liminal_beacon_shadow
 
 install_liminal_beacon_shadow()
