@@ -2,7 +2,11 @@ from __future__ import annotations
 
 import unittest
 
-from athena_mcp.liminal_synapse_return import ARTIFACT, install_liminal_synapse_return
+from athena_mcp.liminal_synapse_return import (
+    ARTIFACT,
+    BRIDGE_RECEIPT_REF_PREFIX,
+    install_liminal_synapse_return,
+)
 
 
 class FakeRuntime:
@@ -74,12 +78,20 @@ class LiminalSynapseReturnTests(unittest.TestCase):
         manifest = runtime.manifest()
         self.assertEqual(manifest["synapse_return"]["artifact"], ARTIFACT)
         self.assertFalse(manifest["synapse_return"]["cross_restart_deduplication"])
+        self.assertEqual(
+            manifest["synapse_return"]["synapse_projection_return_token_semantics"],
+            "DISTINCT_RETURN_ROUTE_RESOURCE",
+        )
+        self.assertIn(
+            "BRIDGE_RECEIPT_TOKEN != SYNAPSE_PROJECTION_RETURN_TOKEN",
+            manifest["synapse_return"]["laws"],
+        )
         self.assertIn(
             "BRIDGE_RETURN != DELIVERY != CONSUMPTION != INCORPORATION != PROPAGATION != OUTCOME_IMPROVEMENT",
             manifest["synapse_return"]["laws"],
         )
 
-    def test_same_live_packet_destination_bridges_once_and_returns_same_token(self):
+    def test_same_live_packet_destination_bridges_once_and_returns_same_receipt_token(self):
         runtime = self.runtime()
         first = runtime.bridge("LBM.packet", "MESSAGE_BOARD")
         second = runtime.bridge("LBM.packet", "MESSAGE_BOARD")
@@ -87,7 +99,9 @@ class LiminalSynapseReturnTests(unittest.TestCase):
         self.assertEqual(first["status"], "BRIDGED")
         self.assertEqual(second["status"], "ALREADY_BRIDGED")
         self.assertEqual(len(runtime.bridge_calls), 1)
-        self.assertEqual(first["return_token"], second["return_token"])
+        self.assertEqual(first["bridge_receipt_token"], second["bridge_receipt_token"])
+        self.assertNotIn("return_token", first)
+        self.assertNotIn("return_token", second)
         self.assertIn("message-board:MBE-1", first["durable_refs"])
         self.assertIn("git:abc123", first["durable_refs"])
 
@@ -123,12 +137,12 @@ class LiminalSynapseReturnTests(unittest.TestCase):
             propagation_refs=["event:E-22"],
         )
         self.assertEqual(result["receipt"]["propagation_refs"], ["event:E-22"])
-        self.assertEqual(result["synapse_return_refs"], ["event:E-22"])
+        self.assertEqual(result["propagation_witness_refs"], ["event:E-22"])
 
-    def test_real_synapse_return_can_be_explicit_propagation_ref(self):
+    def test_real_bridge_receipt_can_be_explicit_propagation_ref(self):
         runtime = self.runtime()
         bridged = runtime.bridge("LBM.packet", "MESSAGE_BOARD")
-        ref = f"synapse-return:{bridged['return_token']}"
+        ref = f"{BRIDGE_RECEIPT_REF_PREFIX}{bridged['bridge_receipt_token']}"
         result = runtime.receipt(
             "beta",
             "LBM.packet",
@@ -137,27 +151,40 @@ class LiminalSynapseReturnTests(unittest.TestCase):
         )
         self.assertEqual(result["receipt"]["propagation_refs"], [ref])
 
-    def test_fabricated_synapse_return_ref_holds(self):
+    def test_fabricated_bridge_receipt_ref_holds(self):
         runtime = self.runtime()
-        with self.assertRaisesRegex(ValueError, "PROPAGATION_RETURN_TOKEN_HOLD"):
+        with self.assertRaisesRegex(ValueError, "PROPAGATION_BRIDGE_RECEIPT_HOLD"):
             runtime.receipt(
                 "beta",
                 "LBM.packet",
                 "PROPAGATED",
-                propagation_refs=["synapse-return:LSR.fabricated"],
+                propagation_refs=[f"{BRIDGE_RECEIPT_REF_PREFIX}LSR.fabricated"],
             )
         self.assertEqual(runtime.receipt_calls, [])
 
-    def test_return_token_from_other_packet_cannot_witness_this_packet(self):
+    def test_bridge_receipt_token_from_other_packet_cannot_witness_this_packet(self):
         runtime = self.runtime()
         other = runtime.bridge("LBM.other", "MESSAGE_BOARD")
-        with self.assertRaisesRegex(ValueError, "PROPAGATION_RETURN_TOKEN_HOLD"):
+        with self.assertRaisesRegex(ValueError, "PROPAGATION_BRIDGE_RECEIPT_HOLD"):
             runtime.receipt(
                 "beta",
                 "LBM.packet",
                 "PROPAGATED",
-                propagation_refs=[f"synapse-return:{other['return_token']}"],
+                propagation_refs=[f"{BRIDGE_RECEIPT_REF_PREFIX}{other['bridge_receipt_token']}"],
             )
+
+    def test_synapse_style_return_route_is_not_mistaken_for_bridge_receipt(self):
+        runtime = self.runtime()
+        result = runtime.receipt(
+            "beta",
+            "LBM.packet",
+            "PROPAGATED",
+            propagation_refs=["athena://liminal/beacon-mesh"],
+        )
+        self.assertEqual(
+            result["propagation_witness_refs"],
+            ["athena://liminal/beacon-mesh"],
+        )
 
     def test_state_exposes_addressable_bridge_receipts(self):
         runtime = self.runtime()
@@ -167,7 +194,7 @@ class LiminalSynapseReturnTests(unittest.TestCase):
         self.assertEqual(state["synapse_return"]["bridge_receipt_count"], 1)
         self.assertEqual(
             state["synapse_return"]["bridge_receipts"][0]["bridge_receipt_id"],
-            bridge["return_token"],
+            bridge["bridge_receipt_token"],
         )
         self.assertFalse(state["synapse_return"]["cross_restart_deduplication"])
 
