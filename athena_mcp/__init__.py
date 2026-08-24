@@ -126,6 +126,14 @@ from .continuation_raw_observer_manifest import (
 _install_continuation_raw_observer_manifest(globals())
 del _install_continuation_raw_observer_manifest
 
+# EDE-001 closes the fast-plane MATERIAL_CANDIDATE -> durable Message Board seam
+# declared by EphemeralCoordinationRuntime. It reuses the existing SQLite
+# membrane and Message Board authority; escalation remains an explicit caller
+# action, never hidden background promotion.
+from .ephemeral_durable_bridge_extension import install_ephemeral_durable_bridge
+
+install_ephemeral_durable_bridge()
+
 # LBM-001/1.1 is an additive candidate communication organ after the current
 # V15 + V3.4 + CUTOVER_HOLD + continuation-raw frontier. Automatic tool-crossing
 # sharing remains opt-in. Imported Beacon blobs are byte-identical to the
