@@ -145,8 +145,8 @@ install_liminal_beacon_semantic_v11(LiminalBeaconMeshRuntime)
 install_liminal_beacon_mesh()
 
 # LSR-001 closes the liminal-to-durable causal return path without creating a
-# new authority plane: successful bridges gain idempotent return tokens and
-# PROPAGATED requires an addressable propagation witness.
+# new authority plane: successful bridges gain idempotent bridge-receipt tokens
+# and PROPAGATED requires an addressable propagation witness.
 from .liminal_synapse_return import install_liminal_synapse_return
 
 install_liminal_synapse_return(LiminalBeaconMeshRuntime)
@@ -157,9 +157,17 @@ from .liminal_gc import install_liminal_gc
 
 install_liminal_gc(LiminalBeaconMeshRuntime)
 
+# SYN-LBM-001 is the qualified cross-repository projection/ingress membrane from
+# PR #379, transplanted byte-for-byte except for this install composition. It
+# observes the repaired/guarded Liminal runtime and creates no second bus or
+# automatic foreign-ingress authority.
+from .synapse_liminal_extension import install_synapse_liminal_extension
+
+install_synapse_liminal_extension()
+
 # SYN-OBS-001 joins durable and ephemeral communication views without flattening
-# their different semantics. It is read-only and treats missing presence as
-# unobserved rather than absent.
+# their different semantics. It is read-only, detects the optional Synapse ABI,
+# and treats missing presence as unobserved rather than absent.
 from .synapse_observer import install_synapse_observer
 from .synapse_observer_extension import install_synapse_observer_extension
 
