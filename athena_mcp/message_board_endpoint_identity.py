@@ -104,6 +104,7 @@ def install_message_board_endpoint_identity(runtime_cls, tools=None) -> None:
         "ENDPOINT_IDENTITY_BINDING != SOURCE_AUTHORITY",
         "ACK_IDENTITY_MUST_MATCH_SEND_TIME_TARGET_IDENTITY_FOR_BOUND_ROUTE",
         "SYNAPSE_CONTRACT_DIGEST_MUST_MATCH_BEFORE_BINDING",
+        "STALE_PRESENCE_CONTRACT != CURRENT_ENDPOINT_BINDING",
     ):
         if law not in LAWS:
             LAWS.append(law)
@@ -145,6 +146,13 @@ def install_message_board_endpoint_identity(runtime_cls, tools=None) -> None:
             rewritten[rel] = text
         return original_commit_files(self, expected_head, rewritten, actor, message)
 
+    def _identity_is_current(row: Mapping[str, Any] | None) -> bool:
+        return bool(
+            row
+            and row.get("endpoint_identity_digest")
+            and row.get("synapse_contract_digest") == SYNAPSE_MCP_CONTRACT_DIGEST
+        )
+
     def _event_with_endpoint_identity(self, kind, agent_id, payload=None, recipients=None, reply_to=None):
         rel, event = original_event(
             self,
@@ -157,16 +165,24 @@ def install_message_board_endpoint_identity(runtime_cls, tools=None) -> None:
         active = self._active()
         by_agent = {str(row.get("agent_id")): row for row in active}
         actor = by_agent.get(str(agent_id))
-        actor_digest = actor.get("endpoint_identity_digest") if actor else None
         event_payload = dict(event.get("payload") or {})
-        if actor_digest:
-            event_payload["actor_endpoint_identity_digest"] = actor_digest
+        if _identity_is_current(actor):
+            event_payload["actor_endpoint_identity_digest"] = actor["endpoint_identity_digest"]
         if kind == "MESSAGE":
             event_payload["recipient_endpoint_identity_digests"] = {
                 str(recipient): by_agent[str(recipient)]["endpoint_identity_digest"]
                 for recipient in list(recipients or [])
-                if str(recipient) in by_agent and by_agent[str(recipient)].get("endpoint_identity_digest")
+                if str(recipient) in by_agent and _identity_is_current(by_agent[str(recipient)])
             }
+            stale = sorted(
+                str(recipient)
+                for recipient in list(recipients or [])
+                if str(recipient) in by_agent
+                and by_agent[str(recipient)].get("endpoint_identity_digest")
+                and not _identity_is_current(by_agent[str(recipient)])
+            )
+            if stale:
+                event_payload["stale_endpoint_contract_recipients"] = stale
         if kind in {"MESSAGE", "ACK"}:
             event_payload["synapse_contract_digest"] = SYNAPSE_MCP_CONTRACT_DIGEST
         event["payload"] = event_payload
