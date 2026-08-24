@@ -92,6 +92,40 @@ class SynapseObserverTests(unittest.TestCase):
         self.assertEqual(edge["agents"], ["alpha", "beta"])
         self.assertIn("object_refs:oid:shared", edge["shared_route_atoms"])
         self.assertEqual(edge["standing"], "TOPOLOGICAL_RENDEZVOUS_POTENTIAL_ONLY")
+        self.assertFalse(result["liminal_topology_metrics"]["truncated"])
+
+    def test_dense_topology_is_bounded_and_reports_exact_truncation(self):
+        rows = [
+            {"agent_id": f"agent-{index:02d}", "object_refs": ["oid:shared"]}
+            for index in range(30)
+        ]
+        result = build_synapse_map(
+            {"status": "OK", "shared_frontier_verified": True, "active": []},
+            {"active_presence": rows},
+            topology_edge_limit=25,
+        )
+        topology = result["liminal_topology_metrics"]
+        self.assertEqual(topology["candidate_edge_count"], 435)
+        self.assertEqual(topology["emitted_edge_count"], 25)
+        self.assertEqual(topology["truncated_edge_count"], 410)
+        self.assertTrue(topology["truncated"])
+        self.assertEqual(len(result["liminal_topology_edges"]), 25)
+
+    def test_topology_ranking_prefers_more_shared_atoms_deterministically(self):
+        rows = [
+            {"agent_id": "alpha", "object_refs": ["oid:x"], "semantic_tags": ["proof"]},
+            {"agent_id": "beta", "object_refs": ["oid:x"], "semantic_tags": ["proof"]},
+            {"agent_id": "gamma", "object_refs": ["oid:x"]},
+        ]
+        result = build_synapse_map(
+            {"status": "OK", "shared_frontier_verified": True, "active": []},
+            {"active_presence": rows},
+            topology_edge_limit=1,
+        )
+        edge = result["liminal_topology_edges"][0]
+        self.assertEqual(edge["agents"], ["alpha", "beta"])
+        self.assertEqual(edge["shared_route_atom_count"], 2)
+        self.assertTrue(result["liminal_topology_metrics"]["truncated"])
 
     def test_selected_unread_messages_are_not_globalized(self):
         board = {
