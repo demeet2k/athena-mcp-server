@@ -124,36 +124,44 @@ class SynapseLiminalRuntime:
             agent_id = str(arguments["agent_id"])
             envelope = arguments["envelope"]
             plan = synapse_to_liminal_ingress_plan(envelope, agent_id=agent_id)
-            preflight = ingress_source_preflight(self.server, envelope, agent_id=agent_id)
-            if preflight["status"] in {"SOURCE_EVENT_BODY_COLLISION_HOLD", "SOURCE_EVENT_MULTI_PACKET_HOLD"}:
-                raise ValueError(f"{preflight['status']}: foreign source cannot be emitted safely")
 
-            reused = preflight["status"] == "EXACT_SOURCE_CORRELATION"
-            if reused:
-                packet_id = str(preflight["local_packet_id"])
-                try:
-                    capsule = _read_packet_capsule(runtime, packet_id)
-                except ValueError as exc:
-                    raise ValueError(
-                        "INGRESS_CORRELATION_PACKET_MISSING_HOLD: exact source mapping exists but local packet is unavailable"
-                    ) from exc
-                emitted = {
-                    "status": "ALREADY_EMITTED",
-                    "packet": capsule,
-                    "idempotent": True,
-                    "durable_return": False,
-                    "law": "INGRESS_REPLAY_REUSES_PROCESS_LOCAL_PACKET",
-                }
-            else:
-                emitted = runtime.emit(**plan["emit_args"])
+            # The native mesh lock is an RLock and is already the authority for
+            # packet sequence/Lamport mutation. Hold that same lock across the
+            # source preflight, optional emit/reuse, and correlation record so
+            # two concurrent copies of one foreign occurrence cannot both see an
+            # empty correlation frontier and mint distinct local packet IDs.
+            with runtime._lock:
+                preflight = ingress_source_preflight(self.server, envelope, agent_id=agent_id)
+                if preflight["status"] in {"SOURCE_EVENT_BODY_COLLISION_HOLD", "SOURCE_EVENT_MULTI_PACKET_HOLD"}:
+                    raise ValueError(f"{preflight['status']}: foreign source cannot be emitted safely")
 
-            correlation = record_ingress_correlation(
-                self.server,
-                envelope,
-                emitted,
-                agent_id=agent_id,
-                observed_at=_observed_at(),
-            )
+                reused = preflight["status"] == "EXACT_SOURCE_CORRELATION"
+                if reused:
+                    packet_id = str(preflight["local_packet_id"])
+                    try:
+                        capsule = _read_packet_capsule(runtime, packet_id)
+                    except ValueError as exc:
+                        raise ValueError(
+                            "INGRESS_CORRELATION_PACKET_MISSING_HOLD: exact source mapping exists but local packet is unavailable"
+                        ) from exc
+                    emitted = {
+                        "status": "ALREADY_EMITTED",
+                        "packet": capsule,
+                        "idempotent": True,
+                        "durable_return": False,
+                        "law": "INGRESS_REPLAY_REUSES_PROCESS_LOCAL_PACKET",
+                    }
+                else:
+                    emitted = runtime.emit(**plan["emit_args"])
+
+                correlation = record_ingress_correlation(
+                    self.server,
+                    envelope,
+                    emitted,
+                    agent_id=agent_id,
+                    observed_at=_observed_at(),
+                )
+
             return {
                 "status": "SYNAPSE_INGESTED_TO_LIMINAL",
                 "source_event_id": plan["source_event_id"],
@@ -175,6 +183,7 @@ class SynapseLiminalRuntime:
                     "INGEST != EXECUTION_AUTHORITY",
                     "PROCESS_LOCAL_CORRELATION != DURABLE_CAUSAL_PROOF",
                     "SAME_SOURCE_EVENT_DIFFERENT_BODY => HOLD_BEFORE_LOCAL_EMIT",
+                    "PREFLIGHT + LOCAL_EMIT_OR_REUSE + CORRELATION_RECORD = ONE_MESH_LOCK_TRANSACTION",
                 ],
             }
 
