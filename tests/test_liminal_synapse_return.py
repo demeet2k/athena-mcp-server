@@ -10,6 +10,7 @@ class FakeRuntime:
         self._packets = {
             "LBM.packet": {"message_class": "RESULT"},
             "LBM.need": {"message_class": "NEED"},
+            "LBM.other": {"message_class": "RESULT"},
         }
         self.bridge_calls = []
         self.receipt_calls = []
@@ -74,7 +75,7 @@ class LiminalSynapseReturnTests(unittest.TestCase):
         self.assertEqual(manifest["synapse_return"]["artifact"], ARTIFACT)
         self.assertFalse(manifest["synapse_return"]["cross_restart_deduplication"])
         self.assertIn(
-            "BRIDGE_RETURN != DELIVERY != CONSUMPTION != INCORPORATION != OUTCOME_IMPROVEMENT",
+            "BRIDGE_RETURN != DELIVERY != CONSUMPTION != INCORPORATION != PROPAGATION != OUTCOME_IMPROVEMENT",
             manifest["synapse_return"]["laws"],
         )
 
@@ -86,7 +87,7 @@ class LiminalSynapseReturnTests(unittest.TestCase):
         self.assertEqual(first["status"], "BRIDGED")
         self.assertEqual(second["status"], "ALREADY_BRIDGED")
         self.assertEqual(len(runtime.bridge_calls), 1)
-        self.assertEqual(first["return_token"], second["bridge_receipt"]["bridge_receipt_id"])
+        self.assertEqual(first["return_token"], second["return_token"])
         self.assertIn("message-board:MBE-1", first["durable_refs"])
         self.assertIn("git:abc123", first["durable_refs"])
 
@@ -106,13 +107,14 @@ class LiminalSynapseReturnTests(unittest.TestCase):
         runtime.bridge("LBM.packet", "MESSAGE_BOARD", remote="backup")
         self.assertEqual(len(runtime.bridge_calls), 2)
 
-    def test_propagated_without_any_witness_holds(self):
+    def test_propagated_without_explicit_witness_holds_even_after_bridge(self):
         runtime = self.runtime()
+        runtime.bridge("LBM.packet", "MESSAGE_BOARD")
         with self.assertRaisesRegex(ValueError, "PROPAGATION_EVIDENCE_HOLD"):
             runtime.receipt("beta", "LBM.packet", "PROPAGATED")
         self.assertEqual(runtime.receipt_calls, [])
 
-    def test_explicit_propagation_ref_allows_propagated(self):
+    def test_explicit_external_propagation_ref_allows_propagated(self):
         runtime = self.runtime()
         result = runtime.receipt(
             "beta",
@@ -123,13 +125,39 @@ class LiminalSynapseReturnTests(unittest.TestCase):
         self.assertEqual(result["receipt"]["propagation_refs"], ["event:E-22"])
         self.assertEqual(result["synapse_return_refs"], ["event:E-22"])
 
-    def test_successful_bridge_return_can_supply_propagation_witness(self):
+    def test_real_synapse_return_can_be_explicit_propagation_ref(self):
         runtime = self.runtime()
         bridged = runtime.bridge("LBM.packet", "MESSAGE_BOARD")
-        result = runtime.receipt("beta", "LBM.packet", "PROPAGATED")
+        ref = f"synapse-return:{bridged['return_token']}"
+        result = runtime.receipt(
+            "beta",
+            "LBM.packet",
+            "PROPAGATED",
+            propagation_refs=[ref],
+        )
+        self.assertEqual(result["receipt"]["propagation_refs"], [ref])
 
-        refs = result["receipt"]["propagation_refs"]
-        self.assertEqual(refs, [f"synapse-return:{bridged['return_token']}"])
+    def test_fabricated_synapse_return_ref_holds(self):
+        runtime = self.runtime()
+        with self.assertRaisesRegex(ValueError, "PROPAGATION_RETURN_TOKEN_HOLD"):
+            runtime.receipt(
+                "beta",
+                "LBM.packet",
+                "PROPAGATED",
+                propagation_refs=["synapse-return:LSR.fabricated"],
+            )
+        self.assertEqual(runtime.receipt_calls, [])
+
+    def test_return_token_from_other_packet_cannot_witness_this_packet(self):
+        runtime = self.runtime()
+        other = runtime.bridge("LBM.other", "MESSAGE_BOARD")
+        with self.assertRaisesRegex(ValueError, "PROPAGATION_RETURN_TOKEN_HOLD"):
+            runtime.receipt(
+                "beta",
+                "LBM.packet",
+                "PROPAGATED",
+                propagation_refs=[f"synapse-return:{other['return_token']}"],
+            )
 
     def test_state_exposes_addressable_bridge_receipts(self):
         runtime = self.runtime()
