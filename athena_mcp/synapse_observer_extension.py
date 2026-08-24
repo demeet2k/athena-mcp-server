@@ -19,7 +19,7 @@ RESOURCE = {
     "mimeType": "application/json",
 }
 MANIFEST_MARKER = "SYNAPSE_OBSERVER_V1_READ_ONLY_CROSS_PLANE"
-EXPECTED_SYNapse_SCHEMA = "ATHENA.SYNAPSE.ENVELOPE.V1"
+EXPECTED_SYNAPSE_SCHEMA = "ATHENA.SYNAPSE.ENVELOPE.V1"
 
 
 def _runtime(server):
@@ -38,7 +38,7 @@ def _synapse_abi_status() -> dict:
     except ModuleNotFoundError as exc:
         if exc.name == "athena_mcp.synapse_liminal_adapter":
             return {
-                "expected_schema": EXPECTED_SYNapse_SCHEMA,
+                "expected_schema": EXPECTED_SYNAPSE_SCHEMA,
                 "adapter_installed": False,
                 "standing": "OPTIONAL_COMPANION_UNOBSERVED",
                 "law": "OBSERVER_INTERNALS != CROSS_REPOSITORY_ENVELOPE_ABI",
@@ -47,13 +47,13 @@ def _synapse_abi_status() -> dict:
 
     schema = getattr(adapter, "SYNAPSE_SCHEMA", None)
     return {
-        "expected_schema": EXPECTED_SYNapse_SCHEMA,
+        "expected_schema": EXPECTED_SYNAPSE_SCHEMA,
         "adapter_installed": True,
         "observed_schema": schema,
         "packet_profile": getattr(adapter, "PACKET_PROFILE", None),
         "receipt_profile": getattr(adapter, "RECEIPT_PROFILE", None),
-        "schema_match": schema == EXPECTED_SYNapse_SCHEMA,
-        "standing": "COMPANION_SCHEMA_MATCH" if schema == EXPECTED_SYNapse_SCHEMA else "COMPANION_SCHEMA_MISMATCH_HOLD",
+        "schema_match": schema == EXPECTED_SYNAPSE_SCHEMA,
+        "standing": "COMPANION_SCHEMA_MATCH" if schema == EXPECTED_SYNAPSE_SCHEMA else "COMPANION_SCHEMA_MISMATCH_HOLD",
         "law": "BRIDGE_RECEIPT_TOKEN != SYNAPSE_PROJECTION_RETURN_TOKEN",
     }
 
@@ -147,7 +147,7 @@ def install_synapse_observer_extension() -> None:
 __all__ = [
     "RESOURCE",
     "MANIFEST_MARKER",
-    "EXPECTED_SYNapse_SCHEMA",
+    "EXPECTED_SYNAPSE_SCHEMA",
     "_synapse_abi_status",
     "install_synapse_observer_extension",
 ]
