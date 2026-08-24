@@ -30,20 +30,29 @@ def install_liminal_beacon_identity(runtime_cls) -> None:
         session_epoch=None,
         **kwargs,
     ):
+        # Expiry is an identity boundary, not merely a routing-score change.
+        # Prune first so a later touch cannot silently inherit an expired epoch.
+        self._prune()
         existing = self._presence.get(str(agent_id or "").strip()) or {}
-        prior_instance = str(existing.get("instance_id") or "")
+        active_existing = existing if existing.get("liveness") == "ACTIVE" else {}
+        prior_instance = str(active_existing.get("instance_id") or "")
         supplied_instance = str(instance_id).strip() if instance_id else ""
 
         if session_epoch is None:
-            if existing and supplied_instance and prior_instance and supplied_instance != prior_instance:
+            if existing and not active_existing:
+                # A lease gap destroys continuity evidence. The next touch gets a
+                # new local epoch even if the caller reuses the same agent id.
+                session_epoch = "LBEPOCH." + uuid.uuid4().hex
+            elif active_existing and supplied_instance and prior_instance and supplied_instance != prior_instance:
                 # An exposed instance rebind is an epoch boundary even inside the
                 # same server process. It receives a new local epoch namespace.
                 session_epoch = "LBEPOCH." + uuid.uuid4().hex
             else:
-                session_epoch = existing.get("session_epoch") or self._liminal_runtime_epoch
+                session_epoch = active_existing.get("session_epoch") or self._liminal_runtime_epoch
 
         if instance_id is None:
-            instance_id = existing.get("instance_id") or "UNWITNESSED"
+            # Do not inherit an expired process-instance witness across a lease gap.
+            instance_id = active_existing.get("instance_id") or "UNWITNESSED"
 
         result = previous_touch(
             self,
@@ -55,7 +64,7 @@ def install_liminal_beacon_identity(runtime_cls) -> None:
         result["identity_standing"] = (
             "EXPLICIT_INSTANCE_WITNESS" if str(instance_id) != "UNWITNESSED" else "PROCESS_INSTANCE_UNKNOWN"
         )
-        result["epoch_law"] = "RESTART_OR_REBIND_REQUIRES_NEW_SENDER_EPOCH_NAMESPACE"
+        result["epoch_law"] = "RESTART_REBIND_OR_LEASE_GAP_REQUIRES_NEW_SENDER_EPOCH_NAMESPACE"
         return result
 
     runtime_cls.__init__ = init_with_runtime_epoch
