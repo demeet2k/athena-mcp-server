@@ -1,15 +1,16 @@
 from __future__ import annotations
 
-import hashlib,json,threading,time
+import hashlib,json,math,threading,time
 from typing import Any,Mapping
 
-VERSION="ATHENA.EPHEMERAL.COORDINATION.MEMBRANE.V0"
+VERSION="ATHENA.EPHEMERAL.COORDINATION.MEMBRANE.V0.1"
 RECEIPT_STAGES=("DELIVERED","PRESENTED","CONSUMED","INCORPORATED","DECISION_CHANGED")
 RECEIPT_RANK={x:i for i,x in enumerate(RECEIPT_STAGES,1)}
 DELIVERY_CLASSES=("RENDEZVOUS","NEED_OFFER","NUDGE","BLOCKER","MATERIAL_CANDIDATE")
+DEFAULT_MAX_INLINE_PAYLOAD_BYTES=16384
 SCHEMA='''
 CREATE TABLE IF NOT EXISTS ephemeral_presence(aid TEXT PRIMARY KEY,presence_id TEXT NOT NULL,epoch TEXT NOT NULL,capabilities_json TEXT NOT NULL,need_offer_summary_json TEXT NOT NULL,lamport INTEGER NOT NULL,causal_parents_json TEXT NOT NULL,source_digest TEXT NOT NULL,accepted_at REAL NOT NULL,expires_at REAL NOT NULL,cursor INTEGER NOT NULL);
-CREATE TABLE IF NOT EXISTS ephemeral_packets(packet_id TEXT PRIMARY KEY,sender_aid TEXT NOT NULL,delivery_class TEXT NOT NULL,salience REAL NOT NULL,ttl_ms INTEGER NOT NULL,packet_digest_or_ref TEXT NOT NULL,lamport INTEGER NOT NULL,causal_parents_json TEXT NOT NULL,coalesce_key TEXT NOT NULL,created_at REAL NOT NULL,expires_at REAL NOT NULL);
+CREATE TABLE IF NOT EXISTS ephemeral_packets(packet_id TEXT PRIMARY KEY,sender_aid TEXT NOT NULL,delivery_class TEXT NOT NULL,salience REAL NOT NULL,ttl_ms INTEGER NOT NULL,packet_digest_or_ref TEXT NOT NULL,lamport INTEGER NOT NULL,causal_parents_json TEXT NOT NULL,coalesce_key TEXT NOT NULL,created_at REAL NOT NULL,expires_at REAL NOT NULL,inline_payload_json TEXT,inline_payload_digest TEXT);
 CREATE INDEX IF NOT EXISTS idx_ephemeral_packets_coalesce ON ephemeral_packets(coalesce_key,expires_at);
 CREATE TABLE IF NOT EXISTS ephemeral_deliveries(packet_id TEXT NOT NULL,recipient_aid TEXT NOT NULL,cursor INTEGER NOT NULL,route_state TEXT NOT NULL,created_at REAL NOT NULL,expires_at REAL NOT NULL,PRIMARY KEY(packet_id,recipient_aid),FOREIGN KEY(packet_id) REFERENCES ephemeral_packets(packet_id) ON DELETE CASCADE);
 CREATE INDEX IF NOT EXISTS idx_ephemeral_deliveries_recipient ON ephemeral_deliveries(recipient_aid,cursor);
@@ -17,8 +18,22 @@ CREATE TABLE IF NOT EXISTS ephemeral_receipts(packet_id TEXT NOT NULL,aid TEXT N
 CREATE TABLE IF NOT EXISTS ephemeral_events(cursor INTEGER PRIMARY KEY AUTOINCREMENT,event_type TEXT NOT NULL,subject_id TEXT NOT NULL,aid TEXT NOT NULL,payload_json TEXT NOT NULL,created_at REAL NOT NULL);
 '''
 
-def _j(v):return json.dumps(v,sort_keys=True,separators=(",",":"),ensure_ascii=False)
+def _strict(v,p="$\"):
+    if v is None or isinstance(v,(str,bool,int)):return v
+    if isinstance(v,float):
+        if not math.isfinite(v):raise ValueError(f"non-finite JSON number at {p}")
+        return v
+    if isinstance(v,list):return [_strict(x,f"{p}[{i}]") for i,x in enumerate(v)]
+    if isinstance(v,Mapping):
+        out={}
+        for k,x in v.items():
+            if not isinstance(k,str):raise ValueError(f"JSON object keys must be strings at {p}")
+            out[k]=_strict(x,f"{p}.{k}")
+        return out
+    raise ValueError(f"unsupported JSON value at {p}: {type(v).__name__}")
+def _j(v):return json.dumps(_strict(v),sort_keys=True,separators=(",",":"),ensure_ascii=False,allow_nan=False)
 def _h(v):return hashlib.sha256(_j(v).encode()).hexdigest()
+def _sha(v):return "sha256:"+_h(v)
 def _t(v,n):
     x=str(v or "").strip()
     if not x:raise ValueError(f"{n} must be non-empty")
@@ -31,7 +46,7 @@ def _i(v,n,lo,hi):
 def _f(v,n,lo,hi):
     try:x=float(v)
     except (TypeError,ValueError):raise ValueError(f"{n} must be numeric") from None
-    if not lo<=x<=hi:raise ValueError(f"{n} must be between {lo} and {hi}")
+    if not math.isfinite(x) or not lo<=x<=hi:raise ValueError(f"{n} must be between {lo} and {hi}")
     return x
 def _ss(v,n,limit):
     if v is None:return []
@@ -45,11 +60,16 @@ def _ss(v,n,limit):
 
 class EphemeralCoordinationRuntime:
     """Bounded request/poll coordination over one process-local SQLite store; authority is always NONE."""
-    def __init__(self,store,*,clock=None,per_aid_queue_limit=128,sender_active_salience_limit=32.0,global_active_salience_limit=256.0,max_active_packets=4096,max_events=8192):
+    def __init__(self,store,*,clock=None,per_aid_queue_limit=128,sender_active_salience_limit=32.0,global_active_salience_limit=256.0,max_active_packets=4096,max_events=8192,max_inline_payload_bytes=DEFAULT_MAX_INLINE_PAYLOAD_BYTES):
         self.store=store;self.db=store.db;self._lock=getattr(store,"_lock",threading.RLock());self.clock=clock or time.time
-        self.per_aid_queue_limit=int(per_aid_queue_limit);self.sender_active_salience_limit=float(sender_active_salience_limit);self.global_active_salience_limit=float(global_active_salience_limit);self.max_active_packets=int(max_active_packets);self.max_events=int(max_events)
-        if min(self.per_aid_queue_limit,self.max_active_packets,self.max_events)<=0:raise ValueError("limits must be positive")
-        with self._lock,self.db:self.db.executescript(SCHEMA)
+        self.per_aid_queue_limit=int(per_aid_queue_limit);self.sender_active_salience_limit=float(sender_active_salience_limit);self.global_active_salience_limit=float(global_active_salience_limit);self.max_active_packets=int(max_active_packets);self.max_events=int(max_events);self.max_inline_payload_bytes=int(max_inline_payload_bytes)
+        if min(self.per_aid_queue_limit,self.max_active_packets,self.max_events,self.max_inline_payload_bytes)<=0:raise ValueError("limits must be positive")
+        with self._lock,self.db:
+            self.db.executescript(SCHEMA);self._migrate_inline_payload_columns()
+    def _migrate_inline_payload_columns(self):
+        cols={r["name"] for r in self.db.execute("PRAGMA table_info(ephemeral_packets)").fetchall()}
+        if "inline_payload_json" not in cols:self.db.execute("ALTER TABLE ephemeral_packets ADD COLUMN inline_payload_json TEXT")
+        if "inline_payload_digest" not in cols:self.db.execute("ALTER TABLE ephemeral_packets ADD COLUMN inline_payload_digest TEXT")
     def _now(self):return float(self.clock())
     def _event(self,kind,subject,aid,payload,now):
         cur=self.db.execute("INSERT INTO ephemeral_events(event_type,subject_id,aid,payload_json,created_at) VALUES(?,?,?,?,?)",(kind,subject,aid,_j(payload),now));c=int(cur.lastrowid);floor=max(0,c-self.max_events)
@@ -79,24 +99,33 @@ class EphemeralCoordinationRuntime:
         sql="SELECT COALESCE(SUM(p.salience),0) FROM ephemeral_deliveries d JOIN ephemeral_packets p ON p.packet_id=d.packet_id WHERE d.expires_at>?";args=[now]
         if sender is not None:sql+=" AND p.sender_aid=?";args.append(sender)
         return float(self.db.execute(sql,tuple(args)).fetchone()[0] or 0)
+    def _payload(self,raw):
+        if raw is None:return None,None,None
+        if not isinstance(raw,Mapping):raise ValueError("inline_payload must be an object")
+        payload=_strict(raw,"$.inline_payload");body=_j(payload);size=len(body.encode("utf-8"))
+        if size>self.max_inline_payload_bytes:raise ValueError(f"INLINE_PAYLOAD_TOO_LARGE bytes={size} limit={self.max_inline_payload_bytes}")
+        return payload,body,_sha(payload)
     def post(self,a:Mapping[str,Any]):
         sender=_t(a.get("sender_aid"),"sender_aid");recips=self._recipients(a.get("recipient_selector"));kind=_t(a.get("delivery_class"),"delivery_class")
         if kind not in DELIVERY_CLASSES:raise ValueError(f"delivery_class must be one of {list(DELIVERY_CLASSES)}")
-        sal=_f(a.get("salience"),"salience",0,1);ttl=_i(a.get("ttl_ms"),"ttl_ms",250,300000);ref=_t(a.get("packet_digest_or_ref"),"packet_digest_or_ref");lam=_i(a.get("lamport",0),"lamport",0,2**63-1);parents=_ss(a.get("causal_parents",[]),"causal_parents",32);now=self._now();exp=now+ttl/1000
+        sal=_f(a.get("salience"),"salience",0,1);ttl=_i(a.get("ttl_ms"),"ttl_ms",250,300000);ref=_t(a.get("packet_digest_or_ref"),"packet_digest_or_ref");lam=_i(a.get("lamport",0),"lamport",0,2**63-1);parents=_ss(a.get("causal_parents",[]),"causal_parents",32);payload,payload_json,payload_digest=self._payload(a.get("inline_payload"));now=self._now();exp=now+ttl/1000
         key=_h({"sender":sender,"recipients":recips,"delivery_class":kind,"ref":ref});pid="epkt_"+_h({"coalesce_key":key,"lamport":lam,"parents":parents})[:32]
         with self._lock,self.db:
             gc=self._gc(now)
             if not self._live(sender,now):raise ValueError("sender_aid must have unexpired process-local presence")
-            old=self.db.execute("SELECT packet_id FROM ephemeral_packets WHERE coalesce_key=? AND expires_at>? ORDER BY created_at DESC LIMIT 1",(key,now)).fetchone()
-            if old:return {"packet_id":old["packet_id"],"route_state":"COALESCED_ACTIVE","cursor":self._cursor("MAX"),"coalesced":True,"gc":gc,"authority":"NONE","durable_escalation_required":kind=="MATERIAL_CANDIDATE"}
+            old=self.db.execute("SELECT packet_id,inline_payload_digest FROM ephemeral_packets WHERE coalesce_key=? AND expires_at>? ORDER BY created_at DESC LIMIT 1",(key,now)).fetchone()
+            if old:
+                old_digest=old["inline_payload_digest"]
+                if old_digest!=payload_digest:raise ValueError(f"ACTIVE_REFERENCE_PAYLOAD_CONTRADICTION ref={ref} existing={old_digest or 'NONE'} incoming={payload_digest or 'NONE'}")
+                return {"packet_id":old["packet_id"],"route_state":"COALESCED_ACTIVE","cursor":self._cursor("MAX"),"coalesced":True,"gc":gc,"authority":"NONE","payload_materialized":payload is not None,"inline_payload_digest":payload_digest,"durable_escalation_required":kind=="MATERIAL_CANDIDATE"}
             if self.db.execute("SELECT COUNT(*) FROM ephemeral_packets WHERE expires_at>?",(now,)).fetchone()[0]>=self.max_active_packets:raise ValueError("GLOBAL_ACTIVE_PACKET_BACKPRESSURE")
             added=sal*len(recips)
             if self._salience(now,sender)+added>self.sender_active_salience_limit:raise ValueError("SENDER_SALIENCE_BACKPRESSURE")
             if self._salience(now)+added>self.global_active_salience_limit:raise ValueError("GLOBAL_SALIENCE_BACKPRESSURE")
             for aid in recips:
                 if self.db.execute("SELECT COUNT(*) FROM ephemeral_deliveries WHERE recipient_aid=? AND expires_at>?",(aid,now)).fetchone()[0]>=self.per_aid_queue_limit:raise ValueError(f"RECIPIENT_QUEUE_BACKPRESSURE aid={aid}")
-            c=self._event("POST",pid,sender,{"recipients":recips,"delivery_class":kind,"salience":sal},now);self.db.execute("INSERT INTO ephemeral_packets VALUES(?,?,?,?,?,?,?,?,?,?,?)",(pid,sender,kind,sal,ttl,ref,lam,_j(parents),key,now,exp));self.db.executemany("INSERT INTO ephemeral_deliveries VALUES(?,?,?,?,?,?)",[(pid,x,c,"ROUTED",now,exp) for x in recips])
-        return {"packet_id":pid,"route_state":"ROUTED","cursor":c,"coalesced":False,"recipient_count":len(recips),"gc":gc,"authority":"NONE","durable_escalation_required":kind=="MATERIAL_CANDIDATE","durable_escalation_contract":{"performed":False,"target":"ROOM_OR_GIT_MESSAGE_BOARD","law":"MATERIAL_ESCALATION_IS_EXPLICIT_CALLER_WORK_NOT_HIDDEN_BACKGROUND_EXECUTION"}}
+            c=self._event("POST",pid,sender,{"recipients":recips,"delivery_class":kind,"salience":sal,"payload_materialized":payload is not None,"inline_payload_digest":payload_digest},now);self.db.execute("INSERT INTO ephemeral_packets(packet_id,sender_aid,delivery_class,salience,ttl_ms,packet_digest_or_ref,lamport,causal_parents_json,coalesce_key,created_at,expires_at,inline_payload_json,inline_payload_digest) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)",(pid,sender,kind,sal,ttl,ref,lam,_j(parents),key,now,exp,payload_json,payload_digest));self.db.executemany("INSERT INTO ephemeral_deliveries VALUES(?,?,?,?,?,?)",[(pid,x,c,"ROUTED",now,exp) for x in recips])
+        return {"packet_id":pid,"route_state":"ROUTED","cursor":c,"coalesced":False,"recipient_count":len(recips),"gc":gc,"authority":"NONE","payload_materialized":payload is not None,"inline_payload_digest":payload_digest,"materialization_standing":"BOUNDED_PROCESS_LOCAL_INLINE_JSON" if payload is not None else "OPAQUE_REFERENCE_ONLY","durable_escalation_required":kind=="MATERIAL_CANDIDATE","durable_escalation_contract":{"performed":False,"target":"ROOM_OR_GIT_MESSAGE_BOARD","law":"MATERIAL_ESCALATION_IS_EXPLICIT_CALLER_WORK_NOT_HIDDEN_BACKGROUND_EXECUTION"}}
     def _stage(self,pid,aid):
         r=self.db.execute("SELECT stage FROM ephemeral_receipts WHERE packet_id=? AND aid=? ORDER BY stage_rank DESC LIMIT 1",(pid,aid)).fetchone();return r["stage"] if r else None
     def poll(self,a:Mapping[str,Any]):
@@ -107,7 +136,7 @@ class EphemeralCoordinationRuntime:
                 sal=float(r["salience"])
                 if len(items)>=limit:break
                 if spent+sal>budget:blocked=True;break
-                spent+=sal;items.append({"cursor":int(r["cursor"]),"packet_id":r["packet_id"],"sender_aid":r["sender_aid"],"delivery_class":r["delivery_class"],"salience":sal,"packet_digest_or_ref":r["packet_digest_or_ref"],"lamport":int(r["lamport"]),"causal_parents":json.loads(r["causal_parents_json"]),"route_state":r["route_state"],"created_at":float(r["created_at"]),"expires_at":float(r["expires_at"]),"receipt_stage":self._stage(r["packet_id"],aid)})
+                spent+=sal;payload_json=r["inline_payload_json"];items.append({"cursor":int(r["cursor"]),"packet_id":r["packet_id"],"sender_aid":r["sender_aid"],"delivery_class":r["delivery_class"],"salience":sal,"packet_digest_or_ref":r["packet_digest_or_ref"],"inline_payload":json.loads(payload_json) if payload_json is not None else None,"inline_payload_digest":r["inline_payload_digest"],"payload_materialized":payload_json is not None,"lamport":int(r["lamport"]),"causal_parents":json.loads(r["causal_parents_json"]),"route_state":r["route_state"],"created_at":float(r["created_at"]),"expires_at":float(r["expires_at"]),"receipt_stage":self._stage(r["packet_id"],aid)})
             queued=int(self.db.execute("SELECT COUNT(*) FROM ephemeral_deliveries WHERE recipient_aid=? AND expires_at>?",(aid,now)).fetchone()[0])
         return {"packets":items,"next_cursor":int(items[-1]["cursor"]) if items else after,"cursor_floor":floor,"replay_truncated":bool(after and floor and after<floor),"salience_spent":spent,"queue_pressure":{"queued":queued,"limit":self.per_aid_queue_limit,"ratio":min(1.,queued/self.per_aid_queue_limit)},"dropped_or_coalesced_counts":{"expired_dropped":gc["deliveries_expired"],"budget_blocked":int(blocked),"coalesced_in_this_poll":0},"ordering":"MONOTONIC_PROCESS_CURSOR;LAMPORT_IS_PACKET_METADATA_NOT_GLOBAL_TOTAL_ORDER","authority":"NONE","law":"POLL_IS_EXPLICIT_RUNTIME_WORK_NOT_BACKGROUND_PUSH"}
     def receipt(self,a:Mapping[str,Any]):
@@ -139,12 +168,12 @@ class EphemeralCoordinationRuntime:
                 if summary:need.append({"aid":aid,"summary":summary,"expires_at":float(r["expires_at"])})
             nxt=self._cursor("MAX")
         return {"scope":scope,"fresh_presence":presence,"need_offer_index":need,"queue_pressure":pressure,"cursor":cursor,"cursor_floor":floor,"next_cursor":nxt,"changed_since_cursor":bool(nxt>cursor),"replay_truncated":bool(cursor and floor and cursor<floor),"gc":gc,"advisory":True,"shared_deployment_proven":False,"product_exposure_proven":False,"authority":"NONE","laws":["SNAPSHOT!=DURABLE_TRUTH","PROCESS_LOCAL_SQLITE!=SHARED_CROSS_AGENT_DEPLOYMENT","REPOSITORY_IMPLEMENTATION!=LIVE_TOOL_EXPOSURE","UNKNOWN!=ZERO"]}
-    def describe(self):return {"version":VERSION,"transport":"REQUEST_POLL_PROCESS_LOCAL_SQLITE","operations":["athena_ephemeral_present","athena_ephemeral_post","athena_ephemeral_poll","athena_ephemeral_receipt","athena_ephemeral_snapshot"],"delivery_classes":list(DELIVERY_CLASSES),"receipt_stages":list(RECEIPT_STAGES),"limits":{"per_aid_queue_limit":self.per_aid_queue_limit,"sender_active_salience_limit":self.sender_active_salience_limit,"global_active_salience_limit":self.global_active_salience_limit,"max_active_packets":self.max_active_packets,"max_events":self.max_events},"authority":"NONE","deployment_standing":"SOURCE_IMPLEMENTATION_ONLY_SHARED_DEPLOYMENT_UNKNOWN","product_exposure":"UNKNOWN","behavioral_gain":"UNKNOWN","causal_gain":"UNKNOWN"}
+    def describe(self):return {"version":VERSION,"transport":"REQUEST_POLL_PROCESS_LOCAL_SQLITE","operations":["athena_ephemeral_present","athena_ephemeral_post","athena_ephemeral_poll","athena_ephemeral_receipt","athena_ephemeral_snapshot"],"delivery_classes":list(DELIVERY_CLASSES),"receipt_stages":list(RECEIPT_STAGES),"payload_transport":"OPTIONAL_BOUNDED_INLINE_JSON_OR_OPAQUE_REFERENCE","limits":{"per_aid_queue_limit":self.per_aid_queue_limit,"sender_active_salience_limit":self.sender_active_salience_limit,"global_active_salience_limit":self.global_active_salience_limit,"max_active_packets":self.max_active_packets,"max_events":self.max_events,"max_inline_payload_bytes":self.max_inline_payload_bytes},"authority":"NONE","deployment_standing":"SOURCE_IMPLEMENTATION_ONLY_SHARED_DEPLOYMENT_UNKNOWN","product_exposure":"UNKNOWN","behavioral_gain":"UNKNOWN","causal_gain":"UNKNOWN","laws":["INLINE_PAYLOAD!=DURABLE_STATE","INLINE_PAYLOAD_DIGEST_BINDS_EXACT_CANONICAL_JSON","SAME_ACTIVE_REFERENCE_WITH_DIFFERENT_PAYLOAD!=COALESCIBLE"]}
     def benchmark(self):
         now=self._now()
         with self._lock,self.db:
-            self._gc(now);p=int(self.db.execute("SELECT COUNT(*) FROM ephemeral_presence WHERE expires_at>?",(now,)).fetchone()[0]);q=int(self.db.execute("SELECT COUNT(*) FROM ephemeral_packets WHERE expires_at>?",(now,)).fetchone()[0]);d=int(self.db.execute("SELECT COUNT(*) FROM ephemeral_deliveries WHERE expires_at>?",(now,)).fetchone()[0]);r=int(self.db.execute("SELECT COUNT(*) FROM ephemeral_receipts").fetchone()[0])
-        return {"ephemeral_coordination_version":VERSION,"ephemeral_presence_live":p,"ephemeral_packets_live":q,"ephemeral_deliveries_live":d,"ephemeral_receipts_live":r}
+            self._gc(now);p=int(self.db.execute("SELECT COUNT(*) FROM ephemeral_presence WHERE expires_at>?",(now,)).fetchone()[0]);q=int(self.db.execute("SELECT COUNT(*) FROM ephemeral_packets WHERE expires_at>?",(now,)).fetchone()[0]);d=int(self.db.execute("SELECT COUNT(*) FROM ephemeral_deliveries WHERE expires_at>?",(now,)).fetchone()[0]);r=int(self.db.execute("SELECT COUNT(*) FROM ephemeral_receipts").fetchone()[0]);m=int(self.db.execute("SELECT COUNT(*) FROM ephemeral_packets WHERE expires_at>? AND inline_payload_json IS NOT NULL",(now,)).fetchone()[0])
+        return {"ephemeral_coordination_version":VERSION,"ephemeral_presence_live":p,"ephemeral_packets_live":q,"ephemeral_deliveries_live":d,"ephemeral_receipts_live":r,"ephemeral_materialized_packets_live":m}
 
 class EphemeralCoordinationSurface:
     def __init__(self,store,*,clock=None):self.runtime=EphemeralCoordinationRuntime(store,clock=clock)
