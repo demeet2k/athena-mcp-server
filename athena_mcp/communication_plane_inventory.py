@@ -22,34 +22,45 @@ LAWS = [
     "MESSAGE_BOARD_DURABILITY != LIMINAL_OR_EPHEMERAL_LIVENESS",
     "MCP_PROCESS_CURSOR != FEDERATION_SOURCE_CURSOR",
     "SYNAPSE_ENVELOPE_ID != NATIVE_PACKET_IDENTITY",
+    "IMPORTABLE_MODULE != INSTALLED_RUNTIME_ORGAN",
     "BRIDGE_INSTALLED != BRIDGE_USED != OUTCOME_IMPROVEMENT",
     "PLANE_INVENTORY != CLAIM_ASSIGNMENT_EXECUTION_OR_PROMOTION_AUTHORITY",
 ]
 
 
-def _probe(module_name: str, *, version_attr: str = "VERSION") -> dict[str, Any]:
+def _source_probe(module_name: str, *, version_attr: str = "VERSION") -> dict[str, Any]:
     try:
         module = importlib.import_module(module_name)
     except ModuleNotFoundError as exc:
         if exc.name == module_name:
             return {
+                "source_available": False,
                 "installed": False,
-                "standing": "OPTIONAL_PLANE_OR_BRIDGE_UNOBSERVED",
+                "standing": "OPTIONAL_PLANE_OR_BRIDGE_SOURCE_UNOBSERVED",
                 "module": module_name,
             }
         raise
     return {
-        "installed": True,
-        "standing": "INSTALLED_SOURCE_SURFACE",
+        "source_available": True,
+        "installed": False,
+        "standing": "SOURCE_AVAILABLE_RUNTIME_UNVERIFIED",
         "module": module_name,
         "version": getattr(module, version_attr, None),
     }
 
 
-def _fast_plane(server: Any, limit: int) -> dict[str, Any]:
+def _fast_runtime(server: Any):
     development = getattr(server, "aor_development", None)
     surface = getattr(development, "ephemeral_coordination", None)
-    runtime = getattr(surface, "runtime", None)
+    return getattr(surface, "runtime", None)
+
+
+def _bridge_runtime(surface: Any):
+    return getattr(getattr(surface, "bridge", None), "runtime", None)
+
+
+def _fast_plane(server: Any, limit: int) -> dict[str, Any]:
+    runtime = _fast_runtime(server)
     if runtime is None:
         return {
             "installed": False,
@@ -87,30 +98,58 @@ def build_plane_inventory(server: Any, synapse: dict[str, Any] | None = None, *,
     synapse = dict(synapse or {})
     metrics = synapse.get("metrics") if isinstance(synapse.get("metrics"), dict) else {}
     fast = _fast_plane(server, limit)
+    fast_runtime = _fast_runtime(server)
+    development = getattr(server, "aor_development", None)
 
-    envelope = _probe("athena_mcp.synapse_liminal_adapter", version_attr="SYNAPSE_SCHEMA")
-    if envelope.get("installed"):
+    envelope = _source_probe("athena_mcp.synapse_liminal_adapter", version_attr="SYNAPSE_SCHEMA")
+    if envelope.get("source_available"):
         module = importlib.import_module("athena_mcp.synapse_liminal_adapter")
+        live = bool(getattr(type(server), "_athena_synapse_liminal_v1_registered", False))
         envelope.update({
+            "installed": live,
             "schema": getattr(module, "SYNAPSE_SCHEMA", None),
             "packet_profile": getattr(module, "PACKET_PROFILE", None),
             "receipt_profile": getattr(module, "RECEIPT_PROFILE", None),
             "resource": getattr(module, "LIMINAL_RESOURCE", None),
-            "standing": "SYNAPSE_ENVELOPE_ADAPTER_INSTALLED",
+            "standing": "SYNAPSE_ENVELOPE_ADAPTER_INSTALLED" if live else "SYNAPSE_ENVELOPE_SOURCE_ONLY_INSTALLER_HOLD",
         })
 
-    federation = _probe("athena_mcp.federation_ephemeral_bridge")
-    if federation.get("installed"):
+    federation = _source_probe("athena_mcp.federation_ephemeral_bridge")
+    if federation.get("source_available"):
+        surface = getattr(development, "federation_ephemeral_bridge", None)
+        runtime = _bridge_runtime(surface)
+        live = surface is not None and runtime is not None
+        shared = live and fast_runtime is not None and runtime is fast_runtime
         federation.update({
-            "standing": "FEDERATION_EPHEMERAL_PROJECTION_INSTALLED",
+            "installed": bool(live and shared),
+            "runtime_present": live,
+            "shared_fast_runtime_identity": shared,
+            "standing": (
+                "FEDERATION_EPHEMERAL_PROJECTION_INSTALLED_SHARED_RUNTIME"
+                if live and shared
+                else "FEDERATION_EPHEMERAL_RUNTIME_IDENTITY_HOLD" if live
+                else "FEDERATION_EPHEMERAL_SOURCE_ONLY_INSTALLER_HOLD"
+            ),
             "loss_class": "LOSSY_AUX",
             "source_currentness_proven": False,
         })
 
-    durable_escalation = _probe("athena_mcp.ephemeral_durable_bridge")
-    if durable_escalation.get("installed"):
+    durable_escalation = _source_probe("athena_mcp.ephemeral_durable_bridge")
+    if durable_escalation.get("source_available"):
+        surface = getattr(development, "ephemeral_durable_bridge", None)
+        runtime = _bridge_runtime(surface)
+        live = surface is not None and runtime is not None
+        shared = live and fast_runtime is not None and runtime is fast_runtime
         durable_escalation.update({
-            "standing": "EPHEMERAL_DURABLE_ESCALATION_INSTALLED",
+            "installed": bool(live and shared),
+            "runtime_present": live,
+            "shared_fast_runtime_identity": shared,
+            "standing": (
+                "EPHEMERAL_DURABLE_ESCALATION_INSTALLED_SHARED_RUNTIME"
+                if live and shared
+                else "EPHEMERAL_DURABLE_RUNTIME_IDENTITY_HOLD" if live
+                else "EPHEMERAL_DURABLE_SOURCE_ONLY_INSTALLER_HOLD"
+            ),
             "auto_escalation": False,
         })
 
@@ -169,7 +208,7 @@ def build_plane_inventory(server: Any, synapse: dict[str, Any] | None = None, *,
             "src": "LIMINAL_BEACON",
             "dst": "SYNAPSE_ENVELOPE",
             "mechanism": "athena_synapse_liminal_export_packet / export_receipt",
-            "standing": "INSTALLED_EXPLICIT_PROJECTION" if envelope.get("installed") else "UNOBSERVED",
+            "standing": "INSTALLED_EXPLICIT_PROJECTION" if envelope.get("installed") else "UNOBSERVED_OR_INSTALLER_HOLD",
             "loss": "PACKET=LOSSY_AUX; RECEIPT=LOSSLESS_RELATIVE_TO_EXPLICIT_RECEIPT",
             "authority": "NONE",
             "law": "EXPORT != DELIVERY",
@@ -178,7 +217,7 @@ def build_plane_inventory(server: Any, synapse: dict[str, Any] | None = None, *,
             "src": "SYNAPSE_ENVELOPE",
             "dst": "LIMINAL_BEACON",
             "mechanism": "athena_synapse_liminal_ingest",
-            "standing": "INSTALLED_EXPLICIT_INGRESS" if envelope.get("installed") else "UNOBSERVED",
+            "standing": "INSTALLED_EXPLICIT_INGRESS" if envelope.get("installed") else "UNOBSERVED_OR_INSTALLER_HOLD",
             "loss": "FOREIGN_CAUSAL_IDS_REMAIN_CAUSAL_REFS",
             "authority": "NONE",
             "law": "INGEST != SOURCE_EVENT_IDENTITY",
@@ -187,7 +226,7 @@ def build_plane_inventory(server: Any, synapse: dict[str, Any] | None = None, *,
             "src": "FEDERATION_SOURCE_CURSOR",
             "dst": "EPHEMERAL_SQLITE",
             "mechanism": "athena_ephemeral_federation_post/poll",
-            "standing": "INSTALLED_EXPLICIT_PROJECTION" if federation.get("installed") else "OPTIONAL_BRIDGE_UNOBSERVED",
+            "standing": "INSTALLED_EXPLICIT_PROJECTION" if federation.get("installed") else "OPTIONAL_BRIDGE_UNOBSERVED_OR_INSTALLER_HOLD",
             "loss": "LOSSY_AUX",
             "authority": "NONE",
             "law": "MCP_PROCESS_CURSOR != FEDERATION_SOURCE_CURSOR",
@@ -196,7 +235,7 @@ def build_plane_inventory(server: Any, synapse: dict[str, Any] | None = None, *,
             "src": "EPHEMERAL_SQLITE",
             "dst": "MESSAGE_BOARD",
             "mechanism": "athena_ephemeral_durable_escalate",
-            "standing": "INSTALLED_EXPLICIT_ESCALATION" if durable_escalation.get("installed") else "DECLARED_MATERIAL_ESCALATION_RESIDUAL_UNINSTALLED",
+            "standing": "INSTALLED_EXPLICIT_ESCALATION" if durable_escalation.get("installed") else "DECLARED_MATERIAL_ESCALATION_RESIDUAL_OR_INSTALLER_HOLD",
             "loss": "REFERENCE_AND_TYPED_METADATA_ONLY",
             "authority": "MESSAGE_BOARD_EXISTING_WRITE_PATH_ONLY" if durable_escalation.get("installed") else "NONE",
             "law": "MATERIAL_CANDIDATE != DURABLE_CLAIM_OR_TRUTH",
