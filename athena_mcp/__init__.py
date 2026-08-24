@@ -143,6 +143,13 @@ install_liminal_beacon_scope(LiminalBeaconMeshRuntime)
 install_liminal_beacon_semantic_v11(LiminalBeaconMeshRuntime)
 install_liminal_beacon_mesh()
 
+# SYN-LBM-001 is an explicit cross-repository projection/ingress membrane over
+# the already-installed Liminal organ. It creates no second bus and performs no
+# automatic foreign ingest; every ingress mutation is an explicit tool call.
+from .synapse_liminal_extension import install_synapse_liminal_extension
+
+install_synapse_liminal_extension()
+
 # LSH-001 remains a separately opt-in no-injection observer. It executes V1.1
 # only on disposable projections and returns telemetry on a separate read-only
 # surface; domain tool results remain unchanged.
