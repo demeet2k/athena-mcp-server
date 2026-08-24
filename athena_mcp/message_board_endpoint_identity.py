@@ -12,9 +12,12 @@ from .message_board import (
     PRESENCE_ARTIFACT,
     TOOL_NAME,
 )
+from .synapse_mcp_contract import (
+    ENDPOINT_IDENTITY_ARTIFACT as IDENTITY_ARTIFACT,
+    SYNAPSE_MCP_CONTRACT_DIGEST,
+)
 
 
-IDENTITY_ARTIFACT = "ATHENA.FEDERATION.ENDPOINT.IDENTITY.V1"
 IDENTITY_FIELDS = {"artifact", "organ_id", "oid", "fingerprint", "lineage"}
 _PENDING_ENDPOINT_IDENTITY: ContextVar[tuple[str, dict[str, Any], str] | None] = ContextVar(
     "athena_message_board_endpoint_identity_v1",
@@ -23,7 +26,13 @@ _PENDING_ENDPOINT_IDENTITY: ContextVar[tuple[str, dict[str, Any], str] | None] =
 
 
 def _canonical(value: Any) -> str:
-    return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False)
+    return json.dumps(
+        value,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=False,
+        allow_nan=False,
+    )
 
 
 def endpoint_identity_digest(identity: Mapping[str, Any]) -> str:
@@ -68,7 +77,12 @@ def _identity_schema() -> dict[str, Any]:
             "artifact": {"type": "string", "const": IDENTITY_ARTIFACT},
             "organ_id": {"type": "string", "minLength": 1},
             "oid": {"type": "string", "minLength": 1},
-            "fingerprint": {"type": "array", "minItems": 1, "uniqueItems": True, "items": {"type": "string", "minLength": 1}},
+            "fingerprint": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": True,
+                "items": {"type": "string", "minLength": 1},
+            },
             "lineage": {"type": "string", "minLength": 1},
         },
         "additionalProperties": False,
@@ -89,6 +103,7 @@ def install_message_board_endpoint_identity(runtime_cls, tools=None) -> None:
         "AGENT_ID != FEDERATION_ORGAN_ID",
         "ENDPOINT_IDENTITY_BINDING != SOURCE_AUTHORITY",
         "ACK_IDENTITY_MUST_MATCH_SEND_TIME_TARGET_IDENTITY_FOR_BOUND_ROUTE",
+        "SYNAPSE_CONTRACT_DIGEST_MUST_MATCH_BEFORE_BINDING",
     ):
         if law not in LAWS:
             LAWS.append(law)
@@ -117,11 +132,13 @@ def install_message_board_endpoint_identity(runtime_cls, tools=None) -> None:
             if value.get("artifact") == PRESENCE_ARTIFACT:
                 value["endpoint_identity"] = identity
                 value["endpoint_identity_digest"] = identity_digest
+                value["synapse_contract_digest"] = SYNAPSE_MCP_CONTRACT_DIGEST
                 rewritten[rel] = _json_text(value)
                 continue
             if value.get("artifact") == EVENT_ARTIFACT and value.get("kind") in {"PRESENT", "JOIN"}:
                 payload = dict(value.get("payload") or {})
                 payload["actor_endpoint_identity_digest"] = identity_digest
+                payload["synapse_contract_digest"] = SYNAPSE_MCP_CONTRACT_DIGEST
                 value["payload"] = payload
                 rewritten[rel] = _json_text(value)
                 continue
@@ -129,7 +146,14 @@ def install_message_board_endpoint_identity(runtime_cls, tools=None) -> None:
         return original_commit_files(self, expected_head, rewritten, actor, message)
 
     def _event_with_endpoint_identity(self, kind, agent_id, payload=None, recipients=None, reply_to=None):
-        rel, event = original_event(self, kind, agent_id, payload=payload, recipients=recipients, reply_to=reply_to)
+        rel, event = original_event(
+            self,
+            kind,
+            agent_id,
+            payload=payload,
+            recipients=recipients,
+            reply_to=reply_to,
+        )
         active = self._active()
         by_agent = {str(row.get("agent_id")): row for row in active}
         actor = by_agent.get(str(agent_id))
@@ -143,6 +167,8 @@ def install_message_board_endpoint_identity(runtime_cls, tools=None) -> None:
                 for recipient in list(recipients or [])
                 if str(recipient) in by_agent and by_agent[str(recipient)].get("endpoint_identity_digest")
             }
+        if kind in {"MESSAGE", "ACK"}:
+            event_payload["synapse_contract_digest"] = SYNAPSE_MCP_CONTRACT_DIGEST
         event["payload"] = event_payload
         return rel, event
 
@@ -156,36 +182,94 @@ def install_message_board_endpoint_identity(runtime_cls, tools=None) -> None:
             enriched = dict(presence)
             enriched["endpoint_identity"] = normalized
             enriched["endpoint_identity_digest"] = identity_digest
+            enriched["synapse_contract_digest"] = SYNAPSE_MCP_CONTRACT_DIGEST
             updated = dict(result)
             updated["presence"] = enriched
             return updated
         existing_digest = presence.get("endpoint_identity_digest")
-        if existing_digest != identity_digest:
+        existing_contract = presence.get("synapse_contract_digest")
+        if existing_digest != identity_digest or existing_contract != SYNAPSE_MCP_CONTRACT_DIGEST:
             held = dict(result)
-            held["status"] = "ENDPOINT_IDENTITY_MISSING_HOLD" if not existing_digest else "ENDPOINT_IDENTITY_MISMATCH_HOLD"
+            held["status"] = (
+                "ENDPOINT_IDENTITY_MISSING_HOLD"
+                if not existing_digest
+                else "ENDPOINT_IDENTITY_MISMATCH_HOLD"
+            )
             held["requested_endpoint_identity_digest"] = identity_digest
             held["existing_endpoint_identity_digest"] = existing_digest
-            held["next"] = "release current presence before changing endpoint identity"
+            held["requested_synapse_contract_digest"] = SYNAPSE_MCP_CONTRACT_DIGEST
+            held["existing_synapse_contract_digest"] = existing_contract
+            held["next"] = "release current presence before changing endpoint identity or contract"
             return held
         return result
 
-    def present_with_endpoint_identity(self, *, agent_id, task, work_key=None, targets=None, details=None, mode="PRIMARY", replication_reason=None, lease_seconds=1800, remote="origin", endpoint_identity=None):
+    def present_with_endpoint_identity(
+        self,
+        *,
+        agent_id,
+        task,
+        work_key=None,
+        targets=None,
+        details=None,
+        mode="PRIMARY",
+        replication_reason=None,
+        lease_seconds=1800,
+        remote="origin",
+        endpoint_identity=None,
+    ):
         normalized = normalize_endpoint_identity(endpoint_identity) if endpoint_identity is not None else None
         identity_digest = endpoint_identity_digest(normalized) if normalized else None
-        token = _PENDING_ENDPOINT_IDENTITY.set((str(agent_id), normalized, identity_digest)) if normalized else None
+        token = (
+            _PENDING_ENDPOINT_IDENTITY.set((str(agent_id), normalized, identity_digest))
+            if normalized
+            else None
+        )
         try:
-            result = original_present(self, agent_id=agent_id, task=task, work_key=work_key, targets=targets, details=details, mode=mode, replication_reason=replication_reason, lease_seconds=lease_seconds, remote=remote)
+            result = original_present(
+                self,
+                agent_id=agent_id,
+                task=task,
+                work_key=work_key,
+                targets=targets,
+                details=details,
+                mode=mode,
+                replication_reason=replication_reason,
+                lease_seconds=lease_seconds,
+                remote=remote,
+            )
         finally:
             if token is not None:
                 _PENDING_ENDPOINT_IDENTITY.reset(token)
         return _finish_identity_result(result, normalized, identity_digest)
 
-    def join_with_endpoint_identity(self, *, agent_id, join_agent_id, task=None, details=None, lease_seconds=1800, remote="origin", endpoint_identity=None):
+    def join_with_endpoint_identity(
+        self,
+        *,
+        agent_id,
+        join_agent_id,
+        task=None,
+        details=None,
+        lease_seconds=1800,
+        remote="origin",
+        endpoint_identity=None,
+    ):
         normalized = normalize_endpoint_identity(endpoint_identity) if endpoint_identity is not None else None
         identity_digest = endpoint_identity_digest(normalized) if normalized else None
-        token = _PENDING_ENDPOINT_IDENTITY.set((str(agent_id), normalized, identity_digest)) if normalized else None
+        token = (
+            _PENDING_ENDPOINT_IDENTITY.set((str(agent_id), normalized, identity_digest))
+            if normalized
+            else None
+        )
         try:
-            result = original_join(self, agent_id=agent_id, join_agent_id=join_agent_id, task=task, details=details, lease_seconds=lease_seconds, remote=remote)
+            result = original_join(
+                self,
+                agent_id=agent_id,
+                join_agent_id=join_agent_id,
+                task=task,
+                details=details,
+                lease_seconds=lease_seconds,
+                remote=remote,
+            )
         finally:
             if token is not None:
                 _PENDING_ENDPOINT_IDENTITY.reset(token)
@@ -195,9 +279,28 @@ def install_message_board_endpoint_identity(runtime_cls, tools=None) -> None:
         if name == TOOL_NAME:
             action = str(arguments.get("action") or "").lower()
             if action == "present" and arguments.get("endpoint_identity") is not None:
-                return self.present(agent_id=arguments["agent_id"], task=arguments["task"], work_key=arguments.get("work_key"), targets=arguments.get("targets") or [], details=arguments.get("details"), mode=arguments.get("mode", "PRIMARY"), replication_reason=arguments.get("replication_reason"), lease_seconds=arguments.get("lease_seconds", 1800), remote=arguments.get("remote", "origin"), endpoint_identity=arguments.get("endpoint_identity"))
+                return self.present(
+                    agent_id=arguments["agent_id"],
+                    task=arguments["task"],
+                    work_key=arguments.get("work_key"),
+                    targets=arguments.get("targets") or [],
+                    details=arguments.get("details"),
+                    mode=arguments.get("mode", "PRIMARY"),
+                    replication_reason=arguments.get("replication_reason"),
+                    lease_seconds=arguments.get("lease_seconds", 1800),
+                    remote=arguments.get("remote", "origin"),
+                    endpoint_identity=arguments.get("endpoint_identity"),
+                )
             if action == "join" and arguments.get("endpoint_identity") is not None:
-                return self.join(agent_id=arguments["agent_id"], join_agent_id=arguments["join_agent_id"], task=arguments.get("task"), details=arguments.get("details"), lease_seconds=arguments.get("lease_seconds", 1800), remote=arguments.get("remote", "origin"), endpoint_identity=arguments.get("endpoint_identity"))
+                return self.join(
+                    agent_id=arguments["agent_id"],
+                    join_agent_id=arguments["join_agent_id"],
+                    task=arguments.get("task"),
+                    details=arguments.get("details"),
+                    lease_seconds=arguments.get("lease_seconds", 1800),
+                    remote=arguments.get("remote", "origin"),
+                    endpoint_identity=arguments.get("endpoint_identity"),
+                )
         return original_call_tool(self, name, arguments)
 
     runtime_cls._commit_files = _commit_files_with_endpoint_identity
