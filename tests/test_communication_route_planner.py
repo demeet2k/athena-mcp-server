@@ -5,8 +5,10 @@ import subprocess
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from athena_mcp import protocol
+from athena_mcp import communication_route_planner as planner
 from athena_mcp.communication_route_planner import (
     RESOURCE_URI,
     TOOL_NAME,
@@ -86,19 +88,53 @@ class CommunicationRoutePlannerTests(unittest.TestCase):
         self.assertFalse(result["route"]["preconditions_verified"])
         self.assertFalse(result["execution_authority"])
 
-    def test_federation_to_message_board_returns_candidate_two_hop_route_and_missing_bridges(self):
+    def test_federation_to_message_board_is_installed_two_hop_route_but_runtime_preconditions_hold(self):
         server = self.server()
         result = plan_route(server, {
             "source_plane": "FEDERATION_SOURCE_CURSOR",
             "destination_plane": "MESSAGE_BOARD",
         })
-        self.assertEqual(result["status"], "SYNAPSE_ROUTE_BRIDGE_INSTALLATION_HOLD")
-        route = result["candidate_route"]
+        self.assertEqual(result["status"], "SYNAPSE_ROUTE_PRECONDITION_HOLD")
+        route = result["route"]
         self.assertEqual(route["hop_count"], 2)
         self.assertEqual(
             [row["mechanism"] for row in route["steps"]],
             ["athena_ephemeral_federation_post/poll", "athena_ephemeral_durable_escalate"],
         )
+        self.assertEqual(
+            route["required_preconditions"],
+            [
+                "ACTIVE_MESSAGE_BOARD_ACTOR",
+                "EPHEMERAL_SENDER_PRESENT",
+                "EXPLICIT_EPHEMERAL_ACTOR_BINDING_REF",
+                "FEDERATION_HANDOFF_DIGEST_AVAILABLE",
+                "FEDERATION_SOURCE_CURSOR_DIGEST_AVAILABLE",
+                "FRESH_SHARED_MESSAGE_BOARD_FRONTIER",
+                "MATERIAL_CANDIDATE",
+            ],
+        )
+        self.assertEqual(route["missing_preconditions"], route["required_preconditions"])
+        self.assertFalse(result["execution_authority"])
+        self.assertFalse(result["mutation"])
+
+    def test_missing_bridge_candidate_behavior_remains_tested_with_synthetic_inventory(self):
+        server = self.server()
+        inventory = planner.build_plane_inventory(server, {}, limit=32)
+        synthetic = json.loads(json.dumps(inventory))
+        for edge in synthetic["bridge_edges"]:
+            if (edge["src"], edge["dst"]) in {
+                ("FEDERATION_SOURCE_CURSOR", "EPHEMERAL_SQLITE"),
+                ("EPHEMERAL_SQLITE", "MESSAGE_BOARD"),
+            }:
+                edge["standing"] = "OPTIONAL_BRIDGE_UNOBSERVED"
+                edge["authority"] = "NONE"
+        with mock.patch.object(planner, "build_plane_inventory", return_value=synthetic):
+            result = plan_route(server, {
+                "source_plane": "FEDERATION_SOURCE_CURSOR",
+                "destination_plane": "MESSAGE_BOARD",
+            })
+        self.assertEqual(result["status"], "SYNAPSE_ROUTE_BRIDGE_INSTALLATION_HOLD")
+        self.assertEqual(result["candidate_route"]["hop_count"], 2)
         self.assertEqual(
             {(row["src"], row["dst"]) for row in result["missing_bridges"]},
             {
