@@ -174,6 +174,14 @@ from .synapse_observer_extension import install_synapse_observer_extension
 install_synapse_observer()
 install_synapse_observer_extension()
 
+# CPI-001 turns the observer into a typed navigation map across all known
+# communication planes. It reads the existing fast SQLite membrane separately
+# and probes optional Federation/durable-escalation bridges without joining their
+# identity or cursor namespaces.
+from .communication_plane_inventory_extension import install_communication_plane_inventory
+
+install_communication_plane_inventory()
+
 # LSH-001 remains a separately opt-in no-injection observer. It executes the
 # inherited liminal behavior only on disposable projections and returns telemetry
 # on a separate read-only surface; domain tool results remain unchanged.
