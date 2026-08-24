@@ -143,6 +143,13 @@ install_liminal_beacon_scope(LiminalBeaconMeshRuntime)
 install_liminal_beacon_semantic_v11(LiminalBeaconMeshRuntime)
 install_liminal_beacon_mesh()
 
+# LSR-001 closes the liminal-to-durable causal return path without creating a
+# new authority plane: successful bridges gain idempotent return tokens and
+# PROPAGATED requires an addressable propagation witness.
+from .liminal_synapse_return import install_liminal_synapse_return
+
+install_liminal_synapse_return(LiminalBeaconMeshRuntime)
+
 # LSH-001 remains a separately opt-in no-injection observer. It executes V1.1
 # only on disposable projections and returns telemetry on a separate read-only
 # surface; domain tool results remain unchanged.
