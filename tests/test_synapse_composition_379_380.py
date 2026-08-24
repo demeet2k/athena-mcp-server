@@ -13,6 +13,7 @@ from athena_mcp.synapse_liminal_adapter import (
     SYNAPSE_SCHEMA,
     liminal_capsule_to_synapse,
 )
+from athena_mcp.synapse_liminal_extension import SynapseLiminalRuntime
 from athena_mcp.synapse_liminal_protocol import SYNAPSE_LIMINAL_TOOL_NAMES
 from athena_mcp.synapse_observer import TOOL_NAME as SYNAPSE_OBSERVER_TOOL
 from athena_mcp.synapse_observer_extension import _synapse_abi_status
@@ -45,6 +46,10 @@ class _BridgeFake:
 
     def state(self, agent_id=None, include_packets=False, limit=50):
         return {"status": "OK"}
+
+
+class _ServerStub:
+    git = None
 
 
 class SynapseComposition379380Tests(unittest.TestCase):
@@ -113,6 +118,59 @@ class SynapseComposition379380Tests(unittest.TestCase):
         self.assertEqual(route_token, LIMINAL_RESOURCE)
         self.assertNotEqual(bridge_token, route_token)
         self.assertEqual(envelope["routing"]["return_routes"], [LIMINAL_RESOURCE])
+
+    def test_real_liminal_export_ingest_and_receipt_export_compose(self):
+        server = _ServerStub()
+        runtime = LiminalBeaconMeshRuntime(server)
+        server._liminal_beacon_mesh_runtime_v1 = runtime
+        runtime.touch("alpha", object_refs=["oid:shared"], focus="source")
+        runtime.touch("beta", object_refs=["oid:shared"], focus="sink")
+
+        native = runtime.emit(
+            "alpha",
+            "RESULT",
+            "composition result",
+            object_refs=["oid:shared"],
+            evidence_ceiling="RUNTIME_METADATA_ONLY",
+        )["packet"]
+        packet_id = native["packet_id"]
+        synapse = SynapseLiminalRuntime(server)
+
+        exported = synapse.call_tool(
+            "athena_synapse_liminal_export_packet",
+            {"packet_id": packet_id, "source_revision": "composition-head"},
+        )
+        envelope = exported["envelope"]
+        self.assertEqual(exported["status"], "SYNAPSE_PACKET_EXPORTED")
+        self.assertEqual(envelope["schema"], SYNAPSE_SCHEMA)
+        self.assertEqual(envelope["origin"]["native_event_id"], packet_id)
+        self.assertEqual(envelope["projection"]["return_token"], LIMINAL_RESOURCE)
+
+        ingested = synapse.call_tool(
+            "athena_synapse_liminal_ingest",
+            {"agent_id": "beta", "envelope": envelope},
+        )
+        self.assertEqual(ingested["status"], "SYNAPSE_INGESTED_TO_LIMINAL")
+        self.assertNotEqual(ingested["emitted"]["packet"]["packet_id"], packet_id)
+        self.assertIn("INGEST != SOURCE_EVENT_IDENTITY", ingested["laws"])
+
+        presented = runtime.rendezvous("beta", scout_quota=0)
+        self.assertIn(packet_id, [row["packet_id"] for row in presented["packets"]])
+        runtime.receipt("beta", packet_id, "CONSUMED", consumer_ref="beta:composition")
+
+        receipt_export = synapse.call_tool(
+            "athena_synapse_liminal_export_receipt",
+            {
+                "agent_id": "beta",
+                "packet_id": packet_id,
+                "source_revision": "composition-head",
+            },
+        )
+        receipt_envelope = receipt_export["envelope"]
+        self.assertEqual(receipt_export["status"], "SYNAPSE_RECEIPT_EXPORTED")
+        self.assertEqual(receipt_envelope["event_type"], "RECEIPT")
+        self.assertEqual(receipt_envelope["receipt"]["stage"], "CONSUMED")
+        self.assertEqual(receipt_envelope["payload"]["body"]["consumer_ref"], "beta:composition")
 
 
 if __name__ == "__main__":
