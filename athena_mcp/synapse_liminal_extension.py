@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from typing import Any
 
 from .liminal_beacon_mesh import LiminalBeaconMeshRuntime, _packet_capsule
+from .synapse_ingress_correlation import attach_ingress_correlation, record_ingress_correlation
 from .synapse_liminal_adapter import (
     liminal_capsule_to_synapse,
     liminal_receipt_to_synapse,
@@ -65,37 +66,49 @@ class SynapseLiminalRuntime:
 
         if name == "athena_synapse_liminal_export_packet":
             source_revision = _source_revision(arguments)
-            capsule = _read_packet_capsule(runtime, str(arguments["packet_id"]))
+            packet_id = str(arguments["packet_id"])
+            capsule = _read_packet_capsule(runtime, packet_id)
             envelope = liminal_capsule_to_synapse(
                 capsule,
                 source_revision=source_revision,
                 bridge_observed_at=_observed_at(),
             )
-            return {
-                "status": "SYNAPSE_PACKET_EXPORTED",
-                "envelope": envelope,
-                "standing": "PUBLIC_CAPSULE_PROJECTION_LOSSY_AUX",
-                "law": "EXPORT != DELIVERY != CONSUMPTION",
-            }
+            return attach_ingress_correlation(
+                self.server,
+                packet_id=packet_id,
+                source_revision=source_revision,
+                export_result={
+                    "status": "SYNAPSE_PACKET_EXPORTED",
+                    "envelope": envelope,
+                    "standing": "PUBLIC_CAPSULE_PROJECTION_LOSSY_AUX",
+                    "law": "EXPORT != DELIVERY != CONSUMPTION",
+                },
+            )
 
         if name == "athena_synapse_liminal_export_receipt":
             source_revision = _source_revision(arguments)
+            packet_id = str(arguments["packet_id"])
             receipt = _read_receipt_record(
                 runtime,
                 str(arguments["agent_id"]),
-                str(arguments["packet_id"]),
+                packet_id,
             )
             envelope = liminal_receipt_to_synapse(
                 receipt,
                 source_revision=source_revision,
                 bridge_observed_at=_observed_at(),
             )
-            return {
-                "status": "SYNAPSE_RECEIPT_EXPORTED",
-                "envelope": envelope,
-                "standing": "EXPLICIT_NATIVE_RECEIPT_STAGE_ONLY",
-                "law": "RECEIPT_STAGE != OUTCOME_IMPROVEMENT",
-            }
+            return attach_ingress_correlation(
+                self.server,
+                packet_id=packet_id,
+                source_revision=source_revision,
+                export_result={
+                    "status": "SYNAPSE_RECEIPT_EXPORTED",
+                    "envelope": envelope,
+                    "standing": "EXPLICIT_NATIVE_RECEIPT_STAGE_ONLY",
+                    "law": "RECEIPT_STAGE != OUTCOME_IMPROVEMENT",
+                },
+            )
 
         if name == "athena_synapse_liminal_plan_ingress":
             return synapse_to_liminal_ingress_plan(
@@ -109,16 +122,25 @@ class SynapseLiminalRuntime:
                 agent_id=str(arguments["agent_id"]),
             )
             emitted = runtime.emit(**plan["emit_args"])
+            correlation = record_ingress_correlation(
+                self.server,
+                arguments["envelope"],
+                emitted,
+                agent_id=str(arguments["agent_id"]),
+                observed_at=_observed_at(),
+            )
             return {
                 "status": "SYNAPSE_INGESTED_TO_LIMINAL",
                 "source_event_id": plan["source_event_id"],
                 "emitted": emitted,
+                "source_correlation": correlation,
                 "residuals": plan["residuals"],
                 "standing": "NEW_EPHEMERAL_COORDINATION_SIGNAL_ONLY",
                 "laws": [
                     "INGEST != SOURCE_EVENT_IDENTITY",
                     "INGEST != CONSUMPTION",
                     "INGEST != EXECUTION_AUTHORITY",
+                    "PROCESS_LOCAL_CORRELATION != DURABLE_CAUSAL_PROOF",
                 ],
             }
 
