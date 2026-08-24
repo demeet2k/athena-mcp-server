@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from contextvars import ContextVar
 import hashlib
 import json
 from typing import Any, Mapping
@@ -15,16 +16,14 @@ from .message_board import (
 
 IDENTITY_ARTIFACT = "ATHENA.FEDERATION.ENDPOINT.IDENTITY.V1"
 IDENTITY_FIELDS = {"artifact", "organ_id", "oid", "fingerprint", "lineage"}
+_PENDING_ENDPOINT_IDENTITY: ContextVar[tuple[str, dict[str, Any], str] | None] = ContextVar(
+    "athena_message_board_endpoint_identity_v1",
+    default=None,
+)
 
 
 def _canonical(value: Any) -> str:
-    return json.dumps(
-        value,
-        sort_keys=True,
-        separators=(",", ":"),
-        ensure_ascii=False,
-        allow_nan=False,
-    )
+    return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False)
 
 
 def endpoint_identity_digest(identity: Mapping[str, Any]) -> str:
@@ -69,12 +68,7 @@ def _identity_schema() -> dict[str, Any]:
             "artifact": {"type": "string", "const": IDENTITY_ARTIFACT},
             "organ_id": {"type": "string", "minLength": 1},
             "oid": {"type": "string", "minLength": 1},
-            "fingerprint": {
-                "type": "array",
-                "minItems": 1,
-                "uniqueItems": True,
-                "items": {"type": "string", "minLength": 1},
-            },
+            "fingerprint": {"type": "array", "minItems": 1, "uniqueItems": True, "items": {"type": "string", "minLength": 1}},
             "lineage": {"type": "string", "minLength": 1},
         },
         "additionalProperties": False,
@@ -82,12 +76,7 @@ def _identity_schema() -> dict[str, Any]:
 
 
 def install_message_board_endpoint_identity(runtime_cls, tools=None) -> None:
-    """Install a backwards-compatible federation endpoint identity membrane.
-
-    The board remains the coordination authority. Endpoint identity is self-declared
-    routing identity anchored into the same durable presence/event commits; it is
-    explicitly not proof of source authority or semantic correctness.
-    """
+    """Install optional federation endpoint identity without changing board authority."""
     if getattr(runtime_cls, "_athena_endpoint_identity_v1_registered", False):
         return
 
@@ -110,18 +99,11 @@ def install_message_board_endpoint_identity(runtime_cls, tools=None) -> None:
     original_join = runtime_cls.join
     original_call_tool = runtime_cls.call_tool
 
-    def _pending(self) -> dict[str, tuple[dict[str, Any], str]]:
-        value = getattr(self, "_endpoint_identity_pending_v1", None)
-        if value is None:
-            value = {}
-            self._endpoint_identity_pending_v1 = value
-        return value
-
     def _commit_files_with_endpoint_identity(self, expected_head, files, actor, message):
-        pending = _pending(self).get(str(actor))
-        if not pending:
+        pending = _PENDING_ENDPOINT_IDENTITY.get()
+        if not pending or pending[0] != str(actor):
             return original_commit_files(self, expected_head, files, actor, message)
-        identity, identity_digest = pending
+        _, identity, identity_digest = pending
         rewritten: dict[str, str] = {}
         for rel, text in files.items():
             try:
@@ -147,14 +129,7 @@ def install_message_board_endpoint_identity(runtime_cls, tools=None) -> None:
         return original_commit_files(self, expected_head, rewritten, actor, message)
 
     def _event_with_endpoint_identity(self, kind, agent_id, payload=None, recipients=None, reply_to=None):
-        rel, event = original_event(
-            self,
-            kind,
-            agent_id,
-            payload=payload,
-            recipients=recipients,
-            reply_to=reply_to,
-        )
+        rel, event = original_event(self, kind, agent_id, payload=payload, recipients=recipients, reply_to=reply_to)
         active = self._active()
         by_agent = {str(row.get("agent_id")): row for row in active}
         actor = by_agent.get(str(agent_id))
@@ -175,115 +150,54 @@ def install_message_board_endpoint_identity(runtime_cls, tools=None) -> None:
         if not normalized or not isinstance(result, dict):
             return result
         presence = result.get("presence")
-        if isinstance(presence, dict):
-            existing_digest = presence.get("endpoint_identity_digest")
-            if existing_digest and existing_digest != identity_digest:
-                held = dict(result)
-                held["status"] = "ENDPOINT_IDENTITY_MISMATCH_HOLD"
-                held["requested_endpoint_identity_digest"] = identity_digest
-                held["existing_endpoint_identity_digest"] = existing_digest
-                held["next"] = "release current presence before changing endpoint identity"
-                return held
-            if result.get("status") in {"PRESENT", "JOINED"}:
-                enriched = dict(presence)
-                enriched["endpoint_identity"] = normalized
-                enriched["endpoint_identity_digest"] = identity_digest
-                result = dict(result)
-                result["presence"] = enriched
+        if not isinstance(presence, dict):
+            return result
+        if result.get("status") in {"PRESENT", "JOINED"}:
+            enriched = dict(presence)
+            enriched["endpoint_identity"] = normalized
+            enriched["endpoint_identity_digest"] = identity_digest
+            updated = dict(result)
+            updated["presence"] = enriched
+            return updated
+        existing_digest = presence.get("endpoint_identity_digest")
+        if existing_digest != identity_digest:
+            held = dict(result)
+            held["status"] = "ENDPOINT_IDENTITY_MISSING_HOLD" if not existing_digest else "ENDPOINT_IDENTITY_MISMATCH_HOLD"
+            held["requested_endpoint_identity_digest"] = identity_digest
+            held["existing_endpoint_identity_digest"] = existing_digest
+            held["next"] = "release current presence before changing endpoint identity"
+            return held
         return result
 
-    def present_with_endpoint_identity(
-        self,
-        *,
-        agent_id,
-        task,
-        work_key=None,
-        targets=None,
-        details=None,
-        mode="PRIMARY",
-        replication_reason=None,
-        lease_seconds=1800,
-        remote="origin",
-        endpoint_identity=None,
-    ):
+    def present_with_endpoint_identity(self, *, agent_id, task, work_key=None, targets=None, details=None, mode="PRIMARY", replication_reason=None, lease_seconds=1800, remote="origin", endpoint_identity=None):
         normalized = normalize_endpoint_identity(endpoint_identity) if endpoint_identity is not None else None
         identity_digest = endpoint_identity_digest(normalized) if normalized else None
-        pending = _pending(self)
-        if normalized:
-            pending[str(agent_id)] = (normalized, identity_digest)
+        token = _PENDING_ENDPOINT_IDENTITY.set((str(agent_id), normalized, identity_digest)) if normalized else None
         try:
-            result = original_present(
-                self,
-                agent_id=agent_id,
-                task=task,
-                work_key=work_key,
-                targets=targets,
-                details=details,
-                mode=mode,
-                replication_reason=replication_reason,
-                lease_seconds=lease_seconds,
-                remote=remote,
-            )
+            result = original_present(self, agent_id=agent_id, task=task, work_key=work_key, targets=targets, details=details, mode=mode, replication_reason=replication_reason, lease_seconds=lease_seconds, remote=remote)
         finally:
-            pending.pop(str(agent_id), None)
+            if token is not None:
+                _PENDING_ENDPOINT_IDENTITY.reset(token)
         return _finish_identity_result(result, normalized, identity_digest)
 
-    def join_with_endpoint_identity(
-        self,
-        *,
-        agent_id,
-        join_agent_id,
-        task=None,
-        details=None,
-        lease_seconds=1800,
-        remote="origin",
-        endpoint_identity=None,
-    ):
+    def join_with_endpoint_identity(self, *, agent_id, join_agent_id, task=None, details=None, lease_seconds=1800, remote="origin", endpoint_identity=None):
         normalized = normalize_endpoint_identity(endpoint_identity) if endpoint_identity is not None else None
         identity_digest = endpoint_identity_digest(normalized) if normalized else None
-        pending = _pending(self)
-        if normalized:
-            pending[str(agent_id)] = (normalized, identity_digest)
+        token = _PENDING_ENDPOINT_IDENTITY.set((str(agent_id), normalized, identity_digest)) if normalized else None
         try:
-            result = original_join(
-                self,
-                agent_id=agent_id,
-                join_agent_id=join_agent_id,
-                task=task,
-                details=details,
-                lease_seconds=lease_seconds,
-                remote=remote,
-            )
+            result = original_join(self, agent_id=agent_id, join_agent_id=join_agent_id, task=task, details=details, lease_seconds=lease_seconds, remote=remote)
         finally:
-            pending.pop(str(agent_id), None)
+            if token is not None:
+                _PENDING_ENDPOINT_IDENTITY.reset(token)
         return _finish_identity_result(result, normalized, identity_digest)
 
     def call_tool_with_endpoint_identity(self, name, arguments):
         if name == TOOL_NAME:
             action = str(arguments.get("action") or "").lower()
             if action == "present" and arguments.get("endpoint_identity") is not None:
-                return self.present(
-                    agent_id=arguments["agent_id"],
-                    task=arguments["task"],
-                    work_key=arguments.get("work_key"),
-                    targets=arguments.get("targets") or [],
-                    details=arguments.get("details"),
-                    mode=arguments.get("mode", "PRIMARY"),
-                    replication_reason=arguments.get("replication_reason"),
-                    lease_seconds=arguments.get("lease_seconds", 1800),
-                    remote=arguments.get("remote", "origin"),
-                    endpoint_identity=arguments.get("endpoint_identity"),
-                )
+                return self.present(agent_id=arguments["agent_id"], task=arguments["task"], work_key=arguments.get("work_key"), targets=arguments.get("targets") or [], details=arguments.get("details"), mode=arguments.get("mode", "PRIMARY"), replication_reason=arguments.get("replication_reason"), lease_seconds=arguments.get("lease_seconds", 1800), remote=arguments.get("remote", "origin"), endpoint_identity=arguments.get("endpoint_identity"))
             if action == "join" and arguments.get("endpoint_identity") is not None:
-                return self.join(
-                    agent_id=arguments["agent_id"],
-                    join_agent_id=arguments["join_agent_id"],
-                    task=arguments.get("task"),
-                    details=arguments.get("details"),
-                    lease_seconds=arguments.get("lease_seconds", 1800),
-                    remote=arguments.get("remote", "origin"),
-                    endpoint_identity=arguments.get("endpoint_identity"),
-                )
+                return self.join(agent_id=arguments["agent_id"], join_agent_id=arguments["join_agent_id"], task=arguments.get("task"), details=arguments.get("details"), lease_seconds=arguments.get("lease_seconds", 1800), remote=arguments.get("remote", "origin"), endpoint_identity=arguments.get("endpoint_identity"))
         return original_call_tool(self, name, arguments)
 
     runtime_cls._commit_files = _commit_files_with_endpoint_identity
