@@ -1,21 +1,25 @@
 from __future__ import annotations
 
-"""Causal return-token and propagation guard for the Liminal Beacon Mesh.
+"""Causal bridge-receipt and propagation guard for the Liminal Beacon Mesh.
 
 This extension is deliberately additive: the existing liminal mesh remains the
 routing plane and Message Board/Cohesion remain the durable authorities. The
 extension closes one semantic gap between those planes:
 
-* a successful durable bridge receives an addressable return token;
+* a successful durable bridge receives an addressable bridge-receipt token;
 * repeated bridge calls in one live mesh are idempotent;
 * PROPAGATED cannot be asserted without an explicit propagation reference;
-* synapse-return propagation references must resolve to a successful bridge
+* bridge-receipt propagation references must resolve to a successful bridge
   receipt for the same packet;
 * state/manifest expose bridge receipts without promoting them to truth.
 
 A bridge receipt proves only that the transport returned success. It does not
 prove that another agent consumed, incorporated, propagated, or benefited from
 the packet.
+
+The token name is intentionally distinct from ATHENA.SYNAPSE.ENVELOPE.V1's
+`projection.return_token`, which is a projection return route/resource rather
+than a local durable-bridge receipt identity.
 """
 
 import hashlib
@@ -25,12 +29,14 @@ from typing import Any
 
 VERSION = "LIMINAL.SYNAPSE.RETURN.1"
 ARTIFACT = "ATHENA.LIMINAL.SYNAPSE.RETURN.V1.CANDIDATE"
+BRIDGE_RECEIPT_REF_PREFIX = "bridge-receipt:"
 
 LAWS = [
-    "BRIDGE_SUCCESS => ADDRESSABLE_RETURN_TOKEN",
+    "BRIDGE_SUCCESS => ADDRESSABLE_BRIDGE_RECEIPT_TOKEN",
+    "BRIDGE_RECEIPT_TOKEN != SYNAPSE_PROJECTION_RETURN_TOKEN",
     "BRIDGE_RETRY_SAME_LIVE_PACKET_DESTINATION => IDEMPOTENT_RETURN",
     "PROPAGATED_REQUIRES_EXPLICIT_PROPAGATION_REF",
-    "SYNAPSE_RETURN_REF_MUST_RESOLVE_FOR_SAME_PACKET",
+    "BRIDGE_RECEIPT_REF_MUST_RESOLVE_FOR_SAME_PACKET",
     "BRIDGE_RETURN != DELIVERY != CONSUMPTION != INCORPORATION != PROPAGATION != OUTCOME_IMPROVEMENT",
     "EPHEMERAL_BRIDGE_RECEIPT != CROSS_RESTART_DURABLE_DEDUPLICATION",
 ]
@@ -111,11 +117,11 @@ def _packet_bridge_receipts(runtime: Any, packet_id: str) -> list[dict[str, Any]
     ]
 
 
-def _validate_synapse_return_refs(runtime: Any, packet_id: str, refs: list[str]) -> None:
+def _validate_bridge_receipt_refs(runtime: Any, packet_id: str, refs: list[str]) -> None:
     requested = {
-        ref.split(":", 1)[1]
+        ref[len(BRIDGE_RECEIPT_REF_PREFIX):]
         for ref in refs
-        if ref.startswith("synapse-return:") and len(ref.split(":", 1)) == 2
+        if ref.startswith(BRIDGE_RECEIPT_REF_PREFIX) and ref[len(BRIDGE_RECEIPT_REF_PREFIX):]
     }
     if not requested:
         return
@@ -127,7 +133,7 @@ def _validate_synapse_return_refs(runtime: Any, packet_id: str, refs: list[str])
     missing = sorted(requested - valid)
     if missing:
         raise ValueError(
-            "PROPAGATION_RETURN_TOKEN_HOLD: synapse-return ref does not resolve to a successful bridge for this packet: "
+            "PROPAGATION_BRIDGE_RECEIPT_HOLD: bridge-receipt ref does not resolve to a successful bridge for this packet: "
             + ",".join(missing)
         )
 
@@ -151,6 +157,8 @@ def install_liminal_synapse_return(runtime_cls: type) -> None:
             "standing": "CANDIDATE_ADDITIVE_GUARD",
             "bridge_receipt_persistence": "PROCESS_LOCAL_EPHEMERAL",
             "cross_restart_deduplication": False,
+            "bridge_receipt_ref_prefix": BRIDGE_RECEIPT_REF_PREFIX,
+            "synapse_projection_return_token_semantics": "DISTINCT_RETURN_ROUTE_RESOURCE",
             "laws": list(LAWS),
         }
         return value
@@ -174,7 +182,7 @@ def install_liminal_synapse_return(runtime_cls: type) -> None:
                 "packet_id": packet_id,
                 "bridge_receipt": dict(previous),
                 "durable_refs": list(previous.get("durable_refs") or []),
-                "return_token": previous.get("bridge_receipt_id"),
+                "bridge_receipt_token": previous.get("bridge_receipt_id"),
                 "idempotent": True,
                 "law": "BRIDGE_RETRY_SAME_LIVE_PACKET_DESTINATION => IDEMPOTENT_RETURN",
             }
@@ -213,7 +221,7 @@ def install_liminal_synapse_return(runtime_cls: type) -> None:
         enriched = dict(result)
         enriched["bridge_receipt"] = dict(receipt)
         enriched["durable_refs"] = list(refs)
-        enriched["return_token"] = receipt["bridge_receipt_id"]
+        enriched["bridge_receipt_token"] = receipt["bridge_receipt_id"]
         return enriched
 
     def receipt(
@@ -235,7 +243,7 @@ def install_liminal_synapse_return(runtime_cls: type) -> None:
                 raise ValueError(
                     "PROPAGATION_EVIDENCE_HOLD: PROPAGATED requires at least one explicit propagation_ref"
                 )
-            _validate_synapse_return_refs(self, packet_id, refs)
+            _validate_bridge_receipt_refs(self, packet_id, refs)
         value = original_receipt(
             self,
             agent_id=agent_id,
@@ -249,7 +257,7 @@ def install_liminal_synapse_return(runtime_cls: type) -> None:
         )
         if stage_upper == "PROPAGATED" and isinstance(value, dict):
             value = dict(value)
-            value["synapse_return_refs"] = refs
+            value["propagation_witness_refs"] = refs
         return value
 
     def state(self, agent_id: str | None = None, include_packets: bool = False, limit: int = 50):
@@ -263,6 +271,8 @@ def install_liminal_synapse_return(runtime_cls: type) -> None:
             "bridge_receipt_count": len(receipts),
             "bridge_receipts": [dict(row) for row in receipts[:cap]],
             "cross_restart_deduplication": False,
+            "bridge_receipt_ref_prefix": BRIDGE_RECEIPT_REF_PREFIX,
+            "synapse_projection_return_token_semantics": "DISTINCT_RETURN_ROUTE_RESOURCE",
             "laws": list(LAWS),
         }
         return value
@@ -277,6 +287,7 @@ def install_liminal_synapse_return(runtime_cls: type) -> None:
 __all__ = [
     "VERSION",
     "ARTIFACT",
+    "BRIDGE_RECEIPT_REF_PREFIX",
     "LAWS",
     "install_liminal_synapse_return",
 ]
