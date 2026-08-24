@@ -154,8 +154,10 @@ install_liminal_synapse_return(LiminalBeaconMeshRuntime)
 # their different semantics. It is read-only and treats missing presence as
 # unobserved rather than absent.
 from .synapse_observer import install_synapse_observer
+from .synapse_observer_extension import install_synapse_observer_extension
 
 install_synapse_observer()
+install_synapse_observer_extension()
 
 # LSH-001 remains a separately opt-in no-injection observer. It executes V1.1
 # only on disposable projections and returns telemetry on a separate read-only
