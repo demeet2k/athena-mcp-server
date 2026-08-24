@@ -4,7 +4,7 @@ import os
 from datetime import datetime, timezone
 from typing import Any
 
-from .liminal_beacon_mesh import LiminalBeaconMeshRuntime
+from .liminal_beacon_mesh import LiminalBeaconMeshRuntime, _packet_capsule
 from .synapse_liminal_adapter import (
     liminal_capsule_to_synapse,
     liminal_receipt_to_synapse,
@@ -34,6 +34,26 @@ def _liminal(server: Any) -> LiminalBeaconMeshRuntime:
     return runtime
 
 
+def _read_packet_capsule(runtime: LiminalBeaconMeshRuntime, packet_id: str) -> dict[str, Any]:
+    """Read one current public capsule without pruning or mutating the mesh."""
+    packet_id = str(packet_id or "").strip()
+    with runtime._lock:
+        row = runtime._packets.get(packet_id)
+        if not row:
+            raise ValueError("LIMINAL_PACKET_NOT_FOUND_HOLD")
+        return _packet_capsule(row)
+
+
+def _read_receipt_record(runtime: LiminalBeaconMeshRuntime, agent_id: str, packet_id: str) -> dict[str, Any]:
+    """Read one explicit native receipt record without advancing its stage."""
+    key = (str(agent_id or "").strip(), str(packet_id or "").strip())
+    with runtime._lock:
+        row = runtime._receipts.get(key)
+        if not row:
+            raise ValueError("LIMINAL_RECEIPT_NOT_FOUND_HOLD")
+        return dict(row)
+
+
 class SynapseLiminalRuntime:
     def __init__(self, server: Any):
         self.server = server
@@ -45,7 +65,7 @@ class SynapseLiminalRuntime:
 
         if name == "athena_synapse_liminal_export_packet":
             source_revision = _source_revision(arguments)
-            capsule = runtime.read_packet_capsule(str(arguments["packet_id"]))
+            capsule = _read_packet_capsule(runtime, str(arguments["packet_id"]))
             envelope = liminal_capsule_to_synapse(
                 capsule,
                 source_revision=source_revision,
@@ -60,7 +80,8 @@ class SynapseLiminalRuntime:
 
         if name == "athena_synapse_liminal_export_receipt":
             source_revision = _source_revision(arguments)
-            receipt = runtime.read_receipt_record(
+            receipt = _read_receipt_record(
+                runtime,
                 str(arguments["agent_id"]),
                 str(arguments["packet_id"]),
             )
