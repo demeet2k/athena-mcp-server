@@ -126,6 +126,14 @@ from .continuation_raw_observer_manifest import (
 _install_continuation_raw_observer_manifest(globals())
 del _install_continuation_raw_observer_manifest
 
+# EDE-001 closes the fast-plane MATERIAL_CANDIDATE -> durable Message Board seam
+# declared by EphemeralCoordinationRuntime. The transplanted AOR surface already
+# owns the Federation projection over the same SQLite runtime; this additive
+# installer reuses that runtime and the existing Message Board authority.
+from .ephemeral_durable_bridge_extension import install_ephemeral_durable_bridge
+
+install_ephemeral_durable_bridge()
+
 # LBM-001/1.1 is an additive candidate communication organ after the current
 # V15 + V3.4 + CUTOVER_HOLD + continuation-raw frontier. Automatic tool-crossing
 # sharing remains opt-in. The core Liminal Beacon routing engine is inherited;
@@ -176,8 +184,8 @@ install_synapse_observer_extension()
 
 # CPI-001 turns the observer into a typed navigation map across all known
 # communication planes. It reads the existing fast SQLite membrane separately
-# and probes optional Federation/durable-escalation bridges without joining their
-# identity or cursor namespaces.
+# and probes Federation/durable-escalation bridges without joining their identity
+# or cursor namespaces.
 from .communication_plane_inventory_extension import install_communication_plane_inventory
 
 install_communication_plane_inventory()
