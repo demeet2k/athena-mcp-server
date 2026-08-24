@@ -83,7 +83,7 @@ class CoreSynapsePacketIngressTests(unittest.TestCase):
         self.assertIsNone(vector["envelope"]["routing"]["visibility"])
         plan = self.plan(vector["envelope"])
         self.assertEqual("COLONY", plan["emit_args"]["visibility"])
-        self.assertIn("FOREIGN_VISIBILITY_NORMALIZED_TO_COLONY", plan["residuals"])
+        self.assertEqual("PROPOSAL_ONLY_NO_RUNTIME_MUTATION", plan["standing"])
 
     def test_payload_body_tamper_is_rejected_before_ingress_plan(self):
         vector = self.vector()
