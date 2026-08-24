@@ -97,11 +97,13 @@ class SynapseIngressPreflightTests(unittest.TestCase):
         second.start()
 
         # The second call must block on the mesh transaction lock before it can
-        # preflight or emit. No packet exists until the deliberately delayed
-        # first native emit is released.
+        # preflight or emit. The first worker is intentionally stalled before
+        # native emit, so direct inspection of the private packet dict is the
+        # only non-blocking observation here; calling mesh.state() would itself
+        # try to acquire the lock under test and create a test-harness deadlock.
         second.join(timeout=0.05)
         self.assertTrue(second.is_alive())
-        self.assertEqual(0, mesh.state()["packet_count"])
+        self.assertEqual(0, len(mesh._packets))
 
         release_first_emit.set()
         first.join(timeout=2.0)
