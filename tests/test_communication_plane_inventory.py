@@ -68,18 +68,55 @@ class CommunicationPlaneInventoryTests(unittest.TestCase):
         self.assertEqual(inventory["identity_join_policy"], "NO_AUTOMATIC_CROSS_PLANE_IDENTITY_JOIN")
         self.assertNotIn("fast-only", [row["agent_id"] for row in observed["agents"]])
 
-    def test_real_synapse_envelope_is_installed_while_optional_federation_and_escalation_are_unobserved(self):
+    def test_all_supermesh_bridges_are_live_and_fast_bridges_share_one_runtime(self):
         server = self.server()
-        inventory = SynapseObserverRuntime(server).observe(shared_remote_mode="BEST_EFFORT")["communication_plane_inventory"]
+        observed = SynapseObserverRuntime(server).observe(shared_remote_mode="BEST_EFFORT")
+        inventory = observed["communication_plane_inventory"]
         optional = inventory["optional_components"]
-        self.assertTrue(optional["synapse_envelope"]["installed"])
-        self.assertEqual(optional["synapse_envelope"]["schema"], "ATHENA.SYNAPSE.ENVELOPE.V1")
-        self.assertFalse(optional["federation_ephemeral"]["installed"])
-        self.assertFalse(optional["ephemeral_durable_escalation"]["installed"])
+
+        envelope = optional["synapse_envelope"]
+        self.assertTrue(envelope["source_available"])
+        self.assertTrue(envelope["installed"])
+        self.assertEqual(envelope["schema"], "ATHENA.SYNAPSE.ENVELOPE.V1")
+        self.assertEqual(envelope["standing"], "SYNAPSE_ENVELOPE_ADAPTER_INSTALLED")
+
+        federation = optional["federation_ephemeral"]
+        self.assertTrue(federation["source_available"])
+        self.assertTrue(federation["installed"])
+        self.assertTrue(federation["runtime_present"])
+        self.assertTrue(federation["shared_fast_runtime_identity"])
+        self.assertEqual(
+            federation["standing"],
+            "FEDERATION_EPHEMERAL_PROJECTION_INSTALLED_SHARED_RUNTIME",
+        )
+
+        durable = optional["ephemeral_durable_escalation"]
+        self.assertTrue(durable["source_available"])
+        self.assertTrue(durable["installed"])
+        self.assertTrue(durable["runtime_present"])
+        self.assertTrue(durable["shared_fast_runtime_identity"])
+        self.assertEqual(
+            durable["standing"],
+            "EPHEMERAL_DURABLE_ESCALATION_INSTALLED_SHARED_RUNTIME",
+        )
+
+        fast = server.aor_development.ephemeral_coordination.runtime
+        self.assertIs(server.aor_development.federation_ephemeral_bridge.bridge.runtime, fast)
+        self.assertIs(server.aor_development.ephemeral_durable_bridge.bridge.runtime, fast)
+
         edge_map = {(row["src"], row["dst"]): row for row in inventory["bridge_edges"]}
-        self.assertEqual(edge_map[("LIMINAL_BEACON", "SYNAPSE_ENVELOPE")]["standing"], "INSTALLED_EXPLICIT_PROJECTION")
-        self.assertEqual(edge_map[("FEDERATION_SOURCE_CURSOR", "EPHEMERAL_SQLITE")]["standing"], "OPTIONAL_BRIDGE_UNOBSERVED")
-        self.assertEqual(edge_map[("EPHEMERAL_SQLITE", "MESSAGE_BOARD")]["standing"], "DECLARED_MATERIAL_ESCALATION_RESIDUAL_UNINSTALLED")
+        self.assertEqual(
+            edge_map[("LIMINAL_BEACON", "SYNAPSE_ENVELOPE")]["standing"],
+            "INSTALLED_EXPLICIT_PROJECTION",
+        )
+        self.assertEqual(
+            edge_map[("FEDERATION_SOURCE_CURSOR", "EPHEMERAL_SQLITE")]["standing"],
+            "INSTALLED_EXPLICIT_PROJECTION",
+        )
+        self.assertEqual(
+            edge_map[("EPHEMERAL_SQLITE", "MESSAGE_BOARD")]["standing"],
+            "INSTALLED_EXPLICIT_ESCALATION",
+        )
 
     def test_plane_resource_and_manifest_are_discoverable(self):
         server = self.server()
