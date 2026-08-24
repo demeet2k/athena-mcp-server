@@ -12,6 +12,7 @@ from athena_mcp.message_board_endpoint_identity import (
     endpoint_identity_digest,
     normalize_endpoint_identity,
 )
+from athena_mcp.synapse_mcp_contract import SYNAPSE_MCP_CONTRACT_DIGEST
 
 
 def _run(root: Path, *args: str) -> str:
@@ -96,6 +97,9 @@ class MessageBoardEndpointIdentityTests(unittest.TestCase):
         self.assertFalse(identity_schema["additionalProperties"])
         self.assertEqual(identity_schema["properties"]["artifact"]["const"], IDENTITY_ARTIFACT)
 
+    def test_contract_digest_is_canonical_sha256(self):
+        self.assertRegex(SYNAPSE_MCP_CONTRACT_DIGEST, r"^sha256:[0-9a-f]{64}$")
+
     def test_identity_digest_is_order_invariant_for_fingerprint(self):
         left = _identity("coord.synapse", "OID:coord.synapse")
         right = dict(left)
@@ -116,7 +120,7 @@ class MessageBoardEndpointIdentityTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "fields must match"):
             normalize_endpoint_identity(value)
 
-    def test_presence_message_and_ack_preserve_same_target_identity_digest(self):
+    def test_presence_message_and_ack_preserve_target_identity_and_contract_digest(self):
         a, b, _ = self._fixture()
         runtime_a = self._runtime(a)
         runtime_b = self._runtime(b)
@@ -137,6 +141,7 @@ class MessageBoardEndpointIdentityTests(unittest.TestCase):
         )
         self.assertEqual(present_a["status"], "PRESENT", present_a)
         self.assertEqual(present_a["presence"]["endpoint_identity_digest"], source_digest)
+        self.assertEqual(present_a["presence"]["synapse_contract_digest"], SYNAPSE_MCP_CONTRACT_DIGEST)
 
         present_b = runtime_b.call_tool(
             "athena_message_board",
@@ -150,6 +155,7 @@ class MessageBoardEndpointIdentityTests(unittest.TestCase):
         )
         self.assertEqual(present_b["status"], "PRESENT", present_b)
         self.assertEqual(present_b["presence"]["endpoint_identity_digest"], target_digest)
+        self.assertEqual(present_b["presence"]["synapse_contract_digest"], SYNAPSE_MCP_CONTRACT_DIGEST)
 
         post = runtime_a.call_tool(
             "athena_message_board",
@@ -165,6 +171,7 @@ class MessageBoardEndpointIdentityTests(unittest.TestCase):
         self.assertTrue(post["durable_return"], post)
         payload = post["message_event"]["payload"]
         self.assertEqual(payload["actor_endpoint_identity_digest"], source_digest)
+        self.assertEqual(payload["synapse_contract_digest"], SYNAPSE_MCP_CONTRACT_DIGEST)
         self.assertEqual(
             payload["recipient_endpoint_identity_digests"],
             {"mcp-agent": target_digest},
@@ -183,6 +190,10 @@ class MessageBoardEndpointIdentityTests(unittest.TestCase):
         self.assertEqual(
             ack["ack_event"]["payload"]["actor_endpoint_identity_digest"],
             target_digest,
+        )
+        self.assertEqual(
+            ack["ack_event"]["payload"]["synapse_contract_digest"],
+            SYNAPSE_MCP_CONTRACT_DIGEST,
         )
         self.assertEqual(
             ack["ack_event"]["payload"]["message_id"],
@@ -211,17 +222,40 @@ class MessageBoardEndpointIdentityTests(unittest.TestCase):
             switched["existing_endpoint_identity_digest"],
         )
 
+    def test_legacy_presence_cannot_retroactively_claim_endpoint_identity(self):
+        _, _, legacy = self._fixture()
+        runtime = self._runtime(legacy)
+        first = runtime.present(
+            agent_id="legacy-agent",
+            task="legacy task",
+            work_key="WK:LEGACY",
+        )
+        self.assertEqual(first["status"], "PRESENT", first)
+        claimed = runtime.present(
+            agent_id="legacy-agent",
+            task="legacy task",
+            work_key="WK:LEGACY",
+            endpoint_identity=_identity("coord.synapse", "OID:coord.synapse"),
+        )
+        self.assertEqual(claimed["status"], "ENDPOINT_IDENTITY_MISSING_HOLD", claimed)
+        self.assertIsNone(claimed["existing_endpoint_identity_digest"])
+
     def test_legacy_presence_and_message_flow_remain_valid_without_identity(self):
         _, _, legacy = self._fixture()
         runtime = self._runtime(legacy)
         present = runtime.present(agent_id="legacy-agent", task="legacy task")
         self.assertEqual(present["status"], "PRESENT", present)
         self.assertNotIn("endpoint_identity", present["presence"])
+        self.assertNotIn("synapse_contract_digest", present["presence"])
         post = runtime.post(agent_id="legacy-agent", message="legacy message")
         self.assertEqual(post["status"], "POSTED", post)
         self.assertEqual(
             post["message_event"]["payload"]["recipient_endpoint_identity_digests"],
             {},
+        )
+        self.assertEqual(
+            post["message_event"]["payload"]["synapse_contract_digest"],
+            SYNAPSE_MCP_CONTRACT_DIGEST,
         )
         self.assertNotIn(
             "actor_endpoint_identity_digest",
