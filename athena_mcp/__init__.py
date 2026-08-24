@@ -150,6 +150,12 @@ from .liminal_synapse_return import install_liminal_synapse_return
 
 install_liminal_synapse_return(LiminalBeaconMeshRuntime)
 
+# LGC-001 compacts process-local receipt/epoch debris only after packets become
+# non-actionable, while preserving reverse-consumer causality for later fixes.
+from .liminal_gc import install_liminal_gc
+
+install_liminal_gc(LiminalBeaconMeshRuntime)
+
 # SYN-OBS-001 joins durable and ephemeral communication views without flattening
 # their different semantics. It is read-only and treats missing presence as
 # unobserved rather than absent.
