@@ -21,12 +21,12 @@ class SynapseObserverExtensionTests(unittest.TestCase):
         with mock.patch.object(extension.importlib, "import_module", side_effect=missing):
             status = extension._synapse_abi_status()
         self.assertFalse(status["adapter_installed"])
-        self.assertEqual(status["expected_schema"], extension.EXPECTED_SYNapse_SCHEMA)
+        self.assertEqual(status["expected_schema"], extension.EXPECTED_SYNAPSE_SCHEMA)
         self.assertEqual(status["standing"], "OPTIONAL_COMPANION_UNOBSERVED")
 
     def test_companion_adapter_match_projects_profiles_without_dependency(self):
         fake = types.SimpleNamespace(
-            SYNAPSE_SCHEMA=extension.EXPECTED_SYNapse_SCHEMA,
+            SYNAPSE_SCHEMA=extension.EXPECTED_SYNAPSE_SCHEMA,
             PACKET_PROFILE="LIMINAL_BEACON_CAPSULE_V1",
             RECEIPT_PROFILE="LIMINAL_BEACON_RECEIPT_V1",
         )
@@ -53,7 +53,7 @@ class SynapseObserverExtensionTests(unittest.TestCase):
 
     def test_decorate_preserves_observer_payload_and_adds_abi_status(self):
         fake = types.SimpleNamespace(
-            SYNAPSE_SCHEMA=extension.EXPECTED_SYNapse_SCHEMA,
+            SYNAPSE_SCHEMA=extension.EXPECTED_SYNAPSE_SCHEMA,
             PACKET_PROFILE="p",
             RECEIPT_PROFILE="r",
         )
