@@ -3,10 +3,12 @@ from __future__ import annotations
 """Read-only cross-plane observer for ATHENA communication metabolism.
 
 The observer joins durable Message Board coordination with process-local Liminal
-Beacon presence without flattening their semantics.  It exists to reveal gaps,
+Beacon presence without flattening their semantics. It exists to reveal gaps,
 not to turn absence in one plane into evidence about the other.
 """
 
+from collections import defaultdict
+from itertools import combinations
 from typing import Any
 
 from .liminal_beacon_mesh import LiminalBeaconMeshRuntime
@@ -15,6 +17,8 @@ from .message_board import MessageBoardRuntime
 VERSION = "ATHENA.SYNAPSE.OBSERVER.1"
 ARTIFACT = "ATHENA.SYNAPSE.OBSERVER.V1.CANDIDATE"
 TOOL_NAME = "athena_synapse_observe"
+DEFAULT_TOPOLOGY_EDGE_LIMIT = 256
+MAX_TOPOLOGY_EDGE_LIMIT = 2000
 
 LAWS = [
     "SYNAPSE_OBSERVER != CLAIM_OR_ASSIGNMENT_AUTHORITY",
@@ -24,6 +28,7 @@ LAWS = [
     "MISSING_DURABLE_CLAIM != WORK_ABSENCE",
     "ROUTE_OVERLAP != COMMUNICATION_SUCCESS",
     "SHARED_FRONTIER_UNVERIFIED => DURABLE_VIEW_QUALIFIED",
+    "TOPOLOGY_PROJECTION_IS_BOUNDED_AND_REPORTS_TRUNCATION",
 ]
 
 _ROUTE_FIELDS = (
@@ -55,26 +60,65 @@ def _liminal_route_atoms(row: dict[str, Any]) -> set[str]:
     return atoms
 
 
-def _liminal_edges(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    edges: list[dict[str, Any]] = []
-    ordered = sorted(rows, key=lambda row: str(row.get("agent_id") or ""))
-    for index, left in enumerate(ordered):
-        left_atoms = _liminal_route_atoms(left)
-        if not left_atoms:
+def _liminal_topology(
+    rows: list[dict[str, Any]],
+    *,
+    edge_limit: int = DEFAULT_TOPOLOGY_EDGE_LIMIT,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Build deterministic topology edges through an inverted route index.
+
+    The old pairwise scan compared every pair of agents and returned every
+    matching edge. This index computes only pairs that share an actual route atom
+    and bounds the public projection while reporting the exact pre-truncation
+    edge count. The bound changes representation size, not route semantics.
+    """
+
+    edge_limit = max(1, min(int(edge_limit or DEFAULT_TOPOLOGY_EDGE_LIMIT), MAX_TOPOLOGY_EDGE_LIMIT))
+    atom_agents: dict[str, set[str]] = defaultdict(set)
+    for row in rows:
+        agent_id = str(row.get("agent_id") or "").strip()
+        if not agent_id:
             continue
-        for right in ordered[index + 1 :]:
-            shared = sorted(left_atoms & _liminal_route_atoms(right))
-            if not shared:
-                continue
-            edges.append(
-                {
-                    "agents": [left.get("agent_id"), right.get("agent_id")],
-                    "shared_route_atoms": shared[:32],
-                    "shared_route_atom_count": len(shared),
-                    "standing": "TOPOLOGICAL_RENDEZVOUS_POTENTIAL_ONLY",
-                }
-            )
-    return edges
+        for atom in _liminal_route_atoms(row):
+            atom_agents[atom].add(agent_id)
+
+    pair_atoms: dict[tuple[str, str], set[str]] = defaultdict(set)
+    candidate_pair_operations = 0
+    for atom, agent_ids in atom_agents.items():
+        ordered = sorted(agent_ids)
+        if len(ordered) < 2:
+            continue
+        pair_count = len(ordered) * (len(ordered) - 1) // 2
+        candidate_pair_operations += pair_count
+        for left, right in combinations(ordered, 2):
+            pair_atoms[(left, right)].add(atom)
+
+    ranked = sorted(
+        pair_atoms.items(),
+        key=lambda item: (-len(item[1]), item[0][0], item[0][1]),
+    )
+    emitted = ranked[:edge_limit]
+    edges = [
+        {
+            "agents": [pair[0], pair[1]],
+            "shared_route_atoms": sorted(atoms)[:32],
+            "shared_route_atom_count": len(atoms),
+            "shared_route_atoms_truncated": len(atoms) > 32,
+            "standing": "TOPOLOGICAL_RENDEZVOUS_POTENTIAL_ONLY",
+        }
+        for pair, atoms in emitted
+    ]
+    metrics = {
+        "route_atom_count": len(atom_agents),
+        "candidate_pair_operations": candidate_pair_operations,
+        "candidate_edge_count": len(ranked),
+        "emitted_edge_count": len(edges),
+        "edge_limit": edge_limit,
+        "truncated_edge_count": max(0, len(ranked) - len(edges)),
+        "truncated": len(ranked) > len(edges),
+        "ranking": "SHARED_ROUTE_ATOM_COUNT_DESC_THEN_AGENT_IDS",
+    }
+    return edges, metrics
 
 
 def build_synapse_map(
@@ -82,6 +126,7 @@ def build_synapse_map(
     liminal: dict[str, Any],
     *,
     agent_id: str | None = None,
+    topology_edge_limit: int = DEFAULT_TOPOLOGY_EDGE_LIMIT,
 ) -> dict[str, Any]:
     durable_rows = list(board.get("active") or [])
     liminal_rows = list(liminal.get("active_presence") or [])
@@ -156,6 +201,10 @@ def build_synapse_map(
     if agent_id:
         selected_unread = list(board.get("unread_messages") or [])
 
+    topology_edges, topology_metrics = _liminal_topology(
+        liminal_rows,
+        edge_limit=topology_edge_limit,
+    )
     bridge_state = liminal.get("synapse_return") if isinstance(liminal.get("synapse_return"), dict) else {}
     return {
         "artifact": ARTIFACT,
@@ -167,7 +216,8 @@ def build_synapse_map(
         "observability_gaps": gaps,
         "durable_exact_overlap_edges": list(board.get("exact_overlaps") or []),
         "durable_potential_overlap_edges": list(board.get("potential_overlaps") or []),
-        "liminal_topology_edges": _liminal_edges(liminal_rows),
+        "liminal_topology_edges": topology_edges,
+        "liminal_topology_metrics": topology_metrics,
         "selected_agent_id": agent_id,
         "selected_unread_messages": selected_unread,
         "synapse_return": {
@@ -204,6 +254,7 @@ class SynapseObserverRuntime:
         remote: str = "origin",
         shared_remote_mode: str = "BEST_EFFORT",
         limit: int = 100,
+        topology_edge_limit: int = DEFAULT_TOPOLOGY_EDGE_LIMIT,
     ) -> dict[str, Any]:
         git = getattr(self.server, "git", None)
         if git is None or not getattr(git, "enabled", False):
@@ -220,7 +271,12 @@ class SynapseObserverRuntime:
             include_packets=False,
             limit=max(1, min(int(limit or 100), 200)),
         )
-        return build_synapse_map(board, liminal, agent_id=agent_id)
+        return build_synapse_map(
+            board,
+            liminal,
+            agent_id=agent_id,
+            topology_edge_limit=topology_edge_limit,
+        )
 
     def call_tool(self, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
         if name != TOOL_NAME:
@@ -233,8 +289,8 @@ SYNAPSE_OBSERVER_TOOLS = [
         "name": TOOL_NAME,
         "description": (
             "Read-only cross-plane synapse observer joining durable Message Board claims/messages with process-local "
-            "Liminal Beacon presence. Reports observability gaps and topology without treating absence, routing, or "
-            "agent-id equality as process identity, execution authority, or truth."
+            "Liminal Beacon presence. Reports observability gaps and bounded topology without treating absence, routing, "
+            "or agent-id equality as process identity, execution authority, or truth."
         ),
         "inputSchema": {
             "type": "object",
@@ -246,6 +302,12 @@ SYNAPSE_OBSERVER_TOOLS = [
                     "enum": ["REQUIRED", "BEST_EFFORT", "DISABLED"],
                 },
                 "limit": {"type": "integer", "minimum": 1, "maximum": 500},
+                "topology_edge_limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": MAX_TOPOLOGY_EDGE_LIMIT,
+                    "default": DEFAULT_TOPOLOGY_EDGE_LIMIT,
+                },
             },
             "additionalProperties": False,
         },
@@ -286,6 +348,8 @@ __all__ = [
     "VERSION",
     "ARTIFACT",
     "TOOL_NAME",
+    "DEFAULT_TOPOLOGY_EDGE_LIMIT",
+    "MAX_TOPOLOGY_EDGE_LIMIT",
     "LAWS",
     "build_synapse_map",
     "SynapseObserverRuntime",
