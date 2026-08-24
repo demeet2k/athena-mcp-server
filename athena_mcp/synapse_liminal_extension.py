@@ -5,7 +5,11 @@ from datetime import datetime, timezone
 from typing import Any
 
 from .liminal_beacon_mesh import LiminalBeaconMeshRuntime, _packet_capsule
-from .synapse_ingress_correlation import attach_ingress_correlation, record_ingress_correlation
+from .synapse_ingress_correlation import (
+    attach_ingress_correlation,
+    ingress_source_preflight,
+    record_ingress_correlation,
+)
 from .synapse_liminal_adapter import (
     liminal_capsule_to_synapse,
     liminal_receipt_to_synapse,
@@ -117,16 +121,37 @@ class SynapseLiminalRuntime:
             )
 
         if name == "athena_synapse_liminal_ingest":
-            plan = synapse_to_liminal_ingress_plan(
-                arguments["envelope"],
-                agent_id=str(arguments["agent_id"]),
-            )
-            emitted = runtime.emit(**plan["emit_args"])
+            agent_id = str(arguments["agent_id"])
+            envelope = arguments["envelope"]
+            plan = synapse_to_liminal_ingress_plan(envelope, agent_id=agent_id)
+            preflight = ingress_source_preflight(self.server, envelope, agent_id=agent_id)
+            if preflight["status"] in {"SOURCE_EVENT_BODY_COLLISION_HOLD", "SOURCE_EVENT_MULTI_PACKET_HOLD"}:
+                raise ValueError(f"{preflight['status']}: foreign source cannot be emitted safely")
+
+            reused = preflight["status"] == "EXACT_SOURCE_CORRELATION"
+            if reused:
+                packet_id = str(preflight["local_packet_id"])
+                try:
+                    capsule = _read_packet_capsule(runtime, packet_id)
+                except ValueError as exc:
+                    raise ValueError(
+                        "INGRESS_CORRELATION_PACKET_MISSING_HOLD: exact source mapping exists but local packet is unavailable"
+                    ) from exc
+                emitted = {
+                    "status": "ALREADY_EMITTED",
+                    "packet": capsule,
+                    "idempotent": True,
+                    "durable_return": False,
+                    "law": "INGRESS_REPLAY_REUSES_PROCESS_LOCAL_PACKET",
+                }
+            else:
+                emitted = runtime.emit(**plan["emit_args"])
+
             correlation = record_ingress_correlation(
                 self.server,
-                arguments["envelope"],
+                envelope,
                 emitted,
-                agent_id=str(arguments["agent_id"]),
+                agent_id=agent_id,
                 observed_at=_observed_at(),
             )
             return {
@@ -134,13 +159,22 @@ class SynapseLiminalRuntime:
                 "source_event_id": plan["source_event_id"],
                 "emitted": emitted,
                 "source_correlation": correlation,
-                "residuals": plan["residuals"],
-                "standing": "NEW_EPHEMERAL_COORDINATION_SIGNAL_ONLY",
+                "preflight": preflight,
+                "residuals": [
+                    *plan["residuals"],
+                    *(["EXACT_SOURCE_ENVELOPE_REUSED_PROCESS_LOCAL_PACKET"] if reused else []),
+                ],
+                "standing": (
+                    "EXISTING_EPHEMERAL_COORDINATION_SIGNAL_REUSED_PROCESS_LOCAL"
+                    if reused
+                    else "NEW_EPHEMERAL_COORDINATION_SIGNAL_ONLY"
+                ),
                 "laws": [
                     "INGEST != SOURCE_EVENT_IDENTITY",
                     "INGEST != CONSUMPTION",
                     "INGEST != EXECUTION_AUTHORITY",
                     "PROCESS_LOCAL_CORRELATION != DURABLE_CAUSAL_PROOF",
+                    "SAME_SOURCE_EVENT_DIFFERENT_BODY => HOLD_BEFORE_LOCAL_EMIT",
                 ],
             }
 
