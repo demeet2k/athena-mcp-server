@@ -3,17 +3,19 @@ from __future__ import annotations
 """Causal return-token and propagation guard for the Liminal Beacon Mesh.
 
 This extension is deliberately additive: the existing liminal mesh remains the
-routing plane and Message Board/Cohesion remain the durable authorities.  The
+routing plane and Message Board/Cohesion remain the durable authorities. The
 extension closes one semantic gap between those planes:
 
 * a successful durable bridge receives an addressable return token;
 * repeated bridge calls in one live mesh are idempotent;
-* PROPAGATED cannot be asserted without an explicit propagation reference or a
-  successful durable bridge receipt for the packet;
-* state/manifest expose the bridge receipts without promoting them to truth.
+* PROPAGATED cannot be asserted without an explicit propagation reference;
+* synapse-return propagation references must resolve to a successful bridge
+  receipt for the same packet;
+* state/manifest expose bridge receipts without promoting them to truth.
 
-A bridge receipt proves only that the transport returned success.  It does not
-prove that another agent consumed, incorporated, or benefited from the packet.
+A bridge receipt proves only that the transport returned success. It does not
+prove that another agent consumed, incorporated, propagated, or benefited from
+the packet.
 """
 
 import hashlib
@@ -27,8 +29,9 @@ ARTIFACT = "ATHENA.LIMINAL.SYNAPSE.RETURN.V1.CANDIDATE"
 LAWS = [
     "BRIDGE_SUCCESS => ADDRESSABLE_RETURN_TOKEN",
     "BRIDGE_RETRY_SAME_LIVE_PACKET_DESTINATION => IDEMPOTENT_RETURN",
-    "PROPAGATED_REQUIRES_EXPLICIT_PROPAGATION_REF_OR_DURABLE_BRIDGE_RETURN",
-    "BRIDGE_RETURN != DELIVERY != CONSUMPTION != INCORPORATION != OUTCOME_IMPROVEMENT",
+    "PROPAGATED_REQUIRES_EXPLICIT_PROPAGATION_REF",
+    "SYNAPSE_RETURN_REF_MUST_RESOLVE_FOR_SAME_PACKET",
+    "BRIDGE_RETURN != DELIVERY != CONSUMPTION != INCORPORATION != PROPAGATION != OUTCOME_IMPROVEMENT",
     "EPHEMERAL_BRIDGE_RECEIPT != CROSS_RESTART_DURABLE_DEDUPLICATION",
 ]
 
@@ -108,6 +111,27 @@ def _packet_bridge_receipts(runtime: Any, packet_id: str) -> list[dict[str, Any]
     ]
 
 
+def _validate_synapse_return_refs(runtime: Any, packet_id: str, refs: list[str]) -> None:
+    requested = {
+        ref.split(":", 1)[1]
+        for ref in refs
+        if ref.startswith("synapse-return:") and len(ref.split(":", 1)) == 2
+    }
+    if not requested:
+        return
+    valid = {
+        str(row.get("bridge_receipt_id"))
+        for row in _packet_bridge_receipts(runtime, packet_id)
+        if row.get("bridge_receipt_id")
+    }
+    missing = sorted(requested - valid)
+    if missing:
+        raise ValueError(
+            "PROPAGATION_RETURN_TOKEN_HOLD: synapse-return ref does not resolve to a successful bridge for this packet: "
+            + ",".join(missing)
+        )
+
+
 def install_liminal_synapse_return(runtime_cls: type) -> None:
     """Install once on a LiminalBeaconMeshRuntime-compatible class."""
 
@@ -150,6 +174,7 @@ def install_liminal_synapse_return(runtime_cls: type) -> None:
                 "packet_id": packet_id,
                 "bridge_receipt": dict(previous),
                 "durable_refs": list(previous.get("durable_refs") or []),
+                "return_token": previous.get("bridge_receipt_id"),
                 "idempotent": True,
                 "law": "BRIDGE_RETRY_SAME_LIVE_PACKET_DESTINATION => IDEMPOTENT_RETURN",
             }
@@ -182,7 +207,7 @@ def install_liminal_synapse_return(runtime_cls: type) -> None:
             **basis,
             "observed_at": float(getattr(self, "_now", time.time)()),
             "evidence_ceiling": "TRANSPORT_SUCCESS_ONLY",
-            "law": "BRIDGE_RETURN != DELIVERY != CONSUMPTION != INCORPORATION",
+            "law": "BRIDGE_RETURN != DELIVERY != CONSUMPTION != INCORPORATION != PROPAGATION",
         }
         ledger[key] = receipt
         enriched = dict(result)
@@ -205,13 +230,12 @@ def install_liminal_synapse_return(runtime_cls: type) -> None:
     ):
         stage_upper = str(stage or "").upper()
         refs = [str(x).strip() for x in (propagation_refs or []) if str(x).strip()]
-        bridge_receipts = _packet_bridge_receipts(self, packet_id)
-        if stage_upper == "PROPAGATED" and not refs and not bridge_receipts:
-            raise ValueError(
-                "PROPAGATION_EVIDENCE_HOLD: PROPAGATED requires propagation_refs or a successful durable bridge return"
-            )
-        if stage_upper == "PROPAGATED" and not refs:
-            refs = [f"synapse-return:{row['bridge_receipt_id']}" for row in bridge_receipts]
+        if stage_upper == "PROPAGATED":
+            if not refs:
+                raise ValueError(
+                    "PROPAGATION_EVIDENCE_HOLD: PROPAGATED requires at least one explicit propagation_ref"
+                )
+            _validate_synapse_return_refs(self, packet_id, refs)
         value = original_receipt(
             self,
             agent_id=agent_id,
