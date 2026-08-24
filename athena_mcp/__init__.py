@@ -182,6 +182,13 @@ from .communication_plane_inventory_extension import install_communication_plane
 
 install_communication_plane_inventory()
 
+# CRP-001 plans ordered routes over the inventory without executing any bridge.
+# Installed surfaces and caller-declared preconditions remain distinct from
+# runtime verification and authority.
+from .communication_route_planner_extension import install_communication_route_planner
+
+install_communication_route_planner()
+
 # LSH-001 remains a separately opt-in no-injection observer. It executes the
 # inherited liminal behavior only on disposable projections and returns telemetry
 # on a separate read-only surface; domain tool results remain unchanged.
