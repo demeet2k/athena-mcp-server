@@ -8,7 +8,7 @@ historical registration lineage remains inspectable instead of being rewritten.
 from pathlib import Path as _Path
 
 _legacy_init = _Path(__file__).with_name("_init_v32_legacy.py")
-exec(compile(_legacy_init.read_text(encoding="utf-8"), str(_legacy_init, ), "exec"), globals(), globals())
+exec(compile(_legacy_init.read_text(encoding="utf-8"), str(_legacy_init), "exec"), globals(), globals())
 
 del _legacy_init
 
