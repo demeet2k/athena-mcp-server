@@ -28,16 +28,24 @@ class FakeRuntime:
 
     def bridge(self, packet_id, bridge_kind="AUTO", remote="origin", allow_collaboration=False, role=None):
         self.bridge_calls.append((packet_id, bridge_kind, remote, allow_collaboration, role))
+        is_board = bridge_kind == "MESSAGE_BOARD"
+        bridge_result = {
+            "status": "POSTED" if is_board else "COHESION_NEED_PUBLISHED",
+            "message_event": {"event_id": "MBE-1"} if is_board else None,
+            "git": {"head": "abc123"},
+        }
+        if not is_board:
+            # Match the real Cohesion request_offer result shape: durable request
+            # and event identities are nested typed packets, not top-level IDs.
+            bridge_result.update({
+                "request": {"request_id": "REQ-1"},
+                "event": {"event_id": "MBE-cohesion-1"},
+            })
         return {
             "status": "BRIDGED",
             "bridge_kind": bridge_kind,
             "packet_id": packet_id,
-            "bridge_result": {
-                "status": "POSTED" if bridge_kind == "MESSAGE_BOARD" else "MATCHED",
-                "message_event": {"event_id": "MBE-1"} if bridge_kind == "MESSAGE_BOARD" else None,
-                "request_id": "REQ-1" if bridge_kind == "COHESION" else None,
-                "git": {"head": "abc123"},
-            },
+            "bridge_result": bridge_result,
         }
 
     def receipt(
@@ -105,7 +113,7 @@ class LiminalSynapseReturnTests(unittest.TestCase):
         self.assertIn("message-board:MBE-1", first["durable_refs"])
         self.assertIn("git:abc123", first["durable_refs"])
 
-    def test_auto_kind_is_resolved_before_idempotency_keying(self):
+    def test_auto_kind_is_resolved_before_idempotency_keying_and_preserves_nested_cohesion_identity(self):
         runtime = self.runtime()
         first = runtime.bridge("LBM.need", "AUTO")
         second = runtime.bridge("LBM.need", "COHESION")
@@ -114,6 +122,8 @@ class LiminalSynapseReturnTests(unittest.TestCase):
         self.assertEqual(second["status"], "ALREADY_BRIDGED")
         self.assertEqual(len(runtime.bridge_calls), 1)
         self.assertIn("cohesion:REQ-1", first["durable_refs"])
+        self.assertIn("event:MBE-cohesion-1", first["durable_refs"])
+        self.assertIn("git:abc123", first["durable_refs"])
 
     def test_distinct_destinations_are_not_collapsed(self):
         runtime = self.runtime()
