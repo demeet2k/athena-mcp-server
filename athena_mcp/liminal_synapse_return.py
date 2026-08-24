@@ -78,10 +78,30 @@ def _durable_refs(result: dict[str, Any]) -> list[str]:
     if isinstance(message_event, dict) and message_event.get("event_id"):
         refs.append(f"message-board:{message_event['event_id']}")
 
+    # Cohesion's durable identity is nested under its typed request/event
+    # packets, unlike Message Board's top-level message_event. Preserve those
+    # native durable coordinates instead of degrading the bridge receipt to a
+    # Git-head-only witness.
+    event = bridge_result.get("event")
+    if isinstance(event, dict) and event.get("event_id"):
+        refs.append(f"event:{event['event_id']}")
+    request = bridge_result.get("request")
+    if isinstance(request, dict) and request.get("request_id"):
+        refs.append(f"cohesion:{request['request_id']}")
+    offer = bridge_result.get("offer")
+    if isinstance(offer, dict) and offer.get("request_id"):
+        refs.append(f"cohesion:{offer['request_id']}")
+    match = bridge_result.get("match")
+    if isinstance(match, dict) and match.get("match_id"):
+        refs.append(f"cohesion-match:{match['match_id']}")
+    proposal = bridge_result.get("proposal")
+    if isinstance(proposal, dict) and proposal.get("campaign_id"):
+        refs.append(f"cohesion-coalition:{proposal['campaign_id']}")
+
     for key, prefix in (
         ("request_id", "cohesion"),
         ("offer_id", "cohesion"),
-        ("match_id", "cohesion"),
+        ("match_id", "cohesion-match"),
         ("event_id", "event"),
         ("eid", "event"),
         ("head", "git"),
