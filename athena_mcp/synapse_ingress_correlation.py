@@ -2,10 +2,10 @@ from __future__ import annotations
 
 """Process-local causal correlation for Synapse -> Liminal ingress.
 
-The native Liminal packet and receipt envelopes remain untouched.  This module
+The native Liminal packet and receipt envelopes remain untouched. This module
 records the observed mapping from one foreign Synapse event to the newly emitted
 local Liminal packet and can project that mapping as a *separate* shared Synapse
-envelope.  The mapping is intentionally process-local: restart loss is reported
+envelope. The mapping is intentionally process-local: restart loss is reported
 as UNOBSERVED rather than reconstructed from packet hashes.
 """
 
@@ -39,6 +39,7 @@ LAWS = (
     "RETURN_ROUTE_PROPAGATION != DELIVERY",
     "FOREIGN_AUTHORITY != LOCAL_EXECUTION_AUTHORITY",
     "CORRELATION_ENVELOPE != CANONICAL_PACKET_OR_RECEIPT_ENVELOPE",
+    "SAME_SOURCE_EVENT_DIFFERENT_BODY => HOLD_BEFORE_LOCAL_EMIT",
 )
 
 
@@ -77,6 +78,77 @@ def _identity_material(
 
 def _correlation_id(material: Mapping[str, Any]) -> str:
     return "SIC-" + sha256(_canonical(material).encode("utf-8")).hexdigest()[:32]
+
+
+def ingress_source_preflight(
+    server: Any,
+    envelope: Mapping[str, Any],
+    *,
+    agent_id: str,
+) -> dict[str, Any]:
+    """Classify a foreign occurrence before the monotone Liminal emitter mutates state.
+
+    Exact replays can reuse one previously mapped local packet. If the same
+    bridge event ID arrives with a different envelope body, the shared ABI GC law
+    requires HOLD rather than another local emission. Multiple exact mappings are
+    also a HOLD because the inverse is no longer unique.
+    """
+    _validate_envelope(envelope)
+    source_event_id = _required(envelope.get("event_id"), "source event_id")
+    source_envelope_digest = _digest(envelope)
+    agent_id = _required(agent_id, "local agent_id")
+    exact: list[dict[str, str]] = []
+    conflicts: list[dict[str, str]] = []
+    lock, ledger = _ledger(server)
+    with lock:
+        for packet_id, bucket in ledger.items():
+            for correlation_id, row in bucket.items():
+                if row.get("local_agent_id") != agent_id or row.get("source_event_id") != source_event_id:
+                    continue
+                candidate = {
+                    "local_packet_id": str(packet_id),
+                    "correlation_id": str(correlation_id),
+                    "source_envelope_digest": str(row.get("source_envelope_digest") or ""),
+                }
+                if candidate["source_envelope_digest"] == source_envelope_digest:
+                    exact.append(candidate)
+                else:
+                    conflicts.append(candidate)
+    exact.sort(key=lambda row: (row["local_packet_id"], row["correlation_id"]))
+    conflicts.sort(key=lambda row: (row["local_packet_id"], row["correlation_id"]))
+    if conflicts:
+        status = "SOURCE_EVENT_BODY_COLLISION_HOLD"
+        packet_id = None
+        correlation_id = None
+    elif len(exact) > 1:
+        status = "SOURCE_EVENT_MULTI_PACKET_HOLD"
+        packet_id = None
+        correlation_id = None
+    elif len(exact) == 1:
+        status = "EXACT_SOURCE_CORRELATION"
+        packet_id = exact[0]["local_packet_id"]
+        correlation_id = exact[0]["correlation_id"]
+    else:
+        status = "UNOBSERVED_SOURCE_OCCURRENCE"
+        packet_id = None
+        correlation_id = None
+    return {
+        "artifact": "ATHENA.LIMINAL.SYNAPSE.INGRESS.PREFLIGHT.V1",
+        "status": status,
+        "source_event_id": source_event_id,
+        "source_envelope_digest": source_envelope_digest,
+        "local_agent_id": agent_id,
+        "local_packet_id": packet_id,
+        "correlation_id": correlation_id,
+        "exact_matches": exact,
+        "conflicts": conflicts,
+        "standing": "PROCESS_LOCAL_PRE_EMIT_DISCRIMINATOR_ONLY",
+        "laws": [
+            "PREFLIGHT != DELIVERY != CONSUMPTION",
+            "EXACT_SOURCE_CORRELATION => REUSE_LOCAL_PACKET_IF_PRESENT",
+            "SAME_SOURCE_EVENT_DIFFERENT_BODY => HOLD_BEFORE_LOCAL_EMIT",
+        ],
+    }
 
 
 def _record_from_ingress(
@@ -137,16 +209,19 @@ def _observation(
     if not ids:
         status = "UNOBSERVED_PROCESS_LOCAL_CORRELATION"
         standing = "NO_PROCESS_LOCAL_SOURCE_CORRELATION"
+        selected = None
     elif len(ids) > 1:
         status = "AMBIGUOUS_CORRELATION_HOLD"
         standing = "MULTIPLE_SOURCE_CORRELATIONS_PRESERVED_NOT_COLLAPSED"
-    elif replay:
-        status = "EXACT_CORRELATION_REPLAY"
-        standing = "FIRST_OBSERVATION_REUSED_IDEMPOTENTLY"
+        selected = None
     else:
-        status = "CORRELATED_PROCESS_LOCAL"
-        standing = "ONE_PROCESS_LOCAL_SOURCE_CORRELATION_OBSERVED"
-    selected = rows.get(selected_id) if selected_id else (rows.get(ids[0]) if len(ids) == 1 else None)
+        status = "EXACT_CORRELATION_REPLAY" if replay else "CORRELATED_PROCESS_LOCAL"
+        standing = (
+            "FIRST_OBSERVATION_REUSED_IDEMPOTENTLY"
+            if replay
+            else "ONE_PROCESS_LOCAL_SOURCE_CORRELATION_OBSERVED"
+        )
+        selected = rows.get(selected_id) if selected_id else rows.get(ids[0])
     return {
         "artifact": "ATHENA.LIMINAL.SYNAPSE.INGRESS.CORRELATION.OBSERVATION.V1",
         "status": status,
@@ -321,5 +396,6 @@ __all__ = [
     "attach_ingress_correlation",
     "correlation_envelope",
     "ingress_correlation_snapshot",
+    "ingress_source_preflight",
     "record_ingress_correlation",
 ]
