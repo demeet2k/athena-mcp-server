@@ -197,6 +197,13 @@ from .communication_route_planner_extension import install_communication_route_p
 
 install_communication_route_planner()
 
+# CRR-001 evaluates a concrete planned route against current runtime state. It
+# performs no bridge execution; optional shared-frontier checking is fetch-only
+# and must not move local HEAD.
+from .communication_route_readiness_extension import install_communication_route_readiness
+
+install_communication_route_readiness()
+
 # LSH-001 remains a separately opt-in no-injection observer. It executes the
 # inherited liminal behavior only on disposable projections and returns telemetry
 # on a separate read-only surface; domain tool results remain unchanged.
