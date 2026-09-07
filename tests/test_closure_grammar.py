@@ -137,3 +137,107 @@ class Registry(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Trichotomy(unittest.TestCase):
+    def test_e_chain_determinants(self):
+        chain = cg.e_chain_trichotomy()
+        self.assertEqual([chain[f"E{n}"]["det"] for n in range(6, 11)], [3, 2, 1, 0, -1])
+        self.assertEqual([chain[f"E{n}"]["regime"] for n in (8, 9, 10)], ["finite", "affine", "indefinite"])
+        self.assertLess(chain["E8"]["lambda_max"], 2.0)
+        self.assertAlmostEqual(chain["E9"]["lambda_max"], 2.0, places=6)
+        self.assertGreater(chain["E10"]["lambda_max"], 2.0)
+
+    def test_affine_cycle_is_the_extra_node(self):
+        # A_n is a chain of n nodes; its affine extension is the (n+1)-cycle and is exactly null
+        for n in (2, 3, 5, 6, 11):
+            self.assertGreater(cg.determinant(cg.dynkin_a(n)), 0)
+            self.assertEqual(cg.determinant(cg.affine_a(n)), 0)
+            self.assertEqual(len(cg.affine_a(n)), n + 1)
+
+    def test_lambda_max_values_are_2cos(self):
+        import math
+        chain = cg.e_chain_trichotomy()
+        for n, h in ((6, 12), (7, 18), (8, 30)):  # Coxeter numbers
+            self.assertAlmostEqual(chain[f"E{n}"]["lambda_max"], 2 * math.cos(math.pi / h), places=5)
+
+
+class Schema(unittest.TestCase):
+    def test_registry_validates(self):
+        from athena_mcp.closure_grammar_schema import validate_registry
+        from scripts.closure_grammar_report import registry_dict
+
+        self.assertEqual(validate_registry(registry_dict()), [])
+
+    def test_validator_catches_untraceable_green_and_unmarked(self):
+        from athena_mcp.closure_grammar_schema import validate_registry
+
+        bad = {"version": "CLOSURE_GRAMMAR_REGISTRY_V1", "traditions": [{
+            "id": "bad_one", "name": "x", "family": "x", "region": "x", "standing": "MODERN_RECONSTRUCTION",
+            "sources": ["corpus: FILE"], "closures": [], "residues": [], "devices": {"record": [], "hull": []}, "ladder": [],
+            "arithmetic": {"present": False, "what": ""}, "numbers": [{"n": 7, "role": "passage", "what": "x"}], "negatives": [], "notes": "",
+            "crossings": [
+                {"n": 6, "cross": 7, "seat": "extra", "what": "no locus", "grade": "🟢", "marked": True},
+                {"n": 6, "cross": 8, "seat": "extra", "what": "wrong step", "grade": "🟡", "marked": True},
+                {"n": 6, "cross": 7, "seat": "extra", "what": "unmarked", "grade": "🟡", "marked": False},
+            ]}]}
+        errs = validate_registry(bad)
+        self.assertTrue(any("without traceable source" in e for e in errs))
+        self.assertTrue(any("cross == n+1" in e for e in errs))
+        self.assertTrue(any("unmarked adjacency" in e for e in errs))
+
+
+class Census(unittest.TestCase):
+    def test_null_model_is_deterministic_and_seven_separates(self):
+        from athena_mcp.closure_grammar_report_core import build_report
+        from scripts.closure_grammar_report import registry_dict
+
+        a = build_report(registry_dict())["census"]
+        b = build_report(registry_dict())["census"]
+        self.assertEqual(a["null_model"], b["null_model"])
+        self.assertGreater(a["ratio7_passage_over_order"], 1.0)
+        self.assertLess(a["null_model"]["p7"]["p_value_one_sided"], 0.05)
+        # the controls: 13 must not separate the roles
+        self.assertGreater(a["null_model"]["p13"]["p_value_one_sided"], 0.05)
+
+    def test_wilson(self):
+        from athena_mcp.closure_grammar_report_core import wilson
+
+        lo, hi = wilson(40, 141)
+        self.assertLess(lo, 40 / 141)
+        self.assertGreater(hi, 40 / 141)
+        self.assertIsNone(wilson(0, 0))
+
+
+class Resources(unittest.TestCase):
+    def setUp(self):
+        import tempfile
+
+        from athena_mcp.server import Server
+
+        self.tmp = tempfile.NamedTemporaryFile(suffix=".db")
+        self.server = Server(self.tmp.name)
+        self.seq = 0
+
+    def tearDown(self):
+        self.server.store.close()
+        self.tmp.close()
+
+    def rpc(self, method, params=None):
+        self.seq += 1
+        m = {"jsonrpc": "2.0", "id": self.seq, "method": method}
+        if params is not None:
+            m["params"] = params
+        return self.server.handle(m)
+
+    def test_closure_grammar_resources_are_listed_and_readable(self):
+        uris = {r["uri"] for r in self.rpc("resources/list")["result"]["resources"]}
+        self.assertIn("athena://closure-grammar/registry", uris)
+        self.assertIn("athena://closure-grammar/census", uris)
+        reg = json.loads(self.rpc("resources/read", {"uri": "athena://closure-grammar/registry"})["result"]["contents"][0]["text"])
+        self.assertEqual(reg["version"], "CLOSURE_GRAMMAR_REGISTRY_V1")
+        self.assertGreaterEqual(len(reg["traditions"]), 80)
+        self.assertIn("COMPATIBILITY != NECESSITY", reg["law_firewall"])
+        cen = json.loads(self.rpc("resources/read", {"uri": "athena://closure-grammar/census"})["result"]["contents"][0]["text"])
+        self.assertIn("null_model", cen["census"])
+        self.assertNotIn("per_tradition_census", cen)

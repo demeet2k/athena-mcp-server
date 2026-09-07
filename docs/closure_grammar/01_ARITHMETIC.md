@@ -148,3 +148,33 @@ The flood is one power of sixty; regularity survives the projection; 7 enters at
 ## 16. The die
 
 Opposite faces of a standard die sum to 7 = n + 1 with n = 6. The corpus's own mirror constants — M₁₄₄(g) = 145 − g, J₂₇(n) = 28 − n, J₂₁(b) = 22 − b, J₅₄(q) = 55 − q — are the same involution: a closed count whose reflection sums to the crossing number, and in which the sum is never a seat. This is the arithmetic content of "KC144+ does not create GID145".
+
+## 17. R1 executable: the trichotomy computed
+
+`dynkin_e()`, `dynkin_a()`, `dynkin_d()`, `affine_a()`, `determinant()` (exact, Bareiss), `spectral_radius()`, `regime()`, `e_chain_trichotomy()`
+
+| diagram | det Cartan | λ_max of the adjacency | regime |
+|---|---|---|---|
+| E₆ | 3 | 1.931852 = 2cos(π/12) | finite |
+| E₇ | 2 | 1.969616 = 2cos(π/18) | finite |
+| E₈ | 1 | 1.989044 = 2cos(π/30) | finite |
+| E₉ = Ẽ₈ | **0** | **2** | affine |
+| E₁₀ | −1 | 2.006594 | indefinite |
+
+λ_max = 2cos(π/h) with h the Coxeter number 12, 18, 30 — the same 12, 18, 30 that are the number of roots divided by the rank (72/6, 126/7, 240/8). The chain Aₙ has det n+1 and its affine extension Ãₙ, the (n+1)-cycle, has det 0 exactly: **the one extra node that closes the chain into a cycle is precisely the node that makes the form null.** That is the law's mathematical content, now a unit test (`Trichotomy` in `tests/test_closure_grammar.py`).
+
+## 18. Designed and engineered crossings, computed
+
+| system | closure | crossing | rule |
+|---|---|---|---|
+| parity | 7 data bits | 1 parity bit | ⊕ of the seven; carries no data; dropped on decode |
+| ISBN-10 | 9 digits | 1 check digit | Σ i·dᵢ ≡ 0 (mod 11); X for ten |
+| ISBN-13 / Luhn | 12 / 15 digits | 1 check digit | weights 1,3 / doubling, mod 10 |
+| genetic code | 61 sense codons | 3 stops | the only codons that mean "end" |
+| octet | 8 electrons | the 9th opens the next shell | periods 2, 8, 8, 18, 18, 32, 32 = 2n² doubled |
+| council | 70 / 500 / 12 | +1 / +1 / alternates | an odd body cannot tie; the alternate does not deliberate |
+| leap second | 60 | 23:59:60 | counted once, then dropped |
+| sidereal year | 365.24 solar days | 366.24 rotations | one more turn than days, hidden by the sun's motion |
+| Rubik's cube | 26 cubies | the core | the 27th position is the mechanism, not a piece |
+
+Every row is the same shape as the seal and the ark: a closed count, one marked unit outside it that the count cannot do without, and a rule for dropping it on the way back.

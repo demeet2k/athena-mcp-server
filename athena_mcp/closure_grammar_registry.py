@@ -40,6 +40,7 @@ closure, order, passage, record, chaos, residue.
 from __future__ import annotations
 
 REGISTRY_VERSION = "CLOSURE_GRAMMAR_REGISTRY_V1"
+REGISTRY_REVISION = 2  # Ω2.1: seat taxonomy + null model + provenance schema + 24 further systems
 LAW = "close at n, cross at n+1, return"
 
 SEATS = {
@@ -262,7 +263,7 @@ T(
         X(2, 3, "extra", "Pyrrhonian ε 'between ⊤ and ⊥': the third value beyond the closed binary (corpus)", "🟠"),
         X(6, 7, "return", "Hippocratic critical days: crisis at day 7 and 14, 'based on the number 7 or 4' (corpus; Epidemics I)", "🟡"),
         X(3, 4, "extra", "Cynic: three possessions (cloak, staff, wallet); the cup is the fourth, thrown away — the law run downward", "🟠"),
-        X(0, 1, "return", "Stoic ekpyrosis: the Great Year ends and restarts identically ('you have read this sentence infinite times')", "🟢"),
+        X(0, 1, "return", "Stoic ekpyrosis: the Great Year ends and restarts identically ('you have read this sentence infinite times')", "🟢", src="Nemesius, De natura hominis 38; Eusebius, Praep. ev. XV.19 (SVF II.625) — doctrine of the identical recurrence"),
     ],
     residues=[R("the reserve clause appended to every Stoic action; prohairesis as the one thing 'not even Zeus can conquer'", "🟠")],
     devices={"record": ["wax receiving the signet 'without the gold' (Theaetetus 191c)", "urine read in the glass matula (corpus)"], "hull": ["the inner citadel", "Diogenes' pithos"]},
@@ -330,7 +331,7 @@ T(
     sources=["corpus: HERMETICISM_COMPLETE.md (CH I ascent; Kybalion 1908 flagged modern)", "Corpus Hermeticum I.24–26; NHC VI,6 Discourse on the Eighth and Ninth (recalled)"],
     closures=[C(7, "spheres / governors, each with a vice"), C(17, "tractates"), C(7, "Kybalion principles (modern)"), C(3, "parts of wisdom")],
     crossings=[
-        X(7, 8, "extra", "'above the spheres: eighth sphere, fixed stars … enter with those above, become powers … enter into God' (corpus, CH I.26)", "🟢"),
+        X(7, 8, "extra", "'above the spheres: eighth sphere, fixed stars … enter with those above, become powers … enter into God' (corpus, CH I.26)", "🟢", src="Corpus Hermeticum I.24–26 (Copenhaver 1992, pp. 5–6)"),
         X(8, 9, "extra", "Discourse on the Eighth and Ninth: the ascent continues past the ogdoad to the ennead (NHC VI,6)", "🟡"),
         X(3, 4, "extra", "three parts of wisdom '(sometimes: magic/practical operation)' as an optional fourth (corpus)", "🟠"),
     ],
@@ -347,8 +348,8 @@ T(
     closures=[C(3, "hypostases One / Nous / Soul"), C(211, "propositions of Proclus' Elements"), C(7, "vowel string AEEIOUO"), C(12, "Olympians reinterpreted")],
     crossings=[
         X(3, 4, "extra", "the One 'is not the first element within the set of universal existents but the absolute precondition for the instantiation of the set itself' (corpus Hypervisor): the crossing above the countable", "🟠"),
-        X(1, 2, "extra", "henads: 'without henads, One too remote … gateway to the One' — the inserted layer that makes the closed One reachable (corpus)", "🟢"),
-        X(0, 1, "return", "procession and return (proodos / epistrophē): 'all things turn back to source'", "🟢"),
+        X(1, 2, "extra", "henads: 'without henads, One too remote … gateway to the One' — the inserted layer that makes the closed One reachable (corpus)", "🟢", src="Proclus, Elements of Theology props. 113–165 (Dodds 1963)"),
+        X(0, 1, "return", "procession and return (proodos / epistrophē): 'all things turn back to source'", "🟢", src="Proclus, Elements of Theology props. 25–39 (Dodds 1963)"),
     ],
     residues=[R("Elements prop. 211: the descended soul 'does not ascend entire' — a residue on return (corpus)", "🟠"), R("matter as 'nearly non-being'", "🟢")],
     devices={"record": ["written names and characters inserted into the statue"], "hull": ["hollow statue 'for insertion of synthemata'; 'God descends into prepared vessel'", "the ochēma, spherical vehicle and 'black box' of the soul (corpus)"]},
@@ -359,9 +360,9 @@ T(
 T(
     id="mithraism", name="Mithraic mysteries", family="Mediterranean", region="Roman Empire",
     standing="SECONDARY_SCHOLARSHIP",
-    sources=["Mithraism page (Jerome's seven grades), Wikipedia 2026-09-07", "Origen, Contra Celsum VI.22 (ladder of seven gates and the eighth), recalled"],
+    sources=["Mithraism page (Jerome's seven grades), Wikipedia 2026-09-07", "Origen, Contra Celsum VI.22, checked 2026-09-07 (New Advent)"],
     closures=[C(7, "grades: Corax, Nymphus, Miles, Leo, Perses, Heliodromus, Pater, each under a planet")],
-    crossings=[X(7, 8, "extra", "Celsus' Mithraic ladder: seven gates of seven metals, one per planet, and an eighth gate of the fixed stars", "🟡")],
+    crossings=[X(7, 8, "extra", "Origen, Contra Celsum VI.22: 'a ladder with lofty gates, and on the top of it an eighth gate' — lead, tin, copper, iron, mixed metal, silver, gold for Saturn, Venus, Jupiter, Mercury, Mars, Moon, Sun", "🟢", src="Origen, Contra Celsum VI.22 (New Advent), checked 2026-09-07")],
     devices={"record": ["tauroctony relief"], "hull": ["the mithraeum as cave"]},
     ladder=[{"count": 7, "what": "grades = planets"}],
     numbers=[N(7, "order", "grades"), N(8, "passage", "eighth gate")],
@@ -382,7 +383,9 @@ T(
         X(12, 13, "extra", "'the Levites were not numbered among them' (Num 1:47): twelve counted tribes and one set apart; Joseph split into Ephraim and Manasseh keeps the twelve", "🟢"),
         X(49, 50, "return", "'seven sabbaths of years, forty-nine … the fiftieth year … each of you shall return to his own property' (Lev 25:8–10)", "🟢"),
         X(49, 50, "return", "the Omer: forty-nine days counted, Shavuot on the fiftieth", "🟢"),
-        X(6, 7, "extra", "the cubit: common cubit 6 palms, Ezekiel's sacred cubit 'a cubit and a handbreadth' = 7 palms; the reed six cubits (Ezek 40:5)", "🟢"),
+        X(6, 7, "extra", "the cubit: common cubit 6 palms, Ezekiel's sacred cubit 'a cubit and a handbreadth' = 7 palms (Ezek 40:5); the Egyptian royal cubit likewise 7 palms = 28 digits against the short cubit of 6 = 24", "🟢", src="Ancient Egyptian units page, Wikipedia, checked 2026-09-07"),
+        X(70, 71, "extra", "seventy elders 'to share the burden' with Moses (Num 11:16): seventy and the one who leads them — the precedent of the Great Sanhedrin's 71", "🟢", src="Sanhedrin page, Wikipedia, checked 2026-09-07"),
+        X(70, 72, "extension", "the Septuagint's seventy-two translators, six from each of twelve tribes, called 'the Seventy'; Luke's seventy or seventy-two disciples split the manuscripts the same way", "🟢", src="Septuagint and Seventy disciples pages, Wikipedia, checked 2026-09-07"),
         X(6, 7, "withdrawn", "the seventh patriarch Enoch, 365 years, 'was not, for God took him' (Gen 5:24): the seventh crosses upward without dying", "🟢"),
     ],
     residues=[R("intercalation: 7 months in 19 years", "🟢", "7/19")],
@@ -402,13 +405,13 @@ T(
     id="kabbalah", name="Kabbalah (Sefer Yetzirah, Zohar, practical Kabbalah, Hermetic Qabalah)", family="Abrahamic", region="Provence / Spain / Safed",
     standing="PRIMARY_EVIDENCE",
     sources=["corpus: MERKAVAH_HEKHALOT_COMPLETE.md, PRACTICAL_KABBALAH_COMPLETE.md, HERMETIC_QABALAH_COMPLETE.md", "Da'at and Sefer Yetzirah pages, Wikipedia 2026-09-07",
-             "Rosh Hashanah 21b / Nedarim 38a (fifty gates), recalled"],
+             "Rosh Hashanah 21b (fifty gates) via the Sefaria API, checked 2026-09-07"],
     closures=[C(10, "sefirot — 'ten and not nine, ten and not eleven' (SY 1:4)"), C(22, "letters = 3 mothers + 7 doubles + 12 simples"), C(32, "paths = 10 + 22"),
               C(231, "gates = C(22,2)"), C(72, "names from three 72-letter verses = 216 letters"), C(42, "letter name = 7 lines of 6"), C(27, "letters with the five finals = 3³"),
               C(50, "gates of understanding"), C(36, "hidden righteous (Sanhedrin 97b)", "🟡")],
     crossings=[
         X(10, 11, "extra", "Da'at: 'not a sefirah', an 'empty slot'; Cordovero counts Keter and omits Da'at, Luria the reverse — the eleventh is never seated", "🟢"),
-        X(49, 50, "withdrawn", "'fifty gates of understanding were created, and all were given to Moses except one' (RH 21b): the fiftieth withheld", "🟡"),
+        X(49, 50, "withdrawn", "'Fifty gates of understanding were created in the world, and all of them were given to Moses, except for one' (Rosh Hashanah 21b, on Ps 8:6): the fiftieth withheld", "🟢", src="Sefaria API, Rosh Hashanah 21b, checked 2026-09-07"),
         X(3, 4, "withdrawn", "four entered Pardes: one died, one went mad, one cut the shoots, Akiva 'entered in peace and left in peace' (Hagigah 14b) — one returns", "🟢"),
         X(6, 7, "extra", "hekhalot: the sixth palace is the illusion test ('water, water'), the seventh is the throne 'from which one must return' (corpus)", "🟢"),
         X(0, 1, "withdrawn", "golem: erase the aleph of EMET and MET (death) remains — the silent first letter is the load-bearing extra (corpus)", "🟢"),
@@ -498,8 +501,8 @@ T(
     sources=["corpus: SUFI_MYSTICISM_COMPLETE.md"],
     closures=[C(7, "maqāmāt; aḥwāl"), C(3, "sharīʿa / ṭarīqa / ḥaqīqa"), C(99, "names"), C(33, "tasbīḥ count × 3"), C(40, "days of the chilla; the abdāl"), C(1001, "days of the Mevlevi chille = 7·11·13", "🟡")],
     crossings=[
-        X(99, 100, "extra", "'the 100th hidden name: synthesis of all' (corpus)", "🟢"),
-        X(3, 4, "return", "three fanāʾ then baqāʾ, 'after fana, return, but transformed'; maʿrifa as the fourth beyond the triad (corpus)", "🟢"),
+        X(99, 100, "extra", "'the 100th hidden name: synthesis of all' (corpus)", "🟡", src="Sufi commonplace of the ism al-aʿẓam; corpus SUFI_MYSTICISM file"),
+        X(3, 4, "return", "three fanāʾ then baqāʾ, 'after fana, return, but transformed'; maʿrifa as the fourth beyond the triad (corpus)", "🟡", src="al-Qushayrī, Risāla (fanāʾ/baqāʾ); corpus file"),
         X(40, 41, "centre", "forty abdāl and the one quṭb, the pole at the centre of the hierarchy of saints", "🟡"),
     ],
     devices={"record": ["talisman with magic square and verse, 'seal and preserve'", "the wird"], "hull": ["the heart 'swept clean, presence installed'", "the black cloak removed in the semāʿ"]},
@@ -525,7 +528,7 @@ T(
     standing="PRIMARY_EVIDENCE",
     sources=["1 Enoch 72–82; Jubilees 6 (recalled); Enoch calendar page, Wikipedia 2026-09-07"],
     closures=[C(364, "days = 52 weeks = 4 × 91 = 12 × 30 + 4"), C(91, "days per season = 7·13"), C(52, "weeks")],
-    crossings=[X(360, 364, "residue", "12 months of 30 + four added days, 'the four leaders of the stars' at the quarters; 1 Enoch 82:4–6 says people err by not counting them", "🟢"),
+    crossings=[X(360, 364, "residue", "12 months of 30 + four added days, 'the four leaders of the stars' at the quarters — 'not counted as days … named instead of numbered, which placed them outside the numbering' (1 Enoch 75, 82)", "🟢", src="Enoch calendar page, Wikipedia, checked 2026-09-07"),
                X(364, 365, "residue", "the 364-day year deliberately ignores the 365th day to keep the sabbath fixed; the residue is refused, not absorbed", "🟢")],
     residues=[R("4 quarter-days added; ~1.25 days/yr left to drift", "🟢", "4")],
     calendar={"charts": [[4, 91], [12, 30]], "year": 364, "residue": "4 quarter days", "intercalation": "none"},
@@ -584,8 +587,8 @@ T(
     closures=[C(108, "mālā beads"), C(6, "cakras of the Ṣaṭcakranirūpaṇa, petals 4+6+10+12+16+2 = 50"), C(50, "mātṛkā letters"), C(1000, "petals of the crown = 20 × 50"),
               C(43, "triangles of the Śrī Yantra from 9 interlaced"), C(9, "āvaraṇas"), C(72000, "nāḍīs"), C(16, "kalās of the moon", "🟡"), C(64, "yoginīs, tantras, kalās")],
     crossings=[
-        X(108, 109, "extra", "the meru / guru bead: 'not used for counting; counting begins and ends beside it; rather than crossing it the mālā is turned' — the uncounted 109th that may not be crossed, and forces the return", "🟢"),
-        X(6, 7, "extra", "six cakras and the sahasrāra 'not technically a cakra … the lotus that never closes' (corpus); the six lower petal-counts sum to the fifty letters", "🟢"),
+        X(108, 109, "extra", "the meru / guru bead: 'not used for counting; counting begins and ends beside it; rather than crossing it the mālā is turned' — the uncounted 109th that may not be crossed, and forces the return", "🟢", src="Japa mala page, Wikipedia, checked 2026-09-07: 'the guru bead is not used for counting … the mala is turned around'"),
+        X(6, 7, "extra", "six cakras and the sahasrāra 'not technically a cakra … the lotus that never closes' (corpus); the six lower petal-counts sum to the fifty letters", "🟢", src="Ṣaṭcakranirūpaṇa (Woodroffe, The Serpent Power); Chakra page, Wikipedia, checked 2026-09-07: sahasrāra 'generally not regarded as a chakra'"),
         X(15, 16, "withdrawn", "the sixteenth kalā of the moon, amṛtā, the one that never wanes (Tantric/Purāṇic; recalled)", "🟡"),
         X(4, 5, "extra", "visarga (16th vowel) 'expansion, Śiva' after bindu (15th) (corpus)", "🟠"),
     ],
@@ -618,10 +621,10 @@ T(
     sources=["corpus: TIBETAN_VAJRAYANA_COMPLETE.md", "Bardo page (49 days), Wikipedia 2026-09-07; 42 peaceful + 58 wrathful = 100 deities (recalled 🟡)"],
     closures=[C(3, "kāyas"), C(4, "empowerments"), C(6, "bardos"), C(5, "Buddha families = 4 directions + centre"), C(49, "days = 7·7"), C(100, "peaceful and wrathful deities = 42 + 58", "🟡"),
               C(360, "Kālacakra: 12 × 30 breath-units; 21,600 breaths a day = 60 × 360", "🟡"), C(84, "mahāsiddhas = 12·7"), C(21, "Tārās = 3·7"), C(9, "yānas (Nyingma)")],
-    crossings=[X(3, 4, "extra", "'the fourth empowerment (caturthābhiṣeka)', result svabhāvikakāya 'beyond the three kāyas', seat 'beyond chakras' (corpus)", "🟢"),
-               X(3, 4, "return", "dissolution: white, red, black, then 'clear light (the actual moment of death)' — three then the fourth (corpus)", "🟢"),
-               X(4, 5, "centre", "five Buddha families: four directions around Vairocana at the centre of the maṇḍala", "🟢"),
-               X(48, 49, "return", "49 days = 7 × 7 then rebirth", "🟢")],
+    crossings=[X(3, 4, "extra", "'the fourth empowerment (caturthābhiṣeka)', result svabhāvikakāya 'beyond the three kāyas', seat 'beyond chakras' (corpus)", "🟡", src="Anuttarayoga initiation sequence (Kongtrul, Treasury of Knowledge, bk 6 pt 4 — recalled); corpus file"),
+               X(3, 4, "return", "dissolution: white, red, black, then 'clear light (the actual moment of death)' — three then the fourth (corpus)", "🟡", src="Lati Rinbochay & Hopkins, Death, Intermediate State and Rebirth (1979) — recalled; corpus file"),
+               X(4, 5, "centre", "five Buddha families: four directions around Vairocana at the centre of the maṇḍala", "🟢", src="Five Tathāgatas maṇḍala: Vairocana at the centre (standard; e.g. Snellgrove, Indo-Tibetan Buddhism)"),
+               X(48, 49, "return", "49 days = 7 × 7 then rebirth", "🟢", src="Bardo page, Wikipedia, checked 2026-09-07: Abhidharmakośa 'seven times seven days'")],
     residues=[R("rainbow body leaves 'only hair and nails' (corpus)", "🟢"), R("the indestructible drop 'never destroyed until enlightenment' — the unit that does not dissolve (corpus)", "🟢")],
     devices={"record": ["maṇḍala drawn; terma hidden texts; seed syllables"], "hull": ["celestial palace with four gates", "protection wheel", "the vase", "the heart holding the indestructible drop"]},
     ladder=[{"count": 4, "what": "tantra classes"}, {"count": 9, "what": "yānas"}, {"count": 6, "what": "bardos as a cycle"}],
@@ -684,16 +687,15 @@ T(
     id="taoism_china", name="Taoist religion, Chinese calendar and cosmography", family="East Asia", region="China",
     standing="PRIMARY_EVIDENCE",
     sources=["corpus: TAOIST_MAGIC_COMPLETE.md; DAO_SU docx (Lo Shu, He Tu, Flying Star, Luo Pan 24 mountains)", "Sexagenary cycle, Twenty-Eight Mansions, Solar term, Lo Shu, Water Margin, Tao Te Ching, Japanese calendar pages, Wikipedia 2026-09-07",
-             "Qijing Shisanpian on the Go board (recalled 🟡); Taoist nine-star Dipper 輔弼 (recalled 🟡)"],
+             "Qijing Shisanpian on the Go board (recalled 🟡); 北斗九星 from Tao Hongjing / Yunji qiqian via zh.wikipedia, checked 2026-09-07"],
     closures=[C(60, "sexagenary = lcm(10,12), half the stem–branch torus"), C(24, "solar terms of 15°"), C(72, "pentads of 5 days"), C(8, "principal terms 45° apart"), C(28, "mansions = 4 × 7"),
               C(5, "phases"), C(9, "palaces of the Lo Shu, magic sum 15, centre 5"), C(81, "chapters of the Tao Te Ching = 9² (Han standardisation)"), C(108, "= 36 heavenly + 72 earthly stars"),
               C(361, "points of the Go board = 19²"), C(10000, "the ten-thousand things = totality at the fourth place"), C(3, "dantian")],
     crossings=[
         X(4, 5, "centre", "four directional phases around Earth at the centre; the Lo Shu's 5 at the centre; corpus Dao Su: 'the pivot, the CPU around which the peripheral 1–9 rotate'", "🟢"),
         X(360, 361, "centre", "Go board: 361 points = 360 + the centre (tiānyuán); the Qijing reads 360 as the days of heaven, four quarters of 90 for the seasons, the outer 72 for the pentads", "🟡"),
-        X(7, 9, "extension", "the Northern Dipper as nine stars: seven visible and two hidden (輔 and 弼) — the Taoist completion of 7 to 9 with invisible members, as in the navagraha", "🟡", marked=True),
+        X(7, 9, "extension", "北斗有九星，今星七見，二隱不出 — 'the Dipper has nine stars; seven are seen, two are hidden and do not appear' (Tao Hongjing, Mingtong ji; Yunji qiqian: 洞明 and 隱元 as the eighth and ninth) — the completion of 7 to 9 with invisible members, as in the navagraha", "🟢", marked=True, src="zh.wikipedia 北斗七星 §北斗九星, checked 2026-09-07"),
         X(3, 4, "extra", "three dantian and the niwan at the crown, 'exit point for spirit'; three neidan stages and a fourth 'refine emptiness and merge with Dao' (corpus)", "🟢"),
-        X(5, 6, "residue", "the Six Classics became Five when the Classic of Music was lost — a canonical count with its residue marked by absence", "🟡"),
         X(12, 13, "residue", "7 intercalary months in 19 years (章)", "🟢"),
     ],
     residues=[R("7 in 19", "🟢", "7/19"), R("Jing Fang: 53 fifths nearly close; he extended to 60 lü, finding after 53 'incredibly close' values (Mercator's comma 177147/176776)", "🟢"),
@@ -804,10 +806,10 @@ T(
     standing="MODERN_RECONSTRUCTION",
     sources=["corpus: WICCA_COMPLETE.md", "Coven page (Murray 1921, thirteen), Wikipedia 2026-09-07"],
     closures=[C(8, "sabbats"), C(13, "esbats 'typically'"), C(3, "degrees; threefold law"), C(5, "moon phases with the dark"), C(13, "coven (Murray's claim)")],
-    crossings=[X(12, 13, "extra", "thirteen esbats against twelve months: the thirteenth full moon (corpus)", "🟢"),
+    crossings=[X(12, 13, "extra", "thirteen esbats against twelve months: the thirteenth full moon (corpus)", "🟡"),
                X(12, 13, "extra", "coven of thirteen = twelve and a leader (Murray 1921; modern)", "🟡"),
-               X(8, 9, "return", "Samhain is the eighth sabbat and the 'Witch's New Year' (corpus)", "🟢", marked=True),
-               X(365, 366, "return", "'a year and a day' between degrees (corpus)", "🟢")],
+               X(8, 9, "return", "Samhain is the eighth sabbat and the 'Witch's New Year' (corpus)", "🟡", marked=True),
+               X(365, 366, "return", "'a year and a day' between degrees (corpus)", "🟡")],
     devices={"record": ["Book of Shadows", "pentacle disk"], "hull": ["the circle 'open but unbroken', with a door cut and resealed", "cauldron", "chalice"]},
     calendar={"charts": [[8, 45]], "year": 365, "residue": "13th esbat", "intercalation": ""},
     numbers=[N(8, "order", "sabbats"), N(13, "passage", "esbats; coven"), N(3, "order", "degrees")],
@@ -862,9 +864,9 @@ T(
     standing="LIVING_TRADITION_SOURCE",
     sources=["corpus: HAITIAN_VODOU_COMPLETE.md"],
     closures=[C(5, "nanchon named"), C(3, "served in order: Rada, Petwo, Gede"), C(21, "peppers in Baron's rum; nations (🟡)"), C(7, "ceremony phases; days")],
-    crossings=[X(0, 1, "extra", "Legba 'always saluted first, opens the gate', thanked at the close; the song promises the return: 'when I return I will salute the Lwa' (corpus)", "🟢"),
-               X(2, 3, "extra", "Gede 'between Rada and Petwo, served last' — the death set as the passage between the two (corpus)", "🟢"),
-               X(4, 5, "centre", "the poto mitan, the centre post 'connecting heaven, earth and Ginen', around which the vèvè are drawn (corpus)", "🟢")],
+    crossings=[X(0, 1, "extra", "Legba 'always saluted first, opens the gate', thanked at the close; the song promises the return: 'when I return I will salute the Lwa' (corpus)", "🟡", src="Deren, Divine Horsemen (1953); Métraux, Voodoo in Haiti (1959) — recalled; corpus file"),
+               X(2, 3, "extra", "Gede 'between Rada and Petwo, served last' — the death set as the passage between the two (corpus)", "🟡"),
+               X(4, 5, "centre", "the poto mitan, the centre post 'connecting heaven, earth and Ginen', around which the vèvè are drawn (corpus)", "🟡", src="Deren, Divine Horsemen — the poteau-mitan as the axis of the peristyle (recalled); corpus file")],
     residues=[R("the vèvè is danced upon and destroyed; the pot tèt keeps hair and nails as the soul's seat (corpus)", "🟢")],
     devices={"record": ["vèvè in cornmeal — a flat record that is consumed"], "hull": ["pot tèt", "govi", "asson containing the pwen", "the djevo"]},
     numbers=[N(21, "passage", "peppers; nations"), N(7, "order", "phases"), N(3, "order", "nanchon served"), N(1, "passage", "the gate")],
@@ -943,7 +945,8 @@ T(
     sources=["Tawantinsuyu and Ceque system pages (Zuidema), Wikipedia 2026-09-07"],
     closures=[C(4, "suyus 'whose corners met at the capital'"), C(41, "ceques (41–42)"), C(328, "huacas 'each may represent one day'")],
     crossings=[X(4, 5, "centre", "Tawantinsuyu 'the four parts together' meeting at Cusco, the navel", "🟢"),
-               X(328, 365, "residue", "Zuidema: 328 = 12 sidereal months; the 37 missing days = the invisibility of the Pleiades", "🟡")],
+               X(328, 365, "residue", "Zuidema: 328 = 12 sidereal months; the 37 missing days = the invisibility of the Pleiades", "🟡"),
+               X(360, 365, "residue", "twelve monthly festivals and 'a five-day feast at the end, before the new year began' (Inca religion page, checked 2026-09-07)", "🟡")],
     residues=[R("37 days", "🟡", "37")],
     devices={"record": ["quipu (base 10, knotted)"], "hull": ["the Qorikancha"]},
     calendar={"charts": [], "year": 328, "residue": "37", "intercalation": ""},
@@ -979,12 +982,13 @@ T(
 T(
     id="australian", name="Australian Aboriginal", family="Oceania", region="Australia",
     standing="SECONDARY_SCHOLARSHIP",
-    sources=["general: six-season calendars (Yolŋu, D'harawal), songlines as record — recalled"],
-    closures=[C(6, "seasons (Yolŋu, D'harawal)", "🟡")],
+    sources=["Australian Aboriginal kinship page, Wikipedia, checked 2026-09-07 (moiety 2, section 4, subsection 8, sixteen skin names); six-season calendars recalled"],
+    closures=[C(6, "seasons (Yolŋu, D'harawal)", "🟡"), C(2, "moieties (Dhuwa / Yirritja)"), C(4, "sections"), C(8, "subsections"), C(16, "skin names where male and female forms are distinct")],
     crossings=[],
     devices={"record": ["songlines: the land as the record, the song as the map"], "hull": []},
-    numbers=[N(6, "order", "seasons")],
-    negatives=["No marked crossing entered: the sources available here do not support one. Left open rather than filled."],
+    ladder=[{"count": 4, "what": "kinship ladder 2 → 4 → 8 → 16: moieties, sections, subsections, gendered skin names (checked 2026-09-07)"}],
+    numbers=[N(6, "order", "seasons"), N(2, "order", "moieties"), N(4, "order", "sections"), N(8, "order", "subsections"), N(16, "order", "skin names")],
+    negatives=["No marked crossing entered: the sources available here support the binary closure ladder 2/4/8/16 in kinship but no marked (n+1)th. Left open rather than filled."],
 )
 
 # ============================================================================
@@ -996,9 +1000,9 @@ T(
     standing="PRIMARY_EVIDENCE",
     sources=["corpus: WESTERN_ALCHEMY_COMPLETE.md (Ripley's twelve gates; egg 'must not be opened'; citrinitas 'often merged')"],
     closures=[C(4, "elements"), C(3, "principles"), C(7, "metals = planets = days"), C(12, "operations / gates (Ripley)"), C(4, "colour stages")],
-    crossings=[X(4, 5, "extra", "quintessence, 'the fifth element: what remains when four elements are balanced' (corpus)", "🟢"),
-               X(3, 4, "withdrawn", "citrinitas, the third of four stages, 'often merged with rubedo' — the stage that vanishes into its neighbour (corpus)", "🟢"),
-               X(0, 1, "return", "ouroboros 'one is all'; the pelican 'self-circulating'; 'it ascends from earth to heaven and descends again' (Emerald Tablet)", "🟢")],
+    crossings=[X(4, 5, "extra", "quintessence, 'the fifth element: what remains when four elements are balanced' (corpus)", "🟢", src="Aristotle, De Caelo I.2–3 (aether) via the alchemical quinta essentia (Jean de Roquetaillade, De consideratione quintae essentiae)"),
+               X(3, 4, "withdrawn", "citrinitas, the third of four stages, 'often merged with rubedo' — the stage that vanishes into its neighbour (corpus)", "🟡", src="Jung, Psychology and Alchemy §333 on the disappearance of citrinitas (recalled); corpus file"),
+               X(0, 1, "return", "ouroboros 'one is all'; the pelican 'self-circulating'; 'it ascends from earth to heaven and descends again' (Emerald Tablet)", "🟢", src="Chrysopoeia of Cleopatra (Codex Marcianus gr. 299): ἓν τὸ πᾶν 'one is all' around the ouroboros; Tabula Smaragdina")],
     residues=[R("salt = 'what remains, the ash' (corpus)", "🟢")],
     devices={"record": ["the Emerald Tablet — a tablet that ends 'what I have said … is complete'", "Mutus Liber"], "hull": ["the philosophical egg 'hermetically sealed, must not be opened'", "athanor 'the immortal, the womb of the Stone'", "pelican"]},
     ladder=[{"count": 7, "what": "metals lead → gold"}, {"count": 4, "what": "nigredo → albedo → citrinitas → rubedo"}],
@@ -1011,9 +1015,9 @@ T(
     standing="PRIMARY_EVIDENCE",
     sources=["corpus: SOLOMONIC_MAGIC_COMPLETE.md, GOETIC_GRIMOIRE_COMPLETE.md"],
     closures=[C(72, "spirits of the Ars Goetia; Asmoday's 72 legions"), C(7, "planets; ranks; pentacles per planet (mostly)"), C(24, "planetary hours"), C(36, "decan-demons of the Testament"), C(5, "books of the Lemegeton"), C(4, "kings of the quarters"), C(196, "Olympic provinces 49+42+35+28+21+14+7 = 4·49")],
-    crossings=[X(7, 8, "return", "'hours: 1st and 8th' for every planet — the eighth hour is the first again (corpus)", "🟢"),
+    crossings=[X(7, 8, "return", "'hours: 1st and 8th' for every planet — the eighth hour is the first again (corpus)", "🟢", src="planetary-hour tables: the 24 hours cycle the seven planets, so a planet rules hours 1, 8, 15, 22 of its day (Key of Solomon I.2; Agrippa, Occult Philosophy II.34)"),
                X(72, 80, "extension", "ranks sum to exactly 72 through the earls; the eight knights are listed over (corpus, computed)", "🟠"),
-               X(0, 1, "extra", "the triangle of art placed outside the circle: the summoned one has its own smaller hull; the operator 'never leaves' the circle", "🟢"),
+               X(0, 1, "extra", "the triangle of art placed outside the circle: the summoned one has its own smaller hull; the operator 'never leaves' the circle", "🟢", src="Lemegeton, Ars Goetia: the Triangle 'two feet distant from the Circle' (Mathers/Crowley ed. 1904)"),
                X(4, 5, "extra", "Ars Notoria as the fifth book, 'originally separate, older, no spirits' (corpus)", "🟠")],
     devices={"record": ["seals 'the key to communication'", "pentacles on virgin parchment, wrapped in silk"], "hull": ["the brass vessel with the seal on the lid and the sigils inside", "circle of 9 feet", "the triangle"]},
     ladder=[{"count": 7, "what": "ranks kings → knights"}, {"count": 7, "what": "Olympic provinces descending by 7"}],
@@ -1054,7 +1058,7 @@ T(
     standing="TRADITION_INTERNAL",
     sources=["Scottish Rite page (4°–32° conferred, 33° honorary), Wikipedia 2026-09-07", "winding stair 3+5+7 = 15; the 47th proposition — recalled"],
     closures=[C(3, "craft degrees"), C(33, "Scottish Rite degrees"), C(15, "steps of the winding stair = 3 + 5 + 7", "🟡"), C(7, "liberal arts"), C(5, "points of fellowship")],
-    crossings=[X(32, 33, "extra", "degrees 4–32 are worked; 'an additional honorary 33rd degree' conferred, not worked", "🟢"),
+    crossings=[X(32, 33, "extra", "degrees 4–32 are worked; 'an additional honorary 33rd degree' conferred, not worked", "🟢", src="Scottish Rite page, Wikipedia, checked 2026-09-07"),
                X(0, 1, "residue", "the Lost Word: the closed rite is built around a missing unit, replaced by a substitute", "🟡")],
     devices={"record": ["tracing board"], "hull": ["the lodge as Solomon's temple"]},
     numbers=[N(33, "passage", "the honorary degree"), N(32, "order", "worked degrees"), N(15, "order", "stair steps"), N(47, "order", "the 47th proposition of Euclid I")],
@@ -1065,11 +1069,11 @@ T(
     standing="PRIMARY_EVIDENCE",
     sources=["corpus: GOLDEN_DAWN_COMPLETE.md, HERMETIC_QABALAH_COMPLETE.md"],
     closures=[C(10, "sefirot = grades 1°=10□ … 10°=1□"), C(22, "paths 11–32; trumps 0–XXI"), C(4, "elements; worlds; weapons"), C(6, "points of the hexagram"), C(7, "sides of the Vault; officers")],
-    crossings=[X(10, 11, "extra", "Da'ath 'not a sefirah, invisible, where the Tree was broken, must be crossed'; yet counted as the second of five Middle Pillar centres (corpus)", "🟢"),
-               X(0, 1, "extra", "Neophyte 0°=0□ 'outside the Tree'; the Portal grade unnumbered 'Spirit reconciling the four' between 4°=7□ and 5°=6□ (corpus)", "🟢"),
-               X(21, 22, "extra", "the Fool numbered '0/XXII' — the trump that is both before the first and after the last (corpus)", "🟢"),
-               X(6, 7, "centre", "hexagram of six planets with 'the Sun at the centre' (corpus)", "🟢"),
-               X(4, 5, "extra", "the Lotus Wand as the fifth implement; Spirit as the fifth element (corpus)", "🟢")],
+    crossings=[X(10, 11, "extra", "Da'ath 'not a sefirah, invisible, where the Tree was broken, must be crossed'; yet counted as the second of five Middle Pillar centres (corpus)", "🟢", src="Regardie, The Golden Dawn (1937–40), Knowledge Lectures; Crowley, Liber 777 col. on Daath"),
+               X(0, 1, "extra", "Neophyte 0°=0□ 'outside the Tree'; the Portal grade unnumbered 'Spirit reconciling the four' between 4°=7□ and 5°=6□ (corpus)", "🟢", src="Regardie, The Golden Dawn: grade table 0=0 … 10=1 with the Portal between 4=7 and 5=6"),
+               X(21, 22, "extra", "the Fool numbered '0/XXII' — the trump that is both before the first and after the last (corpus)", "🟢", src="Regardie, The Golden Dawn, Book T; Crowley, Book of Thoth (1944): Atu 0"),
+               X(6, 7, "centre", "hexagram of six planets with 'the Sun at the centre' (corpus)", "🟢", src="Regardie, The Golden Dawn: the Hexagram rituals ('the Sun in the centre')"),
+               X(4, 5, "extra", "the Lotus Wand as the fifth implement; Spirit as the fifth element (corpus)", "🟢", src="Regardie, The Golden Dawn: the Lotus Wand of the Adeptus Minor; the Portal grade of Spirit")],
     residues=[R("Kether's image 'seen in profile — only one side visible' (corpus)", "🟠")],
     devices={"record": ["Cipher Manuscripts (Trithemius cipher)", "the Earth Pentacle: hexagram on one side, pentagram on the other"], "hull": ["Vault of the Adepti: seven walls, ceiling zodiac, floor elements, the pastos with the body of CRC within"]},
     ladder=[{"count": 11, "what": "grades 0=0 … 10=1; n + m = 11 for all but 0=0"}],
@@ -1083,9 +1087,9 @@ T(
     standing="PRIMARY_EVIDENCE",
     sources=["corpus: THELEMA_COMPLETE.md"],
     closures=[C(10, "numbered A∴A∴ grades"), C(3, "chapters of Liber AL; aeons"), C(11, "'the number of magick' = 10 + 1"), C(93, "Thelema = Agape"), C(418, "Abrahadabra"), C(666, "Therion"), C(333, "Choronzon")],
-    crossings=[X(10, 11, "extra", "Daath 'non-sephira'; an unnumbered grade at every threshold: Student | 0°, Dominus Liminis | 5°=6□, Babe of the Abyss | 8°=3□ (corpus)", "🟢"),
-               X(10, 11, "extra", "the Black Brothers 'build a false sephira in Daath, become trapped … eventually destroyed': occupying the excluded slot is the named failure (corpus)", "🟢"),
-               X(10, 11, "extra", "O.T.O.: XI° beyond the X° national head, 'extremely restricted' (corpus)", "🟢")],
+    crossings=[X(10, 11, "extra", "Daath 'non-sephira'; an unnumbered grade at every threshold: Student | 0°, Dominus Liminis | 5°=6□, Babe of the Abyss | 8°=3□ (corpus)", "🟢", src="Crowley, One Star in Sight (1920s): the A∴A∴ grade table with Student, Dominus Liminis and Babe of the Abyss unnumbered"),
+               X(10, 11, "extra", "the Black Brothers 'build a false sephira in Daath, become trapped … eventually destroyed': occupying the excluded slot is the named failure (corpus)", "🟢", src="Crowley, Liber 418 (The Vision and the Voice), 10th–14th Aethyrs; Magick Without Tears"),
+               X(10, 11, "extra", "O.T.O.: XI° beyond the X° national head, 'extremely restricted' (corpus)", "🟢", src="O.T.O. degree list I°–X° with the XI° (Crowley's 1917 constitution; King, Secret Rituals of the O.T.O.)")],
     devices={"record": ["Liber AL, 'change not so much as the style of a letter'"], "hull": ["'the babe in the egg' (Harpocrates)", "the circumference (Nuit) and the point (Hadit)"]},
     arithmetic={"present": True, "what": "gematria: 31 = AL = LA; 93; 418; 666; 777; 888"},
     numbers=[N(11, "passage", "magick; Daath"), N(93, "order", "current"), N(418, "order", "the word of the aeon"), N(666, "order", "Therion"), N(333, "chaos", "Choronzon"), N(31, "order", "AL")],
@@ -1172,7 +1176,7 @@ T(
     sources=["Japa mala page (guru bead 'not used for counting', the mālā turned rather than crossed), Wikipedia 2026-09-07", "misbaḥa 33/99 + imām bead; rosary 5 × 10 + 3 + 1; prayer rope 33/50/100/300 — recalled"],
     closures=[C(108, "mālā beads"), C(99, "misbaḥa beads (or 33 × 3)"), C(150, "Aves of the full Dominican rosary = 150 psalms"), C(33, "knots of the small prayer rope; the tasbīḥ")],
     crossings=[X(108, 109, "extra", "the guru / meru bead, uncounted and not crossed: the counting reverses direction at it", "🟢"),
-               X(99, 100, "extra", "the imām bead beyond the 99, uncounted — and the hundredth name hidden", "🟡"),
+               X(99, 100, "extra", "'three groups of beads separated by two distinct beads (imāms) along with one larger piece (the yad) to serve as the handle' — the 99 counted, the imāms and the yad not", "🟢", src="Misbaha page, Wikipedia, checked 2026-09-07"),
                X(50, 51, "extra", "the rosary's decades close at 50 Aves per chaplet; the pendant beads and crucifix hang outside the loop", "🟡")],
     devices={"record": [], "hull": ["the loop itself: a closed count worn on the body"]},
     numbers=[N(108, "order", "beads"), N(109, "passage", "meru"), N(99, "order", "misbaḥa"), N(100, "passage", "imām bead"), N(150, "order", "Aves")],
@@ -1203,4 +1207,286 @@ T(
     arithmetic={"present": True, "what": "(base − 1) × places = 27 for decimal three-place alphabetic numerals (computed)"},
     numbers=[N(27, "order", "numeral symbols = 3³"), N(24, "order", "Greek"), N(22, "order", "Hebrew"), N(28, "order", "Arabic = 4·7")],
     notes="Structural consequence, not design: any decimal alphabetic numeral system closes at 27 and both isopsephy alphabets reach it by adding letters outside the ordinary count.",
+)
+
+# ============================================================================
+# L. Ω2.1 ADDITIONS — further traditions, designed systems, engineering and science
+# ============================================================================
+
+T(
+    id="mandaean", name="Mandaeism", family="Abrahamic", region="Iraq / Iran",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Mandaean calendar page, Wikipedia, checked 2026-09-07"],
+    closures=[C(360, "12 months of exactly 30 days"), C(365, "every year, no leap day")],
+    crossings=[X(360, 365, "residue", "'the Parwanaya festival comes between the 8th and 9th months to make up for 5 extra days'; no leap year, so every four years all dates move one day back", "🟢")],
+    residues=[R("5 Parwanaya days; the uncorrected quarter day", "🟢", "5")],
+    devices={"record": ["the Ginza Rabba"], "hull": ["the mandi enclosure; the maṣbuta pool"]},
+    calendar={"charts": [[12, 30]], "year": 360, "residue": "5 Parwanaya", "intercalation": "none"},
+    numbers=[N(360, "order", "months × days"), N(5, "residue", "Parwanaya"), N(365, "order", "year")],
+    notes="A living Gnostic tradition keeping the Egyptian-shaped year, with its residue days as its holiest festival.",
+)
+
+T(
+    id="etruscan", name="Etruscan disciplina", family="Mediterranean", region="Etruria",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Liver of Piacenza page, Wikipedia, checked 2026-09-07 ('the outer rim is divided into 16 sections … the Etruscans divided the heavens into 16 houses')", "Pliny, NH 2.143; Martianus Capella I.45 (recalled)"],
+    closures=[C(16, "regions of the sky = rim sections of the Piacenza liver = 2⁴"), C(12, "cities of the league", "🟡"), C(8, "saecula allotted to the Etruscan name (Varro ap. Censorinus 17.6)", "🟡")],
+    crossings=[X(8, 9, "withdrawn", "eight saecula allotted to the nomen Etruscum; the ninth ends it (Censorinus 17.6, Plutarch Sulla 7) — the last of the count is the end", "🟡"),
+               X(16, 17, "centre", "the sixteen regions ring the observer, who stands at the templum's crossing of cardo and decumanus", "🟠")],
+    devices={"record": ["the bronze liver as a map of the sky"], "hull": ["the sheep's liver read as the cosmos"]},
+    oracle={"states": 16, "encoding": "sixteen regions of sky and liver", "set_aside": "", "symmetry": "left/right favourable and unfavourable halves"},
+    numbers=[N(16, "order", "regions"), N(8, "order", "saecula"), N(9, "passage", "the ending saeculum"), N(12, "order", "cities")],
+    notes="A second 16-fold divination geometry in the Mediterranean, independent of Ifá and geomancy, on the same 2⁴ closure.",
+)
+
+T(
+    id="haudenosaunee", name="Haudenosaunee (Iroquois)", family="Americas", region="Northeast woodlands",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Iroquois page, Wikipedia, checked 2026-09-07"],
+    closures=[C(5, "nations of the League"), C(6, "with the Tuscarora from c. 1722"), C(50, "chiefs of the Grand Council")],
+    crossings=[X(5, 6, "extra", "Five Nations; 'in about 1722 the Tuscarora joined the League' and it became the Six Nations — the admitted sixth", "🟢")],
+    devices={"record": ["wampum belts"], "hull": ["the longhouse as the League's own image"]},
+    numbers=[N(5, "order", "nations"), N(6, "passage", "the sixth admitted"), N(50, "order", "chiefs")],
+)
+
+T(
+    id="lakota", name="Lakota", family="Americas", region="Great Plains",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Lakota religion page, Wikipedia, checked 2026-09-07 ('six primary directions … the centre point completes a seventh')"],
+    closures=[C(7, "sacred rites of White Buffalo Calf Woman"), C(7, "council fires (Oceti Sakowin)"), C(6, "directions: west, north, east, south, earth, sky")],
+    crossings=[X(6, 7, "centre", "four cardinal directions plus earth and sky make six; 'the centre point completes a seventh' — the crossing at the centre of a six-fold ring", "🟢")],
+    devices={"record": ["winter counts on hide"], "hull": ["the sweat lodge; the tipi"]},
+    numbers=[N(7, "order", "rites; fires"), N(6, "order", "directions"), N(4, "order", "cardinal")],
+    notes="The centre seat at n = 6: the only 6 + centre = 7 in the registry, and a native derivation of the crossing prime from the six directions of space.",
+)
+
+T(
+    id="hopi_navajo", name="Hopi and Diné (Navajo) emergence", family="Americas", region="Southwest",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Hopi mythology and Diné Bahaneʼ pages, Wikipedia, checked 2026-09-07"],
+    closures=[C(4, "worlds: three destroyed and the present Fourth (Hopi); Black, Blue, Yellow, White/Glittering (Diné)")],
+    crossings=[X(3, 4, "return", "three worlds destroyed, emergence through the sipapu into the present Fourth World", "🟢"),
+               X(4, 5, "return", "Hopi prophecies of a coming Fifth World", "🟡")],
+    devices={"record": ["prophecy rock petroglyph (🟡)"], "hull": ["the kiva with the sipapu in its floor"]},
+    ladder=[{"count": 4, "what": "worlds stacked, each entered from below"}],
+    numbers=[N(4, "order", "worlds"), N(5, "passage", "the world to come")],
+)
+
+T(
+    id="zen_oxherding", name="Zen (Ten Ox-herding Pictures)", family="East Asia", region="China / Japan",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Ten Bulls page, Wikipedia, checked 2026-09-07 (earlier versions end in emptiness; Kuoan's 12th-c. version adds 'a return to the world')"],
+    closures=[C(8, "pictures in the earlier series, ending at the empty circle"), C(10, "pictures in Kuoan Shiyuan's series")],
+    crossings=[X(8, 9, "return", "the eighth picture is the empty circle (ox and self forgotten); Kuoan adds the ninth (return to the source) and tenth (return to the marketplace) — the return placed after the closure at eight", "🟢")],
+    devices={"record": ["the picture series itself"], "hull": ["the empty circle (ensō)"]},
+    ladder=[{"count": 10, "what": "stages of the search"}],
+    numbers=[N(8, "order", "pictures / the circle"), N(10, "passage", "the return"), N(9, "passage", "return to the source")],
+)
+
+T(
+    id="latter_day_saints", name="Latter Day Saint movement", family="Abrahamic", region="USA, 1830 →",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Three Witnesses and Three Nephites pages, Wikipedia, checked 2026-09-07"],
+    closures=[C(12, "Nephite disciples (3 Nephi 12)"), C(3, "Witnesses"), C(8, "Witnesses"), C(11, "witnesses to the plates in total"), C(12, "apostles"), C(3, "of the First Presidency")],
+    crossings=[X(9, 12, "extension", "of the twelve disciples nine 'wished to enter the kingdom' and three 'tarry' — the three who do not die are withdrawn from the count of twelve (3 Nephi 28)", "🟢"),
+               X(11, 12, "extra", "Three Witnesses and Eight Witnesses testify to the plates: eleven witnesses, and the one who saw them by translation", "🟠")],
+    devices={"record": ["the golden plates (record hidden in a stone box)"], "hull": ["the stone box on the hill; the plates 'sealed' portion"]},
+    numbers=[N(3, "passage", "Nephites who tarry; Witnesses"), N(8, "order", "Witnesses"), N(12, "order", "disciples"), N(11, "order", "witnesses")],
+    notes="A nineteenth-century scripture that reproduces the 'sealed record in a closed box' device and the witness seat by name.",
+)
+
+T(
+    id="yazidi", name="Yazidism", family="Iranian", region="Kurdistan",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Yazidism page, Wikipedia, checked 2026-09-07 ('seven divine beings … the leader of the Seven Angels was Melek Taus')"],
+    closures=[C(7, "holy beings, the Heptad")],
+    crossings=[X(6, 7, "extra", "seven angels of whom one, Tawûsî Melek, is the leader and active ruler while 'the supreme, hidden God is remote and inactive' — the remote one above the seven, the active one within them", "🟠", src="Yazidism page, checked 2026-09-07")],
+    devices={"record": ["the qewls (hymns)"], "hull": ["Lalish"]},
+    numbers=[N(7, "order", "angels")],
+    notes="Structurally the Zoroastrian 6 + 1 read the other way: a hidden god above, a leader within.",
+)
+
+T(
+    id="tengri_mongol", name="Tengrism (Mongol / Turkic)", family="Steppe / Circumpolar", region="Central Asia",
+    standing="SECONDARY_SCHOLARSHIP",
+    sources=["Tengrism page, Wikipedia, checked 2026-09-07 ('99 tngri: 55 white and 44 black'; heavens of 7, 9 or 17 layers)"],
+    closures=[C(99, "tngri = 55 + 44"), C(77, "earth-spirits"), C(9, "layers of heaven (also 7, 17)", "🟡"), C(3, "worlds joined by the world tree")],
+    crossings=[X(99, 100, "extra", "ninety-nine tngri under the one Tengri, as the ninety-nine names stand under the hundredth", "🟠"),
+               X(3, 4, "centre", "three worlds 'connected through the world tree in the centre'", "🟢")],
+    devices={"record": [], "hull": ["the ger with its central smoke-hole"]},
+    ladder=[{"count": 9, "what": "layers of heaven"}],
+    numbers=[N(99, "order", "tngri"), N(55, "order", "white"), N(44, "chaos", "black"), N(77, "order", "earth spirits"), N(9, "passage", "heavens")],
+)
+
+T(
+    id="manichaean", name="Manichaeism", family="Iranian", region="Mesopotamia →",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Manichaeism page, Wikipedia, checked 2026-09-07 (twelve aeons, five sons/light elements, seven scriptures)"],
+    closures=[C(12, "aeons of the Father of Greatness"), C(5, "sons of the Living Spirit / light elements"), C(7, "scriptures of Mani"), C(2, "principles")],
+    crossings=[X(12, 13, "extra", "twelve aeons around the Father of Greatness: the one above the twelve", "🟠")],
+    devices={"record": ["the Arzhang, Mani's picture-book"], "hull": ["the Column of Glory; the Ship of Light (sun and moon as vessels carrying light home)"]},
+    ladder=[{"count": 3, "what": "three moments: past, present, future"}],
+    numbers=[N(12, "order", "aeons"), N(5, "order", "elements"), N(7, "record", "scriptures")],
+)
+
+T(
+    id="bon", name="Bön", family="India", region="Tibet",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Bon page, Wikipedia, checked 2026-09-07 (Nine Ways; Four Portals and the Fifth, the Treasury)"],
+    closures=[C(9, "Ways (vehicles)"), C(4, "Portals"), C(5, "with the Treasury")],
+    crossings=[X(4, 5, "extra", "'the Four Portals and the Fifth, the Treasury': a comprehensive anthology synthesising the four portals", "🟢"),
+               X(8, 9, "extra", "eight ways and the Supreme Way, Dzogchen, as the ninth", "🟢")],
+    ladder=[{"count": 9, "what": "ways: four of cause, five of effect"}],
+    numbers=[N(9, "order", "ways"), N(5, "passage", "the Treasury"), N(4, "order", "portals")],
+)
+
+T(
+    id="druze", name="Druze", family="Abrahamic", region="Levant",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Druze page, Wikipedia, checked 2026-09-07 (five luminaries / cosmic principles, ḥudūd; five-colour star)"],
+    closures=[C(5, "luminaries (ḥudūd); points and colours of the star"), C(7, "pillars (recalled)", "🟡")],
+    crossings=[X(5, 6, "extra", "the five luminaries beneath the one hidden Creator; the sixth is the uqqāl's own initiate (🟠)", "🟠")],
+    devices={"record": ["the Epistles of Wisdom"], "hull": ["the khalwa"]},
+    numbers=[N(5, "order", "ḥudūd")],
+)
+
+T(
+    id="west_african_geomancies", name="Igbo Afa, Malagasy sikidy, and the 16-figure family", family="Africa", region="Nigeria / Madagascar / Arabia",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Igbo calendar page, Wikipedia, checked 2026-09-07 (4-day week; 7 weeks = 28-day month; 13 months; 'an extra day is added')", "Sikidy page, Wikipedia, checked 2026-09-07 (four random columns, twelve generated by XOR)"],
+    closures=[C(16, "figures of sikidy / Afa"), C(4, "days of the Igbo week: Eke, Orie, Afọ, Nkwọ"), C(28, "days of the Igbo month = 7 weeks"), C(13, "months = 364 days"), C(4, "mother columns of sikidy"), C(12, "columns generated from them")],
+    crossings=[X(364, 365, "residue", "Igbo: 13 months of 28 days and 'an extra day is added' to make 365 — the one day outside the weeks", "🟢"),
+               X(4, 16, "extension", "sikidy: four random columns generate twelve more by XOR — the closed tableau of sixteen from four (the geomantic shield in another notation)", "🟢")],
+    oracle={"states": 16, "encoding": "4 bits from seeds", "set_aside": "", "symmetry": "the XOR generation of the shield"},
+    calendar={"charts": [[13, 28]], "year": 364, "residue": "1 day", "intercalation": "none"},
+    numbers=[N(16, "order", "figures"), N(4, "order", "week; mothers"), N(28, "order", "month = 4·7"), N(364, "order", "year"), N(365, "residue", "the extra day"), N(13, "order", "months")],
+    notes="The Igbo year is 13 × 28 + 1 — the International Fixed Calendar's shape, reached independently; the sikidy tableau is the geomantic shield's XOR algebra on the other side of the Indian Ocean.",
+)
+
+T(
+    id="confucian", name="Confucian canon and state ritual", family="East Asia", region="China",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Confucianism page, Wikipedia, checked 2026-09-07 ('the Five Classics, originally six before the Classic of Music was lost')"],
+    closures=[C(5, "Classics"), C(6, "Classics originally"), C(4, "Books"), C(5, "relationships"), C(3, "bonds"), C(9, "ranks of officials", "🟡")],
+    crossings=[X(5, 6, "residue", "the Six Classics became Five when the Classic of Music was lost: the canonical count keeps the residue as an absence", "🟢")],
+    residues=[R("the lost Classic of Music", "🟢")],
+    devices={"record": ["the stone classics (Xiping, 175 CE)"], "hull": ["the Mingtang hall of nine rooms (🟡)"]},
+    numbers=[N(6, "order", "classics"), N(5, "order", "classics; relationships"), N(4, "order", "books"), N(3, "order", "bonds")],
+)
+
+T(
+    id="cao_dai", name="Cao Đài", family="East Asia", region="Vietnam, 1926 →",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Cao Dai page, Wikipedia, checked 2026-09-07 (36 heavens, 72 planets, Earth the 68th, 3000 worlds)"],
+    closures=[C(36, "heavens"), C(72, "planets"), C(3000, "worlds"), C(3, "teachings"), C(5, "branches"), C(9, "levels of the hierarchy", "🟡")],
+    crossings=[X(36, 72, "extension", "36 heavens above, 72 planets below — the Taoist 36 + 72 = 108 as cosmography", "🟠")],
+    devices={"record": ["the Divine Eye"], "hull": ["the Holy See at Tây Ninh"]},
+    numbers=[N(36, "order", "heavens"), N(72, "order", "planets"), N(68, "order", "Earth's rank"), N(3000, "order", "worlds")],
+)
+
+T(
+    id="korean_muism", name="Korean shamanism (Muism)", family="East Asia", region="Korea",
+    standing="SECONDARY_SCHOLARSHIP",
+    sources=["Muism page, Wikipedia, checked 2026-09-07 (eight first mudang; Ten Kings; generals of the five cardinal points)"],
+    closures=[C(8, "first mudang, the eight daughters"), C(10, "Kings of the underworld with their gates"), C(5, "cardinal points with their generals")],
+    crossings=[X(4, 5, "centre", "generals of the five cardinal points: four directions and the centre", "🟡")],
+    devices={"record": [], "hull": []},
+    numbers=[N(8, "order", "first mudang"), N(10, "passage", "Ten Kings"), N(5, "order", "directions")],
+)
+
+T(
+    id="slavic", name="Slavic paganism", family="Northern Europe", region="Eastern Europe",
+    standing="SECONDARY_SCHOLARSHIP",
+    sources=["Slavic paganism page, Wikipedia, checked 2026-09-07 (Triglav three heads; Svetovid four; Rugievit seven faces; Vladimir's pantheon)"],
+    closures=[C(3, "heads of Triglav"), C(4, "faces of Svetovid, the axis mundi"), C(7, "faces of Rugievit"), C(6, "idols of Vladimir's pantheon of 980 (Perun, Khors, Dazhbog, Stribog, Simargl, Mokosh)", "🟡")],
+    crossings=[X(4, 5, "centre", "Svetovid's four faces on one pillar: 'four-headed representations of the same axis mundi'", "🟠")],
+    numbers=[N(3, "order", "Triglav"), N(4, "order", "Svetovid"), N(7, "order", "Rugievit")],
+)
+
+T(
+    id="designed_calendars", name="Designed calendars (Republican, International Fixed, Discordian, Baháʼí, Igbo)", family="Designed systems", region="modern",
+    standing="PRIMARY_EVIDENCE",
+    sources=["French Republican calendar, International Fixed Calendar, Discordian calendar pages, Wikipedia, checked 2026-09-07"],
+    closures=[C(360, "Republican: 12 months of 30 days in 3 décades"), C(364, "International Fixed: 13 × 28 = 52 weeks"), C(365, "Discordian: 5 seasons of 73 days"), C(73, "Discordian weeks of five days")],
+    crossings=[X(360, 365, "residue", "Republican: 'five or six complementary days (sansculottides)' at the year's end (1793)", "🟢"),
+               X(364, 365, "residue", "International Fixed: 'Year Day falls outside any week or month' (Cotsworth 1902; Kodak 1928–1989)", "🟢"),
+               X(365, 366, "residue", "Discordian: 'St. Tib's Day, inserted between Chaos 59 and 60, exists outside both the week and the season' (1965)", "🟢")],
+    residues=[R("sansculottides 5/6", "🟢", "5"), R("Year Day + Leap Day", "🟢", "1"), R("St. Tib's Day", "🟢", "1")],
+    calendar={"charts": [[12, 30], [13, 28], [5, 73]], "year": 360, "residue": "5 / 1 / 1", "intercalation": "designed"},
+    numbers=[N(360, "order", "Republican"), N(5, "residue", "sansculottides"), N(364, "order", "IFC"), N(1, "residue", "Year Day"), N(73, "order", "Discordian season"), N(5, "order", "seasons")],
+    notes="Every designed calendar since 1793 — revolutionary, corporate, parodic, religious — re-invents the epagomenal residue and places it outside the week: the residue seat is a property of the arithmetic, not of any tradition.",
+)
+
+T(
+    id="civil_time", name="Civil and astronomical time (leap second, sidereal day, the week)", family="Designed systems", region="global",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Leap second and Sidereal time pages, Wikipedia, checked 2026-09-07"],
+    closures=[C(60, "seconds in a minute"), C(24, "hours"), C(7, "days of the week"), C(365, "solar days in a year (365.24)"), C(366, "sidereal rotations in a year (366.24)")],
+    crossings=[X(60, 61, "extra", "the leap second is written 23:59:60 — a sixty-first second outside the count of sixty; 27 inserted since 1972; to be abandoned by 2035", "🟢"),
+               X(365, 366, "extra", "the year has one more sidereal rotation than solar days: 366.24 against 365.24 — the extra turn that the sun's motion hides", "🟢")],
+    residues=[R("the leap second", "🟢", "1 s"), R("the four minutes a day between sidereal and solar", "🟢", "3m56s")],
+    numbers=[N(60, "order", "seconds"), N(61, "passage", "23:59:60"), N(366, "order", "sidereal rotations"), N(27, "order", "leap seconds inserted")],
+    notes="The 23:59:60 second is the cleanest modern instance of the extra seat: a unit that is real, counted once, and immediately dropped from the count.",
+)
+
+T(
+    id="councils_juries", name="Councils, courts and juries (Sanhedrin, Athens, Rome, the jury)", family="Designed systems", region="Mediterranean → common law",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Sanhedrin, Athenian democracy, Roman Senate, Jury pages, Wikipedia, checked 2026-09-07"],
+    closures=[C(70, "elders appointed with Moses (Num 11:16)"), C(71, "judges of the Great Sanhedrin"), C(23, "of the lesser"), C(500, "the Athenian boulē = 10 tribes × 50"), C(12, "jurors"), C(100, "patres of Romulus' senate"), C(300, "senators of the Republic")],
+    crossings=[X(70, 71, "extra", "'seventy elders … plus Moses himself' is the precedent for the seventy-one of the Great Sanhedrin: the presiding one over the round count", "🟢"),
+               X(500, 501, "extra", "Athenian public juries of 501 (and 201, 401): 'odd numbers prevented deadlocks' — the extra one exists to break the tie", "🟢"),
+               X(12, 13, "extra", "twelve jurors and the alternates who 'are present for the entire trial but do not take part in deliberating' — witnesses to the count who are not of it", "🟢"),
+               X(100, 200, "extension", "Romulus' hundred patres and the conscripti enrolled beside them (patres conscripti)", "🟢")],
+    devices={"record": ["the written verdict; the tablets of the law"], "hull": ["the Hall of Hewn Stones; the jury room"]},
+    numbers=[N(71, "passage", "the presiding one"), N(70, "order", "elders"), N(501, "passage", "tie-breaking jury"), N(500, "order", "boulē"), N(12, "order", "jurors"), N(23, "order", "lesser sanhedrin"), N(100, "order", "patres")],
+    notes="The functional reason for the extra seat, stated by the institution itself: an odd body cannot tie. The (n+1)th member is what makes a closed council able to decide.",
+)
+
+T(
+    id="engineering_codes", name="Engineering codes (parity, check digits, the byte)", family="Engineering & science", region="20th c.",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Parity bit, ISBN, Luhn algorithm, Byte pages, Wikipedia, checked 2026-09-07"],
+    closures=[C(7, "ASCII data bits"), C(8, "bits of a byte = 256 values"), C(9, "ISBN-10 data digits"), C(12, "ISBN-13 data digits"), C(15, "credit-card data digits")],
+    crossings=[X(7, 8, "extra", "'7 data bits, an even parity bit' — a bit added to the string that carries no data and detects a single error: the witness bit", "🟢"),
+               X(9, 10, "extra", "ISBN-10: nine digits and a check digit mod 11 (X for ten); ISBN-13: twelve and one mod 10", "🟢"),
+               X(15, 16, "extra", "the Luhn check digit appended 'so that a computer can quickly check for errors'", "🟢")],
+    devices={"record": ["the code word"], "hull": ["the frame with start and stop bits"]},
+    numbers=[N(8, "order", "byte"), N(256, "order", "values"), N(7, "order", "data bits"), N(10, "order", "ISBN-10"), N(11, "order", "modulus"), N(13, "order", "ISBN-13"), N(16, "order", "card digits")],
+    notes="The witness seat as engineering: every check digit is an (n+1)th symbol that is not data, exists to expose corruption, and is dropped on decoding. This is the Kheper Ganitam's '1/64 checksum' without the metaphor.",
+)
+
+T(
+    id="genetic_code", name="The genetic code", family="Engineering & science", region="all life",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Genetic code page, Wikipedia, checked 2026-09-07 (64 codons = 61 sense + 3 stop; 20 amino acids; AUG start)", "corpus: DAO_SU ch. 11 (I Ching / codon isomorphism, marked 'convergent, not causal')"],
+    closures=[C(64, "codons = 4³ = 2⁶"), C(61, "sense codons"), C(20, "amino acids"), C(3, "stop codons")],
+    crossings=[X(61, 64, "extension", "61 sense codons and three stops: the signals outside the amino-acid count (UAA, UAG, UGA) — the only codons that mean 'end'", "🟢"),
+               X(20, 21, "extra", "twenty amino acids and the stop as the twenty-first meaning (corpus Dao Su: '64 : 21 ≈ 3 : 1')", "🟠")],
+    residues=[R("degeneracy: 64 − 21 = 43 redundant assignments (corpus)", "🟠")],
+    devices={"record": ["the DNA strand ('the tape', corpus)"], "hull": ["the cell; the ribosome"]},
+    oracle={"states": 64, "encoding": "2 bits per base, 3 bases", "set_aside": "3 stops", "symmetry": "wobble at the third base"},
+    numbers=[N(64, "order", "codons"), N(61, "order", "sense"), N(3, "passage", "stops"), N(20, "order", "amino acids"), N(43, "residue", "degenerate")],
+    notes="Entered as the one closed 64-fold code in nature; the I Ching correspondence is recorded as convergence, as the corpus itself insists.",
+)
+
+T(
+    id="crystallography_symmetry", name="Crystallography and packing (the seal's own invariants)", family="Engineering & science", region="mathematics",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Crystal system, Frieze group, Kissing number pages, Wikipedia, checked 2026-09-07"],
+    closures=[C(7, "frieze groups"), C(17, "wallpaper groups"), C(7, "crystal systems"), C(14, "Bravais lattices"), C(32, "point groups"), C(230, "space groups"), C(12, "kissing number in 3D"), C(24, "in 4D"), C(240, "in 8D (E₈)"), C(196560, "in 24D (Leech)")],
+    crossings=[X(6, 7, "extra", "a rolled seal emits one of exactly seven frieze classes; two rollings give one of seventeen wallpaper classes — the K = 0 record's finite invariants", "🟢")],
+    numbers=[N(7, "order", "friezes; crystal systems"), N(17, "order", "wallpaper"), N(14, "order", "Bravais"), N(32, "order", "point groups"), N(230, "order", "space groups"), N(12, "order", "kissing 3D"), N(240, "order", "E₈ roots = kissing 8D")],
+    notes="The seal theorem of Ω32 (R7/R8) with its numbers checked: 7 friezes, 17 wallpapers; and 240 = the E₈ root count = the 8-dimensional kissing number, closing the physics side back onto the arithmetic.",
+)
+
+T(
+    id="periodic_table", name="The periodic table", family="Engineering & science", region="chemistry",
+    standing="PRIMARY_EVIDENCE",
+    sources=["Periodic table page, Wikipedia, checked 2026-09-07 (periods 2, 8, 8, 18, 18, 32, 32; 118 elements; octet rule)"],
+    closures=[C(8, "octet: the closed outer shell"), C(2, "duet"), C(118, "elements = 7 periods"), C(32, "longest period")],
+    crossings=[X(8, 9, "return", "the octet closes and the ninth electron opens the next shell: period lengths 2, 8, 8, 18, 18, 32, 32 = 2n² doubled", "🟢")],
+    ladder=[{"count": 7, "what": "periods"}],
+    numbers=[N(8, "order", "octet"), N(18, "order", "period"), N(32, "order", "period"), N(118, "order", "elements"), N(7, "order", "periods")],
+    notes="Closure as chemistry: the noble gas is the closed count and the alkali metal is the return to the first.",
 )

@@ -1,6 +1,6 @@
-# CLOSURE GRAMMAR Ω2 — the unified framework
+# CLOSURE GRAMMAR Ω2.1 — the unified framework
 
-*Close at n, cross at n+1, return.* Sixty-three myths, religions, philosophies, magical, esoteric, divinatory, astrological, calendrical and game systems read against one law, with every arithmetic claim computed and every tradition entry graded.
+*Close at n, cross at n+1, return.* Eighty-seven myths, religions, philosophies, magical, esoteric, divinatory, astrological, calendrical, designed, engineered and scientific systems read against one law, with every arithmetic claim computed, every tradition entry graded and schema-validated, and the census tested against a permutation null.
 
 | file | what |
 |---|---|
@@ -11,19 +11,23 @@
 | [04_VERIFICATION_GRID.md](04_VERIFICATION_GRID.md) | **generated** grid: every tradition, every crossing, every residue, device, ladder, number with its factorization |
 | [05_CENSUS.md](05_CENSUS.md) | **generated** census: the 7-bearer test by role, the charts of 360, seats and standings |
 | [06_FALSIFIERS.md](06_FALSIFIERS.md) | falsifiers, negatives, the null model, the delta-chain against Ω44, the ⊥ frontier |
-| [07_SEED.md](07_SEED.md) | CLOSURE.GRAMMAR.Ω2, the Q-SHRINK ALPHA+ seed |
+| [07_SEED.md](07_SEED.md) | CLOSURE.GRAMMAR.Ω2.1, the Q-SHRINK ALPHA+ seed |
+| [corpus_extractions/](corpus_extractions/) | the seven per-file reports through which the uploaded corpus was read (evidence trail) |
 
 ## Executable parts
 
 ```
-athena_mcp/closure_grammar.py            # arithmetic witnesses + self-test  (python -m athena_mcp.closure_grammar)
-athena_mcp/closure_grammar_registry.py   # the 63 tradition entries (source of truth)
-spec/CLOSURE_GRAMMAR_REGISTRY_V1.json    # export of the registry
-scripts/closure_grammar_report.py        # export JSON, render 04 and 05     (python -m scripts.closure_grammar_report [--check])
-tests/test_closure_grammar.py            # 18 tests: arithmetic, n+1 rule, JSON sync, report
+athena_mcp/closure_grammar.py              # arithmetic witnesses incl. the Cartan trichotomy + self-test  (python -m athena_mcp.closure_grammar)
+athena_mcp/closure_grammar_registry.py     # the 87 tradition entries (source of truth), revision 2
+athena_mcp/closure_grammar_schema.py       # schema + validator (provenance, marking, n+1)
+athena_mcp/closure_grammar_report_core.py  # census, Wilson intervals, permutation null
+spec/CLOSURE_GRAMMAR_REGISTRY_V1.json      # export of the registry
+scripts/closure_grammar_report.py          # validate, export JSON, render 04 and 05   (python -m scripts.closure_grammar_report [--check])
+tests/test_closure_grammar.py              # 26 tests: arithmetic, trichotomy, n+1 rule, schema, null model, JSON sync, MCP resources
+athena://closure-grammar/registry, /census # read-only MCP resources served by the ATHENA server
 ```
 
-To add a tradition: append a `T(...)` entry to the registry, run the report, run the tests. A crossing must have a seat and be *marked* by its source; the tests enforce `cross == n + 1` for the four unit seats and `cross > n` for residue and extension.
+To add a tradition: append a `T(...)` entry to the registry, run the report (it validates first and refuses an untraceable 🟢, an unmarked crossing or a unit seat that is not n+1), run the tests.
 
 ## Sources
 

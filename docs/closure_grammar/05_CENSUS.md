@@ -6,12 +6,24 @@ Roles are assigned per number in the registry, before the census is run; the cen
 
 ## Seven-bearers by role
 
-| role | numbers | divisible by 7 | fraction | divisible by 9 | regular (2·3·5-smooth) fraction |
-|---|---|---|---|---|---|
-| passage / chaos / residue | 122 | 40 | 0.328 | 18 | 0.393 |
-| order / closure / record | 299 | 54 | 0.181 | 70 | 0.632 |
+| role | numbers | ÷7 | frac | ÷9 | frac | ÷13 | frac | regular (2·3·5-smooth) fraction |
+|---|---|---|---|---|---|---|---|---|
+| passage / chaos / residue | 141 | 40 | 0.284 | 21 | 0.149 | 10 | 0.071 | 0.433 |
+| order / closure / record | 380 | 67 | 0.176 | 78 | 0.205 | 21 | 0.055 | 0.637 |
 
-Likelihood ratio P(7 | passage) / P(7 | order) = **1.81**.
+Likelihood ratio P(7 | passage) / P(7 | order) = **1.61** (Wilson 95% intervals: passage [0.216, 0.363], order [0.141, 0.218]).
+
+## Null model (permutation test)
+
+Role labels are shuffled over the tagged numbers and the ratio recomputed; the one-sided p-value is the fraction of shuffles reaching the observed ratio. Deterministic (seed 0).
+
+| prime | observed ratio | null median | null 95th pct | p (one-sided) |
+|---|---|---|---|---|
+| 7 | 1.609 | 1.002 | 1.366 | 0.0077 |
+| 9 | 0.726 | 1.011 | 1.348 | 0.9485 |
+| 13 | 1.283 | 0.937 | 1.946 | 0.3167 |
+
+4000 shuffles over 521 numbers. 9 and 13 are reported as controls: 9 is the ternary crossing prime and is expected to split the roles weakly; 13 is the crossing of twelve and is expected not to.
 
 Read this as a discipline, not a proof: role labels were assigned by a reader who knows the hypothesis, so the ratio can only fall, not rise, under adversarial relabelling. What it establishes is that the registry as a whole obeys the assignment its earliest members (Enūma Eliš, Egypt) obeyed with zero crossings.
 
@@ -66,7 +78,7 @@ Read this as a discipline, not a proof: role labels were assigned by a reader wh
 | inca_andean | 1 | 0 | 3 | 0 |
 | north_american | 0 | 0 | 2 | 1 |
 | polynesian_hawaiian | 1 | 1 | 3 | 0 |
-| australian | 0 | 0 | 1 | 0 |
+| australian | 0 | 0 | 5 | 0 |
 | alchemy | 1 | 0 | 4 | 1 |
 | solomonic_goetia | 1 | 0 | 5 | 2 |
 | enochian_dee | 2 | 0 | 7 | 5 |
@@ -82,6 +94,30 @@ Read this as a discipline, not a proof: role labels were assigned by a reader wh
 | counting_strings | 2 | 0 | 3 | 0 |
 | music | 1 | 0 | 6 | 1 |
 | hermetic_science_of_letters | 0 | 0 | 4 | 1 |
+| mandaean | 1 | 0 | 2 | 0 |
+| etruscan | 1 | 0 | 3 | 0 |
+| haudenosaunee | 1 | 0 | 2 | 0 |
+| lakota | 0 | 0 | 3 | 1 |
+| hopi_navajo | 1 | 0 | 1 | 0 |
+| zen_oxherding | 2 | 0 | 1 | 0 |
+| latter_day_saints | 1 | 0 | 3 | 0 |
+| yazidi | 0 | 0 | 1 | 1 |
+| tengri_mongol | 2 | 0 | 3 | 1 |
+| manichaean | 0 | 0 | 3 | 1 |
+| bon | 1 | 0 | 2 | 0 |
+| druze | 0 | 0 | 1 | 0 |
+| west_african_geomancies | 1 | 0 | 5 | 2 |
+| confucian | 0 | 0 | 4 | 0 |
+| cao_dai | 0 | 0 | 4 | 0 |
+| korean_muism | 1 | 0 | 2 | 0 |
+| slavic | 0 | 0 | 3 | 1 |
+| designed_calendars | 2 | 0 | 4 | 1 |
+| civil_time | 1 | 0 | 3 | 0 |
+| councils_juries | 2 | 0 | 5 | 1 |
+| engineering_codes | 0 | 0 | 7 | 1 |
+| genetic_code | 2 | 0 | 3 | 0 |
+| crystallography_symmetry | 0 | 0 | 7 | 2 |
+| periodic_table | 0 | 0 | 5 | 1 |
 
 ## The twelve charts of 360 and who uses them
 
@@ -96,7 +132,7 @@ Read this as a discipline, not a proof: role labels were assigned by a reader wh
 | 8 × 45 | 3 |
 | 9 × 40 | 1 |
 | 10 × 36 | 2 |
-| 12 × 30 | 9 |
+| 12 × 30 | 11 |
 | 15 × 24 | 2 |
 | 18 × 20 | 2 |
 
@@ -104,9 +140,9 @@ The (9, 40) pair is attested only as the modern novile aspect (harmonic astrolog
 
 ## Families, standings, seats
 
-Families: Ancient Near East 3, Iranian 1, Mediterranean 9, Abrahamic 8, India 7, East Asia 3, Steppe / Circumpolar 1, Northern Europe 5, Africa 2, Africa diaspora 2, Africa diaspora / Europe / Americas 1, Americas 4, Oceania 2, Western esoteric 10, Instruments 5
+Families: Ancient Near East 3, Iranian 3, Mediterranean 10, Abrahamic 11, India 8, East Asia 7, Steppe / Circumpolar 2, Northern Europe 6, Africa 3, Africa diaspora 2, Africa diaspora / Europe / Americas 1, Americas 7, Oceania 2, Western esoteric 10, Instruments 5, Designed systems 3, Engineering & science 4
 
-Standings: PRIMARY_EVIDENCE 43, SECONDARY_SCHOLARSHIP 8, TRADITION_INTERNAL 3, MODERN_RECONSTRUCTION 5, LIVING_TRADITION_SOURCE 4
+Standings: PRIMARY_EVIDENCE 64, SECONDARY_SCHOLARSHIP 11, TRADITION_INTERNAL 3, MODERN_RECONSTRUCTION 5, LIVING_TRADITION_SOURCE 4
 
-Seats: extra 103, return 39, residue 22, withdrawn 12, centre 21, extension 8
+Seats: extra 122, return 43, residue 28, withdrawn 13, extension 14, centre 26
 

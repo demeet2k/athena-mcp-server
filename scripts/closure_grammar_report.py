@@ -14,7 +14,6 @@ from __future__ import annotations
 import json
 import os
 import sys
-from collections import Counter, defaultdict
 from typing import Any, Dict, List
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,13 +26,13 @@ JSON_PATH = os.path.join(ROOT, "spec", "CLOSURE_GRAMMAR_REGISTRY_V1.json")
 GRID_PATH = os.path.join(ROOT, "docs", "closure_grammar", "04_VERIFICATION_GRID.md")
 CENSUS_PATH = os.path.join(ROOT, "docs", "closure_grammar", "05_CENSUS.md")
 
-PASSAGE_ROLES = {"passage", "chaos", "residue"}
-ORDER_ROLES = {"order", "closure", "record"}
+from athena_mcp.closure_grammar_report_core import PASSAGE_ROLES, ORDER_ROLES, wilson, census_table, permutation_null, build_report  # noqa: E402,F401
 
 
 def registry_dict() -> Dict[str, Any]:
     return {
         "version": reg.REGISTRY_VERSION,
+        "revision": reg.REGISTRY_REVISION,
         "law": reg.LAW,
         "seats": reg.SEATS,
         "grades": reg.GRADES,
@@ -59,98 +58,6 @@ def check_json(path: str = JSON_PATH) -> bool:
 # census
 # --------------------------------------------------------------------------
 
-def carries_any(n: int, primes=(7,)) -> bool:
-    return any(n % p == 0 for p in primes) and n != 0
-
-
-def build_report(data: Dict[str, Any]) -> Dict[str, Any]:
-    trads = data["traditions"]
-    seat_counts = Counter(c["seat"] for t in trads for c in t.get("crossings", []))
-    grade_counts = Counter(c["grade"] for t in trads for c in t.get("crossings", []))
-    family_counts = Counter(t["family"] for t in trads)
-    standing_counts = Counter(t["standing"] for t in trads)
-
-    # closure counts n and crossing numbers n+1, by seat
-    n_values = Counter()
-    cross_values = Counter()
-    for t in trads:
-        for c in t.get("crossings", []):
-            if c["seat"] in ("extra", "return", "centre", "withdrawn"):
-                n_values[c["n"]] += 1
-                cross_values[c["cross"]] += 1
-
-    # the 7 / 9 census: among salient numbers, is a 7-bearer more often on passage than on order?
-    role_stats: Dict[str, Dict[str, int]] = {"passage": {"total": 0, "seven": 0, "nine": 0, "regular": 0},
-                                             "order": {"total": 0, "seven": 0, "nine": 0, "regular": 0}}
-    per_tradition = []
-    for t in trads:
-        pt = {"id": t["id"], "passage7": 0, "passage": 0, "order7": 0, "order": 0}
-        for num in t.get("numbers", []):
-            n = int(num["n"])
-            if n <= 0:
-                continue
-            bucket = "passage" if num["role"] in PASSAGE_ROLES else ("order" if num["role"] in ORDER_ROLES else None)
-            if bucket is None:
-                continue
-            rs = role_stats[bucket]
-            rs["total"] += 1
-            if n % 7 == 0:
-                rs["seven"] += 1
-                pt[bucket + "7"] += 1
-            if n % 9 == 0:
-                rs["nine"] += 1
-            if cg.is_regular(n):
-                rs["regular"] += 1
-            pt[bucket] += 1
-        per_tradition.append(pt)
-
-    def frac(a, b):
-        return round(a / b, 3) if b else None
-
-    census = {
-        "passage": {**role_stats["passage"], "seven_frac": frac(role_stats["passage"]["seven"], role_stats["passage"]["total"]),
-                    "regular_frac": frac(role_stats["passage"]["regular"], role_stats["passage"]["total"])},
-        "order": {**role_stats["order"], "seven_frac": frac(role_stats["order"]["seven"], role_stats["order"]["total"]),
-                  "regular_frac": frac(role_stats["order"]["regular"], role_stats["order"]["total"])},
-    }
-    # likelihood ratio of "carries 7" for passage vs order
-    p7 = census["passage"]["seven_frac"] or 0.0
-    o7 = census["order"]["seven_frac"] or 0.0
-    census["seven_ratio_passage_over_order"] = round(p7 / o7, 2) if o7 else None
-
-    # calendar charts of 360 attested
-    charts = Counter()
-    for t in trads:
-        cal = t.get("calendar") or {}
-        for pair in cal.get("charts", []):
-            if len(pair) == 2 and pair[0] * pair[1] == 360:
-                charts[tuple(sorted(pair))] += 1
-    all_pairs = cg.divisor_pairs(360)
-    chart_table = [{"pair": list(p), "attested_in": charts.get(p, 0)} for p in all_pairs]
-
-    # devices
-    hull = sum(1 for t in trads if t["devices"]["hull"])
-    record = sum(1 for t in trads if t["devices"]["record"])
-    arithmetic = sum(1 for t in trads if t["arithmetic"]["present"])
-    with_grammar = sum(1 for t in trads if any(c["seat"] in ("extra", "return", "centre", "withdrawn") for c in t["crossings"]))
-
-    return {
-        "tradition_count": len(trads),
-        "crossing_count": sum(seat_counts.values()),
-        "seat_counts": dict(seat_counts),
-        "grade_counts": dict(grade_counts),
-        "family_counts": dict(family_counts),
-        "standing_counts": dict(standing_counts),
-        "closure_n_histogram": dict(sorted(n_values.items())),
-        "crossing_histogram": dict(sorted(cross_values.items())),
-        "census": census,
-        "per_tradition_census": per_tradition,
-        "charts_of_360": chart_table,
-        "with_unit_crossing": with_grammar,
-        "with_hull": hull,
-        "with_record": record,
-        "with_arithmetic_layer": arithmetic,
-    }
 
 
 # --------------------------------------------------------------------------
@@ -218,11 +125,16 @@ def render_census(data: Dict[str, Any], rep: Dict[str, Any]) -> str:
            "Generated by `python -m scripts.closure_grammar_report`. The census tests the one prediction the design hypothesis makes about *numbers* rather than *counts*: that a number carrying the prime 7 is more likely to sit on a passage (death, gate, judgment, fate, crossing, residue) than on order (structure, calendar, cosmos, record).\n",
            "Roles are assigned per number in the registry, before the census is run; the census only counts.\n",
            "## Seven-bearers by role\n",
-           "| role | numbers | divisible by 7 | fraction | divisible by 9 | regular (2·3·5-smooth) fraction |",
-           "|---|---|---|---|---|---|",
-           f"| passage / chaos / residue | {c['passage']['total']} | {c['passage']['seven']} | {c['passage']['seven_frac']} | {c['passage']['nine']} | {c['passage']['regular_frac']} |",
-           f"| order / closure / record | {c['order']['total']} | {c['order']['seven']} | {c['order']['seven_frac']} | {c['order']['nine']} | {c['order']['regular_frac']} |",
-           f"\nLikelihood ratio P(7 | passage) / P(7 | order) = **{c['seven_ratio_passage_over_order']}**.\n",
+           "| role | numbers | ÷7 | frac | ÷9 | frac | ÷13 | frac | regular (2·3·5-smooth) fraction |",
+           "|---|---|---|---|---|---|---|---|---|",
+           f"| passage / chaos / residue | {c['passage']['total']} | {c['passage']['div7']} | {c['passage']['div7_frac']} | {c['passage']['div9']} | {c['passage']['div9_frac']} | {c['passage']['div13']} | {c['passage']['div13_frac']} | {c['passage']['regular_frac']} |",
+           f"| order / closure / record | {c['order']['total']} | {c['order']['div7']} | {c['order']['div7_frac']} | {c['order']['div9']} | {c['order']['div9_frac']} | {c['order']['div13']} | {c['order']['div13_frac']} | {c['order']['regular_frac']} |",
+           f"\nLikelihood ratio P(7 | passage) / P(7 | order) = **{c['seven_ratio_passage_over_order']}** (Wilson 95% intervals: passage {c['passage']['div7_wilson95']}, order {c['order']['div7_wilson95']}).\n",
+           "## Null model (permutation test)\n",
+           "Role labels are shuffled over the tagged numbers and the ratio recomputed; the one-sided p-value is the fraction of shuffles reaching the observed ratio. Deterministic (seed 0).\n",
+           "| prime | observed ratio | null median | null 95th pct | p (one-sided) |", "|---|---|---|---|---|",
+           *[f"| {p} | {c['null_model'][f'p{p}']['observed_ratio']} | {c['null_model'][f'p{p}']['null_ratio_median']} | {c['null_model'][f'p{p}']['null_ratio_95pct']} | {c['null_model'][f'p{p}']['p_value_one_sided']} |" for p in (7, 9, 13)],
+           f"\n{c['null_model']['rounds']} shuffles over {c['null_model']['tagged_numbers']} numbers. 9 and 13 are reported as controls: 9 is the ternary crossing prime and is expected to split the roles weakly; 13 is the crossing of twelve and is expected not to.\n",
            "Read this as a discipline, not a proof: role labels were assigned by a reader who knows the hypothesis, so the ratio can only fall, not rise, under adversarial relabelling. What it establishes is that the registry as a whole obeys the assignment its earliest members (Enūma Eliš, Egypt) obeyed with zero crossings.\n",
            "## Per tradition\n",
            "| tradition | passage numbers | of which 7-bearers | order numbers | of which 7-bearers |", "|---|---|---|---|---|"]
@@ -242,6 +154,13 @@ def render_census(data: Dict[str, Any], rep: Dict[str, Any]) -> str:
 
 def main(argv: List[str]) -> int:
     data = registry_dict()
+    from athena_mcp.closure_grammar_schema import validate_registry
+
+    violations = validate_registry(data)
+    if violations:
+        for v in violations:
+            print("VIOLATION", v)
+        return 2
     if "--check" in argv:
         ok = check_json()
         print("registry JSON in sync" if ok else "registry JSON OUT OF SYNC — run without --check")

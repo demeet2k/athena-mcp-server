@@ -551,6 +551,9 @@ def self_test() -> Dict[str, object]:
     assert 7 * 11 * 13 == 1001 and factorize(1001) == {7: 1, 11: 1, 13: 1}
     assert metonic_intercalation()["intercalary"] == 7
     assert 6.9 < lunar_quarter() < 7.5
+    for fn in _SELF_TEST_EXTRA:
+        fn()
+    r["e_chain"] = e_chain_trichotomy()
     return r
 
 
@@ -558,3 +561,119 @@ if __name__ == "__main__":  # pragma: no cover
     import json
 
     print(json.dumps(self_test(), indent=1, default=str))
+
+
+# --------------------------------------------------------------------------
+# R1 DETECT, executable: Cartan matrices of the E-chain and the trichotomy
+# --------------------------------------------------------------------------
+
+def _tree_cartan(edges: Sequence[Tuple[int, int]], n: int) -> List[List[int]]:
+    """Simply-laced Cartan matrix 2I − A for a graph on n nodes."""
+    m = [[0] * n for _ in range(n)]
+    for i in range(n):
+        m[i][i] = 2
+    for a, b in edges:
+        m[a][b] -= 1
+        m[b][a] -= 1
+    return m
+
+
+def dynkin_e(n: int) -> List[List[int]]:
+    """Cartan matrix of E_n for n >= 6 as the T(2, 3, n−3) tree: legs of lengths 1, 2, n−4
+    from a branch node.  E6, E7, E8 are finite; E9 = affine E8; E10 hyperbolic."""
+    if n < 6:
+        raise ValueError("E_n needs n >= 6")
+    edges: List[Tuple[int, int]] = []
+    branch = 0
+    node = 1
+    for leg in (1, 2, n - 4):
+        prev = branch
+        for _ in range(leg):
+            edges.append((prev, node))
+            prev = node
+            node += 1
+    return _tree_cartan(edges, n)
+
+
+def dynkin_a(n: int) -> List[List[int]]:
+    return _tree_cartan([(i, i + 1) for i in range(n - 1)], n)
+
+
+def dynkin_d(n: int) -> List[List[int]]:
+    edges = [(i, i + 1) for i in range(n - 2)] + [(n - 3, n - 1)]
+    return _tree_cartan(edges, n)
+
+
+def affine_a(n: int) -> List[List[int]]:
+    """Affine Ã_n: the (n+1)-cycle — the chain with the one extra node that closes it."""
+    edges = [(i, (i + 1) % (n + 1)) for i in range(n + 1)]
+    return _tree_cartan(edges, n + 1)
+
+
+def determinant(m: Sequence[Sequence[int]]) -> int:
+    """Exact integer determinant (Bareiss)."""
+    a = [list(map(int, row)) for row in m]
+    n = len(a)
+    sign, prev = 1, 1
+    for k in range(n - 1):
+        if a[k][k] == 0:
+            swap = next((r for r in range(k + 1, n) if a[r][k] != 0), None)
+            if swap is None:
+                return 0
+            a[k], a[swap] = a[swap], a[k]
+            sign = -sign
+        for i in range(k + 1, n):
+            for j in range(k + 1, n):
+                a[i][j] = (a[i][j] * a[k][k] - a[i][k] * a[k][j]) // prev
+        prev = a[k][k]
+    return sign * a[n - 1][n - 1]
+
+
+def spectral_radius(adjacency: Sequence[Sequence[int]], tol: float = 1e-13, max_iterations: int = 200000) -> float:
+    """Largest eigenvalue of a connected non-negative symmetric matrix.  Power
+    iteration on A + 2I (the shift removes the bipartite oscillation of a tree's
+    adjacency spectrum, which is symmetric about zero), iterated to convergence."""
+    n = len(adjacency)
+    v = [1.0] * n
+    lam = 0.0
+    for _ in range(max_iterations):
+        w = [sum(adjacency[i][j] * v[j] for j in range(n)) + 2.0 * v[i] for i in range(n)]
+        norm = sum(x * x for x in w) ** 0.5
+        if norm == 0:
+            return 0.0
+        v_new = [x / norm for x in w]
+        lam_new = norm  # Rayleigh quotient of the unit vector v: v·(A+2I)v = |w| when v is normalised
+        if abs(lam_new - lam) < tol:
+            lam = lam_new
+            break
+        v, lam = v_new, lam_new
+    return lam - 2.0
+
+
+def regime(cartan: Sequence[Sequence[int]]) -> Dict[str, object]:
+    """The trichotomy on a simply-laced diagram: det > 0 finite, = 0 affine, < 0 indefinite;
+    equivalently the adjacency spectral radius λ_max < 2, = 2, > 2."""
+    det = determinant(cartan)
+    n = len(cartan)
+    adjacency = [[-cartan[i][j] if i != j else 0 for j in range(n)] for i in range(n)]
+    lam = spectral_radius(adjacency)
+    return {"det": det, "lambda_max": round(lam, 6), "regime": "finite" if det > 0 else ("affine" if det == 0 else "indefinite")}
+
+
+def e_chain_trichotomy() -> Dict[str, Dict[str, object]]:
+    """det Cartan(E6, E7, E8) = 3, 2, 1; E9 = 0; E10 = −1."""
+    return {f"E{n}": regime(dynkin_e(n)) for n in range(6, 11)}
+
+
+def _self_test_cartan() -> None:
+    chain = e_chain_trichotomy()
+    assert [chain[f"E{n}"]["det"] for n in range(6, 11)] == [3, 2, 1, 0, -1], chain
+    assert chain["E8"]["regime"] == "finite" and chain["E9"]["regime"] == "affine" and chain["E10"]["regime"] == "indefinite"
+    assert abs(chain["E9"]["lambda_max"] - 2.0) < 1e-6 and chain["E8"]["lambda_max"] < 2.0 < chain["E10"]["lambda_max"]
+    assert determinant(dynkin_a(5)) == 6 and determinant(dynkin_d(5)) == 4
+    assert determinant(affine_a(5)) == 0 and abs(regime(affine_a(5))["lambda_max"] - 2.0) < 1e-6
+    # a 7-cycle: the affine closing of A6 — six nodes plus the one extra node
+    assert len(affine_a(6)) == 7 and regime(affine_a(6))["regime"] == "affine"
+
+
+_SELF_TEST_EXTRA = [_self_test_cartan]
