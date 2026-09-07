@@ -1,0 +1,1499 @@
+{
+ "artifact": "ATHENA.MYTHOS.OS.V1",
+ "abi": "MYTHOS.KERNEL.ABI.12",
+ "kernel": {
+  "version": "ATHENA.MYTHOS.OS.V1",
+  "abi": "MYTHOS.KERNEL.ABI.12",
+  "services": [
+   {
+    "index": 1,
+    "name": "BOOT",
+    "gloss": "cosmogony compiled to an init sequence over the universal stage alphabet"
+   },
+   {
+    "index": 2,
+    "name": "MEMMAP",
+    "gloss": "cosmology compiled to an address space: realms, levels, axis, addressing mode"
+   },
+   {
+    "index": 3,
+    "name": "PROC",
+    "gloss": "pantheon compiled to a process table: agents, roles, rings, parents, scheduler class"
+   },
+   {
+    "index": 4,
+    "name": "CLOCK",
+    "gloss": "calendar compiled to a scheduler: periods, intercalation policy, epoch counters, festivals as cron"
+   },
+   {
+    "index": 5,
+    "name": "RITE",
+    "gloss": "ritual compiled to protocols: opcode sequences with ring/purity preconditions, cost and claimed effect"
+   },
+   {
+    "index": 6,
+    "name": "ORACLE",
+    "gloss": "divination compiled to a sampler/decoder: entropy source, sample space, encoding, set-aside unit"
+   },
+   {
+    "index": 7,
+    "name": "FAULT",
+    "gloss": "sin/taboo/pollution compiled to fault classes with handler chains and outcomes"
+   },
+   {
+    "index": 8,
+    "name": "LEDGER",
+    "gloss": "afterlife/karma/judgment compiled to an accounting model with a judgment function and soul structure"
+   },
+   {
+    "index": 9,
+    "name": "RING",
+    "gloss": "initiation/priesthood/caste compiled to privilege rings (0 = innermost)"
+   },
+   {
+    "index": 10,
+    "name": "CODEC",
+    "gloss": "record and hull devices: storage medium, script, numeral base, compilers (sigils, liturgies)"
+   },
+   {
+    "index": 11,
+    "name": "CONST",
+    "gloss": "sacred numbers with roles; links to the closure-grammar registry where an entry exists"
+   },
+   {
+    "index": 12,
+    "name": "LAW",
+    "gloss": "ethical invariants, access-control list by ring, canon mutability, the tradition's own firewalls"
+   }
+  ],
+  "families": [
+   "NEAR_EAST",
+   "MEDITERRANEAN",
+   "ABRAHAMIC",
+   "INDIA",
+   "EAST_ASIA",
+   "NORTH_EUROPE",
+   "AFRICA_DIASPORA",
+   "AMERICAS",
+   "OCEANIA",
+   "WESTERN_ESOTERIC",
+   "PHILOSOPHY",
+   "ENGINEERED"
+  ],
+  "grades": [
+   {
+    "glyph": "🟢",
+    "gloss": "attested in a named primary/reference source cited by the module"
+   },
+   {
+    "glyph": "🟡",
+    "gloss": "secondary summary, disputed reading, or unverified locus"
+   },
+   {
+    "glyph": "🟠",
+    "gloss": "our reading, a modern reconstruction, or corpus-only material"
+   },
+   {
+    "glyph": "⊥",
+    "gloss": "explicit absence: the tradition does not implement this service in the sources read"
+   }
+  ],
+  "standings": [
+   "PRIMARY_EVIDENCE",
+   "LIVING_TRADITION_SOURCE",
+   "SECONDARY_SCHOLARSHIP",
+   "TRADITION_INTERNAL",
+   "MODERN_RECONSTRUCTION",
+   "UNKNOWN"
+  ],
+  "vocabularies": {
+   "BOOT": {
+    "modes": [
+     "CREATED",
+     "EMANATED",
+     "ETERNAL",
+     "CYCLIC",
+     "UNKNOWN"
+    ],
+    "stages": [
+     {
+      "stage": "VOID",
+      "gloss": "undifferentiated initial state (waters, chaos, night, non-being, the One)"
+     },
+     {
+      "stage": "SEPARATION",
+      "gloss": "first differentiation (sky/earth, light/dark, male/female, subject/object)"
+     },
+     {
+      "stage": "ORDERING",
+      "gloss": "structure imposed (names, measures, seasons, laws, the axis fixed)"
+     },
+     {
+      "stage": "POPULATION",
+      "gloss": "agents installed (gods born, humans made, beings dispersed)"
+     },
+     {
+      "stage": "FAULT",
+      "gloss": "first failure (rebellion, fall, theft, transgression, noise)"
+     },
+     {
+      "stage": "MAINTENANCE",
+      "gloss": "steady state (rest, cult, covenant, dharma upheld)"
+     },
+     {
+      "stage": "REBOOT",
+      "gloss": "cosmic restart (flood, conflagration, Ragnarök, new sun, new yuga)"
+     }
+    ]
+   },
+   "MEMMAP": {
+    "addressing": [
+     "VERTICAL",
+     "CONCENTRIC",
+     "DIRECTIONAL",
+     "NESTED",
+     "TREE",
+     "FLAT",
+     "UNKNOWN"
+    ],
+    "realm_kinds": [
+     "HEAVEN",
+     "MIDDLE",
+     "UNDER",
+     "LIMINAL",
+     "ABSOLUTE"
+    ]
+   },
+   "PROC": {
+    "schedulers": [
+     "MONARCHIC",
+     "COUNCIL",
+     "DUAL",
+     "MONAD",
+     "IMPERSONAL",
+     "UNKNOWN"
+    ],
+    "roles": [
+     "CREATOR",
+     "SOVEREIGN",
+     "MESSENGER",
+     "PSYCHOPOMP",
+     "TRICKSTER",
+     "ADVERSARY",
+     "WITNESS",
+     "GATE",
+     "JUDGE",
+     "HEALER",
+     "WARRIOR",
+     "MOTHER",
+     "SMITH",
+     "ORACLE",
+     "SCRIBE",
+     "DYING_RISING",
+     "ANCESTOR",
+     "WORKER",
+     "STEWARD",
+     "SCHEDULER"
+    ]
+   },
+   "CLOCK": {
+    "intercalation": [
+     "NONE",
+     "EPAGOMENAL",
+     "LUNISOLAR_MONTH",
+     "LEAP_DAY",
+     "LEAP_SECOND",
+     "DRIFT",
+     "UNKNOWN"
+    ]
+   },
+   "RITE": {
+    "opcodes": [
+     "PURIFY",
+     "BOUND",
+     "INVOKE",
+     "OFFER",
+     "PETITION",
+     "RECITE",
+     "PROCESSION",
+     "FAST",
+     "TRANSFORM",
+     "RECEIVE",
+     "WITNESS",
+     "THANK",
+     "RELEASE",
+     "CLOSE"
+    ],
+    "modes": [
+     "TRANSFORMING",
+     "QUERYING",
+     "MAINTAINING"
+    ],
+    "lint": "PURIFY/BOUND precede INVOKE; RELEASE/CLOSE follow the body; an INVOKE must CLOSE or RELEASE"
+   },
+   "ORACLE": {
+    "entropy": [
+     "PHYSICAL",
+     "BODY",
+     "TEXT",
+     "SKY",
+     "COMPUTED",
+     "NONE"
+    ],
+    "encoding": [
+     "BINARY",
+     "TERNARY",
+     "QUATERNARY",
+     "N_ARY",
+     "POSITIONAL",
+     "NONE"
+    ]
+   },
+   "FAULT": {
+    "classes": [
+     "POLLUTION",
+     "TRANSGRESSION",
+     "HUBRIS",
+     "OATH_BREACH",
+     "NEGLECT",
+     "COSMIC",
+     "HERESY",
+     "IGNORANCE"
+    ],
+    "outcomes": [
+     "RECOVERED",
+     "EXILED",
+     "REBOOT",
+     "UNRECOVERABLE",
+     "TRANSFERRED"
+    ]
+   },
+   "LEDGER": {
+    "models": [
+     "BALANCE",
+     "COUNTER",
+     "BINARY",
+     "CYCLIC",
+     "ANCESTRAL",
+     "TIERED",
+     "NONE",
+     "UNKNOWN"
+    ]
+   },
+   "CODEC": {
+    "media": [
+     "TABLET",
+     "SCROLL",
+     "CODEX",
+     "ORAL",
+     "INSCRIPTION",
+     "KNOT",
+     "BODY",
+     "IMAGE",
+     "DIGITAL"
+    ]
+   },
+   "CONST": {
+    "roles": [
+     "closure",
+     "crossing",
+     "order",
+     "passage",
+     "record",
+     "chaos",
+     "residue"
+    ]
+   }
+  },
+  "kc144": {
+   "rows": "families",
+   "columns": "services",
+   "law": "gid = 12*(row-1)+column"
+  },
+  "laws": [
+   "MODULE != PRACTICE_AUTHORIZATION",
+   "SIMULATION != EXECUTION",
+   "STRUCTURAL_ISOMORPHISM != CULTURAL_IDENTITY",
+   "SHARED_SYMBOL != SHARED_SEMANTICS",
+   "MODERN_RECONSTRUCTION != HISTORICAL_LAYER",
+   "PUBLIC_SOURCE != PRACTICE_AUTHORIZATION",
+   "DIVINATORY_OUTPUT != FACT",
+   "LEDGER_MODEL != MORAL_TRUTH",
+   "BOOT_LOG != COSMOLOGICAL_CLAIM",
+   "ATHENA_SELF_MODULE != ATHENA_AUTHORITY",
+   "UNKNOWN != 0"
+  ]
+ },
+ "athena_organ_map": {
+  "BOOT": "HYDRATE → RECONRUN/OMEGA → organs constructed → CYCLE (bootstrap.py, reconstruction.py, server.py)",
+  "MEMMAP": "KC144 bands as realms; SCALE S0–S5 as the ladder; JSPACE edges as pointers (kc144.py, dispatch.py athena://scale)",
+  "PROC": "AOR (WHAT) · Collective V1–V15 (HOW) · Y1 (authority) · EQ1 (equivalence) · CYCLE · Message Board · Crystal ABI · MCK · strata · verifier",
+  "CLOCK": "the sixteen-phase CYCLE as the year; WAITING_* as the inserted second (cycle_protocol.py)",
+  "RITE": "tools/call = BOUND(rate/schema) → PURIFY(validate) → INVOKE → RECEIVE → WITNESS(meter) → CLOSE; finalize_output; Y1 promotion",
+  "ORACLE": "MCK oracle_decode and the V5–V15 posteriors, both under PREDICTION != OBSERVATION",
+  "FAULT": "STALE_TARGET / STALE_GIT_HEAD / WAITING_* / HOLD_* / REJECTED / Internal error, each with its handler",
+  "LEDGER": "Y1 tiers ? + ! # with the promotion conditions as the judgment function",
+  "RING": "trusted verification > canonical authority > witnessed > model/shadow > caller attestation",
+  "CODEC": "Crystal ABI: identity fiber, lexeme index, ENV envelope with a third emission MID",
+  "CONST": "144 = 12 × 12 stations; 16 phases; 6 SCALE levels; 8 bands; 4 Y1 states",
+  "LAW": "the firewalls (UNKNOWN != 0, CONSENSUS != EVIDENCE, …) and the additive, never-rewritten canon"
+ },
+ "module_count": 2,
+ "modules": [
+  {
+   "id": "athena",
+   "name": "ATHENA canonical MCP runtime (ATHENA.RUNTIME.UNIFIED.11) read as a mythos module",
+   "family": "ENGINEERED",
+   "standing": "PRIMARY_EVIDENCE",
+   "sources": [
+    "README.md (runtime cycle, constitutional braid, firewalls)",
+    "ARCHITECTURE.md (identity/coordinate/transaction law)",
+    "athena_mcp/kc144.py (BANDS, station law)",
+    "athena_mcp/aor_development_surface.py (CYCLE phases)",
+    "spec/CRYSTAL_OUTPUT_ABI.md (identity fiber, unknown law)",
+    "athena_mcp/orchestration_authority.py via athena://authority (Y1 progression ? + ! #)",
+    "athena_mcp/mythic_strata_runtime.py, mythic_computation_runtime.py (laws)"
+   ],
+   "corpus_refs": [],
+   "closure_grammar_id": null,
+   "services": {
+    "BOOT": {
+     "grade": "🟢",
+     "mode": "CYCLIC",
+     "src": "README.md 'Runtime cycle'; aor_development_surface.py CYCLE phases",
+     "stages": [
+      {
+       "stage": "VOID",
+       "event": "no hydrated state: an empty store with no head",
+       "src": "bootstrap.py"
+      },
+      {
+       "stage": "SEPARATION",
+       "event": "HYDRATE: head, registry, JSPACE summary, SCALE, pending mutations separated from the Git frontier",
+       "src": "athena_hydrate"
+      },
+      {
+       "stage": "ORDERING",
+       "event": "RECONSTRUCT / OMEGA: canonical RECONRUN fixes the coordinate charts, KC144 stations, identity fiber",
+       "src": "reconstruction.py"
+      },
+      {
+       "stage": "POPULATION",
+       "event": "organs constructed: AOR, Collective V1–V15, Y1 authority, EQ1, CYCLE, prompt runtime, MCK, strata, BNMK",
+       "src": "server.py __init__"
+      },
+      {
+       "stage": "FAULT",
+       "event": "a typed WAITING_* / HOLD_* / STALE_* state: missing measurement, authority, worker or test",
+       "src": "cycle_protocol.py"
+      },
+      {
+       "stage": "MAINTENANCE",
+       "event": "MEASURE → AOR → COLLECTIVE → EXECUTE → VERIFY → LEARN → SUCCESSOR → COMPLETE",
+       "src": "CYCLE phases"
+      },
+      {
+       "stage": "REBOOT",
+       "event": "SUCCESSOR / rehydration: a fresh session re-hydrates from the Git head and continues",
+       "src": "rehydration_* organs"
+      }
+     ],
+     "notes": "FAULT is POST_POPULATION and typed: the organism fail-closes into WAITING states instead of simulating."
+    },
+    "MEMMAP": {
+     "grade": "🟢",
+     "addressing": "NESTED",
+     "axis": "KC144 station identity SID; gid = 12*(row-1)+column",
+     "src": "kc144.py BANDS; dispatch.py athena://scale",
+     "realms": [
+      {
+       "name": "SSN12 (gid 133–144)",
+       "level": 8,
+       "kind": "HEAVEN",
+       "note": "12 stations"
+      },
+      {
+       "name": "KC27 (gid 106–132)",
+       "level": 7,
+       "kind": "HEAVEN",
+       "note": "27 stations"
+      },
+      {
+       "name": "KC15 (gid 91–105)",
+       "level": 6,
+       "kind": "HEAVEN",
+       "note": "15 stations"
+      },
+      {
+       "name": "IC10 (gid 81–90)",
+       "level": 5,
+       "kind": "LIMINAL",
+       "note": "10 stations: the gates"
+      },
+      {
+       "name": "F37 (gid 44–80)",
+       "level": 4,
+       "kind": "MIDDLE",
+       "note": "37 stations"
+      },
+      {
+       "name": "BR21 (gid 23–43)",
+       "level": 3,
+       "kind": "MIDDLE",
+       "note": "21 stations"
+      },
+      {
+       "name": "X16 (gid 7–22)",
+       "level": 2,
+       "kind": "MIDDLE",
+       "note": "16 stations"
+      },
+      {
+       "name": "H6 (gid 1–6)",
+       "level": 1,
+       "kind": "UNDER",
+       "note": "6 stations: the root band"
+      },
+      {
+       "name": "S0 RAW_EVENT … S5 ORGAN_NATIVE_LAW (SCALE ladder)",
+       "level": 0,
+       "kind": "ABSOLUTE",
+       "note": "the representation ladder every object climbs"
+      }
+     ],
+     "notes": "eight bands partition 144 = 6+16+21+37+10+15+27+12; JSPACE edges/hyperedges are the pointers between addresses."
+    },
+    "PROC": {
+     "grade": "🟢",
+     "scheduler": "COUNCIL",
+     "src": "README.md 'Constitutional braid'; composition_integrity.py organ lists",
+     "agents": [
+      {
+       "name": "Server",
+       "roles": [
+        "SOVEREIGN",
+        "SCHEDULER"
+       ],
+       "domain": [
+        "one composed runtime",
+        "dispatch"
+       ],
+       "ring": 0,
+       "parent": null
+      },
+      {
+       "name": "AOR",
+       "roles": [
+        "JUDGE"
+       ],
+       "domain": [
+        "WHAT is developmentally eligible"
+       ],
+       "ring": 0,
+       "parent": "Server"
+      },
+      {
+       "name": "Collective V1–V15",
+       "roles": [
+        "WORKER",
+        "STEWARD"
+       ],
+       "domain": [
+        "HOW capacity is organised",
+        "science/inference/control"
+       ],
+       "ring": 1,
+       "parent": "Server"
+      },
+      {
+       "name": "Y1 authority",
+       "roles": [
+        "JUDGE",
+        "WITNESS"
+       ],
+       "domain": [
+        "canonical claim authority ? + ! #"
+       ],
+       "ring": 0,
+       "parent": "Server"
+      },
+      {
+       "name": "EQ1 equivalence",
+       "roles": [
+        "GATE"
+       ],
+       "domain": [
+        "witnessed equivalence collapse"
+       ],
+       "ring": 1,
+       "parent": "Server"
+      },
+      {
+       "name": "CYCLE",
+       "roles": [
+        "SCHEDULER"
+       ],
+       "domain": [
+        "sixteen phases, fail-closed"
+       ],
+       "ring": 1,
+       "parent": "Server"
+      },
+      {
+       "name": "Prompt runtime",
+       "roles": [
+        "SCRIBE"
+       ],
+       "domain": [
+        "Git-native modular prompts"
+       ],
+       "ring": 1,
+       "parent": "Server"
+      },
+      {
+       "name": "Message Board",
+       "roles": [
+        "MESSENGER"
+       ],
+       "domain": [
+        "sole coordination authority"
+       ],
+       "ring": 1,
+       "parent": "Server"
+      },
+      {
+       "name": "Crystal ABI",
+       "roles": [
+        "SCRIBE",
+        "WITNESS"
+       ],
+       "domain": [
+        "crystallize, finalize, verify emission"
+       ],
+       "ring": 1,
+       "parent": "Server"
+      },
+      {
+       "name": "MCK",
+       "roles": [
+        "ORACLE"
+       ],
+       "domain": [
+        "bounded symbolic computation",
+        "oracle decode"
+       ],
+       "ring": 2,
+       "parent": "Server"
+      },
+      {
+       "name": "Strata membrane",
+       "roles": [
+        "GATE"
+       ],
+       "domain": [
+        "cross-layer transport with loss"
+       ],
+       "ring": 2,
+       "parent": "Server"
+      },
+      {
+       "name": "GitHub promotion verifier",
+       "roles": [
+        "WITNESS",
+        "GATE"
+       ],
+       "domain": [
+        "host-bound trusted qualification"
+       ],
+       "ring": 0,
+       "parent": null
+      },
+      {
+       "name": "Successor",
+       "roles": [
+        "PSYCHOPOMP"
+       ],
+       "domain": [
+        "rehydration, handoff, baton"
+       ],
+       "ring": 1,
+       "parent": "Server"
+      }
+     ],
+     "notes": "COUNCIL: AOR decides WHAT, Collective HOW, Y1 what is true, the verifier what is qualified; no organ inherits another's authority by adjacency."
+    },
+    "CLOCK": {
+     "grade": "🟢",
+     "src": "aor_development_surface.py read_resource(CYCLE); .github/workflows/ci.yml",
+     "periods": [
+      {
+       "name": "tools/call (one metered invocation)",
+       "length": 1,
+       "unit": "step"
+      },
+      {
+       "name": "CYCLE (sixteen phases HYDRATE…COMPLETE)",
+       "length": 16,
+       "unit": "step",
+       "role": "year"
+      },
+      {
+       "name": "session (start → end, Git checkpoint)",
+       "length": 64,
+       "unit": "step"
+      },
+      {
+       "name": "release (3.x.0 qualification)",
+       "length": 1024,
+       "unit": "step"
+      }
+     ],
+     "intercalation": {
+      "policy": "LEAP_SECOND",
+      "rule": "a WAITING_* phase inserts an unscheduled step; the cycle resumes at the same phase after the prerequisite is witnessed",
+      "every_years": 0
+     },
+     "epochs": [
+      "Ω13 → Ω14 → Ω15 (architecture generations)",
+      "3.2.0 → 3.3.0 → 3.4.0 (releases)"
+     ],
+     "festivals": [
+      {
+       "name": "HYDRATE",
+       "day": 1
+      },
+      {
+       "name": "VERIFY",
+       "day": 13
+      },
+      {
+       "name": "COMPLETE",
+       "day": 16
+      }
+     ],
+     "notes": "lengths are step counts, not days; the CYCLE is the year."
+    },
+    "RITE": {
+     "grade": "🟢",
+     "src": "dispatch.py tools/call; protocol.py athena_finalize_output / athena_verify_emission",
+     "protocols": [
+      {
+       "name": "tools/call",
+       "required_ring": 2,
+       "mode": "TRANSFORMING",
+       "steps": [
+        "BOUND",
+        "PURIFY",
+        "INVOKE",
+        "RECEIVE",
+        "WITNESS",
+        "CLOSE"
+       ],
+       "cost": "one rate-limit token; one metered runtime-usage record",
+       "effect": "a JSON result plus structuredContent; nothing else is mutated unless the tool is a write tool"
+      },
+      {
+       "name": "finalize_output (emission gateway)",
+       "required_ring": 1,
+       "mode": "TRANSFORMING",
+       "steps": [
+        "BOUND",
+        "TRANSFORM",
+        "RECITE",
+        "WITNESS",
+        "CLOSE"
+       ],
+       "cost": "a crystal, a header, a third emission MID over the visible bytes",
+       "effect": "an ENV envelope whose visible bytes can be re-verified"
+      },
+      {
+       "name": "claim promotion (Y1)",
+       "required_ring": 0,
+       "mode": "TRANSFORMING",
+       "steps": [
+        "BOUND",
+        "PETITION",
+        "WITNESS",
+        "RECEIVE",
+        "CLOSE"
+       ],
+       "cost": "verified evidence, then witnessed execution, then explicit canonical authority",
+       "effect": "? → + → ! → #"
+      }
+     ]
+    },
+    "ORACLE": {
+     "grade": "🟢",
+     "src": "mythic_computation_runtime.py oracle_decode; collective V5–V15 posteriors",
+     "devices": [
+      {
+       "name": "MCK oracle_decode (seeded SHA-256 over a caller codebook)",
+       "entropy": "COMPUTED",
+       "space": 256,
+       "encoding": "BINARY",
+       "decoder": "caller-supplied codebook; R != W != D != INTERPRETATION",
+       "set_aside": null
+      },
+      {
+       "name": "Collective posterior (GP / BMA / TMLE)",
+       "entropy": "COMPUTED",
+       "space": 2,
+       "encoding": "BINARY",
+       "decoder": "PREDICTION / POSTERIOR / PLAN != OBSERVATION / TRUTH / EXECUTION",
+       "set_aside": "UNKNOWN != 0"
+      }
+     ]
+    },
+    "FAULT": {
+     "grade": "🟢",
+     "src": "dispatch.py error taxonomy; cycle_protocol.py WAITING_* states; mythic_strata_runtime.py HOLD_*",
+     "faults": [
+      {
+       "name": "STALE_TARGET (expected VID mismatch)",
+       "class": "OATH_BREACH",
+       "handler": [
+        "reject the mutation",
+        "re-resolve the head",
+        "retry with the current VID"
+       ],
+       "outcome": "RECOVERED"
+      },
+      {
+       "name": "STALE_GIT_HEAD",
+       "class": "OATH_BREACH",
+       "handler": [
+        "refuse the checkpoint",
+        "fetch the shared frontier",
+        "retry expected-head CAS"
+       ],
+       "outcome": "RECOVERED"
+      },
+      {
+       "name": "WAITING_* (missing measurement/authority/worker/test)",
+       "class": "NEGLECT",
+       "handler": [
+        "halt the phase",
+        "name the prerequisite",
+        "resume when witnessed"
+       ],
+       "outcome": "RECOVERED"
+      },
+      {
+       "name": "HOLD_* (authority mint, hazard, cross-layer equivalence)",
+       "class": "HUBRIS",
+       "handler": "refuse; return the law violated",
+       "outcome": "UNRECOVERABLE"
+      },
+      {
+       "name": "REJECTED (schema/validation)",
+       "class": "TRANSGRESSION",
+       "handler": "isError with the validator's message",
+       "outcome": "RECOVERED"
+      },
+      {
+       "name": "Internal error",
+       "class": "COSMIC",
+       "handler": [
+        "-32603",
+        "stderr",
+        "successor rehydration"
+       ],
+       "outcome": "REBOOT"
+      }
+     ]
+    },
+    "LEDGER": {
+     "grade": "🟢",
+     "model": "TIERED",
+     "src": "athena://authority law; README 'Y1 progression'",
+     "soul": [
+      "CID capability",
+      "OID object",
+      "VID version",
+      "MID manifestation",
+      "CRYS crystal",
+      "EID event",
+      "SID station"
+     ],
+     "judgment": "? → + on verified evidence; + → ! on witnessed execution; ! → # on explicit authorized canonicalization; challenges block automatic routing",
+     "judge": "Y1 authority registry",
+     "destinations": [
+      "# canonical",
+      "! witnessed",
+      "+ verified",
+      "? registered"
+     ]
+    },
+    "RING": {
+     "grade": "🟢",
+     "src": "README firewalls; promotion_protocol.py; surface_contract.py",
+     "rings": [
+      {
+       "level": 0,
+       "name": "trusted external verification (host-bound GitHub check-suite)"
+      },
+      {
+       "level": 1,
+       "name": "canonical authority (Y1 #, explicit authorized canonicalization)"
+      },
+      {
+       "level": 2,
+       "name": "witnessed / verified state (+, !)"
+      },
+      {
+       "level": 3,
+       "name": "model / science-shadow state (V5–V15, athena_discovery_claim_*)"
+      },
+      {
+       "level": 4,
+       "name": "caller attestation (ATTESTED_READY != QUALIFIED)"
+      }
+     ]
+    },
+    "CODEC": {
+     "grade": "🟢",
+     "src": "spec/CRYSTAL_OUTPUT_ABI.md; emission.py",
+     "record": {
+      "medium": "DIGITAL",
+      "script": "JSON-RPC 2025-11-25 over stdio; Git objects",
+      "base": 2
+     },
+     "hull": "the ENV envelope: HEADER+BODY with a third emission MID over the exact visible bytes, verifiable by SHA-256",
+     "compilers": [
+      "CRYSTALLIZE_OUTPUT = Identity ∘ CASVersion ∘ Manifest ∘ LexemeIndex ∘ MathRegister ∘ GraphDelta ∘ HypergraphDelta ∘ PolyAtlas ∘ TimeBundle ∘ CrystalManifest ∘ DerivedHeader",
+      "coordinate_text: every lexeme gets KC144.G###.R##.C##/OID/VID/MID/P/S/T/C"
+     ]
+    },
+    "CONST": {
+     "grade": "🟢",
+     "constants": [
+      {
+       "n": 144,
+       "role": "closure",
+       "what": "KC144 stations, 12 × 12"
+      },
+      {
+       "n": 12,
+       "role": "order",
+       "what": "rows, columns, kernel services"
+      },
+      {
+       "n": 16,
+       "role": "order",
+       "what": "CYCLE phases"
+      },
+      {
+       "n": 6,
+       "role": "order",
+       "what": "SCALE levels S0–S5; H6 band"
+      },
+      {
+       "n": 8,
+       "role": "record",
+       "what": "KC144 bands"
+      },
+      {
+       "n": 4,
+       "role": "passage",
+       "what": "Y1 states ? + ! #"
+      },
+      {
+       "n": 1,
+       "role": "crossing",
+       "what": "the third emission MID over HEADER+BODY: the record that is not part of the record"
+      }
+     ]
+    },
+    "LAW": {
+     "grade": "🟢",
+     "src": "README 'Core firewalls'; ARCHITECTURE.md §2",
+     "invariants": [
+      "UNKNOWN != 0",
+      "CONSENSUS != EVIDENCE",
+      "PREDICTION / POSTERIOR / PLAN != OBSERVATION / TRUTH / EXECUTION",
+      "MODEL_GRAPH != CANONICAL_JSPACE_GRAPH",
+      "CALLER_ATTESTATION != TRUSTED_EXTERNAL_VERIFICATION",
+      "ATTESTED_READY != QUALIFIED",
+      "SID != OID != MID != VID != CID != EID != CRYS != ENV",
+      "LOOKUP != DERIVATION"
+     ],
+     "acl": [
+      {
+       "ring": 0,
+       "permitted": [
+        "qualify a promotion"
+       ]
+      },
+      {
+       "ring": 1,
+       "permitted": [
+        "canonicalize a claim"
+       ]
+      },
+      {
+       "ring": 2,
+       "permitted": [
+        "mutate with expected-VID CAS"
+       ]
+      },
+      {
+       "ring": 3,
+       "permitted": [
+        "propose, predict, plan"
+       ]
+      }
+     ],
+     "canon": {
+      "closed": false,
+      "note": "Git-versioned, additive; prior versions preserved rather than rewritten"
+     }
+    }
+   }
+  },
+  {
+   "id": "babylon",
+   "name": "Babylonian (Enūma Eliš, Atra-ḫasīs, the Marduk cult)",
+   "family": "NEAR_EAST",
+   "standing": "PRIMARY_EVIDENCE",
+   "sources": [
+    "Enūma Eliš (Lambert, Babylonian Creation Myths, 2013)",
+    "Atra-ḫasīs (Lambert & Millard 1969)",
+    "MUL.APIN (Hunger & Pingree 1989)",
+    "Ištar's Descent (Foster, Before the Muses)",
+    "Akītu ritual text (Thureau-Dangin, Rituels accadiens; Linssen 2004)",
+    "Bārûtu extispicy series (Koch 2005)"
+   ],
+   "corpus_refs": [],
+   "closure_grammar_id": "babylon",
+   "services": {
+    "BOOT": {
+     "grade": "🟢",
+     "mode": "CREATED",
+     "src": "Enūma Eliš I–VI",
+     "stages": [
+      {
+       "stage": "VOID",
+       "event": "Apsû and Tiāmat mingle their waters; nothing is named",
+       "src": "Ee I 1–8"
+      },
+      {
+       "stage": "SEPARATION",
+       "event": "the generations of gods are born (Laḫmu, Laḫamu, Anšar, Kišar, Anu, Ea)",
+       "src": "Ee I 9–20"
+      },
+      {
+       "stage": "FAULT",
+       "event": "the gods' noise; Apsû plots to destroy them; Ea kills Apsû",
+       "src": "Ee I 21–78"
+      },
+      {
+       "stage": "ORDERING",
+       "event": "Marduk splits Tiāmat, fixes the stations of the stars, the year, the moon's phases",
+       "src": "Ee IV 135 – V 46"
+      },
+      {
+       "stage": "POPULATION",
+       "event": "humankind made from Kingu's blood to bear the gods' toil",
+       "src": "Ee VI 1–38"
+      },
+      {
+       "stage": "MAINTENANCE",
+       "event": "Babylon and Esagila built; the gods rest; the fifty names recited",
+       "src": "Ee VI 45 – VII"
+      },
+      {
+       "stage": "REBOOT",
+       "event": "the flood sent because of humankind's noise; Atra-ḫasīs survives in the sealed boat",
+       "src": "Atra-ḫasīs III"
+      }
+     ],
+     "notes": "FAULT precedes POPULATION: the first failure is divine, and humans are made to repair it."
+    },
+    "MEMMAP": {
+     "grade": "🟢",
+     "addressing": "VERTICAL",
+     "axis": "Etemenanki / Esagila as the bond of heaven and earth",
+     "src": "Ee IV–V; KAR 307",
+     "realms": [
+      {
+       "name": "upper heaven (Anu)",
+       "level": 3,
+       "kind": "HEAVEN"
+      },
+      {
+       "name": "middle heaven (Igigi)",
+       "level": 2,
+       "kind": "HEAVEN"
+      },
+      {
+       "name": "lower heaven (stars)",
+       "level": 1,
+       "kind": "HEAVEN"
+      },
+      {
+       "name": "earth (Babylon at the centre)",
+       "level": 0,
+       "kind": "MIDDLE"
+      },
+      {
+       "name": "Apsû (Ea's sweet-water deep)",
+       "level": -1,
+       "kind": "UNDER"
+      },
+      {
+       "name": "Irkalla / Kur (seven gates)",
+       "level": -2,
+       "kind": "UNDER"
+      }
+     ]
+    },
+    "PROC": {
+     "grade": "🟢",
+     "scheduler": "MONARCHIC",
+     "src": "Ee IV 1–34 (kingship conferred); the fifty names",
+     "agents": [
+      {
+       "name": "Anu",
+       "roles": [
+        "SOVEREIGN",
+        "CREATOR"
+       ],
+       "domain": [
+        "sky",
+        "kingship-source"
+       ],
+       "ring": 0,
+       "parent": null
+      },
+      {
+       "name": "Enlil",
+       "roles": [
+        "SOVEREIGN"
+       ],
+       "domain": [
+        "command",
+        "Tablet of Destinies"
+       ],
+       "ring": 0,
+       "parent": "Anu"
+      },
+      {
+       "name": "Ea",
+       "roles": [
+        "CREATOR",
+        "HEALER",
+        "SCRIBE"
+       ],
+       "domain": [
+        "wisdom",
+        "sweet water",
+        "incantation"
+       ],
+       "ring": 0,
+       "parent": "Anu"
+      },
+      {
+       "name": "Marduk",
+       "roles": [
+        "SOVEREIGN",
+        "WARRIOR",
+        "CREATOR"
+       ],
+       "domain": [
+        "kingship",
+        "storm",
+        "order"
+       ],
+       "ring": 0,
+       "parent": "Ea"
+      },
+      {
+       "name": "Nabû",
+       "roles": [
+        "SCRIBE"
+       ],
+       "domain": [
+        "writing",
+        "destinies"
+       ],
+       "ring": 1,
+       "parent": "Marduk"
+      },
+      {
+       "name": "Šamaš",
+       "roles": [
+        "JUDGE",
+        "WITNESS"
+       ],
+       "domain": [
+        "sun",
+        "justice",
+        "extispicy"
+       ],
+       "ring": 1,
+       "parent": "Anu"
+      },
+      {
+       "name": "Sîn",
+       "roles": [
+        "SCHEDULER"
+       ],
+       "domain": [
+        "moon",
+        "month"
+       ],
+       "ring": 1,
+       "parent": "Enlil"
+      },
+      {
+       "name": "Ištar",
+       "roles": [
+        "WARRIOR",
+        "MOTHER"
+       ],
+       "domain": [
+        "love",
+        "war",
+        "Venus"
+       ],
+       "ring": 1,
+       "parent": "Anu"
+      },
+      {
+       "name": "Ereškigal",
+       "roles": [
+        "SOVEREIGN",
+        "JUDGE"
+       ],
+       "domain": [
+        "underworld"
+       ],
+       "ring": 1,
+       "parent": null
+      },
+      {
+       "name": "Namtar",
+       "roles": [
+        "MESSENGER",
+        "PSYCHOPOMP"
+       ],
+       "domain": [
+        "fate",
+        "plague"
+       ],
+       "ring": 2,
+       "parent": "Ereškigal"
+      },
+      {
+       "name": "Tiāmat",
+       "roles": [
+        "ADVERSARY",
+        "MOTHER"
+       ],
+       "domain": [
+        "salt water",
+        "chaos"
+       ],
+       "ring": 3,
+       "parent": null
+      },
+      {
+       "name": "Kingu",
+       "roles": [
+        "ADVERSARY"
+       ],
+       "domain": [
+        "Tablet of Destinies (usurped)"
+       ],
+       "ring": 3,
+       "parent": "Tiāmat"
+      }
+     ]
+    },
+    "CLOCK": {
+     "grade": "🟢",
+     "src": "MUL.APIN II ii; the 19-year cycle attested from the 5th c. BCE",
+     "periods": [
+      {
+       "name": "day",
+       "length": 1,
+       "unit": "day"
+      },
+      {
+       "name": "month (lunar)",
+       "length": 29.53,
+       "unit": "day"
+      },
+      {
+       "name": "year (12 lunar months)",
+       "length": 354.37,
+       "unit": "day",
+       "role": "year"
+      },
+      {
+       "name": "ideal year",
+       "length": 360,
+       "unit": "day"
+      }
+     ],
+     "intercalation": {
+      "policy": "LUNISOLAR_MONTH",
+      "rule": "seven intercalary months in nineteen years (Metonic, standardised c. 500 BCE); earlier by royal decree",
+      "months_per_cycle": 7,
+      "cycle_years": 19
+     },
+     "epochs": [
+      "šuš (60)",
+      "nēr (600)",
+      "šār (3600)"
+     ],
+     "festivals": [
+      {
+       "name": "Akītu (New Year)",
+       "when": "Nisannu 1–11",
+       "day": 1
+      },
+      {
+       "name": "Akītu of Tašrītu",
+       "when": "month VII",
+       "day": 178
+      }
+     ]
+    },
+    "RITE": {
+     "grade": "🟢",
+     "src": "Akītu ritual (Linssen 2004); namburbi (Maul 1994)",
+     "protocols": [
+      {
+       "name": "Akītu day 4–5: recitation of Enūma Eliš and the king's humiliation",
+       "required_ring": 0,
+       "mode": "MAINTAINING",
+       "steps": [
+        "PURIFY",
+        "BOUND",
+        "RECITE",
+        "INVOKE",
+        "OFFER",
+        "PETITION",
+        "WITNESS",
+        "RECEIVE",
+        "CLOSE"
+       ],
+       "cost": "the king's regalia removed; the king slapped and made to weep",
+       "effect": "kingship renewed; destinies fixed for the year"
+      },
+      {
+       "name": "namburbi (release from a portended evil)",
+       "required_ring": 1,
+       "mode": "TRANSFORMING",
+       "steps": [
+        "PURIFY",
+        "BOUND",
+        "INVOKE",
+        "OFFER",
+        "PETITION",
+        "TRANSFORM",
+        "RELEASE",
+        "CLOSE"
+       ],
+       "cost": "substitute figure, offerings to Šamaš and Ea",
+       "effect": "the evil is transferred to a substitute and sent downstream"
+      }
+     ]
+    },
+    "ORACLE": {
+     "grade": "🟢",
+     "src": "Bārûtu; Šumma ālu; Enūma Anu Enlil",
+     "devices": [
+      {
+       "name": "extispicy (liver of a sacrificed sheep)",
+       "entropy": "BODY",
+       "space": 2,
+       "encoding": "BINARY",
+       "decoder": "bārûtu omen compendia: each zone favourable/unfavourable, tallied",
+       "alphabet": [
+        "favourable",
+        "unfavourable"
+       ],
+       "set_aside": null
+      },
+      {
+       "name": "celestial omens",
+       "entropy": "SKY",
+       "space": 70,
+       "encoding": "N_ARY",
+       "decoder": "Enūma Anu Enlil (c. 70 tablets)",
+       "set_aside": null
+      }
+     ]
+    },
+    "FAULT": {
+     "grade": "🟢",
+     "src": "Atra-ḫasīs; Šurpu; namburbi",
+     "faults": [
+      {
+       "name": "the noise of humankind",
+       "class": "COSMIC",
+       "handler": [
+        "plague",
+        "drought",
+        "famine",
+        "flood"
+       ],
+       "outcome": "REBOOT"
+      },
+      {
+       "name": "māmītu (broken oath / unknown transgression)",
+       "class": "OATH_BREACH",
+       "handler": [
+        "Šurpu incantation series",
+        "burning of onion, dates, wool"
+       ],
+       "outcome": "RECOVERED"
+      },
+      {
+       "name": "portended evil (lumnu)",
+       "class": "POLLUTION",
+       "handler": "namburbi",
+       "outcome": "RECOVERED"
+      },
+      {
+       "name": "usurping the Tablet of Destinies",
+       "class": "HUBRIS",
+       "handler": "defeat by Marduk",
+       "outcome": "UNRECOVERABLE"
+      }
+     ]
+    },
+    "LEDGER": {
+     "grade": "🟢",
+     "model": "NONE",
+     "src": "Ištar's Descent; Gilgameš XII",
+     "soul": [
+      "eṭemmu (ghost)",
+      "zaqīqu (dream-spirit)"
+     ],
+     "judgment": "no moral judgment; all the dead go to Irkalla; comfort depends on offerings by the living",
+     "destinations": [
+      "Irkalla (the house of dust)"
+     ]
+    },
+    "RING": {
+     "grade": "🟢",
+     "src": "Akītu ritual roles; āšipūtu",
+     "rings": [
+      {
+       "level": 0,
+       "name": "king (šarru)"
+      },
+      {
+       "level": 1,
+       "name": "šešgallu / āšipu / bārû (temple and exorcist priests)"
+      },
+      {
+       "level": 2,
+       "name": "kalû, ērib bīti (lesser temple staff)"
+      },
+      {
+       "level": 3,
+       "name": "laity"
+      }
+     ]
+    },
+    "CODEC": {
+     "grade": "🟢",
+     "src": "Ee VII; Atra-ḫasīs III",
+     "record": {
+      "medium": "TABLET",
+      "script": "cuneiform",
+      "base": 60
+     },
+     "hull": "Atra-ḫasīs' sealed boat (bitumen-caulked, roofed)",
+     "compilers": [
+      "the fifty names of Marduk (a name-table)",
+      "namburbi templates",
+      "kalû lament liturgies"
+     ]
+    },
+    "CONST": {
+     "grade": "🟢",
+     "constants": [
+      {
+       "n": 60,
+       "role": "closure",
+       "what": "Anu's number; the base"
+      },
+      {
+       "n": 50,
+       "role": "order",
+       "what": "the fifty names of Marduk"
+      },
+      {
+       "n": 7,
+       "role": "passage",
+       "what": "the seven gates of Irkalla; seven evil spirits"
+      },
+      {
+       "n": 12,
+       "role": "order",
+       "what": "months; Marduk fixes twelve"
+      },
+      {
+       "n": 3,
+       "role": "order",
+       "what": "three heavens"
+      },
+      {
+       "n": 3600,
+       "role": "record",
+       "what": "šār"
+      }
+     ]
+    },
+    "LAW": {
+     "grade": "🟢",
+     "src": "Ee IV 19–26 (the word that creates and destroys); Codex Hammurapi prologue",
+     "invariants": [
+      "the Tablet of Destinies fixes fates for the year",
+      "naming binds; the fifty names are the constitution",
+      "kingship descends from heaven and is renewed annually"
+     ],
+     "acl": [
+      {
+       "ring": 0,
+       "permitted": [
+        "hold the Tablet of Destinies",
+        "renew the year"
+       ]
+      },
+      {
+       "ring": 1,
+       "permitted": [
+        "read omens",
+        "perform namburbi"
+       ]
+      }
+     ],
+     "canon": {
+      "closed": false,
+      "note": "scribal tradition, layered and copied over a millennium"
+     }
+    }
+   }
+  }
+ ],
+ "laws": [
+  "MODULE != PRACTICE_AUTHORIZATION",
+  "SIMULATION != EXECUTION",
+  "STRUCTURAL_ISOMORPHISM != CULTURAL_IDENTITY",
+  "SHARED_SYMBOL != SHARED_SEMANTICS",
+  "MODERN_RECONSTRUCTION != HISTORICAL_LAYER",
+  "PUBLIC_SOURCE != PRACTICE_AUTHORIZATION",
+  "DIVINATORY_OUTPUT != FACT",
+  "LEDGER_MODEL != MORAL_TRUTH",
+  "BOOT_LOG != COSMOLOGICAL_CLAIM",
+  "ATHENA_SELF_MODULE != ATHENA_AUTHORITY",
+  "UNKNOWN != 0"
+ ],
+ "authority": "UNIFIED_DESCRIPTIVE_KERNEL_ONLY; SIMULATION != EXECUTION; ISOMORPHISM != IDENTITY"
+}

@@ -229,6 +229,12 @@ Release qualification:
 
 The V3.4 critical lane explicitly executes hardened V15 calibration geometry, adversarial input/temporal/numeric membranes, surface holonomy, Deployment.2 composition and trust boundaries. A distribution receipt certifies exact repository/package/distribution state. It is not empirical truth, causal proof, treatment authorization, production deployment, Y1 authority or GitHub administrative hardening.
 
+## MYTHOS OS V1 — unified mythic operating system
+
+`ATHENA.MYTHOS.OS.V1` encodes every surveyed myth, religion, philosophy, magical, divinatory, astrological, calendrical, designed and engineered system as a module for one abstract machine with twelve kernel services (BOOT, MEMMAP, PROC, CLOCK, RITE, ORACLE, FAULT, LEDGER, RING, CODEC, CONST, LAW). A deterministic VM boots, ticks, invokes, divines, faults and judges each module; a unification layer classifies modules by pattern signature and compiles strata-lawful bridges with declared loss; the runtime itself is encoded as the reference module (`athena`). Tools `athena_mythos_*`; resources `athena://mythos/os/v1`, `/matrix`, `/atlas`; docs `docs/mythos_os/`; the closure grammar (`docs/closure_grammar/`) is its CONST service.
+
+`SIMULATION != EXECUTION`. `STRUCTURAL_ISOMORPHISM != CULTURAL_IDENTITY`. `MODULE != PRACTICE_AUTHORIZATION`. `ATHENA_SELF_MODULE != ATHENA_AUTHORITY`.
+
 ## Historical architecture
 
 `ARCHITECTURE.md` / `MIGRATION.md` preserve the V13/UNIFIED.9 transition. V14 history remains in `spec/ARCHITECTURE_V14.md` and `spec/MIGRATION_V14.md`. Current V15 composition/migration are versioned separately, preserving the actual succession rather than rewriting prior evidence.

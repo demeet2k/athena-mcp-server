@@ -35,6 +35,10 @@ To add a tradition: append a `T(...)` entry to the registry, run the report (it 
 - Primary and reference texts checked on 2026-09-07 (named per entry): ETCSL King List; Wikipedia infoboxes and articles for the god-numbers, calendars, counts and myths listed in each entry's `sources`.
 - The pulses Ω28–Ω44 and the CLOSURE.GRAMMAR.Ω1 seed.
 
+## Continuation
+
+The closure grammar is the CONST service and the seat law of [MYTHOS OS](../mythos_os/README.md), where every tradition is encoded as a program for one twelve-service abstract machine and ATHENA is the reference module. Where a mythos module carries `closure_grammar_id`, the VM attaches this registry's verified crossings to the module's process table.
+
 ## Standing
 
 `STRUCTURAL PASS / SEMANTIC READINGS GRADED / AUTHORITY EXTERNAL`. This set describes counts, seats and devices. It authorises no practice, dates nothing by a modern reconstruction, and treats shared symbols as shared symbols only (`athena_mcp/mythic_strata_runtime.py` laws).
