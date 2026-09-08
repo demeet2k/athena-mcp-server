@@ -256,6 +256,10 @@ compiler: it preserves an immutable source carrier, retains committed Wiki
 pages, and compiles INGEST, REINDEX and LINT into one guarded proposal. See
 [Drive observation ingestion](spec/WIKI_GIT_INGEST_V1.md).
 
+`athena_wiki_git_stage` materializes a reviewed ingestion plan as a verified
+local draft commit, with fresh committed lint and create-only ref publication.
+See [local Wiki review commits](docs/wiki-draft-v1.md).
+
 `python -m athena_mcp --db ./state/athena.db`
 
 Package: `athena-canonical-mcp 3.4.0`  

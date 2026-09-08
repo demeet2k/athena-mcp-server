@@ -41,6 +41,17 @@ INGEST_TOOL = {
     'annotations':{'readOnlyHint':True,'destructiveHint':False,'openWorldHint':False},
 }
 
+STAGE_TOOL = {
+    'name': 'athena_wiki_git_stage',
+    'description': 'Materialize an explicitly reviewed Wiki ingestion plan as a verified local draft commit. Reconstructs the source-bound proposal, requires its reviewed plan digest, and fresh-lints the actual commit before creating a dedicated codex/wiki-draft branch. Preserves the configured checkout and index. Retries verify and reuse the same draft. Does not push, update shared branches, grant Room ownership or promote research claims.',
+    'inputSchema': {'type': 'object', 'additionalProperties': False,
+        'required': [*INGEST_TOOL['inputSchema']['required'], 'expected_plan_sha256'],
+        'properties': {**INGEST_TOOL['inputSchema']['properties'],
+                       'expected_plan_sha256': {'type': 'string', 'pattern': '^[0-9a-f]{64}$'}}},
+    'annotations': {'readOnlyHint': False, 'destructiveHint': False,
+                    'idempotentHint': True, 'openWorldHint': False},
+}
+
 
 def install_git_wiki():
     from . import dispatch, protocol, unified_manifest, runtime_integrity_surface
@@ -48,13 +59,18 @@ def install_git_wiki():
     from .validate import validate
     if getattr(Server, "_git_wiki_installed", False):
         return
-    if any(t["name"] in (TOOL["name"], INGEST_TOOL['name']) for t in protocol.TOOLS):
+    if any(t["name"] in (TOOL["name"], INGEST_TOOL['name'], STAGE_TOOL['name']) for t in protocol.TOOLS):
         raise ValueError("GIT_WIKI_TOOL_NAMESPACE_COLLISION")
     protocol.TOOLS.append(TOOL)
     protocol.TOOLS.append(INGEST_TOOL)
+    protocol.TOOLS.append(STAGE_TOOL)
     previous_call = Server.call_tool
 
     def call(self, name, arguments):
+        if name == STAGE_TOOL['name']:
+            from .wiki_git_draft import WikiGitDraft
+            validate(STAGE_TOOL['inputSchema'], arguments)
+            return WikiGitDraft(self).stage(**arguments)
         if name == INGEST_TOOL['name']:
             from .wiki_git_ingest import WikiGitIngest
             validate(INGEST_TOOL['inputSchema'], arguments)
@@ -70,9 +86,10 @@ def install_git_wiki():
     def manifest(server):
         result = previous_manifest(server)
         result.setdefault("organs", {})["git_wiki"] = {
-            "artifact": ARTIFACT, "tools": [TOOL["name"], INGEST_TOOL['name']],
+            "artifact": ARTIFACT, "tools": [TOOL["name"], INGEST_TOOL['name'], STAGE_TOOL['name']],
             "source": "EXPLICIT_CLEAN_CONFIGURED_GIT_COMMIT",
-            "mutation_apply": False, "room_admission": False,
+            "mutation_apply": True, "mutation_scope": "LOCAL_DRAFT_REF_ONLY",
+            "shared_branch_apply": False, "push": False, "room_admission": False,
             "process_isolation": "FRESH_PYTHON_INTERPRETER_NOT_OS_SANDBOX",
         }
         return result

@@ -25,6 +25,7 @@ def main():
     parser.add_argument('--page-id')
     parser.add_argument('--document-id')
     parser.add_argument('--output')
+    parser.add_argument('--stage', action='store_true', help='Exercise durable local draft publication and retry before inspection.')
     args=parser.parse_args()
     if args.db and not all((args.snapshot_id,args.page_id,args.document_id)):
         parser.error('--db requires all three source identities')
@@ -81,12 +82,25 @@ def main():
             if item['action']=='CREATE':assert not dest.exists()
             else:assert 'sha256:'+hashlib.sha256(dest.read_bytes()).hexdigest()==item['expected_sha256']
             assert 'sha256:'+digest(item['content'])==item['content_sha256']
-        for item in proposal['mutation_plan']:
-            dest=target/item['path'];dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(item['content'].encode('utf-8'))
+        draft=None
+        if args.stage:
+            arguments=dict(expected_git_head=args.expected_head,snapshot_id=sid,page_id=page,document_id=did,expected_plan_sha256=proposal['plan_sha256'])
+            draft=call('athena_wiki_git_stage',arguments)
+            assert draft['standing']=='READY_LOCAL_DRAFT' and draft['source_checkout_unchanged'],draft
+            assert draft['mutation_scope']=='LOCAL_DRAFT_REF_ONLY' and not draft['pushed'] and not draft['shared_state_applied']
+            assert git(target,'rev-parse','HEAD')==args.expected_head
+            assert git(target,'rev-parse',draft['ref'])==draft['commit']
+            again=call('athena_wiki_git_stage',arguments)
+            assert again['reused'] and again['commit']==draft['commit'] and again['ref']==draft['ref']
+            draft['retry_reused']=True
+            git(target,'checkout','--quiet','--detach',draft['commit'])
+        else:
+            for item in proposal['mutation_plan']:
+                dest=target/item['path'];dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(item['content'].encode('utf-8'))
+            git(target,'-c','user.name=Wiki replay','-c','user.email=wiki-replay@example.invalid','add','knowledge')
+            git(target,'-c','user.name=Wiki replay','-c','user.email=wiki-replay@example.invalid','commit','-qm','Disposable observation ingestion replay')
         for item in proposal['mutation_plan']:
             assert 'sha256:'+hashlib.sha256((target/item['path']).read_bytes()).hexdigest()==item['content_sha256']
-        git(target,'-c','user.name=Wiki replay','-c','user.email=wiki-replay@example.invalid','add','knowledge')
-        git(target,'-c','user.name=Wiki replay','-c','user.email=wiki-replay@example.invalid','commit','-qm','Disposable observation ingestion replay')
         applied_head=git(target,'rev-parse','HEAD')
         sys.path.insert(0,str(runtime))
         from athena_mcp.git_backend import GitBackend
@@ -100,6 +114,7 @@ def main():
         assert not git(target,'status','--porcelain','--untracked-files=all')
         assert git(original,'rev-parse','HEAD')==args.expected_head and not git(original,'status','--porcelain','--untracked-files=all')
         report=dict(standing='PASS',source_kind='EXPLICIT_LOCAL_OBSERVATION' if args.db else 'SYNTHETIC_FIXTURE',semantic_base=args.expected_head,disposable_applied_head=applied_head,source_snapshot=sid,source_document=did,carrier_sha256=proposal['carrier_sha256'],plan_sha256=proposal['plan_sha256'],proposed_file_count=len(proposal['mutation_plan']),source_text_and_records_preserved=True,real_compiler_stages=['INGEST','REINDEX','LINT'],applied_only_to_disposable_clone=True,fresh_committed_lint='READY',original_checkout_unchanged=True,live_currentness='UNVERIFIED',behavioral_gain='UNKNOWN',proposal=proposal)
+        if draft:report['local_draft']={k:v for k,v in draft.items() if k!='committed_lint'}
         if args.output:Path(args.output).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         print(json.dumps({k:v for k,v in report.items() if k!='proposal'},indent=2),flush=True)
 
