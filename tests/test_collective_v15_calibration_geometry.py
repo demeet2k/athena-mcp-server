@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 
@@ -6,7 +7,7 @@ from athena_mcp.server import Server
 
 class CollectiveV15CalibrationGeometryTests(unittest.TestCase):
     def setUp(self):
-        self.tmp=tempfile.NamedTemporaryFile(suffix='.db');self.server=Server(self.tmp.name);self.seq=0
+        self.tmp=TemporaryDatabasePath();self.server=Server(self.tmp.name);self.seq=0
     def tearDown(self):self.server.store.close();self.tmp.close()
     def tool(self,name,args):
         self.seq+=1

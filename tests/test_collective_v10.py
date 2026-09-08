@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import math
 import random
 import tempfile
@@ -8,7 +9,7 @@ from athena_mcp.server import Server
 
 class CollectiveRuntimeV10Tests(unittest.TestCase):
     def test_gp_posterior_and_no_self_training(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             srv.call_tool('athena_gp_register',{'context_key':'GP','features':['x'],'length_scale':.6,'signal_variance':1.0,'noise_variance':.01})
             prior=srv.call_tool('athena_gp_predict',{'context_key':'GP','features':{'x':1.0},'include_observation_noise':False})
@@ -24,7 +25,7 @@ class CollectiveRuntimeV10Tests(unittest.TestCase):
             srv.store.close()
 
     def test_pc_stable_collider(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name); rng=random.Random(7); rows=[]
             for _ in range(400):
                 x=rng.gauss(0,1); y=rng.gauss(0,1); z=1.2*x+1.1*y+rng.gauss(0,.15)
@@ -38,7 +39,7 @@ class CollectiveRuntimeV10Tests(unittest.TestCase):
             srv.store.close()
 
     def test_tmle_and_evalue(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name); rng=random.Random(13); rows=[]
             for i in range(1200):
                 x=rng.uniform(-1,1)
@@ -59,7 +60,7 @@ class CollectiveRuntimeV10Tests(unittest.TestCase):
             srv.store.close()
 
     def test_finite_pomdp_certificate(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             states=['G','B']
             actions=[
@@ -81,7 +82,7 @@ class CollectiveRuntimeV10Tests(unittest.TestCase):
             srv.store.close()
 
     def test_dependence_calibration_and_tool_surface(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             for i in range(60):
                 same=1.0 if i%2 else 0.0

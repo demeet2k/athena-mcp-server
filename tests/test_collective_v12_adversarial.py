@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 
@@ -11,7 +12,7 @@ class CollectiveRuntimeV12AdversarialTests(unittest.TestCase):
             srv.call_tool('athena_gp_observe',{'context_key':'G','features':{'x':x},'target':x*x,'evidence_ref':f'test://{i}'})
 
     def test_hyperposterior_bma_sparse_and_evsi_are_read_only(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name); self._gp(srv)
             before=srv.call_tool('athena_gp_state',{'context_key':'G'})
             srv.call_tool('athena_gp_hyperposterior',{'context_key':'G'})
@@ -26,14 +27,14 @@ class CollectiveRuntimeV12AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_invalid_hyperposterior_prior_rejects(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name); self._gp(srv)
             with self.assertRaises(ValueError):
                 srv.call_tool('athena_gp_hyperposterior',{'context_key':'G','candidates':[{'length_scale':1,'signal_variance':1,'noise_variance':.1,'prior':0}]})
             srv.store.close()
 
     def test_pag_candidate_cannot_mutate_jspace(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name); rows=[]
             for i in range(80): rows.append({'X':i/80,'Y':((i*17)%79)/79,'Z':((i*31)%83)/83})
             before=len(srv.store.rows('SELECT * FROM edges'))
@@ -43,7 +44,7 @@ class CollectiveRuntimeV12AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_longitudinal_gformula_fails_closed_and_nonbinary_rejects(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name); rows=[]
             for i in range(100): rows.append({'A1':i%2,'L1':(i//2)%2,'A2':(i//3)%2,'Y':(i//5)%2})
             blocked=srv.call_tool('athena_longitudinal_gformula',{'samples':rows,'treatment1':'A1','intermediate':'L1','treatment2':'A2','outcome':'Y','assumptions':{'latent_confounding_possible':True}})
@@ -54,7 +55,7 @@ class CollectiveRuntimeV12AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_chance_constraint_requires_complete_resources_and_large_n_loses_certificate(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             with self.assertRaises(ValueError):
                 srv.call_tool('athena_chance_resource_select',{'candidates':[{'id':'A','value':1,'resources':{}}],'budgets':{'tokens':10}})

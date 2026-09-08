@@ -239,6 +239,11 @@ The V3.4 critical lane explicitly executes hardened V15 calibration geometry, ad
 
 ## Run
 
+The [Windows continuity contract](spec/WINDOWS_CONTINUITY_V1.md) describes
+byte-preserving prompt writes, portable receipt paths and test-process handling.
+Run the complete suite with `python -m unittest discover -s tests -v` on either
+platform; CI includes both Linux and Windows discovery runs.
+
 The Wiki memory tools preserve source-bound Drive registry and document
 observations across sessions. `athena_git_wiki_compile` invokes the configured
 semantic repository's fixed Wiki compiler at an explicit clean commit and

@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 from athena_mcp.collective_runtime import CollectiveRuntime
@@ -51,7 +52,7 @@ class CollectiveRuntimeTests(unittest.TestCase):
         self.assertGreaterEqual(h["critical_count"], 2)
 
     def test_mcp_discovery_call_and_resource(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             names = [x['name'] for x in srv.handle({'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']]
             for name in ('athena_collective_plan','athena_collective_evaluate','athena_collective_quorum','athena_stigmergy_update','athena_collective_health'):

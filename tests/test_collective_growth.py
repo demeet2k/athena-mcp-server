@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 from athena_mcp.collective_growth import CollectiveGrowthRuntime
@@ -49,7 +50,7 @@ class CollectiveGrowthTests(unittest.TestCase):
         self.assertEqual(d['weak'], 'QUARANTINE')
 
     def test_mcp_growth_discovery_call_and_resource(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             names = [x['name'] for x in srv.handle({'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']]
             for name in ('athena_collective_allocate','athena_bridge_account','athena_collective_restructure','athena_dependency_alarm','athena_artifact_lifecycle'):

@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import math
 import tempfile
 import unittest
@@ -12,7 +13,7 @@ class CollectiveRuntimeV12Tests(unittest.TestCase):
             srv.call_tool('athena_gp_observe',{'context_key':'G12','features':{'x':x},'target':x*x+.05*math.sin(i),'evidence_ref':f'test://{i}'})
 
     def test_gp_hyperposterior_bma_and_sparse(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name); self._gp(srv)
             hp=srv.call_tool('athena_gp_hyperposterior',{'context_key':'G12','candidates':[
                 {'length_scale':.35,'signal_variance':1.0,'noise_variance':.03,'prior':1.0},
@@ -32,7 +33,7 @@ class CollectiveRuntimeV12Tests(unittest.TestCase):
             srv.store.close()
 
     def test_bma_gp_evsi_is_decision_valued(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name); self._gp(srv)
             before=srv.call_tool('athena_gp_state',{'context_key':'G12'})['observation_count']
             out=srv.call_tool('athena_gp_bma_decision_evsi',{
@@ -47,7 +48,7 @@ class CollectiveRuntimeV12Tests(unittest.TestCase):
             srv.store.close()
 
     def test_pag_candidate_marks_collider(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name); rows=[]
             for i in range(240):
                 x=((i*17)%101)/50.0-1.0; y=((i*43)%103)/51.0-1.0; noise=((i*29)%17-8)/500.0
@@ -59,7 +60,7 @@ class CollectiveRuntimeV12Tests(unittest.TestCase):
             srv.store.close()
 
     def test_longitudinal_gformula_orders_regimes(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name); rows=[]
             for i in range(240):
                 x=((i*13)%101)/100.0-.5; a1=i%2
@@ -75,7 +76,7 @@ class CollectiveRuntimeV12Tests(unittest.TestCase):
             srv.store.close()
 
     def test_exact_chance_resource_certificate(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             out=srv.call_tool('athena_chance_resource_select',{'candidates':[
                 {'id':'A','value':5,'resources':{'tokens':{'mean':4,'std':.2}}},
@@ -88,7 +89,7 @@ class CollectiveRuntimeV12Tests(unittest.TestCase):
             srv.store.close()
 
     def test_v12_tools_are_exposed(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             names={x['name'] for x in srv.handle({'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']}
             for n in ('athena_gp_hyperposterior','athena_gp_bma_predict','athena_gp_sparse_predict','athena_gp_bma_decision_evsi','athena_pag_candidate_discover','athena_longitudinal_gformula','athena_chance_resource_select'):

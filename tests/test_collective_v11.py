@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import math
 import tempfile
 import unittest
@@ -7,7 +8,7 @@ from athena_mcp.server import Server
 
 class CollectiveRuntimeV11Tests(unittest.TestCase):
     def test_gp_hyperfit_apply_and_decision_evsi(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             srv.call_tool('athena_gp_register',{'context_key':'G11','features':['x'],'length_scale':4.0,'signal_variance':.25,'noise_variance':.2})
             for x,y in [(-1.0,1.0),(-.5,.25),(0.0,0.0),(.5,.25),(1.0,1.0)]:
@@ -32,7 +33,7 @@ class CollectiveRuntimeV11Tests(unittest.TestCase):
             srv.store.close()
 
     def test_latent_projection_admg(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             out=srv.call_tool('athena_latent_project_admg',{
                 'edges':[{'src':'U','dst':'X'},{'src':'U','dst':'Y'},{'src':'X','dst':'Z'}],
@@ -44,7 +45,7 @@ class CollectiveRuntimeV11Tests(unittest.TestCase):
             srv.store.close()
 
     def test_stacked_tmle_and_rr_sensitivity_surface(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             rows=[]
             for i in range(160):
@@ -64,7 +65,7 @@ class CollectiveRuntimeV11Tests(unittest.TestCase):
             srv.store.close()
 
     def test_exact_finite_model_bapomdp_prefers_information(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             def acts(model):
                 if model=='M1':
@@ -87,7 +88,7 @@ class CollectiveRuntimeV11Tests(unittest.TestCase):
             srv.store.close()
 
     def test_dependence_interval_and_mcp_surface(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             for i in range(40):
                 same=float(i%2); other=float((i//2)%2); label=1 if same==1.0 else 0

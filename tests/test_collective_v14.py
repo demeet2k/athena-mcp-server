@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import math
 import random
 import tempfile
@@ -8,7 +9,7 @@ from athena_mcp.server import Server
 
 class CollectiveRuntimeV14Tests(unittest.TestCase):
     def setUp(self):
-        self.tmp=tempfile.NamedTemporaryFile(suffix='.db')
+        self.tmp=TemporaryDatabasePath()
         self.server=Server(self.tmp.name)
         self.seq=0
 

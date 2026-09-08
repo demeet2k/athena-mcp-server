@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 
@@ -6,7 +7,7 @@ from athena_mcp.server import Server
 
 class CollectiveRuntimeV2Tests(unittest.TestCase):
     def test_persistent_pheromone_survives_server_restart(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             first = srv.call_tool("athena_pheromone_reinforce", {
                 "route_key": "route:A",
@@ -23,7 +24,7 @@ class CollectiveRuntimeV2Tests(unittest.TestCase):
             srv2.store.close()
 
     def test_jspace_dependency_orientation(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             srv.store.put_edge("e1", "A", "DEPENDS_ON", "B", "eid", {"confidence": 1})
             srv.store.put_edge("e2", "C", "DEPENDS_ON", "A", "eid", {"confidence": 1})
@@ -37,7 +38,7 @@ class CollectiveRuntimeV2Tests(unittest.TestCase):
             srv.store.close()
 
     def test_rgo_observation_calibrates_prediction(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             for i, (pred, obs) in enumerate(((.4, .5), (.5, .6), (.6, .7), (.7, .8))):
                 srv.call_tool("athena_rgo_observe", {
@@ -51,7 +52,7 @@ class CollectiveRuntimeV2Tests(unittest.TestCase):
             srv.store.close()
 
     def test_topology_cas_fission_and_rollback(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             init = srv.call_tool("athena_topology_apply", {
                 "topology_id": "T",
@@ -83,7 +84,7 @@ class CollectiveRuntimeV2Tests(unittest.TestCase):
             srv.store.close()
 
     def test_failure_antibody_reuses_repair_and_regression(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             reg = srv.call_tool("athena_failure_antibody_register", {
                 "signature": "stale expected vid write",
@@ -101,7 +102,7 @@ class CollectiveRuntimeV2Tests(unittest.TestCase):
             srv.store.close()
 
     def test_mcp_discovery_and_resource(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             tools = srv.handle({"jsonrpc": "2.0", "id": 1, "method": "tools/list"})["result"]["tools"]
             names = {x["name"] for x in tools}
