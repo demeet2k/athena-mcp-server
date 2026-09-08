@@ -152,7 +152,10 @@ class WikiMemoryTests(unittest.TestCase):
 
     def test_surface_resource_and_manifest(self):
         tools=self.server.handle({"jsonrpc":"2.0","id":1,"method":"tools/list"})["result"]["tools"]
-        self.assertEqual(len([t for t in tools if t["name"].startswith("athena_wiki_")]),5)
+        self.assertEqual({t['name'] for t in tools if t['name'].startswith('athena_wiki_')},
+                         {'athena_wiki_import_registry','athena_wiki_import_document',
+                          'athena_wiki_sources','athena_wiki_search','athena_wiki_context',
+                          'athena_wiki_git_ingest'})
         resource=self.server.handle({"jsonrpc":"2.0","id":2,"method":"resources/read","params":{"uri":"athena://wiki/sources"}})
         self.assertIn("LOCAL_REPLICA",resource["result"]["contents"][0]["text"])
         from athena_mcp.unified_manifest import build_unified_manifest

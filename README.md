@@ -246,6 +246,11 @@ returns its original receipts and proposed changes. See
 [Git Wiki compiler through MCP](spec/WIKI_GIT_COMPILER_V1.md) for the data,
 execution and application boundaries.
 
+`athena_wiki_git_ingest` connects a specific imported observation to that
+compiler: it preserves an immutable source carrier, retains committed Wiki
+pages, and compiles INGEST, REINDEX and LINT into one guarded proposal. See
+[Drive observation ingestion](spec/WIKI_GIT_INGEST_V1.md).
+
 `python -m athena_mcp --db ./state/athena.db`
 
 Package: `athena-canonical-mcp 3.4.0`  

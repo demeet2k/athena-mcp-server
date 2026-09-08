@@ -29,6 +29,18 @@ TOOL = {
     "annotations": {"readOnlyHint": True, "destructiveHint": False, "openWorldHint": False},
 }
 
+INGEST_TOOL = {
+    'name':'athena_wiki_git_ingest',
+    'description':'Compile an explicitly identified imported Drive observation into the committed semantic Git Wiki. Reads all committed Wiki pages and ledgers; returns an immutable source carrier plus guarded INGEST, REINDEX and LINT proposal. Preserves original source labels as data and emits retrieval claims only. Does not fetch Drive or apply writes.',
+    'inputSchema':{'type':'object','additionalProperties':False,
+                   'required':['expected_git_head','snapshot_id','page_id','document_id'],
+                   'properties':{'expected_git_head':{'type':'string','pattern':'^[0-9a-f]{40}$'},
+                                 'snapshot_id':{'type':'string','pattern':'^[0-9a-f]{64}$'},
+                                 'document_id':{'type':'string','pattern':'^[0-9a-f]{64}$'},
+                                 'page_id':{'type':'string','minLength':1}}},
+    'annotations':{'readOnlyHint':True,'destructiveHint':False,'openWorldHint':False},
+}
+
 
 def install_git_wiki():
     from . import dispatch, protocol, unified_manifest, runtime_integrity_surface
@@ -36,12 +48,17 @@ def install_git_wiki():
     from .validate import validate
     if getattr(Server, "_git_wiki_installed", False):
         return
-    if any(t["name"] == TOOL["name"] for t in protocol.TOOLS):
+    if any(t["name"] in (TOOL["name"], INGEST_TOOL['name']) for t in protocol.TOOLS):
         raise ValueError("GIT_WIKI_TOOL_NAMESPACE_COLLISION")
     protocol.TOOLS.append(TOOL)
+    protocol.TOOLS.append(INGEST_TOOL)
     previous_call = Server.call_tool
 
     def call(self, name, arguments):
+        if name == INGEST_TOOL['name']:
+            from .wiki_git_ingest import WikiGitIngest
+            validate(INGEST_TOOL['inputSchema'], arguments)
+            return WikiGitIngest(self).compile(**arguments)
         if name == TOOL["name"]:
             validate(TOOL["inputSchema"], arguments)
             return GitWikiCompiler(self.git).compile(**arguments)
@@ -53,7 +70,7 @@ def install_git_wiki():
     def manifest(server):
         result = previous_manifest(server)
         result.setdefault("organs", {})["git_wiki"] = {
-            "artifact": ARTIFACT, "tools": [TOOL["name"]],
+            "artifact": ARTIFACT, "tools": [TOOL["name"], INGEST_TOOL['name']],
             "source": "EXPLICIT_CLEAN_CONFIGURED_GIT_COMMIT",
             "mutation_apply": False, "room_admission": False,
             "process_isolation": "FRESH_PYTHON_INTERPRETER_NOT_OS_SANDBOX",
