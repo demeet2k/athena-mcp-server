@@ -37,6 +37,10 @@ nor its readset authenticates a producer or establishes live Drive currentness.
 Behavioral gain remains UNKNOWN. No observation is imported into the database,
 and the configured checkout, index and refs are not changed.
 
+Use `athena_wiki_git_source` with this result's Wiki commit, source ID and raw
+content digest to read the exact cited carrier, including sources inherited
+from earlier commits. No draft ref or database observation is required.
+
 Use `athena_wiki_git_review` when the question is whether a particular draft
 matches its declared source/plan binding. Committed QUERY also accepts general
 Wiki commits and does not assert that they were produced by the draft tool.

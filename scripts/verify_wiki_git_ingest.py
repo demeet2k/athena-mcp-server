@@ -5,6 +5,7 @@ Otherwise creates a synthetic observation in a temporary database. It never
 pushes commits or modifies the supplied semantic checkout.
 """
 import argparse
+import base64
 from contextlib import closing
 import csv
 import hashlib
@@ -84,7 +85,7 @@ def main():
             if item['action']=='CREATE':assert not dest.exists()
             else:assert 'sha256:'+hashlib.sha256(dest.read_bytes()).hexdigest()==item['expected_sha256']
             assert 'sha256:'+digest(item['content'])==item['content_sha256']
-        draft=None; review=None; committed_query=None
+        draft=None; review=None; committed_query=None; committed_sources=[]
         if args.stage:
             arguments=dict(expected_git_head=args.expected_head,snapshot_id=sid,page_id=page,document_id=did,expected_plan_sha256=proposal['plan_sha256'])
             draft=call('athena_wiki_git_stage',arguments)
@@ -119,8 +120,23 @@ def main():
             assert committed_query['readset'][proposal['carrier_path']]==proposal['carrier_sha256']
             assert not committed_query['data_checkout_materialized'] and not committed_query['mutation_applied']
             assert git(target,'rev-parse','HEAD')==advanced and not git(target,'status','--porcelain')
+            cone=committed_query['compiler_receipt']['execution_receipt']['outputs'][0]['result']['minimum_decision_cone']
+            assert cone['sources'], 'Query must expose evidence to read'
+            for source in cone['sources']:
+                opened=call('athena_wiki_git_source',dict(wiki_commit=draft['commit'],
+                            source_id=source['source_id'],expected_content_sha256=source['content_sha256']))
+                raw=(opened['content'].encode('utf-8') if opened['content_encoding']=='utf-8'
+                     else base64.b64decode(opened['content'],validate=True))
+                expected_raw=subprocess.check_output(['git','-C',str(target),'show',draft['commit']+':'+source['raw_path']],env={**env,'GIT_NO_REPLACE_OBJECTS':'1'})
+                assert raw==expected_raw
+                assert opened['content_bytes']==len(raw) and opened['content_sha256']==source['content_sha256']
+                assert opened['readset']==committed_query['readset']
+                assert not opened['repository_code_executed'] and not opened['database_imported']
+                if source['source_id']=='drive.'+did:
+                    assert json.loads(raw)['document']['source_text']==original_context['document']['source_text']
+                committed_sources.append({k:v for k,v in opened.items() if k!='content'})
+            assert git(target,'rev-parse','HEAD')==advanced and not git(target,'status','--porcelain')
             if not args.db:
-                cone=committed_query['compiler_receipt']['execution_receipt']['outputs'][0]['result']['minimum_decision_cone']
                 assert any('[source EPI=UNK]' in c['statement'] and c['epistemic_status']=='RET' for c in cone['claims'])
             with closing(sqlite3.connect(empty_db)) as connection:
                 tables={r[0] for r in connection.execute("SELECT name FROM sqlite_master WHERE type='table'")}
@@ -153,6 +169,7 @@ def main():
         if draft:report['local_draft']={k:v for k,v in draft.items() if k!='committed_lint'}
         if review:report['historical_draft_review']=review
         if committed_query:report['committed_wiki_query']={k:v for k,v in committed_query.items() if k!='compiler_receipt'}
+        if committed_sources:report['committed_source_reads']=committed_sources
         if args.output:Path(args.output).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         print(json.dumps({k:v for k,v in report.items() if k!='proposal'},indent=2),flush=True)
 
