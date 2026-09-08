@@ -5,6 +5,7 @@ Otherwise creates a synthetic observation in a temporary database. It never
 pushes commits or modifies the supplied semantic checkout.
 """
 import argparse
+from contextlib import closing
 import csv
 import hashlib
 import io
@@ -12,6 +13,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import sqlite3
 import sys
 import tempfile
 
@@ -42,9 +44,9 @@ def main():
         subprocess.run(['git','-c','core.autocrlf=false','clone','--quiet','--no-hardlinks',str(original),str(target)],check=True,env=env)
         subprocess.run(['git','-C',str(target),'checkout','--quiet','--detach',args.expected_head],check=True,env=env)
         db=Path(args.db).resolve() if args.db else directory/'state.db'
-        def call(name,arguments):
+        def call(name,arguments,state_path=None):
             m={'jsonrpc':'2.0','id':1,'method':'tools/call','params':{'name':name,'arguments':arguments}}
-            p=subprocess.run([sys.executable,'-B','-m','athena_mcp','--db',str(db),'--git-root',str(target)],input=json.dumps(m)+'\n',text=True,encoding='utf-8',capture_output=True,cwd=runtime,env=env,timeout=660)
+            p=subprocess.run([sys.executable,'-B','-m','athena_mcp','--db',str(state_path or db),'--git-root',str(target)],input=json.dumps(m)+'\n',text=True,encoding='utf-8',capture_output=True,cwd=runtime,env=env,timeout=660)
             assert p.returncode==0,p.stderr
             response=json.loads(p.stdout)
             assert 'error' not in response and not response['result'].get('isError'),response
@@ -82,7 +84,7 @@ def main():
             if item['action']=='CREATE':assert not dest.exists()
             else:assert 'sha256:'+hashlib.sha256(dest.read_bytes()).hexdigest()==item['expected_sha256']
             assert 'sha256:'+digest(item['content'])==item['content_sha256']
-        draft=None
+        draft=None; review=None
         if args.stage:
             arguments=dict(expected_git_head=args.expected_head,snapshot_id=sid,page_id=page,document_id=did,expected_plan_sha256=proposal['plan_sha256'])
             draft=call('athena_wiki_git_stage',arguments)
@@ -93,6 +95,27 @@ def main():
             again=call('athena_wiki_git_stage',arguments)
             assert again['reused'] and again['commit']==draft['commit'] and again['ref']==draft['ref']
             draft['retry_reused']=True
+            # A later session has neither the producing database nor its base
+            # as current HEAD. It must still discover and read the old draft.
+            git(target,'-c','user.name=Wiki replay','-c','user.email=wiki-replay@example.invalid',
+                'commit','--allow-empty','-qm','Disposable advance before historical draft review')
+            advanced=git(target,'rev-parse','HEAD')
+            empty_db=directory/'empty-review.sqlite'
+            inventory=call('athena_wiki_git_review',{'action':'LIST','limit':100},state_path=empty_db)
+            assert any(d['ref']==draft['ref'] and d['commit']==draft['commit'] and not d['verified'] for d in inventory['drafts'])
+            inspected=call('athena_wiki_git_review',{'action':'READ','ref':draft['ref'],
+                           'expected_commit':draft['commit'],'include_source':True},state_path=empty_db)
+            expected_carrier=json.loads(next(p['content'] for p in proposal['mutation_plan'] if p['path']==proposal['carrier_path']))
+            assert inspected['standing']=='VERIFIED_DRAFT_BYTES' and inspected['source_carrier']==expected_carrier
+            assert inspected['configured_head']==advanced and advanced!=args.expected_head
+            assert inspected['binding']['base']==args.expected_head and inspected['semantic_lint']=='NOT_RUN'
+            with closing(sqlite3.connect(empty_db)) as connection:
+                tables={r[0] for r in connection.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+                for name in ('wiki_snapshots_v1','wiki_documents_v1'):
+                    assert name not in tables or connection.execute('SELECT COUNT(*) FROM '+name).fetchone()[0]==0
+            review=dict(standing='PASS',configured_head=advanced,draft_commit=draft['commit'],
+                        draft_base=args.expected_head,empty_database=True,exact_carrier_recovered=True,
+                        repository_code_executed=False,producer_authenticated=False,semantic_lint='NOT_RUN')
             git(target,'checkout','--quiet','--detach',draft['commit'])
         else:
             for item in proposal['mutation_plan']:
@@ -115,6 +138,7 @@ def main():
         assert git(original,'rev-parse','HEAD')==args.expected_head and not git(original,'status','--porcelain','--untracked-files=all')
         report=dict(standing='PASS',source_kind='EXPLICIT_LOCAL_OBSERVATION' if args.db else 'SYNTHETIC_FIXTURE',semantic_base=args.expected_head,disposable_applied_head=applied_head,source_snapshot=sid,source_document=did,carrier_sha256=proposal['carrier_sha256'],plan_sha256=proposal['plan_sha256'],proposed_file_count=len(proposal['mutation_plan']),source_text_and_records_preserved=True,real_compiler_stages=['INGEST','REINDEX','LINT'],applied_only_to_disposable_clone=True,fresh_committed_lint='READY',original_checkout_unchanged=True,live_currentness='UNVERIFIED',behavioral_gain='UNKNOWN',proposal=proposal)
         if draft:report['local_draft']={k:v for k,v in draft.items() if k!='committed_lint'}
+        if review:report['historical_draft_review']=review
         if args.output:Path(args.output).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         print(json.dumps({k:v for k,v in report.items() if k!='proposal'},indent=2),flush=True)
 

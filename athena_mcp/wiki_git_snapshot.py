@@ -66,9 +66,10 @@ def decode_snapshot(files):
     return dict(config=config,pages=pages,sources=sources,claims=claims,contradictions=contradictions)
 
 
-def read_snapshot(git, head):
-    def run(*args):
-        return subprocess.check_output(['git','-C',str(git.root),*args],timeout=30)
+def read_snapshot(git, head, *, run=None):
+    if run is None:
+        def run(*args):
+            return subprocess.check_output(['git','-C',str(git.root),*args],timeout=30)
     tree=run('ls-tree','-r','-z',head,'--','knowledge/WIKI.schema.json','knowledge/raw','knowledge/wiki')
     files={}; folded=set(); total=0
     for entry in tree.split(b'\0'):
