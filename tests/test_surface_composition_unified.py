@@ -1,5 +1,6 @@
 import json
 import tempfile
+from pathlib import Path
 import unittest
 
 from athena_mcp.composition_integrity import COMPOSITION_VERSION,composition_certificate
@@ -9,8 +10,8 @@ from athena_mcp.surface_contract import REQUIRED_RESOURCES,REQUIRED_TOOLS,SURFAC
 
 class SurfaceCompositionUnifiedTests(unittest.TestCase):
     def setUp(self):
-        self.tmp=tempfile.NamedTemporaryFile(suffix='.db');self.server=Server(self.tmp.name);self.seq=0
-    def tearDown(self):self.server.store.close();self.tmp.close()
+        self.tmp=tempfile.TemporaryDirectory();self.server=Server(str(Path(self.tmp.name)/'state.db'));self.seq=0
+    def tearDown(self):self.server.store.close();self.tmp.cleanup()
     def rpc(self,method,params=None):
         self.seq+=1;m={'jsonrpc':'2.0','id':self.seq,'method':method}
         if params is not None:m['params']=params

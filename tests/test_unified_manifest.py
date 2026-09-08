@@ -1,5 +1,6 @@
 import json
 import tempfile
+from pathlib import Path
 import unittest
 
 from athena_mcp.github_promotion_verifier import GITHUB_PROMOTION_VERIFIER_VERSION
@@ -7,8 +8,8 @@ from athena_mcp.server import Server
 
 
 class UnifiedManifestTests(unittest.TestCase):
-    def setUp(self):self.tmp=tempfile.NamedTemporaryFile(suffix='.db');self.server=Server(self.tmp.name);self.seq=0
-    def tearDown(self):self.server.store.close();self.tmp.close()
+    def setUp(self):self.tmp=tempfile.TemporaryDirectory();self.server=Server(str(Path(self.tmp.name)/'state.db'));self.seq=0
+    def tearDown(self):self.server.store.close();self.tmp.cleanup()
     def rpc(self,method,params=None):
         self.seq+=1;m={'jsonrpc':'2.0','id':self.seq,'method':method}
         if params is not None:m['params']=params
