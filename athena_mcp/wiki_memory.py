@@ -217,7 +217,10 @@ class WikiMemory:
         claims = [r for r in tables["claims"] if page_id in _refs(r["PAGE_ID"])]
         claim_ids = {r["CLAIM_ID"] for r in claims}
         evidence_refs = set().union(*(_refs(r.get("EVIDENCE_ID_OR_URL", "")) for r in claims)) if claims else set()
-        evidence = [r for r in tables["evidence"] if r["EVIDENCE_ID"] in evidence_refs | refs or bool(claim_ids & _refs(r.get("SUPPORTS_CLAIMS","")))]
+        evidence = [r for r in tables["evidence"]
+                    if r["EVIDENCE_ID"] in evidence_refs | refs
+                    or bool(claim_ids & (_refs(r.get("SUPPORTS_CLAIMS",""))
+                                        | _refs(r.get("CONTRADICTS_CLAIMS",""))))]
         conflicts = [r for r in tables["conflicts"] if page_id in _refs(r["PAGE_ID"]) or bool(claim_ids & _refs(r.get("CLAIM_IDS",""))) or r["CONFLICT_ID"] in _refs(page.get("CONFLICT_ID",""))]
         tasks = [r for r in tables["tasks"] if page_id in _refs(r["PAGE_ID"])]
         edges = [r for r in tables["edges"] if r["SOURCE_ID"] == page_id or r["TARGET_ID"] == page_id]

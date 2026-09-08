@@ -122,6 +122,22 @@ class IngestTests(unittest.TestCase):
         self.assertEqual(a['carrier_sha256'],b['carrier_sha256'])
         self.assertTrue(a['is_latest_local_snapshot']);self.assertFalse(b['is_latest_local_snapshot'])
 
+    def test_counterevidence_survives_into_immutable_ingestion_carrier(self):
+        from tests.test_wiki_counterevidence import registry
+        text=registry()
+        sid=self.server.call_tool('athena_wiki_import_registry',dict(source_id='registry',observed_at='2026-09-08T13:00:00Z',text=text,expected_sha256=digest(text),expected_snapshot_id=self.sid))['snapshot_id']
+        body='Counterevidence stays attached.\r\nΩ'
+        doc=self.server.call_tool('athena_wiki_import_document',dict(snapshot_id=sid,page_id='page.a',source_file_id='source.a',source_revision='revision-counter',text=body,expected_sha256=digest(body),expected_document_id=None))['document_id']
+        with patch('athena_mcp.wiki_git_ingest.GitWikiCompiler.compile',side_effect=self.fake_compile):
+            result=self.server.call_tool('athena_wiki_git_ingest',dict(expected_git_head=self.head,snapshot_id=sid,page_id='page.a',document_id=doc))
+        carrier=json.loads(next(p['content'] for p in result['mutation_plan'] if p['path']==result['carrier_path']))
+        evidence={r['EVIDENCE_ID']:r for r in carrier['records']['evidence']}
+        self.assertEqual(set(evidence),{'evidence.support','evidence.counter','evidence.mixed'})
+        self.assertEqual(evidence['evidence.counter']['CONTRADICTS_CLAIMS'],'claim.a')
+        self.assertEqual(carrier['document']['source_text'],body)
+        self.assertEqual(self.requests[0]['claims'][0]['epistemic_status'],'RET')
+        self.assertEqual(result['original_claim_labels'],['HYP'])
+
     def test_tampered_document_fails_before_any_git_compiler_call(self):
         with self.server.store.db:
             self.server.store.db.execute('UPDATE wiki_documents_v1 SET source_text=? WHERE document_id=?',('tampered',self.doc))
