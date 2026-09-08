@@ -67,6 +67,8 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_legacy_migration_preservation.py' -v
       - name: Three independent CAS domains
         run: python -m unittest discover -s tests -p 'test_three_domain_cas_unified.py' -v
+      - name: Wiki source identity and restart continuity
+        run: python -m unittest discover -s tests -p 'test_wiki_memory.py' -v
       - name: Whole-cycle fail-closed metabolism
         run: python -m unittest discover -s tests -p 'test_cycle_unified.py' -v
       - name: Surface and composition integrity
@@ -139,6 +141,17 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_aor_collective_transport.py' -v
       - name: Promotion trust and exact-head predicate
         run: python -m unittest discover -s tests -p 'test_promotion_unified.py' -v
+
+  wiki-windows:
+    runs-on: windows-latest
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Wiki continuity and composed runtime on Windows
+        run: python -m unittest tests.test_wiki_memory tests.test_state_foundation_unified tests.test_three_domain_cas_unified tests.test_cycle_unified tests.test_surface_composition_unified tests.test_startup_health_unified tests.test_unified_manifest tests.test_metadata_consistency tests.test_self_test_unified -v
 
   smoke:
     needs: [syntax, unit, critical-invariants]

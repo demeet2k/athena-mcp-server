@@ -47,6 +47,10 @@ Core firewalls:
 
 `COLLECTIVE_CALIBRATED != DEPLOYMENT_AUTHORITY != COORDINATION_AUTHORITY`.
 
+## Drive Wiki continuity candidate
+
+The `ATHENA.WIKI.MEMORY.V1` extension imports version-bound local Wiki observations and recovers their claims, evidence, conflicts, handoffs and document text after a process restart. Five `athena_wiki_*` tools share the existing server and database. See [Wiki memory V1](docs/wiki-memory-v1.md) for the import protocol, provenance limits and tests.
+
 ## Runtime cycle
 
 `HYDRATE → RECONRUN/OMEGA → MEMORY → SX → RAG → HUG → GAP → FIELD → MEASURE/CALIBRATE → Y1/AOR → COLLECTIVE(V1–V15) → AUTHORIZED EXECUTION → VERIFY → LEARN → SUCCESSOR → COMPLETE`.

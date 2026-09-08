@@ -149,3 +149,8 @@ install_liminal_beacon_mesh()
 from .liminal_beacon_shadow_extension import install_liminal_beacon_shadow
 
 install_liminal_beacon_shadow()
+
+# Durable, source-bound Drive Wiki replicas use the existing Server and Store.
+from .wiki_memory_extension import install_wiki_memory
+
+install_wiki_memory()
