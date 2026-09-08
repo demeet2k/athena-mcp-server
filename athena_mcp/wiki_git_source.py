@@ -24,7 +24,7 @@ class WikiGitSource:
             raise ValueError('WIKI_SOURCE_EXPECTED_DIGEST_REQUIRED')
         if not self.git.enabled:
             raise ValueError('WIKI_SOURCE_ROOT_NOT_CONFIGURED')
-        run = lambda *args: _git(self.git.root, *args).stdout
+        run = lambda *args, **kwargs: _git(self.git.root, *args, **kwargs).stdout
         if run('cat-file', '-t', wiki_commit).strip() != b'commit':
             raise ValueError('WIKI_SOURCE_DATA_COMMIT_REQUIRED')
         tree = run('rev-parse', wiki_commit + '^{tree}').decode('ascii').strip()

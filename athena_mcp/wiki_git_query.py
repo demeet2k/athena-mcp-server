@@ -31,7 +31,7 @@ class WikiGitQuery:
         before = self.git.status()
         if before['head'] != expected_git_head or before['dirty']:
             raise ValueError('WIKI_QUERY_CLEAN_EXPECTED_HEAD_REQUIRED')
-        run = lambda *args: _git(self.git.root, *args).stdout
+        run = lambda *args, **kwargs: _git(self.git.root, *args, **kwargs).stdout
         if run('cat-file', '-t', wiki_commit).strip() != b'commit':
             raise ValueError('WIKI_QUERY_DATA_COMMIT_REQUIRED')
         tree = run('rev-parse', wiki_commit + '^{tree}').decode('ascii').strip()

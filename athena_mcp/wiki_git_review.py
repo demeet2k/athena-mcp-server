@@ -88,7 +88,7 @@ class WikiGitReview:
             raise ValueError('WIKI_REVIEW_PARENT_MISMATCH')
         # The supplied runner strips Git environment overrides and disables
         # replacement objects. This path never runs the semantic repository.
-        run = lambda *args: _git(root, *args).stdout
+        run = lambda *args, **kwargs: _git(root, *args, **kwargs).stdout
         before = read_snapshot(self.git, base, run=run)
         after = read_snapshot(self.git, expected_commit, run=run)
         if set(before) - set(after):

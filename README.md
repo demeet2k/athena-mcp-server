@@ -51,6 +51,8 @@ Core firewalls:
 
 The `ATHENA.WIKI.MEMORY.V1` extension imports version-bound local Wiki observations and recovers their claims, evidence, conflicts, handoffs and document text after a process restart. Five `athena_wiki_*` tools share the existing server and database. See [Wiki memory V1](docs/wiki-memory-v1.md) for the import protocol, provenance limits and tests.
 
+The Git bridge can [stage a reviewed local draft](docs/wiki-draft-v1.md), [read a historical draft](docs/wiki-draft-review-v1.md), [query a complete committed Wiki](docs/wiki-committed-query-v1.md), and [open the exact bytes behind a source citation](docs/wiki-committed-source-v1.md). These operations preserve source identities and uncertainty. The shared [snapshot reader](docs/wiki-snapshot-read-v1.md) loads bounded committed evidence with two Git processes without checking it out.
+
 ## Runtime cycle
 
 `HYDRATE → RECONRUN/OMEGA → MEMORY → SX → RAG → HUG → GAP → FIELD → MEASURE/CALIBRATE → Y1/AOR → COLLECTIVE(V1–V15) → AUTHORIZED EXECUTION → VERIFY → LEARN → SUCCESSOR → COMPLETE`.

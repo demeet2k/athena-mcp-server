@@ -1,6 +1,7 @@
 """Read a complete committed Wiki and simulate guarded mutation plans."""
 import hashlib
 import json
+import os
 from pathlib import PurePosixPath
 import re
 import subprocess
@@ -68,26 +69,55 @@ def decode_snapshot(files):
 
 def read_snapshot(git, head, *, run=None):
     if run is None:
-        def run(*args):
-            return subprocess.check_output(['git','-C',str(git.root),*args],timeout=30)
-    tree=run('ls-tree','-r','-z',head,'--','knowledge/WIKI.schema.json','knowledge/raw','knowledge/wiki')
-    files={}; folded=set(); total=0
+        def run(*args, input=None):
+            env={k:v for k,v in os.environ.items() if not k.startswith('GIT_')}
+            env['GIT_NO_REPLACE_OBJECTS']='1'
+            return subprocess.check_output(['git','-c','gc.auto=0','-c','maintenance.auto=false',
+                                            '-C',str(git.root),*args],input=input,env=env,timeout=30)
+    tree=run('ls-tree','-r','-l','-z','--full-tree',head,'--',
+             'knowledge/WIKI.schema.json','knowledge/raw','knowledge/wiki')
+    entries=[]; objects={}; folded=set(); total=0
     for entry in tree.split(b'\0'):
         if not entry: continue
         record,raw_path=entry.split(b'\t',1)
-        mode,kind,oid=record.decode('ascii').split()
+        mode,kind,oid,size_text=record.decode('ascii').split()
         path=safe_path(raw_path.decode('utf-8'))
         if kind!='blob' or mode not in ('100644','100755') or path.casefold() in folded:
             raise ValueError('WIKI_BRIDGE_NONREGULAR_OR_COLLIDING_PATH')
+        if not re.fullmatch(r'(?:[0-9a-f]{40}|[0-9a-f]{64})',oid) or not re.fullmatch(r'[0-9]+',size_text):
+            raise ValueError('WIKI_BRIDGE_MALFORMED_TREE_OBJECT')
         folded.add(path.casefold())
-        size=int(run('cat-file','-s',oid))
+        size=int(size_text)
         total+=size
         if total>MAX_BYTES: raise ValueError('WIKI_BRIDGE_SNAPSHOT_TOO_LARGE')
-        raw=run('cat-file','blob',oid)
-        if len(raw)!=size: raise ValueError('WIKI_BRIDGE_BLOB_SIZE_MISMATCH')
-        # Binary immutable carriers are valid. Keep bytes separately and decode
-        # only semantic text; source-carrier verification uses exact raw bytes.
-        files[path]=raw
+        if oid in objects and objects[oid]!=size:
+            raise ValueError('WIKI_BRIDGE_BLOB_SIZE_MISMATCH')
+        objects[oid]=size
+        entries.append((path,oid))
+    # Bound the entire snapshot before reading any payload. Repeated blobs are
+    # fetched once but count at every path toward the existing snapshot limit.
+    contents={}
+    if objects:
+        batch=run('cat-file','--batch',input=('\n'.join(objects)+'\n').encode('ascii'))
+        offset=0
+        for oid,size in objects.items():
+            header=(oid+' blob '+str(size)+'\n').encode('ascii')
+            if not batch.startswith(header,offset):
+                raise ValueError('WIKI_BRIDGE_BATCH_OBJECT_MISMATCH')
+            offset+=len(header)
+            end=offset+size
+            if end>=len(batch) or batch[end:end+1]!=b'\n':
+                raise ValueError('WIKI_BRIDGE_BLOB_SIZE_MISMATCH')
+            raw=batch[offset:end]
+            # Bind bytes to the enumerated object, including empty/binary blobs.
+            object_hash=hashlib.sha1 if len(oid)==40 else hashlib.sha256
+            if object_hash(b'blob '+str(size).encode('ascii')+b'\0'+raw).hexdigest()!=oid:
+                raise ValueError('WIKI_BRIDGE_BLOB_OBJECT_MISMATCH')
+            contents[oid]=raw
+            offset=end+1
+        if offset!=len(batch):
+            raise ValueError('WIKI_BRIDGE_BATCH_TRAILING_DATA')
+    files={path:contents[oid] for path,oid in entries}
     text_files={p:b.decode('utf-8') for p,b in files.items() if not p.startswith('knowledge/raw/')}
     # decode_snapshot receives raw carriers as bytes when they are binary.
     text_files.update({p:b for p,b in files.items() if p.startswith('knowledge/raw/')})
