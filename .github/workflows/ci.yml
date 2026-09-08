@@ -156,7 +156,7 @@ jobs:
         run: python -m unittest tests.test_wiki_memory tests.test_state_foundation_unified tests.test_three_domain_cas_unified tests.test_cycle_unified tests.test_surface_composition_unified tests.test_startup_health_unified tests.test_unified_manifest tests.test_metadata_consistency tests.test_self_test_unified -v
 
   smoke:
-    needs: [syntax, unit, critical-invariants, git-wiki-integration]
+    needs: [syntax, unit, critical-invariants]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -164,9 +164,6 @@ jobs:
         with: {python-version: '3.12'}
       - name: MCP smoke
         run: python smoke.py
-
-  git-wiki-integration:
-    uses: ./.github/workflows/wiki-git-integration.yml
 
   promotion-qualification:
     needs: [syntax, unit, critical-invariants, smoke]

@@ -72,8 +72,12 @@ python scripts/verify_wiki_git_mcp.py --semantic-root PATH --expected-head COMMI
 
 The real integration replay checks scoped INIT, historical hypothesis versus
 current UNK, and an unanswered query through fresh MCP and compiler processes.
-Its claim fixtures are synthetic test data, not research evidence. Linux and
-Windows CI pin semantic repository commit
-`84960d027ff06f85de9f62af1a2da000cc2824c6`, the tested repair candidate in Athena
-PR 3596. Runtime smoke and promotion qualification wait for this integration
-job. This fixture pin does not claim that the semantic candidate is merged.
+Its claim fixtures are synthetic test data, not research evidence. The replay
+was developed against semantic commit
+`84960d027ff06f85de9f62af1a2da000cc2824c6`, the repair candidate in Athena PR 3596.
+The real Linux/Windows cross-repository workflow belongs in the private semantic
+repository: it checks out its own exact commit and a pinned public MCP commit.
+The public MCP repository's token cannot read the private source. No private
+source or cross-repository credential is copied into the public repository.
+Public runtime unit/qualification checks and private real-integration checks
+are separate evidence surfaces; require both for the paired installation.
