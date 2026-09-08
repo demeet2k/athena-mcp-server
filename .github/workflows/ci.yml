@@ -166,33 +166,7 @@ jobs:
         run: python smoke.py
 
   git-wiki-integration:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 15
-    env:
-      PYTHONUTF8: '1'
-      PYTHONDONTWRITEBYTECODE: '1'
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-        with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          path: runtime
-          persist-credentials: false
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-        with:
-          repository: demeet2k/Athena
-          ref: 84960d027ff06f85de9f62af1a2da000cc2824c6
-          path: semantic
-          persist-credentials: false
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
-        with:
-          python-version: '3.12'
-      - name: Fresh MCP to semantic Wiki with historical and unknown claims
-        working-directory: runtime
-        run: python scripts/verify_wiki_git_mcp.py --semantic-root ../semantic --expected-head 84960d027ff06f85de9f62af1a2da000cc2824c6
+    uses: ./.github/workflows/wiki-git-integration.yml
 
   promotion-qualification:
     needs: [syntax, unit, critical-invariants, smoke]

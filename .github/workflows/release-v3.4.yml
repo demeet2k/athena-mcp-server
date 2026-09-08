@@ -85,7 +85,7 @@ jobs:
           python -m unittest discover -s tests -p 'test_http_host_v2.py' -v
 
   smoke:
-    needs: [syntax, unit, critical-invariants]
+    needs: [syntax, unit, critical-invariants, git-wiki-integration]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -95,6 +95,9 @@ jobs:
         with: {python-version: '3.12'}
       - name: V15 stdio smoke
         run: python smoke.py
+
+  git-wiki-integration:
+    uses: ./.github/workflows/wiki-git-integration.yml
 
   promotion-qualification:
     needs: [syntax, unit, critical-invariants, smoke]
