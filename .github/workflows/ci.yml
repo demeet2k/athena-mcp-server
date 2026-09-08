@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Compile runtime and tests
@@ -33,6 +35,8 @@ jobs:
       GIT_CONFIG_VALUE_2: 'false'
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Full unit suite
@@ -59,6 +63,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Schema migration and restart durability
@@ -161,6 +167,8 @@ jobs:
       GIT_CONFIG_VALUE_2: 'false'
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Full unit suite on Windows
@@ -172,6 +180,8 @@ jobs:
       PYTHONUTF8: '1'
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Wiki continuity and composed runtime on Windows
@@ -182,6 +192,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: MCP smoke
