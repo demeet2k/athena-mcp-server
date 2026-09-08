@@ -69,6 +69,8 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_three_domain_cas_unified.py' -v
       - name: Wiki source identity and restart continuity
         run: python -m unittest discover -s tests -p 'test_wiki_memory.py' -v
+      - name: Git Wiki compiler binding and composition
+        run: python -m unittest discover -s tests -p 'test_wiki_git.py' -v
       - name: Whole-cycle fail-closed metabolism
         run: python -m unittest discover -s tests -p 'test_cycle_unified.py' -v
       - name: Surface and composition integrity
@@ -154,7 +156,7 @@ jobs:
         run: python -m unittest tests.test_wiki_memory tests.test_state_foundation_unified tests.test_three_domain_cas_unified tests.test_cycle_unified tests.test_surface_composition_unified tests.test_startup_health_unified tests.test_unified_manifest tests.test_metadata_consistency tests.test_self_test_unified -v
 
   smoke:
-    needs: [syntax, unit, critical-invariants]
+    needs: [syntax, unit, critical-invariants, git-wiki-integration]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -162,6 +164,35 @@ jobs:
         with: {python-version: '3.12'}
       - name: MCP smoke
         run: python smoke.py
+
+  git-wiki-integration:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          path: runtime
+          persist-credentials: false
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: demeet2k/Athena
+          ref: 84960d027ff06f85de9f62af1a2da000cc2824c6
+          path: semantic
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.12'
+      - name: Fresh MCP to semantic Wiki with historical and unknown claims
+        working-directory: runtime
+        run: python scripts/verify_wiki_git_mcp.py --semantic-root ../semantic --expected-head 84960d027ff06f85de9f62af1a2da000cc2824c6
 
   promotion-qualification:
     needs: [syntax, unit, critical-invariants, smoke]

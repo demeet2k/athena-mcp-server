@@ -154,3 +154,7 @@ install_liminal_beacon_shadow()
 from .wiki_memory_extension import install_wiki_memory
 
 install_wiki_memory()
+
+from .wiki_git_extension import install_git_wiki
+
+install_git_wiki()

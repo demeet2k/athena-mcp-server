@@ -239,6 +239,13 @@ The V3.4 critical lane explicitly executes hardened V15 calibration geometry, ad
 
 ## Run
 
+The Wiki memory tools preserve source-bound Drive registry and document
+observations across sessions. `athena_git_wiki_compile` invokes the configured
+semantic repository's fixed Wiki compiler at an explicit clean commit and
+returns its original receipts and proposed changes. See
+[Git Wiki compiler through MCP](spec/WIKI_GIT_COMPILER_V1.md) for the data,
+execution and application boundaries.
+
 `python -m athena_mcp --db ./state/athena.db`
 
 Package: `athena-canonical-mcp 3.4.0`  
