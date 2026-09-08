@@ -66,21 +66,39 @@ REVIEW_TOOL = {
 }
 
 
+QUERY_TOOL = {
+    'name': 'athena_wiki_git_query',
+    'description': 'Query the complete Wiki from an exact local Git data commit using the trusted compiler at the explicit clean configured HEAD. Reads and verifies committed source bytes itself; accepts no caller-supplied evidence collections. Returns both commit identities, complete input hashes and original semantic receipts, including HOLD and uncertainty. Executes only the configured compiler checkout; creates no data checkout. Does not import a database observation, authenticate a producer or establish currentness or research gain.',
+    'inputSchema': {'type': 'object', 'additionalProperties': False,
+        'required': ['expected_git_head', 'wiki_commit', 'query'],
+        'properties': {'expected_git_head': {'type': 'string', 'pattern': '^[0-9a-f]{40}$'},
+                       'wiki_commit': {'type': 'string', 'pattern': '^[0-9a-f]{40}$'},
+                       'query': {'type': 'string', 'minLength': 1, 'maxLength': 4096},
+                       'limit': {'type': 'integer', 'minimum': 1, 'maximum': 50}}},
+    'annotations': {'readOnlyHint': True, 'destructiveHint': False, 'openWorldHint': False},
+}
+
+
 def install_git_wiki():
     from . import dispatch, protocol, unified_manifest, runtime_integrity_surface
     from .server import Server
     from .validate import validate
     if getattr(Server, "_git_wiki_installed", False):
         return
-    if any(t["name"] in (TOOL["name"], INGEST_TOOL['name'], STAGE_TOOL['name'], REVIEW_TOOL['name']) for t in protocol.TOOLS):
+    if any(t["name"] in (TOOL["name"], INGEST_TOOL['name'], STAGE_TOOL['name'], REVIEW_TOOL['name'], QUERY_TOOL['name']) for t in protocol.TOOLS):
         raise ValueError("GIT_WIKI_TOOL_NAMESPACE_COLLISION")
     protocol.TOOLS.append(TOOL)
     protocol.TOOLS.append(INGEST_TOOL)
     protocol.TOOLS.append(STAGE_TOOL)
     protocol.TOOLS.append(REVIEW_TOOL)
+    protocol.TOOLS.append(QUERY_TOOL)
     previous_call = Server.call_tool
 
     def call(self, name, arguments):
+        if name == QUERY_TOOL['name']:
+            from .wiki_git_query import WikiGitQuery
+            validate(QUERY_TOOL['inputSchema'], arguments)
+            return WikiGitQuery(self).query(**arguments)
         if name == REVIEW_TOOL['name']:
             from .wiki_git_review import WikiGitReview
             validate(REVIEW_TOOL['inputSchema'], arguments)
@@ -104,12 +122,13 @@ def install_git_wiki():
     def manifest(server):
         result = previous_manifest(server)
         result.setdefault("organs", {})["git_wiki"] = {
-            "artifact": ARTIFACT, "tools": [TOOL["name"], INGEST_TOOL['name'], STAGE_TOOL['name'], REVIEW_TOOL['name']],
+            "artifact": ARTIFACT, "tools": [TOOL["name"], INGEST_TOOL['name'], STAGE_TOOL['name'], REVIEW_TOOL['name'], QUERY_TOOL['name']],
             "source": "EXPLICIT_CLEAN_CONFIGURED_GIT_COMMIT",
             "mutation_apply": True, "mutation_scope": "LOCAL_DRAFT_REF_ONLY",
             "shared_branch_apply": False, "push": False, "room_admission": False,
             "process_isolation": "FRESH_PYTHON_INTERPRETER_NOT_OS_SANDBOX",
             "historical_draft_review": "COMMITTED_BYTES_WITHOUT_CHECKOUT_OR_DATABASE",
+            "committed_wiki_query": "EXPLICIT_DATA_COMMIT_WITH_CONFIGURED_TRUSTED_COMPILER",
         }
         return result
 

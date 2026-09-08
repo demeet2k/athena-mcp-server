@@ -264,6 +264,11 @@ See [local Wiki review commits](docs/wiki-draft-v1.md).
 source carrier after the checkout advances, without a Wiki database or
 repository-code execution. See [read committed drafts](docs/wiki-draft-review-v1.md).
 
+`athena_wiki_git_query` reads complete evidence directly from a pinned Git Wiki
+commit and queries it with the configured trusted compiler, without requiring
+caller-built collections or changing the checkout. See
+[query committed Wiki evidence](docs/wiki-committed-query-v1.md).
+
 `python -m athena_mcp --db ./state/athena.db`
 
 Package: `athena-canonical-mcp 3.4.0`  

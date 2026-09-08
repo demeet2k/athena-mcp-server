@@ -84,7 +84,7 @@ def main():
             if item['action']=='CREATE':assert not dest.exists()
             else:assert 'sha256:'+hashlib.sha256(dest.read_bytes()).hexdigest()==item['expected_sha256']
             assert 'sha256:'+digest(item['content'])==item['content_sha256']
-        draft=None; review=None
+        draft=None; review=None; committed_query=None
         if args.stage:
             arguments=dict(expected_git_head=args.expected_head,snapshot_id=sid,page_id=page,document_id=did,expected_plan_sha256=proposal['plan_sha256'])
             draft=call('athena_wiki_git_stage',arguments)
@@ -109,6 +109,19 @@ def main():
             assert inspected['standing']=='VERIFIED_DRAFT_BYTES' and inspected['source_carrier']==expected_carrier
             assert inspected['configured_head']==advanced and advanced!=args.expected_head
             assert inspected['binding']['base']==args.expected_head and inspected['semantic_lint']=='NOT_RUN'
+            # Query historical committed evidence with the configured advanced
+            # compiler. The new tool, not this verifier, loads its collections.
+            committed_query=call('athena_wiki_git_query', dict(expected_git_head=advanced,
+                                 wiki_commit=draft['commit'], query=original_context['page']['TITLE'], limit=50),
+                                 state_path=empty_db)
+            assert committed_query['standing']=='COMPLETE',committed_query
+            assert committed_query['compiler_commit']==advanced and committed_query['wiki_commit']==draft['commit']
+            assert committed_query['readset'][proposal['carrier_path']]==proposal['carrier_sha256']
+            assert not committed_query['data_checkout_materialized'] and not committed_query['mutation_applied']
+            assert git(target,'rev-parse','HEAD')==advanced and not git(target,'status','--porcelain')
+            if not args.db:
+                cone=committed_query['compiler_receipt']['execution_receipt']['outputs'][0]['result']['minimum_decision_cone']
+                assert any('[source EPI=UNK]' in c['statement'] and c['epistemic_status']=='RET' for c in cone['claims'])
             with closing(sqlite3.connect(empty_db)) as connection:
                 tables={r[0] for r in connection.execute("SELECT name FROM sqlite_master WHERE type='table'")}
                 for name in ('wiki_snapshots_v1','wiki_documents_v1'):
@@ -139,6 +152,7 @@ def main():
         report=dict(standing='PASS',source_kind='EXPLICIT_LOCAL_OBSERVATION' if args.db else 'SYNTHETIC_FIXTURE',semantic_base=args.expected_head,disposable_applied_head=applied_head,source_snapshot=sid,source_document=did,carrier_sha256=proposal['carrier_sha256'],plan_sha256=proposal['plan_sha256'],proposed_file_count=len(proposal['mutation_plan']),source_text_and_records_preserved=True,real_compiler_stages=['INGEST','REINDEX','LINT'],applied_only_to_disposable_clone=True,fresh_committed_lint='READY',original_checkout_unchanged=True,live_currentness='UNVERIFIED',behavioral_gain='UNKNOWN',proposal=proposal)
         if draft:report['local_draft']={k:v for k,v in draft.items() if k!='committed_lint'}
         if review:report['historical_draft_review']=review
+        if committed_query:report['committed_wiki_query']={k:v for k,v in committed_query.items() if k!='compiler_receipt'}
         if args.output:Path(args.output).write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         print(json.dumps({k:v for k,v in report.items() if k!='proposal'},indent=2),flush=True)
 
