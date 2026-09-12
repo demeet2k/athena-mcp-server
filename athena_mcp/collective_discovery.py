@@ -517,8 +517,10 @@ class CollectiveDiscoveryRuntime:
             fallback=self.science.schedule_multiperiod(tasks,workers,horizon,budget,128,"global",discount)
             return {**fallback,"certificate":"NONE","law":"task count exceeded exact-search limit; returned V5 bounded beam schedule"}
         tmap={str(t.get("id")):dict(t) for t in tasks}; wmap={str(w.get("id")):dict(w) for w in workers}
+        if len(tmap)!=len(tasks) or len(wmap)!=len(workers): raise ValueError('task and worker ids must be unique')
         if "" in tmap or "" in wmap: raise ValueError("tasks/workers require ids")
-        B={str(k):max(0.0,float(v)) for k,v in (budget or {}).items()}
+        if any(value is None for value in (budget or {}).values()): raise ValueError('constrained budget must be known')
+        B=self.science.ecology._resource_map(budget)
         best={"score":0.0,"schedule":[],"budget":dict(B)}; nodes=0; truncated=False
         total_positive=sum(max(0.0,float(t.get("utility",1.0))) for t in tasks)
         def rec(done, finish, free, remaining, score, schedule):
@@ -534,11 +536,11 @@ class CollectiveDiscoveryRuntime:
                 t=tmap[j]; dur=max(1,int(t.get("duration",1))); dep_finish=max([finish.get(str(d),0) for d in t.get("dependencies",[])]+[0])
                 for wid,w in wmap.items():
                     fit=self._task_fit(t,w)
-                    if fit<=0: continue
+                    if fit<1.0: continue
                     start=max(free.get(wid,0),dep_finish); end=start+dur
                     if end>horizon: continue
-                    rcost={str(k):max(0.0,float(v)) for k,v in (t.get("resource_cost") or {}).items()}
-                    if any(k in remaining and rcost.get(k,0.0)>remaining[k]+1e-12 for k in rcost): continue
+                    rcost=self.science.ecology._resource_map(t.get("resource_cost"))
+                    if any(k not in rcost or rcost[k]>remaining[k]+1e-12 for k in remaining): continue
                     rem=dict(remaining)
                     for k,v in rcost.items():
                         if k in rem: rem[k]-=v

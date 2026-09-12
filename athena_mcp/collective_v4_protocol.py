@@ -41,7 +41,7 @@ COLLECTIVE_V4_TOOLS = [
     _tool("athena_worker_cost_observe", "Persist measured per-worker resource use, normalized budget pressure, and useful-output efficiency for future scheduling.", ("worker_id","task_id","resources"), {
         "worker_id": STR, "task_id": STR, "resources": OBJ, "budget": OBJ, "useful_output": NUM, "scope": STR, "actor": STR,
     }),
-    _tool("athena_budget_schedule", "Allocate tasks to workers using demand x capability fit x availability x measured efficiency subject to observable remaining budgets; unknown cost is penalized, not invented.", ("tasks","workers","remaining_budget"), {
+    _tool("athena_budget_schedule", "Plan task placement using demand, complete required capabilities, availability and observed efficiency. Every constrained resource needs a known estimate; unknown constrained costs prevent assignment. Estimates are not runtime budget enforcement.", ("tasks","workers","remaining_budget"), {
         "tasks": {"type":"array","minItems":1,"maxItems":256,"items":{"type":"object"}},
         "workers": {"type":"array","minItems":1,"maxItems":256,"items":{"type":"object"}},
         "remaining_budget": OBJ, "scope": STR,
