@@ -436,10 +436,13 @@ def compile_witness(
     assessment: Mapping[str, Any],
     observation_window_seconds: int,
     observed_at: str | None = None,
+    source_candidate: bool = False,
 ) -> dict[str, Any]:
     image = validate_image_ref(image_ref, require_digest=True)
     source = _git_sha(source_head, "source_head")
     workflow_source = _git_sha(workflow_head, "workflow_head")
+    if source_candidate and any((release_tag, release_run_id, oci_run_id)):
+        raise ValueError("unpublished source candidate cannot supply release coordinates")
     if assessment.get("version") != "ATHENA.CANARY.ASSESSMENT.2":
         raise ValueError("assessment version mismatch")
     structural_match = {
@@ -456,9 +459,9 @@ def compile_witness(
         "observer": OBSERVER_VERSION,
         "comparison_kind": COMPARISON_KIND,
         "repository": "demeet2k/athena-mcp-server",
-        "release_tag": _nonempty(release_tag, "release_tag"),
-        "release_run_id": _nonempty(release_run_id, "release_run_id"),
-        "oci_run_id": _nonempty(oci_run_id, "oci_run_id"),
+        "release_tag": None if source_candidate else _nonempty(release_tag, "release_tag"),
+        "release_run_id": None if source_candidate else _nonempty(release_run_id, "release_run_id"),
+        "oci_run_id": None if source_candidate else _nonempty(oci_run_id, "oci_run_id"),
         "workflow_run_id": _nonempty(workflow_run_id, "workflow_run_id"),
         "workflow_head": workflow_source,
         "image_ref": image["image_ref"],
@@ -488,6 +491,9 @@ def compile_witness(
             "cutover, activate traffic, establish production health, or promote empirical/Y1 authority."
         ),
     }
+    if source_candidate:
+        witness["subject_kind"] = "UNPUBLISHED_SOURCE_CANDIDATE"
+        witness["publication_performed"] = False
     witness["witness_digest"] = _digest(witness)
     return witness
 
@@ -500,6 +506,12 @@ def _write_json(path: Path, value: Mapping[str, Any]) -> None:
 def run(args: argparse.Namespace) -> dict[str, Any]:
     image = validate_image_ref(args.image_ref, require_digest=True)
     source_head = _git_sha(args.source_head, "source_head")
+    release_coordinates = (args.release_tag, args.release_run_id, args.oci_run_id)
+    if args.source_candidate:
+        if any(release_coordinates):
+            raise ValueError("unpublished source candidate cannot supply release coordinates")
+    elif not all(release_coordinates):
+        raise ValueError("release observation requires tag, release run and OCI run")
     control_token = _nonempty(os.environ.get(args.control_token_env), args.control_token_env)
     canary_token = _nonempty(os.environ.get(args.canary_token_env), args.canary_token_env)
     if control_token == canary_token:
@@ -523,7 +535,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     state = seed_state(
         args.canary_url,
         canary_token,
-        witness_name=f"V3_3_ISOLATED_CANARY_{args.workflow_run_id}",
+        witness_name=f"ISOLATED_CANARY_{args.workflow_run_id}",
     )
     docker_restart(args.control_container)
     docker_restart(args.canary_container)
@@ -631,12 +643,14 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         canary_metrics=canary,
         assessment=assessment,
         observation_window_seconds=observed_window_seconds,
+        source_candidate=args.source_candidate,
     )
 
     output = Path(args.output_dir)
-    _write_json(output / "canary-observations.v3.3.0.json", observations)
-    _write_json(output / "canary-assessment.v3.3.0.json", assessment)
-    _write_json(output / "canary-witness.v3.3.0.json", witness)
+    suffix = "candidate" if args.source_candidate else "v3.3.0"
+    _write_json(output / f"canary-observations.{suffix}.json", observations)
+    _write_json(output / f"canary-assessment.{suffix}.json", assessment)
+    _write_json(output / f"canary-witness.{suffix}.json", witness)
     if assessment.get("decision") != "PROMOTE":
         raise RuntimeError(
             {
@@ -652,9 +666,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--image-ref", required=True)
     parser.add_argument("--source-head", required=True)
-    parser.add_argument("--release-tag", required=True)
-    parser.add_argument("--release-run-id", required=True)
-    parser.add_argument("--oci-run-id", required=True)
+    parser.add_argument("--source-candidate", action="store_true")
+    parser.add_argument("--release-tag")
+    parser.add_argument("--release-run-id")
+    parser.add_argument("--oci-run-id")
     parser.add_argument("--workflow-run-id", required=True)
     parser.add_argument("--workflow-head", required=True)
     parser.add_argument("--control-url", default="http://127.0.0.1:18765")
