@@ -579,13 +579,9 @@ class CollectiveScienceRuntime:
                 "law":"learned-transition rollout remains model-based simulation; it cannot update transition or policy state without execution"}
 
     def _worker_resource_profile(self, worker: Mapping[str, Any], scope: str) -> Dict[str, Any]:
-        explicit={k:max(0.0,float(v)) for k,v in worker.get("expected_resources",{}).items() if k in V4_RESOURCE_KEYS and v is not None}
-        if explicit: return {"source":"EXPLICIT","resources":explicit,"reliability":1.0}
-        try:
-            p=self.ecology._worker_profile(worker,scope)
-            return {"source":p["cost_source"],"resources":dict(p["estimate"]),"reliability":float(p["reliability"])}
-        except Exception:
-            return {"source":"UNKNOWN","resources":{},"reliability":0.0}
+        explicit=self.ecology._resource_map(worker.get("expected_resources",{}))
+        p=self.ecology._worker_profile({**worker,'estimated_resources':{**worker.get('estimated_resources',{}),**explicit}},scope)
+        return {"source":p["cost_source"],"resources":dict(p["estimate"]),"reliability":float(p["cost_reliability"])}
 
     def schedule_multiperiod(self, tasks: Sequence[Mapping[str, Any]], workers: Sequence[Mapping[str, Any]],
                              horizon: int = 12, budget: Mapping[str, Any] | None = None, beam_width: int = 128,
@@ -597,8 +593,10 @@ class CollectiveScienceRuntime:
         taskmap={str(t.get("id",f"task_{i}")):dict(t) for i,t in enumerate(tasks)}
         if len(taskmap)!=len(tasks): raise ValueError("task ids must be unique")
         profiles={str(w.get("id",f"worker_{i}")):{"worker":dict(w),"profile":self._worker_resource_profile(w,scope)} for i,w in enumerate(workers)}
+        if len(profiles)!=len(workers): raise ValueError('worker ids must be unique')
         caps={wid:{str(x) for x in rec["worker"].get("capabilities",[])} for wid,rec in profiles.items()}
-        initial_budget={k:max(0.0,float(v)) for k,v in (budget or {}).items() if k in V4_RESOURCE_KEYS}
+        if any(value is None for value in (budget or {}).values()): raise ValueError('constrained budget must be known')
+        initial_budget=self.ecology._resource_map(budget)
         states=[{"score":0.0,"scheduled":{},"worker_free":{wid:0 for wid in profiles},"budget":dict(initial_budget),"uncertainty":0.0}]
         gamma=_clamp(discount,0.0,1.0)
         for _ in range(len(taskmap)):
@@ -614,14 +612,15 @@ class CollectiveScienceRuntime:
                     deadline=task.get("deadline")
                     for wid,rec in profiles.items():
                         fit=1.0 if not req else len(req & caps[wid])/len(req)
-                        if fit<=0: continue
+                        if fit<1.0: continue
                         start=max(int(st["worker_free"][wid]),dep_finish);finish=start+duration
                         if finish>horizon: continue
                         prof=rec["profile"]; costs=dict(prof["resources"])
-                        explicit_task={k:max(0.0,float(v)) for k,v in task.get("resource_cost",{}).items() if k in V4_RESOURCE_KEYS}
-                        if explicit_task: costs=explicit_task
+                        explicit_task=self.ecology._resource_map(task.get("resource_cost",{}))
+                        costs.update(explicit_task)
                         feasible=True; nb=dict(st["budget"])
                         for k,cap in initial_budget.items():
+                            if k not in costs: feasible=False;break
                             if k in costs:
                                 if costs[k]>nb.get(k,0.0)+1e-12: feasible=False;break
                                 nb[k]=nb.get(k,0.0)-costs[k]
@@ -630,7 +629,7 @@ class CollectiveScienceRuntime:
                         uncertainty_penalty=.12*(1-float(prof["reliability"])) if initial_budget and any(k not in costs for k in initial_budget) else 0.0
                         reward=(utility*fit*(gamma**finish))-0.08*lateness-uncertainty_penalty
                         ns={"score":st["score"]+reward,"scheduled":dict(st["scheduled"]),"worker_free":dict(st["worker_free"]),"budget":nb,"uncertainty":st["uncertainty"]+uncertainty_penalty}
-                        ns["scheduled"][tid]={"task":tid,"worker":wid,"start":start,"finish":finish,"fit":round(fit,6),"value":round(reward,6),"cost_source":prof["source"],"resources":costs}
+                        ns["scheduled"][tid]={"task":tid,"worker":wid,"start":start,"finish":finish,"fit":round(fit,6),"value":round(reward,6),"cost_source":('EXPLICIT_TASK_WITH_WORKER_PROFILE' if explicit_task else prof["source"]),"resources":costs}
                         ns["worker_free"][wid]=finish
                         next_states.append(ns)
             if not next_states: break
@@ -649,7 +648,7 @@ class CollectiveScienceRuntime:
         return {"schedule":schedule,"scheduled_count":len(schedule),"unscheduled":unscheduled,"objective":round(best["score"],6),
                 "remaining_budget":{k:round(v,6) for k,v in best["budget"].items()},"horizon":horizon,
                 "optimality":"BOUNDED_BEAM_SEARCH_NO_GLOBAL_OPTIMALITY_PROOF","beam_width":beam_width,
-                "law":"multi-period schedule respects dependencies, worker capacity, horizon and known budgets; unknown constrained cost carries uncertainty rather than zero"}
+                "law":"PLAN_ONLY schedule requires all capabilities and constrained cost estimates; unknown constrained cost prevents assignment; estimates do not enforce runtime budgets"}
 
     @staticmethod
     def _repo_root() -> Path:

@@ -104,6 +104,8 @@ CREATE TABLE IF NOT EXISTS collective_worker_cost_stats(
  updated_at REAL NOT NULL,
  PRIMARY KEY(worker_id,scope)
 );
+CREATE INDEX IF NOT EXISTS idx_worker_cost_observation_scope
+ ON collective_worker_cost_observations(worker_id,scope);
 
 CREATE TABLE IF NOT EXISTS collective_diffusion_stats(
  source_scale TEXT NOT NULL,
@@ -372,7 +374,28 @@ class CollectiveEcologyRuntime:
 
     @staticmethod
     def _resource_map(values: Mapping[str, Any] | None) -> Dict[str, float]:
-        return {k: max(0.0, float(v)) for k, v in (values or {}).items() if k in V4_RESOURCE_KEYS and v is not None}
+        if values is None:
+            return {}
+        if not isinstance(values, Mapping):
+            raise ValueError('resources must be a mapping')
+        result = {}
+        for key, value in values.items():
+            if key not in V4_RESOURCE_KEYS:
+                raise ValueError('unknown resource dimension: ' + str(key))
+            if value is None:
+                continue
+            if type(value) not in (int, float) or not math.isfinite(value) or value < 0:
+                raise ValueError('resources require finite nonnegative numbers')
+            result[key] = float(value)
+        return result
+
+    @staticmethod
+    def _cost_pressure(resources, budget):
+        if not budget or any(key not in resources for key in budget):
+            return None
+        ratios = [min(1.0, resources[key] / cap) if cap > 0 else float(resources[key] > 0)
+                  for key, cap in budget.items()]
+        return sum(ratios) / len(ratios)
 
     def _worker_stats(self, worker_id: str, scope: str) -> Dict[str, Any]:
         row = self.s.one("SELECT * FROM collective_worker_cost_stats WHERE worker_id=? AND scope=?", (str(worker_id), str(scope)))
@@ -386,7 +409,7 @@ class CollectiveEcologyRuntime:
 
     def worker_cost_observe(self, worker_id: str, task_id: str, resources: Mapping[str, Any], budget: Mapping[str, Any] | None = None, useful_output: float | None = None, scope: str = "global", actor: str = "agent") -> Dict[str, Any]:
         worker_id, task_id, scope = str(worker_id), str(task_id), str(scope); r = self._resource_map(resources); b = self._resource_map(budget)
-        ratios = {k: r.get(k, 0.0) / cap for k, cap in b.items() if cap > 0}; pressure = sum(min(1.0, v) for v in ratios.values()) / len(ratios) if ratios else None
+        pressure = self._cost_pressure(r, b)
         useful = None if useful_output is None else _clamp(useful_output); efficiency = None if useful is None or pressure is None else useful / (1.0 + pressure)
         now = time.time(); oid = _stable_id("WCOST", worker_id, task_id, scope, now)
         with self.s._lock, self.s.db:
@@ -408,32 +431,52 @@ class CollectiveEcologyRuntime:
 
     def _worker_profile(self, worker: Mapping[str, Any], scope: str) -> Dict[str, Any]:
         wid = str(worker.get("id")); st = self._worker_stats(wid, scope); explicit = self._resource_map(worker.get("estimated_resources"))
-        history = {k: float(v) / st["n"] for k, v in st["resource_sums"].items()} if st["n"] else {}; estimate = explicit or history
-        source = "EXPLICIT" if explicit else ("MEASURED_HISTORY" if history else "UNKNOWN")
-        eff = (st["efficiency_sum"] + 1.0) / (st["efficiency_n"] + 2.0) if st["efficiency_n"] else 0.5
+        # Replay immutable observations: legacy aggregate n counts all samples,
+        # including samples where a particular resource was not measured.
+        sums, counts, efficiency_sum, efficiency_n = {}, {}, 0.0, 0
+        with self.s._lock:
+            for row in self.s.db.execute('SELECT resources_json,budget_json,useful_output FROM collective_worker_cost_observations WHERE worker_id=? AND scope=?', (wid,scope)):
+                resources = self._resource_map(json.loads(row['resources_json']))
+                budget = self._resource_map(json.loads(row['budget_json']))
+                for key, value in resources.items():
+                    sums[key] = sums.get(key,0.0) + value
+                    counts[key] = counts.get(key,0) + 1
+                pressure = self._cost_pressure(resources,budget)
+                if pressure is not None and row['useful_output'] is not None:
+                    efficiency_sum += _clamp(row['useful_output']) / (1.0 + pressure)
+                    efficiency_n += 1
+        history = {key: value/counts[key] for key,value in sums.items()}
+        estimate = {**history, **explicit}
+        source = 'EXPLICIT_WITH_HISTORY' if explicit and set(history)-set(explicit) else ('EXPLICIT' if explicit else ('MEASURED_HISTORY' if history else 'UNKNOWN'))
+        eff = (efficiency_sum + 1.0) / (efficiency_n + 2.0) if efficiency_n else 0.5
         return {"worker_id": wid, "estimate": estimate, "cost_source": source, "efficiency": _clamp(eff),
-                "cost_reliability": st["n"] / (st["n"] + 8.0) if st["n"] else 0.0, "stats": st}
+                "resource_observation_counts": counts,
+                "cost_reliability": min(counts.values()) / (min(counts.values()) + 8.0) if counts else 0.0, "stats": st}
 
     def budget_schedule(self, tasks: Sequence[Mapping[str, Any]], workers: Sequence[Mapping[str, Any]], remaining_budget: Mapping[str, Any], scope: str = "global", max_assignments_per_worker: int = 1, alpha: float = 1.0, beta: float = 1.0) -> Dict[str, Any]:
         if not tasks or not workers: raise ValueError("tasks and workers must not be empty")
         if max_assignments_per_worker < 1 or max_assignments_per_worker > 16: raise ValueError("max_assignments_per_worker must be in [1,16]")
+        if any(value is None for value in remaining_budget.values()): raise ValueError('constrained budget must be known')
         budget = self._resource_map(remaining_budget); profiles = {str(w.get("id")): self._worker_profile(w, scope) for w in workers}; worker_raw = {str(w.get("id")): dict(w) for w in workers}; slots = {wid: 0 for wid in worker_raw}
+        if len(worker_raw) != len(workers): raise ValueError('worker ids must be unique')
         normalized_tasks = []
         for i, task in enumerate(tasks):
             tid = str(task.get("id", f"task_{i}")); utility = _clamp(task.get("utility", 0.5)); gap = _clamp(task.get("gap", 0.5)); bridge = _clamp(task.get("bridge_value", 0.5)); saturation = _clamp(task.get("saturation", 0.0)); urgency = _clamp(task.get("urgency", 0.5))
             normalized_tasks.append({"id": tid, "demand": utility * gap * max(0.05, bridge) * (1.0 - saturation) * (0.5 + 0.5 * urgency), "required": {str(x) for x in task.get("required_capabilities", [])}})
+        if len({task['id'] for task in normalized_tasks}) != len(normalized_tasks): raise ValueError('task ids must be unique')
         assignments, unfilled = [], []
         for task in sorted(normalized_tasks, key=lambda x: (x["demand"], x["id"]), reverse=True):
             candidates = []
             for wid, raw in worker_raw.items():
                 if slots[wid] >= max_assignments_per_worker: continue
                 caps = {str(x) for x in raw.get("capabilities", [])}; fit = 1.0 if not task["required"] else len(task["required"] & caps) / len(task["required"])
-                if fit <= 0: continue
+                if fit < 1.0: continue
                 availability = 1.0 - _clamp(raw.get("load", 0.0)); p = profiles[wid]; infeasible, unknown = [], []
+                if availability <= 0: continue
                 for k, cap in budget.items():
                     if k not in p["estimate"]: unknown.append(k)
                     elif p["estimate"][k] > cap + 1e-12: infeasible.append(k)
-                if infeasible: continue
+                if infeasible or unknown: continue
                 uncertainty_penalty = 0.72 if unknown else (0.85 + 0.15 * p["cost_reliability"]); efficiency_factor = 0.5 + 0.5 * p["efficiency"]
                 score = task["demand"] ** max(0.0, float(alpha)) * max(0.01, fit) ** max(0.0, float(beta)) * availability * efficiency_factor * uncertainty_penalty
                 candidates.append((score, fit, availability, wid, unknown))
@@ -445,7 +488,7 @@ class CollectiveEcologyRuntime:
             assignments.append({"task": task["id"], "worker": wid, "score": round(score, 6), "demand": round(task["demand"], 6), "fit": round(fit, 6), "availability": round(availability, 6),
                                 "empirical_efficiency": round(p["efficiency"], 6), "cost_source": p["cost_source"], "unknown_constrained_resources": unknown, "estimated_resources": p["estimate"]})
         return {"assignments": assignments, "unfilled": unfilled, "remaining_budget": {k: round(v, 6) for k, v in budget.items()}, "worker_slots": slots,
-                "law": "schedule by demand*fit*availability*measured-efficiency subject to observable budget feasibility; unknown cost is penalized, not fabricated"}
+                "law": "PLAN_ONLY estimates; all required capabilities and constrained resource estimates must be present; unknown constrained cost prevents assignment; measured means are not hard execution ceilings"}
 
     @staticmethod
     def _diffusion_prior(source_scale: str, target_scale: str) -> float:
