@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import copy
 import json
 import pathlib
@@ -237,7 +238,7 @@ class DeploymentCutoverHoldRuntimeIntegrationTests(unittest.TestCase):
     def setUp(self):
         from athena_mcp.server import Server
 
-        self.temp = tempfile.NamedTemporaryFile(suffix=".db")
+        self.temp = TemporaryDatabasePath()
         self.server = Server(self.temp.name)
 
     def tearDown(self):

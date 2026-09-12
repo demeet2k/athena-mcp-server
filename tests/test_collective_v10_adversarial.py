@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 
@@ -6,7 +7,7 @@ from athena_mcp.server import Server
 
 class CollectiveRuntimeV10AdversarialTests(unittest.TestCase):
     def test_gp_prediction_cannot_train_itself_and_missing_feature_rejects(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             srv.call_tool('athena_gp_register',{'context_key':'G','features':['x','z']})
             for _ in range(5):
@@ -18,7 +19,7 @@ class CollectiveRuntimeV10AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_pc_and_partial_graph_do_not_mutate_jspace(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             rows=[{'X':i/50,'Y':2*i/50,'Z':((i*17)%23)/23} for i in range(50)]
             before=len(srv.store.rows('SELECT * FROM edges'))
@@ -29,7 +30,7 @@ class CollectiveRuntimeV10AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_tmle_fails_closed_on_latent_confounding_and_nonbinary_outcome(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             rows=[{'T':i%2,'Y':(i//2)%2,'X':i/50} for i in range(80)]
             blocked=srv.call_tool('athena_causal_tmle_binary',{'samples':rows,'treatment':'T','outcome':'Y','adjustment':['X'],'assumptions':{'latent_confounding_possible':True}})
@@ -40,7 +41,7 @@ class CollectiveRuntimeV10AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_evalue_invalid_and_pomdp_certificate_requires_complete_search_model(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             with self.assertRaises(ValueError):
                 srv.call_tool('athena_sensitivity_evalue',{'risk_ratio':0})
@@ -61,7 +62,7 @@ class CollectiveRuntimeV10AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_dependence_predictions_require_external_labels_and_complete_schema(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             with self.assertRaises(ValueError):
                 srv.call_tool('athena_evidence_dependence_fit',{'scope':'D'})

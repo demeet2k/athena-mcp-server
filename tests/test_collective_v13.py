@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import math
 import tempfile
 import unittest
@@ -23,7 +24,7 @@ class CollectiveRuntimeV13Tests(unittest.TestCase):
         return rows
 
     def test_qmc_hyperposterior_fitc_and_joint_design(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name);self._gp(srv)
             hp=srv.call_tool('athena_gp_hyperqmc',{'context_key':'G13','samples':64,'seed':3})
             self.assertEqual(hp['status'],'QMC_CONTINUOUS_GP_HYPERPOSTERIOR_APPROXIMATION')
@@ -40,7 +41,7 @@ class CollectiveRuntimeV13Tests(unittest.TestCase):
             srv.store.close()
 
     def test_fci_lite_keeps_partial_collider_geometry(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name);rows=[]
             for i in range(360):
                 x=((i*17)%101)/50.0-1.0;y=((i*43)%103)/51.0-1.0;noise=((i*29)%17-8)/700.0
@@ -52,7 +53,7 @@ class CollectiveRuntimeV13Tests(unittest.TestCase):
             srv.store.close()
 
     def test_longitudinal_tmle_and_dynamic_policy_value(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name);rows=self._long_rows()
             tmle=srv.call_tool('athena_longitudinal_tmle',{'samples':rows,'treatment1':'A1','intermediate':'L1','treatment2':'A2','outcome':'Y','baseline':['X']})
             self.assertEqual(tmle['status'],'TWO_TIMEPOINT_SEQUENTIAL_LOGISTIC_TMLE_ESTIMATED_UNDER_ASSUMPTIONS')
@@ -69,7 +70,7 @@ class CollectiveRuntimeV13Tests(unittest.TestCase):
             srv.store.close()
 
     def test_correlated_robust_resource_exact_certificate(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             candidates=[
                 {'id':'A','value':5,'resources':{'tokens':{'mean':3,'mean_uncertainty':.2}}},
@@ -84,7 +85,7 @@ class CollectiveRuntimeV13Tests(unittest.TestCase):
             srv.store.close()
 
     def test_v13_tools_are_exposed(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name);names={x['name'] for x in srv.handle({'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']}
             for n in ('athena_gp_hyperqmc','athena_gp_fitc_predict','athena_gp_joint_design','athena_fci_lite_discover','athena_longitudinal_tmle','athena_dynamic_policy_value','athena_dro_resource_select'):
                 self.assertIn(n,names)

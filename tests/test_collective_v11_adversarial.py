@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 
@@ -6,7 +7,7 @@ from athena_mcp.server import Server
 
 class CollectiveRuntimeV11AdversarialTests(unittest.TestCase):
     def test_gp_hyperfit_requires_cas_and_evsi_cannot_train(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             srv.call_tool('athena_gp_register',{'context_key':'G','features':['x']})
             for x,y in [(0,0),(.5,.25),(1,1)]: srv.call_tool('athena_gp_observe',{'context_key':'G','features':{'x':x},'target':y})
@@ -22,7 +23,7 @@ class CollectiveRuntimeV11AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_latent_projection_rejects_cycles_and_never_mutates_jspace(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             before=len(srv.store.rows('SELECT * FROM edges'))
             out=srv.call_tool('athena_latent_project_admg',{'edges':[{'src':'U','dst':'X'},{'src':'U','dst':'Y'}],'latent_nodes':['U']})
@@ -33,7 +34,7 @@ class CollectiveRuntimeV11AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_stacked_tmle_fails_closed_and_sensitivity_rejects_invalid_grid(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             rows=[{'T':i%2,'Y':(i//2)%2,'X':i/80} for i in range(80)]
             blocked=srv.call_tool('athena_causal_tmle_ensemble',{'samples':rows,'treatment':'T','outcome':'Y','adjustment':['X'],'assumptions':{'latent_confounding_possible':True}})
@@ -46,7 +47,7 @@ class CollectiveRuntimeV11AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_bapomdp_requires_common_actions_and_certificate_drops_on_node_limit(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             m1={'id':'M1','prior':.5,'actions':[{'id':'A','reward_by_state':{'S':0},'transition':{'S':{'S':1}},'observation':{'S':{'x':1}}}]}
             m2={'id':'M2','prior':.5,'actions':[{'id':'B','reward_by_state':{'S':0},'transition':{'S':{'S':1}},'observation':{'S':{'x':1}}}]}
@@ -64,7 +65,7 @@ class CollectiveRuntimeV11AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_dependence_interval_requires_fitted_complete_schema(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             with self.assertRaises(ValueError):
                 srv.call_tool('athena_evidence_dependence_interval',{'scope':'none','features':{'a':1}})

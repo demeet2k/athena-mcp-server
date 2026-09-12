@@ -1,10 +1,11 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 from athena_mcp.server import Server
 
 class DispatchResourceRegressionTests(unittest.TestCase):
     def test_transform_and_collective_v3_resources_read(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             for uri in ('athena://transforms','athena://collective/v3'):
                 r=srv.handle({'jsonrpc':'2.0','id':1,'method':'resources/read','params':{'uri':uri}})

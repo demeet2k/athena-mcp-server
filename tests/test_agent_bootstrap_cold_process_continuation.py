@@ -2,12 +2,14 @@ from __future__ import annotations
 
 import json
 import os
-import selectors
+import queue
+from collections import deque
 import shutil
 import subprocess
 import sys
 import tempfile
 import threading
+import time
 import unittest
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -167,30 +169,45 @@ class _MCP:
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
+            encoding="utf-8",
             bufsize=1,
         )
         assert self.proc.stdin is not None
         assert self.proc.stdout is not None
-        self.selector = selectors.DefaultSelector()
-        self.selector.register(self.proc.stdout, selectors.EVENT_READ)
+        self.responses = queue.Queue()
+        self.errors = deque(maxlen=80)
+        def read_stdout():
+            try:
+                for line in self.proc.stdout:
+                    self.responses.put(line)
+            finally:
+                self.responses.put(None)
+        def read_stderr():
+            for line in self.proc.stderr:
+                self.errors.append(line)
+        self.readers = [threading.Thread(target=read_stdout, daemon=True), threading.Thread(target=read_stderr, daemon=True)]
+        for reader in self.readers:
+            reader.start()
         self.next_id = 1
-        self.request(
-            "initialize",
-            {
-                "protocolVersion": "2025-06-18",
-                "capabilities": {},
-                "clientInfo": {"name": "cold-process-acceptance", "version": "1"},
-            },
-        )
+        try:
+            self.request(
+                "initialize",
+                {
+                    "protocolVersion": "2025-06-18",
+                    "capabilities": {},
+                    "clientInfo": {"name": "cold-process-acceptance", "version": "1"},
+                },
+            )
+        except BaseException:
+            self.close()
+            raise
 
     def _failure_detail(self) -> str:
         code = self.proc.poll()
         if code is None:
             return "process still running"
-        try:
-            _, err = self.proc.communicate(timeout=1)
-        except Exception:
-            err = ""
+        self.readers[1].join(timeout=1)
+        err = ''.join(self.errors)
         return f"process exited {code}: {err[-4000:]}"
 
     def request(self, method: str, params: dict):
@@ -199,15 +216,14 @@ class _MCP:
         payload = {"jsonrpc": "2.0", "id": request_id, "method": method, "params": params}
         self.proc.stdin.write(json.dumps(payload, sort_keys=True) + "\n")
         self.proc.stdin.flush()
-        deadline_reads = 0
-        while deadline_reads < 20:
-            ready = self.selector.select(timeout=2)
-            if not ready:
-                deadline_reads += 1
+        deadline = time.monotonic() + 40
+        while time.monotonic() < deadline:
+            try:
+                line = self.responses.get(timeout=min(2, max(0, deadline-time.monotonic())))
+            except queue.Empty:
                 if self.proc.poll() is not None:
                     raise AssertionError(self._failure_detail())
                 continue
-            line = self.proc.stdout.readline()
             if not line:
                 raise AssertionError(self._failure_detail())
             try:
@@ -242,10 +258,6 @@ class _MCP:
         return {str(item.get("name")) for item in (result or {}).get("tools") or []}
 
     def close(self):
-        try:
-            self.selector.close()
-        except Exception:
-            pass
         if self.proc.poll() is None:
             self.proc.terminate()
             try:
@@ -253,6 +265,11 @@ class _MCP:
             except subprocess.TimeoutExpired:
                 self.proc.kill()
                 self.proc.wait(timeout=5)
+        for reader in self.readers:
+            reader.join(timeout=5)
+        for pipe in (self.proc.stdin, self.proc.stdout, self.proc.stderr):
+            if pipe is not None:
+                pipe.close()
 
     def __enter__(self):
         return self

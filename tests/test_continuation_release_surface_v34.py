@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import json
 import tempfile
 import unittest
@@ -36,7 +37,7 @@ class ContinuationReleaseSurfaceV34Tests(unittest.TestCase):
             self.assertIn(phrase, notes)
 
     def test_live_v34_source_surface_matches_distribution_requirement(self):
-        tmp = tempfile.NamedTemporaryFile(suffix=".db")
+        tmp = TemporaryDatabasePath()
         server = Server(tmp.name)
         try:
             tools = {

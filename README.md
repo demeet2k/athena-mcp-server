@@ -47,6 +47,12 @@ Core firewalls:
 
 `COLLECTIVE_CALIBRATED != DEPLOYMENT_AUTHORITY != COORDINATION_AUTHORITY`.
 
+## Drive Wiki continuity candidate
+
+The `ATHENA.WIKI.MEMORY.V1` extension imports version-bound local Wiki observations and recovers their claims, evidence, conflicts, handoffs and document text after a process restart. Five `athena_wiki_*` tools share the existing server and database. See [Wiki memory V1](docs/wiki-memory-v1.md) for the import protocol, provenance limits and tests.
+
+The Git bridge can [stage a reviewed local draft](docs/wiki-draft-v1.md), [read a historical draft](docs/wiki-draft-review-v1.md), [query a complete committed Wiki](docs/wiki-committed-query-v1.md), and [open the exact bytes behind a source citation](docs/wiki-committed-source-v1.md). These operations preserve source identities and uncertainty. The shared [snapshot reader](docs/wiki-snapshot-read-v1.md) loads bounded committed evidence with two Git processes without checking it out.
+
 ## Runtime cycle
 
 `HYDRATE → RECONRUN/OMEGA → MEMORY → SX → RAG → HUG → GAP → FIELD → MEASURE/CALIBRATE → Y1/AOR → COLLECTIVE(V1–V15) → AUTHORIZED EXECUTION → VERIFY → LEARN → SUCCESSOR → COMPLETE`.
@@ -234,6 +240,36 @@ The V3.4 critical lane explicitly executes hardened V15 calibration geometry, ad
 `ARCHITECTURE.md` / `MIGRATION.md` preserve the V13/UNIFIED.9 transition. V14 history remains in `spec/ARCHITECTURE_V14.md` and `spec/MIGRATION_V14.md`. Current V15 composition/migration are versioned separately, preserving the actual succession rather than rewriting prior evidence.
 
 ## Run
+
+The [Windows continuity contract](spec/WINDOWS_CONTINUITY_V1.md) describes
+byte-preserving prompt writes, portable receipt paths and test-process handling.
+Run the complete suite with `python -m unittest discover -s tests -v` on either
+platform; CI includes both Linux and Windows discovery runs.
+
+The Wiki memory tools preserve source-bound Drive registry and document
+observations across sessions. `athena_git_wiki_compile` invokes the configured
+semantic repository's fixed Wiki compiler at an explicit clean commit and
+returns its original receipts and proposed changes. See
+[Git Wiki compiler through MCP](spec/WIKI_GIT_COMPILER_V1.md) for the data,
+execution and application boundaries.
+
+`athena_wiki_git_ingest` connects a specific imported observation to that
+compiler: it preserves an immutable source carrier, retains committed Wiki
+pages, and compiles INGEST, REINDEX and LINT into one guarded proposal. See
+[Drive observation ingestion](spec/WIKI_GIT_INGEST_V1.md).
+
+`athena_wiki_git_stage` materializes a reviewed ingestion plan as a verified
+local draft commit, with fresh committed lint and create-only ref publication.
+See [local Wiki review commits](docs/wiki-draft-v1.md).
+
+`athena_wiki_git_review` discovers local drafts and reads a pinned draft's
+source carrier after the checkout advances, without a Wiki database or
+repository-code execution. See [read committed drafts](docs/wiki-draft-review-v1.md).
+
+`athena_wiki_git_query` reads complete evidence directly from a pinned Git Wiki
+commit and queries it with the configured trusted compiler, without requiring
+caller-built collections or changing the checkout. See
+[query committed Wiki evidence](docs/wiki-committed-query-v1.md).
 
 `python -m athena_mcp --db ./state/athena.db`
 

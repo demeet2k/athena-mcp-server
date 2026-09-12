@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import json
 import tempfile
 import unittest
@@ -13,7 +14,7 @@ from athena_mcp.server import Server
 
 class ContinuationRawObserverManifestTests(unittest.TestCase):
     def setUp(self):
-        self.tmp = tempfile.NamedTemporaryFile(suffix=".db")
+        self.tmp = TemporaryDatabasePath()
         self.server = Server(self.tmp.name)
         self.seq = 0
 

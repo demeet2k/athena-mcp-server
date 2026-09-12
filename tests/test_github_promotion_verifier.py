@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 
@@ -44,7 +45,7 @@ class GithubPromotionVerifierTests(unittest.TestCase):
         called=[];out=GithubPromotionVerifier(env={'ATHENA_GITHUB_REPOSITORY':REPO},fetch_json=lambda *args:called.append(args)).verify('not-a-sha');self.assertEqual(out['status'],'INVALID_HEAD');self.assertFalse(called)
 
     def test_runtime_github_tool_creates_trusted_qualified_promrun_and_replays(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name);srv.aor_development.integrity.github_promotion_verifier=self.verifier([check(name) for name in REQUIRED_CHECKS])
             result=srv.handle({'jsonrpc':'2.0','id':1,'method':'tools/call','params':{'name':'athena_promotion_verify_github','arguments':{'git_head':HEAD}}})['result']['structuredContent']
             self.assertEqual(result['status'],'QUALIFIED',result);self.assertTrue(result['promotion_allowed']);self.assertEqual(result['attestation_level'],'EXTERNALLY_VERIFIED');self.assertTrue(result['persisted']);self.assertTrue(result['run_id'].startswith('PROMRUN.'));self.assertEqual(result['github_verification']['status'],'VERIFIED')
@@ -52,7 +53,7 @@ class GithubPromotionVerifierTests(unittest.TestCase):
             bench=srv.handle({'jsonrpc':'2.0','id':3,'method':'tools/call','params':{'name':'athena_benchmark','arguments':{}}})['result']['structuredContent'];self.assertEqual(bench['promotion_v2_qualified'],1);self.assertEqual(bench['github_promotion_verifier_version'],GITHUB_PROMOTION_VERIFIER_VERSION);srv.store.close()
 
     def test_runtime_failed_verifier_creates_no_promrun(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name);srv.aor_development.integrity.github_promotion_verifier=self.verifier([check('syntax')])
             result=srv.handle({'jsonrpc':'2.0','id':1,'method':'tools/call','params':{'name':'athena_promotion_verify_github','arguments':{'git_head':HEAD}}})['result']['structuredContent'];self.assertEqual(result['status'],'NO_QUALIFYING_CHECK_SUITE');self.assertFalse(result['promotion_allowed']);self.assertEqual(srv.aor_development.integrity.promotion.benchmark()['promotion_runs'],0);srv.store.close()
 

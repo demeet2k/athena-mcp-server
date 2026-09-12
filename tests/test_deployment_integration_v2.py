@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 
@@ -7,7 +8,7 @@ from athena_mcp.server import Server
 
 class DeploymentCurrentRuntimeIntegrationTests(unittest.TestCase):
     def setUp(self):
-        self.temp = tempfile.NamedTemporaryFile(suffix=".db")
+        self.temp = TemporaryDatabasePath()
         self.server = Server(self.temp.name)
         foundation = self.server.aor_development.integrity.state_foundation
         receipt = foundation.schema.migrate(

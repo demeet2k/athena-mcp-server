@@ -200,6 +200,22 @@ class PromptRuntimeTests(unittest.TestCase):
             "athena_prompt_promote",
         }.issubset(PROMPT_RUNTIME_TOOL_NAMES))
 
+    def test_commit_preserves_exact_utf8_and_legacy_candidate_body(self):
+        runtime = self._runtime()
+        relative = 'prompts/candidates/legacy.md'
+        body = 'Retain Ω and mixed lines.\r\nNext line.\n'
+        carrier = '<!-- ATHENA_PROMPT_CANDIDATE_META\r\n{"status":"CANDIDATE"}\r\n-->\r\n' + body
+        runtime._commit_files(runtime.git.head(), {relative: carrier}, 'tester', 'legacy carrier')
+        self.assertEqual((runtime.git.root / relative).read_bytes(), carrier.encode('utf-8'))
+        meta, actual = runtime._candidate_read(relative)
+        self.assertEqual(meta, {'status': 'CANDIDATE'})
+        self.assertEqual(actual, body)
+        # A normal generated LF carrier must also survive the same write/read.
+        rendered = runtime._candidate_render(meta, 'Generated Ω\n')
+        runtime._commit_files(runtime.git.head(), {relative: rendered}, 'tester', 'LF carrier')
+        self.assertEqual((runtime.git.root / relative).read_bytes(), rendered.encode('utf-8'))
+        self.assertEqual(runtime._candidate_read(relative)[1], 'Generated Ω\n')
+
 
 if __name__ == "__main__":
     unittest.main()

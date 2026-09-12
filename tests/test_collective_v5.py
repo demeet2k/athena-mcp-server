@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 
@@ -6,7 +7,7 @@ from athena_mcp.server import Server
 
 class CollectiveRuntimeV5Tests(unittest.TestCase):
     def test_full_covariance_bayes_and_empirical_calibration(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             pre=srv.call_tool('athena_bayes_predict',{'features':{'x':.8,'y':.8},'regime':'R','arm_id':'A'})
             for _ in range(12):
@@ -22,7 +23,7 @@ class CollectiveRuntimeV5Tests(unittest.TestCase):
             srv.store.close()
 
     def test_information_gain_experiment_design_and_ethics_gate(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             out=srv.call_tool('athena_experiment_design',{
                 'hypotheses':[{'id':'H1','prior':.5},{'id':'H2','prior':.5}],
@@ -41,7 +42,7 @@ class CollectiveRuntimeV5Tests(unittest.TestCase):
             srv.store.close()
 
     def test_interaction_and_delayed_credit(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             ex=[]
             for _ in range(3):
@@ -61,7 +62,7 @@ class CollectiveRuntimeV5Tests(unittest.TestCase):
             srv.store.close()
 
     def test_learned_transition_and_rollout_remain_simulation(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             for i in range(8):
                 srv.call_tool('athena_transition_observe',{'action_id':'FOCUS','before':{'progress':.1,'risk':.4},'after':{'progress':.5,'risk':.3}})
@@ -74,7 +75,7 @@ class CollectiveRuntimeV5Tests(unittest.TestCase):
             srv.store.close()
 
     def test_multiperiod_schedule_respects_dependencies_and_budget(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             out=srv.call_tool('athena_schedule_multiperiod',{
                 'tasks':[
@@ -92,7 +93,7 @@ class CollectiveRuntimeV5Tests(unittest.TestCase):
             srv.store.close()
 
     def test_constrained_witness_cell_executes_known_test(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             out=srv.call_tool('athena_witness_cell',{'regression_ref':'tests/test_runtime.py::RuntimeTests::test_registry_stale_text_simplex','timeout_s':20})
             self.assertEqual(out['status'],'PASS')
@@ -102,7 +103,7 @@ class CollectiveRuntimeV5Tests(unittest.TestCase):
             srv.store.close()
 
     def test_learned_regime_geometry_and_pareto_frontier(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             for _ in range(6):
                 srv.call_tool('athena_regime_geometry_observe',{'signals':{'hardness':.9,'uncertainty':.8,'coupling':.2,'divisibility':.8,'volatility':.7},'reward':.9,'cluster_id':'explore-hard'})
@@ -121,7 +122,7 @@ class CollectiveRuntimeV5Tests(unittest.TestCase):
             srv.store.close()
 
     def test_projection_compensation_removes_only_projection_edges(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             srv.call_tool('athena_topology_apply',{'topology_id':'T','expected_version':0,'operation':'INIT','payload':{'state':{'modules':{'M':{'id':'M','active':True}},'bridges':[]}}})
             eid=srv.store.head('global')['eid']
@@ -136,7 +137,7 @@ class CollectiveRuntimeV5Tests(unittest.TestCase):
             srv.store.close()
 
     def test_mcp_v5_tool_surface(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             names={x['name'] for x in srv.handle({'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']}
             for name in ('athena_bayes_predict','athena_experiment_design','athena_interaction_credit','athena_transition_observe','athena_schedule_multiperiod','athena_witness_cell','athena_pareto_frontier','athena_projection_compensate'):

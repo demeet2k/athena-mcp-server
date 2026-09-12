@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from tests.db_fixture import TemporaryDatabasePath
 import json
 import tempfile
 import unittest
@@ -99,7 +100,7 @@ class CohesionEvidenceGuardTests(unittest.TestCase):
         self.assertFalse(result["promotion_authority"])
 
     def test_public_resource_exposes_evidence_and_duplicate_guard_membranes(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as db:
+        with TemporaryDatabasePath() as db:
             server = Server(db.name)
             try:
                 response = server.handle({

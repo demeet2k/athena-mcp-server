@@ -782,7 +782,7 @@ For every pass, return a non-empty summary and any evidence references. A requir
         expected_step = 1
         indexed_receipts = []
         for path in receipt_files:
-            indexed_receipts.append(str(path.relative_to(self._root())))
+            indexed_receipts.append(path.relative_to(self._root()).as_posix())
             try:
                 receipt = json.loads(path.read_text(encoding="utf-8"))
                 if receipt.get("artifact") != "ATHENA.REHYDRATION.RECEIPT.V1" or receipt.get("loop_id") != loop_id:

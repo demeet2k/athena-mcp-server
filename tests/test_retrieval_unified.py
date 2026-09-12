@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import json
 import tempfile
 import unittest
@@ -21,7 +22,7 @@ QUERY={'as_of':1000,'freshness_half_life':100,'budget':10,'max_items':10}
 
 class RetrievalUnifiedTests(unittest.TestCase):
     def setUp(self):
-        self.tmp=tempfile.NamedTemporaryFile(suffix='.db');self.server=Server(self.tmp.name);self.seq=0
+        self.tmp=TemporaryDatabasePath();self.server=Server(self.tmp.name);self.seq=0
     def tearDown(self):self.server.store.close();self.tmp.close()
     def rpc(self,method,params=None):
         self.seq+=1;m={'jsonrpc':'2.0','id':self.seq,'method':method}

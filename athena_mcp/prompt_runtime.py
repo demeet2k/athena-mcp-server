@@ -325,7 +325,8 @@ class PromptRuntime:
                 path = self._safe_rel(rel)
                 backups[rel] = path.read_bytes() if path.exists() else None
                 path.parent.mkdir(parents=True, exist_ok=True)
-                path.write_text(text, encoding="utf-8")
+                # Persist the declared bytes, independent of host newlines.
+                path.write_bytes(text.encode("utf-8"))
                 rels.append(rel)
             self.git._git("add", "--", *rels)
             staged = self.git._git("diff", "--cached", "--name-only")
@@ -382,10 +383,14 @@ class PromptRuntime:
         if not candidate_ref.startswith("prompts/candidates/") or not candidate_ref.endswith(".md"):
             raise ValueError("candidate_ref must be a prompts/candidates/*.md path")
         text = self._read_text(candidate_ref)
-        prefix = "<!-- ATHENA_PROMPT_CANDIDATE_META\n"
-        if not text.startswith(prefix) or "\n-->\n" not in text:
+        # Older Windows writers emitted CRLF. Parse its envelope without
+        # normalizing the candidate body or changing the source on disk.
+        newline = "\r\n" if text.startswith("<!-- ATHENA_PROMPT_CANDIDATE_META\r\n") else "\n"
+        prefix = "<!-- ATHENA_PROMPT_CANDIDATE_META" + newline
+        delimiter = newline + "-->" + newline
+        if not text.startswith(prefix) or delimiter not in text:
             raise ValueError("candidate metadata missing")
-        raw_meta, body = text[len(prefix):].split("\n-->\n", 1)
+        raw_meta, body = text[len(prefix):].split(delimiter, 1)
         return json.loads(raw_meta), body
 
     def _event(self, kind: str, actor: str, payload: dict):

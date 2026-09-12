@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 
@@ -6,7 +7,7 @@ from athena_mcp.server import Server
 
 class CollectiveRuntimeV5AdversarialTests(unittest.TestCase):
     def test_prediction_and_design_do_not_self_train(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             for _ in range(5):
                 srv.call_tool('athena_bayes_predict',{'features':{'x':1},'regime':'R','arm_id':'A'})
@@ -22,7 +23,7 @@ class CollectiveRuntimeV5AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_missing_factorial_cell_stays_unidentified(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             ex=[
                 {'interventions':[],'outcome_delta':.1,'design_confidence':1},
@@ -36,14 +37,14 @@ class CollectiveRuntimeV5AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_zero_confidence_delayed_credit_is_zero(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             out=srv.call_tool('athena_delayed_credit_record',{'action_id':'A','outcome_key':'o','outcome_delta':1,'delay_cycles':0,'causal_confidence':0})
             self.assertEqual(out['credited_reward'],0)
             srv.store.close()
 
     def test_unseen_transition_does_not_invent_deltas_or_train_on_rollout(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             pre=srv.call_tool('athena_transition_predict',{'action_id':'NEVER','context':{'risk':.5}})
             self.assertEqual(pre['delta_mean'],{})
@@ -55,7 +56,7 @@ class CollectiveRuntimeV5AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_scheduler_unknown_cost_is_penalized_and_cycles_not_fabricated(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             srv.call_tool('athena_worker_cost_observe',{'worker_id':'known','task_id':'past','resources':{'tokens':1},'budget':{'tokens':10},'useful_output':1})
             out=srv.call_tool('athena_schedule_multiperiod',{
@@ -73,7 +74,7 @@ class CollectiveRuntimeV5AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_witness_cell_rejects_escape_and_does_not_claim_hermetic(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             bad=srv.call_tool('athena_witness_cell',{'regression_ref':'tests/test_runtime.py;echo pwn::RuntimeTests::test_registry_stale_text_simplex'})
             self.assertEqual(bad['status'],'INVALID_REF')
@@ -83,7 +84,7 @@ class CollectiveRuntimeV5AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_robust_pareto_requires_interval_worst_case_dominance(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             pf=srv.call_tool('athena_pareto_frontier',{
                 'candidates':[
@@ -95,7 +96,7 @@ class CollectiveRuntimeV5AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_compensation_stale_head_and_edge_ownership(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             unrelated=srv.call_tool('athena_add_edge',{'src':'X','relation':'KEEP','dst':'Y'})
             srv.call_tool('athena_topology_apply',{'topology_id':'T','expected_version':0,'operation':'INIT','payload':{'state':{'modules':{'M':{'id':'M','active':True}},'bridges':[]}}})

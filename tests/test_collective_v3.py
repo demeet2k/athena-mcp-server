@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 
@@ -6,7 +7,7 @@ from athena_mcp.server import Server
 
 class CollectiveRuntimeV3Tests(unittest.TestCase):
     def test_budget_and_automatic_runtime_meter(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             b = srv.call_tool("athena_budget_record", {
                 "run_key": "r1",
@@ -23,7 +24,7 @@ class CollectiveRuntimeV3Tests(unittest.TestCase):
             srv.store.close()
 
     def test_policy_is_versioned_bounded_and_rollbackable(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             before = srv.call_tool("athena_policy_state", {})
             self.assertEqual(before["version"], 0)
@@ -47,7 +48,7 @@ class CollectiveRuntimeV3Tests(unittest.TestCase):
             srv.store.close()
 
     def test_counterfactual_never_commits(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             out = srv.call_tool("athena_counterfactual_simulate", {
                 "candidates": [
@@ -62,7 +63,7 @@ class CollectiveRuntimeV3Tests(unittest.TestCase):
             srv.store.close()
 
     def test_elder_authority_is_empirical_not_age(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             for _ in range(6):
                 srv.call_tool("athena_elder_observe", {
@@ -79,7 +80,7 @@ class CollectiveRuntimeV3Tests(unittest.TestCase):
             srv.store.close()
 
     def test_antibody_evolution_and_variant_selection(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             base = srv.call_tool("athena_failure_antibody_register", {
                 "signature":"stale expected vid write",
@@ -103,7 +104,7 @@ class CollectiveRuntimeV3Tests(unittest.TestCase):
             srv.store.close()
 
     def test_multiscale_pheromone_attenuates(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             out = srv.call_tool("athena_pheromone_multiscale_reinforce", {
                 "source_scale":"artifact",
@@ -119,7 +120,7 @@ class CollectiveRuntimeV3Tests(unittest.TestCase):
             srv.store.close()
 
     def test_mcp_discovery_and_v3_resource(self):
-        with tempfile.NamedTemporaryFile(suffix=".db") as f:
+        with TemporaryDatabasePath() as f:
             srv = Server(f.name)
             names = {x["name"] for x in srv.handle({"jsonrpc":"2.0","id":1,"method":"tools/list"})["result"]["tools"]}
             for name in (

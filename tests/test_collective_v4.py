@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 
@@ -6,7 +7,7 @@ from athena_mcp.server import Server
 
 class CollectiveRuntimeV4Tests(unittest.TestCase):
     def test_regime_and_contextual_bandit_learns_from_observation(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             regime=srv.call_tool('athena_regime_resolve', {'signals':{'uncertainty':.9,'volatility':.8,'divisibility':.8,'coupling':.2}})['regime']
             arms=[{'id':'A','features':{'novelty':.8}},{'id':'B','features':{'novelty':.2}}]
@@ -23,7 +24,7 @@ class CollectiveRuntimeV4Tests(unittest.TestCase):
             srv.store.close()
 
     def test_credit_preserves_causal_confidence_and_residual(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             weak=srv.call_tool('athena_credit_assign', {
                 'outcome_key':'o1','outcome_delta':.8,
@@ -41,7 +42,7 @@ class CollectiveRuntimeV4Tests(unittest.TestCase):
             srv.store.close()
 
     def test_budget_schedule_uses_measured_worker_cost(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             srv.call_tool('athena_worker_cost_observe', {'worker_id':'cheap','task_id':'past','resources':{'tokens':1},'budget':{'tokens':10},'useful_output':1})
             srv.call_tool('athena_worker_cost_observe', {'worker_id':'expensive','task_id':'past','resources':{'tokens':9},'budget':{'tokens':10},'useful_output':.3})
@@ -56,7 +57,7 @@ class CollectiveRuntimeV4Tests(unittest.TestCase):
             srv.store.close()
 
     def test_adaptive_diffusion_moves_from_prior_and_reinforces(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             prior=srv.collective_ecology.diffusion_coefficient('artifact','module')['coefficient']
             for _ in range(5):
@@ -72,7 +73,7 @@ class CollectiveRuntimeV4Tests(unittest.TestCase):
             srv.store.close()
 
     def test_antibody_executes_restricted_repository_witness(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             ab=srv.call_tool('athena_failure_antibody_register', {
                 'signature':'stale expected vid write',
@@ -87,7 +88,7 @@ class CollectiveRuntimeV4Tests(unittest.TestCase):
             srv.store.close()
 
     def test_rollout_is_uncertainty_banded_and_simulate_only(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             out=srv.call_tool('athena_rollout_simulate', {
                 'regime':'GLOBAL','initial_context':{'risk':.2},
@@ -104,7 +105,7 @@ class CollectiveRuntimeV4Tests(unittest.TestCase):
             srv.store.close()
 
     def test_projection_saga_semantic_only_and_stale_head_rejection(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             srv.call_tool('athena_topology_apply', {'topology_id':'T','expected_version':0,'operation':'INIT','payload':{'state':{'modules':{'M':{'id':'M','active':True}},'bridges':[]}}})
             eid=srv.store.head('global')['eid']
@@ -120,7 +121,7 @@ class CollectiveRuntimeV4Tests(unittest.TestCase):
             srv.store.close()
 
     def test_mcp_surface_and_v4_resource(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             names={x['name'] for x in srv.handle({'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']}
             for name in ('athena_bandit_select','athena_credit_assign','athena_budget_schedule','athena_diffusion_observe','athena_antibody_execute_regressions','athena_rollout_simulate','athena_topology_project_jspace'):

@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 from athena_mcp.server import Server
@@ -5,7 +6,7 @@ from athena_mcp.server import Server
 class CollectiveRuntimeV6EarlyDiagnostics(unittest.TestCase):
     def test_named_v6_organs_first(self):
         failures=[]
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             def run(name,fn):
                 try:fn();print(f'::notice title=V6_{name}::PASS')

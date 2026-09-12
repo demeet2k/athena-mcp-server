@@ -22,8 +22,8 @@ class MetadataConsistencyTests(unittest.TestCase):
             self.assertIn(phrase,description)
 
     def test_v5_v15_deployment_and_claim_namespaces_are_exposed_without_collision(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
-            srv=Server(f.name)
+        with tempfile.TemporaryDirectory() as directory:
+            srv=Server(str(Path(directory)/'state.db'))
             init=srv.handle({'jsonrpc':'2.0','id':1,'method':'initialize','params':{'protocolVersion':'2025-11-25'}})['result']
             self.assertEqual(init['serverInfo']['version'],'3.4.0')
             self.assertEqual(init['serverInfo'],SERVER_INFO)

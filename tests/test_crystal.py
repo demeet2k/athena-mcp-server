@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import json, tempfile, unittest
 from athena_mcp.store import Store
 from athena_mcp.core import AthenaCore
@@ -6,7 +7,7 @@ from athena_mcp.crystal_runtime import CrystalRuntime
 
 class CrystalTests(unittest.TestCase):
     def setUp(self):
-        self.tmp=tempfile.NamedTemporaryFile(suffix='.db'); self.s=Store(self.tmp.name); self.c=AthenaCore(self.s); bootstrap(self.c); self.x=CrystalRuntime(self.c)
+        self.tmp=TemporaryDatabasePath(); self.s=Store(self.tmp.name); self.c=AthenaCore(self.s); bootstrap(self.c); self.x=CrystalRuntime(self.c)
     def tearDown(self): self.s.close(); self.tmp.close()
     def semantic(self):
         return {'kind':'ARTIFACT','domain':'OUTPUT','verb':'DEVELOP','object_name':'POLYCOORDINATE_CRYSTAL','method':'MAXDEV','input_contract':{'task':'string'},'output_contract':{'text':'string'}}
@@ -78,7 +79,7 @@ class CrystalTests(unittest.TestCase):
         self.assertFalse(self.x.verify_emission(out['envelope_id'],out['visible_text']+'x')['verified'])
     def test_mcp_tool_surface(self):
         from athena_mcp.server import Server
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             names=[x['name'] for x in srv.handle({'jsonrpc':'2.0','id':1,'method':'tools/list'})['result']['tools']]
             for n in ['athena_crystallize_output','athena_dense_navigate','athena_add_hyperedge','athena_register_transform','athena_apply_transform','athena_apply_transform_route','athena_coordinate_matrix','athena_record_holonomy','athena_graph_path','athena_finalize_output','athena_verify_emission']:

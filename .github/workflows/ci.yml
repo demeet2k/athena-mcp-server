@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Compile runtime and tests
@@ -33,6 +35,8 @@ jobs:
       GIT_CONFIG_VALUE_2: 'false'
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Full unit suite
@@ -59,6 +63,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Schema migration and restart durability
@@ -67,6 +73,14 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_legacy_migration_preservation.py' -v
       - name: Three independent CAS domains
         run: python -m unittest discover -s tests -p 'test_three_domain_cas_unified.py' -v
+      - name: Wiki source identity and restart continuity
+        run: python -m unittest tests.test_wiki_memory tests.test_wiki_counterevidence -v
+      - name: Git Wiki compiler binding and composition
+        run: python -m unittest discover -s tests -p 'test_wiki_git.py' -v
+      - name: Source-bound Wiki ingestion and complete index preservation
+        run: python -m unittest discover -s tests -p 'test_wiki_git_ingest.py' -v
+      - name: Local Wiki draft transactions and retry
+        run: python -m unittest tests.test_wiki_git_draft tests.test_wiki_git_review tests.test_wiki_git_query tests.test_wiki_git_source tests.test_wiki_git_snapshot_batch -v
       - name: Whole-cycle fail-closed metabolism
         run: python -m unittest discover -s tests -p 'test_cycle_unified.py' -v
       - name: Surface and composition integrity
@@ -140,18 +154,55 @@ jobs:
       - name: Promotion trust and exact-head predicate
         run: python -m unittest discover -s tests -p 'test_promotion_unified.py' -v
 
+  unit-windows:
+    runs-on: windows-latest
+    timeout-minutes: 60
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+      GIT_CONFIG_COUNT: '3'
+      GIT_CONFIG_KEY_0: gc.auto
+      GIT_CONFIG_VALUE_0: '0'
+      GIT_CONFIG_KEY_1: maintenance.auto
+      GIT_CONFIG_VALUE_1: 'false'
+      GIT_CONFIG_KEY_2: gc.autoDetach
+      GIT_CONFIG_VALUE_2: 'false'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Full unit suite on Windows
+        run: python -B -m unittest discover -s tests -v
+
+  wiki-windows:
+    runs-on: windows-latest
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Wiki continuity and composed runtime on Windows
+        run: python -m unittest tests.test_wiki_memory tests.test_wiki_counterevidence tests.test_wiki_git tests.test_wiki_git_ingest tests.test_wiki_git_draft tests.test_wiki_git_review tests.test_wiki_git_query tests.test_wiki_git_source tests.test_wiki_git_snapshot_batch tests.test_state_foundation_unified tests.test_three_domain_cas_unified tests.test_cycle_unified tests.test_surface_composition_unified tests.test_startup_health_unified tests.test_unified_manifest tests.test_metadata_consistency tests.test_self_test_unified -v
+
   smoke:
     needs: [syntax, unit, critical-invariants]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: MCP smoke
         run: python smoke.py
 
   promotion-qualification:
-    needs: [syntax, unit, critical-invariants, smoke]
+    needs: [syntax, unit, unit-windows, wiki-windows, critical-invariants, smoke]
     runs-on: ubuntu-latest
     env:
       ATHENA_GITHUB_REPOSITORY: ${{ github.repository }}

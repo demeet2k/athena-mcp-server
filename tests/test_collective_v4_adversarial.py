@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 
@@ -7,7 +8,7 @@ from athena_mcp.git_backend import GitStaleHead
 
 class CollectiveRuntimeV4AdversarialTests(unittest.TestCase):
     def test_cross_regime_transfer_retains_uncertainty(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             for _ in range(4):
                 srv.call_tool('athena_bandit_observe', {
@@ -25,7 +26,7 @@ class CollectiveRuntimeV4AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_unknown_worker_cost_is_not_treated_as_zero_cost(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             srv.call_tool('athena_worker_cost_observe', {
                 'worker_id':'known','task_id':'past','resources':{'tokens':2},'budget':{'tokens':10},'useful_output':1,
@@ -42,7 +43,7 @@ class CollectiveRuntimeV4AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_regression_runner_rejects_command_like_refs(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             ab=srv.call_tool('athena_failure_antibody_register', {
                 'signature':'bad ref fixture',
@@ -57,7 +58,7 @@ class CollectiveRuntimeV4AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_diffusion_is_shrunk_and_not_instantly_extreme(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             prior=srv.collective_ecology.diffusion_coefficient('token','system')
             one=srv.call_tool('athena_diffusion_observe', {
@@ -71,7 +72,7 @@ class CollectiveRuntimeV4AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_projection_semantic_failure_is_journaled_for_compensation(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             srv.call_tool('athena_topology_apply', {
                 'topology_id':'T','expected_version':0,'operation':'INIT',
@@ -98,7 +99,7 @@ class CollectiveRuntimeV4AdversarialTests(unittest.TestCase):
             srv.store.close()
 
     def test_projection_git_preflight_rejects_without_semantic_writes(self):
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name)
             srv.call_tool('athena_topology_apply', {
                 'topology_id':'T','expected_version':0,'operation':'INIT',

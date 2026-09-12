@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 
@@ -17,7 +18,7 @@ class CollectiveRuntimeV5Diagnostics(unittest.TestCase):
                 print(f"::error title=V5_DIAG_{name}::{type(e).__name__}: {e}", flush=True)
 
         def with_server(fn):
-            with tempfile.NamedTemporaryFile(suffix='.db') as f:
+            with TemporaryDatabasePath() as f:
                 srv=Server(f.name)
                 try: fn(srv)
                 finally: srv.store.close()

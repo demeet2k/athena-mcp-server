@@ -1,3 +1,4 @@
+from tests.db_fixture import TemporaryDatabasePath
 import tempfile
 import unittest
 from athena_mcp.server import Server
@@ -8,7 +9,7 @@ class CollectiveRuntimeV6AssertionDiagnostics(unittest.TestCase):
         def probe(name,fn):
             try:fn();print(f'::notice title=V6A_{name}::PASS')
             except Exception as e:failures.append((name,e));print(f'::error title=V6A_{name}::{type(e).__name__}: {e}')
-        with tempfile.NamedTemporaryFile(suffix='.db') as f:
+        with TemporaryDatabasePath() as f:
             srv=Server(f.name);R='REGIME/T'
             def p_ood():
                 for x in (-.2,-.1,0,.1,.2):srv.call_tool('athena_nonlinear_observe',{'features':{'x':x},'reward':x*x,'regime':R,'arm_id':'A'})
