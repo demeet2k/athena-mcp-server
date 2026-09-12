@@ -1,0 +1,46 @@
+name: ATHENA Current Source Canary
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - 'athena_mcp/**'
+      - 'deploy/**'
+      - 'Dockerfile'
+      - 'pyproject.toml'
+      - 'tests/test_source_canary.py'
+      - '.github/workflows/source-canary.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: source-canary-${{ github.event.pull_request.head.sha || github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  current-source-canary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Validate artifact identity and observer contracts
+        run: python -B -m unittest tests.test_source_canary tests.test_deployment_canary_observer_v3 -v
+      - name: Build, bind and observe exact unpublished candidate
+        env:
+          SOURCE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m deploy.source_canary --source-head "$SOURCE_HEAD" --workflow-run-id "$GITHUB_RUN_ID"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: source-canary-${{ github.event.pull_request.head.sha || github.sha }}-${{ github.run_id }}
+          path: dist/source-canary/
+          if-no-files-found: warn
+          retention-days: 30

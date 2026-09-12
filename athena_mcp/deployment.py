@@ -21,11 +21,12 @@ ACTIVATION_RECEIPT_VERSION = "ATHENA.ACTIVATION.RECEIPT.1"
 HTTP_ADAPTER_VERSION = "ATHENA.JSONRPC.HTTP.ADAPTER.2"
 DEFAULT_IMAGE_REPOSITORY = "ghcr.io/demeet2k/athena-mcp-server"
 
+_REPOSITORY = r"(?:[a-z0-9]+(?:[.-][a-z0-9]+)*:[0-9]{1,5}/)?[a-z0-9]+(?:[._/-][a-z0-9]+)*"
 _DIGEST_IMAGE = re.compile(
-    r"^(?P<repository>[a-z0-9]+(?:[._/-][a-z0-9]+)*)@sha256:(?P<digest>[0-9a-f]{64})$"
+    rf"^(?P<repository>{_REPOSITORY})@sha256:(?P<digest>[0-9a-f]{{64}})$"
 )
 _TAGGED_IMAGE = re.compile(
-    r"^(?P<repository>[a-z0-9]+(?:[._/-][a-z0-9]+)*):(?P<tag>[A-Za-z0-9_][A-Za-z0-9_.-]{0,127})$"
+    rf"^(?P<repository>{_REPOSITORY}):(?P<tag>[A-Za-z0-9_][A-Za-z0-9_.-]{{0,127}})$"
 )
 _SHA256 = re.compile(r"^(?:sha256:)?(?P<digest>[0-9a-f]{64})$")
 _GIT_SHA = re.compile(r"^[0-9a-f]{40}$")
@@ -82,6 +83,11 @@ def validate_image_ref(image_ref: str, *, require_digest: bool = True) -> dict[s
     ref = str(image_ref or "").strip()
     digest_match = _DIGEST_IMAGE.fullmatch(ref)
     tag_match = _TAGGED_IMAGE.fullmatch(ref)
+    if digest_match or tag_match:
+        repository = (digest_match or tag_match).group("repository")
+        host = repository.split("/")[0]
+        if ":" in host and not 1 <= int(host.rsplit(":", 1)[1]) <= 65535:
+            raise ValueError("registry port must be between 1 and 65535")
     if digest_match:
         return {
             "version": DEPLOYMENT_VERSION,
