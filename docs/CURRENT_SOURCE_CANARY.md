@@ -19,6 +19,11 @@ restarts both containers, checks durable readback and catalogs, and collects 31
 paired samples over at least 60 seconds. Existing error, latency, readiness and
 replay gates apply. Failure retains available diagnostics without manufacturing a
 passing result. The wrapper also requires every structural comparison to match.
+Docker's observed restart counter is preserved in full; the planned manual restart
+is a separate field and grants no subtraction credit against automatic attempts.
+The first live candidate had raw counter zero after one manual restart on each
+container. A regression case requires rollback for one observed automatic attempt.
+See [Docker restart-policy inspection](https://docs.docker.com/reference/cli/docker/container/run/#restart-policies---restart).
 
 Evidence includes raw manifest/config bytes, safe image and container identities,
 source/installed Python inventories, observations, assessment, witness, a linked

@@ -59,7 +59,7 @@ class DeploymentCanaryObserverV3Tests(unittest.TestCase):
         with self.assertRaises(ValueError):
             percentile([1.0], 1.1)
 
-    def test_sample_summary_distinguishes_planned_from_unexpected_restart(self):
+    def test_manual_restart_does_not_hide_a_restart_policy_attempt(self):
         summary = summarize_samples(
             synthetic_samples(31, failures=1),
             raw_restart_count=1,
@@ -68,9 +68,17 @@ class DeploymentCanaryObserverV3Tests(unittest.TestCase):
         self.assertEqual(summary["sample_count"], 31)
         self.assertEqual(summary["failed_samples"], 1)
         self.assertAlmostEqual(summary["error_rate"], 1 / 31)
-        self.assertEqual(summary["restart_count"], 0)
+        self.assertEqual(summary["restart_count"], 1)
         self.assertEqual(summary["raw_restart_count"], 1)
         self.assertFalse(summary["all_ready"])
+
+    def test_one_automatic_restart_fails_gate_despite_one_planned_restart(self):
+        baseline = summarize_samples(synthetic_samples(31), raw_restart_count=0, planned_restart_count=1)
+        canary = summarize_samples(synthetic_samples(31), raw_restart_count=1, planned_restart_count=1)
+        assessment = assess_canary(baseline, {**canary, "ready": True,
+            "schema_up_to_date": True, "replay_match": True, "observation_window_seconds": 63})
+        self.assertEqual(assessment["decision"], "ROLLBACK")
+        self.assertIn("restarts", assessment["failed_gates"])
 
     def test_complete_same_digest_observation_can_reach_bounded_promote(self):
         baseline_summary = summarize_samples(

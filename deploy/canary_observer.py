@@ -362,7 +362,14 @@ def summarize_samples(
         raise ValueError("at least one sample is required")
     failures = sum(1 for item in samples if item.get("success") is not True)
     latencies = [float(item["latency_ms"]) for item in samples]
-    unexpected = max(0, int(raw_restart_count) - int(planned_restart_count))
+    # Docker RestartCount measures restart-policy attempts; a successful manual
+    # `docker restart` does not provide a credit against that counter. The live
+    # source-candidate witness observes raw=0 after one manual restart.
+    # Keep the manual-operation count as separate evidence, without subtraction.
+    if any(isinstance(value, bool) or not isinstance(value, int) or value < 0
+           for value in (raw_restart_count, planned_restart_count)):
+        raise ValueError("restart counts must be nonnegative integers")
+    unexpected = raw_restart_count
     return {
         "error_rate": failures / len(samples),
         "p95_ms": percentile(latencies, 0.95),
