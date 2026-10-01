@@ -40,6 +40,22 @@ NON_SELF_METERING={
     'athena_prompt_hydrate','athena_prompt_compile','athena_prompt_freshness','athena_prompt_remote_status',
 }
 
+def _closure_grammar_registry():
+    from .closure_grammar_registry import GRADES,LAW,REGISTRY_REVISION,REGISTRY_VERSION,SEATS,TRADITIONS
+    return {'version':REGISTRY_VERSION,'revision':REGISTRY_REVISION,'law':LAW,'seats':SEATS,'grades':GRADES,'traditions':TRADITIONS,
+            'law_firewall':['SHARED_SYMBOL != SHARED_SEMANTICS','MODERN_RECONSTRUCTION != HISTORICAL_LAYER','PUBLIC_SOURCE != PRACTICE_AUTHORIZATION','COMPATIBILITY != NECESSITY'],
+            'docs':'docs/closure_grammar/'}
+
+
+def _closure_grammar_census():
+    from .closure_grammar_report_core import build_report
+    from .closure_grammar_registry import GRADES,LAW,REGISTRY_REVISION,REGISTRY_VERSION,SEATS,TRADITIONS
+    data={'version':REGISTRY_VERSION,'revision':REGISTRY_REVISION,'law':LAW,'seats':SEATS,'grades':GRADES,'traditions':TRADITIONS}
+    rep=build_report(data)
+    rep.pop('per_tradition_census',None)
+    return rep
+
+
 def _meter(server,name,started,status):
     if name in NON_SELF_METERING:return
     try:server.collective_learning.record_runtime_usage(name,time.perf_counter()-started,status)
@@ -153,6 +169,8 @@ def handle(server,m):
             {'uri':'athena://orchestration/robustness','name':'AOR Successor Robustness Law','mimeType':'application/json'},
             {'uri':'athena://branches','name':'AOR Branch Lifecycle Ledger','mimeType':'application/json'},
             {'uri':'athena://authority','name':'Typed Canonical Claim Authority Registry Y1','mimeType':'application/json'},
+            {'uri':'athena://closure-grammar/registry','name':'Closure Grammar Registry (read-only: traditions, seats, crossings, grades)','mimeType':'application/json'},
+            {'uri':'athena://closure-grammar/census','name':'Closure Grammar Census (read-only: seat counts, 7/9/13 census, null model, charts of 360)','mimeType':'application/json'},
         ]
         known={r['uri'] for r in rs};rs.extend(r for r in AOR_DEVELOPMENT_RESOURCES if r['uri'] not in known)
         return server.result(mid,{'resources':rs})
@@ -196,6 +214,8 @@ def handle(server,m):
         elif uri=='athena://orchestration/robustness':val={'version':'AOR.3.2','successor_factor_count':SUCCESSOR_FACTOR_COUNT,'law':'q*((1-eps)/(1+eps))^5; eps*=(q^(1/5)-1)/(q^(1/5)+1)','boundary':'rank sensitivity, not truth probability or causal evidence'}
         elif uri=='athena://branches':val={'benchmark':server.branches.benchmark(),'recent':server.branches.list(limit=100),'law':'branch lifecycle is basis-specific witnessed EWMA state; hibernate != erase; resurrection requires new evidence/gap/bridge pressure plus policy thresholds'}
         elif uri=='athena://authority':val={'benchmark':server.authority.benchmark(),'claims':server.authority.list(limit=100),'law':'?->+ verified evidence; +->! witnessed execution; !-># explicit authorized canonicalization; challenges block automatic routing; authority != confidence != consensus != reward; V6-V13 model/science-shadow state cannot alias or implicitly mutate this registry'}
+        elif uri=='athena://closure-grammar/registry':val=_closure_grammar_registry()
+        elif uri=='athena://closure-grammar/census':val=_closure_grammar_census()
         else:return server.error(mid,-32002,'Resource not found',{'uri':uri})
         return server.result(mid,{'contents':[{'uri':uri,'mimeType':'application/json','text':json.dumps(val,ensure_ascii=False,sort_keys=True)}]})
     if method=='prompts/list':return server.result(mid,{'prompts':PROMPTS})
