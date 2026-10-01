@@ -126,10 +126,19 @@ from .continuation_raw_observer_manifest import (
 _install_continuation_raw_observer_manifest(globals())
 del _install_continuation_raw_observer_manifest
 
+# EDE-001 closes the fast-plane MATERIAL_CANDIDATE -> durable Message Board seam
+# declared by EphemeralCoordinationRuntime. The transplanted AOR surface already
+# owns the Federation projection over the same SQLite runtime; this additive
+# installer reuses that runtime and the existing Message Board authority.
+from .ephemeral_durable_bridge_extension import install_ephemeral_durable_bridge
+
+install_ephemeral_durable_bridge()
+
 # LBM-001/1.1 is an additive candidate communication organ after the current
 # V15 + V3.4 + CUTOVER_HOLD + continuation-raw frontier. Automatic tool-crossing
-# sharing remains opt-in. Imported Beacon blobs are byte-identical to the
-# previously qualified V1.1 candidate.
+# sharing remains opt-in. The core Liminal Beacon routing engine is inherited;
+# this branch advances its identity treatment below, so it is no longer valid to
+# describe the entire imported Beacon stack as byte-identical to V1.1.
 from .liminal_beacon_mesh import LiminalBeaconMeshRuntime
 from .liminal_beacon_mesh_identity import install_liminal_beacon_identity
 from .liminal_beacon_mesh_backpressure_v11 import install_liminal_beacon_backpressure_v11
@@ -143,9 +152,61 @@ install_liminal_beacon_scope(LiminalBeaconMeshRuntime)
 install_liminal_beacon_semantic_v11(LiminalBeaconMeshRuntime)
 install_liminal_beacon_mesh()
 
-# LSH-001 remains a separately opt-in no-injection observer. It executes V1.1
-# only on disposable projections and returns telemetry on a separate read-only
-# surface; domain tool results remain unchanged.
+# LSR-001 closes the liminal-to-durable causal return path without creating a
+# new authority plane: successful bridges gain idempotent bridge-receipt tokens
+# and PROPAGATED requires an addressable propagation witness.
+from .liminal_synapse_return import install_liminal_synapse_return
+
+install_liminal_synapse_return(LiminalBeaconMeshRuntime)
+
+# LGC-001 compacts process-local receipt/epoch debris only after packets become
+# non-actionable, while preserving reverse-consumer causality for later fixes.
+from .liminal_gc import install_liminal_gc
+
+install_liminal_gc(LiminalBeaconMeshRuntime)
+
+# SYN-LBM-001 is the qualified cross-repository projection/ingress membrane from
+# PR #379, transplanted byte-for-byte except for this install composition. It
+# observes the repaired/guarded Liminal runtime and creates no second bus or
+# automatic foreign-ingress authority.
+from .synapse_liminal_extension import install_synapse_liminal_extension
+
+install_synapse_liminal_extension()
+
+# SYN-OBS-001 joins durable and ephemeral communication views without flattening
+# their different semantics. It is read-only, detects the optional Synapse ABI,
+# and treats missing presence as unobserved rather than absent.
+from .synapse_observer import install_synapse_observer
+from .synapse_observer_extension import install_synapse_observer_extension
+
+install_synapse_observer()
+install_synapse_observer_extension()
+
+# CPI-001 turns the observer into a typed navigation map across all known
+# communication planes. It reads the existing fast SQLite membrane separately
+# and probes Federation/durable-escalation bridges without joining their identity
+# or cursor namespaces.
+from .communication_plane_inventory_extension import install_communication_plane_inventory
+
+install_communication_plane_inventory()
+
+# CRP-001 plans ordered routes over the inventory without executing any bridge.
+# Installed surfaces and caller-declared preconditions remain distinct from
+# runtime verification and authority.
+from .communication_route_planner_extension import install_communication_route_planner
+
+install_communication_route_planner()
+
+# CRR-001 evaluates a concrete planned route against current runtime state. It
+# performs no bridge execution; optional shared-frontier checking is fetch-only
+# and must not move local HEAD.
+from .communication_route_readiness_extension import install_communication_route_readiness
+
+install_communication_route_readiness()
+
+# LSH-001 remains a separately opt-in no-injection observer. It executes the
+# inherited liminal behavior only on disposable projections and returns telemetry
+# on a separate read-only surface; domain tool results remain unchanged.
 from .liminal_beacon_shadow_extension import install_liminal_beacon_shadow
 
 install_liminal_beacon_shadow()
