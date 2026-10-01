@@ -1,0 +1,81 @@
+{
+  "artifact": "ATHENA.TSE.FORWARD.PORT.V4",
+  "version": "TSE.FORWARD.PORT.V4",
+  "strategy": "EXACT_QUALIFIED_BLOB_TRANSPLANT_PLUS_CURRENT_MASTER_ADAPTER",
+  "work_order": "demeet2k/athena-mcp-server#372",
+  "source": {
+    "qualified_head": "b486b221be92a141df1afa3e2d895c8cc0e0e1fb",
+    "qualified_tree": "d82a97697fdd74044b5149bbd595cb520b144c01",
+    "qualification_run": 31354125933,
+    "mechanism_qualified": true
+  },
+  "base": {
+    "master_head": "301547b1e2a798013482bab6af1df2ef59a8ee5b",
+    "master_tree": "04634b848119385d1dd993ebf7fddda2284b34ed",
+    "aor_transport_blob": "720b749f5d555d45d3be386bf91002fda82b597a",
+    "merge_base_with_source": "5e9f9986b0d774cece357b6141b026879143fdfc"
+  },
+  "exact_copy_python": [
+    {"path":"athena_mcp/tse_circulation.py","blob_sha":"76c5103489c145a1ee55e505cb09eebe75e83bf5"},
+    {"path":"athena_mcp/tse_circulation_protocol.py","blob_sha":"06da4cfa61eb00c3b2fd65026ec6a48acdca5fac"},
+    {"path":"athena_mcp/tse_cost_carrier.py","blob_sha":"3675f37bb914797512983f4d4823bf9f147296df"},
+    {"path":"athena_mcp/tse_cost_carrier_hardening.py","blob_sha":"95ce9d1405c9456e68ea7041860878c829852494"},
+    {"path":"athena_mcp/tse_cost_carrier_signature_compat.py","blob_sha":"f30fcb09a11cf00a3070aa96c4769598454f157a"},
+    {"path":"athena_mcp/tse_helix.py","blob_sha":"6b634d80c269b2ce5ccb8bd42612414aaa3b61e8"},
+    {"path":"athena_mcp/tse_helix_integrity.py","blob_sha":"b5fa508322d5de55ef3ab290fc3bc3e533e45c9d"},
+    {"path":"athena_mcp/tse_helix_protocol.py","blob_sha":"ce32284c9a6192b6380fde329d7ae109bd8990a5"},
+    {"path":"athena_mcp/tse_knot_apply.py","blob_sha":"7bda92f47e4441d5bfbfb119d0d4b6cd76a0a557"},
+    {"path":"athena_mcp/tse_population.py","blob_sha":"4b7f7a9bf280adefbede43ccd46b3ef5784f0004"},
+    {"path":"athena_mcp/tse_population_protocol.py","blob_sha":"13fcb71f8f7fcbe1fce0594ad0597c9939c3f75e"},
+    {"path":"athena_mcp/tse_reentry.py","blob_sha":"3b924f418606ffe22d79dbb76001d26ad928924e"},
+    {"path":"athena_mcp/tse_route_window.py","blob_sha":"1bf179e54af961ba8f099ecd98c70ec665f9fb3d"},
+    {"path":"athena_mcp/tse_route_window_protocol.py","blob_sha":"2329264102dd425c76f6d1f345e26bdc4c5c2c92"},
+    {"path":"athena_mcp/tse_telemetry.py","blob_sha":"52c8b59504d2bc48b6362de637bb05191aaab22b"},
+    {"path":"athena_mcp/tse_telemetry_protocol.py","blob_sha":"1f4c19522add5d6142e30b1265f83f612ffa4f91"},
+    {"path":"athena_mcp/tse_telemetry_proxy.py","blob_sha":"517a740eb99b6d2ea5a1805e3b19df3cedb5b28f"}
+  ],
+  "exact_copy_specs": [
+    {"path":"spec/TSE_CLOSED_HELIX_CIRCULATION_V1.md","blob_sha":"46443ab0f2902cc92b439234159c1616b0ad7ba9"},
+    {"path":"spec/TSE_COST_CARRIER_V1.md","blob_sha":"f45cd817ba80fdd83b3326b8f61ba3e183800119"},
+    {"path":"spec/TSE_HELICAL_HANDOFF_V2.md","blob_sha":"5182ef1fc3d3ac429976534269beed73ace2a42b"},
+    {"path":"spec/TSE_HELIX_ROUTE_WINDOW_V1.md","blob_sha":"b1ec6d7a0d8420f6bb398ae17a3bca7681dc9782"},
+    {"path":"spec/TSE_REENTRY_SUCCESSION_V1.md","blob_sha":"54c5444800be219089a07272846118d005abe60c"},
+    {"path":"spec/TSE_SELF_TIGHTENING_KNOT_APPLY_V1.md","blob_sha":"99fa69bec4e89ccf68658866a5aa382e1cf42c49"}
+  ],
+  "exact_copy_tests": [
+    {"path":"tests/test_tse_circulation.py","blob_sha":"55b0dc5ebaefcc36b1ec3ade28a8a26d236fe38a"},
+    {"path":"tests/test_tse_cost_carrier.py","blob_sha":"921f93bd95604e66dc4169126f82085057179663"},
+    {"path":"tests/test_tse_helix.py","blob_sha":"371dd4420a95fb2d058720f7641009ba204c3894"},
+    {"path":"tests/test_tse_knot_apply.py","blob_sha":"b54639a4549b9ea5e83b75eb69e54329a40fea97"},
+    {"path":"tests/test_tse_match_source_identity.py","blob_sha":"7f1ce90df373f1022d9bca9d462a5696c76523ae"},
+    {"path":"tests/test_tse_population.py","blob_sha":"2255f54d3c155605179bf7dc7805611bac2c5037"},
+    {"path":"tests/test_tse_reentry.py","blob_sha":"2f593afa076c96c6f797e30a181b631970580ed0"},
+    {"path":"tests/test_tse_route_window.py","blob_sha":"3a57a7313a39d58e07efc818fd31c87c8a562cbc"},
+    {"path":"tests/test_tse_source_stability.py","blob_sha":"61e7cc807247073a52bf0df492336d5ea93f0122"},
+    {"path":"tests/test_tse_telemetry.py","blob_sha":"1ca225db91e292b4d5a25c6e0169f8eaea6dfa0f"}
+  ],
+  "current_master_preservation": [
+    {
+      "path":"athena_mcp/_aor_collective_transport_surface_master_301547.py",
+      "blob_sha":"720b749f5d555d45d3be386bf91002fda82b597a",
+      "origin":"exact current-master athena_mcp/aor_collective_transport_surface.py"
+    }
+  ],
+  "adapters": [
+    {"path":"athena_mcp/tse_forward_port_adapter.py","kind":"CURRENT_MASTER_TSE_REGISTRATION_DISPATCH_RESOURCE_MEMBRANE"},
+    {"path":"athena_mcp/aor_collective_transport_surface.py","kind":"EXEC_CURRENT_MASTER_BODY_THEN_INSTALL_TSE_ADAPTER"}
+  ],
+  "laws": [
+    "EXACT_COPY != CANONICAL_UNTIL_FORWARD_PORT_VALIDATED",
+    "ADAPTER != QUALIFIED_SOURCE_BLOB",
+    "QUALIFIED_OLD_BLOB + CURRENT_MASTER_ADAPTER != HISTORICAL_LINEAGE_MERGE",
+    "CURRENT_MASTER_NON_TSE_BEHAVIOR != TSE_AUTHORITY",
+    "TSE_TELEMETRY != EXECUTION_AUTHORITY",
+    "FORWARD_PORT_PASS != FIELD_EFFECT",
+    "UNKNOWN != ZERO"
+  ],
+  "field_performance":"UNKNOWN",
+  "behavioral_treatment_effect":"UNKNOWN",
+  "host_resource_efficiency":"UNKNOWN",
+  "canonical_promotion":"HOLD"
+}
