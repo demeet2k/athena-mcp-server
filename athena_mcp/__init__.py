@@ -13,6 +13,12 @@ exec(compile(_legacy_init.read_text(encoding="utf-8"), str(_legacy_init), "exec"
 del _legacy_init
 
 from .message_board import MESSAGE_BOARD_TOOLS, MESSAGE_BOARD_TOOL_NAMES, MessageBoardRuntime
+from .message_board_endpoint_identity import install_message_board_endpoint_identity
+
+# SYNAPSE-MB-ID-001: bind an optional typed federation endpoint identity into
+# the same durable Message Board presence/event commits before the public tool
+# schema is registered. Identity binds routing endpoints, never source authority.
+install_message_board_endpoint_identity(MessageBoardRuntime, MESSAGE_BOARD_TOOLS)
 
 for _tool in MESSAGE_BOARD_TOOLS:
     if _tool["name"] not in PROMPT_RUNTIME_TOOL_NAMES:
