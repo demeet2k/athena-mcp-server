@@ -1,0 +1,54 @@
+{
+  "artifact": "ATHENA.ORGANISM.ROOM.HOMEOSTASIS.SPEC.V1",
+  "status": "CANDIDATE_RUNTIME",
+  "authority": {
+    "room": "occupancy and advisory routing only",
+    "message_board": "sole work-claim authority",
+    "allocation": "advisory; requires exact subsequent claim",
+    "completion_receipt": "structural provider reference only; no task-verification authority"
+  },
+  "lifecycle": [
+    "HYDRATE",
+    "ROOM_ENTER",
+    "MESSAGE_BOARD_PRESENT_OR_JOIN",
+    "ROOM_BIND_EXACT_CLAIM",
+    "EXECUTE",
+    "HEARTBEAT_AND_DELTA",
+    "MESSAGE_BOARD_RELEASE_OR_HANDOFF",
+    "ROOM_LEAVE"
+  ],
+  "waves": {
+    "W0": 0.5,
+    "W1": 0.3,
+    "W2": 0.2,
+    "rounding": "cumulative deficit Hamilton",
+    "small_population": "time-slice missing waves; never fabricate workers or makework"
+  },
+  "domains": {
+    "GIT": 0.2,
+    "MATH": 0.15,
+    "NAV": 0.15,
+    "CORPUS": 0.15,
+    "TOOLS": 0.1,
+    "ALCHEMY": 0.1,
+    "MYTH": 0.05,
+    "META": 0.1
+  },
+  "invariants": [
+    "ROOM_ENTRY != WORK_CLAIM",
+    "ALLOCATION != CLAIM != EXECUTION_AUTHORITY",
+    "ONE_OWNERSHIP_KEY => ONE_PRIMARY",
+    "SCHEDULED_WAKE != LIVE_WORKER",
+    "LEASE_EXPIRY != COMPLETION",
+    "RELEASE_DONE != TASK_VERIFIED",
+    "SIGNOUT != VERIFIED_DELTA",
+    "PERCENT_TARGET != MAKEWORK",
+    "UNKNOWN != ZERO"
+  ],
+  "qualification": {
+    "local_reconstruction_tests": 36,
+    "syntax": "PASS",
+    "provider_ci": "REQUIRED_ON_EXACT_BRANCH_HEAD",
+    "canonical_activation": "HOLD_UNTIL_RUNTIME_PR_QUALIFIED_AND_ATHENA_PIN_UPDATED"
+  }
+}
