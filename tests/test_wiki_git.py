@@ -30,7 +30,7 @@ class GitWikiCompilerTests(unittest.TestCase):
     def compile(self, **changes):
         return self.compiler.compile(**{"expected_git_head": HEAD, "request": REQUEST, **changes})
 
-    @patch("athena_mcp.wiki_git.subprocess.run")
+    @patch("athena_mcp.wiki_git._run_bounded")
     def test_fixed_worker_uses_owned_json_and_preserves_receipt(self, run):
         run.return_value = self.response()
         result = self.compile()
@@ -42,7 +42,7 @@ class GitWikiCompilerTests(unittest.TestCase):
         self.assertEqual(result["execution_receipt"], {"standing": "COMPLETE", "outputs": []})
         self.assertEqual(self.git.status.call_count, 2)
 
-    @patch("athena_mcp.wiki_git.subprocess.run")
+    @patch("athena_mcp.wiki_git._run_bounded")
     def test_missing_root_stale_and_dirty_hold_before_execution(self, run):
         for enabled, state, error in [
             (False, {"head": HEAD, "dirty": False}, "ROOT_NOT_CONFIGURED"),
@@ -56,7 +56,7 @@ class GitWikiCompilerTests(unittest.TestCase):
                     self.compile()
         run.assert_not_called()
 
-    @patch("athena_mcp.wiki_git.subprocess.run")
+    @patch("athena_mcp.wiki_git._run_bounded")
     def test_nonfinite_or_oversized_request_and_arbitrary_operation_are_rejected(self, run):
         for request in [{"operation":"QUERY","limit":float("nan")},
                         {"operation":"QUERY","query":"x"*1_000_000},
@@ -67,7 +67,7 @@ class GitWikiCompilerTests(unittest.TestCase):
             self.compile(expected_git_head="main")
         run.assert_not_called()
 
-    @patch("athena_mcp.wiki_git.subprocess.run")
+    @patch("athena_mcp.wiki_git._run_bounded")
     def test_changed_checkout_rejects_successful_worker_result(self, run):
         run.return_value = self.response()
         for state in [{"head":"b"*40,"dirty":False},{"head":HEAD,"dirty":True}]:
@@ -75,7 +75,7 @@ class GitWikiCompilerTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "STATE_CHANGED_DURING_EXECUTION"):
                 self.compile()
 
-    @patch("athena_mcp.wiki_git.subprocess.run")
+    @patch("athena_mcp.wiki_git._run_bounded")
     def test_worker_response_is_bound_to_commit_request_operation_and_no_apply(self, run):
         for mismatch in [{"git_head":"b"*40},{"request_sha256":"0"*64},
                          {"operation":"INIT"},{"mutation_applied":True},{"artifact":"other"}]:
@@ -84,7 +84,7 @@ class GitWikiCompilerTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "RESPONSE_BINDING_MISMATCH"):
                     self.compile()
 
-    @patch("athena_mcp.wiki_git.subprocess.run")
+    @patch("athena_mcp.wiki_git._run_bounded")
     def test_timeout_malformed_excessive_and_failed_workers_are_not_success(self, run):
         run.side_effect = subprocess.TimeoutExpired("worker",180)
         with self.assertRaisesRegex(ValueError,"EXECUTION_TIMEOUT"):
@@ -97,7 +97,7 @@ class GitWikiCompilerTests(unittest.TestCase):
             with self.subTest(error=error), self.assertRaisesRegex(ValueError,error):
                 self.compile()
 
-    @patch("athena_mcp.wiki_git.subprocess.run")
+    @patch("athena_mcp.wiki_git._run_bounded")
     def test_holds_are_preserved_without_success_promotion(self, run):
         receipt = {"standing":"HOLD","runtime_holds":[{"reason":"UNKNOWN_SOURCE"}],"outputs":[]}
         run.return_value = self.response(standing="HOLD",execution_receipt=receipt)
